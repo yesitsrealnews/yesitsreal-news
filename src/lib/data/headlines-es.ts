@@ -267,7 +267,23 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Fiordo del noreste, mil kilómetros del polo. Comunicado del gobernador, 13 de agosto, AFP y Ouest-France. Norma: no molestar inútilmente a un oso polar.",
     w: ["La fauna dormía. El turista, no.", "El instrumento era para la niebla. El fiordo tenía un oso.", "El recibo: 50.000 coronas."],
   },
+  s54: {
+    h: "Las cacatúas abren los cubos en Lorne desde hace años. El municipio gastó casi 500.000 $A. El apaño: un delantal bajo la tapa. No levantas aquello sobre lo que estás parado",
+    d: "Allan Walls y Gary Fenton. Plástico reciclado. Surf Coast Shire compró 500 por 50.000 $A, ABC, 17 de junio de 2026.",
+    w: ["Medio millón, y luego un plástico bajo la tapa.", "El pájaro se para sobre lo que quiere abrir.", "La idea anterior era un horario de la basura."],
+  },
+  s55: {
+    h: "Oyó un ruido en el motor en Buenos Aires, abrió el capó y había una comadreja. Se quedó casi doce horas. Los rescatistas, a la una",
+    d: "Jorge Ramírez, Capital Federal, La Voz 19 de junio de 2026. La inquilina no dejaba el metal. Especialistas la encajonaron. Los vecinos miraban.",
+    w: ["La avería era una inquilina.", "Doce horas es mucho para un taller.", "El vano del motor no es un alquiler, salvo esta vez."],
+  },
+  s56: {
+    h: "El Ayuntamiento de Brisbane tasó 9.650 $A por instalar dos cajas de zarigüeya en una biblioteca. El taller de hombres las hace a 25 $A. En el pleno le dijeron «possum» al alcalde",
+    d: "Biblioteca de Annerley, zarigüeyas en el techo. Concejal Steve Griffiths, 24 de marzo de 2026. Compró las baratas. Dice que luego las pusieron.",
+    w: ["Dos cajas. Dos precios. Uno es el chiste.", "La primera palabra del alcalde: «possum».", "La biblioteca seguía teniendo techo. El presupuesto no."],
+  },
 };
+
 
 
 

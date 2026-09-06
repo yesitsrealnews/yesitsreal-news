@@ -1857,5 +1857,180 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s54",
+    slug: "lorne-cockatoos-council-spends-500k-then-bin-aprons",
+    slugs: {
+      fr: "cacatoes-de-lorne-la-mairie-depense-500000-puis-invente-un-tablier-de-poubelle",
+      es: "cacatuas-de-lorne-el-ayuntamiento-gasta-500000-y-luego-un-delantal-de-cubo",
+    },
+    section: "animals",
+    countryCode: "AU",
+    countryName: "Australia",
+    location: "Lorne, Victoria",
+    dumbness: 8,
+    sources: [
+      src(
+        "Lorne residents innovate to stop cockatoos from rubbishing tourist town",
+        "ABC News",
+        "https://www.abc.net.au/news/2026-06-17/cockatoos-lorne-new-invention-to-stop-bin-rubbish/106760610",
+        "2026-06-17",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-06T20:00:00.000Z",
+    originalLang: "en",
+    confidence: 0.9,
+    entities: ["Allan Walls", "Surf Coast Shire", "Lorne"],
+    copy: {
+      en: c(
+        "Cockatoos have been opening the bins in Lorne for years. The shire spent nearly A$500,000 fighting them. The fix is an apron under the lid: you cannot lift what you are standing on",
+        "Allan Walls and Gary Fenton. Recycled plastic. Surf Coast Shire bought 500 for A$50,000, ABC reported 17 June 2026. Five years of tests, Walls said, and no failure he knew of.",
+        [
+          "Lorne, Victoria, a tourist town with sulphur-crested cockatoos that have learned the wheelie bin. ABC News, 17 June 2026: plastic locks and springs from the council did not really do it. Allan Walls, a retired caravan-park broker, and Gary Fenton built a frame that sits under the lid — an apron. Theory, Walls told the ABC: ‘you can’t lift what you’re standing on.’ In five years of tests he knew of no failure.",
+          "Surf Coast Shire spent A$50,000 to buy and fit 500 aprons free. The paper says that includes tooling. The council estimates it has spent nearly A$500,000 over fifteen years on devices and on telling people not to feed the birds. In 2021 it tried a local law on how long bins could sit on the kerb.",
+          "YES IT'S REAL read the ABC. The cockatoos are not dead. The budget is the joke. Australia still has a sulphur-crested audit.",
+        ],
+        [
+          "Half a million dollars, then a piece of plastic under the lid.",
+          "The bird stands on the thing it is trying to open.",
+          "The shire’s previous idea was a timetable for rubbish.",
+        ],
+        "ABC News 17 June 2026. Spend figures as that desk. No harm to birds in the copy.",
+      ),
+      fr: c(
+        "Les cacatoès ouvrent les poubelles à Lorne depuis des années. La shire a mis près de 500 000 $A. Le remède : un tablier sous le couvercle. On ne soulève pas ce sur quoi on est perché",
+        "Allan Walls et Gary Fenton. Plastique recyclé. Surf Coast Shire en a acheté 500 pour 50 000 $A, ABC le 17 juin 2026. Cinq ans d’essais, dit Walls, pas de panne à sa connaissance.",
+        [
+          "Lorne, Victoria, ville touristique, cacatoès à huppe jaune qui ont appris le bac. ABC News, 17 juin 2026 : cadenas plastique et ressorts de la mairie n’ont pas suffi. Allan Walls, courtier en camping-cars à la retraite, et Gary Fenton : un cadre sous le couvercle, un tablier. Théorie, Walls à l’ABC : « you can’t lift what you’re standing on. » Cinq ans d’essais, aucune panne qu’il sache.",
+          "La shire : 50 000 $A pour 500 tabliers, posés gratis. L’article : l’outillage est dedans. La collectivité estime près de 500 000 $A en quinze ans, appareils et campagnes pour ne pas les nourrir. En 2021, un arrêté sur le temps des bacs sur le trottoir.",
+          "YES IT’S REAL a lu l’ABC. Les oiseaux vivent. Le budget est la blague. L’Australie a toujours un audit à huppe.",
+        ],
+        [
+          "Un demi-million, puis un plastique sous le couvercle.",
+          "L’oiseau est perché sur ce qu’il veut ouvrir.",
+          "L’idée d’avant, c’était un horaire des ordures.",
+        ],
+        "ABC News 17 juin 2026. Chiffres de ce bureau. Oiseaux indemnes dans le papier.",
+      ),
+    },
+  }),
+  story({
+    id: "s55",
+    slug: "opossum-in-car-engine-buenos-aires-twelve-hours",
+    slugs: {
+      fr: "une-sarigue-dans-le-moteur-a-buenos-aires-douze-heures",
+      es: "una-comadreja-en-el-motor-en-buenos-aires-doce-horas",
+      pt: "gambá-no-motor-em-buenos-aires-doze-horas",
+    },
+    section: "animals",
+    countryCode: "AR",
+    countryName: "Argentina",
+    location: "Buenos Aires",
+    dumbness: 7,
+    sources: [
+      src(
+        "Tenía un ruido en el motor de su auto, abrió el capot y encontró un animal inesperado",
+        "La Voz",
+        "https://www.lavoz.com.ar/viral/ruido-motor-auto-abrio-capot-encontro-animal-inesperado_0_0BMG0zkndn.html",
+        "2026-06-19",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-06T20:05:00.000Z",
+    originalLang: "es",
+    confidence: 0.84,
+    entities: ["Jorge Ramírez", "Buenos Aires"],
+    copy: {
+      en: c(
+        "He heard a noise in the engine in Buenos Aires, opened the bonnet, and found an opossum. It stayed almost twelve hours. Rescuers came at 1 a.m.",
+        "Jorge Ramírez, Capital Federal, La Voz 19 June 2026. The tenant would not leave the metal. Specialists caged it. Neighbours watched.",
+        [
+          "Buenos Aires. A parked car, a noise up front. Jorge Ramírez lifted the bonnet, La Voz reported on 19 June 2026, and found a comadreja — an opossum — settled on the engine. He filmed it. At eleven at night he posted that the tenant was still there, almost twelve hours on, and that a rescuer had been called.",
+          "Around 1 a.m. a wildlife team took the animal into a crate. Neighbours had come to watch. The paper calls it an urban odyssey. The mammal had chosen a warm block in Capital Federal over whatever the street offered.",
+          "YES IT'S REAL read La Voz. We do not diagnose opossums. The car ran. The passenger was not in the manual. No one was bitten in the copy.",
+        ],
+        [
+          "The breakdown was a lodger.",
+          "Twelve hours is a long service wait.",
+          "The engine bay is not a rental, except this once.",
+        ],
+        "La Voz 19 June 2026. Sequence as that desk and the driver’s posts as reported there. Single regional source, attributed. Not a road-death story.",
+      ),
+      fr: c(
+        "Il entend un bruit dans le moteur à Buenos Aires, ouvre le capot, trouve une sarigue. Elle reste presque douze heures. Les secours à 1 h du matin",
+        "Jorge Ramírez, Capital Federal, La Voz 19 juin 2026. La locataire ne quitte pas le métal. Des spécialistes la mettent en caisse. Les voisins regardent.",
+        [
+          "Buenos Aires. Une voiture à l’arrêt, un bruit à l’avant. Jorge Ramírez lève le capot, raconte La Voz le 19 juin 2026, et trouve une comadreja — une sarigue — installée sur le moteur. Il filme. À vingt-trois heures il poste : la locataire est toujours là, presque douze heures, un sauveteur est appelé.",
+          "Vers 1 h, une équipe faune la met en caisse. Les voisins sont venus. Le journal parle d’odyssée urbaine. Le mammifère a préféré un bloc chaud de Capital Federal à la rue.",
+          "YES IT’S REAL a lu La Voz. On ne soigne pas les sarigues. La voiture roulait. La passagère n’était pas au manuel. Pas de morsure dans le papier.",
+        ],
+        [
+          "La panne était une locataire.",
+          "Douze heures, c’est long pour une révision.",
+          "Le compartiment moteur n’est pas une location, sauf cette fois.",
+        ],
+        "La Voz 19 juin 2026. Séquence de ce bureau et des posts du conducteur tels que rapportés. Source régionale unique, attribuée. Pas un papier d’accident.",
+      ),
+    },
+  }),
+  story({
+    id: "s56",
+    slug: "brisbane-council-9650-for-two-possum-boxes-mens-shed-25",
+    slugs: {
+      fr: "brisbane-9650-dollars-pour-deux-nichoirs-a-possums-le-mens-shed-a-25",
+      es: "brisbane-9650-dolares-por-dos-cajas-de-zarigueya-el-taller-a-25",
+    },
+    section: "courts",
+    countryCode: "AU",
+    countryName: "Australia",
+    location: "Annerley, Brisbane",
+    dumbness: 9,
+    sources: [
+      src(
+        "Council quoted over 9,000 dollars for 2 possum boxes",
+        "Cr Steve Griffiths (Moorooka ward)",
+        "https://www.facebook.com/reel/811803821363455/",
+        "2026-03-24",
+        "official",
+      ),
+    ],
+    publishedAt: "2026-09-06T20:10:00.000Z",
+    originalLang: "en",
+    confidence: 0.82,
+    entities: ["Steve Griffiths", "Annerley Library", "Brisbane City Council"],
+    copy: {
+      en: c(
+        "Brisbane City Council quoted A$9,650 to install two possum boxes at a library. The men’s shed makes them for A$25 each. The Lord Mayor, in chamber, was addressed as ‘possum’",
+        "Annerley Library, possums in the ceiling. Cr Steve Griffiths, Moorooka ward, 24 March 2026. He bought the cheap ones. He says council then agreed to fit those.",
+        [
+          "Annerley Library, Brisbane. Possums in the ceiling. Two boxes required. The council quote, as Cr Steve Griffiths put it to the chamber and then on a Facebook reel dated 24 March 2026, was A$9,650 to install. The local men’s shed: A$25 each. He asked the Lord Mayor whether A$10,000 for two boxes was acceptable to ratepayers. The mayor, on the recording Griffiths posted, thanked him for the question, ‘possum,’ and said the simple solution was to go to the men’s shed.",
+          "Griffiths says he did, and that council then told him it would install the A$25 boxes. 2GB’s Ben Fordham ran the exchange as council spending. We print the councillor’s own tape, not a secret minute.",
+          "YES IT'S REAL. We did not sit in Brisbane chamber. We attribute the numbers to Griffiths’ recording. The possums needed a ceiling solution. The invoice needed a men’s shed.",
+        ],
+        [
+          "Two boxes. Two prices. One of them is a punchline.",
+          "The Lord Mayor’s first word back was ‘possum’.",
+          "The library still had a ceiling. The quote did not have to.",
+        ],
+        "Cr Steve Griffiths, 24 March 2026, public reel of chamber. Figures as he stated. Single-source elected official, attributed. Possums not harmed in the copy.",
+      ),
+      fr: c(
+        "Brisbane City Council : 9 650 $A pour poser deux nichoirs à possums dans une bibliothèque. Le men’s shed les fait à 25 $A pièce. En séance, on a dit « possum » au Lord Mayor",
+        "Bibliothèque d’Annerley, possums au plafond. Cr Steve Griffiths, ward de Moorooka, 24 mars 2026. Il a pris les pas chers. Il dit que la mairie a fini par poser ceux-là.",
+        [
+          "Bibliothèque d’Annerley, Brisbane. Possums au plafond. Deux nichoirs. Le devis, tel que Cr Steve Griffiths le lit en séance puis sur un reel Facebook du 24 mars 2026 : 9 650 $A à l’installation. Le men’s shed du coin : 25 $A pièce. Il demande au Lord Mayor si 10 000 $A pour deux boîtes va aux contribuables. Le maire, sur l’enregistrement posté par Griffiths, le remercie pour la question, « possum », et dit que la solution simple est d’aller au men’s shed.",
+          "Griffiths dit l’avoir fait, et que la mairie a alors accepté de poser les 25 $A. Ben Fordham, 2GB, a passé l’échange. On imprime la bande de l’élu, pas un PV secret.",
+          "YES IT’S REAL. On n’était pas à Brisbane. Les chiffres sont ceux de Griffiths. Les possums avaient besoin d’un plafond. La facture avait besoin d’un atelier.",
+        ],
+        [
+          "Deux boîtes. Deux prix. L’un est la chute.",
+          "Le premier mot du Lord Mayor : « possum ».",
+          "La bibliothèque avait encore un plafond. Le devis n’était pas obligé.",
+        ],
+        "Cr Steve Griffiths, 24 mars 2026, reel public de séance. Chiffres tels qu’il les dit. Source unique élu, attribuée. Possums indemnes dans le papier.",
+      ),
+    },
+  }),
 ];
 
