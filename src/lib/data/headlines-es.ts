@@ -222,4 +222,20 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Reticulada, 23 años, 50 kg, tumor en la mandíbula, cirugía y electroquimioterapia. The Guardian y AFP. Primera serpiente en ese protocolo.",
     w: ["El protocolo era humano.", "La paciente es una pitón.", "El nombre es Jodie Foster."],
   },
+  s45: {
+    h: "Una cabeza de Venus de 2.000 años sale de una zanja en Alicante. La metieron en una bolsa de Mercadona",
+    d: "Operarios en la playa de la Almadraba hallan mármol entre escombros y litronas. Patrimonio la envolvió en burbuja y un saco del súper. Luego hormigonaron la zanja.",
+    w: ["Lucentum viajó en bolsa de la compra.", "La zanja de Venus se pavimentó.", "La foto es el papel. La foto es real."],
+  },
+  s46: {
+    h: "Un coche entra en un bache en Minas Gerais. Pone un capibara de IA. El ayuntamiento lo tapa. El capibara es mascota",
+    d: "Gustavo Alves Lima, Itajubá. Foto, modelo de imagen, WhatsApp. El gabinete de comunicación rodó un vídeo. Cuatro millones de vistas, dice g1.",
+    w: ["La orden de obra llegó en meme.", "La mascota no existe. El agujero, sí.", "Minas Gerais nombró un capibara de IA."],
+  },
+  s47: {
+    h: "En Alicante le notifican el desahucio. Había comprado la casa seis semanas antes. El papel traía la referencia catastral, no su nombre",
+    d: "El Debate, 18 de agosto de 2026. El mensajero solo tenía el número en una pantalla. El dueño miró la placa de su puerta. Casa equivocada.",
+    w: ["La deuda era otro número catastral.", "El mensajero tenía pantalla, no nombre.", "El nuevo dueño auditó su propio timbre."],
+  },
 };
+
