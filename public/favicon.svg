@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <rect width="32" height="32" fill="#E10600"/>
+  <rect width="32" height="5" fill="#FFE400"/>
+  <!-- TRUE stamp: 3-unit bars, 1-unit gaps, paper ink -->
+  <!-- T -->
+  <rect x="1" y="9" width="7" height="3" fill="#FFF8EF"/>
+  <rect x="3" y="9" width="3" height="19" fill="#FFF8EF"/>
+  <!-- R -->
+  <rect x="9" y="9" width="3" height="19" fill="#FFF8EF"/>
+  <rect x="9" y="9" width="7" height="3" fill="#FFF8EF"/>
+  <rect x="13" y="9" width="3" height="8" fill="#FFF8EF"/>
+  <rect x="9" y="16" width="7" height="3" fill="#FFF8EF"/>
+  <rect x="13" y="19" width="3" height="9" fill="#FFF8EF"/>
+  <!-- U -->
+  <rect x="17" y="9" width="3" height="16" fill="#FFF8EF"/>
+  <rect x="21" y="9" width="3" height="16" fill="#FFF8EF"/>
+  <rect x="17" y="22" width="7" height="6" fill="#FFF8EF"/>
+  <!-- E -->
+  <rect x="25" y="9" width="3" height="19" fill="#FFF8EF"/>
+  <rect x="25" y="9" width="6" height="3" fill="#FFF8EF"/>
+  <rect x="25" y="17" width="6" height="3" fill="#FFF8EF"/>
+  <rect x="25" y="25" width="6" height="3" fill="#FFF8EF"/>
+</svg>

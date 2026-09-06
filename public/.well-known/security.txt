@@ -1,0 +1,5 @@
+Contact: mailto:security@yesitsreal.info
+Expires: 2027-08-28T00:00:00.000Z
+Preferred-Languages: en, fr
+Canonical: https://yesitsreal.info/.well-known/security.txt
+Policy: https://yesitsreal.info/privacy

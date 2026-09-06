@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="YES IT'S REAL TRUE stamp">
+  <title>YES IT'S REAL — TRUE</title>
+  <rect width="1000" height="1000" fill="#FFF8EF"/>
+  <text
+    x="80"
+    y="200"
+    fill="#141414"
+    font-family="Inter, Arial, sans-serif"
+    font-size="28"
+    font-weight="800"
+    letter-spacing="18"
+  >NOT SATIRE</text>
+  <text
+    x="70"
+    y="430"
+    fill="#141414"
+    font-family="Oswald, Impact, 'Arial Narrow', sans-serif"
+    font-size="200"
+    font-weight="700"
+    letter-spacing="-8"
+  >YES IT'S</text>
+  <text
+    x="70"
+    y="680"
+    fill="#141414"
+    font-family="Oswald, Impact, 'Arial Narrow', sans-serif"
+    font-size="280"
+    font-weight="700"
+    letter-spacing="-10"
+  >REAL</text>
+  <g transform="rotate(-12 720 640)">
+    <rect x="430" y="540" width="520" height="160" rx="12" fill="#E10600"/>
+    <text
+      x="690"
+      y="655"
+      text-anchor="middle"
+      fill="#FFF8EF"
+      font-family="Oswald, Impact, 'Arial Narrow', sans-serif"
+      font-size="120"
+      font-weight="700"
+      letter-spacing="8"
+    >TRUE</text>
+  </g>
+</svg>

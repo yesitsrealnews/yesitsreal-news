@@ -1,0 +1,4 @@
+# YES IT'S REAL ads.txt
+# Placeholder network entries for AdSense / Ad Manager onboarding.
+# Replace pub-0000000000000000 with the live publisher ID before launch.
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

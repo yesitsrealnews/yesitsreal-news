@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="YES IT'S REAL">
+  <rect width="1024" height="1024" fill="#E10600"/>
+  <text x="512" y="430" text-anchor="middle" fill="#FFF8EF" font-family="Liberation Sans Narrow, Oswald, Impact, sans-serif" font-size="168" font-weight="700" letter-spacing="-2">YES IT'S</text>
+  <text x="512" y="680" text-anchor="middle" fill="#FFF8EF" font-family="Liberation Sans Narrow, Oswald, Impact, sans-serif" font-size="268" font-weight="700" letter-spacing="-4">REAL</text>
+  <rect x="170" y="760" width="684" height="88" rx="8" fill="#FFE400"/>
+  <text x="512" y="820" text-anchor="middle" fill="#141414" font-family="Liberation Sans, Inter, Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="10">NOT SATIRE</text>
+</svg>
