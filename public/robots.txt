@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
-Sitemap: https://yesitsreal.news/sitemap.xml
 Disallow: /admin
+Disallow: /admin/
 Disallow: /cambuse
+Disallow: /cambuse/
+Disallow: /api/
+Sitemap: https://yesitsreal.news/sitemap.xml

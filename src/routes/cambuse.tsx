@@ -3,31 +3,28 @@ import { useState } from "react";
 import { useAppStore } from "@/lib/store";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Honeypot } from "@/components/site/honeypot";
 
 export const Route = createFileRoute("/cambuse")({
   component: Cambuse,
   head: () => ({
     meta: [
-      { name: "robots", content: "noindex, nofollow" },
+      { name: "robots", content: "noindex, nofollow, noarchive" },
       { title: "La Cambuse" },
     ],
   }),
 });
 
 function Cambuse() {
-  const admin = useAppStore((s) => s.admin);
   const setAdmin = useAppStore((s) => s.setAdmin);
   const lang = useAppStore((s) => s.lang);
   const fr = lang === "fr";
   const navigate = useNavigate();
   const [code, setCode] = useState("");
+  const [hp, setHp] = useState("");
+  const [busy, setBusy] = useState(false);
   const [tries, setTries] = useState(0);
   const locked = tries >= 8;
-
-  if (admin) {
-    void navigate({ to: "/admin" });
-    return null;
-  }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-paper px-4 text-ink">
@@ -37,29 +34,49 @@ function Cambuse() {
         {fr ? "Réservé à la desk." : "Desk only."}
       </p>
       <form
-        className="mt-8 flex w-full max-w-sm flex-col gap-3"
+        className="relative mt-8 flex w-full max-w-sm flex-col gap-3"
         onSubmit={(e) => {
           e.preventDefault();
-          if (locked) return;
-          if (code.trim() === "1aPepette") {
-            setAdmin(true);
-            void navigate({ to: "/admin" });
-          } else setTries((n) => n + 1);
+          if (locked || busy) return;
+          setBusy(true);
+          void fetch("/api/desk", {
+            method: "POST",
+            credentials: "include",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ code, company_url: hp }),
+          })
+            .then(async (r) => {
+              const data = (await r.json().catch(() => ({}))) as { ok?: boolean };
+              if (r.status === 429) {
+                setTries(8);
+                return;
+              }
+              if (data.ok && r.ok) {
+                setAdmin(true);
+                void navigate({ to: "/admin" });
+                return;
+              }
+              setTries((n) => n + 1);
+            })
+            .catch(() => setTries((n) => n + 1))
+            .finally(() => setBusy(false));
         }}
       >
+        <Honeypot value={hp} onChange={setHp} />
         <Input
           value={code}
           onChange={(e) => setCode(e.target.value)}
           placeholder={fr ? "Code" : "Code"}
           aria-label="Code"
           autoComplete="off"
+          type="password"
         />
         {tries > 0 ? (
           <p className="text-sm text-signal">
             {locked ? (fr ? "Verrouillée." : "Locked.") : fr ? "Non." : "No."}
           </p>
         ) : null}
-        <Button type="submit" disabled={locked}>
+        <Button type="submit" disabled={locked || busy}>
           {fr ? "Entrer" : "Enter"}
         </Button>
       </form>

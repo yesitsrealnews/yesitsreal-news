@@ -221,17 +221,17 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 3,
+      version: 4,
       migrate: (persisted) => {
-        const s = (persisted ?? {}) as { lang?: string };
+        const s = (persisted ?? {}) as { lang?: string; admin?: boolean };
         if (!s.lang || s.lang === "en") s.lang = "fr";
-        return s;
+        delete s.admin;
+        return s as typeof persisted;
       },
       partialize: (s) => ({
         lang: s.lang,
         theme: s.theme,
         cookies: s.cookies,
-        admin: s.admin,
         submissions: s.submissions,
         inbox: s.inbox,
         rejected: s.rejected,

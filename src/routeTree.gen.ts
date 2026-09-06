@@ -44,6 +44,7 @@ import { Route as AdminRejectedRouteImport } from './routes/admin.rejected'
 import { Route as AdminSourcesRouteImport } from './routes/admin.sources'
 import { Route as AdminTranslationsRouteImport } from './routes/admin.translations'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
+import { Route as ApiDeskRouteImport } from './routes/api/desk'
 import { Route as ApiIngestRouteImport } from './routes/api/ingest'
 import { Route as ApiPublishRouteImport } from './routes/api/publish'
 import { Route as ApiScoreRouteImport } from './routes/api/score'
@@ -226,6 +227,11 @@ const ApiContactRoute = ApiContactRouteImport.update({
   path: '/api/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiDeskRoute = ApiDeskRouteImport.update({
+  id: '/api/desk',
+  path: '/api/desk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiIngestRoute = ApiIngestRouteImport.update({
   id: '/api/ingest',
   path: '/api/ingest',
@@ -292,6 +298,7 @@ export interface FileRoutesByFullPath {
   '/admin/sources': typeof AdminSourcesRoute
   '/admin/translations': typeof AdminTranslationsRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/desk': typeof ApiDeskRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
   '/api/score': typeof ApiScoreRoute
@@ -334,6 +341,7 @@ export interface FileRoutesByTo {
   '/admin/sources': typeof AdminSourcesRoute
   '/admin/translations': typeof AdminTranslationsRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/desk': typeof ApiDeskRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
   '/api/score': typeof ApiScoreRoute
@@ -378,6 +386,7 @@ export interface FileRoutesById {
   '/admin/sources': typeof AdminSourcesRoute
   '/admin/translations': typeof AdminTranslationsRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/desk': typeof ApiDeskRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
   '/api/score': typeof ApiScoreRoute
@@ -423,6 +432,7 @@ export interface FileRouteTypes {
     | '/admin/sources'
     | '/admin/translations'
     | '/api/contact'
+    | '/api/desk'
     | '/api/ingest'
     | '/api/publish'
     | '/api/score'
@@ -465,6 +475,7 @@ export interface FileRouteTypes {
     | '/admin/sources'
     | '/admin/translations'
     | '/api/contact'
+    | '/api/desk'
     | '/api/ingest'
     | '/api/publish'
     | '/api/score'
@@ -508,6 +519,7 @@ export interface FileRouteTypes {
     | '/admin/sources'
     | '/admin/translations'
     | '/api/contact'
+    | '/api/desk'
     | '/api/ingest'
     | '/api/publish'
     | '/api/score'
@@ -544,6 +556,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   TodayRoute: typeof TodayRoute
   ApiContactRoute: typeof ApiContactRoute
+  ApiDeskRoute: typeof ApiDeskRoute
   ApiIngestRoute: typeof ApiIngestRoute
   ApiPublishRoute: typeof ApiPublishRoute
   ApiScoreRoute: typeof ApiScoreRoute
@@ -798,6 +811,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/desk': {
+      id: '/api/desk'
+      path: '/api/desk'
+      fullPath: '/api/desk'
+      preLoaderRoute: typeof ApiDeskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/ingest': {
       id: '/api/ingest'
       path: '/api/ingest'
@@ -898,6 +918,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   TodayRoute: TodayRoute,
   ApiContactRoute: ApiContactRoute,
+  ApiDeskRoute: ApiDeskRoute,
   ApiIngestRoute: ApiIngestRoute,
   ApiPublishRoute: ApiPublishRoute,
   ApiScoreRoute: ApiScoreRoute,

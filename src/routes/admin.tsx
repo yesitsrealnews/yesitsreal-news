@@ -1,11 +1,12 @@
 import { createFileRoute, Link, Navigate, Outlet, useRouterState } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { useAppStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/admin")({
   component: AdminGate,
   head: () => ({
-    meta: [{ name: "robots", content: "noindex, nofollow" }, { title: "La Cambuse" }],
+    meta: [{ name: "robots", content: "noindex, nofollow, noarchive" }, { title: "La Cambuse" }],
   }),
 });
 
@@ -23,6 +24,29 @@ const LINKS = [
 
 function AdminGate() {
   const admin = useAppStore((s) => s.admin);
+  const setAdmin = useAppStore((s) => s.setAdmin);
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    let live = true;
+    void fetch("/api/desk", { credentials: "include" })
+      .then((r) => r.json())
+      .then((d: { ok?: boolean }) => {
+        if (!live) return;
+        setAdmin(Boolean(d.ok));
+        setChecked(true);
+      })
+      .catch(() => {
+        if (!live) return;
+        setAdmin(false);
+        setChecked(true);
+      });
+    return () => {
+      live = false;
+    };
+  }, [setAdmin]);
+
+  if (!checked) return <div className="min-h-screen bg-paper" />;
   if (!admin) return <Navigate to="/cambuse" />;
   return <AdminShell />;
 }
@@ -41,7 +65,14 @@ function AdminShell() {
           <Link to="/" className="underline">
             Paper
           </Link>
-          <button type="button" className="underline" onClick={() => setAdmin(false)}>
+          <button
+            type="button"
+            className="underline"
+            onClick={() => {
+              void fetch("/api/desk", { method: "DELETE", credentials: "include" });
+              setAdmin(false);
+            }}
+          >
             Lock
           </button>
         </div>
