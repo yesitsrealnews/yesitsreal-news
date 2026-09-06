@@ -5,4 +5,28 @@ Disallow: /admin/
 Disallow: /cambuse
 Disallow: /cambuse/
 Disallow: /api/
-Sitemap: https://yesitsreal.news/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+Sitemap: https://www.yesitsreal.news/sitemap.xml
+Sitemap: https://www.yesitsreal.news/news-sitemap.xml
+Sitemap: https://www.yesitsreal.news/rss.xml

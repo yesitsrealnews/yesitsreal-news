@@ -1,6 +1,6 @@
 export const SITE_NAME = "YES IT'S REAL";
 export const SITE_DOMAIN = "yesitsreal.news";
-export const SITE_URL = `https://${SITE_DOMAIN}`;
+export const SITE_URL = `https://www.${SITE_DOMAIN}`;
 
 /** Production compute: Vercel, US East (Washington, D.C.). US company. */
 export const HOSTING = {

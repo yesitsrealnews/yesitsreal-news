@@ -15,6 +15,9 @@ export const Route = createRootRoute({
       { title: `${APP_NAME} — Real news. Unbelievably dumb.` },
       { name: "description", content: "Verified. Sourced. Unfortunately true. A global newsroom that only publishes real, fact-checked stories among the dumbest events on Earth. Not satire." },
       { name: "theme-color", content: "#141414" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "application-name", content: APP_NAME },
+      { name: "news_keywords", content: "news, weird news, fact check, not satire, world" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },

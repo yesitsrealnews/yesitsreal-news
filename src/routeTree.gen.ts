@@ -24,6 +24,7 @@ import { Route as InvestRouteImport } from './routes/invest'
 import { Route as KitRouteImport } from './routes/kit'
 import { Route as MembershipRouteImport } from './routes/membership'
 import { Route as MethodRouteImport } from './routes/method'
+import { Route as NewsSitemapDotxmlRouteImport } from './routes/news-sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
@@ -125,6 +126,11 @@ const MembershipRoute = MembershipRouteImport.update({
 const MethodRoute = MethodRouteImport.update({
   id: '/method',
   path: '/method',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsSitemapDotxmlRoute = NewsSitemapDotxmlRouteImport.update({
+  id: '/news-sitemap.xml',
+  path: '/news-sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -279,6 +285,7 @@ export interface FileRoutesByFullPath {
   '/kit': typeof KitRoute
   '/membership': typeof MembershipRoute
   '/method': typeof MethodRoute
+  '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
   '/rankings': typeof RankingsRoute
   '/rss.xml': typeof RssDotxmlRoute
@@ -322,6 +329,7 @@ export interface FileRoutesByTo {
   '/kit': typeof KitRoute
   '/membership': typeof MembershipRoute
   '/method': typeof MethodRoute
+  '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
   '/rankings': typeof RankingsRoute
   '/rss.xml': typeof RssDotxmlRoute
@@ -367,6 +375,7 @@ export interface FileRoutesById {
   '/kit': typeof KitRoute
   '/membership': typeof MembershipRoute
   '/method': typeof MethodRoute
+  '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
   '/rankings': typeof RankingsRoute
   '/rss.xml': typeof RssDotxmlRoute
@@ -413,6 +422,7 @@ export interface FileRouteTypes {
     | '/kit'
     | '/membership'
     | '/method'
+    | '/news-sitemap.xml'
     | '/privacy'
     | '/rankings'
     | '/rss.xml'
@@ -456,6 +466,7 @@ export interface FileRouteTypes {
     | '/kit'
     | '/membership'
     | '/method'
+    | '/news-sitemap.xml'
     | '/privacy'
     | '/rankings'
     | '/rss.xml'
@@ -500,6 +511,7 @@ export interface FileRouteTypes {
     | '/kit'
     | '/membership'
     | '/method'
+    | '/news-sitemap.xml'
     | '/privacy'
     | '/rankings'
     | '/rss.xml'
@@ -545,6 +557,7 @@ export interface RootRouteChildren {
   KitRoute: typeof KitRoute
   MembershipRoute: typeof MembershipRoute
   MethodRoute: typeof MethodRoute
+  NewsSitemapDotxmlRoute: typeof NewsSitemapDotxmlRoute
   PrivacyRoute: typeof PrivacyRoute
   RankingsRoute: typeof RankingsRoute
   RssDotxmlRoute: typeof RssDotxmlRoute
@@ -669,6 +682,13 @@ declare module '@tanstack/react-router' {
       path: '/method'
       fullPath: '/method'
       preLoaderRoute: typeof MethodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news-sitemap.xml': {
+      id: '/news-sitemap.xml'
+      path: '/news-sitemap.xml'
+      fullPath: '/news-sitemap.xml'
+      preLoaderRoute: typeof NewsSitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -907,6 +927,7 @@ const rootRouteChildren: RootRouteChildren = {
   KitRoute: KitRoute,
   MembershipRoute: MembershipRoute,
   MethodRoute: MethodRoute,
+  NewsSitemapDotxmlRoute: NewsSitemapDotxmlRoute,
   PrivacyRoute: PrivacyRoute,
   RankingsRoute: RankingsRoute,
   RssDotxmlRoute: RssDotxmlRoute,
