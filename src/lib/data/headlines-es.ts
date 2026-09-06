@@ -252,6 +252,22 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Lochardil. Lonas sobre los coches. Una factura de 800 libras. Cathleen MacKinnon a la BBC: «cotorra no es una buena palabra por aquí».",
     w: ["La plaga es un loro. El expediente es fauna.", "La respuesta oficial es un toldo.", "Inverness ya tiene una palabra que no le gusta."],
   },
+  s51: {
+    h: "Un alcalde del Loira prohíbe a los mosquitos tigre sobrevolar el municipio. Ninguno ha sido multado. Dijo a la AFP que peligraba el vermú",
+    d: "Olivier Joly, Saint-Just-Saint-Rambert, 15.000 habitantes. Bando del 1 de septiembre. franceinfo, Le Parisien. Los vuelos rasantes «provocan exasperación».",
+    w: ["La ordenanza va dirigida al mosquito.", "El historial está vacío, y el alcalde lo dijo.", "La crisis política era el aperitivo."],
+  },
+  s52: {
+    h: "La policía de Zúrich busca a un desaparecido. Mide tres metros. Es una pitón. Nadie ha llamado",
+    d: "Jueves por la noche, bosque de Sennhof, Winterthur. Pitón tapiz, inofensiva, a buen recaudo. Tribune de Genève: «¿Le falta a alguien?»",
+    w: ["El aviso está redactado como para una persona.", "Tres metros y el lunes, sin dueño.", "El bosque no era un terrario. El expediente, sí."],
+  },
+  s53: {
+    h: "Un pasajero despierta a un oso polar con la sirena de niebla. Svalbard: 50.000 coronas, unos 4.550 €. El oso se movió. Pagó",
+    d: "Fiordo del noreste, mil kilómetros del polo. Comunicado del gobernador, 13 de agosto, AFP y Ouest-France. Norma: no molestar inútilmente a un oso polar.",
+    w: ["La fauna dormía. El turista, no.", "El instrumento era para la niebla. El fiordo tenía un oso.", "El recibo: 50.000 coronas."],
+  },
 };
+
 
 
