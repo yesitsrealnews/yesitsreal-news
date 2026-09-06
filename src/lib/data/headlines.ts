@@ -1,3 +1,4 @@
+import { ES_HEADLINES } from "@/lib/data/headlines-es";
 import type { Lang, Story } from "@/lib/types";
 import type { StoryCopy } from "@/lib/types";
 
@@ -49,7 +50,7 @@ export const HEADLINES: Record<string, Partial<Record<Lang, Hed>>> = {
 export function localizedCopy(story: Story, lang: Lang): { copy: StoryCopy; bodyPending: boolean } {
   const base = story.copy[lang];
   if (base) return { copy: base, bodyPending: false };
-  const hed = HEADLINES[story.id]?.[lang];
+  const hed = lang === "es" ? ES_HEADLINES[story.id] : HEADLINES[story.id]?.[lang];
   if (hed) {
     return {
       copy: {
