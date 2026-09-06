@@ -282,7 +282,13 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Biblioteca de Annerley, zarigüeyas en el techo. Concejal Steve Griffiths, 24 de marzo de 2026. Compró las baratas. Dice que luego las pusieron.",
     w: ["Dos cajas. Dos precios. Uno es el chiste.", "La primera palabra del alcalde: «possum».", "La biblioteca seguía teniendo techo. El presupuesto no."],
   },
+  s57: {
+    h: "Ig Nobel 2026: 1.000 calzoncillos enterrados en 25 países, una definición del beso que vale para la hormiga, y leche de cucaracha tres veces más densa que la de vaca",
+    d: "Zúrich, 3 de septiembre. Nature, CNN, Ars Technica. También: urinario sin salpicaduras, trompas de mosquito como boquillas 3D, y la aerodinámica de sonarse — un paper de 1977, premio póstumo.",
+    w: ["El ensayo de suelo son mil pares de ropa interior.", "El beso, en derecho, no incluye el almuerzo.", "El competidor lácteo es una cucaracha."],
+  },
 };
+
 
 
 

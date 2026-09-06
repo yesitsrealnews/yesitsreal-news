@@ -2032,5 +2032,77 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s57",
+    slug: "ig-nobel-2026-buried-underpants-kissing-definition-cockroach-milk",
+    slugs: {
+      fr: "ig-nobel-2026-1000-slips-enterrés-definition-du-baiser-lait-de-cafard",
+      es: "ig-nobel-2026-mil-calzoncillos-enterrados-definicion-del-beso-leche-de-cucaracha",
+    },
+    section: "science",
+    countryCode: "CH",
+    countryName: "Switzerland",
+    location: "Zurich",
+    dumbness: 9,
+    sources: [
+      src(
+        "Buried underpants and a new definition of kissing win 2026 Ig Nobel prizes",
+        "Nature",
+        "https://www.nature.com/articles/d41586-026-02650-x",
+        "2026-09-04",
+        "wire",
+      ),
+      src(
+        "Ig Nobel awards: Research into nose-blowing, candy stealing and splash-free urinals honored",
+        "CNN",
+        "https://www.cnn.com/2026/09/03/science/ig-nobel-awards-2026-scli-intl",
+        "2026-09-03",
+        "wire",
+      ),
+      src(
+        "Meet the 2026 Ig Nobel Prize winners",
+        "Ars Technica",
+        "https://arstechnica.com/science/2026/09/meet-the-2026-ig-nobel-prize-winners/",
+        "2026-09-03",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-06T20:15:00.000Z",
+    originalLang: "en",
+    confidence: 0.94,
+    entities: ["Ig Nobel", "Annals of Improbable Research", "Matilda Brindle"],
+    copy: {
+      en: c(
+        "The 2026 Ig Nobels: 1,000 pairs of underpants buried in 25 countries, a definition of kissing that works on ants, and cockroach milk three times denser than the cow’s",
+        "Zurich, 3 September. Nature, CNN, Ars Technica. Also: a splash-free urinal, mosquito mouthparts as 3D-print nozzles, and the aerodynamics of blowing one’s nose — a 1977 paper, awarded dead.",
+        [
+          "The 36th Ig Nobel ceremony was in Zurich on 3 September 2026, Annals of Improbable Research, theme fungi, Nobel laureates in mushroom costume, paper aeroplanes as usual. Nature the next day led on soil science: Pia Viviani, Atlant Bieri and colleagues buried 1,000 pairs of cotton underpants in more than 25 countries and dug them up two months later, as a measure of how alive the dirt was.",
+          "Biomechanics, Ars Technica cites: Matilda Brindle, Catherine Talbot, Stuart West — kissing as ‘non-agonistic interactions involving directed, intraspecific, oral-oral contact with some movement of the lips/mouthparts and no food transfer,’ in ants, birds, polar bears and humans. Chemistry: milk proteins from live-bearing cockroaches, about three times the energy of cow milk, a Bengaluru-linked team. Physics: splash-free urinals, stream under 30 degrees. Technology: mosquito proboscises as necroprinting nozzles. Medicine, posthumous: Tokuji Unno, 1977, how to blow the nose.",
+          "YES IT'S REAL read Nature, CNN and Ars. The Ig is not satire. The papers exist. First you laugh. Then, if you are unlucky, you think about the underpants.",
+        ],
+        [
+          "The soil assay is a thousand pairs of underwear.",
+          "The kiss, legally, cannot include lunch.",
+          "The dairy competitor is a cockroach.",
+        ],
+        "Nature 4 Sept 2026; CNN 3 Sept; Ars Technica 3 Sept. Citations as those desks. No invented prize. Not a death beat.",
+      ),
+      fr: c(
+        "Ig Nobel 2026 : 1 000 slips enterrés dans 25 pays, une définition du baiser qui marche chez la fourmi, et du lait de cafard trois fois plus dense que celui de la vache",
+        "Zurich, 3 septembre. Nature, CNN, Ars Technica. Aussi : un urinoir sans éclaboussures, des trompes de moustique en buses d’impression 3D, et l’aérodynamique du moucher — papier de 1977, prix à titre posthume.",
+        [
+          "La 36e cérémonie Ig Nobel, Zurich, 3 septembre 2026, Annals of Improbable Research, thème champignons, Nobel en costume de cèpe, avions en papier. Nature le lendemain ouvre sur la science des sols : Pia Viviani, Atlant Bieri et al. enterrent 1 000 paires de slips en coton dans plus de 25 pays, les déterrent deux mois plus tard, mesure de la vie du sol.",
+          "Biomécanique, Ars Technica : Matilda Brindle, Catherine Talbot, Stuart West — le baiser comme « interactions non agonistiques, contact oral-oral intra-spécifique dirigé, un mouvement des lèvres/pièces buccales, pas de transfert de nourriture », fourmis, oiseaux, ours polaires, humains. Chimie : protéines du lait de cafards vivipares, environ trois fois l’énergie du lait de vache, équipe liée à Bengaluru. Physique : urinoirs sans splash, jet sous 30°. Techno : trompes de moustique, necroprinting. Médecine, posthume : Tokuji Unno, 1977, comment se moucher.",
+          "YES IT’S REAL a lu Nature, CNN et Ars. L’Ig n’est pas de la satire. Les papiers existent. D’abord on rit. Ensuite, si on a pas de chance, on pense aux slips.",
+        ],
+        [
+          "Le test de sol, c’est mille paires de sous-vêtements.",
+          "Le baiser, en droit, n’inclut pas le déjeuner.",
+          "Le concurrent laitier est un cafard.",
+        ],
+        "Nature 4 sept. 2026 ; CNN 3 sept. ; Ars Technica 3 sept. Citations de ces bureaux. Pas de prix inventé. Pas un papier de mort.",
+      ),
+    },
+  }),
 ];
 
