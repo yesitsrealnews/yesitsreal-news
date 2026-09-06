@@ -1478,5 +1478,180 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s48",
+    slug: "wallaby-in-normandy-mayor-thought-it-was-a-joke",
+    slugs: {
+      fr: "wallaby-en-normandie-la-maire-a-cru-a-une-blague",
+      es: "un-wallaby-en-normandia-la-alcaldesa-penso-que-era-una-broma",
+    },
+    section: "animals",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Saint-Martin-d’Aubigny, Manche",
+    dumbness: 7,
+    sources: [
+      src(
+        "« Un animal qui n’est pas agressif, mais un peu bête » : un wallaby en divagation a été capturé en Normandie",
+        "Ouest-France",
+        "https://www.ouest-france.fr/normandie/manche/on-a-cru-a-une-blague-un-wallaby-apercu-dans-cette-commune-de-normandie-07f8e8e8-a7ac-11f1-95a1-d7cb1b3759ac",
+        "2026-09-03",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-06T19:20:00.000Z",
+    originalLang: "fr",
+    confidence: 0.9,
+    entities: ["Laurence Raulline", "Saint-Martin-d’Aubigny", "Patryk Bukowczan"],
+    copy: {
+      en: c(
+        "A wallaby turned up in a Manche village. The mayor thought it was a joke. Ouest-France quotes an animal that is ‘not aggressive, just a bit dim’",
+        "Wednesday 2 September, about 10 p.m., Saint-Martin-d’Aubigny. A resident opened a window onto a pocket kangaroo. Laurence Raulline, the mayor, was called. Capture followed. It belonged to a farm in Feugères.",
+        [
+          "Saint-Martin-d’Aubigny, Manche. 2 September 2026, around 22:00. A resident opened a window and found a wallaby. Ouest-France, 3 September: the mayor, Laurence Raulline, ‘thought it was a joke’. ‘It’s not that common,’ she said. The paper’s headline kept the line: an animal that is not aggressive, ‘mais un peu bête’.",
+          "The marsupial was not Australian in any useful sense. It had left an élevage in Feugères. Patryk Bukowczan, the keeper, helped get it back. No one was bitten. The two communes treated it as an outing.",
+          "YES IT'S REAL read Ouest-France. We do not invent kangaroos for the Cotentin. The joke is the phone call to the mairie. The mairie answered.",
+        ],
+        [
+          "The first official reaction was that someone was kidding.",
+          "The character assessment is in the regional paper.",
+          "The wallaby went home. The minutes will not.",
+        ],
+        "Ouest-France 3 Sept 2026, Manche desk. Quotes as that paper. Not aggressive. Not a death story.",
+      ),
+      fr: c(
+        "Un wallaby débarque dans la Manche. La maire a cru à une blague. Ouest-France : « pas agressif, mais un peu bête »",
+        "Mercredi 2 septembre, vers 22 h, Saint-Martin-d’Aubigny. Une habitante ouvre la fenêtre sur un kangourou de poche. Laurence Raulline est appelée. Capture. Il venait d’un élevage à Feugères.",
+        [
+          "Saint-Martin-d’Aubigny, Manche. 2 septembre 2026, vers 22 h. Une habitante ouvre, tombe sur un wallaby. Ouest-France, 3 septembre : la maire Laurence Raulline « a cru à une blague ». « Ce n’est pas trop commun. » Le titre du journal garde la formule : un animal qui n’est pas agressif, « mais un peu bête ».",
+          "Le marsupial n’était pas australien de façon utile. Il sortait d’un élevage à Feugères. Patryk Bukowczan, l’éleveur, a aidé à le reprendre. Personne n’a mordu. Les deux communes ont traité ça comme une sortie.",
+          "YES IT’S REAL a lu Ouest-France. On n’invente pas de kangourou dans le Cotentin. La blague, c’est l’appel à la mairie. La mairie a décroché.",
+        ],
+        [
+          "La première réaction officielle : on nous fait une blague.",
+          "Le diagnostic de caractère est dans le journal régional.",
+          "Le wallaby est rentré. Le PV, lui, reste.",
+        ],
+        "Ouest-France 3 sept. 2026, bureau Manche. Citations de ce papier. Pas agressif. Pas un papier de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s49",
+    slug: "saved-three-goats-from-slaughter-fined-6000-euros-savigliano",
+    slugs: {
+      fr: "il-sauve-trois-chevres-de-labattoir-amende-6000-euros-savigliano",
+      es: "salva-tres-cabras-del-matadero-multa-6000-euros-savigliano",
+      it: "salva-tre-capre-dal-macello-multa-6000-euro-savigliano",
+    },
+    section: "animals",
+    countryCode: "IT",
+    countryName: "Italy",
+    location: "Savigliano, Piedmont",
+    dumbness: 8,
+    sources: [
+      src(
+        "Voleva salvare tre caprette, si ritrova con 6 mila euro di multa",
+        "Giornale La Voce",
+        "https://www.giornalelavoce.it/news/attualita/731974/voleva-salvare-tre-caprette-si-ritrova-con-6-mila-euro-di-multa.html",
+        "2026-08-31",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-06T19:25:00.000Z",
+    originalLang: "it",
+    confidence: 0.86,
+    entities: ["Salvatore Ciancio", "Savigliano"],
+    copy: {
+      en: c(
+        "He kept three goats off the slaughter line. Forestale fined him €6,000 for missing ear tags",
+        "Salvatore Ciancio, Savigliano. Peppino, Carmela, Pasqualina. He asked the ASL to register them. The bill arrived anyway. Giornale La Voce, 31 August.",
+        [
+          "Savigliano, Piedmont. Salvatore Ciancio found goats, was told by an animal group to keep them on his land or they would go to slaughter, Giornale La Voce reported on 31 August 2026. One gave birth on 2 April. The three are Peppino, Carmela and Pasqualina. He went to the ASL to put earrings on them. Then the Forestale came.",
+          "The report: no official ID. The kid born in April was under six months, so only two animals counted. Reduced payment: €3,000 each. Total €6,000. He told the paper: the Forestale ‘gave me a 6,000 euro fine’. He asked neighbours to help pay so he could then register them.",
+          "YES IT'S REAL read La Voce. We do not litigate Italian livestock law. We print a rescue that became a tariff. The goats are alive. The tariff is the story.",
+        ],
+        [
+          "The good deed was not in the database.",
+          "The baby goat was too young to count. The other two were not.",
+          "To register them, he first has to pay for not having registered them.",
+        ],
+        "Giornale La Voce 31 Aug 2026. Single regional source, attributed. Quotes as that paper. No death. No invented numbers.",
+      ),
+      fr: c(
+        "Il sort trois chèvres de l’abattoir. La Forestale lui met 6 000 € d’amende pour absence de boucles",
+        "Salvatore Ciancio, Savigliano. Peppino, Carmela, Pasqualina. Il demande l’enregistrement à l’ASL. La facture arrive quand même. Giornale La Voce, 31 août.",
+        [
+          "Savigliano, Piémont. Salvatore Ciancio trouve des chèvres, une asso lui dit de les garder chez lui sinon l’abattoir, raconte Giornale La Voce le 31 août 2026. Une met bas le 2 avril. Les trois : Peppino, Carmela, Pasqualina. Il va à l’ASL pour les boucles. Puis la Forestale.",
+          "Le PV : pas d’identification officielle. La chevrette d’avril n’a pas six mois, donc deux animaux comptent. Paiement réduit : 3 000 € chacune. Total 6 000 €. Il dit au journal : la Forestale « m’a fait 6 000 euros d’amende ». Il demande au voisinage de l’aider à payer pour pouvoir ensuite les enregistrer.",
+          "YES IT’S REAL a lu La Voce. On ne plaide pas le droit italien du bétail. Un sauvetage devenu un tarif. Les chèvres vivent. Le tarif est le papier.",
+        ],
+        [
+          "La bonne action n’était pas dans la base.",
+          "La chevrette était trop jeune pour compter. Les deux autres, non.",
+          "Pour les enregistrer, il faut d’abord payer de ne pas les avoir enregistrées.",
+        ],
+        "Giornale La Voce 31 août 2026. Source régionale unique, attribuée. Citations de ce papier. Pas de mort. Pas de chiffre inventé.",
+      ),
+    },
+  }),
+  story({
+    id: "s50",
+    slug: "inverness-parakeet-eats-windscreen-wipers-council-says-wild-bird",
+    slugs: {
+      fr: "perruche-dinverness-mange-les-essuie-glaces-la-mairie-dit-oiseau-sauvage",
+      es: "cotorra-de-inverness-se-come-los-limpiaparabrisas-el-ayuntamiento-dice-ave-silvestre",
+    },
+    section: "animals",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Inverness, Scotland",
+    dumbness: 8,
+    sources: [
+      src(
+        "He's causing havoc: Parrot loose in Inverness blamed for damage to cars",
+        "BBC News",
+        "https://www.bbc.co.uk/news/articles/c232dnkkd3po",
+        "2026-06-01",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-06T19:30:00.000Z",
+    originalLang: "en",
+    confidence: 0.9,
+    entities: ["Lochardil", "Highland Council", "Cathleen MacKinnon"],
+    copy: {
+      en: c(
+        "A parakeet in Inverness has been eating windscreen wipers since February. Highland Council said it does not deal with wild birds",
+        "Lochardil. Tarpaulins on cars. One repair bill rumoured at £800. Cathleen MacKinnon told the BBC: ‘Parakeet is not a good word round here.’",
+        [
+          "Lochardil, Inverness. A parakeet has been seen since February 2026, the BBC reported on 1 June, pecking window seals and wipers, taking out rubber. Neighbours put tarpaulins on cars. One bill is talked of at £800. Cathleen MacKinnon: ‘Parakeet is not a good word round here in Inverness. This little chap causes havoc on the cars around here.’ Chrissanne Robertson: a lot of damage, ‘we can’t do anything about it.’",
+          "Highland Council’s environmental health team told the BBC they would not get involved ‘as these are wild birds’. NatureScot listed three theories: the bird is fighting its reflection, it wants fat in the rubber, or it is bored.",
+          "YES IT'S REAL read the BBC. We do not manage Highland wildlife. We print a council that classified a windscreen as nature. The bird is still at large in the copy.",
+        ],
+        [
+          "The pest is a parrot. The file is wildlife.",
+          "The official answer is a tarpaulin.",
+          "Inverness now has a word it does not like.",
+        ],
+        "BBC 1 June 2026, updated 2 June. Quotes as BBC. Council line as attributed. Not a bite story.",
+      ),
+      fr: c(
+        "Une perruche d’Inverness mange les essuie-glaces depuis février. Le Highland Council : on ne s’occupe pas des oiseaux sauvages",
+        "Lochardil. Bâches sur les voitures. Une facture murmurée à 800 £. Cathleen MacKinnon à la BBC : « Perruche n’est pas un bon mot par ici. »",
+        [
+          "Lochardil, Inverness. Une perruche vue depuis février 2026, BBC le 1er juin, picore joints et essuie-glaces, emporte le caoutchouc. Les voisins bâchent. On parle de 800 £. Cathleen MacKinnon : « Parakeet is not a good word round here. This little chap causes havoc. » Chrissanne Robertson : beaucoup de dégâts, « on ne peut rien faire ».",
+          "La santé environnementale du Highland Council dit à la BBC qu’elle n’intervient pas « as these are wild birds ». NatureScot : trois théories — il se bat contre son reflet, il veut la graisse du caoutchouc, ou il s’ennuie.",
+          "YES IT’S REAL a lu la BBC. On ne gère pas la faune des Highlands. On imprime un conseil qui a classé un pare-brise dans la nature. L’oiseau, dans le papier, est toujours dehors.",
+        ],
+        [
+          "Le nuisible est un perroquet. Le dossier est faune.",
+          "La réponse officielle est une bâche.",
+          "Inverness a maintenant un mot qu’elle n’aime pas.",
+        ],
+        "BBC 1er juin 2026, maj 2 juin. Citations BBC. Ligne du council attribuée. Pas un papier de morsure.",
+      ),
+    },
+  }),
 ];
 

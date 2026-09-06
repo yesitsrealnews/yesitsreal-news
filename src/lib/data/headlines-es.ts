@@ -237,5 +237,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "El Debate, 18 de agosto de 2026. El mensajero solo tenía el número en una pantalla. El dueño miró la placa de su puerta. Casa equivocada.",
     w: ["La deuda era otro número catastral.", "El mensajero tenía pantalla, no nombre.", "El nuevo dueño auditó su propio timbre."],
   },
+  s48: {
+    h: "Un ualabí aparece en un pueblo de la Manche. La alcaldesa pensó que era una broma. Ouest-France: «no es agresivo, un poco tonto»",
+    d: "2 de septiembre, 22 h, Saint-Martin-d’Aubigny. Una vecina abre la ventana. Laurence Raulline. Venía de una granja en Feugères.",
+    w: ["La primera reacción oficial fue que alguien bromeaba.", "El juicio de carácter está en el periódico regional.", "El ualabí volvió. El acta, no."],
+  },
+  s49: {
+    h: "Salva tres cabras del matadero. Forestale le multa 6.000 € por no llevar crotales",
+    d: "Salvatore Ciancio, Savigliano. Peppino, Carmela, Pasqualina. Pidió registro en la ASL. Llegó la multa igual. Giornale La Voce, 31 de agosto.",
+    w: ["La buena acción no estaba en la base.", "La cría era demasiado joven para contar. Las otras dos, no.", "Para registrarlas, primero paga por no haberlas registrado."],
+  },
+  s50: {
+    h: "Una cotorra en Inverness se come los limpiaparabrisas desde febrero. El Highland Council: no tratamos aves silvestres",
+    d: "Lochardil. Lonas sobre los coches. Una factura de 800 libras. Cathleen MacKinnon a la BBC: «cotorra no es una buena palabra por aquí».",
+    w: ["La plaga es un loro. El expediente es fauna.", "La respuesta oficial es un toldo.", "Inverness ya tiene una palabra que no le gusta."],
+  },
 };
+
 
