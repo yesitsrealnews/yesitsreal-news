@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Pull Wikimedia Commons stills (PD / CC) for story covers. Cite in covers.ts."""
+"""Pull Wikimedia Commons stills (PD / CC) for EVERY story cover.
+
+Standing order (DESK.md): no story ships without a credited free photo.
+Never leave the painted TRUE placeholder. Imagine is last resort, not this script.
+Cite in src/lib/cover-credits.json.
+"""
 from __future__ import annotations
 
 import json
@@ -57,6 +62,28 @@ COVERS: dict[str, tuple[str, str]] = {
         "File:Aerial view of oil refinery next to the Gulf of Mexico near Houston, Texas LCCN2011630532.tif",
         "Gulf of Mexico sea",
     ),
+    "s36": ("File:Common pigeon at Waterlow Park, London 01.jpg", "feral pigeon"),
+    "s37": ("File:Californiakingsnake.jpg", "kingsnake"),
+    "s38": ("File:Little brown bat hanging in cave - DPLA - 443e6bf724ebeafa47244eacf310b369.jpg", "brown bat cave"),
+    "s39": ("File:11.03.85 Au CNES la salle blanche (1985) - 53Fi2159.jpg", "clean room laboratory"),
+    "s40": ("File:The Pentagon January 2008.jpg", "Pentagon building"),
+    "s41": ("File:Pain au chocolat Luc Viatour.jpg", "pain au chocolat"),
+    "s42": ("File:Speed bump (asphalt).jpg", "speed bump"),
+    "s43": ("File:Chèvre naine - Sérent 8.jpg", "dwarf goat"),
+    "s44": ("File:Python reticulatus (1).jpg", "reticulated python"),
+    "s45": ("File:Venus de Milo.JPG", "Venus de Milo statue"),
+    "s46": ("File:046 Capybara by the river in Encontro das Águas State Park Photo by Giles Laurent.jpg", "capybara"),
+    "s47": ("File:Door in Mijas 3107.JPG", "spanish house door number"),
+    "s48": ("File:Red-necked wallaby442.jpg", "red-necked wallaby"),
+    "s49": ("File:Urban goats.jpg", "urban goats"),
+    "s50": ("File:Rose-ringed parakeet (Psittacula krameri borealis) male Jaipur.jpg", "rose-ringed parakeet"),
+    "s51": ("File:CDC-Gathany-Aedes-albopictus-1.jpg", "Aedes albopictus mosquito"),
+    "s52": ("File:Carpet Python - Andrew Mercer - DSC07078.jpg", "carpet python Morelia spilota"),
+    "s53": ("File:Polar bear (Ursus maritimus) in the drift ice region north of Svalbard.jpg", "polar bear Svalbard"),
+    "s54": ("File:Sulphur-crested cockatoo (Cacatua galerita galerita) Sydney.jpg", "sulphur-crested cockatoo"),
+    "s55": ("File:Didelphis albiventris-12-07-28.jpg", "white-eared opossum"),
+    "s56": ("File:Common brushtail possum (Trichosurus vulpecula) with joey Triabunna.jpg", "brushtail possum"),
+    "s57": ("File:Cockroach July 2013-1.jpg", "cockroach"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
