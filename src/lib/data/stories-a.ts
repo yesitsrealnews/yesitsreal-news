@@ -94,7 +94,7 @@ export const STORIES_A: Story[] = [
     ],
     publishedAt: "2026-08-28T06:15:00.000Z",
     updatedAt: "2026-08-28T09:40:00.000Z",
-    breaking: true,
+    breaking: false,
     originalLang: "it",
     entities: ["Mayor of Modena", "Piazza Grande"],
     copy: {

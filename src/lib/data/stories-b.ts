@@ -185,7 +185,7 @@ export const STORIES_B: Story[] = [
       src("Clip of the statement", "Wire pool", "https://wire.example/gravity-clip", "2026-08-21", "wire"),
     ],
     publishedAt: "2026-08-28T03:00:00.000Z",
-    breaking: true,
+    breaking: false,
     entities: ["wellness summit", "prepared remarks"],
     copy: {
       en: c(
