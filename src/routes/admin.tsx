@@ -1,11 +1,13 @@
-import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, Link, Navigate, Outlet, useRouterState } from "@tanstack/react-router";
 import { useAppStore } from "@/lib/store";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/admin")({ component: AdminGate });
+export const Route = createFileRoute("/admin")({
+  component: AdminGate,
+  head: () => ({
+    meta: [{ name: "robots", content: "noindex, nofollow" }, { title: "La Cambuse" }],
+  }),
+});
 
 const LINKS = [
   { to: "/admin", label: "Overview" },
@@ -21,54 +23,7 @@ const LINKS = [
 
 function AdminGate() {
   const admin = useAppStore((s) => s.admin);
-  const setAdmin = useAppStore((s) => s.setAdmin);
-  const lang = useAppStore((s) => s.lang);
-  const fr = lang === "fr";
-  const [code, setCode] = useState("");
-  const [tries, setTries] = useState(0);
-  const locked = tries >= 8;
-
-  if (!admin) {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-paper px-4 text-ink">
-        <p className="kicker text-signal">{fr ? "Rédac chef" : "Editor-in-chief"}</p>
-        <h1 className="mt-3 font-serif text-4xl">YES IT'S REAL</h1>
-        <p className="mt-2 max-w-sm text-center text-sm text-ink-muted">
-          {fr
-            ? "Back-office. Tu valides, tu tues, tu publies. Tant que tu n’as pas donné tous les ordres, rien ne part tout seul."
-            : "Back office. You kill, you hold, you publish. Until you have given the orders, nothing ships itself."}
-        </p>
-        <form
-          className="mt-8 flex w-full max-w-sm flex-col gap-3"
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (locked) return;
-            if (code.trim() === "1aPepette") {
-              setAdmin(true);
-            } else setTries((n) => n + 1);
-          }}
-        >
-          <Input
-            value={code}
-            onChange={(e) => setCode(e.target.value)}
-            placeholder={fr ? "Code desk" : "Desk code"}
-            aria-label={fr ? "Code desk" : "Desk code"}
-            autoComplete="off"
-          />
-          {tries > 0 ? (
-            <p className="text-sm text-signal">{locked ? (fr ? "Desk verrouillée." : "Desk locked for this session.") : fr ? "Ce n’est pas le code." : "That is not the desk."}</p>
-          ) : null}
-          <Button type="submit" disabled={locked}>
-            {fr ? "Entrer" : "Enter"}
-          </Button>
-        </form>
-        <Link to="/" className="mt-8 text-sm underline">
-          {fr ? "Retour au journal" : "Back to the paper"}
-        </Link>
-      </main>
-    );
-  }
-
+  if (!admin) return <Navigate to="/cambuse" />;
   return <AdminShell />;
 }
 
@@ -79,7 +34,7 @@ function AdminShell() {
     <div className="min-h-screen bg-paper text-ink">
       <header className="flex items-center justify-between border-b border-rule px-4 py-3">
         <div>
-          <p className="kicker text-signal">Rédac chef</p>
+          <p className="kicker text-signal">La cambuse</p>
           <p className="font-serif text-xl">YES IT'S REAL desk</p>
         </div>
         <div className="flex gap-3 text-sm">

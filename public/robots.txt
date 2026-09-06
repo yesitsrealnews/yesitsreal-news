@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 Sitemap: https://yesitsreal.news/sitemap.xml
 Disallow: /admin
+Disallow: /cambuse

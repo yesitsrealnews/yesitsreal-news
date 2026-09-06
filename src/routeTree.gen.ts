@@ -14,6 +14,7 @@ import { Route as SectionRouteImport } from './routes/$section'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AdvertiseRouteImport } from './routes/advertise'
+import { Route as CambuseRouteImport } from './routes/cambuse'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ContestRouteImport } from './routes/contest'
@@ -73,6 +74,11 @@ const AdminRoute = AdminRouteImport.update({
 const AdvertiseRoute = AdvertiseRouteImport.update({
   id: '/advertise',
   path: '/advertise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CambuseRoute = CambuseRouteImport.update({
+  id: '/cambuse',
+  path: '/cambuse',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareersRoute = CareersRouteImport.update({
@@ -257,6 +263,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRoute
+  '/cambuse': typeof CambuseRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/contest': typeof ContestRoute
@@ -298,6 +305,7 @@ export interface FileRoutesByTo {
   '/$section': typeof SectionRoute
   '/about': typeof AboutRoute
   '/advertise': typeof AdvertiseRoute
+  '/cambuse': typeof CambuseRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/contest': typeof ContestRoute
@@ -341,6 +349,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRoute
+  '/cambuse': typeof CambuseRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/contest': typeof ContestRoute
@@ -385,6 +394,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/advertise'
+    | '/cambuse'
     | '/careers'
     | '/contact'
     | '/contest'
@@ -426,6 +436,7 @@ export interface FileRouteTypes {
     | '/$section'
     | '/about'
     | '/advertise'
+    | '/cambuse'
     | '/careers'
     | '/contact'
     | '/contest'
@@ -468,6 +479,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/advertise'
+    | '/cambuse'
     | '/careers'
     | '/contact'
     | '/contest'
@@ -511,6 +523,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
   AdvertiseRoute: typeof AdvertiseRoute
+  CambuseRoute: typeof CambuseRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   ContestRoute: typeof ContestRoute
@@ -573,6 +586,13 @@ declare module '@tanstack/react-router' {
       path: '/advertise'
       fullPath: '/advertise'
       preLoaderRoute: typeof AdvertiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cambuse': {
+      id: '/cambuse'
+      path: '/cambuse'
+      fullPath: '/cambuse'
+      preLoaderRoute: typeof CambuseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers': {
@@ -857,6 +877,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
   AdvertiseRoute: AdvertiseRoute,
+  CambuseRoute: CambuseRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   ContestRoute: ContestRoute,

@@ -30,11 +30,6 @@ export function Footer({ lang }: { lang: Lang }) {
               </Link>
             </li>
             <li>
-              <Link to="/admin" className="font-bold hover:underline">
-                {lang === "fr" ? "Rédac chef" : "Editor’s desk"}
-              </Link>
-            </li>
-            <li>
               <Link to="/kit" className="font-bold hover:underline">
                 {lang === "fr" ? "Bandeau X" : "X kit"}
               </Link>
