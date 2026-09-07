@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Copy, Share2 } from "lucide-react";
 import { t } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -28,50 +29,89 @@ export function ShareBar({
     onShare?.();
   };
   const links = [
-    { id: "x", label: "X", href: `https://x.com/intent/tweet?text=${encoded}` },
-    { id: "wa", label: "WhatsApp", href: `https://api.whatsapp.com/send?text=${encoded}` },
-    { id: "tg", label: "Telegram", href: `https://t.me/share/url?url=${encodeURIComponent(abs)}&text=${encodeURIComponent(headline)}` },
-    { id: "fb", label: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(abs)}` },
+    {
+      id: "wa",
+      label: "WhatsApp",
+      href: `https://api.whatsapp.com/send?text=${encoded}`,
+      className: "bg-[#25D366] text-white",
+    },
+    {
+      id: "x",
+      label: "X",
+      href: `https://x.com/intent/tweet?text=${encoded}`,
+      className: "bg-black text-white",
+    },
+    {
+      id: "fb",
+      label: "Facebook",
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(abs)}`,
+      className: "bg-[#1877F2] text-white",
+    },
+    {
+      id: "tg",
+      label: "Telegram",
+      href: `https://t.me/share/url?url=${encodeURIComponent(abs)}&text=${encodeURIComponent(headline)}`,
+      className: "bg-[#229ED9] text-white",
+    },
   ];
 
   return (
-    <div className={cn("flex flex-wrap items-center gap-2", className)}>
-      <span className="kicker text-ink-muted">{t(lang, "share")}</span>
-      {links.map((l) => (
-        <a
-          key={l.id}
-          href={l.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={mark}
-          className="inline-flex h-11 items-center border border-rule bg-card px-3 text-[0.68rem] font-bold uppercase tracking-[0.12em] transition-transform duration-150 active:scale-95 hover:bg-ink hover:text-paper"
+    <div className={cn("w-full", className)}>
+      <p className="kicker text-signal">{t(lang, "share")}</p>
+      <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">
+        {links.map((l) => (
+          <a
+            key={l.id}
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={mark}
+            className={cn(
+              "inline-flex h-14 items-center justify-center px-3 text-sm font-extrabold uppercase tracking-[0.08em] active:scale-[0.98]",
+              l.className,
+            )}
+          >
+            {l.label}
+          </a>
+        ))}
+        <button
+          type="button"
+          className="inline-flex h-14 items-center justify-center gap-2 bg-scream px-3 text-sm font-extrabold uppercase tracking-[0.08em] text-scream-ink active:scale-[0.98]"
+          onClick={() => {
+            void navigator.clipboard?.writeText(text).then(
+              () => {
+                setCopied(true);
+                mark();
+                window.setTimeout(() => setCopied(false), 1600);
+              },
+              () => {
+                setCopied(false);
+              },
+            );
+          }}
         >
-          {l.label}
-        </a>
-      ))}
-      <button
-        type="button"
-        className="inline-flex h-11 items-center border border-rule bg-scream px-3 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-scream-ink transition-transform duration-150 active:scale-95"
-        onClick={() => {
-          void navigator.clipboard?.writeText(text);
-          setCopied(true);
-          mark();
-          window.setTimeout(() => setCopied(false), 1600);
-        }}
-      >
-        {copied ? t(lang, "copied") : t(lang, "copyLink")}
-      </button>
-      <button
-        type="button"
-        className="inline-flex h-11 items-center border border-ink bg-ink px-3 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-paper"
-        onClick={() => {
-          void nativeShare({ title: headline, text, url: abs }).then((ok) => {
-            if (ok) mark();
-          });
-        }}
-      >
-        {t(lang, "nativeShare")}
-      </button>
+          <Copy className="size-4" />
+          {copied ? t(lang, "copied") : t(lang, "copyLink")}
+        </button>
+        <button
+          type="button"
+          className="inline-flex h-14 items-center justify-center gap-2 bg-ink px-3 text-sm font-extrabold uppercase tracking-[0.08em] text-paper active:scale-[0.98]"
+          onClick={() => {
+            void nativeShare({ title: headline, text, url: abs }).then((ok) => {
+              if (ok) mark();
+              else {
+                void navigator.clipboard?.writeText(text);
+                setCopied(true);
+                mark();
+                window.setTimeout(() => setCopied(false), 1600);
+              }
+            });
+          }}
+        >
+          <Share2 className="size-4" />
+          {t(lang, "nativeShare")}
+        </button>
+      </div>
     </div>
   );
 }

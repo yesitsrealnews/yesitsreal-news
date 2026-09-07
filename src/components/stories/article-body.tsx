@@ -94,7 +94,7 @@ export function ArticleBody({
 
       <SourceVideo storyId={story.id} lang={lang} />
 
-      <ShareBar lang={lang} path={`/story/${slug}`} headline={copy.headline} />
+      <ShareBar lang={lang} path={`/story/${slug}`} headline={copy.headline} className="mt-6" />
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <QuoteCardButton story={story} lang={lang} />
       </div>
@@ -154,8 +154,7 @@ export function ArticleBody({
         ) : null}
       </section>
 
-      <ShareBar lang={lang} path={`/story/${slug}`} headline={copy.headline} className="mt-8" />
-      <section className="mt-6 border-4 border-signal bg-paper p-5">
+      <section className="mt-8 border-4 border-signal bg-paper p-5">
         <p className="kicker text-signal">{t(lang, "notSatire")}</p>
         <h2 className="mt-2 font-serif text-3xl uppercase leading-none">{t(lang, "tagline2")}</h2>
         <p className="mt-2 max-w-xl text-sm text-ink-muted">{t(lang, "shareNote")} · @yesitsrealnews</p>
