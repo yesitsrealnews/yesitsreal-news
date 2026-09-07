@@ -9,8 +9,8 @@ export const GOOGLE_SITE_VERIFICATION = "VQZpvyS8_FbId5oVYrLznUobVmavBmH6SAdV2Mm
 export const SEO_FR = {
   title: "YES IT'S REAL — Des infos vraies. Incroyablement bêtes.",
   description:
-    "Vérifié. Sourcé. Malheureusement vrai. Un journal mondial qui ne publie que des faits déjà parus, sourcés, parmi les plus bêtes de la Terre. Pas de satire.",
-  keywords: "infos, faits divers, pas de satire, news, bizarre, vrai, sourcé, Google Actualités",
+    "Vérifié. Sourcé. Malheureusement vrai. Un journal mondial qui ne publie que des faits déjà parus, sourcés, parmi les plus bêtes de la Terre. Ça s’est vraiment passé.",
+  keywords: "infos, faits divers, ça s'est vraiment passé, news, bizarre, vrai, sourcé, Google Actualités",
 } as const;
 
 export function xmlEscape(s: string): string {
@@ -142,7 +142,7 @@ export function articleJsonLd(story: Story, slug?: string) {
       logo: { "@type": "ImageObject", url: `${SITE_URL}/brand/logo-stamp.jpg`, width: 512, height: 512 },
     },
     articleSection: story.section,
-    keywords: ["pas de satire", "faits divers", story.countryName, story.section].join(", "),
+    keywords: ["ça s'est vraiment passé", "faits divers", story.countryName, story.section].join(", "),
     contentLocation: {
       "@type": "Place",
       name: `${story.location}, ${story.countryName}`,

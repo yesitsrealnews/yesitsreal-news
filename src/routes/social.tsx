@@ -37,7 +37,7 @@ function SocialPage() {
             <img src="/brand/avatar.jpg" alt="YES IT'S REAL avatar" className="size-24 border border-ink object-cover" />
             <div className="min-w-0">
               <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.14em] text-signal">Photo + bannière + cartes</p>
-              <p className="mt-1 text-sm font-medium">YES IT'S REAL — vrai, sourcé, trop bête. Pas de satire.</p>
+              <p className="mt-1 text-sm font-medium">YES IT'S REAL — vrai, sourcé, trop bête. Ça s’est vraiment passé.</p>
               <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs font-extrabold uppercase">
                 <a href="/brand/avatar.jpg" download className="underline">Avatar</a>
                 <a href="/brand/header.jpg" download className="underline">Bannière</a>
@@ -53,9 +53,9 @@ function SocialPage() {
           </p>
           <ol className="mt-4 space-y-3">
             {[
-              "YES IT'S REAL. Vrai. Sourcé. Trop bête. Pas de satire.\n\nSi ça sonne faux, lis les sources.",
-              "Une médecin de Richmond se réveille : une chauve-souris sur la bouche. Elle l’a coincée. Test rage négatif. Elle a fait un PSA.\n\nC’est vrai. WTVR. Pas de satire.",
-              "Percuté à 90 km/h, un pigeon passe 12 h dans la calandre. Le mécano : « jamais vu ça en dix ans. » Ils l’ont appelé Romont.\n\nC’est vrai. Ouest-France. Pas de satire.",
+              "YES IT'S REAL. Vrai. Sourcé. Trop bête. Ça s’est vraiment passé.\n\nSi ça sonne faux, lis les sources.",
+              "Une médecin de Richmond se réveille : une chauve-souris sur la bouche. Elle l’a coincée. Test rage négatif. Elle a fait un PSA.\n\nC’est vrai. WTVR. Ça s’est vraiment passé.",
+              "Percuté à 90 km/h, un pigeon passe 12 h dans la calandre. Le mécano : « jamais vu ça en dix ans. » Ils l’ont appelé Romont.\n\nC’est vrai. Ouest-France. Ça s’est vraiment passé.",
             ].map((text, i) => (
               <li key={i} className="border border-ink bg-paper p-3 text-ink">
                 <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.14em] text-signal">Post {i + 1}</p>

@@ -75,8 +75,8 @@ function InvestPage() {
         <ul className="mt-3 list-disc space-y-2 ps-5 text-sm">
           <li>
             {fr
-              ? "Pas de satire. Le produit, ce sont des faits vrais qui ont l’air inventés. C’est une denrée rare."
-              : "Not satire. The product is true events that feel invented. That is a scarce feed."}
+              ? "Ça s’est vraiment passé. Le produit, ce sont des faits vrais qui ont l’air inventés. C’est une denrée rare."
+              : "It really happened. The product is true events that feel invented. That is a scarce feed."}
           </li>
           <li>
             {fr

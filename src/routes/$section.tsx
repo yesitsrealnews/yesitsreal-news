@@ -34,7 +34,7 @@ export const Route = createFileRoute("/$section")({
         { title },
         {
           name: "description",
-          content: `Rubrique ${params.section} — faits vrais, sourcés, déjà parus. Pas de satire. YES IT'S REAL.`,
+          content: `Rubrique ${params.section} — faits vrais, sourcés, déjà parus. Ça s’est vraiment passé. YES IT'S REAL.`,
         },
         { property: "og:title", content: title },
         { property: "og:url", content: url },

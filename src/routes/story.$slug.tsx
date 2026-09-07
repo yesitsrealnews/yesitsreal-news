@@ -23,10 +23,10 @@ export const Route = createFileRoute("/story/$slug")({
     return {
       meta: [
         { title: `${c.headline} — ${SITE_NAME}` },
-        { name: "description", content: `${c.dek} YES IT'S REAL — pas de satire.` },
+        { name: "description", content: `${c.dek} YES IT'S REAL — ça s’est vraiment passé.` },
         { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
         { name: "googlebot-news", content: "index, follow" },
-        { name: "news_keywords", content: `${story.countryName}, ${story.section}, faits divers, pas de satire` },
+        { name: "news_keywords", content: `${story.countryName}, ${story.section}, faits divers, ça s'est vraiment passé` },
         { name: "geo.placename", content: `${story.location}, ${story.countryName}` },
         { property: "og:type", content: "article" },
         { property: "og:site_name", content: SITE_NAME },

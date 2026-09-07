@@ -43,8 +43,10 @@ export async function renderQuotePng(opts: {
   ctx.fillStyle = "#111111";
   ctx.font = "700 42px Oswald, Impact, sans-serif";
   ctx.fillText("YES IT'S REAL", 64, 78);
-  ctx.font = "800 22px Inter, sans-serif";
-  ctx.fillText("NOT SATIRE", 720, 76);
+  ctx.font = "800 20px Inter, sans-serif";
+  ctx.textAlign = "right";
+  ctx.fillText("IT REALLY HAPPENED", w - 48, 76);
+  ctx.textAlign = "left";
 
   ctx.fillStyle = "#e10600";
   ctx.fillRect(64, 170, 140, 48);

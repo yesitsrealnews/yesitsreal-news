@@ -19,7 +19,7 @@ export const Route = createFileRoute("/today")({
       { title: "Le briefing du jour — YES IT'S REAL" },
       {
         name: "description",
-        content: "Cinq faits vrais du jour. Sourcés. Déjà parus. Pas de satire.",
+        content: "Cinq faits vrais du jour. Sourcés. Déjà parus. Ça s’est vraiment passé.",
       },
       { property: "og:title", content: "Le briefing du jour — YES IT'S REAL" },
     ],

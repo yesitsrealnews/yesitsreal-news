@@ -57,7 +57,7 @@ function TeslaReader() {
 
       <main className="mx-auto max-w-6xl px-6 py-8">
         <p className="text-[0.75rem] font-extrabold uppercase tracking-[0.18em] text-[#e10600]">
-          {fr ? "Lecteur voiture · pas de satire" : "Car reader · not satire"}
+          {fr ? "Lecteur voiture · ça s’est vraiment passé" : "Car reader · it really happened"}
         </p>
         <h1 className="mt-3 max-w-4xl font-serif text-4xl uppercase leading-[0.92] sm:text-6xl">
           {fr ? "Le quart d’heure Supercharger." : "The Supercharger quarter-hour."}
@@ -87,8 +87,8 @@ function TeslaReader() {
           <h2 className="mt-3 font-serif text-3xl uppercase">{fr ? "Theater, favori, préinstall." : "Theater, bookmark, pre-install."}</h2>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-white/75">
             {fr
-              ? "Le conducteur est déjà arrêté. Quinze minutes. Il ne veut pas la guerre. Il veut un fait vrai qui a l’air inventé. C’est exactement le journal. Pas de morts. Pas de mineurs. Pas de satire. Une source sur chaque papier."
-              : "The driver is already stopped. Fifteen minutes. They do not want the war. They want a true fact that looks invented. That is the paper. No death beat. No minors. No satire. A source on every story."}
+              ? "Le conducteur est déjà arrêté. Quinze minutes. Il ne veut pas la guerre. Il veut un fait vrai qui a l’air inventé. C’est exactement le journal. Pas de morts. Pas de mineurs. Ça s’est vraiment passé. Une source sur chaque papier."
+              : "The driver is already stopped. Fifteen minutes. They do not want the war. They want a true fact that looks invented. That is the paper. No death beat. No minors. It really happened. A source on every story."}
           </p>
           <a
             href={MAIL}

@@ -61,7 +61,7 @@ export const PLATFORMS = [
 
 export const LISTING_FR = `À vendre : YES IT'S REAL — journal en ligne (marque + site + 110 papiers sourcés)
 
-Ce n'est pas un blog. C'est un journal de prestige qui ne publie que des faits vrais, sourcés, absurdes. Pas de satire. Pas d'invention. Promesse : « Ça a l'air faux. Ça ne l'est pas. »
+Ce n'est pas un blog. C'est un journal de prestige qui ne publie que des faits vrais, sourcés, absurdes. Ça s'est vraiment passé. Pas d'invention. Promesse : « Ça a l'air faux. Ça ne l'est pas. »
 
 Inclus :
 - Marque (YES IT'S REAL, tampon TRUE, kit X, vidéos)
@@ -76,7 +76,7 @@ Idéal : éditeur, fonds micro-média, artiste, ou quelqu'un qui veut un média 
 
 Contact : investors@yesitsreal.news`;
 
-export const LISTING_EN = `For sale: YES IT'S REAL — a prestige paper that only prints true, sourced, stupid events. Not satire. Not The Onion.
+export const LISTING_EN = `For sale: YES IT'S REAL — a prestige paper that only prints true, sourced, stupid events. It really happened. Not The Onion.
 
 Included: brand + TRUE stamp + X kit, 110 sourced stories, 31-language site, newsroom CMS, World Dumbness Cup, @yesitsrealnews.
 

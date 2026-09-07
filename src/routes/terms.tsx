@@ -34,8 +34,8 @@ function Terms() {
       </p>
       <p>
         {fr
-          ? "Vous pouvez partager les titres avec la mention « pas de satire ». Vous ne pouvez pas aspirer la file de la desk."
-          : "You may share our headlines with the not-satire note. You may not scrape the desk queue."}
+          ? "Vous pouvez partager les titres avec la mention « ça s’est vraiment passé ». Vous ne pouvez pas aspirer la file de la desk."
+          : "You may share our headlines with the note that it really happened. You may not scrape the desk queue."}
       </p>
       <ThanksMusk />
     </LegalPage>

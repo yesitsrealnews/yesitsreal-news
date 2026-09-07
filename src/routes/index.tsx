@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: SEO_FR.description },
       { property: "og:url", content: SITE_URL },
       { property: "og:image", content: `${SITE_URL}/og.jpg` },
-      { property: "og:image:alt", content: "YES IT'S REAL — pas de satire" },
+      { property: "og:image:alt", content: "YES IT'S REAL — ça s’est vraiment passé" },
       { property: "og:locale", content: "fr_FR" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: SEO_FR.title },

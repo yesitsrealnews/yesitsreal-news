@@ -20,7 +20,7 @@ export const Route = createRootRoute({
       { name: "googlebot", content: "index, follow, max-image-preview:large" },
       { name: "googlebot-news", content: "index, follow" },
       { name: "application-name", content: SITE_NAME },
-      { name: "news_keywords", content: "infos, faits divers, pas de satire, news, bizarre, vrai" },
+      { name: "news_keywords", content: "infos, faits divers, ça s'est vraiment passé, news, bizarre, vrai" },
       { name: "google-site-verification", content: GOOGLE_SITE_VERIFICATION },
       { name: "author", content: SITE_NAME },
       { property: "og:site_name", content: SITE_NAME },
@@ -56,7 +56,7 @@ export const Route = createRootRoute({
         <p className="kicker text-signal">Erreur</p>
         <h1 className="mt-4 font-serif text-4xl">La page a trébuché. Le journal, non.</h1>
         <p className="mt-4 text-ink-muted">
-          Revenez à la une, ou écrivez à la rédaction. Ce n’est pas une satire non plus.
+          Revenez à la une, ou écrivez à la rédaction. Ça, par contre, n’est pas arrivé.
         </p>
         <p className="mt-6 text-xs text-ink-muted">{error instanceof Error ? error.message : "unknown"}</p>
         <a href="/" className="mt-8 inline-flex h-11 items-center bg-ink px-4 text-sm font-bold uppercase tracking-[0.12em] text-paper">

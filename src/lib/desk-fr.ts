@@ -67,7 +67,7 @@ export function frenchCopyOf(story: Story): StoryCopy {
     body: [
       "Ce papier arrive en anglais. La desk le met en français avant toute mise en ligne.",
       ...en.body,
-      "YES IT’S REAL ne publie pas sans source. Pas de satire.",
+      "YES IT’S REAL ne publie pas sans source. Ça s’est vraiment passé.",
     ],
     whyDumb: en.whyDumb,
     factCheckNote: `${en.factCheckNote} Traduction française à figer.`,

@@ -51,7 +51,7 @@ export const SOCIAL: SocialAccount[] = [
     name: "X",
     handle: "@yesitsrealnews",
     url: "https://x.com/yesitsrealnews",
-    bio: "Real news. Unbelievably dumb. Not satire. Sources under every post.",
+    bio: "Real news. Unbelievably dumb. It really happened. Sources under every post.",
     cadence: "LIVE · Breaking + 6 posts/day",
     live: true,
   },
