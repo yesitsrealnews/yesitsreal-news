@@ -4016,7 +4016,81 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s88",
+    slug: "macron-dragon-ball-park-cergy-toei-denies-licence",
+    slugs: {
+      fr: "macron-parc-dragon-ball-cergy-toei-dement-licence",
+      es: "macron-parque-dragon-ball-cergy-toei-niega-licencia",
+    },
+    section: "politics",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Cergy-Pontoise",
+    dumbness: 9,
+    breaking: true,
+    sources: [
+      src(
+        "Le projet de parc d'attractions Dragon Ball doit encore obtenir l'aval des ayants droit japonais",
+        "France 24",
+        "https://www.france24.com/fr/france/20260904-projet-parc-attractions-dragon-ball-doit-encore-obtenir-aval-des-ayants-droit-japonais",
+        "2026-09-04",
+        "wire",
+      ),
+      src(
+        "Japan's Toei denies issuing licenses for “Dragon Ball” theme park in France",
+        "Kyodo News",
+        "https://english.kyodonews.net/articles/-/84016",
+        "2026-09-05",
+        "wire",
+      ),
+      src(
+        "France, Saudi Arabia agree on €6 billion Dragon Ball Z theme park project near Paris",
+        "Reuters",
+        "https://www.reuters.com/world/middle-east/france-saudi-arabia-agree-6-billion-dragon-ball-z-theme-park-project-near-paris-2026-08-24/",
+        "2026-08-24",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T11:15:00.000Z",
+    originalLang: "fr",
+    confidence: 0.94,
+    entities: ["Emmanuel Macron", "Toei Animation", "Bandai Namco", "Qiddiya", "Mohammed ben Salmane"],
+    copy: {
+      en: c(
+        "Six billion. Dragon Ball, they said. Toei this week: we issued no licence. Bandai Namco: no comment",
+        "Cergy-Pontoise, the old Mirapolis. 24 August: Macron and Mohammed bin Salman, three parks, six billion euros, 22,000 jobs. Reuters wrote Dragon Ball Z. An Élysée adviser: it was born in Riyadh, a shared passion for manga, notably Dragon Ball Z. Valérie Pécresse, TikTok, 25 August: you are not dreaming, Dragon Ball is coming to Île-de-France.",
+        [
+          "This week. Toei Animation, in Japanese: neither we nor any rights-holders have granted a licence for this. We know of no such fact. Bandai Namco Entertainment, to AFP: no comment. Shueisha: nothing to do with it. Kyodo, 5 September. France 24, the 4th. The Élysée never put the words Dragon Ball in the communiqué. The papers did. The pose, Macron and Japan’s prime minister, Kamehameha, 1 April, that one is on Kyodo’s own wire.",
+          "We do not print a park that does not have the stamp. We print six billion, a closed park, a denial. The licence is territorial. Saudi is not Cergy.",
+          "YES IT'S REAL read France 24 against Kyodo and Reuters. Named site, named sum, named studios. Toei spoke. Bandai did not. Goku is not in the file.",
+        ],
+        [
+          "They announced the park. Then they asked Japan.",
+          "Six billion. No licence.",
+          "Bandai said nothing. Toei said no.",
+        ],
+        "France 24 4 Sept 2026; Kyodo 5 Sept; Reuters 24 Aug. Cergy-Pontoise, Mirapolis. No death.",
+      ),
+      fr: c(
+        "Six milliards. Dragon Ball, ont-ils dit. Toei, cette semaine : aucune licence. Bandai Namco : pas de commentaire",
+        "Cergy-Pontoise, l’ancien Mirapolis. 24 août : Macron et Mohammed ben Salmane, trois parcs, six milliards d’euros, 22 000 emplois. Reuters a écrit Dragon Ball Z. Une conseillère de l’Élysée : né à Riyad, une passion commune pour les mangas, notamment Dragon Ball Z. Valérie Pécresse, TikTok, 25 août : vous ne rêvez pas, Dragon Ball arrive en Île-de-France.",
+        [
+          "Cette semaine. Toei Animation, en japonais : ni nous, ni aucun ayant droit n’avons accordé de licence. Nous n’avons connaissance d’aucun fait de ce genre. Bandai Namco Entertainment, à l’AFP : pas de commentaire. Shueisha : rien à voir. Kyodo, 5 septembre. France 24, le 4. L’Élysée n’a pas mis les mots Dragon Ball dans le communiqué. Les journaux, si. La pose, Macron et la Première ministre japonaise, Kamehameha, 1er avril, celle-là est sur le fil Kyodo.",
+          "On n’imprime pas un parc sans le tampon. On imprime six milliards, un parc fermé, un démenti. La licence est territoriale. L’Arabie n’est pas Cergy.",
+          "YES IT’S REAL a lu France 24 contre Kyodo et Reuters. Site nommé, somme nommée, studios nommés. Toei a parlé. Bandai, non. Goku n’est pas au dossier.",
+        ],
+        [
+          "Ils ont annoncé le parc. Ensuite ils ont demandé au Japon.",
+          "Six milliards. Pas de licence.",
+          "Bandai n’a rien dit. Toei a dit non.",
+        ],
+        "France 24 4 sept. 2026 ; Kyodo 5 sept. ; Reuters 24 août. Cergy-Pontoise, Mirapolis. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 

@@ -114,6 +114,7 @@ COVERS: dict[str, tuple[str, str]] = {
     "s85": ("File:Takamatsu Station Plaza Facade.jpg", "Takamatsu station Kagawa"),
     "s86": ("File:Palais Bourbon, Paris 7e, NW View 140402 1.jpg", "Palais Bourbon Assemblée"),
     "s87": ("File:Oxley central roundabout.jpg", "Australian suburban roundabout"),
+    "s88": ("File:Courdimanche - Parc d'attraction Mirapolis - La Vallée des Grès , La Mare au Canes.jpg", "Mirapolis Cergy abandoned park"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")

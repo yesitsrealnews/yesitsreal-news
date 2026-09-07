@@ -437,6 +437,11 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Austral, Sídney. news.com.au, 26 de agosto de 2025. Liverpool Council.",
     w: ["Una semana. Luego la pintura.", "Noventa y tres a favor. Cincuenta y cuatro en contra.", "Iba a ser un óvalo."],
   },
+  s88: {
+    h: "Seis mil millones. Dragon Ball, dijeron. Toei esta semana: ninguna licencia. Bandai Namco: sin comentarios",
+    d: "Cergy-Pontoise, el antiguo Mirapolis. France 24, 4 de septiembre de 2026. Kyodo, el 5.",
+    w: ["Anunciaron el parque. Luego preguntaron a Japón.", "Seis mil millones. Sin licencia.", "Bandai no dijo nada. Toei dijo no."],
+  },
 };
 
 
