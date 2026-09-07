@@ -402,6 +402,16 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Ottobiano, Lomellina. Corriere Milano, 15 de septiembre de 2025. Tribunal de Pavía.",
     w: ["Cuarenta y ocho veces. Mil personas.", "Siete mil euros, por las horas.", "El alcalde lo llamó un servicio."],
   },
+  s81: {
+    h: "Amarraron la popa al coral y se quedaron días. Los demás no tenían boya. Dos barcos confiscados esta mañana",
+    d: "Bahía de Tue, Racha Yai. The Phuket News, 7 de septiembre de 2026. DMCR, policía de Chalong.",
+    w: ["La boya no es un poste.", "Días, en un arrecife, con clientes.", "Dos barcos. Dos expedientes. Esta mañana."],
+  },
+  s82: {
+    h: "Chocaron los cinco con Buda en Wat Pho. La palma no es un saludo. Es un gesto contra el mal",
+    d: "Wat Phra Chetuphon, Bangkok. Bangkok Post, 18 de enero de 2026. El clip es del propio diario.",
+    w: ["La palma no pedía cinco.", "El templo tiene una palabra para esa mano.", "Llevaron el patio de recreo a Wat Pho."],
+  },
 };
 
 

@@ -3594,6 +3594,124 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s81",
+    slug: "racha-yai-dive-boats-illegal-mooring-coral-phuket",
+    slugs: {
+      fr: "racha-yai-bateaux-plongee-amarres-corail-phuket",
+      es: "racha-yai-barcos-buceo-amarrados-coral-phuket",
+    },
+    section: "world",
+    countryCode: "TH",
+    countryName: "Thailand",
+    location: "Racha Yai",
+    dumbness: 7,
+    breaking: true,
+    sources: [
+      src(
+        "Dive boats seized for illegal mooring at Racha Yai island",
+        "The Phuket News",
+        "https://www.thephuketnews.com/dive-boats-seized-for-illegal-mooring-at-racha-yai-island-101536.php",
+        "2026-09-07",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:40:00.000Z",
+    originalLang: "en",
+    confidence: 0.93,
+    entities: ["Racha Yai", "DMCR", "Chalong Police"],
+    copy: {
+      en: c(
+        "They tied the stern to the coral mooring and stayed for days. Other boats could not use the buoy. Two boats seized this morning",
+        "Tue Bay, Racha Yai, off Phuket. The Phuket News, 7 September 2026. Locals complained. Department of Marine and Coastal Resources. Chalong Police. Cases 969/2026 and 967/2026. Two operators arrested.",
+        [
+          "The stern was lashed to the base of the designated buoy. That is not how the buoy works. The occupation blocked other boats. Officials: a risk to the reef. Section 22 of the 2015 Marine and Coastal Resources Act: up to two years, or 200,000 baht, or both.",
+          "This week’s Thai tourist pages were mostly fights, drugs, and files we do not print. This one is a mooring. The island is still there.",
+          "YES IT'S REAL read The Phuket News this morning. Named bay, named police, named docket. No invented tourist. The boats were the tourists’ ride.",
+        ],
+        [
+          "The buoy is not a hitching post.",
+          "Days, on a reef, with paying guests.",
+          "Two boats. Two files. This morning.",
+        ],
+        "The Phuket News, 7 Sept 2026, Racha Yai, DMCR, Chalong. No death.",
+      ),
+      fr: c(
+        "Ils ont amarré la poupe au corail et sont restés des jours. Les autres n’avaient plus la bouée. Deux bateaux saisis ce matin",
+        "Baie de Tue, Racha Yai, au large de Phuket. The Phuket News, 7 septembre 2026. Plaintes des riverains. Département des ressources marines. Police de Chalong. Dossiers 969/2026 et 967/2026. Deux patrons arrêtés.",
+        [
+          "La poupe, liée à la base de la bouée prévue. Ce n’est pas comme ça qu’une bouée marche. L’occupation bloquait les autres. Les autorités : un risque pour le récif. Article 22 de la loi 2015 : jusqu’à deux ans, ou 200 000 bahts, ou les deux.",
+          "Cette semaine, les pages thaïes étaient surtout des bagarres, de la drogue, des dossiers qu’on n’imprime pas. Celui-ci, c’est un amarrage. L’île est toujours là.",
+          "YES IT’S REAL a lu The Phuket News ce matin. Baie nommée, police nommée, greffe nommé. Pas de touriste inventé. Les bateaux étaient leur trajet.",
+        ],
+        [
+          "La bouée n’est pas un plot.",
+          "Des jours, sur un récif, avec des clients.",
+          "Deux bateaux. Deux dossiers. Ce matin.",
+        ],
+        "The Phuket News, 7 sept. 2026, Racha Yai, DMCR, Chalong. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s82",
+    slug: "wat-pho-tourists-high-five-buddha-statues-bangkok",
+    slugs: {
+      fr: "wat-pho-touristes-check-au-bouddha-bangkok",
+      es: "wat-pho-turistas-choca-los-cinco-buda-bangkok",
+    },
+    section: "world",
+    countryCode: "TH",
+    countryName: "Thailand",
+    location: "Bangkok",
+    dumbness: 8,
+    sources: [
+      src(
+        "Tourists seen high-fiving Buddha statues in Bangkok",
+        "Bangkok Post",
+        "https://www.youtube.com/shorts/vTYbWaj7b2w",
+        "2026-01-18",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:42:00.000Z",
+    originalLang: "en",
+    confidence: 0.86,
+    entities: ["Wat Pho", "Wat Phra Chetuphon", "Bangkok Post"],
+    copy: {
+      en: c(
+        "They high-fived the Buddha at Wat Pho. The hand is not a greeting. It is a ward against evil",
+        "Wat Phra Chetuphon, Bangkok. Bangkok Post, 18 January 2026, its own cameras. A group of tourists, the raised palm, a clap. Onlookers laughed. The paper: the gesture is protection. It has a name in the temple.",
+        [
+          "The statue does not high-five. The tourists treated it as a teammate. The Post put the clip on YouTube, Instagram, X. We print the temple and the mistake. We do not invent a nationality the paper did not give.",
+          "This is not this week. It is the week’s question: tourists doing anything. The clean copy from January. This week’s files were darker. We left them.",
+          "YES IT'S REAL read the Post’s own caption against the clip. Named wat. Named paper. The hand was already raised. They added the slap.",
+        ],
+        [
+          "The palm was not asking for five.",
+          "The temple has a word for that hand.",
+          "They brought the playground to Wat Pho.",
+        ],
+        "Bangkok Post, 18 Jan 2026, Wat Pho. Clip on the paper’s channels. No death. No sexual file.",
+      ),
+      fr: c(
+        "Ils ont tapé dans la main du Bouddha à Wat Pho. La paume n’est pas un salut. C’est un geste contre le mal",
+        "Wat Phra Chetuphon, Bangkok. Bangkok Post, 18 janvier 2026, ses propres caméras. Un groupe de touristes, la paume levée, une claque. Les gens autour ont ri. Le journal : le geste protège. Il a un nom dans le temple.",
+        [
+          "La statue ne tape pas dans la main. Les touristes l’ont prise pour un copain d’équipe. Le Post a mis le clip sur YouTube, Instagram, X. On imprime le wat et l’erreur. On n’invente pas une nationalité que le journal n’a pas donnée.",
+          "Ce n’est pas cette semaine. C’est la question de la semaine : les touristes qui font n’importe quoi. La copie propre, janvier. Les dossiers de cette semaine étaient plus noirs. On les a laissés.",
+          "YES IT’S REAL a lu la légende du Post contre le clip. Wat nommé. Journal nommé. La main était déjà levée. Ils ont ajouté la claque.",
+        ],
+        [
+          "La paume ne demandait pas cinq.",
+          "Le temple a un mot pour cette main.",
+          "Ils ont apporté la cour de récré à Wat Pho.",
+        ],
+        "Bangkok Post, 18 janv. 2026, Wat Pho. Clip sur les chaînes du journal. Pas de mort. Pas de dossier sexuel.",
+      ),
+    },
+  }),
 ];
+
 
 

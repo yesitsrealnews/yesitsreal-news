@@ -107,6 +107,8 @@ COVERS: dict[str, tuple[str, str]] = {
     "s78": ("File:-2019-05-18 Cockerel, Trimingham (2).JPG", "Norfolk cockerel"),
     "s79": ("File:Abandoned artificial turf in Hermanninranta, Helsinki, Finland, 2021.jpg", "artificial turf"),
     "s80": ("File:Rocchetta a Volturno-Chiesa di Santa Maria Assunta-campanile.JPG", "Italian village campanile"),
+    "s81": ("File:Thaïlande - Phuket - Raya Island (13445948294).jpg", "Racha Yai island"),
+    "s82": ("File:Wat Pho, Bangkok, Tailandia, 2013-08-22, DD 02.jpg", "Wat Pho Buddha Bangkok"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
