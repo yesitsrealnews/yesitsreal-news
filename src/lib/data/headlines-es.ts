@@ -412,6 +412,16 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Wat Phra Chetuphon, Bangkok. Bangkok Post, 18 de enero de 2026. El clip es del propio diario.",
     w: ["La palma no pedía cinco.", "El templo tiene una palabra para esa mano.", "Llevaron el patio de recreo a Wat Pho."],
   },
+  s83: {
+    h: "Aprobado: una casa baja en la ladera. Construido: siete habitaciones, más alto, más grande, en otro sitio. Cien objeciones. Un formulario a posteriori",
+    d: "Bailbrook Lane, Bath. Telegraph, 29 de agosto de 2026. Thomas Worrall. El ayuntamiento estudia el retrospectivo.",
+    w: ["La ladera era el plano. La losa subió.", "Cinco habitaciones en el papel. Siete en el aire.", "Cien cartas. Un retrospectivo."],
+  },
+  s84: {
+    h: "El bungalow correcto. Setenta y cinco centímetros demasiado lejos. Brent dijo derribarlo. El inspector: no es un resultado razonable",
+    d: "14 Parkfields Avenue, Kingsbury. Just Planning, 16 de mayo de 2026. El aviso, anulado.",
+    w: ["La casa correcta. La estaca equivocada.", "Un metro, luego un aviso de derribo.", "Setenta y cinco centímetros. El inspector la dejó."],
+  },
 };
 
 

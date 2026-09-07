@@ -3711,7 +3711,132 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s83",
+    slug: "bath-mega-mansion-retrospective-planning-bailbrook",
+    slugs: {
+      fr: "bath-mega-maison-permis-retrospectif-bailbrook",
+      es: "bath-mega-mansion-permiso-retrospectivo-bailbrook",
+    },
+    section: "courts",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Bath",
+    dumbness: 8,
+    breaking: true,
+    sources: [
+      src(
+        "‘Monstrous’ seven-bedroom house triggers neighbour row",
+        "The Telegraph",
+        "https://www.telegraph.co.uk/news/2026/08/29/monstrous-seven-bedroom-house-triggers-neighbour-row/",
+        "2026-08-29",
+        "wire",
+      ),
+      src(
+        "Neighbours want ‘£3m mega mansion’ bulldozed after it was built without permission",
+        "Metro",
+        "https://metro.co.uk/2026/08/31/neighbours-want-3m-mega-mansion-bulldozed-built-without-permission-29501044/",
+        "2026-08-31",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:50:00.000Z",
+    originalLang: "en",
+    confidence: 0.92,
+    entities: ["Thomas Worrall", "Bath and North East Somerset Council", "Tavis Hamilton"],
+    copy: {
+      en: c(
+        "Approved: a low house in the hill. Built: seven bedrooms, higher, larger, somewhere else. One hundred objections. A retrospective form",
+        "Bailbrook Lane, edge of Bath. Telegraph, 29 August 2026. Metro, 31st. Thomas Worrall, applicant. Originally a five-bed, low, into the slope. Neighbours: groundwater, hardcore, the pad sat up. Now seven bedrooms. Topped out. You can see the height.",
+        [
+          "More than a hundred formal objections. Seventy at a site meeting. Tavis Hamilton, next door: you could fit about twenty-four of the cottages in the footprint. The council: the retrospective is being determined. Enforcement only if it is refused. Work stopped. Worrall: he wants to be a good neighbour. Nobody back until planners are 100% happy.",
+          "We do not print a child’s name. We print a hillside, a pad, a form filed after the roof. Planning is a sequence. They built first.",
+          "YES IT'S REAL read the Telegraph against Metro. Named lane, named council, named applicant. The cottage street is still there. The house is taller than the paper.",
+        ],
+        [
+          "The slope was the plan. The pad rose.",
+          "Five bedrooms on the form. Seven in the air.",
+          "A hundred letters. One retrospective.",
+        ],
+        "Telegraph 29 Aug 2026; Metro 31 Aug. B&NES, Bailbrook Lane. No death.",
+      ),
+      fr: c(
+        "Approuvé : une maison basse dans la pente. Construit : sept chambres, plus haut, plus large, ailleurs. Cent objections. Un formulaire après coup",
+        "Bailbrook Lane, au bord de Bath. Telegraph, 29 août 2026. Metro, le 31. Thomas Worrall, demandeur. Au départ : cinq chambres, bas, dans le coteau. Les voisins : nappe, tout-venant, le radier a monté. Maintenant sept chambres. Hors d’eau. On voit la hauteur.",
+        [
+          "Plus de cent objections. Soixante-dix à une réunion sur place. Tavis Hamilton, à côté : on ferait tenir une vingtaine de cottages dans l’emprise. Le conseil : le rétrospectif est en cours. L’enforcement, seulement si refus. Chantier arrêté. Worrall : il veut être un bon voisin. Personne ne revient tant que les urbanistes ne sont pas à 100 %.",
+          "On n’imprime pas le nom d’un enfant. On imprime un coteau, un radier, un formulaire après le toit. L’urbanisme, c’est une file. Ils ont construit d’abord.",
+          "YES IT’S REAL a lu le Telegraph contre Metro. Lane nommée, conseil nommé, demandeur nommé. La rue des cottages est toujours là. La maison dépasse le papier.",
+        ],
+        [
+          "La pente était le plan. Le radier a monté.",
+          "Cinq chambres sur le papier. Sept dans l’air.",
+          "Cent lettres. Un rétrospectif.",
+        ],
+        "Telegraph 29 août 2026 ; Metro 31 août. B&NES, Bailbrook Lane. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s84",
+    slug: "brent-bungalow-75cm-wrong-place-inspector-refuses-demolition",
+    slugs: {
+      fr: "brent-bungalow-75-cm-mauvais-endroit-inspecteur-refuse-demolir",
+      es: "brent-bungalow-75-cm-sitio-equivocado-inspector-rehusa-demoler",
+    },
+    section: "courts",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Kingsbury",
+    dumbness: 8,
+    sources: [
+      src(
+        "Enforcement appeal success: new bungalow saved from demolition after 75cm error",
+        "Just Planning",
+        "https://just-planning.co.uk/successes/enforcement-appeal-success-bungalow-saved-from-demolition/",
+        "2026-05-16",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:52:00.000Z",
+    originalLang: "en",
+    confidence: 0.88,
+    entities: ["London Borough of Brent", "14 Parkfields Avenue"],
+    copy: {
+      en: c(
+        "The right bungalow. Seventy-five centimetres too far. Brent said demolish it. The inspector: that is not a sensible outcome",
+        "14 Parkfields Avenue, Kingsbury, NW9. Garage down, one-bed bungalow up. The design matched. The setting-out did not. About 75 cm closer to the rear boundary. A neighbour, a tape, an enforcement notice: take the whole dwelling down. Just Planning, 16 May 2026.",
+        [
+          "The inspector: the extra harm of 75 cm is marginal. The approved scheme was a fallback. Quote: to pull it down and start again, for the sake of 75 cm, does not seem a sensible outcome. Notice quashed. Permission granted as built.",
+          "We print the address the firm printed. We print the tape. Urbanism, in centimetres.",
+          "YES IT'S REAL read the case note. Named street, named borough, named distance. The house stayed. The 75 cm stayed with it.",
+        ],
+        [
+          "The right house. The wrong peg.",
+          "A tape measure, then a demolition notice.",
+          "Seventy-five centimetres. The inspector kept it.",
+        ],
+        "Just Planning, 16 May 2026, 14 Parkfields Avenue, Brent. Inspector’s words as printed. No death.",
+      ),
+      fr: c(
+        "Le bon bungalow. Soixante-quinze centimètres trop loin. Brent dit démolir. L’inspecteur : ce n’est pas un aboutissement raisonnable",
+        "14 Parkfields Avenue, Kingsbury, NW9. Garage bas, bungalow d’une chambre. Le dessin collait. L’implantation, non. Environ 75 cm plus près de la limite arrière. Un voisin, un mètre, un avis : tout abattre. Just Planning, 16 mai 2026.",
+        [
+          "L’inspecteur : le surcroît de nuisance des 75 cm est marginal. Le permis approuvé était un repli. Citation : tout abattre et recommencer, pour 75 cm, ne lui paraît pas un aboutissement raisonnable. Avis annulé. Permis tel que construit.",
+          "On imprime l’adresse que le cabinet a imprimée. On imprime le mètre. L’urbanisme, en centimètres.",
+          "YES IT’S REAL a lu la note. Rue nommée, borough nommé, distance nommée. La maison est restée. Les 75 cm avec elle.",
+        ],
+        [
+          "La bonne maison. Le mauvais piquet.",
+          "Un mètre, puis un avis de démolir.",
+          "Soixante-quinze centimètres. L’inspecteur l’a gardée.",
+        ],
+        "Just Planning, 16 mai 2026, 14 Parkfields Avenue, Brent. Mots de l’inspecteur tels qu’imprimés. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 
