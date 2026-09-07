@@ -332,6 +332,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Highland Park, Illinois, septiembre de 2017. Hill, Price, Rickenbacker. El deputy chief: «No creo que supieran que era un recinto policial.»",
     w: ["El choque, junto al parking a evitar.", "El vestíbulo tenía máquina. También un mostrador.", "Ellos no conocían el edificio. El edificio sí."],
   },
+  s67: {
+    h: "Sale de un Circle K con 19,88 $ en donuts. Vuelve a entrar. La policía sigue ahí",
+    d: "Shreveport, 11 de agosto de 2026. John Alex Jordan, 18 años. La policía en Facebook: volver al lugar del crimen funciona. No como él esperaba.",
+    w: ["La segunda visita fue el arresto.", "Diecinueve dólares con ochenta y ocho.", "La escena seguía ocupada."],
+  },
+  s68: {
+    h: "Roba una casa y deja el DNI en un plumífero en el suelo",
+    d: "Bully-les-Mines, 13 de octubre de 2025. Dos puertas forzadas. Dentro: un abrigo. En un bolsillo: el documento. Ouest-France. Seis meses.",
+    w: ["El bolsillo sirvió más a la policía que a él.", "Un taladro y un equipo de música. Una identidad.", "No tuvieron que buscarlo. Dejó el expediente."],
+  },
+  s69: {
+    h: "Detenido por robar crema solar, se hace llamar Dragon Laser",
+    d: "Tarn-et-Garonne, julio de 2026. Cinco farmacias, 1.500 €. Zurab y Nodari. En comisaría: Dragon Laser. La Dépêche: «pieds nickelés».",
+    w: ["El botín era el verano. El nombre, el cine.", "Turismo, decían. Cinco farmacias en once días.", "Pieds nickelés lo dijo el tribunal, no nosotros."],
+  },
 };
 
 

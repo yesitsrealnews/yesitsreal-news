@@ -2704,5 +2704,193 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s67",
+    slug: "stole-donuts-returned-to-circle-k-while-police-still-there",
+    slugs: {
+      fr: "vole-des-donuts-revient-au-circle-k-la-police-est-encore-la",
+      es: "roba-donuts-vuelve-al-circle-k-con-la-policia-dentro",
+    },
+    section: "courts",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Shreveport, Louisiana",
+    dumbness: 9,
+    sources: [
+      src(
+        "Police Mock Suspect for Returning to Crime Scene",
+        "Newser",
+        "https://www.newser.com/story/394778/police-mock-suspect-for-returning-to-crime-scene.html",
+        "2026-08-17",
+        "wire",
+      ),
+      src(
+        "From SPD: Shreveport Police Arrest Suspected Elk's Lodge Burglar",
+        "Shreveport Police Department via NewsBreak",
+        "https://www.newsbreak.com/96-5-kvki-520830/4824812482079-from-spd-shreveport-police-arrest-suspected-elk-s-lodge-burglar",
+        "2026-08-12",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:58:00.000Z",
+    originalLang: "en",
+    confidence: 0.92,
+    entities: ["John Alex Jordan", "Shreveport Police", "Circle K"],
+    copy: {
+      en: c(
+        "He walked out of a Circle K with $19.88 in donuts. Then he walked back in. The police were still there",
+        "Shreveport, Louisiana, 11 August 2026, 12:34 a.m., 809 Olive Street. Three packs of donuts, two honey buns, pound cake, a fountain drink. John Alex Jordan, 18. SPD on Facebook: returning to the scene really does work. Just not in the way he probably hoped.",
+        [
+          "A clerk called. A man had taken the pastry and a drink and left without paying. An officer searched the block and found nobody. A short time later a man matching the description came back into the same Circle K. Officers were still nearby. They detained him.",
+          "The department posted the line itself. Newser, 17 August. He was also wanted on a theft warrant and linked to a burglary at the Elks Lodge. Charged with theft and simple burglary. Booked Caddo Correctional. The $19.88 is in the release. The return is in the joke the police wrote.",
+          "YES IT'S REAL read the SPD note against Newser. We do not add a doughnut pun. They already wrote it.",
+        ],
+        [
+          "The second visit was the arrest.",
+          "Nineteen dollars and eighty-eight cents.",
+          "The scene was still staffed.",
+        ],
+        "SPD release via NewsBreak 12 Aug 2026; Newser 17 Aug, quoting the Facebook post. Name and charges as booked. Adult.",
+      ),
+      fr: c(
+        "Il sort d’un Circle K avec 19,88 $ de donuts. Puis il rentre. La police est encore là",
+        "Shreveport, Louisiane, 11 août 2026, 12 h 34, 809 Olive Street. Trois paquets de donuts, deux honey buns, un cake, un soda. John Alex Jordan, 18 ans. La police, sur Facebook : revenir sur les lieux, ça marche. Pas comme il l’espérait.",
+        [
+          "Un vendeur appelle. Un homme a pris la pâtisserie et un soda, est parti sans payer. Un agent cherche dans le pâté, ne trouve personne. Peu après, un homme qui correspond rentre dans le même Circle K. Les policiers sont encore là. Ils le retiennent.",
+          "C’est le commissariat qui a écrit la phrase. Newser, 17 août. Un mandat de vol, un cambriolage à l’Elks Lodge. Chefs : vol et simple burglary. Écroué à Caddo. Les 19,88 $ sont dans le communiqué. Le retour, dans la blague de la police.",
+          "YES IT’S REAL a lu la note SPD contre Newser. On n’ajoute pas de calembour sur le donut. Ils l’ont déjà fait.",
+        ],
+        [
+          "La seconde visite, c’était l’interpellation.",
+          "Dix-neuf dollars et quatre-vingt-huit cents.",
+          "La scène était encore occupée.",
+        ],
+        "Communiqué SPD via NewsBreak 12 août 2026 ; Newser 17 août, citant Facebook. Nom et chefs tels que consignés. Majeur.",
+      ),
+    },
+  }),
+  story({
+    id: "s68",
+    slug: "burglar-left-id-card-in-down-jacket-bully-les-mines",
+    slugs: {
+      fr: "cambrioleur-oublie-carte-identite-dans-doudoune-bully-les-mines",
+      es: "ladron-olvida-el-dni-en-el-abrigo-bully-les-mines",
+    },
+    section: "courts",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Bully-les-Mines",
+    dumbness: 9,
+    sources: [
+      src(
+        "Il oublie sa carte d’identité dans la maison qu’il vient de cambrioler, un quadragénaire condamné",
+        "Ouest-France",
+        "https://www.ouest-france.fr/faits-divers/cambriolage/il-oublie-sa-carte-didentite-dans-la-maison-quil-vient-de-cambrioler-un-quadragenaire-condamne-8797ea00-b0d0-11f0-a4ed-44a519c47050",
+        "2025-10-24",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:00:00.000Z",
+    originalLang: "fr",
+    confidence: 0.9,
+    entities: ["Bully-les-Mines", "L’Avenir de l’Artois"],
+    copy: {
+      en: c(
+        "He burgled a house and left his identity card in a down jacket on the floor",
+        "Bully-les-Mines, Pas-de-Calais, 13 October 2025. Two forced doors, a broken pane. Inside: a puffer coat. In a pocket: an ID card. Ouest-France, after L’Avenir de l’Artois. Immediate appearance. Six months.",
+        [
+          "The owner called the police. The house had been entered. Officers found a down jacket that did not belong. In a pocket, a carte d’identité. They went to the address on the card. A man of 40. Taken for a drill and a hi-fi. He did not deny for long. Immediate appearance, mid-October. Six months firm, plus the revocation of four months of a previous suspended sentence.",
+          "Ouest-France, 24 October 2025. The regional paper had it first. We do not print the chemical explanation he offered the court. The identification was in the coat. That is enough.",
+          "YES IT'S REAL read Ouest-France. Named town, named loot, named sentence. The calling card was a calling card.",
+        ],
+        [
+          "The pocket was more useful to the police than to him.",
+          "A drill and a stereo. An ID.",
+          "They did not have to look him up. He had left the file.",
+        ],
+        "Ouest-France 24 Oct 2025, after L’Avenir de l’Artois. 13 Oct, Bully-les-Mines. Immediate appearance. No death.",
+      ),
+      fr: c(
+        "Il cambriole une maison et laisse sa carte d’identité dans une doudoune par terre",
+        "Bully-les-Mines, Pas-de-Calais, 13 octobre 2025. Deux portes forcées, une vitre brisée. Dedans : une doudoune. Dans une poche : une carte d’identité. Ouest-France, d’après L’Avenir de l’Artois. Comparution immédiate. Six mois.",
+        [
+          "Le propriétaire appelle la police. La maison a été visitée. Les agents trouvent une doudoune qui n’est pas à la maison. Dans une poche, une carte d’identité. Ils vont à l’adresse. Un homme de 40 ans. Emporté : une visseuse, une chaîne hi-fi. Il ne nie pas longtemps. Comparution immédiate, mi-octobre. Six mois ferme, plus la révocation de quatre mois d’un sursis.",
+          "Ouest-France, 24 octobre 2025. Le journal de l’Artois l’avait d’abord. On n’imprime pas l’explication chimique qu’il a donnée au tribunal. L’identification était dans la poche. Ça suffit.",
+          "YES IT’S REAL a lu Ouest-France. Ville nommée, butin nommé, peine nommée. La carte de visite, c’était la carte.",
+        ],
+        [
+          "La poche a plus servi à la police qu’à lui.",
+          "Une visseuse et une chaîne. Une identité.",
+          "Ils n’ont pas eu à le chercher. Il avait laissé le dossier.",
+        ],
+        "Ouest-France 24 oct. 2025, d’après L’Avenir de l’Artois. 13 oct., Bully-les-Mines. Comparution immédiate. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s69",
+    slug: "sunscreen-thieves-gave-name-dragon-laser-montauban",
+    slugs: {
+      fr: "voleurs-creme-solaire-se-font-appeler-dragon-laser-montauban",
+      es: "ladrones-de-crema-solar-se-llaman-dragon-laser",
+    },
+    section: "courts",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Montauban",
+    dumbness: 8,
+    sources: [
+      src(
+        "« Ce sont des pieds nickelés » : le gang des voleurs de crème solaire… Dragon Laser",
+        "La Dépêche du Midi",
+        "https://www.ladepeche.fr/2026/07/30/ce-sont-des-pieds-nickeles-le-gang-des-voleurs-de-creme-solaire-dans-les-pharmacies-du-tarn-et-garonne-evite-la-prison-ferme-le-duo-interdit-du-13490209.php",
+        "2026-07-30",
+        "local",
+      ),
+      src(
+        "Cinq pharmacies du Tarn-et-Garonne ciblées en onze jours",
+        "La Dépêche du Midi",
+        "https://www.ladepeche.fr/2026/07/26/cinq-pharmacies-du-tarn-et-garonne-ciblees-en-onze-jours-et-1-500-euros-de-cosmetiques-derobes-deux-ressortissants-georgiens-arretes-a-agen-et-ecroues-13483877.php",
+        "2026-07-26",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:02:00.000Z",
+    originalLang: "fr",
+    confidence: 0.91,
+    entities: ["Zurab", "Nodari", "Dragon Laser", "tribunal de Montauban"],
+    copy: {
+      en: c(
+        "Arrested for stealing sunscreen, he gave the name Dragon Laser",
+        "Tarn-et-Garonne, 11–22 July 2026. Five pharmacies. About €1,500, including sun cream. Zurab, 31, Nodari, 39. Caught in Agen, 23 July. At the station: Dragon Laser. Tribunal of Montauban, 28 July. La Dépêche: ‘pieds nickelés.’ They said they were tourists, making their relatives happy.",
+        [
+          "One man holds the staff with a banal question. The other fills a bag. Valence-d’Agen, Lamagistère, Beaumont-de-Lomagne, Saint-Nicolas-de-la-Grave. Eleven days. Gendarmes cross the département line. Police pick them up in Agen.",
+          "At the ID check, Zurab offers Dragon Laser. La Dépêche, 30 July, the sitting. They tell the court they wanted to please people at home. Twelve months suspended, ten years of territorial ban. Clean records, the paper says. The prosecutor’s line is in the hed.",
+          "YES IT'S REAL read both Dépêche pieces. Named towns, named haul, named alias. We do not invent Dragon Laser. He did.",
+        ],
+        [
+          "The loot was summer. The name was cinema.",
+          "Tourism, they said. Five pharmacies in eleven days.",
+          "Pieds nickelés is the court, not us.",
+        ],
+        "La Dépêche 26 and 30 July 2026, Montauban, 28 July. Arrest Agen 23 July. No death.",
+      ),
+      fr: c(
+        "Interpellation pour vol de crème solaire. Il se fait appeler Dragon Laser",
+        "Tarn-et-Garonne, 11-22 juillet 2026. Cinq pharmacies. Environ 1 500 €, dont de la crème. Zurab, 31 ans, Nodari, 39 ans. Cueillis à Agen, 23 juillet. Au commissariat : Dragon Laser. Tribunal de Montauban, 28 juillet. La Dépêche : « pieds nickelés ». Ils disaient faire du tourisme, faire plaisir aux proches.",
+        [
+          "L’un retient le personnel avec une question banale. L’autre emplit un sac. Valence-d’Agen, Lamagistère, Beaumont-de-Lomagne, Saint-Nicolas-de-la-Grave. Onze jours. Les gendarmes passent la limite. La police les prend à Agen.",
+          "Au contrôle, Zurab donne Dragon Laser. La Dépêche, 30 juillet, l’audience. Ils disent au tribunal vouloir faire plaisir, là-bas. Douze mois avec sursis, dix ans d’interdiction du territoire. Casiers vierges, dit le journal. La formule du parquet est dans le titre.",
+          "YES IT’S REAL a lu les deux papiers de La Dépêche. Villes nommées, butin nommé, alias nommé. On n’invente pas Dragon Laser. C’est lui.",
+        ],
+        [
+          "Le butin, c’était l’été. Le nom, c’était le cinéma.",
+          "Du tourisme, disaient-ils. Cinq pharmacies en onze jours.",
+          "Pieds nickelés, c’est le tribunal, pas nous.",
+        ],
+        "La Dépêche 26 et 30 juil. 2026, Montauban, 28 juil. Interpellation Agen 23 juil. Pas de mort.",
+      ),
+    },
+  }),
 ];
 
