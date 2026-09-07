@@ -48,6 +48,7 @@ export const SECTION_INK: Record<SectionId, { a: string; b: string; c: string }>
   sports: { a: "#e10600", b: "#0f7a4a", c: "#ffe400" },
   "love-money": { a: "#8a5a12", b: "#111111", c: "#ffe400" },
   courts: { a: "#2b2b2b", b: "#e10600", c: "#f4f1ea" },
+  archive: { a: "#5c4030", b: "#1a120c", c: "#e8d5a3" },
 };
 
 export function coverSeed(id: string): number {

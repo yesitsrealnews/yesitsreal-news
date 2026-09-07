@@ -47,6 +47,7 @@ export const SECTION_IDS = [
   "sports",
   "love-money",
   "courts",
+  "archive",
 ] as const;
 
 export type SectionId = (typeof SECTION_IDS)[number];

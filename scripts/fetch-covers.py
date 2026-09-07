@@ -115,6 +115,10 @@ COVERS: dict[str, tuple[str, str]] = {
     "s86": ("File:Palais Bourbon, Paris 7e, NW View 140402 1.jpg", "Palais Bourbon Assemblée"),
     "s87": ("File:Oxley central roundabout.jpg", "Australian suburban roundabout"),
     "s88": ("File:Courdimanche - Parc d'attraction Mirapolis - La Vallée des Grès , La Mare au Canes.jpg", "Mirapolis Cergy abandoned park"),
+    "s89": ("File:Eiffel tower at Exposition Universelle, Paris, 1889.jpg", "Eiffel Tower 1889"),
+    "s90": ("File:Brooklyn Bridge Entrance on Brooklyn side, 1899.jpg", "Brooklyn Bridge 1899"),
+    "s91": ("File:Welles-Radio-Studio-1938.jpg", "Orson Welles radio 1938"),
+    "s92": ("File:Coca-Cola bottles.jpg", "classic Coca-Cola bottles"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")

@@ -16,6 +16,7 @@ import { ReadGate } from "@/components/site/read-gate";
 import { relatedStories } from "@/lib/catalog";
 import { applyVoice, voiceMeta } from "@/lib/voices";
 import { BadgeCheck, Eye, MapPin } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function ArticleBody({
   story,
@@ -33,19 +34,32 @@ export function ArticleBody({
   const related = relatedStories(story, extras);
   const mid = Math.max(2, Math.floor(copy.body.length / 2));
   const slug = storySlug(story, lang);
+  const era = story.section === "archive";
 
   return (
-    <article className="mx-auto max-w-3xl px-4 py-6 sm:px-6">
+    <article className={cn("mx-auto max-w-3xl px-4 py-6 sm:px-6", era && "era-archive")}>
       <p className="kicker text-signal">{t(lang, SECTION_KEY[story.section] ?? "secWorld")}</p>
       {voice.id !== "desk" ? (
         <p className="mt-2 text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-signal">
           {t(lang, "voiceAfter")} {lang === "fr" ? voice.afterFr : voice.after}
         </p>
       ) : null}
-      <h1 className="mt-3 font-serif text-4xl uppercase leading-[0.98] tracking-tight sm:text-5xl">{copy.headline}</h1>
-      <p className="mt-4 text-lg text-ink-muted">{copy.dek}</p>
+      <h1
+        className={cn(
+          "mt-3 font-serif text-4xl uppercase leading-[0.98] tracking-tight sm:text-5xl",
+          era && "font-archive italic normal-case leading-[1.12]",
+        )}
+      >
+        {copy.headline}
+      </h1>
+      <p className={cn("mt-4 text-lg text-ink-muted", era && "font-[family-name:var(--font-archive-body)]")}>{copy.dek}</p>
       <SoundsFake storyId={story.id} lang={lang} />
-      <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-y-2 border-ink py-3 text-xs font-medium text-ink-muted">
+      <div
+        className={cn(
+          "mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-y-2 border-ink py-3 text-xs font-medium text-ink-muted",
+          era && "double-rule border-y-0",
+        )}
+      >
         <span>{t(lang, "byline")}</span>
         <span className="inline-flex items-center gap-1">
           <span aria-hidden>{flagEmoji(story.countryCode)}</span>

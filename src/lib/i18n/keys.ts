@@ -50,6 +50,9 @@ export const UI_KEYS = [
   "secSports",
   "secLove",
   "secCourts",
+  "secArchive",
+  "archiveDek",
+  "archiveKicker",
   "about",
   "method",
   "corrections",
@@ -241,4 +244,5 @@ export const SECTION_KEY: Record<string, UiKey> = {
   sports: "secSports",
   "love-money": "secLove",
   courts: "secCourts",
+  archive: "secArchive",
 };

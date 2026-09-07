@@ -7,6 +7,7 @@ import { StoryCard } from "@/components/stories/story-card";
 import { AdSlot } from "@/components/site/ad-slot";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 
 export function SectionArchive({
   section,
@@ -30,12 +31,19 @@ export function SectionArchive({
   );
   const week = dumbest(filtered, 5);
   const title = t(lang, SECTION_KEY[section] ?? "secWorld");
+  const era = section === "archive";
 
   return (
-    <main id="main" className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
-      <p className="kicker text-signal">{t(lang, "edition")}</p>
-      <h1 className="mt-2 font-serif text-4xl sm:text-5xl">{title}</h1>
-      <p className="mt-2 max-w-2xl text-sm text-ink-muted">{t(lang, "tagline4")}</p>
+    <main
+      id="main"
+      className={cn("mx-auto max-w-7xl px-4 py-8 sm:px-6", era && "era-archive -mx-4 px-4 sm:-mx-6 sm:px-6")}
+    >
+      <p className="kicker text-signal">{era ? t(lang, "archiveKicker") : t(lang, "edition")}</p>
+      <h1 className={cn("mt-2 font-serif text-4xl sm:text-5xl", era && "font-archive italic normal-case")}>{title}</h1>
+      <p className={cn("mt-2 max-w-2xl text-sm text-ink-muted", era && "font-[family-name:var(--font-archive-body)] text-base")}>
+        {era ? t(lang, "archiveDek") : t(lang, "tagline4")}
+      </p>
+      {era ? <div className="double-rule mt-6 py-2" /> : null}
 
       <form
         className="mt-6 grid gap-4 border border-rule p-4 sm:grid-cols-4"
@@ -107,7 +115,9 @@ export function SectionArchive({
         </div>
         <aside className="space-y-6 lg:col-span-4">
           <section>
-            <h2 className="kicker border-b border-rule pb-2">{t(lang, "unbelievableWeek")}</h2>
+            <h2 className="kicker border-b border-rule pb-2">
+              {era ? t(lang, "archiveKicker") : t(lang, "unbelievableWeek")}
+            </h2>
             <ul className="mt-3 space-y-4">
               {week.map((s) => (
                 <li key={s.id}>

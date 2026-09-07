@@ -67,6 +67,7 @@ export function StoryCard({
           "font-serif uppercase tracking-tight text-ink group-hover:underline decoration-2 underline-offset-4",
           variant === "compact" || variant === "rail" ? "text-lg leading-snug" : "text-2xl leading-[1.05]",
           variant === "feature" && "text-3xl sm:text-4xl",
+          story.section === "archive" && "font-archive italic normal-case tracking-normal leading-snug",
         )}
       >
         <Link to="/story/$slug" params={{ slug }}>

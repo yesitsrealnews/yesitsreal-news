@@ -13,6 +13,7 @@ export function storyNewsDate(story: Story): Date {
 }
 
 export function isThisWeek(story: Story, now = Date.now()): boolean {
+  if (story.section === "archive") return false;
   const t = +storyNewsDate(story);
   if (Number.isNaN(t)) return false;
   const week = HOME_WINDOW_DAYS * 24 * 60 * 60 * 1000;
@@ -59,7 +60,7 @@ export function inSection(extras: Story[], section: SectionId): Story[] {
   const all = publishedStories(extras);
   if (section === "world") {
     const own = all.filter((s) => s.section === "world");
-    const rest = all.filter((s) => s.section !== "world" && s.countryCode !== "GB");
+    const rest = all.filter((s) => s.section !== "world" && s.section !== "archive" && s.countryCode !== "GB");
     const mixed = [...own, ...rest];
     return mixed.length ? mixed : all;
   }

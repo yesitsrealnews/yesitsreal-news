@@ -4,6 +4,8 @@
   --font-serif: "Oswald", "Impact", "Arial Narrow", sans-serif;
   --font-sans: "Inter", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-archive: "Playfair Display", "Didot", "Times New Roman", serif;
+  --font-archive-body: "Libre Baskerville", Georgia, "Times New Roman", serif;
 
   --color-paper: #fff7ea;
   --color-paper-2: #ffe7b0;
@@ -146,6 +148,49 @@
 
 .article-serif p {
   text-transform: none;
+}
+
+.era-archive {
+  background: color-mix(in oklab, var(--color-paper) 88%, #c9a36a);
+}
+.era-archive h1,
+.era-archive h2,
+.era-archive h3 {
+  font-family: var(--font-archive);
+  font-style: italic;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.012em;
+  line-height: 1.12;
+}
+.era-archive .kicker {
+  font-family: var(--font-archive);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+}
+.era-archive .article-serif {
+  font-family: var(--font-archive-body);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  text-transform: none;
+}
+.era-archive .article-serif p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-archive);
+  font-style: italic;
+  font-size: 4.4rem;
+  line-height: 0.78;
+  padding-right: 0.1em;
+  padding-top: 0.04em;
+  color: var(--color-ink);
+}
+.era-archive .double-rule {
+  border-top: 3px double var(--color-ink);
+  border-bottom: 3px double var(--color-ink);
+}
+.font-archive {
+  font-family: var(--font-archive);
 }
 
 .hairline {

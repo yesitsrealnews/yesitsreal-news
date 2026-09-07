@@ -19,6 +19,7 @@ export const SECTIONS: SectionDef[] = [
   { id: "sports", path: "/sports", kicker: "SPORTS" },
   { id: "love-money", path: "/love-money", kicker: "LOVE & MONEY" },
   { id: "courts", path: "/courts", kicker: "COURTS" },
+  { id: "archive", path: "/archive", kicker: "ARCHIVE" },
 ];
 
 export const SECTION_BY_ID: Record<SectionId, SectionDef> = Object.fromEntries(

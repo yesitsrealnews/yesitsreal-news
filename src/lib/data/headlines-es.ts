@@ -442,6 +442,26 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Cergy-Pontoise, el antiguo Mirapolis. France 24, 4 de septiembre de 2026. Kyodo, el 5.",
     w: ["Anunciaron el parque. Luego preguntaron a Japón.", "Seis mil millones. Sin licencia.", "Bandai no dijo nada. Toei dijo no."],
   },
+  s89: {
+    h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
+    d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",
+    w: ["Vendió un monumento que no estaba en venta.", "El comprador tuvo demasiada vergüenza para denunciar.", "Luego lo intentó una segunda vez."],
+  },
+  s90: {
+    h: "Vendió el puente de Brooklyn. La policía halló a los nuevos dueños montando un peaje",
+    d: "Nueva York. George C. Parker. Wikipedia, el expediente.",
+    w: ["Vendió un puente que no era suyo.", "Los nuevos dueños quisieron un peaje.", "La policía desmontó el kiosco."],
+  },
+  s91: {
+    h: "Una obra de radio dijo que los marcianos habían aterrizado en Nueva Jersey. Los diarios dijeron que América entró en pánico",
+    d: "30 de octubre de 1938. CBS. Smithsonian, 6 de mayo de 2015.",
+    w: ["Era una obra. Sonaba a noticiero.", "Algunos se perdieron el primer minuto.", "Marte no aterrizó. Los diarios sí."],
+  },
+  s92: {
+    h: "Cambiaron la Coca-Cola. América gritó. Setenta y nueve días después volvió la antigua. La llamaron Classic",
+    d: "Atlanta, 23 de abril de 1985. La propia compañía.",
+    w: ["Cambiaron la fórmula a propósito.", "El país denunció con la garganta.", "Setenta y nueve días. Luego: Classic."],
+  },
 };
 
 
