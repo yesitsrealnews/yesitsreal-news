@@ -13,7 +13,6 @@ import { QuoteCardButton } from "@/components/stories/quote-card";
 import { ReactionBar } from "@/components/stories/reactions";
 import { SoundsFake } from "@/components/stories/sounds-fake";
 import { SourceVideo } from "@/components/stories/source-video";
-import { ReadGate } from "@/components/site/read-gate";
 import { relatedStories } from "@/lib/catalog";
 import { applyVoice, voiceMeta } from "@/lib/voices";
 import { BadgeCheck, Eye, MapPin } from "lucide-react";
@@ -112,33 +111,25 @@ export function ArticleBody({
       {pending ? <p className="mt-6 text-sm italic text-ink-muted">{t(lang, "bodyPending")}</p> : null}
 
       <div className="article-serif mt-8 space-y-5 text-ink">
-        {copy.body[0] ? <p>{copy.body[0]}</p> : null}
+        {copy.body.map((p, i) => (
+          <div key={i}>
+            <p>{p}</p>
+            {i === 1 ? <AdSlot lang={lang} slot="inarticle" salt={`${story.id}-p2`} className="my-8" /> : null}
+            {i === mid ? <AdSlot lang={lang} slot="inarticle" salt={`${story.id}-mid`} className="my-8" /> : null}
+          </div>
+        ))}
       </div>
 
-      <ReadGate lang={lang}>
-        <div className="article-serif mt-5 space-y-5 text-ink">
-          {copy.body.slice(1).map((p, i) => (
-            <div key={i}>
-              <p>{p}</p>
-              {i === 0 ? <AdSlot lang={lang} slot="inarticle" salt={`${story.id}-p2`} className="my-8" /> : null}
-              {i + 1 === Math.max(1, mid - 1) && mid !== 1 ? (
-                <AdSlot lang={lang} slot="inarticle" salt={`${story.id}-mid`} className="my-8" />
-              ) : null}
-            </div>
-          ))}
-        </div>
-
-        {!story.sponsored ? (
-          <section className="mt-10 border-2 border-ink bg-scream p-5 text-scream-ink">
-            <h2 className="kicker">{t(lang, "whyDumb")}</h2>
-            <ol className="mt-3 list-decimal space-y-2 ps-5 text-sm font-medium">
-              {copy.whyDumb.map((w) => (
-                <li key={w}>{w}</li>
-              ))}
-            </ol>
-          </section>
-        ) : null}
-      </ReadGate>
+      {!story.sponsored ? (
+        <section className="mt-10 border-2 border-ink bg-scream p-5 text-scream-ink">
+          <h2 className="kicker">{t(lang, "whyDumb")}</h2>
+          <ol className="mt-3 list-decimal space-y-2 ps-5 text-sm font-medium">
+            {copy.whyDumb.map((w) => (
+              <li key={w}>{w}</li>
+            ))}
+          </ol>
+        </section>
+      ) : null}
 
       <section className="mt-8 border border-rule p-5">
         <h2 className="kicker text-ink-muted">{t(lang, "originalSources")}</h2>
@@ -164,6 +155,12 @@ export function ArticleBody({
       </section>
 
       <ShareBar lang={lang} path={`/story/${slug}`} headline={copy.headline} className="mt-8" />
+      <section className="mt-6 border-4 border-signal bg-paper p-5">
+        <p className="kicker text-signal">{t(lang, "notSatire")}</p>
+        <h2 className="mt-2 font-serif text-3xl uppercase leading-none">{t(lang, "tagline2")}</h2>
+        <p className="mt-2 max-w-xl text-sm text-ink-muted">{t(lang, "shareNote")} · @yesitsrealnews</p>
+        <ShareBar lang={lang} path={`/story/${slug}`} headline={copy.headline} className="mt-4" />
+      </section>
 
       <div className="mt-8">
         <AdSlot lang={lang} slot="native" salt={`${story.id}-end`} />

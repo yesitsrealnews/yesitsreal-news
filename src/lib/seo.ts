@@ -131,6 +131,7 @@ export function articleJsonLd(story: Story, slug?: string) {
     dateModified: story.updatedAt || story.publishedAt,
     inLanguage: story.copy.fr ? "fr" : story.originalLang || "en",
     isAccessibleForFree: true,
+    articleBody: c.body.join("\n\n"),
     mainEntityOfPage: storyCanonical(story, slug),
     url: storyCanonical(story, slug),
     image: [image],

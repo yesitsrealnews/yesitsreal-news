@@ -12,8 +12,8 @@ function Privacy() {
     <LegalPage titleKey="privacy">
       <p>{t(lang, "privacyShort")}</p>
       <p>
-        We store language, theme, cookie choice, newsletter address if you give one (including to unlock the rest of an
-        article), and story submissions you send, in your browser for this preview. We do not sell reader lists.
+        We store language, theme, cookie choice, newsletter address if you give one, and story submissions you send, in
+        your browser for this preview. The articles are free to read. We do not sell reader lists.
         Advertising partners, if you accept optional cookies, may set their own. Necessary cookies run the site.
       </p>
       <p>

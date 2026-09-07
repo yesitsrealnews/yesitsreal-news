@@ -15,7 +15,7 @@ export function absUrl(path: string): string {
 }
 
 export function shareCopy(lang: Lang, headline: string, path: string): string {
-  return `${headline}\n\n${t(lang, "tagline2")}\n${t(lang, "shareNote")}\n${absUrl(path)}`;
+  return `${headline}\n\n${t(lang, "tagline2")}\n${t(lang, "shareNote")} @yesitsrealnews\n${absUrl(path)}`;
 }
 
 export async function nativeShare(payload: { title: string; text: string; url: string }): Promise<boolean> {
