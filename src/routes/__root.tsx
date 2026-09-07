@@ -50,6 +50,21 @@ export const Route = createRootRoute({
       <NotFoundPage />
     </SiteShell>
   ),
+  errorComponent: ({ error }) => (
+    <SiteShell>
+      <main id="main" className="mx-auto max-w-xl px-4 py-24 text-center">
+        <p className="kicker text-signal">Erreur</p>
+        <h1 className="mt-4 font-serif text-4xl">La page a trébuché. Le journal, non.</h1>
+        <p className="mt-4 text-ink-muted">
+          Revenez à la une, ou écrivez à la rédaction. Ce n’est pas une satire non plus.
+        </p>
+        <p className="mt-6 text-xs text-ink-muted">{error instanceof Error ? error.message : "unknown"}</p>
+        <a href="/" className="mt-8 inline-flex h-11 items-center bg-ink px-4 text-sm font-bold uppercase tracking-[0.12em] text-paper">
+          Retour à la une
+        </a>
+      </main>
+    </SiteShell>
+  ),
   component: RootDocument,
 });
 

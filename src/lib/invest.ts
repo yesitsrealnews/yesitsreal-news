@@ -7,7 +7,7 @@ export const ASKING = {
   sale: {
     low: 5_000,
     high: 12_000,
-    note: "Asset sale now: brand, stack, 40 sourced stories, Cup, kit, X. Owner will take €5k. Traffic is not yet a multiple.",
+    note: "Asset sale now: brand, stack, 110 sourced stories, Cup, kit, X. Owner will take €5k. Traffic is not yet a multiple.",
   },
 };
 
@@ -27,7 +27,7 @@ export const MODEL = [
 
 export const TRACTION = [
   { k: "Languages", v: "31" },
-  { k: "Stories in the well", v: "40 sourced" },
+  { k: "Stories in the well", v: "110+ sourced" },
   { k: "Ad units wired", v: "6" },
   { k: "X", v: "@Yesitsarealnews" },
   { k: "Contest", v: "World Dumbness Cup 2026" },
@@ -36,7 +36,7 @@ export const TRACTION = [
 
 export const ASSETS = [
   "Wordmark, TRUE stamp, X kit (banner 1500×500, avatar, cards, launch films)",
-  "40 sourced stories, EN+FR, Wikimedia covers, voice roster",
+  "110 sourced stories, EN+FR, Wikimedia covers, voice roster",
   "Newsroom back-office (inbox, publish, reject, ads, leads)",
   "31-language shell, newsletter gate, RSS, sitemap, OG",
   "World Dumbness Cup + merch POD path",
@@ -57,14 +57,14 @@ export const PLATFORMS = [
   { name: "Empire Flippers", url: "https://empireflippers.com", why: "Later, after trailing revenue. Not today." },
 ];
 
-export const LISTING_FR = `À vendre : YES IT'S REAL — journal en ligne (marque + site + 40 papiers sourcés)
+export const LISTING_FR = `À vendre : YES IT'S REAL — journal en ligne (marque + site + 110 papiers sourcés)
 
 Ce n'est pas un blog. C'est un journal de prestige qui ne publie que des faits vrais, sourcés, absurdes. Pas de satire. Pas d'invention. Promesse : « Ça a l'air faux. Ça ne l'est pas. »
 
 Inclus :
 - Marque (YES IT'S REAL, tampon TRUE, kit X, vidéos)
 - Site moderne (31 langues, rédac, pubs, newsletter, concours mondial)
-- 40 articles sourcés (Lalanne, Christ cosmique, golfe d'Amérique, GEIPAN, Pentagon UAP…)
+- 110 articles sourcés (Lalanne, Christ cosmique, golfe d'Amérique, GEIPAN, Pentagon UAP…)
 - Compte X @Yesitsarealnews
 - Desk / back-office rédacteur en chef
 
@@ -76,7 +76,7 @@ Contact : investors@yesitsreal.news`;
 
 export const LISTING_EN = `For sale: YES IT'S REAL — a prestige paper that only prints true, sourced, stupid events. Not satire. Not The Onion.
 
-Included: brand + TRUE stamp + X kit, 40 sourced stories, 31-language site, newsroom CMS, World Dumbness Cup, @Yesitsarealnews.
+Included: brand + TRUE stamp + X kit, 110 sourced stories, 31-language site, newsroom CMS, World Dumbness Cup, @Yesitsarealnews.
 
 Asking: €5,000 (to €12,000 once yesitsreal.news is live). No trailing revenue. You are buying the masthead, the stack, and the well.
 
