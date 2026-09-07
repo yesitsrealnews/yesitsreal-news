@@ -372,6 +372,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "American Airlines 1915, Milwaukee–Dallas, noviembre de 2024. Doug McCright: él quería bajarse. Yo no. CNN lo lista esta semana.",
     w: ["Ya no estaba en la carta.", "La puerta a esa altura no es una puerta.", "La cinta aguantó hasta Dallas."],
   },
+  s75: {
+    h: "Cinco años de denuncia contra la campana de una capilla de playa. Pau está ocupado. El miércoles no vino nadie",
+    d: "Capbreton, Landas. Sainte-Thérèse-de-la-Plage. La République des Pyrénées, 4 de septiembre de 2026. Audiencia del 2: no llamada.",
+    w: ["Las 8 ya se habían ido.", "El tribunal se reunió. El expediente no.", "Una capilla de playa, cinco años, una vecina."],
+  },
+  s76: {
+    h: "Demandaron a un gallo. Dijon dice que el caserío es el campo. El gallo guarda el alba",
+    d: "Couhard, Autun. Kiki, Philippe Brochot. Apelación, 12 de mayo de 2026. Le Parisien, France 3. Unos 1.000 € de costas.",
+    w: ["La denuncia era contra el alba.", "El caserío siguió siendo caserío.", "Cien euros, al hombre del gallo."],
+  },
+  s77: {
+    h: "Pidieron al alcalde parar las campanas. Versalles: las horas pueden seguir",
+    d: "Le Mesnil-le-Roi, Yvelines. Saint-Vincent. Decisión 2408246, 30 de junio de 2026. Rechazo.",
+    w: ["El cuarto de hora era el agravio.", "El silencio del alcalde no es una orden de parar.", "Las horas guardaron las horas."],
+  },
 };
 
 

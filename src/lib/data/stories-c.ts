@@ -3225,5 +3225,186 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s75",
+    slug: "capbreton-chapel-bell-complaint-administrative-court-pau",
+    slugs: {
+      fr: "capbreton-plainte-cloche-chapelle-plage-tribunal-pau",
+      es: "capbreton-denuncia-campana-capilla-playa-tribunal-pau",
+    },
+    section: "courts",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Capbreton",
+    dumbness: 8,
+    sources: [
+      src(
+        "Une plainte contre le bruit de la cloche de l’église de la plage, à Capbreton, finit au tribunal administratif de Pau",
+        "La République des Pyrénées",
+        "https://www.larepubliquedespyrenees.fr/faits-divers/justice/une-plainte-sur-le-bruit-de-la-cloche-de-l-eglise-de-la-plage-a-capbreton-finit-au-tribunal-administratif-de-pau-30478333.php",
+        "2026-09-04",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:22:00.000Z",
+    originalLang: "fr",
+    confidence: 0.9,
+    entities: ["Chapelle Sainte-Thérèse", "Tribunal administratif de Pau", "Jean-Bernard Labeyrie"],
+    copy: {
+      en: c(
+        "Five years of complaint against a beach chapel bell. Pau was seized. Wednesday, nobody came",
+        "Capbreton, Landes. A neighbour versus the volume of Sainte-Thérèse-de-la-Plage. The mayor, she says, will not use his police powers. La République des Pyrénées, 4 September 2026. Hearing listed 2 September. Not called. The lawyers sent papers.",
+        [
+          "Compromise already: the 8 a.m. ring dropped. Noon and evening kept. Abbé Jean-Bernard Labeyrie, diocese of Aire and Dax: the steeples are the landscape. A petition, mediation, the town, the diocese. The court is still seized on the merits. She wants the commune ordered to turn it down.",
+          "The sound was measured again. The paper: it does not appear to break the admitted norms. Five years. A chapel on a beach. The une this week is a file that did not get called.",
+          "YES IT'S REAL read the République. Named chapel, named court, named abbé. No invented volume. The complaint is the story. The bell is still there.",
+        ],
+        [
+          "The 8 a.m. ring had already left.",
+          "The court sat. The file did not.",
+          "A beach chapel, five years, one neighbour.",
+        ],
+        "La République des Pyrénées, 4 Sept 2026, Capbreton, TA Pau. No death.",
+      ),
+      fr: c(
+        "Cinq ans de plainte contre la cloche d’une chapelle de plage. Pau est saisi. Mercredi, personne n’est venu",
+        "Capbreton, Landes. Une riveraine contre le volume de Sainte-Thérèse-de-la-Plage. Le maire, dit-elle, n’use pas de ses pouvoirs de police. La République des Pyrénées, 4 septembre 2026. Audience du 2 septembre. Non appelée. Les avocats ont envoyé les papiers.",
+        [
+          "Compromis déjà : plus de sonnerie à 8 h. Midi et soir restent. L’abbé Jean-Bernard Labeyrie, diocèse d’Aire et Dax : les clochers, c’est le paysage. Une pétition, une médiation, la ville, le diocèse. Le tribunal reste saisi au fond. Elle veut que la commune baisse le son.",
+          "On a mesuré encore. Le journal : ça ne semble pas sortir des normes. Cinq ans. Une chapelle sur une plage. La une de la semaine, c’est un dossier qu’on n’a pas appelé.",
+          "YES IT’S REAL a lu la République. Chapelle nommée, tribunal nommé, abbé nommé. Pas de décibel inventé. La plainte, c’est le papier. La cloche est toujours là.",
+        ],
+        [
+          "Les 8 heures étaient déjà parties.",
+          "Le tribunal siégeait. Le dossier non.",
+          "Une chapelle de plage, cinq ans, une voisine.",
+        ],
+        "La République des Pyrénées, 4 sept. 2026, Capbreton, TA Pau. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s76",
+    slug: "kiki-rooster-dijon-appeal-neighbors-lose-couhard-autun",
+    slugs: {
+      fr: "coq-kiki-cour-appel-dijon-voisins-deboutes-couhard",
+      es: "gallo-kiki-apelacion-dijon-vecinos-desestimados-couhard",
+    },
+    section: "courts",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Couhard",
+    dumbness: 8,
+    sources: [
+      src(
+        "« De tous les voisins, il n’y en a qu’un qui se plaint du chant de mon coq » : Kiki gagne en justice",
+        "Le Parisien",
+        "https://www.leparisien.fr/saone-et-loire-71/de-tous-les-voisins-il-ny-en-a-quun-qui-se-plaint-du-chant-de-mon-coq-kiki-gagne-en-justice-15-05-2026-ANVC242NA5G25MNNE53XLBD54Q.php",
+        "2026-05-15",
+        "wire",
+      ),
+      src(
+        "Son coq Kiki chante dès 4h du matin, ses voisins l'attaquent en justice : la Cour d'appel de Dijon a tranché",
+        "France 3 Bourgogne",
+        "https://france3-regions.franceinfo.fr/bourgogne-franche-comte/saone-et-loire/kiki-le-coq-va-t-il-pouvoir-continuer-a-chanter-dans-ce-hameau-la-justice-a-tranche-3350182.html",
+        "2026-05-15",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:24:00.000Z",
+    originalLang: "fr",
+    confidence: 0.94,
+    entities: ["Kiki", "Philippe Brochot", "Cour d'appel de Dijon"],
+    copy: {
+      en: c(
+        "They sued a rooster. Dijon said the hamlet is the country. The rooster keeps the dawn",
+        "Couhard, above Autun. Kiki, four hens, Philippe Brochot. Neighbours: too loud, too early, this is town. Chalon had already thrown it out, late 2025. Appeal, 12 May 2026. Le Parisien, France 3. Costs: about €1,000, plus €100 to the owner.",
+        [
+          "The court: Couhard is rural. The coop was there when they bought. No proof of a manifestly unlawful nuisance. Civil Code 1253, with the reservation that a prior activity is not an abnormal trouble. Brochot, to the Parisien: of all the neighbours, only one complains.",
+          "The complainants may still go to a judge on the merits. For now the crow stands. We do not invent a volume. We print a hamlet, a name, a bill.",
+          "YES IT'S REAL read the Parisien against France 3. Named bird, named owner, named court. The countryside is not a silent setting.",
+        ],
+        [
+          "The complaint was against the dawn.",
+          "The hamlet stayed a hamlet.",
+          "A hundred euros, to the man with the rooster.",
+        ],
+        "Le Parisien and France 3, 15 May 2026; Dijon appeal 12 May. No death.",
+      ),
+      fr: c(
+        "Ils ont attaqué un coq. Dijon dit que le hameau est la campagne. Le coq garde l’aube",
+        "Couhard, au-dessus d’Autun. Kiki, quatre poules, Philippe Brochot. Les voisins : trop fort, trop tôt, c’est la ville. Chalon avait déjà débouté, fin 2025. Appel, 12 mai 2026. Le Parisien, France 3. Frais : environ 1 000 €, plus 100 € au propriétaire.",
+        [
+          "La cour : Couhard est rural. Le poulailler était là à l’achat. Pas de preuve d’un trouble manifestement illicite. Code civil 1253, avec la réserve de l’activité antérieure. Brochot, au Parisien : de tous les voisins, un seul se plaint.",
+          "Les plaignants peuvent encore aller au fond. Pour l’heure, le chant tient. On n’invente pas un volume. On imprime un hameau, un nom, une facture.",
+          "YES IT’S REAL a lu le Parisien contre France 3. Volatile nommé, propriétaire nommé, cour nommée. La campagne n’est pas un décor muet.",
+        ],
+        [
+          "La plainte visait l’aube.",
+          "Le hameau est resté un hameau.",
+          "Cent euros, à l’homme au coq.",
+        ],
+        "Le Parisien et France 3, 15 mai 2026 ; appel Dijon 12 mai. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s77",
+    slug: "mesnil-le-roi-church-bells-versailles-court-rejects-complaint",
+    slugs: {
+      fr: "mesnil-le-roi-cloches-saint-vincent-versailles-deboute",
+      es: "mesnil-le-roi-campanas-saint-vincent-versailles-desestima",
+    },
+    section: "courts",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Le Mesnil-le-Roi",
+    dumbness: 7,
+    sources: [
+      src(
+        "Au Mesnil-le-Roi, les cloches de l’église Saint-Vincent pourront continuer à sonner",
+        "Tribunal administratif de Versailles",
+        "https://versailles.tribunal-administratif.fr/decisions-de-justice/dernieres-decisions/au-mesnil-le-roi-les-cloches-de-l-eglise-saint-vincent-pourront-continuer-a-sonner",
+        "2026-06-30",
+        "official",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:26:00.000Z",
+    originalLang: "fr",
+    confidence: 0.96,
+    entities: ["Église Saint-Vincent", "Tribunal administratif de Versailles"],
+    copy: {
+      en: c(
+        "They asked the mayor to stop the church bells. Versailles: the hours may keep striking",
+        "Le Mesnil-le-Roi, Yvelines. Saint-Vincent. Offices, and every quarter-hour for the time. Neighbours asked the mayor to make it stop. Silence. They asked the court to cancel that silence. Decision 2408246, 30 June 2026. Rejected.",
+        [
+          "The tribunal: the 1905 law and the 1906 decree say a municipal order should govern civil and religious use of bells. The absence of such an order does not oblige the mayor to stop them at once. There is a local, regular, lasting use: the hours. Restoration in 2008 and 2017–2019 is not an abandonment.",
+          "Alarm remains always allowed. The rest is usage. We print the docket number. We do not add a hymn.",
+          "YES IT'S REAL read the court itself. Named church, named commune, named decision. The complaint reached Versailles. The bells did not leave.",
+        ],
+        [
+          "The quarter-hour was the grievance.",
+          "Silence from the mayor is not an order to stop.",
+          "The hours kept the hours.",
+        ],
+        "TA Versailles, 30 June 2026, n°2408246, Le Mesnil-le-Roi. No death.",
+      ),
+      fr: c(
+        "Ils ont demandé au maire d’arrêter les cloches. Versailles : les heures peuvent continuer",
+        "Le Mesnil-le-Roi, Yvelines. Saint-Vincent. Les offices, et tous les quarts d’heure pour l’heure. Des riverains demandent au maire de faire cesser. Silence. Ils demandent au tribunal d’annuler ce silence. Décision 2408246, 30 juin 2026. Rejet.",
+        [
+          "Le tribunal : la loi de 1905 et le décret de 1906 prévoient un arrêté municipal pour l’usage civil et religieux. L’absence d’arrêté n’oblige pas le maire à tout arrêter tout de suite. Il y a un usage local, régulier, durable : les heures. Les travaux de 2008 et 2017-2019 ne sont pas un abandon.",
+          "L’alarme reste toujours autorisée. Le reste, c’est l’usage. On imprime le numéro. On n’ajoute pas un cantique.",
+          "YES IT’S REAL a lu le tribunal lui-même. Église nommée, commune nommée, décision nommée. La plainte est arrivée à Versailles. Les cloches n’ont pas bougé.",
+        ],
+        [
+          "Le quart d’heure était le grief.",
+          "Le silence du maire n’est pas un ordre d’arrêter.",
+          "Les heures ont gardé les heures.",
+        ],
+        "TA Versailles, 30 juin 2026, n°2408246, Le Mesnil-le-Roi. Pas de mort.",
+      ),
+    },
+  }),
 ];
 
