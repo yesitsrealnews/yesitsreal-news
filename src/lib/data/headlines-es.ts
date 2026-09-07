@@ -307,6 +307,16 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Maverik, Montrose, Memorial Day 2026. Un depósito de autocaravana, una tapa junto a la carretera, un tanque de diésel recién llenado. La cajera confirma: surtidores cerrados.",
     w: ["El sifón viral es folclore. La tapa es un ticket.", "El vaciado correcto estaba en la bomba 30.", "Acababa de entrar el suministro. Luego, el váter."],
   },
+  s62: {
+    h: "Atraca un Verizon. Luego llama a la policía: le han robado el camión",
+    d: "Ellicott City, Maryland, 25 de junio de 2026. Jalen Godard, 29 años. Sangre en el cristal. En el 7-Eleven de enfrente: «someone took my truck». El agente: «That’s kind of some karma.»",
+    w: ["Convocó a los únicos testigos que ya tenían su sangre.", "El coche de huida se lo robó otro.", "Las llaves estaban dentro."],
+  },
+  s63: {
+    h: "Un campeón de raclette, condenado por llevarse unas 1.400 ruedas de su propia quesería",
+    d: "Val de Bagnes, Valais. Tribunal de Entremont, 15 de junio de 2026. Laiterie de Lourtier, Bagnes 30. 24 heures, Le Dauphiné. Los roedores no tuvieron la culpa.",
+    w: ["El premio era el queso. Los libros, el resto.", "Mil cuatrocientas ruedas no son un picnic.", "La auditoría fue un accidente. El valle es pequeño."],
+  },
 };
 
 

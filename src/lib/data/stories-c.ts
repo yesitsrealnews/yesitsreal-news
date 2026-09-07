@@ -2393,5 +2393,142 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s62",
+    slug: "burglar-reports-own-truck-stolen-verizon-ellicott-city-karma",
+    slugs: {
+      fr: "cambrioleur-signale-son-camion-vole-verizon-ellicott-city-karma",
+      es: "ladron-denuncia-su-camion-robado-verizon-ellicott-city",
+    },
+    section: "courts",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Ellicott City, Maryland",
+    dumbness: 9,
+    sources: [
+      src(
+        "‘That’s some karma’: Man has truck stolen shortly after stealing from Verizon store, police say",
+        "The Baltimore Banner",
+        "https://www.thebanner.com/community/criminal-justice/verzon-burglary-ellicott-city-arrest-car-theft-howard-county-jalen-godard-CV57NULFKVBGTN3ERZ6VI2R27Q/",
+        "2026-07-03",
+        "local",
+      ),
+      src(
+        "‘That’s Some Karma’: Burglary Suspect Arrested After Telling Cops His Truck Was Stolen",
+        "People",
+        "https://people.com/burglary-suspect-arrested-karma-after-telling-cops-truck-was-stolen-12013481",
+        "2026-07-07",
+        "wire",
+      ),
+      src(
+        "Cops laugh as suspect has truck stolen during burglary",
+        "New York Post",
+        "https://nypost.com/2026/07/07/us-news/cops-laugh-as-suspect-has-truck-stolen-during-burlary-thats-some-karma-s-t-right-there-dude/",
+        "2026-07-07",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:40:00.000Z",
+    originalLang: "en",
+    confidence: 0.93,
+    entities: ["Jalen Godard", "Howard County Police", "Officer Luke Buchanan"],
+    copy: {
+      en: c(
+        "He burgled a Verizon. Then he called the police because someone had stolen his truck",
+        "Ellicott City, Maryland, 25 June 2026, about 5 a.m. Jalen Godard, 29, Odenton. Blood on the broken window. Then, at the 7-Eleven across the road: ‘someone took my truck.’ Officer Luke Buchanan, bodycam, Howard County PD: ‘That’s kind of some karma.’ The Banner, People, New York Post.",
+        [
+          "Police went to a Verizon on Baltimore National Pike. Shattered glass, blood. Camera inside: a man taking stock. Half an hour later they were sent across the street. A man at a 7-Eleven said his truck had gone while he was at McDonald’s. The officer saw blood on the hands, the glasses, the clothes.",
+          "Godard said he had not been at the Verizon. The tape said otherwise. People quotes the moment he understood the second theft: they stole my truck. Buchanan: that’s kind of some karma. NY Post: he had left the keys. Charged with burglary, theft, destruction of property. Held without bond. The other thief — the one who took the truck — was still out.",
+          "YES IT'S REAL read the Banner, People and the Post, against the department’s own bodycam. The 911 call was the evidence. We do not invent the punchline. The officer said it on camera.",
+        ],
+        [
+          "He summoned the only witnesses who already had his blood.",
+          "The getaway vehicle was stolen by someone else.",
+          "The keys were in it.",
+        ],
+        "Baltimore Banner 3 July 2026; People 7 July; NY Post 7 July. Names and charges as filed. Bodycam released by Howard County PD.",
+      ),
+      fr: c(
+        "Il cambriole un Verizon. Puis il appelle la police : on lui a volé son camion",
+        "Ellicott City, Maryland, 25 juin 2026, vers 5 h. Jalen Godard, 29 ans, Odenton. Du sang sur la vitre cassée. Puis, au 7-Eleven d’en face : « someone took my truck ». L’agent Luke Buchanan, caméra-piéton, Howard County : « That’s kind of some karma. » The Banner, People, New York Post.",
+        [
+          "La police arrive dans un Verizon, Baltimore National Pike. Verre brisé, sang. Caméra à l’intérieur : un homme qui emporte du stock. Une demi-heure plus tard, on les envoie de l’autre côté de la rue. Un homme au 7-Eleven dit que son camion est parti pendant qu’il était au McDo. L’agent voit du sang sur les mains, les lunettes, les vêtements.",
+          "Godard dit qu’il n’était pas au Verizon. La bande dit le contraire. People : le moment où il comprend le second vol — they stole my truck. Buchanan : that’s kind of some karma. NY Post : il avait laissé les clés. Poursuivi pour cambriolage, vol, dégradation. Sans caution. L’autre voleur — celui du camion — n’est pas pris.",
+          "YES IT’S REAL a lu le Banner, People et le Post, recoupés avec la caméra du commissariat. L’appel au 911, c’est la preuve. On n’invente pas la chute. L’agent l’a dite à l’image.",
+        ],
+        [
+          "Il a convoqué les seuls témoins qui avaient déjà son sang.",
+          "Le véhicule de fuite a été volé par quelqu’un d’autre.",
+          "Les clés étaient dedans.",
+        ],
+        "Baltimore Banner 3 juil. 2026 ; People 7 juil. ; NY Post 7 juil. Noms et chefs tels que poursuivis. Caméra-piéton publiée par Howard County PD.",
+      ),
+    },
+  }),
+  story({
+    id: "s63",
+    slug: "raclette-champion-1400-cheese-wheels-lourtier-entremont",
+    slugs: {
+      fr: "champion-raclette-1400-meules-laiterie-lourtier-entremont",
+      es: "campeon-raclette-1400-ruedas-queso-lourtier",
+    },
+    section: "courts",
+    countryCode: "CH",
+    countryName: "Switzerland",
+    location: "Val de Bagnes",
+    dumbness: 8,
+    sources: [
+      src(
+        "Val de Bagnes: un fromager condamné pour abus de confiance",
+        "24 heures",
+        "https://www.24heures.ch/val-de-bagnes-un-fromager-condamne-pour-abus-de-confiance-220264768188",
+        "2026-07-02",
+        "local",
+      ),
+      src(
+        "Suisse. Champion du monde de raclette, il est condamné pour avoir volé 1400 meules de fromage à son employeur",
+        "Le Dauphiné Libéré",
+        "https://www.ledauphine.com/insolite/2026/07/04/champion-du-monde-de-raclette-il-est-condamne-pour-avoir-vole-1400-meules-de-fromage-a-son-employeur",
+        "2026-07-04",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:45:00.000Z",
+    originalLang: "fr",
+    confidence: 0.91,
+    entities: ["Laiterie de Lourtier", "Bagnes 30", "Tribunal d’Entremont"],
+    copy: {
+      en: c(
+        "A raclette champion is convicted of taking about 1,400 wheels from his own dairy",
+        "Val de Bagnes, Valais. Tribunal of Entremont, 15 June 2026. The Bagnes 30 dairy at Lourtier. 24 heures, Le Dauphiné. About 1,400 wheels missing from the cellar, 2015–2018. 113,263 Swiss francs. The mice were not to blame.",
+        [
+          "He is known in the valley for winning the alpine raclette contest. On 15 June the district court at Entremont convicted a professional cheesemaker of breach of trust against his former employer, the Laiterie de Lourtier, near Verbier, which makes the AOC Bagnes 30. 24 heures: a suspended fine of 27,000 francs — 180 day-fines at 150 — and roughly 100,000 francs to the dairy.",
+          "The court counted, as an indication, nearly 1,400 wheels gone from the cellar between 2015 and 2018 and not in the books. The dairy found it by checking the sales ledgers. It says the damage ran longer, from 2003, toward 500,000 francs. The court stopped at 2015–2018. Le Dauphiné: the rodents had nothing to do with it.",
+          "YES IT'S REAL read 24 heures and Le Dauphiné. We do not name a man the Swiss papers left unnamed in the open copy. The product is raclette. The method is the accounts.",
+        ],
+        [
+          "The prize was for the cheese. The books were for the rest.",
+          "Fourteen hundred wheels is not a picnic.",
+          "The audit was an accident. The valley is small.",
+        ],
+        "24 heures 2 July 2026; Le Dauphiné 4 July, citing 24 heures. Conviction 15 June, Entremont. No death beat.",
+      ),
+      fr: c(
+        "Un champion de raclette est condamné pour avoir pris environ 1 400 meules à sa propre laiterie",
+        "Val de Bagnes, Valais. Tribunal d’Entremont, 15 juin 2026. La laiterie du Bagnes 30, Lourtier. 24 heures, Le Dauphiné. Environ 1 400 meules disparues de la cave, 2015-2018. 113 263 francs suisses. Les rongeurs n’y étaient pour rien.",
+        [
+          "Il est connu dans la vallée pour le concours du meilleur fromage à raclette d’alpage. Le 15 juin, le tribunal d’arrondissement d’Entremont a condamné un fromager professionnel pour abus de confiance envers son ancien employeur, la Laiterie de Lourtier, près de Verbier, qui fait le Bagnes 30 AOC. 24 heures : 27 000 francs avec sursis — 180 jours-amende à 150 francs — et près de 100 000 francs à la laiterie.",
+          "La cour a calculé, à titre indicatif, près de 1 400 meules sorties de la cave entre 2015 et 2018, absentes des comptes. La laiterie l’a vu en contrôlant les carnets de ventes. Elle dit que le préjudice court plus loin, depuis 2003, vers 500 000 francs. La cour s’arrête à 2015-2018. Le Dauphiné : les rongeurs n’y étaient pour rien.",
+          "YES IT’S REAL a lu 24 heures et Le Dauphiné. On ne nomme pas un homme que les journaux suisses n’ont pas nommé dans le texte libre. Le produit, c’est la raclette. La méthode, c’est la comptabilité.",
+        ],
+        [
+          "Le prix, c’était le fromage. Les livres, c’était le reste.",
+          "Mille quatre cents meules, ce n’est pas un pique-nique.",
+          "L’audit était un hasard. La vallée est petite.",
+        ],
+        "24 heures 2 juil. 2026 ; Le Dauphiné 4 juil., d’après 24 heures. Condamnation 15 juin, Entremont. Pas un papier de mort.",
+      ),
+    },
+  }),
 ];
 
