@@ -507,6 +507,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "High Wycombe, este de Perth, hacia las 21 h, mediados de julio de 2026. Una Commodore, 22 años, bordillo, vuelo, canalones.",
     w: ["La tele estaba encendida.", "El Holden dejó el suelo.", "Ella salió."],
   },
+  s106: {
+    h: "Tres pasamontañas, una palanca y un Clio contra un distribuidor de pizzas. Uno casi noquea al otro. Salen sin nada. La fachada decía: sin efectivo",
+    d: "Riom, Puy-de-Dôme. France 3, 5 de septiembre. El gerente, Thibault, subió la cinta. Tres embestidas. No abrieron el frigorífico.",
+    w: ["Un Clio. Tres embestidas.", "Ponía: sin efectivo.", "No se llevaron una pizza."],
+  },
+  s107: {
+    h: "Francia tiene nuevos campeones de lanzamiento de patatas. Las patatas son de madera. Vino el alcalde. La mascota se llama Patat’",
+    d: "Saint-Ouen-de-Mimbré, Sarthe, sábado 5 de septiembre. Octava Fête de la patat’. Segundo campeonato de Francia.",
+    w: ["Un campeonato de Francia.", "Las patatas son de madera.", "La mascota es Patat’."],
+  },
+  s108: {
+    h: "Un pueblo belga ha multado 150 bicis eléctricas este año por romper el 30. Las cámaras están en la autopista bici. El alcalde quiere más señales",
+    d: "Mortsel, junto a Amberes. VRT, 3 de septiembre. Ouest-France esta mañana. El año pasado, unos 40. Este año, casi 150.",
+    w: ["Ciento cincuenta multas.", "La cámara está en el carril bici.", "El límite es treinta."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",

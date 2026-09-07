@@ -4969,7 +4969,203 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s106",
+    slug: "riom-three-men-ram-pizza-vending-machine-no-cash-crowbar-to-head",
+    slugs: {
+      fr: "riom-trois-hommes-belient-un-distributeur-de-pizzas-pas-de-liquide-pied-de-biche-dans-la-tete",
+      es: "riom-tres-hombres-embisten-un-distribuidor-de-pizzas-sin-efectivo-palanca-en-la-cabeza",
+    },
+    section: "crime",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Riom",
+    dumbness: 9,
+    sources: [
+      src(
+        "VIDEO. Coup de pied de biche dans la tête, butin dérisoire… quand un cambriolage vire au potache",
+        "France 3 Auvergne-Rhône-Alpes",
+        "https://france3-regions.franceinfo.fr/auvergne-rhone-alpes/puy-de-dome/clermont-ferrand/video-coup-de-pied-de-biche-dans-la-tete-butin-derisoire-quand-un-cambriolage-vire-au-potache-3410987.html",
+        "2026-09-05",
+        "local",
+      ),
+      src(
+        "La vidéo gag d’une attaque de distributeur de pizzas en Auvergne fait un carton",
+        "Le Parisien",
+        "https://www.leparisien.fr/puy-de-dome-63/la-video-gag-dune-attaque-de-distributeur-de-pizzas-en-auvergne-fait-un-carton-cest-presque-triste-den-arriver-la-03-09-2026-QOXA4YDOGRF5NCKWRVZ67ZU52E.php",
+        "2026-09-03",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:50:00.000Z",
+    originalLang: "fr",
+    confidence: 0.95,
+    entities: ["Henri Pizza", "France 3"],
+    copy: {
+      en: c(
+        "Three men in balaclavas took a crowbar and a Clio to a pizza machine. One nearly brained his mate. They left with nothing. The sign said: no cash",
+        "Riom, Puy-de-Dôme. France 3, 5 September. Le Parisien, the 3rd. The gérant, Thibault, put the tape up. Crowbars. A ram with an old Clio, three goes. One man sits down hard. One crowbar finds a skull, through the hood. They do not open the fridge. They do not take a pizza.",
+        [
+          "The machine takes cards. The façade says so. The haul is almost nothing. A thousand euros in bent metal and lost sales, Thibault told the cameras. Complaint filed. The video did the rest: hundreds of thousands of views, then the regional bulletin.",
+          "We do not do crime sermons. We print the till. They came for notes. They found dough that was already cooked, behind a door they never opened.",
+          "YES IT'S REAL read France 3 against Le Parisien. Named town, named gérant, named Clio. No invented quotes. The pizzas stayed.",
+        ],
+        [
+          "A Clio. Three goes.",
+          "The sign said no cash.",
+          "They did not take a pizza.",
+        ],
+        "France 3 5 Sept; Le Parisien 3 Sept 2026. Named. No death.",
+      ),
+      fr: c(
+        "Trois cagoules, un pied-de-biche et une Clio contre un distributeur de pizzas. L’un manque d’assommer l’autre. Ils repartent sans rien. La façade disait : pas d’espèces",
+        "Riom, Puy-de-Dôme. France 3, 5 septembre. Le Parisien, le 3. Le gérant, Thibault, a mis la bande en ligne. Pieds-de-biche. Un bélier en vieille Clio, trois charges. Un homme s’asseoit par terre. Un pied-de-biche trouve un crâne, à travers la cagoule. Ils n’ouvrent pas le frigo. Ils ne prennent pas de pizza.",
+        [
+          "La machine prend la carte. C’est écrit dessus. Le butin est quasi nul. Mille euros de tôle tordue et de manque à gagner, a dit Thibault aux caméras. Plaintes. La vidéo a fait le reste : des centaines de milliers de vues, puis le journal régional.",
+          "On ne fait pas de sermon de cambriole. On imprime la caisse. Ils venaient pour des billets. Ils ont trouvé de la pâte déjà cuite, derrière une porte qu’ils n’ont pas ouverte.",
+          "YES IT’S REAL a lu France 3 contre Le Parisien. Ville nommée, gérant nommé, Clio nommée. Pas de citations inventées. Les pizzas sont restées.",
+        ],
+        [
+          "Une Clio. Trois charges.",
+          "C’était écrit : pas d’espèces.",
+          "Ils n’ont pas pris de pizza.",
+        ],
+        "France 3 5 sept. ; Le Parisien 3 sept. 2026. Nommés. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s107",
+    slug: "france-potato-throwing-championship-wooden-spuds-sarthe",
+    slugs: {
+      fr: "championnat-de-france-de-lancer-de-patates-en-bois-sarthe",
+      es: "campeonato-de-francia-de-lanzamiento-de-patatas-de-madera-sarthe",
+    },
+    section: "sports",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Saint-Ouen-de-Mimbré",
+    dumbness: 7,
+    sources: [
+      src(
+        "« Je ne me voyais pas du tout gagner ! » : ils sont les nouveaux champions de France du lancer de patates",
+        "Ouest-France / Le Maine Libre",
+        "https://www.ouest-france.fr/insolite/je-ne-me-voyais-pas-du-tout-gagner-ils-sont-les-nouveaux-champions-de-france-du-lancer-de-patates-14e80798-aa0c-11f1-9e9d-a8c0013a521f",
+        "2026-09-06",
+        "local",
+      ),
+      src(
+        "« Ce sont des pommes de terre en bois » : c’est quoi ce championnat de lancer de patates",
+        "Ouest-France",
+        "https://www.ouest-france.fr/societe/fetes/ce-sont-des-pommes-de-terre-en-bois-cest-quoi-ce-championnat-de-lancer-de-patates-qui-se-deroulera-en-sarthe-58baa30e-a77d-11f1-95a1-d7cb1b3759ac",
+        "2026-09-04",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:55:00.000Z",
+    originalLang: "fr",
+    confidence: 0.93,
+    entities: ["Fête de la patat’", "Saint-Ouen-de-Mimbré"],
+    copy: {
+      en: c(
+        "France has new potato-throwing champions. The potatoes are wood. The mayor came. The mascot is called Patat’",
+        "Saint-Ouen-de-Mimbré, Sarthe, Saturday 5 September 2026. Eighth Fête de la patat’. Second championship of France. Ouest-France and Le Maine Libre on the 6th. Last year: 336 throws, then more than 400. This year the sun held. Draft horses, a guinguette, Radio Alpes Mancelles.",
+        [
+          "Stéphane Simon, of the association, told the paper in advance: they are wooden potatoes. You do not pulp the crop for a title. Jean-Marie Boulay, president, put the mayor and the mascot in the winner’s photograph. The new champions said they had not seen themselves winning. That is in the hed.",
+          "We do not review village fêtes. We print the federation. There is a championship of France for throwing a wooden tuber. The Andes can wait. The Sarthe did not.",
+          "YES IT'S REAL read the Maine Libre write-up against the rules piece. Named village, named wood, named eighth edition. No invented quotes. The spuds bounced.",
+        ],
+        [
+          "A championship of France.",
+          "The potatoes are wood.",
+          "The mascot is Patat’.",
+        ],
+        "Ouest-France 4 and 6 Sept 2026. Named. No death.",
+      ),
+      fr: c(
+        "La France a de nouveaux champions du lancer de patates. Les patates sont en bois. Le maire est venu. La mascotte s’appelle Patat’",
+        "Saint-Ouen-de-Mimbré, Sarthe, samedi 5 septembre 2026. Huitième Fête de la patat’. Deuxième championnat de France. Ouest-France et Le Maine Libre le 6. L’an dernier : 336 lancers, puis plus de 400. Cette année le soleil a tenu. Chevaux de trait, guinguette, Radio Alpes Mancelles.",
+        [
+          "Stéphane Simon, de l’asso, l’avait dit avant : ce sont des pommes de terre en bois. On ne pulpe pas la récolte pour un titre. Jean-Marie Boulay, président, a mis le maire et la mascotte sur la photo des gagnants. Les nouveaux champions n’avaient pas vu venir la victoire. C’est dans le titre.",
+          "On ne critique pas les fêtes de village. On imprime la fédération. Il existe un championnat de France pour jeter un tubercule en bois. Les Andes peuvent attendre. La Sarthe n’a pas attendu.",
+          "YES IT’S REAL a lu Le Maine Libre contre le papier des règles. Village nommé, bois nommé, huitième édition nommée. Pas de citations inventées. Les patates ont rebondi.",
+        ],
+        [
+          "Un championnat de France.",
+          "Les patates sont en bois.",
+          "La mascotte, c’est Patat’.",
+        ],
+        "Ouest-France 4 et 6 sept. 2026. Nommés. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s108",
+    slug: "mortsel-150-speed-pedelecs-fined-for-breaking-30-on-the-bike-highway",
+    slugs: {
+      fr: "mortsel-150-velos-electriques-flashes-pour-avoir-depasse-le-30-sur-la-piste",
+      es: "mortsel-150-bicis-electricas-multadas-por-pasar-de-30-en-el-carril-bici",
+    },
+    section: "politics",
+    countryCode: "BE",
+    countryName: "Belgium",
+    location: "Mortsel",
+    dumbness: 7,
+    sources: [
+      src(
+        "Cette commune verbalise les cyclistes pour excès de vitesse",
+        "Ouest-France",
+        "https://www.ouest-france.fr/societe/faits-divers/cette-commune-verbalise-les-cyclistes-pour-exces-de-vitesse-certains-roulent-vraiment-trop-vite-09cac488-a870-11f1-a618-771a80631f2f",
+        "2026-09-07",
+        "wire",
+      ),
+      src(
+        "\"Ook fietsers moeten zich aan snelheid houden\": 150 speedpedelecs geflitst en beboet in Mortsel",
+        "VRT NWS",
+        "https://www.vrt.be/vrtnws/nl/2026/09/02/speedpedelecs-geflitst-beboet-fietsen-mortsel-zone-30/",
+        "2026-09-03",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T11:00:00.000Z",
+    originalLang: "nl",
+    confidence: 0.94,
+    entities: ["Michiel Hubeau", "VIAS"],
+    copy: {
+      en: c(
+        "A Belgian town has clocked 150 electric bikes this year for breaking 30. The cameras sit on the bike highway. The mayor wants more signs",
+        "Mortsel, by Antwerp. VRT, 3 September. Ouest-France this morning, 7 September, off HLN. Mayor Michiel Hubeau (Groen Vooruit): last year about 40 speed pedelecs flashed. This year almost 150. Mobile cameras on Amedeus Stockmanslei and Jordaenslei, the fietsostrade. Zone 30. They have plates. They can be fined.",
+        [
+          "VIAS, the Belgian road-safety shop: the same tolerance as cars. You are not flashed under 37. A normal bicycle does not get there in town. Extra speed signs are going up so the tickets, the mayor hopes, will not have to.",
+          "We do not lecture cyclists. We print the radar. The bike motorway has a speed camera. One hundred and fifty this year. The limit is thirty.",
+          "YES IT'S REAL read VRT against Ouest-France. Named mayor, named streets, named 150. No invented quotes. The 30 held.",
+        ],
+        [
+          "One hundred and fifty tickets.",
+          "The camera is on the bike road.",
+          "The limit is thirty.",
+        ],
+        "VRT 3 Sept; Ouest-France 7 Sept 2026. Named. No death.",
+      ),
+      fr: c(
+        "Une commune belge a flashé 150 vélos électriques cette année pour avoir cassé le 30. Les caméras sont sur l’autoroute à vélo. Le maire veut plus de panneaux",
+        "Mortsel, près d’Anvers. VRT, 3 septembre. Ouest-France ce matin, 7 septembre, d’après HLN. Bourgmestre Michiel Hubeau (Groen Vooruit) : l’an dernier, une quarantaine de speed pedelecs flashés. Cette année, presque 150. Caméras mobiles sur Amedeus Stockmanslei et Jordaenslei, la fietsostrade. Zone 30. Ils ont une plaque. On peut les verbaliser.",
+        [
+          "VIAS, l’équivalent belge de la Sécu routière : même tolérance que les voitures. On ne flashe pas sous 37. Un vélo ordinaire n’y arrive pas en ville. Des panneaux de plus, pour que les PV, espère l’édile, n’aient plus à tomber.",
+          "On ne fait pas la leçon aux cyclistes. On imprime le radar. L’autoroute à vélo a un flash. Cent cinquante cette année. La limite, c’est trente.",
+          "YES IT’S REAL a lu VRT contre Ouest-France. Maire nommé, rues nommées, 150 nommé. Pas de citations inventées. Le 30 a tenu.",
+        ],
+        [
+          "Cent cinquante PV.",
+          "La caméra est sur la piste.",
+          "La limite, c’est trente.",
+        ],
+        "VRT 3 sept. ; Ouest-France 7 sept. 2026. Nommés. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 

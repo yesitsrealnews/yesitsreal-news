@@ -616,5 +616,23 @@
     "artist": "FotoSleuth",
     "license": "CC BY 2.0",
     "page": "https://commons.wikimedia.org/wiki/File%3AHolden_Commodore.jpg"
+  },
+  "s106": {
+    "file": "File:Pizza.jpg",
+    "artist": "Jakob Dettner ( de:User:Jdettner )",
+    "license": "CC BY-SA 2.0 de",
+    "page": "https://commons.wikimedia.org/wiki/File%3APizza.jpg"
+  },
+  "s107": {
+    "file": "File:Potatoes.jpg",
+    "artist": "Wikimedia Commons",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File%3APotatoes.jpg"
+  },
+  "s108": {
+    "file": "File:Bicycle.jpg",
+    "artist": "Pratap555",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABicycle.jpg"
   }
 }
