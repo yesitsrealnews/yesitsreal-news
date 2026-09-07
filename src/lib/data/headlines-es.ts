@@ -287,6 +287,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Zúrich, 3 de septiembre. Nature, CNN, Ars Technica. También: urinario sin salpicaduras, trompas de mosquito como boquillas 3D, y la aerodinámica de sonarse — un paper de 1977, premio póstumo.",
     w: ["El ensayo de suelo son mil pares de ropa interior.", "El beso, en derecho, no incluye el almuerzo.", "El competidor lácteo es una cucaracha."],
   },
+  s58: {
+    h: "Atraco a un McDonald’s. En la mesa de al lado: el GIGN, comiendo",
+    d: "École-Valentin, Doubs, 5 de junio de 2016. Dos de Montbéliard, una escopeta, las cajas. Entre los clientes: gendarmes de élite de paisano. France Bleu, Le Parisien, The Independent.",
+    w: ["El problema táctico era el plano de mesas de un McDo.", "La unidad de rehenes estaba entre plato y plato.", "La huida acabó en la escalera de un centro comercial."],
+  },
+  s59: {
+    h: "Eligió a una mujer que esperaba un Uber. Era luchadora de la UFC. Le pidió que llamara ella a la policía",
+    d: "Río, enero de 2019. Hora, teléfono, «voy armado». Polyana Viana, UFC. Dos golpes, una patada, una llave. ABC, People, SCMP.",
+    w: ["El arma era de cartón.", "El estrangulamiento estaba en la ficha del puesto.", "Pidió a la víctima que llamara a la policía."],
+  },
+  s60: {
+    h: "Atracaron un bar. En la sala de al lado: la fiesta de jubilación de la policía. La comisaría, al otro lado de la calle",
+    d: "Monaghan’s Pub, Woodlawn, Maryland, 29 de agosto de 2017. McInnis y McCoy, un arma, la caja. AP, New York Post, Baltimore Sun. Nadie herido.",
+    w: ["La otra sala era el buen humor de toda una comisaría.", "La comisaría estaba a un paso de cebra.", "El dueño no se sorprendió. Los atracadores sí."],
+  },
 };
 
 

@@ -84,6 +84,9 @@ COVERS: dict[str, tuple[str, str]] = {
     "s55": ("File:Didelphis albiventris-12-07-28.jpg", "white-eared opossum"),
     "s56": ("File:Common brushtail possum (Trichosurus vulpecula) with joey Triabunna.jpg", "brushtail possum"),
     "s57": ("File:Cockroach July 2013-1.jpg", "cockroach"),
+    "s58": ("File:Gendarmerie GIGN 01.jpg", "GIGN gendarmerie"),
+    "s59": ("File:UFC-Octagon-USMCPhoto.jpg", "UFC octagon"),
+    "s60": ("File:Quigley's Half-Irish Pub in Baltimore, Maryland.jpg", "Baltimore Irish pub"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")

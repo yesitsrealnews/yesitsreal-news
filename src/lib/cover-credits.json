@@ -60,10 +60,10 @@
     "page": "https://commons.wikimedia.org/wiki/File%3A2017_Zszywacz_biurowy.jpg"
   },
   "s11": {
-    "file": "File:Oriental small-clawed otter.jpg",
+    "file": "File:Oriental small-clawed otter teeth.jpg",
     "artist": "Mathias Appel",
     "license": "CC0",
-    "page": "https://commons.wikimedia.org/wiki/File%3AOriental_small-clawed_otter.jpg"
+    "page": "https://commons.wikimedia.org/wiki/File%3AOriental_small-clawed_otter_teeth.jpg"
   },
   "s12": {
     "file": "File:Canon S520 ink jet printer.jpg",
@@ -102,10 +102,10 @@
     "page": "https://commons.wikimedia.org/wiki/File%3ASpeed_bump_%28asphalt%29.jpg"
   },
   "s18": {
-    "file": "File:Charles Hodge Mackie (1862-1920) - The Goldfish Bowl - 6-144 - Perth Art Gallery.jpg",
-    "artist": "Charles Hodge Mackie",
-    "license": "Public domain",
-    "page": "https://commons.wikimedia.org/wiki/File%3ACharles_Hodge_Mackie_%281862-1920%29_-_The_Goldfish_Bowl_-_6-144_-_Perth_Art_Gallery.jpg"
+    "file": "File:The Goldfish Bowl by Henri Matisse in the Metropolitan Museum of Art.jpg",
+    "artist": "Yair-haklai",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AThe_Goldfish_Bowl_by_Henri_Matisse_in_the_Metropolitan_Museum_of_Art.jpg"
   },
   "s20": {
     "file": "File:Football pitch.jpg",
@@ -197,18 +197,6 @@
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File%3AAerial_view_of_oil_refinery_next_to_the_Gulf_of_Mexico_near_Houston%2C_Texas_LCCN2011630532.tif"
   },
-  "s19": {
-    "file": "File:SheratonHotelRoomMiniBar-2.jpg",
-    "artist": "Leon S.K.",
-    "license": "CC BY-SA 2.0",
-    "page": "https://commons.wikimedia.org/wiki/File%3ASheratonHotelRoomMiniBar-2.jpg"
-  },
-  "s34": {
-    "file": "File:DFC 0528 A woman standing by the water holding up her phone to take a photo or selfie as sunlight sparkles on the surface behind her.jpg",
-    "artist": "PattayaPatrol",
-    "license": "CC BY-SA 4.0",
-    "page": "https://commons.wikimedia.org/wiki/File%3ADFC_0528_A_woman_standing_by_the_water_holding_up_her_phone_to_take_a_photo_or_selfie_as_sunlight_sparkles_on_the_surface_behind_her.jpg"
-  },
   "s36": {
     "file": "File:Common pigeon at Waterlow Park, London 01.jpg",
     "artist": "Satdeep Gill",
@@ -231,41 +219,41 @@
     "file": "File:11.03.85 Au CNES la salle blanche (1985) - 53Fi2159.jpg",
     "artist": "André Cros",
     "license": "CC BY-SA 4.0",
-    "page": "https://commons.wikimedia.org/wiki/File%3A11.03.85%20Au%20CNES%20la%20salle%20blanche%20%281985%29%20-%2053Fi2159.jpg"
+    "page": "https://commons.wikimedia.org/wiki/File%3A11.03.85_Au_CNES_la_salle_blanche_%281985%29_-_53Fi2159.jpg"
   },
   "s40": {
     "file": "File:The Pentagon January 2008.jpg",
-    "artist": "David B. Gleason",
+    "artist": "David B. Gleason from Chicago, IL",
     "license": "CC BY-SA 2.0",
-    "page": "https://commons.wikimedia.org/wiki/File%3AThe%20Pentagon%20January%202008.jpg"
+    "page": "https://commons.wikimedia.org/wiki/File%3AThe_Pentagon_January_2008.jpg"
   },
   "s41": {
     "file": "File:Pain au chocolat Luc Viatour.jpg",
     "artist": "Luc Viatour",
     "license": "CC BY-SA 3.0",
-    "page": "https://commons.wikimedia.org/wiki/File%3APain%20au%20chocolat%20Luc%20Viatour.jpg"
+    "page": "https://commons.wikimedia.org/wiki/File%3APain_au_chocolat_Luc_Viatour.jpg"
   },
   "s42": {
     "file": "File:Speed bump (asphalt).jpg",
     "artist": "Alex Sims",
     "license": "CC BY-SA 2.5",
-    "page": "https://commons.wikimedia.org/wiki/File%3ASpeed%20bump%20%28asphalt%29.jpg"
+    "page": "https://commons.wikimedia.org/wiki/File%3ASpeed_bump_%28asphalt%29.jpg"
   },
   "s43": {
     "file": "File:Chèvre naine - Sérent 8.jpg",
     "artist": "Amélie Tsaag Valren",
     "license": "CC BY-SA 4.0",
-    "page": "https://commons.wikimedia.org/wiki/File%3ACh%C3%A8vre%20naine%20-%20S%C3%A9rent%208.jpg"
+    "page": "https://commons.wikimedia.org/wiki/File%3ACh%C3%A8vre_naine_-_S%C3%A9rent_8.jpg"
   },
   "s44": {
     "file": "File:Python reticulatus (1).jpg",
     "artist": "TimVickers",
     "license": "Public domain",
-    "page": "https://commons.wikimedia.org/wiki/File%3APython%20reticulatus%20%281%29.jpg"
+    "page": "https://commons.wikimedia.org/wiki/File%3APython_reticulatus_%281%29.jpg"
   },
   "s45": {
     "file": "File:Venus de Milo.JPG",
-    "artist": "Unknown",
+    "artist": "Unknown author Unknown author",
     "license": "CC BY-SA 2.5",
     "page": "https://commons.wikimedia.org/wiki/File%3AVenus_de_Milo.JPG"
   },
@@ -340,5 +328,23 @@
     "artist": "Alvesgaspar",
     "license": "CC BY-SA 3.0",
     "page": "https://commons.wikimedia.org/wiki/File%3ACockroach_July_2013-1.jpg"
+  },
+  "s58": {
+    "file": "File:Gendarmerie GIGN 01.jpg",
+    "artist": "Sahm.diop",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AGendarmerie_GIGN_01.jpg"
+  },
+  "s59": {
+    "file": "File:UFC-Octagon-USMCPhoto.jpg",
+    "artist": "Wikimedia Commons",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File%3AUFC-Octagon-USMCPhoto.jpg"
+  },
+  "s60": {
+    "file": "File:Quigley's Half-Irish Pub in Baltimore, Maryland.jpg",
+    "artist": "Adamshlossman",
+    "license": "CC BY-SA 3.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AQuigley%27s_Half-Irish_Pub_in_Baltimore%2C_Maryland.jpg"
   }
 }
