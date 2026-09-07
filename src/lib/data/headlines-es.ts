@@ -317,6 +317,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Val de Bagnes, Valais. Tribunal de Entremont, 15 de junio de 2026. Laiterie de Lourtier, Bagnes 30. 24 heures, Le Dauphiné. Los roedores no tuvieron la culpa.",
     w: ["El premio era el queso. Los libros, el resto.", "Mil cuatrocientas ruedas no son un picnic.", "La auditoría fue un accidente. El valle es pequeño."],
   },
+  s64: {
+    h: "El cerrajero abre. En el sofá, dormido, desnudo, con el reloj del dueño, la tele encendida",
+    d: "Rouvroy, Gaume, 29 de noviembre de 2023. La familia, en Italia. Cuatro días en la casa. La Libre, tribunal de Arlon.",
+    w: ["La entrada, un tragaluz. La salida, un cerrajero.", "La única prenda era el reloj de otro.", "Cuatro días no es un golpe. Es una estancia."],
+  },
+  s65: {
+    h: "La policía persigue a un conductor. Entra en un edificio a esconderse. Era la comisaría",
+    d: "Aylesbury, junio de 2021. Thames Valley Police a la BBC. Un londinense de 25 años. El mostrador reabrió «al público y a quien busque esconderse de la policía».",
+    w: ["El escondite tenía lámpara azul.", "Recepción lo tomó por un visitante.", "Reabrieron por si venía otro."],
+  },
+  s66: {
+    h: "Huyen de un atraco a un Verizon, chocan y se esconden detrás de una máquina — en el vestíbulo de la comisaría",
+    d: "Highland Park, Illinois, septiembre de 2017. Hill, Price, Rickenbacker. El deputy chief: «No creo que supieran que era un recinto policial.»",
+    w: ["El choque, junto al parking a evitar.", "El vestíbulo tenía máquina. También un mostrador.", "Ellos no conocían el edificio. El edificio sí."],
+  },
 };
 
 

@@ -90,6 +90,9 @@ COVERS: dict[str, tuple[str, str]] = {
     "s61": ("File:Auch RV toilet dump station.jpg", "RV toilet dump station"),
     "s62": ("File:7-Eleven Store at 1810 N Cahuenga Blvd, Los Angeles 20110807 1.jpg", "7-Eleven store"),
     "s63": ("File:Raclette 20040817 140816.jpg", "raclette cheese"),
+    "s64": ("File:Couch-furniture-living-room-sofa (24300293356).jpg", "living room sofa"),
+    "s65": ("File:Stamford police station, Blue lamp (geograph 2304587).jpg", "UK police station blue lamp"),
+    "s66": ("File:7-Eleven vending machine at the entrance lobby of the Daan International Building, as taken on 23 February 2021.jpg", "vending machine lobby"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")

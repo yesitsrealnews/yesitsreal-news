@@ -2530,5 +2530,179 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s64",
+    slug: "thief-found-naked-asleep-on-sofa-rouvroy-arlon",
+    slugs: {
+      fr: "voleur-nu-endormi-canape-rouvroy-arlon",
+      es: "ladron-desnudo-dormido-sofa-rouvroy-arlon",
+    },
+    section: "courts",
+    countryCode: "BE",
+    countryName: "Belgium",
+    location: "Rouvroy",
+    dumbness: 9,
+    sources: [
+      src(
+        "Un voleur est retrouvé nu, endormi sur le canapé de la maison qu'il cambriolait en Wallonie",
+        "La Libre",
+        "https://www.lalibre.be/regions/namur/2024/04/08/un-voleur-est-retrouve-nu-endormi-sur-le-canape-de-la-maison-quil-cambriolait-sa-trace-est-difficile-a-suivre-3L4DMAC7BZB4DFICH4IQK6MZOQ/",
+        "2024-04-08",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:50:00.000Z",
+    originalLang: "fr",
+    confidence: 0.88,
+    entities: ["Loïc Richard", "Rouvroy", "tribunal d’Arlon"],
+    copy: {
+      en: c(
+        "The locksmith opened the door. On the sofa, asleep, naked, wearing the owner’s watch, the television on",
+        "Rouvroy, Gaume, 29 November 2023. The family was in Italy. A neighbour saw their car at his own house. Prosecutor Loïc Richard to La Libre. Four days in the house. Arlon correctional court, 2024.",
+        [
+          "A client of a neighbour in Rouvroy noticed the holidaymakers’ car parked where it should not have been. Police went to the house. A small skylight was broken. A locksmith was called. Inside: a man, naked, ‘dressed’ in a valuable watch that belonged to the owner, asleep on the sofa, TV on. He had been there four days. He had taken what was valuable and what was not.",
+          "La Libre, 8 April 2024, the Arlon sitting. The substitute, Loïc Richard, told the court the scene. The man was 21. He had been in pre-trial detention four months. The paper lists earlier convictions in other Belgian courts. We do not reprint that as colour. The colour is the sofa.",
+          "YES IT'S REAL read La Libre. One regional desk, named prosecutor, named village. No invented quote. The owner was on holiday. The visitor was not.",
+        ],
+        [
+          "The entry was a skylight. The exit was a locksmith.",
+          "The only clothing was someone else’s watch.",
+          "Four days is not a smash-and-grab. It is a stay.",
+        ],
+        "La Libre 8 April 2024, Arlon, Loïc Richard. 29 Nov 2023, Rouvroy. No death beat. No sexual offence in the copy we print.",
+      ),
+      fr: c(
+        "Le serrurier ouvre. Sur le canapé, endormi, nu, la montre du propriétaire au poignet, la télé allumée",
+        "Rouvroy, Gaume, 29 novembre 2023. La famille est en Italie. Un voisin voit leur voiture chez lui. Le substitut Loïc Richard, à La Libre. Quatre jours dans la maison. Tribunal correctionnel d’Arlon, 2024.",
+        [
+          "Un client d’un voisin de Rouvroy voit la voiture des vacanciers là où elle ne devrait pas. La police va à la maison. Une petite lucarne cassée. On appelle un serrurier. Dedans : un homme, nu, « vêtu » d’une montre de valeur du propriétaire, endormi sur le canapé, télé allumée. Il est là depuis quatre jours. Il a pris ce qui valait et ce qui ne valait pas.",
+          "La Libre, 8 avril 2024, audience d’Arlon. Le substitut Loïc Richard raconte la scène. L’homme a 21 ans. Quatre mois de détention préventive. Le journal cite d’autres condamnations belges. On n’en fait pas le décor. Le décor, c’est le canapé.",
+          "YES IT’S REAL a lu La Libre. Un bureau régional, un substitut nommé, un village nommé. Pas de citation inventée. Le propriétaire était en vacances. Le visiteur, non.",
+        ],
+        [
+          "L’entrée, une lucarne. La sortie, un serrurier.",
+          "Le seul vêtement, c’était la montre d’un autre.",
+          "Quatre jours, ce n’est pas un coup. C’est un séjour.",
+        ],
+        "La Libre 8 avril 2024, Arlon, Loïc Richard. 29 nov. 2023, Rouvroy. Pas un papier de mort. Pas d’infraction sexuelle dans le texte qu’on imprime.",
+      ),
+    },
+  }),
+  story({
+    id: "s65",
+    slug: "fleeing-driver-hides-inside-aylesbury-police-station",
+    slugs: {
+      fr: "chauffeur-en-fuite-se-cache-dans-le-commissariat-daylesbury",
+      es: "conductor-huye-y-se-esconde-en-comisaria-aylesbury",
+    },
+    section: "courts",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Aylesbury",
+    dumbness: 9,
+    sources: [
+      src(
+        "Aylesbury: Driver being pursued by police hides in police station",
+        "BBC News",
+        "https://www.bbc.co.uk/news/uk-england-norfolk-57349313",
+        "2021-06-03",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:52:00.000Z",
+    originalLang: "en",
+    confidence: 0.92,
+    entities: ["Thames Valley Police", "Aylesbury Police Station"],
+    copy: {
+      en: c(
+        "Police chased a driver. He ran into a building to hide. The building was the police station",
+        "Aylesbury, Buckinghamshire, June 2021. Thames Valley Police, to the BBC: we were worried when a driver stopped and ran to a building to hide. Luckily that building was Aylesbury Police Station. A 25-year-old from London, arrested. The front desk later reopened ‘to the public and anyone looking to hide from police’.",
+        [
+          "Officers were after a car. The driver stopped, left the vehicle, ran. He chose a building. It was the station. Thames Valley put it on their account, thumbs-up emoji included. A number of small items were thrown inside; the counter closed briefly so they could be recovered and sent for testing.",
+          "The BBC, 3 June 2021. A man of 25, from London, arrested on suspicion of being concerned in the supply of drugs. We print the geography, not a lecture. The joke is the door he picked.",
+          "YES IT'S REAL read the BBC. The force wrote the line itself. Nobody had to invent a punchline. The station was open.",
+        ],
+        [
+          "The hiding place had a blue lamp.",
+          "The front desk took him as a walk-in.",
+          "They reopened for anyone else with the same idea.",
+        ],
+        "BBC 3 June 2021, Thames Valley Police statement. No death. Charge as reported, not as colour.",
+      ),
+      fr: c(
+        "La police poursuit un chauffeur. Il se jette dans un bâtiment pour se cacher. C’était le commissariat",
+        "Aylesbury, Buckinghamshire, juin 2021. Thames Valley Police, à la BBC : on s’est inquiétés quand un chauffeur a arrêté, a couru vers un bâtiment pour se cacher. Heureusement, c’était le commissariat d’Aylesbury. Un Londonien de 25 ans, interpellé. Plus tard, l’accueil a rouvert « au public et à quiconque cherche à se cacher de la police ».",
+        [
+          "Les agents sont derrière une voiture. Le chauffeur s’arrête, descend, court. Il choisit un bâtiment. C’est le commissariat. Thames Valley le met sur son compte, emoji pouce compris. Quelques petits objets jetés à l’intérieur ; le guichet ferme un moment pour les ramasser et les envoyer à l’analyse.",
+          "BBC, 3 juin 2021. Un homme de 25 ans, de Londres, arrêté pour soupçon de participation à un trafic de stupéfiants. On imprime la géographie, pas un cours. La blague, c’est la porte.",
+          "YES IT’S REAL a lu la BBC. C’est la police qui a écrit la chute. Personne n’a dû l’inventer. Le commissariat était ouvert.",
+        ],
+        [
+          "La cachette avait une lampe bleue.",
+          "L’accueil l’a pris comme un visiteur.",
+          "Ils ont rouvert pour le suivant qui aurait la même idée.",
+        ],
+        "BBC 3 juin 2021, communiqué Thames Valley Police. Pas de mort. Chef tel que rapporté, pas comme décor.",
+      ),
+    },
+  }),
+  story({
+    id: "s66",
+    slug: "verizon-robbers-run-into-highland-park-police-lobby-vending-machine",
+    slugs: {
+      fr: "braqueurs-verizon-se-jettent-dans-le-hall-du-commissariat-highland-park",
+      es: "atracadores-verizon-entran-en-el-vestibulo-de-la-comisaria",
+    },
+    section: "courts",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Highland Park, Illinois",
+    dumbness: 9,
+    sources: [
+      src(
+        "Alleged robbers run right into police station while trying to flee cops",
+        "New York Post",
+        "https://nypost.com/2017/09/12/alleged-robbers-run-right-into-police-station-while-trying-to-flee-cops/",
+        "2017-09-12",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:54:00.000Z",
+    originalLang: "en",
+    confidence: 0.91,
+    entities: ["Eddie Hill", "Cordell Price", "Aries Rickenbacker", "Highland Park Police"],
+    copy: {
+      en: c(
+        "They fled a Verizon hold-up, crashed, and hid behind a vending machine — in the police station lobby",
+        "Highland Park, Illinois, September 2017. Eddie Hill, 24, Cordell Price, 21, Aries Rickenbacker, 22, Chicago. Deputy Chief Timothy Wilinski, Chicago Tribune via the New York Post: two ran into the lobby. ‘I don’t think they knew it was a police facility.’",
+        [
+          "A Verizon store, staff tied, a 911 call once they were free. A squad car saw a vehicle run a light. Chase. Crash next to the police parking lot. One man taken in the rear lot. The other two on foot, into the lobby of the Highland Park Police Department, behind a vending machine.",
+          "Wilinski: they fled on foot; where they crashed was adjacent to the police parking lot. He did not think they knew the building. Armed robbery charges, the Post, citing the Tribune.",
+          "YES IT'S REAL read the Post against the deputy chief’s sentences. The hide was a snack machine. The building sold something else.",
+        ],
+        [
+          "The crash was next to the lot they needed to avoid.",
+          "The lobby had a vending machine. It also had a desk.",
+          "They did not know the facility. The facility knew them.",
+        ],
+        "NY Post 12 Sept 2017, citing Chicago Tribune and Deputy Chief Wilinski. Names as charged. No death.",
+      ),
+      fr: c(
+        "Ils fuient un braquage de Verizon, s’encastrent, et se cachent derrière un distributeur — dans le hall du commissariat",
+        "Highland Park, Illinois, septembre 2017. Eddie Hill, 24 ans, Cordell Price, 21 ans, Aries Rickenbacker, 22 ans, Chicago. Le deputy chief Timothy Wilinski, Chicago Tribune via le New York Post : deux sont entrés dans le hall. « I don’t think they knew it was a police facility. »",
+        [
+          "Un magasin Verizon, le personnel ligoté, un 911 une fois libres. Une voiture de police voit un véhicule griller un feu. Poursuite. Accident contre le parking de la police. Un homme cueilli au parking arrière. Les deux autres à pied, dans le hall du commissariat de Highland Park, derrière un distributeur.",
+          "Wilinski : ils ont fui à pied ; le crash était collé au parking de la police. Il ne croit pas qu’ils savaient. Chefs : vol à main armée, le Post d’après le Tribune.",
+          "YES IT’S REAL a lu le Post contre les phrases du deputy chief. La cachette, un distributeur. Le bâtiment vendait autre chose.",
+        ],
+        [
+          "L’accident était collé au parking à éviter.",
+          "Le hall avait un distributeur. Il avait aussi un bureau.",
+          "Ils ne connaissaient pas le bâtiment. Le bâtiment les a connus.",
+        ],
+        "NY Post 12 sept. 2017, d’après Chicago Tribune et le deputy chief Wilinski. Noms tels que poursuivis. Pas de mort.",
+      ),
+    },
+  }),
 ];
 
