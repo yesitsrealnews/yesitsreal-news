@@ -16,6 +16,7 @@ export const Route = createFileRoute("/story/$slug")({
     if (!story) return {};
     const c = story.copy.en;
     const img = coverSrc(story.id);
+    const ogImg = img?.startsWith("http") ? img : `${SITE_URL}${img || "/og.jpg"}`;
     const url = `${SITE_URL}/story/${story.slug}`;
     return {
       meta: [
@@ -27,7 +28,7 @@ export const Route = createFileRoute("/story/$slug")({
         { property: "og:title", content: c.headline },
         { property: "og:description", content: c.dek },
         { property: "og:url", content: url },
-        { property: "og:image", content: `${SITE_URL}${img || "/og.jpg"}` },
+        { property: "og:image", content: ogImg },
         { property: "article:published_time", content: story.publishedAt },
         { property: "article:modified_time", content: story.updatedAt },
         { property: "article:section", content: story.section },

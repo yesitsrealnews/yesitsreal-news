@@ -56,7 +56,7 @@ export function articleJsonLd(story: Story) {
     inLanguage: story.originalLang || "en",
     isAccessibleForFree: true,
     mainEntityOfPage: `${SITE_URL}/story/${story.slug}`,
-    image: img ? [`${SITE_URL}${img}`] : [`${SITE_URL}/og.jpg`],
+    image: img ? [img.startsWith("http") ? img : `${SITE_URL}${img}`] : [`${SITE_URL}/og.jpg`],
     author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
     publisher: {
       "@type": "NewsMediaOrganization",

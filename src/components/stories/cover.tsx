@@ -1,4 +1,4 @@
-import { coverCredit, coverCreditLine, coverSeed, coverSrc, SECTION_INK } from "@/lib/covers";
+import { coverCredit, coverCreditLine, coverSeed, coverSrc, coverSrcFallback, SECTION_INK } from "@/lib/covers";
 import type { SectionId } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -28,6 +28,11 @@ export function StoryCover({
         className={cn("h-full w-full object-cover", className)}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
+        referrerPolicy="no-referrer"
+        onError={(e) => {
+          const fb = coverSrcFallback(id);
+          if (fb && e.currentTarget.src !== fb) e.currentTarget.src = fb;
+        }}
       />
     );
     if (!line) return img;

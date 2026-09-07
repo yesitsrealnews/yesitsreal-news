@@ -12,8 +12,16 @@ export type CoverCredit = {
 export const PHOTO_CREDITS = credits as Record<string, CoverCredit>;
 
 export function coverSrc(id: string): string | undefined {
-  if (PHOTO_CREDITS[id]) return `/covers/${id}.jpg`;
-  return undefined;
+  if (!PHOTO_CREDITS[id]) return undefined;
+  // Hosted on GitHub — Vercel was 404ing /covers/*.jpg after s38.
+  return `https://cdn.jsdelivr.net/gh/yesitsrealnews/yesitsreal-news@main/public/covers/${id}.jpg`;
+}
+
+export function coverSrcFallback(id: string): string | undefined {
+  const c = PHOTO_CREDITS[id];
+  if (!c?.file) return undefined;
+  const file = c.file.replace(/^File:/i, "").replace(/ /g, "_");
+  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=1400`;
 }
 
 export function coverCredit(id: string): CoverCredit | undefined {
