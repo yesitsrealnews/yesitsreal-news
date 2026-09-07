@@ -557,6 +557,26 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Tournon-sur-Rhône, jueves 3 de septiembre, entre las 3 y las 4. Rue de la Passerelle. Los gendarmes tardaron en despertarlo. Se fue a pie.",
     w: ["El callejón era para peatones.", "El Clio se durmió a fondo.", "Él volvió a pie. El coche no."],
   },
+  s116: {
+    h: "El Jura cocinó dos mil litros de fondue para quitarle el récord a Suiza",
+    d: "Les Rousses, 22 de febrero de 2025. Guinness: 2 m³. Cuarenta ruedas de comté. 5.039 comensales, más que el pueblo.",
+    w: ["El vecino tenía la olla.", "El Jura respondió en metros cúbicos.", "Más invitados que habitantes."],
+  },
+  s117: {
+    h: "Un pez dorado llamado Blub condujo un coche doce metros en un minuto. Guinness firmó",
+    d: "Milán, 23 de enero de 2025. Lo Show dei Record. El acuario es el volante.",
+    w: ["La categoría existía porque alguien preguntó.", "El pez era el volante.", "Guinness midió las ruedas."],
+  },
+  s118: {
+    h: "Pitbull tuvo que ponerse un casquete calvo porque ya es calvo. 22.141 fans también",
+    d: "Hyde Park, 10 de julio de 2026. El récord no es «calvos». Mr Worldwide se puso uno para contar.",
+    w: ["La categoría es el casquete, no el cráneo.", "El hombre del look tuvo que fingirlo.", "Veintidós mil no se lo quitaron con el calor."],
+  },
+  s119: {
+    h: "Landerneau pintó a 3.076 personas de azul. El alcalde prohibió servir a los Pitufos de 17 a 19",
+    d: "17 de mayo de 2025. Tercer intento. Alemania tenía 2.762. Bretaña llegó a 3.076.",
+    w: ["Alemania tenía el pueblo.", "El alcalde cerró el bar a los disfraces.", "El tercer intento tenía el formulario."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",
