@@ -97,8 +97,8 @@ export function Footer({ lang }: { lang: Lang }) {
               </Link>
             </li>
             <li>
-              <Link to="/terms" hash="thanks" className="hover:underline">
-                {t(lang, "thanksKicker")}
+              <Link to="/credits" className="hover:underline">
+                {t(lang, "credits")}
               </Link>
             </li>
           </ul>

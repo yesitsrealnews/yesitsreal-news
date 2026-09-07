@@ -18,6 +18,9 @@ export const Route = createFileRoute("/$section")({
     if (params.section === "investir" || params.section === "acheter" || params.section === "buy") {
       throw redirect({ to: "/invest" });
     }
+    if (params.section === "credit") {
+      throw redirect({ to: "/credits" });
+    }
     if (!isSectionId(params.section)) {
       throw notFound();
     }
