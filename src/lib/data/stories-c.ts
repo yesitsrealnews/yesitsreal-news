@@ -5172,7 +5172,182 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s109",
+    slug: "anoka-police-filed-a-ufo-with-the-fbi-tie-dye-lights-hula-hoops",
+    slugs: {
+      fr: "la-police-danoka-a-depose-un-ovni-au-fbi-lumieres-tie-and-dye-hula-hoops",
+      es: "policia-de-anoka-presento-un-ovni-al-fbi-luces-tie-dye-hula-hoops",
+    },
+    section: "science",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Anoka",
+    dumbness: 8,
+    sources: [
+      src(
+        "Anoka police officers reported UFO sighting in early 2025, FBI filing says",
+        "Bring Me The News",
+        "https://bringmethenews.com/minnesota-lifestyle/anoka-police-officers-reported-ufo-sighting-in-early-2025-fbi-filing-says",
+        "2026-05-28",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:40:00.000Z",
+    originalLang: "en",
+    confidence: 0.9,
+    entities: ["Anoka Police Department", "FBI", "Americans for Safe Aerospace"],
+    copy: {
+      en: c(
+        "Three Anoka cops watched tie-dye lights for ninety minutes. Then they filed it with the FBI. The form says hula-hoops",
+        "Anoka, Minnesota. Bring Me The News, 28 May 2026, off a declassified FBI complaint at the National Archives. 19 February 2025, 1:15 a.m., a training debrief by the station. Three employees. Unusual, rapidly changing tie-dye lighting. Ninety minutes. Binoculars. Ten to thirty thousand feet, maybe fifty miles. Lake Minnetonka, then toward the Monticello nuclear plant. It skipped across the sky like a stone.",
+        [
+          "The form, routed through Americans for Safe Aerospace then FBI Cincinnati, describes an orbital diagram of an atom: six hula-hoops with lights around each loop. Two nights earlier, one of the officers, name redacted, had already logged a diamond with multi-coloured lights on patrol. Ten minutes. 17 February, 23:30.",
+          "We do not decide if it was a satellite. We print the complaint. The police wrote it down. The Bureau took the paper. The lights were tie-dye.",
+          "YES IT'S REAL read Bring Me The News against the filing as quoted. Named force, named plant, named hoops. No invented quotes. The form exists.",
+        ],
+        [
+          "The witnesses were on the job.",
+          "The file went to the FBI.",
+          "The lights were described as hula-hoops.",
+        ],
+        "Bring Me The News 28 May 2026, FBI complaint as quoted. Named. No death.",
+      ),
+      fr: c(
+        "Trois flics d’Anoka ont regardé des lumières tie-and-dye pendant quatre-vingt-dix minutes. Puis ils ont déposé au FBI. Le formulaire dit hula-hoops",
+        "Anoka, Minnesota. Bring Me The News, 28 mai 2026, d’après une plainte FBI déclassifiée aux Archives nationales. 19 février 2025, 1 h 15, un debrief d’entraînement près du commissariat. Trois employés. Éclairage tie-and-dye, qui change vite. Quatre-vingt-dix minutes. Jumelles. Dix à trente mille pieds, peut-être cinquante miles. Lac Minnetonka, puis vers la centrale de Monticello. Ça ricoche dans le ciel comme un galet.",
+        [
+          "Le formulaire, via Americans for Safe Aerospace puis le FBI de Cincinnati, décrit un schéma d’atome : six hula-hoops avec des lumières sur chaque anneau. Deux nuits plus tôt, l’un des officiers, nom caviardé, avait déjà noté un losange aux lumières multicolores en patrouille. Dix minutes. 17 février, 23 h 30.",
+          "On ne tranche pas si c’était un satellite. On imprime la plainte. La police a écrit. Le Bureau a pris le papier. Les lumières étaient tie-and-dye.",
+          "YES IT’S REAL a lu Bring Me The News contre le dépôt tel que cité. Force nommée, centrale nommée, cerceaux nommés. Pas de citations inventées. Le formulaire existe.",
+        ],
+        [
+          "Les témoins étaient en service.",
+          "Le dossier est allé au FBI.",
+          "Les lumières : des hula-hoops.",
+        ],
+        "Bring Me The News 28 mai 2026, plainte FBI citée. Nommés. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s110",
+    slug: "pantex-security-chased-a-four-foot-diamond-then-gave-the-file-to-the-fbi",
+    slugs: {
+      fr: "pantex-la-securite-a-couru-apres-un-losange-de-un-metre-puis-a-donne-le-dossier-au-fbi",
+      es: "pantex-la-seguridad-persiguio-un-diamante-de-un-metro-y-paso-el-expediente-al-fbi",
+    },
+    section: "science",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Carson County",
+    dumbness: 8,
+    sources: [
+      src(
+        "Texas UFO report: Pantex nuclear weapons site chased mystery object",
+        "Austin American-Statesman",
+        "https://www.statesman.com/news/article/texas-pantex-ufo-report-nuclear-site-22345015.php",
+        "2026-07-15",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:45:00.000Z",
+    originalLang: "en",
+    confidence: 0.91,
+    entities: ["Pantex", "FBI", "PURSUE"],
+    copy: {
+      en: c(
+        "A four-foot diamond drifted past the nuclear plant at cycling speed. Security locked the gates and gave chase. The file went to the FBI",
+        "Pantex, Carson County, Texas, 1 September 2015, just after 7 a.m. The Austin American-Statesman, 15 July 2026, on a report unsealed under PURSUE. Ground radar: unknown object, 1.75 miles southwest, moving north at 10 to 15 mph. Gates locked. Two officers in a car. The object: about four feet tall, two feet at the base, diamond, rounder at the top. No sound. No visible propulsion. Through binoculars.",
+        [
+          "They followed it for miles until the road ended. Carson County Sheriff found nothing. Investigators: it never approached the sensitive kit. Evidence forwarded to the FBI. Colour, depending on the witness: black, silver, red, blue. One team in a BearCat tracked it on a remote weapon camera at about 110 yards.",
+          "We do not invent a mothership. We print the speed. Ten to fifteen miles an hour, past the country’s warhead shop. The chase ended where the asphalt ended.",
+          "YES IT'S REAL read the Statesman against the 2015 report as released. Named plant, named hours, named FBI. No invented quotes. The diamond was four feet.",
+        ],
+        [
+          "The object was the height of a child.",
+          "The speed was a bicycle.",
+          "The paper went to the Bureau.",
+        ],
+        "Austin American-Statesman 15 July 2026, PURSUE report as quoted. Named. No death.",
+      ),
+      fr: c(
+        "Un losange d’un mètre a longé l’usine nucléaire à vitesse de vélo. La sécurité a fermé les grilles et l’a poursuivi. Le dossier est allé au FBI",
+        "Pantex, comté de Carson, Texas, 1er septembre 2015, juste après 7 h. Austin American-Statesman, 15 juillet 2026, sur un rapport ouvert sous PURSUE. Radar sol : objet inconnu, 1,75 mile au sud-ouest, nord, 10 à 15 mph. Grilles fermées. Deux officiers en voiture. L’objet : environ un mètre vingt, soixante centimètres à la base, losange, plus rond en haut. Pas de bruit. Pas de propulsion visible. Aux jumelles.",
+        [
+          "Ils l’ont suivi des miles, jusqu’à la fin de la route. Le sheriff du comté n’a rien trouvé. Les enquêteurs : ça n’a pas approché le matériel sensible. Preuves transmises au FBI. Couleur, selon le témoin : noir, argent, rouge, bleu. Une équipe en BearCat l’a cadré sur une caméra d’arme, à une centaine de mètres.",
+          "On n’invente pas de vaisseau-mère. On imprime la vitesse. Quinze miles à l’heure, le long de l’atelier des ogives. La chasse s’arrête où s’arrête le bitume.",
+          "YES IT’S REAL a lu le Statesman contre le rapport de 2015 tel que sorti. Usine nommée, heures nommées, FBI nommé. Pas de citations inventées. Le losange faisait un mètre.",
+        ],
+        [
+          "L’objet avait la taille d’un enfant.",
+          "La vitesse, celle d’un vélo.",
+          "Le papier est allé au Bureau.",
+        ],
+        "Austin American-Statesman 15 juill. 2026, rapport PURSUE cité. Nommés. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s111",
+    slug: "retired-arizona-cops-opened-a-police-department-for-unexplained-calls",
+    slugs: {
+      fr: "deux-flics-retraite-darizona-ouvrent-un-commissariat-pour-les-appels-inexpliques",
+      es: "policias-retirados-de-arizona-abren-una-comisaria-para-llamadas-inexplicables",
+    },
+    section: "science",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Gilbert",
+    dumbness: 7,
+    sources: [
+      src(
+        "Why ex-Gilbert officers created reporting outlet for paranormal experiences",
+        "AZFamily",
+        "https://www.azfamily.com/2026/08/04/why-ex-gilbert-officers-created-reporting-outlet-paranormal-experiences/",
+        "2026-08-03",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:50:00.000Z",
+    originalLang: "en",
+    confidence: 0.9,
+    entities: ["UAP-PD", "Dave Rich", "Marianne Robb"],
+    copy: {
+      en: c(
+        "Two retired Gilbert cops opened a police department for calls they could not explain. They do not investigate. They take the statement",
+        "Gilbert, Arizona. AZFamily, 3 August 2026. Dave Rich and Marianne Robb, former Gilbert officers, Unidentified Anomalous Phenomena Police Department — UAP-PD. A discreet box for police, fire, EMTs. Lights over Monument Valley. Voices on emergency recordings. They say they do not validate. They document.",
+        [
+          "Rich, to the camera: we are not trying to convince people these things are real. We don’t know. We have not found an explanation yet. Robb: you’re not crazy. You did see something. It might be explainable. You saw it.",
+          "We already have a French state UFO desk and a Pentagon dump. This one is a commissariat with no cells. First responders file the third kind the way they file a dented fender.",
+          "YES IT'S REAL read AZFamily. Named officers, named town, named shop. No invented quotes. The badge is for the unexplained.",
+        ],
+        [
+          "The founders wore a real badge first.",
+          "The new one takes statements.",
+          "They do not close the case.",
+        ],
+        "AZFamily 3 Aug 2026. Named. No death.",
+      ),
+      fr: c(
+        "Deux flics à la retraite de Gilbert ont ouvert un commissariat pour les appels qu’ils n’arrivaient pas à expliquer. Ils n’enquêtent pas. Ils prennent la déposition",
+        "Gilbert, Arizona. AZFamily, 3 août 2026. Dave Rich et Marianne Robb, ex-officiers de Gilbert, Unidentified Anomalous Phenomena Police Department — UAP-PD. Une boîte discrète pour police, pompiers, ambulanciers. Lumières sur Monument Valley. Des voix sur les bandes d’urgence. Ils disent : on ne valide pas. On documente.",
+        [
+          "Rich, à la caméra : on n’essaie pas de convaincre que c’est réel. On ne sait pas. On n’a pas encore d’explication. Robb : tu n’es pas fou. Tu as vu quelque chose. Ça peut s’expliquer. Tu l’as vu.",
+          "On a déjà un bureau ovni d’État français et un dump du Pentagone. Celui-ci, c’est un commissariat sans cellules. Les premiers secours déposent le troisième type comme une aile froissée.",
+          "YES IT’S REAL a lu AZFamily. Officiers nommés, ville nommée, enseigne nommée. Pas de citations inventées. Le badge, c’est pour l’inexpliqué.",
+        ],
+        [
+          "Les fondateurs ont d’abord porté un vrai badge.",
+          "Le nouveau prend les dépositions.",
+          "Ils ne classent pas.",
+        ],
+        "AZFamily 3 août 2026. Nommés. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 

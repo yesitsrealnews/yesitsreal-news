@@ -634,5 +634,23 @@
     "artist": "Pratap555",
     "license": "CC BY-SA 4.0",
     "page": "https://commons.wikimedia.org/wiki/File%3ABicycle.jpg"
+  },
+  "s110": {
+    "file": "File:Radar antenna.jpg",
+    "artist": "US Army",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File%3ARadar_antenna.jpg"
+  },
+  "s111": {
+    "file": "File:Police badge.jpg",
+    "artist": "Army Russia 2018",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3APolice_badge.jpg"
+  },
+  "s109": {
+    "file": "File:Night sky.jpg",
+    "artist": "Andy from Pittsburgh, United States",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ANight_sky.jpg"
   }
 }

@@ -522,6 +522,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Mortsel, junto a Amberes. VRT, 3 de septiembre. Ouest-France esta mañana. El año pasado, unos 40. Este año, casi 150.",
     w: ["Ciento cincuenta multas.", "La cámara está en el carril bici.", "El límite es treinta."],
   },
+  s109: {
+    h: "Tres policías de Anoka miraron luces tie-dye noventa minutos. Luego lo presentaron al FBI. El formulario dice hula-hoops",
+    d: "Anoka, Minnesota. Bring Me The News, 28 de mayo de 2026, según una denuncia del FBI. 19 de febrero de 2025, 1:15. Tres empleados. Noventa minutos.",
+    w: ["Los testigos estaban de servicio.", "El expediente fue al FBI.", "Las luces: hula-hoops."],
+  },
+  s110: {
+    h: "Un diamante de un metro pasó la planta nuclear a velocidad de bici. La seguridad cerró las rejas y lo persiguió. El expediente fue al FBI",
+    d: "Pantex, condado de Carson, Texas, 1 de septiembre de 2015. Austin American-Statesman, 15 de julio de 2026. Radar. 10 a 15 mph. Sin ruido.",
+    w: ["El objeto medía lo que un niño.", "La velocidad, la de una bici.", "El papel fue a la Oficina."],
+  },
+  s111: {
+    h: "Dos policías jubilados de Gilbert abrieron una comisaría para las llamadas que no sabían explicar. No investigan. Toman declaración",
+    d: "Gilbert, Arizona. AZFamily, 3 de agosto de 2026. Dave Rich y Marianne Robb. UAP-PD. Policía, bomberos, sanitarios.",
+    w: ["Antes llevaron una placa de verdad.", "La nueva toma declaraciones.", "No archivan."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",
