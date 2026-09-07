@@ -5,7 +5,7 @@ import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { formatCount, storyViews } from "@/lib/engagement";
-import { breaking, dumbest, mostRead, publishedStories, sponsoredStory } from "@/lib/catalog";
+import { breaking, dumbest, homeStories, mostRead, sponsoredStory } from "@/lib/catalog";
 import { StoryCard } from "@/components/stories/story-card";
 import { StoryCover } from "@/components/stories/cover";
 import { Newsletter } from "@/components/site/newsletter";
@@ -27,14 +27,14 @@ export function HomePage({
   extras: Story[];
   onSubscribe: (email: string) => void;
 }) {
-  const all = publishedStories(extras);
-  const hero = breaking(extras) ?? all[0];
+  const all = homeStories(extras);
+  const hero = breaking(extras, all);
   const rest = all.filter((s) => s.id !== hero?.id);
   const features = rest.slice(0, 2);
   const [shown, setShown] = useState(8);
   const grid = rest.slice(2, 2 + shown);
-  const read = mostRead(extras, 6);
-  const dumb = dumbest(extras, 5);
+  const read = mostRead(extras, 6, all);
+  const dumb = dumbest(extras, 5, all);
   const sponsored = sponsoredStory(extras);
 
   if (!hero) return <p className="p-8">{t(lang, "noStories")}</p>;
@@ -61,6 +61,11 @@ export function HomePage({
         <Link to="/about" className="underline underline-offset-2">
           {t(lang, "about")}
         </Link>
+        {" · "}
+        {t(lang, "thisWeek")}.{" "}
+        <Link to="/rankings" className="underline underline-offset-2">
+          {t(lang, "allTime")}
+        </Link>
       </p>
       <section className="grid gap-6 border-b-4 border-ink pb-6 lg:grid-cols-12">
         <Link
@@ -70,8 +75,9 @@ export function HomePage({
         >
           <StoryCover id={hero.id} section={hero.section} alt="" priority className="h-full w-full" />
           <span className="absolute left-3 top-3 flex flex-wrap gap-2">
-            <Badge tone="signal">{t(lang, "breaking")}</Badge>
+            {hero.breaking ? <Badge tone="signal">{t(lang, "breaking")}</Badge> : null}
             <Badge tone="scream">{t(lang, "truePill")}</Badge>
+            <Badge>{t(lang, "thisWeek")}</Badge>
           </span>
         </Link>
         <div className="flex flex-col justify-center lg:col-span-5">
@@ -160,6 +166,7 @@ export function HomePage({
             </span>
           </Link>
           <AdSlot lang={lang} slot="sidebar" className="hidden lg:block" salt="home-side" />
+          {read.length ? (
           <section>
             <h2 className="kicker border-b-2 border-ink pb-2 text-ink">{t(lang, "mostRead")}</h2>
             <ol className="mt-3 space-y-3">
@@ -171,6 +178,8 @@ export function HomePage({
               ))}
             </ol>
           </section>
+          ) : null}
+          {dumb.length ? (
           <section>
             <h2 className="kicker border-b-2 border-signal pb-2 text-signal">{t(lang, "dumbestToday")}</h2>
             <ul className="mt-3 space-y-4">
@@ -184,6 +193,7 @@ export function HomePage({
               {t(lang, "todayShare")}
             </Link>
           </section>
+          ) : null}
           <SocialRail lang={lang} />
           {sponsored ? (
             <div className="border-2 border-gold p-4">

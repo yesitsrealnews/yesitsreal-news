@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/site/json-ld";
 import { useAppStore } from "@/lib/store";
 import { itemListJsonLd, orgJsonLd, SEO_FR, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
-import { publishedStories } from "@/lib/catalog";
+import { homeStories } from "@/lib/catalog";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -40,7 +40,7 @@ function Home() {
   const lang = useAppStore((s) => s.lang);
   const extras = useAppStore((s) => s.extras);
   const addNewsletter = useAppStore((s) => s.addNewsletter);
-  const latest = publishedStories(extras);
+  const latest = homeStories(extras);
   return (
     <SiteShell>
       <JsonLd data={orgJsonLd()} />

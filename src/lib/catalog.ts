@@ -2,6 +2,23 @@ import type { Lang, SectionId, Story } from "@/lib/types";
 import { STORIES, getStoryBySlug as seedBySlug } from "@/lib/data/stories";
 import { storyCopy } from "@/lib/format";
 
+/** Rolling week for the une. Older copy stays published in rubriques, not on /. */
+export const HOME_WINDOW_DAYS = 7;
+
+export function storyNewsDate(story: Story): Date {
+  const stamps = story.sources.map((s) => s.date).filter(Boolean);
+  const raw = stamps.length ? stamps.sort()[0]! : story.publishedAt;
+  const d = new Date(raw);
+  return Number.isNaN(+d) ? new Date(story.publishedAt) : d;
+}
+
+export function isThisWeek(story: Story, now = Date.now()): boolean {
+  const t = +storyNewsDate(story);
+  if (Number.isNaN(t)) return false;
+  const week = HOME_WINDOW_DAYS * 24 * 60 * 60 * 1000;
+  return t <= now + 24 * 60 * 60 * 1000 && now - t <= week;
+}
+
 export function mergeStories(extras: Story[]): Story[] {
   const map = new Map<string, Story>();
   for (const s of STORIES) map.set(s.id, s);
@@ -13,6 +30,13 @@ export function mergeStories(extras: Story[]): Story[] {
 
 export function publishedStories(extras: Story[]): Story[] {
   return mergeStories(extras).filter((s) => s.status === "published" && !s.sponsored);
+}
+
+/** Une only: news dated in the last seven days. Archive remains live on section and article URLs. */
+export function homeStories(extras: Story[]): Story[] {
+  return publishedStories(extras)
+    .filter((s) => isThisWeek(s))
+    .sort((a, b) => +storyNewsDate(b) - +storyNewsDate(a) || +new Date(b.publishedAt) - +new Date(a.publishedAt));
 }
 
 export function sponsoredStory(extras: Story[]): Story | undefined {
@@ -53,20 +77,21 @@ export function relatedStories(story: Story, extras: Story[], n = 4): Story[] {
     .slice(0, n);
 }
 
-export function mostRead(extras: Story[], n = 6): Story[] {
-  return [...publishedStories(extras)]
+export function mostRead(extras: Story[], n = 6, pool?: Story[]): Story[] {
+  return [...(pool ?? publishedStories(extras))]
     .sort((a, b) => b.dumbness * 10 + b.sources.length - (a.dumbness * 10 + a.sources.length))
     .slice(0, n);
 }
 
-export function dumbest(extras: Story[], n = 8): Story[] {
-  return [...publishedStories(extras)].sort(
+export function dumbest(extras: Story[], n = 8, pool?: Story[]): Story[] {
+  return [...(pool ?? publishedStories(extras))].sort(
     (a, b) => b.dumbness - a.dumbness || +new Date(b.publishedAt) - +new Date(a.publishedAt),
   ).slice(0, n);
 }
 
-export function breaking(extras: Story[]): Story | undefined {
-  return publishedStories(extras).find((s) => s.breaking) ?? publishedStories(extras)[0];
+export function breaking(extras: Story[], pool?: Story[]): Story | undefined {
+  const list = pool ?? publishedStories(extras);
+  return list.find((s) => s.breaking) ?? list[0];
 }
 
 export function searchStories(extras: Story[], q: string, lang: Lang): Story[] {
