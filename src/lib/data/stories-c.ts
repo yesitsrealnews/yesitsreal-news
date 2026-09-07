@@ -4558,7 +4558,131 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s100",
+    slug: "eu-horizon-15-million-for-artistic-intelligence-artists-to-fix-ai-and-policy",
+    slugs: {
+      fr: "horizon-europe-15-millions-pour-lintelligence-artistique-des-artistes-pour-reparer-lia-et-les-politiques",
+      es: "horizon-europa-15-millones-para-inteligencia-artistica-artistas-para-arreglar-ia-y-politicas",
+    },
+    section: "politics",
+    countryCode: "BE",
+    countryName: "Belgium",
+    location: "Brussels",
+    dumbness: 8,
+    sources: [
+      src(
+        "“Artistic intelligence” : harnessing the power of the arts to address complex challenges, enhance soft skills and boost innovation and competitiveness",
+        "Horizon Europe (France portal)",
+        "https://www.horizon-europe.gouv.fr/artistic-intelligence-harnessing-power-arts-address-complex-challenges-enhance-soft-skills-and",
+        "2026-09-06",
+        "official",
+      ),
+      src(
+        "Les appels du Cluster 2 - SHS",
+        "Horizon Europe .gouv.fr",
+        "https://www.horizon-europe.gouv.fr/appels/shs",
+        "2026-09-06",
+        "official",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:05:00.000Z",
+    originalLang: "en",
+    confidence: 0.94,
+    entities: ["European Commission", "Horizon Europe"],
+    copy: {
+      en: c(
+        "The EU has opened a 15 million euro call. The topic is “Artistic intelligence”. Artists, it says, will help fix AI and public policy",
+        "HORIZON-CL2-2026-01-HERITAGE-01. Opened 12 May. Closes 23 September 2026. Fifteen million. Research and Innovation Actions. The French portal listed it again on 6 September.",
+        [
+          "The expected outcomes, as printed: toolkits, metrics, networks. Use cases listed without irony: artists supporting ethical, inclusive, human-centred AI; artists catalysing innovation in policymaking; emotional storytelling with real-time data. Residencies for artists, up to 60,000 euros each, are allowed as third-party grants.",
+          "This is not a review of a biennale. It is a call for proposals. The Commission has put the arts in the same sentence as competitiveness and soft skills, and named the package Artistic intelligence, as if it were the cousin of the other one. The deadline is in sixteen days.",
+          "YES IT'S REAL read the Horizon page. Named topic, named budget, named close. No invented quotes. The call is the story.",
+        ],
+        [
+          "Fifteen million. The title is Artistic intelligence.",
+          "The artists are in the work programme, next to the AI.",
+          "The form closes on 23 September.",
+        ],
+        "Horizon Europe portal 6 Sept 2026. Official call. No death.",
+      ),
+      fr: c(
+        "L’UE a ouvert un appel à 15 millions d’euros. Le topic : « Artistic intelligence ». Des artistes, dit le texte, pour réparer l’IA et les politiques publiques",
+        "HORIZON-CL2-2026-01-HERITAGE-01. Ouvert le 12 mai. Clôture le 23 septembre 2026. Quinze millions. Research and Innovation Actions. Le portail français l’a relisté le 6 septembre.",
+        [
+          "Les résultats attendus, tels quels : toolkits, métriques, réseaux. Cas d’usage, sans ironie : des artistes pour une IA éthique, inclusive, centrée humain ; des artistes pour catalyser l’innovation dans les politiques publiques ; du storytelling émotionnel avec des données en temps réel. Des résidences d’artistes, jusqu’à 60 000 euros, sont prévues en subventions à des tiers.",
+          "Ce n’est pas une critique de biennale. C’est un appel à projets. La Commission a mis les arts dans la même phrase que la compétitivité et les soft skills, et a nommé le paquet Artistic intelligence, comme le cousin de l’autre. La deadline, c’est dans seize jours.",
+          "YES IT’S REAL a lu la page Horizon. Topic nommé, budget nommé, clôture nommée. Pas de citations inventées. L’appel, c’est l’article.",
+        ],
+        [
+          "Quinze millions. Le titre : Artistic intelligence.",
+          "Les artistes sont dans le programme de travail, à côté de l’IA.",
+          "Le formulaire ferme le 23 septembre.",
+        ],
+        "Portail Horizon Europe 6 sept. 2026. Appel officiel. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s101",
+    slug: "eu-5000-euro-grants-for-public-art-performances-about-food-waste",
+    slugs: {
+      fr: "ue-bourses-5000-euros-pour-des-performances-dart-sur-le-gaspillage-alimentaire",
+      es: "ue-becas-5000-euros-para-performances-de-arte-sobre-desperdicio-alimentario",
+    },
+    section: "world",
+    countryCode: "IT",
+    countryName: "Italy",
+    location: "Milan",
+    dumbness: 7,
+    sources: [
+      src(
+        "Urban Bites: Artistic Performances for Food Sustainability — Open Call (2nd edition)",
+        "Milan Urban Food Policy Pact / Feed Your Future",
+        "https://www.milanurbanfoodpolicypact.org/wp-content/uploads/2026/03/g4gga35blnmrc2etmar2y4m4y.pdf",
+        "2026-03-18",
+        "official",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:10:00.000Z",
+    originalLang: "en",
+    confidence: 0.9,
+    entities: ["Milan Urban Food Policy Pact", "Feed Your Future"],
+    copy: {
+      en: c(
+        "Ten grants. Five thousand euros each. The brief: public art performances about leftover food. Six cities. An EU youth climate project is paying",
+        "Open call, 18 March to 3 May 2026. Urban Bites, second edition. Sub-granting under Feed Your Future – Engaging Youth for Creative Climate Action. Milan, Almere, Barcelona, Brașov, Lisbon, Thessaloniki. At least one show per city.",
+        [
+          "The PDF is eleven pages. Object: public art performances on urban food harvesting, consumption, recycling and/or food waste. Artists, creators, civil society. Five thousand euros a project. Ten projects. The calendar, the webinar, the Google form, all printed.",
+          "We do not review the shows. We print the call. Europe paid for street theatre about the bin. The envelope is small. The instruction is not.",
+          "YES IT'S REAL read the Pact’s PDF. Named programme, named cities, named sums. One source, the call itself. That is enough for a classified.",
+        ],
+        [
+          "Five thousand euros. A show about leftovers.",
+          "Six cities. Ten cheques.",
+          "The brief was in the PDF.",
+        ],
+        "MUFPP PDF March 2026. Official call. Closed 3 May. No death.",
+      ),
+      fr: c(
+        "Dix bourses. Cinq mille euros chacune. Le brief : des performances d’art public sur les restes. Six villes. Un projet climat jeunesse de l’UE paie",
+        "Appel ouvert du 18 mars au 3 mai 2026. Urban Bites, deuxième édition. Sous-subvention de Feed Your Future – Engaging Youth for Creative Climate Action. Milan, Almere, Barcelone, Brașov, Lisbonne, Thessalonique. Au moins un spectacle par ville.",
+        [
+          "Le PDF fait onze pages. Objet : performances d’art public sur la récolte urbaine, la conso, le recyclage et/ou le gaspillage alimentaire. Artistes, créateurs, société civile. Cinq mille euros par projet. Dix projets. Le calendrier, le webinaire, le formulaire Google, tout est imprimé.",
+          "On ne critique pas les spectacles. On imprime l’appel. L’Europe a payé du théâtre de rue sur la poubelle. L’enveloppe est petite. La consigne ne l’est pas.",
+          "YES IT’S REAL a lu le PDF du Pacte. Programme nommé, villes nommées, sommes nommées. Une source, l’appel lui-même. Ça suffit pour une petite annonce.",
+        ],
+        [
+          "Cinq mille euros. Un spectacle sur les restes.",
+          "Six villes. Dix chèques.",
+          "Le brief était dans le PDF.",
+        ],
+        "PDF MUFPP mars 2026. Appel officiel. Clos le 3 mai. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 

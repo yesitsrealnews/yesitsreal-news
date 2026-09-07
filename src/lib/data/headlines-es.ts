@@ -477,6 +477,16 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "UNESCO, 25 de junio de 2026, sede, París. Joshua de SEVENTEEN en la sala. Cien becas. El millón lo pone el grupo.",
     w: ["El fondo juvenil de la ONU era un cheque de boy band.", "Un millón de dólares. Cien becas pequeñas.", "Joshua estaba en la sala."],
   },
+  s100: {
+    h: "La UE ha abierto una convocatoria de 15 millones. El tema: “Artistic intelligence”. Artistas, dice el texto, para arreglar la IA y las políticas públicas",
+    d: "HORIZON-CL2-2026-01-HERITAGE-01. Cierra el 23 de septiembre de 2026. Quince millones. El portal francés lo relistó el 6 de septiembre.",
+    w: ["Quince millones. El título: Artistic intelligence.", "Los artistas están en el programa, junto a la IA.", "El formulario cierra el 23 de septiembre."],
+  },
+  s101: {
+    h: "Diez becas. Cinco mil euros cada una. El brief: performances de arte público sobre las sobras. Seis ciudades. Un proyecto climático juvenil de la UE paga",
+    d: "Convocatoria, 18 de marzo a 3 de mayo de 2026. Urban Bites, segunda edición. Milán, Almere, Barcelona, Brașov, Lisboa, Salónica.",
+    w: ["Cinco mil euros. Un espectáculo sobre las sobras.", "Seis ciudades. Diez cheques.", "El brief estaba en el PDF."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",

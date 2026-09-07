@@ -580,5 +580,17 @@
     "artist": "Fred Romero from Paris, France",
     "license": "CC BY 2.0",
     "page": "https://commons.wikimedia.org/wiki/File%3AParis_-_UNESCO_%2829775501630%29.jpg"
+  },
+  "s100": {
+    "file": "File:Berlaymont building 2022.jpg",
+    "artist": "Euro Pictures",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABerlaymont_building_2022.jpg"
+  },
+  "s101": {
+    "file": "File:Food waste.jpg",
+    "artist": "Taz",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AFood_waste.jpg"
   }
 }
