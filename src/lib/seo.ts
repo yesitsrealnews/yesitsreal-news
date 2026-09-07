@@ -6,7 +6,7 @@ export const INDEXNOW_KEY = "a8f3c1e29b704d6ea51c8f2d4b7e90c1";
 export const GOOGLE_SITE_VERIFICATION = "VQZpvyS8_FbId5oVYrLznUobVmavBmH6SAdV2MmQM9E";
 
 export const SEO_FR = {
-  title: `${SITE_NAME} — Des infos vraies. Incroyablement bêtes.`,
+  title: "YES IT'S REAL — Des infos vraies. Incroyablement bêtes.",
   description:
     "Vérifié. Sourcé. Malheureusement vrai. Un journal mondial qui ne publie que des faits déjà parus, sourcés, parmi les plus bêtes de la Terre. Pas de satire.",
   keywords: "infos, faits divers, pas de satire, news, bizarre, vrai, sourcé, Google Actualités",
