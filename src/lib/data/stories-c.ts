@@ -3130,33 +3130,33 @@ export const STORIES_C: Story[] = [
     copy: {
       en: c(
         "First class, Dallas to Newark: the crew handed over the tape. He finished the flight stuck to the seat",
-        "American Airlines 618, 3 September 2026. Arthur Lundeen, 67, Tucson. Diverted to Baltimore. Zip ties, then duct tape, around the body and the head. NYT, CNN, franceinfo. Charged: second-degree assault, disorderly conduct. Released on his own recognizance.",
+        "American Airlines 618, 3 September 2026. Arthur Lundeen, 67, Tucson. Diverted to Baltimore. Zip ties, then duct tape, around the body and the head. Photo: Richard Olenick, published by CNN (Courtesy Richard Olenick). We do not reprint it. NYT, CNN, franceinfo. Charged: second-degree assault, disorderly conduct. Released on his own recognizance.",
         [
-          "Two hours in. A man in first class becomes loud, then physical. A flight attendant tries to settle it. Passengers Juan Mejia, a retired officer, and Richard O’Lenick get up. The attendant gives them a zip tie. He bites. She brings the tape. Mejia wraps him to the seat. O’Lenick photographs it. The plane lands at BWI. Maryland Transportation Authority Police board.",
+          "Two hours in. A man in first class becomes loud, then physical. A flight attendant tries to settle it. Passengers Juan Mejia, a retired officer, and Richard Olenick get up. The attendant gives them a zip tie. He bites. She brings the tape. Mejia wraps him to the seat. Olenick takes the photograph: body, arms, head, stuck to the first-class seat. CNN printed it, 4 September, credit: Courtesy Richard Olenick. We do not reprint that frame. It is his. The plane lands at BWI. Maryland Transportation Authority Police board.",
           "American Airlines: a disruptive customer; law enforcement met the aircraft. The FBI is interviewing. We do not reprint the slurs the papers quoted. The method is the story. The tape is cabin kit. CNN notes it is carried for this.",
-          "YES IT'S REAL read the Times against CNN and franceinfo. Named flight, named airport, named charges. The picture went around the world. The roll came from the galley.",
+          "YES IT'S REAL read the Times against CNN and franceinfo. Named flight, named airport, named charges. The picture is on CNN, credited to Olenick. The roll came from the galley.",
         ],
         [
           "The upgrade did not include an exit.",
           "The galley had a roll for this.",
           "He was still there when Baltimore opened the door.",
         ],
-        "NYT 5 Sept 2026; CNN 4 Sept; franceinfo 5 Sept. AA 618, 3 Sept. No death. Slurs not reprinted.",
+        "NYT 5 Sept 2026; CNN 4 Sept, photo Courtesy Richard Olenick — we do not reprint it; franceinfo 5 Sept. AA 618, 3 Sept. No death. Slurs not reprinted.",
       ),
       fr: c(
         "Première classe, Dallas–Newark : l’équipage tend le scotch. Il finit collé au siège",
-        "American Airlines 618, 3 septembre 2026. Arthur Lundeen, 67 ans, Tucson. Dérouté sur Baltimore. Colliers de serrage, puis du scotch, autour du corps et de la tête. NYT, CNN, franceinfo. Chefs : voies de fait au second degré, désordre. Remis en liberté sous caution personnelle.",
+        "American Airlines 618, 3 septembre 2026. Arthur Lundeen, 67 ans, Tucson. Dérouté sur Baltimore. Colliers de serrage, puis du scotch, autour du corps et de la tête. Photo : Richard Olenick, publiée par CNN (Courtesy Richard Olenick). On ne la reprend pas. NYT, CNN, franceinfo. Chefs : voies de fait au second degré, désordre. Remis en liberté sous caution personnelle.",
         [
-          "Deux heures de vol. Un homme en première s’énerve, puis frappe. Une hôtesse tente de calmer. Les passagers Juan Mejia, ancien policier, et Richard O’Lenick se lèvent. L’hôtesse leur tend un collier. Il mord. Elle apporte le scotch. Mejia l’enroule au siège. O’Lenick photographie. L’avion se pose à BWI. La police du Maryland monte.",
+          "Deux heures de vol. Un homme en première s’énerve, puis frappe. Une hôtesse tente de calmer. Les passagers Juan Mejia, ancien policier, et Richard Olenick se lèvent. L’hôtesse leur tend un collier. Il mord. Elle apporte le scotch. Mejia l’enroule au siège. Olenick prend la photo : le corps, les bras, la tête, collés au fauteuil de première. CNN l’a publiée le 4 septembre, crédit : Courtesy Richard Olenick. On ne reprend pas ce cliché. C’est le sien. L’avion se pose à BWI. La police du Maryland monte.",
           "American Airlines : un client perturbateur ; les forces de l’ordre ont accueilli l’appareil. Le FBI auditionne. On ne réimprime pas les insultes citées par les journaux. La méthode, c’est le papier. Le scotch est dans la soute cabine. CNN le note : on l’embarque pour ça.",
-          "YES IT’S REAL a lu le Times contre CNN et franceinfo. Vol nommé, aéroport nommé, chefs nommés. La photo a fait le tour. Le rouleau venait de la cuisine.",
+          "YES IT’S REAL a lu le Times contre CNN et franceinfo. Vol nommé, aéroport nommé, chefs nommés. La photo est chez CNN, crédit Olenick. Le rouleau venait de la cuisine.",
         ],
         [
           "La première classe n’incluait pas la sortie.",
           "La cuisine avait un rouleau pour ça.",
           "Il était encore là quand Baltimore a ouvert la porte.",
         ],
-        "NYT 5 sept. 2026 ; CNN 4 sept. ; franceinfo 5 sept. AA 618, 3 sept. Pas de mort. Insultes non réimprimées.",
+        "NYT 5 sept. 2026 ; CNN 4 sept., photo Courtesy Richard Olenick — on ne la reprend pas ; franceinfo 5 sept. AA 618, 3 sept. Pas de mort. Insultes non réimprimées.",
       ),
     },
   }),

@@ -364,7 +364,7 @@ export const ES_HEADLINES: Record<string, Hed> = {
   },
   s73: {
     h: "Primera clase, Dallas–Newark: la tripulación pasa la cinta. Termina pegado al asiento",
-    d: "American Airlines 618, 3 de septiembre de 2026. Arthur Lundeen, 67 años. Desvío a Baltimore. NYT, CNN, franceinfo.",
+    d: "American Airlines 618, 3 de septiembre de 2026. Arthur Lundeen, 67 años. Desvío a Baltimore. Foto: Richard Olenick, publicada por CNN. NYT, CNN, franceinfo.",
     w: ["El upgrade no incluía la salida.", "La galera tenía un rollo para esto.", "Seguía ahí cuando Baltimore abrió la puerta."],
   },
   s74: {
