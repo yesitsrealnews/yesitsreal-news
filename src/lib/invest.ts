@@ -29,7 +29,7 @@ export const TRACTION = [
   { k: "Languages", v: "31" },
   { k: "Stories in the well", v: "110+ sourced" },
   { k: "Ad units wired", v: "6" },
-  { k: "X", v: "@Yesitsarealnews" },
+  { k: "X", v: "@yesitsrealnews" },
   { k: "Contest", v: "World Dumbness Cup 2026" },
   { k: "Ask today", v: "€5k–€12k" },
   { k: "Tesla", v: "Reader ready. Deal: not signed." },
@@ -48,7 +48,7 @@ export const ASSETS = [
 export const RISKS = [
   "No Comscore. This is a productized brand, not a proven traffic graph.",
   "AdSense needs the live .news, volume, and humans who are not the owner refreshing.",
-  "Handles: @Yesitsarealnews is the official X. Others still to claim.",
+  "Handles: @yesitsrealnews is the official X. Others still to claim.",
   "A €1.2M asking price would be a lie. We do not lie to buyers.",
 ];
 
@@ -67,7 +67,7 @@ Inclus :
 - Marque (YES IT'S REAL, tampon TRUE, kit X, vidéos)
 - Site moderne (31 langues, rédac, pubs, newsletter, concours mondial)
 - 110 articles sourcés (Lalanne, Christ cosmique, golfe d'Amérique, GEIPAN, Pentagon UAP…)
-- Compte X @Yesitsarealnews
+- Compte X @yesitsrealnews
 - Desk / back-office rédacteur en chef
 
 Prix : 5 000 € (négociable jusqu'à 12 000 € si le .news est en ligne).
@@ -78,7 +78,7 @@ Contact : investors@yesitsreal.news`;
 
 export const LISTING_EN = `For sale: YES IT'S REAL — a prestige paper that only prints true, sourced, stupid events. Not satire. Not The Onion.
 
-Included: brand + TRUE stamp + X kit, 110 sourced stories, 31-language site, newsroom CMS, World Dumbness Cup, @Yesitsarealnews.
+Included: brand + TRUE stamp + X kit, 110 sourced stories, 31-language site, newsroom CMS, World Dumbness Cup, @yesitsrealnews.
 
 Asking: €5,000 (to €12,000 once yesitsreal.news is live). No trailing revenue. You are buying the masthead, the stack, and the well.
 

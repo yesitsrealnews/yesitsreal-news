@@ -31,7 +31,7 @@ function SocialPage() {
         <ShareBar lang={lang} path="/social" headline={t(lang, "social")} className="mt-5" />
 
         <section className="mt-8 border-2 border-ink bg-scream p-5 text-scream-ink">
-          <p className="kicker">X · @Yesitsarealnews · LIVE</p>
+          <p className="kicker">X · @yesitsrealnews · LIVE</p>
           <h2 className="mt-2 font-serif text-3xl uppercase">Compte actif. Colle ça maintenant.</h2>
           <div className="mt-5 flex flex-wrap items-center gap-4 border border-ink bg-paper p-3 text-ink">
             <img src="/brand/avatar.jpg" alt="YES IT'S REAL avatar" className="size-24 border border-ink object-cover" />
@@ -49,7 +49,7 @@ function SocialPage() {
             </div>
           </div>
           <p className="mt-2 max-w-xl text-sm">
-            Le journal pointe vers x.com/Yesitsarealnews. Trois posts, dans l’ordre.
+            Le journal pointe vers x.com/yesitsrealnews. Trois posts, dans l’ordre.
           </p>
           <ol className="mt-4 space-y-3">
             {[

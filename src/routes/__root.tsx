@@ -27,8 +27,8 @@ export const Route = createRootRoute({
       { property: "og:locale", content: "fr_FR" },
       { property: "og:locale:alternate", content: "en_GB" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Yesitsarealnews" },
-      { name: "twitter:creator", content: "@Yesitsarealnews" },
+      { name: "twitter:site", content: "@yesitsrealnews" },
+      { name: "twitter:creator", content: "@yesitsrealnews" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
