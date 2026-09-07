@@ -4291,7 +4291,73 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s96",
+    slug: "maastricht-university-176-euros-to-take-psilocybin-and-do-computer-tasks",
+    slugs: {
+      fr: "maastricht-176-euros-pour-prendre-de-la-psilocybine-et-faire-des-tests-ordinateur",
+      es: "maastricht-176-euros-por-tomar-psilocibina-y-hacer-tareas-de-ordenador",
+    },
+    section: "science",
+    countryCode: "NL",
+    countryName: "Netherlands",
+    location: "Maastricht",
+    dumbness: 8,
+    sources: [
+      src(
+        "VOLUNTEERS WANTED — Psilocybin attention study (flyer 17 April 2026)",
+        "Maastricht University, Faculty of Psychology and Neuroscience",
+        "https://www.maastrichtuniversity.nl/file/fpn-studies-psilocybinattentionstudy-2026-04-17pdf",
+        "2026-04-17",
+        "gazette",
+      ),
+      src(
+        "Netherlands Psychedelic Research Report 2026",
+        "Blossom",
+        "https://www.moreblossom.com/countries/netherlands",
+        "2026-08-26",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:05:00.000Z",
+    originalLang: "en",
+    confidence: 0.92,
+    entities: ["Maastricht University", "Faculty of Psychology and Neuroscience"],
+    copy: {
+      en: c(
+        "The job ad is on university letterhead. Experience required: you have already taken mushrooms. Pay: 176 euros. Tasks: psilocybin or placebo, a cannula, computer tests",
+        "Maastricht, Faculty of Psychology and Neuroscience. Flyer dated 17 April 2026. Blossom, 26 August: still recruiting. Healthy, 18 to 40. Prior use of MDMA, truffles, mushrooms, LSD, DMT or ayahuasca. Thirteen and a half hours. 176 euros. 228 if you also do the MRI.",
+        [
+          "VOLUNTEERS WANTED, in capitals, on the PDF. One dosing day: psilocybin or placebo, questionnaires, computer tasks, blood through a tube in the arm, about seven hours. Four more days of tasks of an hour. Questionnaires at two weeks, a month, three months. The faculty wants to know whether psilocybin changes what people look at after the drug has worn off. Email: fpn-psilo_attention@maastrichtuniversity.nl.",
+          "This is not a street sale. It is a classified. The experience is a prerequisite. The trip is the work. The rate, if you do the arithmetic they printed, is about thirteen euros an hour. We do not diagnose the applicants. We print the offer.",
+          "YES IT'S REAL read the April flyer against Blossom’s August desk note that Maastricht is still recruiting a psilocybin study on attention. Named faculty, named fee, named hours. The QR code is on the page.",
+        ],
+        [
+          "The CV asked for prior psychedelics.",
+          "The salary was 176 euros, all in.",
+          "The job was to sit still and bleed into a tube.",
+        ],
+        "Maastricht FPN flyer 17 April 2026; Blossom 26 Aug still recruiting. Healthy-volunteer ad. No death. No street dose invented.",
+      ),
+      fr: c(
+        "L’offre d’emploi est à en-tête d’université. Expérience exigée : vous avez déjà pris des champignons. Paye : 176 euros. Tâches : psilocybine ou placebo, un cathéter, des tests sur ordinateur",
+        "Maastricht, faculté de psychologie et de neurosciences. Flyer daté du 17 avril 2026. Blossom, 26 août : encore en recrutement. Sains, 18 à 40 ans. Usage préalable de MDMA, truffes, champignons, LSD, DMT ou ayahuasca. Treize heures et demie. 176 euros. 228 si vous faites aussi l’IRM.",
+        [
+          "VOLUNTEERS WANTED, en capitales, sur le PDF. Un jour de prise : psilocybine ou placebo, questionnaires, tâches ordinateur, sang par un tube dans le bras, environ sept heures. Quatre autres jours de tests d’une heure. Questionnaires à deux semaines, un mois, trois mois. La faculté veut savoir si la psilocybine change ce que les gens regardent, une fois le produit retombé. Mail : fpn-psilo_attention@maastrichtuniversity.nl.",
+          "Ce n’est pas une vente à la sauvette. C’est une petite annonce. L’expérience est un prérequis. Le trip, c’est le travail. Le tarif, si on fait la division qu’ils ont imprimée, tourne autour de treize euros de l’heure. On ne diagnostique pas les candidats. On imprime l’offre.",
+          "YES IT’S REAL a lu le flyer d’avril contre la note de Blossom, en août : Maastricht recrute encore une étude psilocybine sur l’attention. Faculté nommée, indemnité nommée, heures nommées. Le QR est sur la page.",
+        ],
+        [
+          "Le CV demandait des psychédéliques déjà faits.",
+          "Le salaire était 176 euros, tout compris.",
+          "Le poste, c’était de rester assis et de saigner dans un tube.",
+        ],
+        "Flyer FPN Maastricht 17 avril 2026 ; Blossom 26 août, encore en recrutement. Annonce volontaires sains. Pas de mort. Pas de dose de rue inventée.",
+      ),
+    },
+  }),
 ];
+
 
 
 

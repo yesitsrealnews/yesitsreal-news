@@ -457,6 +457,11 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "ICE 2075, Sylt–Berlín. Julio de 2026. Deutsche Bahn lo confirmó. rbb24, t-online, Le Figaro.",
     w: ["Trescientos por hora. Sin papel.", "La parada imprevista era la tienda.", "Bahn confirmó. El vídeo hizo el resto."],
   },
+  s96: {
+    h: "El anuncio de empleo va con membrete de universidad. Experiencia: ya has tomado setas. Sueldo: 176 euros. Tareas: psilocibina o placebo, un catéter, tests de ordenador",
+    d: "Maastricht, facultad de psicología. Folleto del 17 de abril de 2026. Blossom, 26 de agosto: siguen reclutando.",
+    w: ["El CV pedía psicodélicos previos.", "El sueldo era 176 euros, todo incluido.", "El puesto era quedarse quieto y sangrar en un tubo."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",

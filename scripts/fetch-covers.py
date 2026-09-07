@@ -122,6 +122,7 @@ COVERS: dict[str, tuple[str, str]] = {
     "s93": ("File:Bahnhof Altdorf Parkplatz West 2.jpg", "Altdorf UR car park"),
     "s94": ("File:Gloucester Old Spot Piglets.jpg", "spotted piglets"),
     "s95": ("File:Hamburg ICE1 op Lombardsbrücke kerst (23776695399).jpg", "ICE train Hamburg"),
+    "s96": ("File:Psilocybe cubensis (Earle) Singer 514039.jpg", "Psilocybe cubensis mushroom"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
