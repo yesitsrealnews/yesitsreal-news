@@ -3,21 +3,32 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { SiteShell } from "@/components/site/site-shell";
 import { NotFoundPage } from "@/components/site/not-found";
+import { GOOGLE_SITE_VERIFICATION, SEO_FR } from "@/lib/seo";
+import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import appCss from "../styles.css?url";
-
-const APP_NAME = "YES IT'S REAL";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: `${APP_NAME} — Real news. Unbelievably dumb.` },
-      { name: "description", content: "Verified. Sourced. Unfortunately true. A global newsroom that only publishes real, fact-checked stories among the dumbest events on Earth. Not satire." },
+      { title: SEO_FR.title },
+      { name: "description", content: SEO_FR.description },
+      { name: "keywords", content: SEO_FR.keywords },
       { name: "theme-color", content: "#141414" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { name: "application-name", content: APP_NAME },
-      { name: "news_keywords", content: "news, weird news, fact check, not satire, world" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large" },
+      { name: "googlebot-news", content: "index, follow" },
+      { name: "application-name", content: SITE_NAME },
+      { name: "news_keywords", content: "infos, faits divers, pas de satire, news, bizarre, vrai" },
+      { name: "google-site-verification", content: GOOGLE_SITE_VERIFICATION },
+      { name: "author", content: SITE_NAME },
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:locale", content: "fr_FR" },
+      { property: "og:locale:alternate", content: "en_GB" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@Yesitsarealnews" },
+      { name: "twitter:creator", content: "@Yesitsarealnews" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -30,7 +41,8 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap",
       },
-      { rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "YES IT'S REAL" },
+      { rel: "alternate", type: "application/rss+xml", href: `${SITE_URL}/rss.xml`, title: "YES IT'S REAL — Français" },
+      { rel: "alternate", type: "application/rss+xml", href: `${SITE_URL}/rss-en.xml`, title: "YES IT'S REAL — English" },
     ],
   }),
   notFoundComponent: () => (
@@ -43,7 +55,7 @@ export const Route = createRootRoute({
 
 function RootDocument() {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <head>
         <HeadContent />
         <script

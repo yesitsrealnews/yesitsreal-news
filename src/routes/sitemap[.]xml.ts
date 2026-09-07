@@ -2,38 +2,50 @@ import { createFileRoute } from "@tanstack/react-router";
 import { STORIES } from "@/lib/data/stories";
 import { SECTIONS } from "@/lib/data/sections";
 import { SITE_URL } from "@/lib/brand";
+import { xmlEscape } from "@/lib/seo";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const urls: { loc: string; lastmod?: string; changefreq: string; priority: string }[] = [
-          { loc: "/", changefreq: "hourly", priority: "1.0" },
-          { loc: "/today", changefreq: "hourly", priority: "0.9" },
-          { loc: "/rankings", changefreq: "daily", priority: "0.8" },
-          { loc: "/about", changefreq: "weekly", priority: "0.6" },
-          { loc: "/method", changefreq: "weekly", priority: "0.5" },
-          { loc: "/contact", changefreq: "monthly", priority: "0.4" },
-          { loc: "/submit", changefreq: "weekly", priority: "0.5" },
-          { loc: "/contest", changefreq: "daily", priority: "0.6" },
-          { loc: "/social", changefreq: "daily", priority: "0.5" },
-          { loc: "/careers", changefreq: "weekly", priority: "0.3" },
-          { loc: "/membership", changefreq: "weekly", priority: "0.4" },
-          ...SECTIONS.map((s) => ({ loc: s.path, changefreq: "hourly", priority: "0.8" })),
-          ...STORIES.filter((s) => s.status === "published").map((s) => ({
-            loc: `/story/${s.slug}`,
-            lastmod: s.updatedAt || s.publishedAt,
-            changefreq: "daily",
-            priority: "0.9",
-          })),
+        const pages = [
+          { loc: "/", lastmod: undefined as string | undefined, changefreq: "hourly", priority: "1.0" },
+          { loc: "/today", lastmod: undefined, changefreq: "hourly", priority: "0.9" },
+          { loc: "/contest", lastmod: undefined, changefreq: "daily", priority: "0.8" },
+          { loc: "/rankings", lastmod: undefined, changefreq: "daily", priority: "0.6" },
+          { loc: "/about", lastmod: undefined, changefreq: "weekly", priority: "0.6" },
+          { loc: "/method", lastmod: undefined, changefreq: "weekly", priority: "0.5" },
+          { loc: "/contact", lastmod: undefined, changefreq: "monthly", priority: "0.4" },
+          { loc: "/submit", lastmod: undefined, changefreq: "weekly", priority: "0.5" },
+          { loc: "/social", lastmod: undefined, changefreq: "daily", priority: "0.4" },
+          { loc: "/shop", lastmod: undefined, changefreq: "weekly", priority: "0.3" },
+          ...SECTIONS.map((s) => ({ loc: s.path, lastmod: undefined as string | undefined, changefreq: "hourly", priority: "0.8" })),
         ];
-        const body = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls
+        const pageXml = pages
           .map(
             (u) =>
               `<url><loc>${SITE_URL}${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod.slice(0, 10)}</lastmod>` : ""}<changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`,
           )
-          .join("")}</urlset>`;
-        return new Response(body, { headers: { "content-type": "application/xml; charset=utf-8" } });
+          .join("");
+        const storyXml = STORIES.filter((s) => s.status === "published" && !s.sponsored)
+          .map((s) => {
+            const en = `${SITE_URL}/story/${xmlEscape(s.slug)}`;
+            const frSlug = s.slugs.fr;
+            const fr = frSlug ? `${SITE_URL}/story/${xmlEscape(frSlug)}` : en;
+            const last = (s.updatedAt || s.publishedAt).slice(0, 10);
+            const alts = `<xhtml:link rel="alternate" hreflang="fr" href="${fr}"/><xhtml:link rel="alternate" hreflang="en" href="${en}"/><xhtml:link rel="alternate" hreflang="x-default" href="${fr}"/>`;
+            const frUrl = `<url><loc>${fr}</loc><lastmod>${last}</lastmod><changefreq>daily</changefreq><priority>0.9</priority>${alts}</url>`;
+            if (!frSlug || frSlug === s.slug) return frUrl;
+            return `${frUrl}<url><loc>${en}</loc><lastmod>${last}</lastmod><changefreq>weekly</changefreq><priority>0.6</priority>${alts}</url>`;
+          })
+          .join("");
+        const body = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${pageXml}${storyXml}</urlset>`;
+        return new Response(body, {
+          headers: {
+            "content-type": "application/xml; charset=utf-8",
+            "cache-control": "public, max-age=300",
+          },
+        });
       },
     },
   },

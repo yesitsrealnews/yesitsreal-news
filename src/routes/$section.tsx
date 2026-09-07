@@ -5,12 +5,30 @@ import { isSectionId } from "@/lib/data/sections";
 import { useAppStore } from "@/lib/store";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
+import { SITE_URL } from "@/lib/brand";
 
 export const Route = createFileRoute("/$section")({
   beforeLoad: ({ params }) => {
     if (params.section === "declarations") {
       throw redirect({ to: "/$section", params: { section: "politics" } });
     }
+  },
+  head: ({ params }) => {
+    if (!isSectionId(params.section)) return {};
+    const title = `${params.section} — YES IT'S REAL`;
+    const url = `${SITE_URL}/${params.section}`;
+    return {
+      meta: [
+        { title },
+        {
+          name: "description",
+          content: `Rubrique ${params.section} — faits vrais, sourcés, déjà parus. Pas de satire. YES IT'S REAL.`,
+        },
+        { property: "og:title", content: title },
+        { property: "og:url", content: url },
+      ],
+      links: [{ rel: "canonical", href: url }],
+    };
   },
   component: SectionRoute,
 });

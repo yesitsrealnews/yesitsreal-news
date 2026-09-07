@@ -5,6 +5,8 @@ Disallow: /admin/
 Disallow: /cambuse
 Disallow: /cambuse/
 Disallow: /api/
+Disallow: /kit
+Disallow: /kit/
 
 User-agent: Googlebot
 Allow: /
@@ -27,6 +29,8 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
+Host: https://www.yesitsreal.news
 Sitemap: https://www.yesitsreal.news/sitemap.xml
 Sitemap: https://www.yesitsreal.news/news-sitemap.xml
 Sitemap: https://www.yesitsreal.news/rss.xml
+Sitemap: https://www.yesitsreal.news/rss-en.xml

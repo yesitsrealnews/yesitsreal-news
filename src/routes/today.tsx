@@ -7,11 +7,25 @@ import { Newsletter } from "@/components/site/newsletter";
 import { Badge } from "@/components/ui/badge";
 import { t } from "@/lib/i18n";
 import { useAppStore } from "@/lib/store";
+import { SITE_URL } from "@/lib/brand";
 import { dumbest } from "@/lib/catalog";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { DumbnessScore } from "@/components/stories/dumbness";
 
-export const Route = createFileRoute("/today")({ component: TodayPage });
+export const Route = createFileRoute("/today")({
+  component: TodayPage,
+  head: () => ({
+    meta: [
+      { title: "Le briefing du jour — YES IT'S REAL" },
+      {
+        name: "description",
+        content: "Cinq faits vrais du jour. Sourcés. Déjà parus. Pas de satire.",
+      },
+      { property: "og:title", content: "Le briefing du jour — YES IT'S REAL" },
+    ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/today` }],
+  }),
+});
 
 function TodayPage() {
   const lang = useAppStore((s) => s.lang);
