@@ -4991,6 +4991,13 @@ export const STORIES_C: Story[] = [
         "local",
       ),
       src(
+        "Coup de pied de biche dans la tête… quand un cambriolage vire à la farce",
+        "France 3 Auvergne-Rhône-Alpes (YouTube)",
+        "https://www.youtube.com/watch?v=Tc8bBWycr3o",
+        "2026-09-03",
+        "local",
+      ),
+      src(
         "La vidéo gag d’une attaque de distributeur de pizzas en Auvergne fait un carton",
         "Le Parisien",
         "https://www.leparisien.fr/puy-de-dome-63/la-video-gag-dune-attaque-de-distributeur-de-pizzas-en-auvergne-fait-un-carton-cest-presque-triste-den-arriver-la-03-09-2026-QOXA4YDOGRF5NCKWRVZ67ZU52E.php",

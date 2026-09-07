@@ -12,6 +12,7 @@ import { StoryCover } from "@/components/stories/cover";
 import { QuoteCardButton } from "@/components/stories/quote-card";
 import { ReactionBar } from "@/components/stories/reactions";
 import { SoundsFake } from "@/components/stories/sounds-fake";
+import { SourceVideo } from "@/components/stories/source-video";
 import { ReadGate } from "@/components/site/read-gate";
 import { relatedStories } from "@/lib/catalog";
 import { applyVoice, voiceMeta } from "@/lib/voices";
@@ -91,6 +92,8 @@ export function ArticleBody({
           <Badge tone="scream">{t(lang, "truePill")}</Badge>
         </span>
       </div>
+
+      <SourceVideo storyId={story.id} lang={lang} />
 
       <ShareBar lang={lang} path={`/story/${slug}`} headline={copy.headline} />
       <div className="mt-4 flex flex-wrap items-center gap-2">

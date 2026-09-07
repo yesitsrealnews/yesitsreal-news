@@ -1,6 +1,7 @@
 import { SITE_NAME, SITE_URL, SOCIAL } from "@/lib/brand";
 import { coverSrc } from "@/lib/covers";
 import type { Story } from "@/lib/types";
+import { getStoryVideo } from "@/lib/videos";
 
 export const INDEXNOW_KEY = "a8f3c1e29b704d6ea51c8f2d4b7e90c1";
 export const GOOGLE_SITE_VERIFICATION = "VQZpvyS8_FbId5oVYrLznUobVmavBmH6SAdV2MmQM9E";
@@ -120,6 +121,7 @@ export function articleJsonLd(story: Story, slug?: string) {
   const c = storySeoCopy(story);
   const img = coverSrc(story.id);
   const image = img ? (img.startsWith("http") ? img : `${SITE_URL}${img}`) : `${SITE_URL}/og.jpg`;
+  const tape = videoObject(story.id);
   return {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -146,5 +148,21 @@ export function articleJsonLd(story: Story, slug?: string) {
     },
     citation: story.sources.map((s) => s.url),
     speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", "article p"] },
+    ...(tape ? { associatedMedia: tape } : {}),
+  };
+}
+
+function videoObject(storyId: string) {
+  const v = getStoryVideo(storyId);
+  if (!v) return null;
+  return {
+    "@type": "VideoObject",
+    name: v.title,
+    description: v.captions.fr ?? v.captions.en ?? v.title,
+    embedUrl: v.youtubeId ? `https://www.youtube-nocookie.com/embed/${v.youtubeId}` : undefined,
+    contentUrl: v.sourceUrl,
+    publisher: { "@type": "Organization", name: v.publisher },
+    inLanguage: v.originalLang,
+    isFamilyFriendly: true,
   };
 }
