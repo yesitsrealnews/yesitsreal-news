@@ -32,6 +32,7 @@ export const TRACTION = [
   { k: "X", v: "@Yesitsarealnews" },
   { k: "Contest", v: "World Dumbness Cup 2026" },
   { k: "Ask today", v: "€5k–€12k" },
+  { k: "Tesla", v: "Reader ready. Deal: not signed." },
 ];
 
 export const ASSETS = [
@@ -41,6 +42,7 @@ export const ASSETS = [
   "31-language shell, newsletter gate, RSS, sitemap, OG",
   "World Dumbness Cup + merch POD path",
   "Editorial constitution: no satire, no invented quotes, no minors, no death beat",
+  "Tesla car reader ready at /tesla (bookmark). Pre-install / Theater = a deal, not signed",
 ];
 
 export const RISKS = [

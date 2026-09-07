@@ -93,6 +93,11 @@ function InvestPage() {
               ? "Risque éditorial clôturé : pas de mineurs, pas de morts, pas de citations inventées."
               : "Editorial risk is fenced: no minors, no death beat, no invented quotes."}
           </li>
+          <li>
+            {fr
+              ? "Lecteur Tesla prêt (yesitsreal.news/tesla). Préinstall / Theater : un accord, pas signé. Le quart d’heure Supercharger est le prime time."
+              : "Tesla reader ready (yesitsreal.news/tesla). Pre-install / Theater: a deal, not signed. The Supercharger quarter-hour is prime time."}
+          </li>
         </ul>
 
         <h2 className="mt-10 font-serif text-3xl uppercase">{fr ? "Ce que vous achetez" : "What you buy"}</h2>

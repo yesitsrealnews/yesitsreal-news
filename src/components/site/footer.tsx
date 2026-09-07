@@ -35,6 +35,11 @@ export function Footer({ lang }: { lang: Lang }) {
               </Link>
             </li>
             <li>
+              <Link to="/tesla" className="font-bold hover:underline">
+                {lang === "fr" ? "Lecteur Tesla" : "Tesla reader"}
+              </Link>
+            </li>
+            <li>
               <Link to="/contest" className="font-bold hover:underline">
                 {t(lang, "contest")}
               </Link>
