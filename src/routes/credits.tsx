@@ -12,7 +12,7 @@ export const Route = createFileRoute("/credits")({
       {
         name: "description",
         content:
-          "Un grand merci à Elon Musk, à ses compagnies et aux équipes qui ont permis la naissance de YES IT'S REAL.",
+          "Un grand merci à Elon Musk, à xAI, Grok, X et aux équipes qui ont permis la naissance de YES IT'S REAL.",
       },
       { property: "og:title", content: `Crédits — ${SITE_NAME}` },
       { property: "og:url", content: `${SITE_URL}/credits` },

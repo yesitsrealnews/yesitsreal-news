@@ -4,10 +4,6 @@ import { useAppStore } from "@/lib/store";
 const HOUSES = [
   { name: "xAI / Grok", fr: "La desk a appris à donner des ordres ici. Le journal est né dans cet atelier.", en: "The desk learned to give orders here. The paper was born in this shop." },
   { name: "X", fr: "La place publique. C’est là que le papier va se faire contredire.", en: "The public square. Where the paper goes to be argued with." },
-  { name: "Tesla", fr: "Le refus d’attendre un comité pour avancer.", en: "The refusal to wait for a committee to move." },
-  { name: "SpaceX", fr: "Viser plus haut que le communiqué, puis y aller.", en: "Aim past the press release, then go." },
-  { name: "Neuralink", fr: "Prendre le cerveau au sérieux. Nous, on prend les faits au sérieux.", en: "Take the brain seriously. We take the facts seriously." },
-  { name: "The Boring Company", fr: "Creuser quand on vous dit que c’est impossible. La desk aussi.", en: "Dig when they say it cannot be done. The desk too." },
 ];
 
 export function ThanksMusk({ full = false }: { full?: boolean }) {

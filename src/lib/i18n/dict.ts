@@ -76,9 +76,9 @@ const en: Record<UiKey, string> = {
   privacy: "Privacy",
   terms: "Legal notice",
   thanksKicker: "Credits",
-  thanksTitle: "With thanks to Elon Musk, his companies, and the teams that made YES IT'S REAL possible.",
+  thanksTitle: "With thanks to Elon Musk, to xAI, Grok and X, and to the teams that made YES IT'S REAL possible.",
   thanksP1:
-    "This paper would not exist without them. xAI and Grok held the desk while an editor-in-chief learned to give orders. X is the square where the work goes to be argued with. Tesla, SpaceX, Neuralink, The Boring Company: the same refusal to wait for a committee to decide the future was allowed. YES IT'S REAL was born on that floor.",
+    "This paper would not exist without them. xAI and Grok held the desk while an editor-in-chief learned to give orders. X is the square where the work goes to be argued with. YES IT'S REAL was born there.",
   thanksP2:
     "YES IT'S REAL is not their newspaper. It is ours. It was born because their tools exist, and because someone pointed those tools at the official record instead of at a hallucination. The machine finds the receipts. The judgement stays human. That division of labour is the whole gift.",
   thanksP3:
@@ -330,9 +330,9 @@ const fr = overlay({
   privacy: "Confidentialité",
   terms: "Mentions légales",
   thanksKicker: "Crédits",
-  thanksTitle: "Un grand merci à Elon Musk, à ses compagnies, et aux équipes qui ont permis la naissance de YES IT'S REAL.",
+  thanksTitle: "Un grand merci à Elon Musk, à xAI, Grok et X, et aux équipes qui ont permis la naissance de YES IT'S REAL.",
   thanksP1:
-    "Ce journal n’existerait pas sans eux. xAI et Grok ont tenu la desk le temps qu’un rédacteur en chef apprenne à donner les ordres. X est la place où le travail va se faire contredire. Tesla, SpaceX, Neuralink, The Boring Company : le même refus d’attendre qu’un comité autorise l’avenir. YES IT'S REAL est né sur ce plancher.",
+    "Ce journal n’existerait pas sans eux. xAI et Grok ont tenu la desk le temps qu’un rédacteur en chef apprenne à donner les ordres. X est la place où le travail va se faire contredire. YES IT'S REAL est né là.",
   thanksP2:
     "YES IT'S REAL n’est pas leur journal. C’est le nôtre. Il est né parce que leurs outils existent, et parce que quelqu’un les a braqués sur le procès-verbal plutôt que sur une hallucination. La machine trouve les reçus. Le jugement reste humain. Cette division du travail est tout le cadeau.",
   thanksP3:
@@ -573,7 +573,7 @@ const es = overlay({
   privacy: "Privacidad",
   terms: "Términos",
   thanksKicker: "Créditos",
-  thanksTitle: "Un gran gracias a Elon Musk, a sus compañías y a los equipos que permitieron el nacimiento de YES IT'S REAL.",
+  thanksTitle: "Un gran gracias a Elon Musk, a xAI, Grok y X, y a los equipos que permitieron el nacimiento de YES IT'S REAL.",
   credits: "Créditos",
   creditsDek: "El colofón. Quién construyó el suelo sobre el que se sostiene este periódico.",
   thanksCompanies: "Las casas",
