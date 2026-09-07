@@ -37,7 +37,7 @@ export function Header({
             className="text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-scream hover:underline"
             rel="noopener noreferrer"
           >
-            {lang === "fr" ? "Suivre" : "Follow"} {SOCIAL[0].handle} · LIVE
+            {t(lang, "followUs")} {SOCIAL[0].handle} · {t(lang, "live")}
           </a>
           <a href={`mailto:${EMAILS.desk}`} className="text-[0.65rem] font-bold tracking-[0.04em] hover:text-scream">
             {EMAILS.desk}

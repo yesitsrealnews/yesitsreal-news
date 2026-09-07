@@ -220,6 +220,10 @@ export const UI_KEYS = [
   "thanksP2",
   "thanksP3",
   "thanksSign",
+  "daysAbbr",
+  "hoursAbbr",
+  "minutesAbbr",
+  "partnerLabel",
 ] as const;
 
 export type UiKey = (typeof UI_KEYS)[number];

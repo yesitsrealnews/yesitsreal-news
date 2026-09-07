@@ -28,7 +28,7 @@ export function ContestBanner({ lang }: { lang: Lang }) {
         </span>
       </span>
       <span className="shrink-0 font-sans text-[0.65rem] font-bold uppercase tracking-[0.14em]">
-        {clock ? `${clock.d}d ${clock.h}h` : t(lang, "contestLive")}
+        {clock ? `${clock.d}${t(lang, "daysAbbr")} ${clock.h}${t(lang, "hoursAbbr")}` : t(lang, "contestLive")}
       </span>
     </Link>
   );

@@ -26,7 +26,7 @@ export function SprintBanner({ lang }: { lang: Lang }) {
       <span className="flex min-w-0 items-center gap-2">
         <Timer className="size-4 shrink-0 text-scream" />
         <span className="truncate font-sans text-[0.72rem] font-extrabold uppercase tracking-[0.08em] sm:text-sm">
-          {t(lang, "sprintKicker")} — {clock.h}h {clock.m}m
+          {t(lang, "sprintKicker")} — {clock.h}{t(lang, "hoursAbbr")} {clock.m}{t(lang, "minutesAbbr")}
         </span>
       </span>
       <span className="flex shrink-0 gap-3 text-[0.65rem] font-bold uppercase tracking-[0.12em]">

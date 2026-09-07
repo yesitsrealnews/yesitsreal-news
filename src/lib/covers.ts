@@ -1,4 +1,5 @@
 /** Desk rule: every published story must have PHOTO_CREDITS + /covers/{id}.jpg (Commons/CC). No painted placeholder on the live site. */
+import type { SectionId } from "@/lib/types";
 import credits from "./cover-credits.json";
 
 export type CoverCredit = {

@@ -234,6 +234,10 @@ const en: Record<UiKey, string> = {
   portfolio: "A URL that proves you notice things",
   applySend: "Send the application",
   openingRate: "Opening rate",
+  daysAbbr: "d",
+  hoursAbbr: "h",
+  minutesAbbr: "m",
+  partnerLabel: "Partner",
 };
 
 function overlay(partial: Partial<Record<UiKey, string>>): Record<UiKey, string> {
@@ -288,7 +292,7 @@ const fr = overlay({
   home: "Accueil",
   secWorld: "Monde",
   secAccidents: "Accidents",
-  secStars: "Stars",
+  secStars: "Célébrités",
   secScience: "Science & études",
   secFaits: "Faits divers",
   secCrime: "Crime & ratés",
@@ -471,6 +475,10 @@ const fr = overlay({
   portfolio: "Une URL qui prouve que vous remarquez les choses",
   applySend: "Envoyer la candidature",
   openingRate: "Tarif d’ouverture",
+  daysAbbr: "j",
+  hoursAbbr: "h",
+  minutesAbbr: "min",
+  partnerLabel: "Partenaire",
 });
 
 const es = overlay({
@@ -514,7 +522,7 @@ const es = overlay({
   home: "Inicio",
   secWorld: "Mundo",
   secAccidents: "Accidentes",
-  secStars: "Estrellas",
+  secStars: "Famosos",
   secScience: "Ciencia y estudios",
   secFaits: "Sucesos",
   secCrime: "Crimen y fracasos",
@@ -680,6 +688,10 @@ const es = overlay({
   portfolio: "Una URL que demuestre que se fija usted",
   applySend: "Enviar la candidatura",
   openingRate: "Tarifa de apertura",
+  daysAbbr: "d",
+  hoursAbbr: "h",
+  minutesAbbr: "min",
+  partnerLabel: "Patrocinio",
 });
 
 const de = overlay({

@@ -1,4 +1,4 @@
-import { creativeFor, type AdKind } from "@/lib/ads";
+import { creativeFor, localizedCreative, type AdKind } from "@/lib/ads";
 import { t } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -14,7 +14,7 @@ export function AdSlot({
   salt?: string;
   className?: string;
 }) {
-  const ad = creativeFor(slot, salt);
+  const ad = localizedCreative(creativeFor(slot, salt), lang);
   const label = slot === "native" ? t(lang, "adNative") : slot === "sidebar" ? t(lang, "adSidebar") : t(lang, "adsLabel");
   return (
     <a
