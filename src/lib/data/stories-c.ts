@@ -3835,7 +3835,189 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s85",
+    slug: "kagawa-one-hundred-million-yen-glowing-toilet-kinashi",
+    slugs: {
+      fr: "kagawa-toilettes-cent-millions-de-yens-lumineuses-kinashi",
+      es: "kagawa-aseo-cien-millones-yen-luminoso-kinashi",
+    },
+    section: "world",
+    countryCode: "JP",
+    countryName: "Japan",
+    location: "Takamatsu",
+    dumbness: 8,
+    sources: [
+      src(
+        "検証「1億円の光るトイレ」 JR鬼無駅前に香川県が整備した経緯は",
+        "KSB Setouchi Kaihō",
+        "https://news.ksb.co.jp/article/16665736",
+        "2026-06-23",
+        "local",
+      ),
+      src(
+        "香川県が全額負担9000万円超トイレ今春完成",
+        "Yomiuri Shimbun",
+        "https://www.yomiuri.co.jp/local/kansai/news/20260730-GYO1T00114/",
+        "2026-07-30",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T11:00:00.000Z",
+    originalLang: "ja",
+    confidence: 0.93,
+    entities: ["JR Kinashi", "Kagawa Prefecture", "Ikeda Toyohito"],
+    copy: {
+      en: c(
+        "One hundred million yen. A public toilet. Angel wings on weekdays. Momotarō on the wall. A night check found three people who stopped",
+        "JR Kinashi, Takamatsu, Kagawa. Opened 22 March 2026. The prefecture paid all of it. KSB, 23 June. Yomiuri, 30 July. Body of the loo: about 72 million. Projection kit: about 20 to 28 million. Power and water: about 650,000 a year, still the prefecture.",
+        [
+          "Weekday nights: angel wings on the glass, about an hour and a half. Weekends: student art, bonsai, Momotarō, mapping. Governor Ikeda: if people come for this. Yomiuri: in that slot, a handful of trains stop. A crew, 7 July, more than thirty minutes: three people paused.",
+          "We do not print a lecture on need. We print a station, a yen figure, a projection on a WC. The prefecture wanted a destination.",
+          "YES IT'S REAL read KSB against Yomiuri. Named station, named prefecture, named bill. The toilet lights. The platform is still a platform.",
+        ],
+        [
+          "A hundred million yen. A WC.",
+          "Wings on weekdays. Three people, one night.",
+          "The prefecture wanted a destination. It got a toilet.",
+        ],
+        "KSB 23 June 2026; Yomiuri 30 July. JR Kinashi, Kagawa. No death.",
+      ),
+      fr: c(
+        "Cent millions de yens. Des toilettes. Des ailes d’ange en semaine. Momotarō au mur. Un soir, trois personnes se sont arrêtées",
+        "JR Kinashi, Takamatsu, Kagawa. Ouvert le 22 mars 2026. La préfecture a tout payé. KSB, 23 juin. Yomiuri, 30 juillet. Le bloc : environ 72 millions. La projection : 20 à 28. Électricité, eau : 650 000 par an, toujours la préfecture.",
+        [
+          "Soirs de semaine : des ailes sur la vitre, une heure et demie. Week-ends : l’art des élèves, bonsaï, Momotarō, mapping. Le gouverneur Ikeda : si les gens viennent pour ça. Yomiuri : à cette heure, quelques trains. Une équipe, le 7 juillet, plus de trente minutes : trois personnes se sont arrêtées.",
+          "On n’imprime pas un sermon. On imprime une gare, un chiffre, une projection sur des WC. La préfecture voulait une destination.",
+          "YES IT’S REAL a lu KSB contre Yomiuri. Gare nommée, préfecture nommée, facture nommée. Les toilettes s’allument. Le quai reste un quai.",
+        ],
+        [
+          "Cent millions de yens. Des WC.",
+          "Des ailes en semaine. Trois personnes, un soir.",
+          "La préfecture voulait une destination. Elle a eu des toilettes.",
+        ],
+        "KSB 23 juin 2026 ; Yomiuri 30 juillet. JR Kinashi, Kagawa. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s86",
+    slug: "assemblee-nationale-53-million-glass-pavilion-palais-bourbon",
+    slugs: {
+      fr: "assemblee-nationale-53-millions-pavillon-verre-palais-bourbon",
+      es: "asamblea-nacional-53-millones-pabellon-cristal-palais-bourbon",
+    },
+    section: "world",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Paris",
+    dumbness: 8,
+    sources: [
+      src(
+        "53 millions d’euros pour le futur pavillon de l’Assemblée nationale : une addition très floue",
+        "Le Figaro",
+        "https://www.lefigaro.fr/conjoncture/les-dessous-tres-flous-de-l-addition-a-53-millions-d-euros-pour-le-futur-pavillon-de-l-assemblee-nationale-20260808",
+        "2026-08-08",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T11:02:00.000Z",
+    originalLang: "fr",
+    confidence: 0.9,
+    entities: ["Assemblée nationale", "Palais Bourbon", "Sites & Monuments"],
+    copy: {
+      en: c(
+        "Fifty-three million euros. A glass pavilion for the Assembly. The State says cut. The Palais wants a porch",
+        "Palais Bourbon. Le Figaro, 8 August 2026. A new reception pavilion, glass. The figure is 53 million. Sites & Monuments: a petition, 89,000 names by the paper’s count, relaunched after the Conseil de Paris blessed a planning tweak on 18 July.",
+        [
+          "October 2025: a deputy tabled an amendment to kill 15.8 million in the 2026 budget. He called it an appalling outlay of display. It failed. The site is still a site. The Assembly still wants a door.",
+          "We do not print a party line. We print a porch, a petition, a number. The budget speech was about less. The glass is more.",
+          "YES IT'S REAL read Le Figaro. Named house, named sum, named petition. The Palais already had an entrance.",
+        ],
+        [
+          "Fifty-three million. A porch of glass.",
+          "The State said cut. The Assembly ordered a pavilion.",
+          "Eighty-nine thousand names. The glass stayed on the plan.",
+        ],
+        "Le Figaro, 8 Aug 2026, Palais Bourbon. No death.",
+      ),
+      fr: c(
+        "Cinquante-trois millions d’euros. Un pavillon de verre pour l’Assemblée. L’État dit couper. Le Palais veut un porche",
+        "Palais Bourbon. Le Figaro, 8 août 2026. Un nouveau pavillon d’accueil, en verre. Le chiffre : 53 millions. Sites & Monuments : une pétition, 89 000 noms au compte du journal, relancée après l’avis favorable du Conseil de Paris, le 18 juillet, sur un tweak d’urbanisme.",
+        [
+          "Octobre 2025 : un député dépose un amendement pour tuer 15,8 millions au budget 2026. Il dit : une immonde dépense d’apparat. Rejeté. Le chantier est toujours un chantier. L’Assemblée veut encore une porte.",
+          "On n’imprime pas une ligne de parti. On imprime un porche, une pétition, un chiffre. Le discours budgétaire disait moins. Le verre, c’est plus.",
+          "YES IT’S REAL a lu Le Figaro. Maison nommée, somme nommée, pétition nommée. Le Palais avait déjà une entrée.",
+        ],
+        [
+          "Cinquante-trois millions. Un porche de verre.",
+          "L’État a dit couper. L’Assemblée a commandé un pavillon.",
+          "Quatre-vingt-neuf mille noms. Le verre est resté au plan.",
+        ],
+        "Le Figaro, 8 août 2026, Palais Bourbon. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s87",
+    slug: "liverpool-nsw-diamond-roundabout-140000-lasted-a-week",
+    slugs: {
+      fr: "liverpool-australie-rond-point-diamant-140000-une-semaine",
+      es: "liverpool-australia-rotonda-diamante-140000-una-semana",
+    },
+    section: "world",
+    countryCode: "AU",
+    countryName: "Australia",
+    location: "Austral",
+    dumbness: 9,
+    sources: [
+      src(
+        "Liverpool Council spent almost $140,000 on bizarre roundabout",
+        "news.com.au",
+        "https://www.news.com.au/technology/motoring/on-the-road/liverpool-council-spent-almost-140000-on-bizarre-roundabout/news-story/c22ffea6bd3c12dde68096b5284fe019",
+        "2025-08-26",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T11:04:00.000Z",
+    originalLang: "en",
+    confidence: 0.91,
+    entities: ["Liverpool City Council", "Austral"],
+    copy: {
+      en: c(
+        "A diamond roundabout. Ninety-three thousand to paint it on. Fifty-four thousand to paint it off. It lasted a week",
+        "Twenty Eighth Avenue and Fifteenth, Austral, south-west Sydney. Liverpool City Council. Opened June 2025. news.com.au, 26 August. Called Australia’s worst. After a week: painted over, give-way signs. Papers: it was meant to be an oval.",
+        [
+          "Install: 92,885 Australian dollars. Paint-over: 53,914. Total: 139,937. A councillor: rates just went up; 140,000 is a lot of money. Twenty-two thousand vehicles a day. The Western Sydney Airport road, later.",
+          "We print the two invoices. One for the diamond. One for the un-diamond. The oval was the plan. The week was the life.",
+          "YES IT'S REAL read news.com.au. Named intersection, named council, named two sums. The give-way signs are still there.",
+        ],
+        [
+          "A week. Then the paint.",
+          "Ninety-three on. Fifty-four off.",
+          "It was meant to be an oval.",
+        ],
+        "news.com.au, 26 Aug 2025, Liverpool Council, Austral. No death.",
+      ),
+      fr: c(
+        "Un rond-point en losange. Quatre-vingt-treize mille pour le peindre. Cinquante-quatre pour l’effacer. Ça a duré une semaine",
+        "Twenty Eighth Avenue et Fifteenth, Austral, sud-ouest de Sydney. Liverpool City Council. Ouvert juin 2025. news.com.au, 26 août. Surnommé le pire d’Australie. Une semaine : repeint, cédez-le-passage. Les papiers : ça devait être un ovale.",
+        [
+          "Pose : 92 885 dollars australiens. Recouvrement : 53 914. Total : 139 937. Un conseiller : les taxes viennent de monter ; 140 000, c’est beaucoup. 22 000 véhicules par jour. La route de l’aéroport, plus tard.",
+          "On imprime les deux factures. Une pour le losange. Une pour le dé-losange. L’ovale était le plan. La semaine, la vie.",
+          "YES IT’S REAL a lu news.com.au. Carrefour nommé, conseil nommé, deux sommes nommées. Les panneaux sont toujours là.",
+        ],
+        [
+          "Une semaine. Puis la peinture.",
+          "Quatre-vingt-treize pour. Cinquante-quatre contre.",
+          "Ça devait être un ovale.",
+        ],
+        "news.com.au, 26 août 2025, Liverpool Council, Austral. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 

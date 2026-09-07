@@ -111,6 +111,9 @@ COVERS: dict[str, tuple[str, str]] = {
     "s82": ("File:Wat Pho, Bangkok, Tailandia, 2013-08-22, DD 02.jpg", "Wat Pho Buddha Bangkok"),
     "s83": ("File:Royal Crescent in Bath, England - July 2006.jpg", "Bath stone houses"),
     "s84": ("File:Houses on Slough Lane, Kingsbury - geograph.org.uk - 4700337.jpg", "Kingsbury suburban houses"),
+    "s85": ("File:Takamatsu Station Plaza Facade.jpg", "Takamatsu station Kagawa"),
+    "s86": ("File:Palais Bourbon, Paris 7e, NW View 140402 1.jpg", "Palais Bourbon Assemblée"),
+    "s87": ("File:Oxley central roundabout.jpg", "Australian suburban roundabout"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")

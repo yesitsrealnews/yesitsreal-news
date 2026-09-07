@@ -422,6 +422,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "14 Parkfields Avenue, Kingsbury. Just Planning, 16 de mayo de 2026. El aviso, anulado.",
     w: ["La casa correcta. La estaca equivocada.", "Un metro, luego un aviso de derribo.", "Setenta y cinco centímetros. El inspector la dejó."],
   },
+  s85: {
+    h: "Cien millones de yenes. Un aseo. Alas de ángel entre semana. Momotarō en la pared. Una noche, tres personas se detuvieron",
+    d: "JR Kinashi, Takamatsu. KSB, 23 de junio de 2026. Lo pagó la prefectura.",
+    w: ["Cien millones de yenes. Un WC.", "Alas entre semana. Tres personas, una noche.", "La prefectura quería un destino. Tuvo un aseo."],
+  },
+  s86: {
+    h: "Cincuenta y tres millones de euros. Un pabellón de cristal para la Asamblea. El Estado dice recortar. El Palacio quiere un porche",
+    d: "Palais Bourbon. Le Figaro, 8 de agosto de 2026. Petición: 89.000 nombres.",
+    w: ["Cincuenta y tres millones. Un porche de cristal.", "El Estado dijo recortar. La Asamblea encargó un pabellón.", "Ochenta y nueve mil nombres. El cristal siguió en el plano."],
+  },
+  s87: {
+    h: "Una rotonda en diamante. Noventa y tres mil para pintarla. Cincuenta y cuatro para borrarla. Duró una semana",
+    d: "Austral, Sídney. news.com.au, 26 de agosto de 2025. Liverpool Council.",
+    w: ["Una semana. Luego la pintura.", "Noventa y tres a favor. Cincuenta y cuatro en contra.", "Iba a ser un óvalo."],
+  },
 };
 
 
