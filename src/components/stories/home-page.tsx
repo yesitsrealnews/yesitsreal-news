@@ -16,7 +16,7 @@ import { ShareBar } from "@/components/site/share-bar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DumbnessScore } from "@/components/stories/dumbness";
-import { BadgeCheck, Briefcase, Eye, Newspaper, Trophy } from "lucide-react";
+import { BadgeCheck, Eye, Newspaper, Trophy } from "lucide-react";
 
 export function HomePage({
   lang,
@@ -51,9 +51,9 @@ export function HomePage({
         <Link to="/shop" className="inline-flex h-11 items-center bg-scream px-4 text-xs font-extrabold uppercase tracking-[0.14em] text-scream-ink">
           {t(lang, "shopCta")}
         </Link>
-        <Link to="/careers" className="inline-flex h-11 items-center border border-ink px-4 text-xs font-extrabold uppercase tracking-[0.14em]">
-          <Briefcase className="me-2 size-4" />
-          {t(lang, "careersHiring")}
+        <Link to="/contest" className="inline-flex h-11 items-center border border-ink px-4 text-xs font-extrabold uppercase tracking-[0.14em]">
+          <Trophy className="me-2 size-4" />
+          {t(lang, "contest")}
         </Link>
       </div>
       <p className="mb-5 max-w-3xl border-s-4 border-signal ps-4 text-sm font-medium leading-snug sm:text-base">
@@ -148,15 +148,15 @@ export function HomePage({
               {t(lang, "contestCta")}
             </span>
           </Link>
-          <Link to="/careers" className="block border-2 border-ink p-5">
+          <Link to="/contest" className="block border-2 border-ink p-5">
             <p className="kicker flex items-center gap-2 text-signal">
-              <Briefcase className="size-4" />
-              {t(lang, "careersHiring")}
+              <Trophy className="size-4" />
+              {t(lang, "contest")}
             </p>
-            <p className="mt-2 font-serif text-3xl uppercase leading-none">{t(lang, "stringerTitle")}</p>
-            <p className="mt-2 text-sm">{t(lang, "stringerDek")}</p>
+            <p className="mt-2 font-serif text-3xl uppercase leading-none">{t(lang, "contestPrize")}</p>
+            <p className="mt-2 text-sm">{t(lang, "contestHow")}</p>
             <span className="mt-4 inline-flex h-11 items-center text-xs font-extrabold uppercase tracking-[0.14em] underline">
-              {t(lang, "careersCta")}
+              {t(lang, "contestCta")}
             </span>
           </Link>
           <AdSlot lang={lang} slot="sidebar" className="hidden lg:block" salt="home-side" />

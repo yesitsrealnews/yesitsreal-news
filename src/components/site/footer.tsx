@@ -40,11 +40,6 @@ export function Footer({ lang }: { lang: Lang }) {
               </Link>
             </li>
             <li>
-              <Link to="/careers" className="font-bold hover:underline">
-                {t(lang, "careers")}
-              </Link>
-            </li>
-            <li>
               <Link to="/shop" className="hover:underline">
                 {t(lang, "shop")}
               </Link>

@@ -74,10 +74,10 @@ function ContestPage() {
         <p className="mt-4 max-w-2xl text-lg">{t(lang, "contestDek")}</p>
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <Badge tone="scream">
-            {clock ? `${clock.d}d ${clock.h}h ${clock.m}m` : t(lang, "contestLive")}
+            {clock ? `${clock.d}${t(lang, "daysAbbr")} ${clock.h}${t(lang, "hoursAbbr")} ${clock.m}${t(lang, "minutesAbbr")}` : t(lang, "contestLive")}
           </Badge>
           <Badge tone="signal">{formatCount(total, lang)} {t(lang, "votes")}</Badge>
-          <Badge tone="ink">${CUP.purse.toLocaleString()}</Badge>
+          <Badge tone="ink">{CUP.purse} €</Badge>
         </div>
         <p className="mt-4 text-sm">{t(lang, "contestPrize")}</p>
         <p className="mt-2 text-sm text-ink-muted">{t(lang, "contestRules")}</p>

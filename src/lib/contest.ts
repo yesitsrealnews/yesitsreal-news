@@ -5,7 +5,7 @@ import type { Lang, Story } from "@/lib/types";
 export const CUP = {
   id: "wdc-2026",
   closesAt: "2026-10-31T23:59:59.000Z",
-  purse: 10000,
+  purse: 250,
 } as const;
 
 export interface CupEntry {

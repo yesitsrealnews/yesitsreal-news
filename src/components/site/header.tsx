@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { BadgeCheck, Menu, Moon, Search, Sun, Trophy } from "lucide-react";
+import { BadgeCheck, Menu, Moon, Search, Sun } from "lucide-react";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
 import { SECTIONS } from "@/lib/data/sections";
@@ -71,9 +71,6 @@ export function Header({
                 <Link to="/today" className="px-3 py-3 text-sm">
                   {t(lang, "today")}
                 </Link>
-                <Link to="/careers" className="px-3 py-3 text-sm font-bold">
-                  {t(lang, "careersHiring")}
-                </Link>
                 <Link to="/shop" className="px-3 py-3 text-sm">
                   {t(lang, "shop")}
                 </Link>
@@ -104,16 +101,9 @@ export function Header({
 
         <div className="flex items-center">
           <Link
-            to="/careers"
-            className="hidden h-11 items-center bg-scream px-2 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-scream-ink md:inline-flex"
-          >
-            {t(lang, "careersHiring")}
-          </Link>
-          <Link
             to="/contest"
-            className="hidden h-11 items-center gap-1 px-2 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-signal md:inline-flex"
+            className="hidden h-11 items-center bg-scream px-2.5 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-scream-ink md:inline-flex"
           >
-            <Trophy className="size-4" />
             {t(lang, "contest")}
           </Link>
           <Link

@@ -18,10 +18,10 @@ export const CREATIVES: Creative[] = [
   {
     id: "cup",
     kind: "any",
-    kicker: "World Dumbness Cup",
-    title: "Vote. Shame a country. Win the planet.",
-    dek: "The only global contest where the prize is being right about how wrong we are.",
-    cta: "Enter the Cup",
+    kicker: "The contest",
+    title: "Story of the year. Up to €250.",
+    dek: "Vote. Enter a true story already in print. The planet picks. One prize.",
+    cta: "Enter the contest",
     href: "/contest",
     image: "/ads/cup.jpg",
     partner: "YES IT'S REAL",
@@ -100,10 +100,10 @@ type AdText = Pick<Creative, "kicker" | "title" | "dek" | "cta">;
 
 const AD_FR: Record<string, AdText> = {
   cup: {
-    kicker: "Coupe du Monde de la Bêtise",
-    title: "Votez. Faites honte à un pays. Gagnez la planète.",
-    dek: "Le seul concours où le prix, c’est d’avoir raison sur à quel point on a tort.",
-    cta: "Entrer dans la Coupe",
+    kicker: "Jeu concours",
+    title: "Sujet de l’année. Jusqu’à 250 €.",
+    dek: "Votez. Proposez un fait vrai déjà paru. La planète départage. Un prix.",
+    cta: "Jouer",
   },
   merch: {
     kicker: "Merch de la desk",
@@ -145,10 +145,10 @@ const AD_FR: Record<string, AdText> = {
 
 const AD_ES: Record<string, AdText> = {
   cup: {
-    kicker: "Copa Mundial de la Tontería",
-    title: "Vote. Avergüence a un país. Gane el planeta.",
-    dek: "El único concurso cuyo premio es tener razón sobre lo equivocados que estamos.",
-    cta: "Entrar en la Copa",
+    kicker: "Concurso",
+    title: "Tema del año. Hasta 250 €.",
+    dek: "Vote. Proponga un hecho verdadero ya publicado. El planeta decide. Un premio.",
+    cta: "Jugar",
   },
   merch: {
     kicker: "Merch de la mesa",

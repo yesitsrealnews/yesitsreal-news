@@ -36,8 +36,8 @@ export function SprintBanner({ lang }: { lang: Lang }) {
         <Link to="/advertise" className="hover:underline">
           {t(lang, "sprintCta")}
         </Link>
-        <Link to="/careers" className="hidden sm:inline hover:underline">
-          {t(lang, "careersHiring")}
+        <Link to="/contest" className="hidden sm:inline hover:underline">
+          {t(lang, "contest")}
         </Link>
       </span>
     </div>
