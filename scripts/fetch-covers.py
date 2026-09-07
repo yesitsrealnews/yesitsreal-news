@@ -119,6 +119,9 @@ COVERS: dict[str, tuple[str, str]] = {
     "s90": ("File:Brooklyn Bridge Entrance on Brooklyn side, 1899.jpg", "Brooklyn Bridge 1899"),
     "s91": ("File:Welles-Radio-Studio-1938.jpg", "Orson Welles radio 1938"),
     "s92": ("File:Coca-Cola bottles.jpg", "classic Coca-Cola bottles"),
+    "s93": ("File:Bahnhof Altdorf Parkplatz West 2.jpg", "Altdorf UR car park"),
+    "s94": ("File:Gloucester Old Spot Piglets.jpg", "spotted piglets"),
+    "s95": ("File:Hamburg ICE1 op Lombardsbrücke kerst (23776695399).jpg", "ICE train Hamburg"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")

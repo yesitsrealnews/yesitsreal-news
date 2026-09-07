@@ -4089,7 +4089,210 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s93",
+    slug: "altdorf-switzerland-neighbour-wants-neighbours-to-pay-to-reach-their-own-garage",
+    slugs: {
+      fr: "altdorf-suisse-il-veut-faire-payer-ses-voisins-pour-acceder-a-leur-parking",
+      es: "altdorf-suiza-quiere-cobrar-a-los-vecinos-por-llegar-a-su-garaje",
+    },
+    section: "love-money",
+    countryCode: "CH",
+    countryName: "Switzerland",
+    location: "Altdorf, Uri",
+    dumbness: 8,
+    sources: [
+      src(
+        "Conflit: Guerre de voisinage à cause d'un droit de passage",
+        "Blick",
+        "https://www.blick.ch/fr/suisse/conflit-guerre-de-voisinage-a-cause-dun-droit-de-passage-id22213695.html",
+        "2026-08-30",
+        "local",
+      ),
+      src(
+        "Il veut faire payer l’accès au parking de son immeuble : « Depuis 6 mois, plus aucun voisin ne m’adresse la parole »",
+        "Ouest-France",
+        "https://www.ouest-france.fr/societe/faits-divers/il-veut-faire-payer-lacces-au-parking-de-son-immeuble-depuis-6-mois-plus-aucun-voisin-ne-madresse-la-parole-72d00f1c-a50d-11f1-8465-547a0964275c",
+        "2026-09-02",
+        "local",
+      ),
+      src(
+        "« Je pense que rien n’est gratuit » : Il demande à ses voisins de payer pour passer sur sa parcelle et accéder au parking",
+        "20 Minutes",
+        "https://www.20minutes.fr/monde/4242821-20260904-pense-rien-gratuit-demande-voisins-payer-passer-parcelle-acceder-parking",
+        "2026-09-04",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T08:50:00.000Z",
+    originalLang: "fr",
+    confidence: 0.93,
+    entities: ["Jean-Pierre Steiger", "Altdorf"],
+    copy: {
+      en: c(
+        "Fifteen years of driving in. Then he found the paperwork. He wants the neighbours to pay to reach their own garage",
+        "Altdorf, Uri. Two buildings, one underground car park, 17 spaces. The only way in crosses his plot. The easement was never written down. Blick, 30 August. Ouest-France, 2 September. 20 Minutes, the 4th.",
+        [
+          "Jean-Pierre Steiger, 51, bought in 2019. In 2022 he read the land register. Built 2011: no right of way for the other building. For fifteen years everyone used the ramp. He now wants money to keep using it. Blick quotes him: nothing is free. Ouest-France: for six months, no neighbour has spoken to him.",
+          "The others want a free easement, on paper, and to stay out of court. He refuses. He says the architect sold parking with no legal access, and the notary stamped it. We do not pick a side in a copropriété. We print the missing line in the register, and the bill he would like to attach to it.",
+          "YES IT'S REAL read Blick against Ouest-France and 20 Minutes. Named town, named count of garages, named man. The cars still go in. The paper does not.",
+        ],
+        [
+          "The garage was sold. The road to it was not.",
+          "Nothing is free, he said. The neighbours stopped speaking.",
+          "Fifteen years of habit. Then the register.",
+        ],
+        "Blick 30 Aug 2026; Ouest-France 2 Sept; 20 Minutes 4 Sept. Quotes as those desks. No death. A parking fight, not a ruin.",
+      ),
+      fr: c(
+        "Quinze ans qu’on rentre. Puis il a lu le cadastre. Il veut faire payer les voisins pour accéder à leur propre garage",
+        "Altdorf, Uri. Deux immeubles, un parking souterrain, 17 places. Le seul chemin passe sur sa parcelle. La servitude n’a jamais été écrite. Blick, 30 août. Ouest-France, 2 septembre. 20 Minutes, le 4.",
+        [
+          "Jean-Pierre Steiger, 51 ans, achète en 2019. En 2022 il ouvre le registre foncier. Construit en 2011 : pas de droit de passage pour l’immeuble d’en face. Quinze ans, tout le monde prenait la rampe. Il veut maintenant de l’argent pour continuer. Blick le cite : rien n’est gratuit. Ouest-France : depuis six mois, plus aucun voisin ne lui adresse la parole.",
+          "Les autres veulent une servitude gratuite, sur papier, et pas de tribunal. Il refuse. Il dit que l’architecte a vendu des places sans accès légal, et que le notaire a tamponné. On ne choisit pas un camp dans une copropriété. On imprime la ligne qui manque au registre, et la facture qu’il voudrait y coller.",
+          "YES IT’S REAL a lu Blick contre Ouest-France et 20 Minutes. Ville nommée, nombre de garages nommé, homme nommé. Les voitures rentrent encore. Le papier, non.",
+        ],
+        [
+          "Le garage a été vendu. La route, non.",
+          "Rien n’est gratuit, a-t-il dit. Les voisins se sont tus.",
+          "Quinze ans d’habitude. Puis le cadastre.",
+        ],
+        "Blick 30 août 2026 ; Ouest-France 2 sept. ; 20 Minutes 4 sept. Citations de ces bureaux. Pas de mort. Une guerre de parking, pas une ruine.",
+      ),
+    },
+  }),
+  story({
+    id: "s94",
+    slug: "dombasle-pig-mister-lardon-wanders-street-after-the-horses",
+    slugs: {
+      fr: "dombasle-cochon-monsieur-lardon-divague-en-ville-apres-les-chevaux",
+      es: "dombasle-cerdo-senor-lardon-deambula-por-la-calle-despues-de-los-caballos",
+    },
+    section: "animals",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Dombasle-sur-Meurthe",
+    dumbness: 7,
+    sources: [
+      src(
+        "Meurthe-et-Moselle. Après des chevaux, un cochon intercepté alors qu’il divaguait en pleine rue à Dombasle-sur-Meurthe",
+        "L’Est Républicain",
+        "https://www.estrepublicain.fr/insolite/2026/09/04/apres-des-chevaux-un-cochon-intercepte-alors-qu-il-divaguait-dans-les-rues",
+        "2026-09-04",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T08:52:00.000Z",
+    originalLang: "fr",
+    confidence: 0.91,
+    entities: ["M. Lardon", "Dombasle-sur-Meurthe", "Clinique Vetonimo"],
+    copy: {
+      en: c(
+        "After the horses, a pig in the street. The clinic named him Mr Lardon. He is still waiting for his owner",
+        "Dombasle-sur-Meurthe, Meurthe-et-Moselle. Mid-August: six horses out for a walk. Evening of 27 August: a small pig, frightened by the storms. L’Est Républicain, 4 September.",
+        [
+          "Firefighters found him. Then the Vetonimo clinic in Vandœuvre-lès-Nancy. First pig they had ever taken in, they said on their networks. Spotted black and white, about four months, thirty centimetres at the withers, not castrated, gentle, vegetables. They named him Mr Lardon. L’Est Républicain printed the name.",
+          "The horses had already done the town. The pig followed. We do not invent a chase. We print a commune that had livestock in the road twice in a fortnight, and a clinic that had to invent a first-pig protocol.",
+          "YES IT'S REAL read L’Est Républicain. Named town, named clinic, named pig. The owner has not come. The vegetables have.",
+        ],
+        [
+          "First the horses. Then Mr Lardon.",
+          "The clinic had never admitted a pig. It has now.",
+          "He is still on the books. Under that name.",
+        ],
+        "L’Est Républicain 4 Sept 2026. Event 27 Aug. No death. No owner named because the paper did not name one.",
+      ),
+      fr: c(
+        "Après les chevaux, un cochon dans la rue. La clinique l’a appelé M. Lardon. Il attend encore son propriétaire",
+        "Dombasle-sur-Meurthe, Meurthe-et-Moselle. Mi-août : six chevaux en balade. Soir du 27 août : un petit cochon, apeuré par les orages. L’Est Républicain, 4 septembre.",
+        [
+          "Les pompiers l’ont trouvé. Puis la clinique Vetonimo, Vandœuvre-lès-Nancy. Premier cochon qu’ils accueillent, ont-ils dit sur leurs réseaux. Tacheté noir et blanc, environ quatre mois, 30 cm au garrot, pas castré, gentil, légumes. Ils l’ont baptisé M. Lardon. L’Est Républicain a imprimé le nom.",
+          "Les chevaux avaient déjà fait la ville. Le cochon a suivi. On n’invente pas une chasse. On imprime une commune qui a eu du bétail dans la rue deux fois en quinze jours, et une clinique qui a dû inventer un protocole premier-cochon.",
+          "YES IT’S REAL a lu L’Est Républicain. Ville nommée, clinique nommée, cochon nommé. Le propriétaire n’est pas venu. Les légumes, si.",
+        ],
+        [
+          "D’abord les chevaux. Puis M. Lardon.",
+          "La clinique n’avait jamais pris un cochon. Maintenant, si.",
+          "Il est toujours au dossier. Sous ce nom.",
+        ],
+        "L’Est Républicain 4 sept. 2026. Faits du 27 août. Pas de mort. Propriétaire non nommé : le journal non plus.",
+      ),
+    },
+  }),
+  story({
+    id: "s95",
+    slug: "deutsche-bahn-ice-sylt-berlin-stopped-for-toilet-paper",
+    slugs: {
+      fr: "deutsche-bahn-ice-sylt-berlin-arrete-pour-acheter-du-papier-toilette",
+      es: "deutsche-bahn-ice-sylt-berlin-parado-para-comprar-papel-higienico",
+    },
+    section: "world",
+    countryCode: "DE",
+    countryName: "Germany",
+    location: "Hamburg-Bergedorf",
+    dumbness: 8,
+    sources: [
+      src(
+        "ICE von Sylt nach Berlin: Zugführer holt außerplanmäßig Toilettenpapier",
+        "rbb24",
+        "https://www.rbb24.de/panorama/av/av24/video-ice-zugfuehrer-toilettenpapier-berlin-sylt.html",
+        "2026-07-15",
+        "local",
+      ),
+      src(
+        "Pénurie de papier toilette à bord : un chef de train interrompt le trajet pour aller en acheter",
+        "Le Figaro",
+        "https://www.lefigaro.fr/voyages/penurie-de-papier-toilette-a-bord-un-chef-de-train-interrompt-le-trajet-pour-aller-en-acheter-20260717",
+        "2026-07-17",
+        "wire",
+      ),
+      src(
+        "Deutsche Bahn: Zug-Chef stoppt ICE von Sylt nach Berlin – wegen Klopapier",
+        "t-online",
+        "https://www.t-online.de/nachrichten/panorama/buntes-kurioses/id_101343388/deutsche-bahn-zug-chef-stoppt-ice-von-sylt-nach-berlin-wegen-klopapier.html",
+        "2026-07-15",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T08:54:00.000Z",
+    originalLang: "de",
+    confidence: 0.94,
+    entities: ["Deutsche Bahn", "ICE 2075", "Hamburg-Bergedorf"],
+    copy: {
+      en: c(
+        "The ICE stopped at Hamburg-Bergedorf. Not a breakdown. The chef de train went out for toilet paper. Three packs. Then they rolled",
+        "ICE 2075, Westerland (Sylt) to Berlin. July 2026. Deutsche Bahn confirmed. rbb24, t-online, Le Figaro. The stock had not been checked: a last-minute staff gap, said the company, via Bergedorfer Zeitung.",
+        [
+          "A passenger filmed the return: the train manager on the stairs, three packs in his arms, back onto the ICE. Instagram. Bahn confirmed an unscheduled stop at Hamburg-Bergedorf because there was not enough paper on board. Figaro: fourteen minutes late. t-online: closer to three-quarters of an hour. We print both numbers. The method is the shop.",
+          "Bahn praised the man. It said the usual contractor check had not happened. It would sample stocks more often. Passengers called him employee of the month. We do not give medals. We print a high-speed train that waited on a suburban platform for the aisles.",
+          "YES IT'S REAL read rbb24 against t-online and Le Figaro. Named train, named station, named carrier. The paper was in the supermarket. Then it was on the train.",
+        ],
+        [
+          "Three hundred kilometres an hour. No paper.",
+          "The unscheduled stop was the shop.",
+          "Bahn confirmed. The video did the rest.",
+        ],
+        "rbb24 15 July 2026; t-online 15 July; Le Figaro 17 July. ICE 2075. Delay figures differ: we keep both. No death.",
+      ),
+      fr: c(
+        "L’ICE s’est arrêté à Hamburg-Bergedorf. Pas une panne. Le chef de train est descendu acheter du papier toilette. Trois paquets. Puis ça a roulé",
+        "ICE 2075, Westerland (Sylt)–Berlin. Juillet 2026. Deutsche Bahn a confirmé. rbb24, t-online, Le Figaro. Les stocks n’avaient pas été vérifiés : un trou de personnel, a dit la compagnie, via Bergedorfer Zeitung.",
+        [
+          "Un passager a filmé le retour : le chef de bord dans l’escalier, trois paquets dans les bras, rentre dans l’ICE. Instagram. La Bahn a confirmé un arrêt imprévu à Hamburg-Bergedorf parce qu’il n’y avait plus assez de papier à bord. Figaro : quatorze minutes de retard. t-online : plutôt trois quarts d’heure. On imprime les deux chiffres. La méthode, c’est le magasin.",
+          "La Bahn a salué l’homme. Elle a dit que le contrôle habituel du prestataire n’avait pas eu lieu. Elle contrôlera les stocks plus souvent. Des voyageurs l’ont nommé employé du mois. On ne décerne pas de médaille. On imprime un train à grande vitesse qui a attendu, sur un quai de banlieue, les allées.",
+          "YES IT’S REAL a lu rbb24 contre t-online et Le Figaro. Train nommé, gare nommée, compagnie nommée. Le papier était au supermarché. Puis il était dans le train.",
+        ],
+        [
+          "Trois cents à l’heure. Pas de papier.",
+          "L’arrêt imprévu, c’était le magasin.",
+          "La Bahn a confirmé. La vidéo a fait le reste.",
+        ],
+        "rbb24 15 juillet 2026 ; t-online 15 juillet ; Le Figaro 17 juillet. ICE 2075. Les retards divergent : on garde les deux. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 

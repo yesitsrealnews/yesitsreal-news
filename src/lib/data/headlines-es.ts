@@ -442,6 +442,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Cergy-Pontoise, el antiguo Mirapolis. France 24, 4 de septiembre de 2026. Kyodo, el 5.",
     w: ["Anunciaron el parque. Luego preguntaron a Japón.", "Seis mil millones. Sin licencia.", "Bandai no dijo nada. Toei dijo no."],
   },
+  s93: {
+    h: "Quince años entrando. Luego leyó el catastro. Quiere que los vecinos paguen para llegar a su propio garaje",
+    d: "Altdorf, Uri. Blick, 30 de agosto de 2026. Ouest-France, 2 de septiembre. 20 Minutes, el 4.",
+    w: ["El garaje se vendió. El camino, no.", "Nada es gratis, dijo. Los vecinos dejaron de hablarle.", "Quince años de costumbre. Luego el registro."],
+  },
+  s94: {
+    h: "Después de los caballos, un cerdo en la calle. La clínica lo llamó Sr. Lardón. Sigue esperando a su dueño",
+    d: "Dombasle-sur-Meurthe. L’Est Républicain, 4 de septiembre de 2026.",
+    w: ["Primero los caballos. Luego el Sr. Lardón.", "La clínica no había admitido nunca un cerdo. Ahora sí.", "Sigue en el expediente. Con ese nombre."],
+  },
+  s95: {
+    h: "El ICE paró en Hamburgo-Bergedorf. No era una avería. El jefe de tren bajó a comprar papel higiénico. Tres paquetes. Y siguió",
+    d: "ICE 2075, Sylt–Berlín. Julio de 2026. Deutsche Bahn lo confirmó. rbb24, t-online, Le Figaro.",
+    w: ["Trescientos por hora. Sin papel.", "La parada imprevista era la tienda.", "Bahn confirmó. El vídeo hizo el resto."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",
