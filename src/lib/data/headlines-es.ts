@@ -462,6 +462,11 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Maastricht, facultad de psicología. Folleto del 17 de abril de 2026. Blossom, 26 de agosto: siguen reclutando.",
     w: ["El CV pedía psicodélicos previos.", "El sueldo era 176 euros, todo incluido.", "El puesto era quedarse quieto y sangrar en un tubo."],
   },
+  s97: {
+    h: "El anuncio está en la web de la universidad. Nueve visitas. Vapear cannabis. Beber. Luego comprueban si aún sabes conducir. Sueldo: 2.660 dólares",
+    d: "Johns Hopkins Hub, 21 de enero de 2026. Bayview. ClinicalTrials.gov NCT06293040, siguen reclutando.",
+    w: ["La universidad pagó a gente por beber y vapear.", "Luego les pidió fingir que conducían.", "Dos mil seiscientos sesenta dólares. Nueve visitas."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",

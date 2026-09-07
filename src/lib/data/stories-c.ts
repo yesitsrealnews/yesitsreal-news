@@ -4356,7 +4356,80 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s97",
+    slug: "johns-hopkins-2660-dollars-to-vape-cannabis-drink-alcohol-and-sit-for-tests",
+    slugs: {
+      fr: "johns-hopkins-2660-dollars-pour-vapoter-du-cannabis-boire-et-passer-des-tests",
+      es: "johns-hopkins-2660-dolares-por-vapear-cannabis-beber-y-hacer-pruebas",
+    },
+    section: "science",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Baltimore",
+    dumbness: 8,
+    sources: [
+      src(
+        "Healthy volunteers needed for cannabis and alcohol research",
+        "Johns Hopkins Hub",
+        "https://hub.jhu.edu/announcements/2026/01/21/healthy-volunteers-needed-for-cannabis-and-alcohol-research/",
+        "2026-01-21",
+        "gazette",
+      ),
+      src(
+        "Vaporized Cannabis Administration and Co-Administration of Alcohol on Impairment",
+        "ClinicalTrials.gov NCT06293040",
+        "https://clinicaltrials.gov/study/NCT06293040",
+        "2025-09-12",
+        "gazette",
+      ),
+      src(
+        "The Impact of Vaporized Cannabis Administration and Co-Administration of Alcohol on Impairment",
+        "Johns Hopkins Cannabis Science Laboratory",
+        "https://www.jhcannabissciencelab.com/research",
+        "2026-01-21",
+        "gazette",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:20:00.000Z",
+    originalLang: "en",
+    confidence: 0.93,
+    entities: ["Johns Hopkins University", "Tory Spindle", "Bayview Medical Center"],
+    copy: {
+      en: c(
+        "The ad is on the university site. Nine visits. Vape cannabis. Drink. Then they test whether you can still drive. Pay: 2,660 dollars",
+        "Johns Hopkins Hub, 21 January 2026. Bayview. Tory Spindle, PhD. IRB00434441. ClinicalTrials.gov NCT06293040, still recruiting. Seven sessions of about ten hours. Completers: up to $2,660. Optional extra: $2,910.",
+        [
+          "The protocol, on the federal register: placebo or vaporized cannabis, 5 or 25 mg THC, Mighty Medic handheld. A drink at 0.00 or 0.05 breath alcohol. One control session at 0.08, the American driving line. Then: driving, balance, eye tracking, short-term memory, attention. Blood and breath. Thirty-two people.",
+          "This is the same classified as the Maastricht mushroom post, with a bigger envelope and a bar tab. We do not print a vice sermon. We print the hours and the rate. The job is to get legally high, then sit still while they measure the wreck.",
+          "YES IT'S REAL read the Hub notice against ClinicalTrials.gov and the lab page. Named hospital, named PI, named sums. The vaporizer is in the file. The tests are in the file.",
+        ],
+        [
+          "The university paid people to drink and vape.",
+          "Then it asked them to pretend to drive.",
+          "Two thousand six hundred and sixty dollars. Nine visits.",
+        ],
+        "Hopkins Hub 21 Jan 2026; ClinicalTrials.gov NCT06293040; lab page. Healthy volunteers. No death. No street sale.",
+      ),
+      fr: c(
+        "L’annonce est sur le site de l’université. Neuf visites. Vapoter du cannabis. Boire. Puis ils testent si vous savez encore conduire. Paye : 2 660 dollars",
+        "Johns Hopkins Hub, 21 janvier 2026. Bayview. Tory Spindle, PhD. IRB00434441. ClinicalTrials.gov NCT06293040, encore en recrutement. Sept séances d’environ dix heures. Ceux qui vont au bout : jusqu’à 2 660 $. Option : 2 910 $.",
+        [
+          "Le protocole, sur le registre fédéral : placebo ou cannabis vaporisé, 5 ou 25 mg de THC, Mighty Medic à la main. Un verre à 0,00 ou 0,05 d’alcool dans l’air expiré. Une séance témoin à 0,08, le seuil américain pour conduire. Ensuite : conduite, équilibre, suivi du regard, mémoire courte, attention. Sang et souffle. Trente-deux personnes.",
+          "C’est la même petite annonce que le poste champignons de Maastricht, avec une enveloppe plus large et une addition de bar. On n’imprime pas un sermon. On imprime les heures et le tarif. Le job, c’est de se défoncer légalement, puis de rester assis pendant qu’ils mesurent le dégât.",
+          "YES IT’S REAL a lu l’avis du Hub contre ClinicalTrials.gov et la page du labo. Hôpital nommé, investigateur nommé, sommes nommées. Le vaporisateur est au dossier. Les tests aussi.",
+        ],
+        [
+          "L’université a payé des gens pour boire et vapoter.",
+          "Ensuite elle leur a demandé de faire semblant de conduire.",
+          "Deux mille six cent soixante dollars. Neuf visites.",
+        ],
+        "Hopkins Hub 21 janv. 2026 ; ClinicalTrials.gov NCT06293040 ; page du labo. Volontaires sains. Pas de mort. Pas de vente de rue.",
+      ),
+    },
+  }),
 ];
+
 
 
 
