@@ -1,7 +1,8 @@
 import type { Story } from "@/lib/types";
 import { enCopy as c, src, story } from "@/lib/data/story-factory";
 
-/** Last century. Funny, already printed. No Ponzi: ruining people is not the beat. */
+/** Last century. Funny, already printed. No Ponzi: ruining people is not the beat.
+ * DORMANT — not in STORIES, not in the masthead. Wake when the desk says so. */
 export const STORIES_ARCHIVE: Story[] = [
   story({
     id: "s89",
