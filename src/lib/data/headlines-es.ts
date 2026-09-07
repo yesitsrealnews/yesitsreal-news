@@ -387,6 +387,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Le Mesnil-le-Roi, Yvelines. Saint-Vincent. Decisión 2408246, 30 de junio de 2026. Rechazo.",
     w: ["El cuarto de hora era el agravio.", "El silencio del alcalde no es una orden de parar.", "Las horas guardaron las horas."],
   },
+  s78: {
+    h: "Vecino anónimo, concejo de Norfolk, un gallo llamado Colonel. Se archiva si se queda a oscuras hasta las ocho",
+    d: "Aldeby. Sue Farthing. BBC, febrero de 2026. Petición de más de mil. El concejo cierra.",
+    w: ["El vecino no tenía nombre. El gallo sí.", "Un ASBO, para el alba.", "Oscuro hasta las ocho. El pueblo firmó."],
+  },
+  s79: {
+    h: "Una llamada anónima. Cinco años de césped sintético impecable. El ayuntamiento: arráncalo, o 834 dólares",
+    d: "Mermaid Beach, Gold Coast. Amanda Blair. 9News. Multa: 834 dólares australianos.",
+    w: ["El ayuntamiento no lo siega. Aun así lo quiere de verdad.", "Una llamada. Cinco años. Ochocientos treinta y cuatro dólares.", "Los parques tienen el mismo césped."],
+  },
+  s80: {
+    h: "Mil almas, una iglesia en la plaza, cuarenta y ocho toques al día. Demanda a la parroquia y al alcalde. Pide siete mil euros",
+    d: "Ottobiano, Lomellina. Corriere Milano, 15 de septiembre de 2025. Tribunal de Pavía.",
+    w: ["Cuarenta y ocho veces. Mil personas.", "Siete mil euros, por las horas.", "El alcalde lo llamó un servicio."],
+  },
 };
 
 

@@ -104,6 +104,9 @@ COVERS: dict[str, tuple[str, str]] = {
     "s75": ("File:Capbreton - Chapelle Sainte-Thérèse - 1.jpg", "Capbreton beach chapel"),
     "s76": ("File:Coq brun noir.jpg", "farm rooster"),
     "s77": ("File:Église Saint Vincent - Le Mesnil-le-Roi (FR78) - 2025-07-14 - 2.jpg", "Saint-Vincent Mesnil-le-Roi"),
+    "s78": ("File:-2019-05-18 Cockerel, Trimingham (2).JPG", "Norfolk cockerel"),
+    "s79": ("File:Abandoned artificial turf in Hermanninranta, Helsinki, Finland, 2021.jpg", "artificial turf"),
+    "s80": ("File:Rocchetta a Volturno-Chiesa di Santa Maria Assunta-campanile.JPG", "Italian village campanile"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")

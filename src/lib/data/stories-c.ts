@@ -3406,5 +3406,194 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s78",
+    slug: "colonel-cockerel-aldeby-norfolk-council-asbo-complaint",
+    slugs: {
+      fr: "colonel-coq-aldeby-norfolk-plainte-voisin-anonyme",
+      es: "colonel-gallo-aldeby-norfolk-denuncia-vecino-anonimo",
+    },
+    section: "courts",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Aldeby",
+    dumbness: 8,
+    sources: [
+      src(
+        "Cockerel owner avoids council action in Aldeby crowing row",
+        "BBC News",
+        "https://www.bbc.co.uk/news/articles/cx2dpxdzrypo",
+        "2026-02-17",
+        "local",
+      ),
+      src(
+        "Cockerel crowing sparks complaints over fowl play in Aldeby",
+        "BBC News Norfolk",
+        "https://www.bbc.co.uk/news/articles/cy05r8dd325o",
+        "2026-02-04",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:28:00.000Z",
+    originalLang: "en",
+    confidence: 0.94,
+    entities: ["Colonel", "Sue Farthing", "South Norfolk Council"],
+    copy: {
+      en: c(
+        "Anonymous neighbour, Norfolk council, a cockerel named Colonel. The notice is dropped if he stays in the dark until eight",
+        "Aldeby, on the Waveney. Sue Farthing, 58, artist, rescued hens, then found she had a cockerel. South Norfolk: Community Protection Notice if the crowing continues. BBC, 4 and 17 February 2026. Petition over a thousand. Officers visit. Action dropped.",
+        [
+          "The council, in February: unreasonable and persistent; a formal warning. Further complaints, evidence the crow can be heard inside the complainant’s house at daybreak. Advice: keep the coop dark until 08:00. Farthing blacks out the windows. She offers a log-bunker conversion. Officers: not necessary. The steps are enough.",
+          "We do not print a medical claim from a letter. We print a village, a bird with a rank, a council that can seize a rooster. The countryside was the address.",
+          "YES IT'S REAL read both BBC Norfolk pieces. Named owner, named bird, named council. The complaint was anonymous. The coop is dark until eight.",
+        ],
+        [
+          "The neighbour had no name. The cockerel did.",
+          "An ASBO, for the dawn.",
+          "Dark until eight. The village signed.",
+        ],
+        "BBC Norfolk 4 and 17 Feb 2026, Aldeby, South Norfolk Council. No death.",
+      ),
+      fr: c(
+        "Voisin anonyme, conseil du Norfolk, un coq nommé Colonel. On lève la procédure s’il reste dans le noir jusqu’à huit heures",
+        "Aldeby, sur la Waveney. Sue Farthing, 58 ans, artiste, recueille des poules, découvre un coq. South Norfolk : un Community Protection Notice si ça continue. BBC, 4 et 17 février 2026. Pétition, plus de mille. Les agents passent. Classé.",
+        [
+          "Le conseil, en février : déraisonnable et persistant ; un avertissement formel. D’autres plaintes, la preuve que le chant s’entend dans la maison du plaignant à l’aube. Conseil : garder le poulailler noir jusqu’à 8 h. Farthing occulté les fenêtres. Elle propose un bunker à bûches. Les agents : pas besoin. Les mesures suffisent.",
+          "On n’imprime pas un diagnostic dans une lettre. On imprime un village, un volatile avec un grade, un conseil qui peut saisir un coq. La campagne était l’adresse.",
+          "YES IT’S REAL a lu les deux papiers BBC Norfolk. Propriétaire nommée, coq nommé, conseil nommé. La plainte était anonyme. Le poulailler est noir jusqu’à huit heures.",
+        ],
+        [
+          "Le voisin n’avait pas de nom. Le coq, si.",
+          "Un ASBO, pour l’aube.",
+          "Noir jusqu’à huit heures. Le village a signé.",
+        ],
+        "BBC Norfolk 4 et 17 fév. 2026, Aldeby, South Norfolk Council. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s79",
+    slug: "gold-coast-fake-lawn-anonymous-neighbour-council-fine",
+    slugs: {
+      fr: "gold-coast-pelouse-synthetique-plainte-voisin-anonyme",
+      es: "gold-coast-cesped-sintetico-denuncia-vecino-anonimo",
+    },
+    section: "courts",
+    countryCode: "AU",
+    countryName: "Australia",
+    location: "Mermaid Beach",
+    dumbness: 8,
+    sources: [
+      src(
+        "Queensland family faces fine over ‘immaculate’ lawn",
+        "9News",
+        "https://9news.com.au/national/queensland-family-faces-fine-over-immaculate-lawn/b38e6366-7c60-4e2f-8c82-82da512bd6df",
+        "2025-11-15",
+        "wire",
+      ),
+      src(
+        "Neighbour’s complaint forces Gold Coast woman to rip up five-year-old artificial lawn",
+        "The Australia Today",
+        "https://www.theaustraliatoday.com.au/neighbours-complaint-forces-gold-coast-woman-to-rip-up-five-year-old-artificial-lawn/",
+        "2025-11-14",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:30:00.000Z",
+    originalLang: "en",
+    confidence: 0.9,
+    entities: ["Amanda Blair", "Gold Coast City Council"],
+    copy: {
+      en: c(
+        "One anonymous call. Five years of perfect fake grass. The council: rip it up, or $834",
+        "Mermaid Beach, Gold Coast. Amanda Blair. Nature strip, council land, council does not mow it. One neighbour rang. 9News, A Current Affair. Fine: 834 Australian dollars, then they remove it at her expense. Trip hazard, heat, they say. The city’s own parks use the same turf.",
+        [
+          "She posted in the local group. The strip has been pristine for five years. Low maintenance. Councillor Nick Marshall: a good example of a resident with a reason; he hopes for a good outcome. She wrote to her local member. The warning stands.",
+          "We do not reprint her word for the caller. We print a verge the council owns and will not cut, a complaint with no name, a price.",
+          "YES IT'S REAL read 9News against The Australia Today. Named resident, named council, named fine. The grass was the problem because it was not grass.",
+        ],
+        [
+          "The council does not mow it. It still wants it real.",
+          "One call. Five years. Eight hundred and thirty-four dollars.",
+          "The parks are allowed the same turf.",
+        ],
+        "9News / A Current Affair; The Australia Today 14–15 Nov 2025, Gold Coast. No death.",
+      ),
+      fr: c(
+        "Un appel anonyme. Cinq ans de faux gazon impeccable. La mairie : arrachez, ou 834 dollars",
+        "Mermaid Beach, Gold Coast. Amanda Blair. Bande de nature, terrain communal, la ville ne tond pas. Un voisin a appelé. 9News, A Current Affair. Amende : 834 dollars australiens, puis ils l’enlèvent à ses frais. Danger de chute, chaleur, disent-ils. Les parcs de la ville ont le même tapis.",
+        [
+          "Elle poste dans le groupe local. La bande est impeccable depuis cinq ans. Moins d’entretien. Le conseiller Nick Marshall : un bon exemple de résidente avec une raison ; il espère une issue. Elle écrit à son élu. L’avertissement tient.",
+          "On ne réimprime pas le mot qu’elle a pour l’appelant. On imprime un bas-côté que la ville possède et ne coupe pas, une plainte sans nom, un tarif.",
+          "YES IT’S REAL a lu 9News contre The Australia Today. Résidente nommée, conseil nommé, amende nommée. L’herbe était le problème parce que ce n’était pas de l’herbe.",
+        ],
+        [
+          "La ville ne tond pas. Elle veut quand même du vrai.",
+          "Un appel. Cinq ans. Huit cent trente-quatre dollars.",
+          "Les parcs ont droit au même tapis.",
+        ],
+        "9News / A Current Affair ; The Australia Today 14-15 nov. 2025, Gold Coast. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s80",
+    slug: "ottobiano-church-bells-48-times-a-day-7000-euros-pavia",
+    slugs: {
+      fr: "ottobiano-cloches-48-fois-par-jour-7000-euros-pavia",
+      es: "ottobiano-campanas-48-veces-al-dia-7000-euros-pavia",
+    },
+    section: "courts",
+    countryCode: "IT",
+    countryName: "Italy",
+    location: "Ottobiano",
+    dumbness: 8,
+    sources: [
+      src(
+        "Ottobiano, le campane vicino a casa sua rintoccano 48 volte al giorno e lui denuncia parroco e sindaco",
+        "Corriere della Sera Milano",
+        "https://milano.corriere.it/notizie/cronaca/25_settembre_15/ottobianco-le-campane-vicino-a-casa-sua-rintoccano-48-volte-al-giorno-e-lui-denuncia-parroco-e-sindaco-dal-rumore-disagio-bcaf096c-e241-4550-96f5-cd5ff7f60xlk.shtml",
+        "2025-09-15",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:32:00.000Z",
+    originalLang: "it",
+    confidence: 0.88,
+    entities: ["San Michele Arcangelo", "Comune di Ottobiano", "Tribunale di Pavia"],
+    copy: {
+      en: c(
+        "A thousand souls, a church on the square, forty-eight rings a day. He sued the parish and the mayor. He asked for seven thousand euros",
+        "Ottobiano, Lomellina. San Michele Arcangelo. Every half-hour, never stops. A resident on the main square, two steps from the church. Corriere Milano, 15 September 2025. Hearing 3 September, on paper. Pavia civil court. The mayor: keeping the hours is a public service.",
+        [
+          "First he asked 7,000 euros. Then he asked for the sound to drop, and to stop between 21:00 and 06:00. The paper: a precedent, if the judge kills the night. A thousand inhabitants. Forty-eight civil rings, not counting Mass.",
+          "We do not reprint a medical word from the filing. We print the count, the square, the bill. The church is still on the square.",
+          "YES IT'S REAL read the Corriere. Named village, named church, named court. The complaint reached Pavia. The half-hour did not leave.",
+        ],
+        [
+          "Forty-eight times. A thousand people.",
+          "Seven thousand euros, for the hours.",
+          "The mayor called it a service.",
+        ],
+        "Corriere Milano, 15 Sept 2025, Ottobiano, Tribunale di Pavia. No death.",
+      ),
+      fr: c(
+        "Mille âmes, une église sur la place, quarante-huit sonneries par jour. Il attaque la paroisse et le maire. Il demande sept mille euros",
+        "Ottobiano, Lomellina. San Michele Arcangelo. Toutes les demi-heures, sans arrêt. Un habitant sur la place, à deux pas. Corriere Milano, 15 septembre 2025. Audience du 3 septembre, sur papier. Tribunal civil de Pavie. Le maire : rappeler les heures, c’est un service public.",
+        [
+          "D’abord 7 000 euros. Puis baisser le son, et s’arrêter de 21 h à 6 h. Le journal : un précédent, si le juge tue la nuit. Mille habitants. Quarante-huit rintocchi civils, sans compter la messe.",
+          "On ne réimprime pas un mot médical du dossier. On imprime le compte, la place, la facture. L’église est toujours sur la place.",
+          "YES IT’S REAL a lu le Corriere. Village nommé, église nommée, tribunal nommé. La plainte est arrivée à Pavie. La demi-heure n’a pas bougé.",
+        ],
+        [
+          "Quarante-huit fois. Mille personnes.",
+          "Sept mille euros, pour les heures.",
+          "Le maire a dit : un service.",
+        ],
+        "Corriere Milano, 15 sept. 2025, Ottobiano, tribunal de Pavie. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
