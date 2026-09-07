@@ -4981,6 +4981,7 @@ export const STORIES_C: Story[] = [
     countryName: "France",
     location: "Riom",
     dumbness: 9,
+    breaking: true,
     sources: [
       src(
         "VIDEO. Coup de pied de biche dans la tête, butin dérisoire… quand un cambriolage vire au potache",
