@@ -1,4 +1,5 @@
 import type { FactPack, QueueItem, Story, StoryCopy } from "@/lib/types";
+import { storyWithFrench } from "@/lib/desk-fr";
 
 const SATIRE_HOSTS = ["theonion", "babylonbee", "clickhole", "waterfordwhispers"];
 
@@ -51,35 +52,35 @@ export function draftFromNotes(input: {
 }): { copy: StoryCopy; pack: FactPack; sectionGuess: Story["section"] } {
   const { score, rationale } = scoreDumbness(`${input.notes} ${input.url}`);
   const headline = headlineFromNotes(input.notes);
-  const dek = input.notes.split(/[.?!]/)[0]?.trim() || "A documented event that did not need to happen this way.";
+  const dek = input.notes.split(/[.?!]/)[0]?.trim() || "Un fait documenté qui n’avait pas besoin d’arriver comme ça.";
   const copy: StoryCopy = {
     headline,
     dek: dek.endsWith(".") ? dek : `${dek}.`,
     body: [
-      `According to the originating source, ${input.notes.trim() || "an official body took an action that now requires a straight-faced explanation."}`,
-      "YES IT'S REAL does not invent quotations. Until the desk verifies primary documents, this draft treats the submitted URL as the originating report and will not expand it with unnamed officials.",
-      "The facts, as submitted, sit in the ordinary register of local government, consumer dispute, or institutional procedure. The selection is the editorial act: it is true, and it is dumb.",
-      "Readers should follow the original source links. If the originating outlet later corrects the record, we will match the correction.",
+      `Selon la source d’origine, ${input.notes.trim() || "une institution a fait un geste qui exige maintenant une explication à visage découvert."}`,
+      "YES IT'S REAL n’invente pas de citations. Tant que la desk n’a pas les documents, ce brouillon traite l’URL envoyée comme le reportage d’origine.",
+      "Les faits, tels que soumis, relèvent du registre ordinaire d’une mairie, d’un litige ou d’une procédure. Le choix éditorial, c’est ça : c’est vrai, et c’est bête.",
+      "Suivre les liens sources. Si le journal d’origine corrige, on corrige.",
     ],
     whyDumb: [
-      "A competent adult, or committee of them, chose this.",
-      "The remedy is disproportionate to the nuisance, or the nuisance was imaginary.",
-      "It is now on paper, which means it will be cited later as precedent.",
+      "Un adulte compétent, ou un comité d’adultes, a choisi ça.",
+      "Le remède est hors de proportion, ou la nuisance était imaginaire.",
+      "C’est maintenant sur le papier, donc ça servira de précédent.",
     ],
-    factCheckNote: "Draft only. Claims below are tagged against the submitted URL, not yet against independent records.",
+    factCheckNote: "Brouillon. Les affirmations ci-dessous sont taguées sur l’URL soumise, pas encore sur des documents indépendants.",
   };
   const pack: FactPack = {
     confidence: 0.46,
     claims: [
       { claim: headline, source: input.url, status: "needs-check" },
-      { claim: "Event occurred in the stated country", source: input.country || "unspecified", status: "needs-check" },
+      { claim: "L’événement a eu lieu dans le pays indiqué", source: input.country || "non précisé", status: "needs-check" },
     ],
     stillNeeds: [
-      "Primary document or on-the-record statement",
-      "Second independent source",
-      "Confirm not satire, not opinion, not a recycled hoax",
+      "Document primaire ou déclaration on the record",
+      "Seconde source indépendante",
+      "Confirmer : pas satire, pas opinion, pas un canular recyclé",
     ],
-    suggestedEdits: ["Shorten the hed if it overclaims.", "Name the institution, not 'officials'."],
+    suggestedEdits: ["Raccourcir le titre s’il en promet trop.", "Nommer l’institution, pas « des officiels »."],
     dumbnessRationale: rationale,
   };
   return { copy, pack, sectionGuess: guessSection(input.notes) };
@@ -87,7 +88,7 @@ export function draftFromNotes(input: {
 
 function headlineFromNotes(notes: string): string {
   const clean = notes.trim().replace(/\s+/g, " ");
-  if (clean.length < 12) return "Submitted incident awaits verification";
+  if (clean.length < 12) return "Fait soumis — à vérifier";
   const sentence = clean.split(/[.?!]/)[0] ?? clean;
   const clipped = sentence.slice(0, 110);
   return clipped.charAt(0).toUpperCase() + clipped.slice(1);
@@ -95,11 +96,11 @@ function headlineFromNotes(notes: string): string {
 
 function guessSection(text: string): Story["section"] {
   const h = text.toLowerCase();
-  if (/court|sue|sues|judge|tax/.test(h)) return "courts";
-  if (/mayor|minister|parliament|law|council/.test(h)) return "politics";
-  if (/study|university|scientist/.test(h)) return "science";
+  if (/court|sue|sues|judge|tax|tribunal/.test(h)) return "courts";
+  if (/mayor|minister|parliament|law|council|maire/.test(h)) return "politics";
+  if (/study|university|scientist|étude/.test(h)) return "science";
   if (/dog|cat|duck|pigeon|otter|animal/.test(h)) return "animals";
-  if (/app|ai|printer|software|tech/.test(h)) return "tech";
+  if (/app|ai|printer|software|tech|imprimante/.test(h)) return "tech";
   if (/match|club|player|coach|goal/.test(h)) return "sports";
   if (/police|raid|arrest|theft/.test(h)) return "crime";
   if (/crash|bump|lane|gps|accident/.test(h)) return "accidents";
@@ -121,17 +122,17 @@ export function makeQueueItem(input: {
   const now = new Date().toISOString();
   const story: Story = {
     id,
-    slug: `submitted-${id}`,
-    slugs: { en: `submitted-${id}` },
+    slug: `soumis-${id}`,
+    slugs: { en: `submitted-${id}`, fr: `soumis-${id}` },
     section: sectionGuess,
     countryCode: "UN",
-    countryName: input.country || "Unspecified",
-    location: input.country || "Unspecified",
+    countryName: input.country || "Non précisé",
+    location: input.country || "Non précisé",
     dumbness: score,
     sources: [
       {
-        title: "Submitted originating report",
-        publisher: "Reader submission",
+        title: "Reportage d’origine soumis",
+        publisher: "Proposition lecteur",
         url: input.url,
         date: now.slice(0, 10),
         type: "submission",
@@ -143,15 +144,15 @@ export function makeQueueItem(input: {
     updatedAt: now,
     status: "inbox",
     entities: [],
-    originalLang: "en",
+    originalLang: "fr",
     sensitivity: detectSensitivity(input.notes) === "death" ? "death" : "none",
-    copy: { en: copy },
+    copy: { en: copy, fr: copy },
   };
   return {
     id,
-    story,
+    story: storyWithFrench(story),
     pack,
-    submittedBy: input.name || "Anonymous reader",
+    submittedBy: input.name || "Lecteur anonyme",
     submittedAt: now,
     sourceUrl: input.url,
   };
@@ -159,10 +160,5 @@ export function makeQueueItem(input: {
 
 export function mockTranslate(copy: StoryCopy, lang: string): StoryCopy {
   if (lang === "en") return copy;
-  return {
-    ...copy,
-    headline: copy.headline,
-    dek: copy.dek,
-    factCheckNote: `${copy.factCheckNote} [${lang} lock pending]`,
-  };
+  return copy;
 }
