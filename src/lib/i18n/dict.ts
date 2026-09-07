@@ -112,7 +112,7 @@ const en: Record<UiKey, string> = {
     "The darkness of the time is not our beat. Killings, wars, the pile of grief: other desks. Ours is the goat on the bus, the croissant that cost five hundred euros, the python named Jodie Foster, the speed bump the height of a child. Incompetence, vanity, bureaucracy, animals with a better sense of timing than the timetable. Tragedy is refused at the door. If it isn't funny, it isn't ours.",
   raisonP3:
     "Every item here was published somewhere first. The footnotes are the religion. If it sounds like satire you have not checked them. We steal the weather of great reporters and leave their ghosts a fact-check. The machine finds the receipts. The laugh is human. That is the whole paper.",
-  raisonLine: "Already published. Sourced. Funny. Not satire. The darkness can wait in the other tab.",
+  raisonLine: "Already published. Sourced. Funny. Not satire. The astonishment: all of it is true.",
   voiceAfter: "Cadence after",
   voiceDisclaimer: "The weather of their sentences. Not their words. Quotes are never invented, and never theirs.",
   cookieTitle: "Cookies",
@@ -366,7 +366,7 @@ const fr = overlay({
     "La noirceur du temps n’est pas notre rayon. Tueries, guerres, le tas de deuil : d’autres desks. La nôtre : la chèvre dans le bus, le croissant à cinq cents euros, le python Jodie Foster, le dos d’âne haut comme un gamin. L’incompétence, la vanité, la bureaucratie, les bêtes mieux calées que l’horaire. Le drame reste à la porte. Si ce n’est pas drôle, ce n’est pas à nous.",
   raisonP3:
     "Chaque papier ici a d’abord paru ailleurs. Les notes de bas de page sont la religion. Si ça sonne satire, tu ne les as pas lues. On vole le temps qu’il faisait chez les grands, et on laisse aux fantômes un fact-check. La machine trouve les reçus. Le rire est humain. C’est tout le journal.",
-  raisonLine: "Déjà paru. Sourcé. Drôle. Pas de satire. La noirceur peut attendre dans l’autre onglet.",
+  raisonLine: "Déjà paru. Sourcé. Drôle. Pas de satire. Étonnement : tout est vrai.",
   voiceAfter: "Cadence d’après",
   voiceDisclaimer: "On vole le temps qu’il faisait dans leurs phrases. Pas leurs mots. Aucune citation inventée, aucune des leurs.",
   cookieTitle: "Cookies",
