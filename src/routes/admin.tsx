@@ -11,15 +11,15 @@ export const Route = createFileRoute("/admin")({
 });
 
 const LINKS = [
-  { to: "/admin", label: "Overview" },
+  { to: "/admin", label: "Tableau" },
   { to: "/admin/inbox", label: "File d’attente" },
-  { to: "/admin/translations", label: "Translations" },
-  { to: "/admin/rejected", label: "Rejected" },
+  { to: "/admin/translations", label: "Traductions" },
+  { to: "/admin/rejected", label: "Refusés" },
   { to: "/admin/sources", label: "Sources" },
-  { to: "/admin/calibration", label: "Calibration" },
-  { to: "/admin/ads", label: "Ads" },
-  { to: "/admin/leads", label: "Leads / 72h" },
-  { to: "/admin/analytics", label: "Analytics" },
+  { to: "/admin/calibration", label: "Réglages" },
+  { to: "/admin/ads", label: "Pubs" },
+  { to: "/admin/leads", label: "Contacts" },
+  { to: "/admin/analytics", label: "Audience" },
 ] as const;
 
 function AdminGate() {
@@ -59,11 +59,11 @@ function AdminShell() {
       <header className="flex items-center justify-between border-b border-rule px-4 py-3">
         <div>
           <p className="kicker text-signal">La cambuse</p>
-          <p className="font-serif text-xl">YES IT'S REAL desk</p>
+          <p className="font-serif text-xl">Le journal</p>
         </div>
         <div className="flex gap-3 text-sm">
           <Link to="/" className="underline">
-            Paper
+            Voir le site
           </Link>
           <button
             type="button"
@@ -73,7 +73,7 @@ function AdminShell() {
               setAdmin(false);
             }}
           >
-            Lock
+            Fermer
           </button>
         </div>
       </header>

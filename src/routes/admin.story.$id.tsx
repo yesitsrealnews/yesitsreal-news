@@ -1,22 +1,14 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useMergedInbox } from "@/lib/admin-inbox";
 import { useAppStore } from "@/lib/store";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { mockTranslate } from "@/lib/pipeline";
+import { storyCopy } from "@/lib/format";
 import type { StoryCopy } from "@/lib/types";
 
 export const Route = createFileRoute("/admin/story/$id")({ component: StoryEditor });
-
-const EMPTY: StoryCopy = {
-  headline: "",
-  dek: "",
-  body: [],
-  whyDumb: ["", "", ""],
-  factCheckNote: "",
-};
 
 function StoryEditor() {
   const { id } = Route.useParams();
@@ -28,38 +20,40 @@ function StoryEditor() {
   const upsertInbox = useAppStore((s) => s.upsertInbox);
   const navigate = useNavigate();
   const [tab, setTab] = useState<"draft" | "sources" | "facts">("draft");
-  const [hed, setHed] = useState(item?.story.copy.en.headline ?? "");
-  const [dek, setDek] = useState(item?.story.copy.en.dek ?? "");
-  const [body, setBody] = useState(item?.story.copy.en.body.join("\n\n") ?? "");
+  const fr = item ? storyCopy(item.story, "fr") : undefined;
+  const [hed, setHed] = useState(fr?.headline ?? "");
+  const [dek, setDek] = useState(fr?.dek ?? "");
+  const [body, setBody] = useState(fr?.body.join("\n\n") ?? "");
   const [reason, setReason] = useState("");
-
-  const translated = useMemo(() => mockTranslate(item?.story.copy.en ?? EMPTY, "fr"), [item]);
 
   if (!item) {
     return (
       <main className="p-6">
-        <p>Not in the queue.</p>
+        <p>Pas dans la file.</p>
         <Link to="/admin/inbox" className="underline">
-          Inbox
+          File d’attente
         </Link>
       </main>
     );
   }
 
   const current = item;
+  const tabs = { draft: "Texte FR", sources: "Sources", facts: "Faits" } as const;
+
+  function nextFr(): StoryCopy {
+    const base = storyCopy(current.story, "fr");
+    return {
+      ...base,
+      headline: hed,
+      dek,
+      body: body.split(/\n\n+/).filter(Boolean),
+    };
+  }
 
   function persistDraft() {
     const next = {
       ...current.story,
-      copy: {
-        ...current.story.copy,
-        en: {
-          ...current.story.copy.en,
-          headline: hed,
-          dek,
-          body: body.split(/\n\n+/).filter(Boolean),
-        },
-      },
+      copy: { ...current.story.copy, fr: nextFr() },
     };
     upsertInbox({ ...current, story: next });
     updateStory(next);
@@ -70,7 +64,7 @@ function StoryEditor() {
       <p className="kicker text-signal">
         {current.story.section} · {current.story.location}
       </p>
-      <h1 className="mt-2 font-serif text-2xl md:text-3xl">Review</h1>
+      <h1 className="mt-2 font-serif text-2xl md:text-3xl">Relire en français</h1>
       <div className="mt-4 flex gap-2">
         {(["draft", "sources", "facts"] as const).map((k) => (
           <button
@@ -79,7 +73,7 @@ function StoryEditor() {
             onClick={() => setTab(k)}
             className={`h-10 px-3 text-xs font-semibold uppercase tracking-[0.12em] ${tab === k ? "bg-ink text-paper" : "border border-rule"}`}
           >
-            {k}
+            {tabs[k]}
           </button>
         ))}
       </div>
@@ -91,7 +85,6 @@ function StoryEditor() {
               <Input value={hed} onChange={(e) => setHed(e.target.value)} />
               <Textarea value={dek} onChange={(e) => setDek(e.target.value)} className="min-h-20" />
               <Textarea value={body} onChange={(e) => setBody(e.target.value)} className="min-h-72" />
-              <p className="text-xs text-ink-muted">French machine draft (lock pending): {translated.headline}</p>
             </div>
           ) : null}
           {tab === "sources" ? (
@@ -111,14 +104,14 @@ function StoryEditor() {
           ) : null}
           {tab === "facts" ? (
             <div className="space-y-3 text-sm">
-              <p>Confidence {Math.round(current.pack.confidence * 100)}%</p>
+              <p>Confiance {Math.round(current.pack.confidence * 100)} %</p>
               <p>{current.pack.dumbnessRationale}</p>
               <table className="w-full border border-rule text-left text-xs">
                 <thead className="bg-paper-2">
                   <tr>
-                    <th className="p-2">Claim</th>
+                    <th className="p-2">Affirmation</th>
                     <th className="p-2">Source</th>
-                    <th className="p-2">Status</th>
+                    <th className="p-2">Statut</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -131,62 +124,36 @@ function StoryEditor() {
                   ))}
                 </tbody>
               </table>
-              <p className="kicker">Still needs</p>
-              <ul className="list-disc ps-5">
-                {current.pack.stillNeeds.map((x) => (
-                  <li key={x}>{x}</li>
-                ))}
-              </ul>
-              <p className="kicker">Suggested edits</p>
-              <ul className="list-disc ps-5">
-                {current.pack.suggestedEdits.map((x) => (
-                  <li key={x}>{x}</li>
-                ))}
-              </ul>
             </div>
           ) : null}
         </div>
         <aside className="border border-rule p-4">
-          <p className="kicker">Desk actions</p>
+          <p className="kicker">Décision</p>
           <div className="mt-4 flex flex-col gap-2">
             <Button
               onClick={() => {
                 persistDraft();
                 publishQueueItem({
                   ...current,
-                  story: {
-                    ...current.story,
-                    copy: {
-                      ...current.story.copy,
-                      en: {
-                        ...current.story.copy.en,
-                        headline: hed,
-                        dek,
-                        body: body.split(/\n\n+/).filter(Boolean),
-                      },
-                    },
-                  },
+                  story: { ...current.story, copy: { ...current.story.copy, fr: nextFr() } },
                 });
                 void navigate({ to: "/admin/inbox" });
               }}
             >
-              Publish now
+              Publier
             </Button>
             <Button variant="outline" onClick={persistDraft}>
-              Save edit
+              Enregistrer
             </Button>
-            <Input placeholder="Reject reason" value={reason} onChange={(e) => setReason(e.target.value)} />
+            <Input placeholder="Motif du refus" value={reason} onChange={(e) => setReason(e.target.value)} />
             <Button
               variant="outline"
               onClick={() => {
-                rejectQueueItem(current, reason || "Desk reject");
+                rejectQueueItem(current, reason || "Refus desk");
                 void navigate({ to: "/admin/inbox" });
               }}
             >
-              Reject
-            </Button>
-            <Button variant="ghost" disabled>
-              Schedule (preview)
+              Refuser
             </Button>
           </div>
         </aside>
