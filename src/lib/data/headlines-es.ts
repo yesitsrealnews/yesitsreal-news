@@ -347,6 +347,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Tarn-et-Garonne, julio de 2026. Cinco farmacias, 1.500 €. Zurab y Nodari. En comisaría: Dragon Laser. La Dépêche: «pieds nickelés».",
     w: ["El botín era el verano. El nombre, el cine.", "Turismo, decían. Cinco farmacias en once días.", "Pieds nickelés lo dijo el tribunal, no nosotros."],
   },
+  s70: {
+    h: "Una turista francesa esconde 40 kilos de playa sarda bajo los asientos, rumbo a Tolón",
+    d: "Porto Torres, 25 de mayo de 2026. 69 años. Corsica Ferries. Playa Le Saline, Stintino. Multa de 500 a 3.000 €. La arena vuelve.",
+    w: ["El souvenir pesaba lo que un niño.", "Los asientos escondían una playa.", "Tolón tiene arena. No esa."],
+  },
+  s71: {
+    h: "Paga 7.000 € por Kos. Las toallas llegan antes. Un tribunal alemán le da 986,70 €",
+    d: "Hanóver, abril de 2026. Familia de cuatro, Kos 2024. A las 6 de la mañana. BBC, Guardian. Vacaciones «defectuosas».",
+    w: ["Las seis era tarde.", "Las toallas tuvieron mejor abogado hasta Hanóver.", "Casi mil euros por una hamaca que no estaba."],
+  },
+  s72: {
+    h: "Despedida de soltera en Florencia: escala el Neptuno del XVI por un reto. Daños: 5.000 €",
+    d: "Piazza della Signoria, abril de 2026. Turista de 28 años. El ayuntamiento: daños en las patas de los caballos. Guardian, The Local.",
+    w: ["El reto era anatómico. La factura, municipal.", "Los caballos no eran una escalera.", "Neptuno tiene cámaras desde el turista anterior."],
+  },
 };
 
 

@@ -96,6 +96,9 @@ COVERS: dict[str, tuple[str, str]] = {
     "s67": ("File:Circle K gas station, Dolina, Warsaw.jpg", "Circle K station"),
     "s68": ("File:French Identity card 1988 - 1994.jpg", "old French ID card template"),
     "s69": ("File:LRP sunscreen bottle.jpg", "pharmacy sunscreen bottle"),
+    "s70": ("File:Sos Aranzos beach (Spiaggia Sos Aranzos), Sardinia, Italy - Flickr - Wloski.jpg", "Sardinia white sand beach"),
+    "s71": ("File:Sunbeds at a hotel pool.jpg", "hotel pool sunbeds"),
+    "s72": ("File:Firenze, fontana del nettuno (dopo il restauro del 2020) di giorno, 01.jpg", "Neptune fountain Florence"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
