@@ -1,4 +1,4 @@
-import { creativeFor, localizedCreative, type AdKind } from "@/lib/ads";
+import { ADS_PUBLIC, creativeFor, localizedCreative, type AdKind } from "@/lib/ads";
 import { t } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -14,6 +14,7 @@ export function AdSlot({
   salt?: string;
   className?: string;
 }) {
+  if (!ADS_PUBLIC) return null;
   const ad = localizedCreative(creativeFor(slot, salt), lang);
   const label = slot === "native" ? t(lang, "adNative") : slot === "sidebar" ? t(lang, "adSidebar") : t(lang, "adsLabel");
   return (
@@ -62,6 +63,7 @@ export function AdSlot({
 }
 
 export function MobileAnchorAd({ lang }: { lang: Lang }) {
+  if (!ADS_PUBLIC) return null;
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-ad md:hidden pb-[env(safe-area-inset-bottom)]">
       <AdSlot lang={lang} slot="anchor" className="border-0" />

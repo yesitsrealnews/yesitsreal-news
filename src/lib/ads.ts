@@ -1,5 +1,8 @@
 import type { Lang } from "@/lib/types";
 
+/** Dummy AdSense / media-kit slots. Off until a real network is wired. */
+export const ADS_PUBLIC = false;
+
 export type AdKind = "leaderboard" | "sidebar" | "inarticle" | "anchor" | "native";
 
 export interface Creative {

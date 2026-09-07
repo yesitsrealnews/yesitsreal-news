@@ -1,8 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { SiteShell } from "@/components/site/site-shell";
 import { LeadForm } from "@/components/site/lead-form";
-import { GoLive } from "@/components/site/go-live";
 import { Badge } from "@/components/ui/badge";
 import { t } from "@/lib/i18n";
 import { useAppStore } from "@/lib/store";
@@ -86,10 +85,6 @@ function ShopPage() {
         </div>
 
         <p className="mt-6 text-sm">
-          <Link to="/advertise" className="underline">
-            {t(lang, "advertise")}
-          </Link>
-          {" · "}
           <a className="underline" href={`mailto:${EMAILS.ads}`}>
             {EMAILS.ads}
           </a>
@@ -100,8 +95,6 @@ function ShopPage() {
         ) : null}
 
         <p className="mt-8 text-xs text-ink-muted">{t(lang, "noChargeToday")}</p>
-        <p className="mt-2 text-xs text-ink-muted">{AD_PACKS[0].dek}</p>
-        <GoLive lang={lang} />
       </main>
     </SiteShell>
   );

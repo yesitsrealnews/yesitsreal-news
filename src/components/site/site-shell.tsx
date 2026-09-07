@@ -5,6 +5,7 @@ import { Ticker } from "@/components/site/ticker";
 import { ContestBanner } from "@/components/site/contest-banner";
 import { SprintBanner } from "@/components/site/sprint-banner";
 import { AdSlot, MobileAnchorAd } from "@/components/site/ad-slot";
+import { ADS_PUBLIC } from "@/lib/ads";
 import { CookieBanner } from "@/components/site/cookie-banner";
 import { bootstrapClientPrefs, useAppStore } from "@/lib/store";
 
@@ -15,7 +16,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
   const setLang = useAppStore((s) => s.setLang);
   const setTheme = useAppStore((s) => s.setTheme);
   const setCookies = useAppStore((s) => s.setCookies);
-  const showAnchor = cookies !== "necessary";
+  const showAnchor = ADS_PUBLIC && cookies !== "necessary";
 
   useEffect(() => {
     bootstrapClientPrefs();
