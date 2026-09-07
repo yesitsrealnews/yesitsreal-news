@@ -552,6 +552,11 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Nueva York. 404 Media, 2 de septiembre de 2026. Bruce Blakeman. Mamdani y Hochul, jardín generado. Denuncia por IA sin etiqueta.",
     w: ["Los rivales eran generados.", "Jardinaban.", "La pelea es la etiqueta."],
   },
+  s115: {
+    h: "Ebrio, metió su Clio en un callejón peatonal en Tournon y se durmió con el pie en el acelerador",
+    d: "Tournon-sur-Rhône, jueves 3 de septiembre, entre las 3 y las 4. Rue de la Passerelle. Los gendarmes tardaron en despertarlo. Se fue a pie.",
+    w: ["El callejón era para peatones.", "El Clio se durmió a fondo.", "Él volvió a pie. El coche no."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",

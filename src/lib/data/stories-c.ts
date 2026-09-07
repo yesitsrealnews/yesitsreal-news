@@ -5535,6 +5535,79 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s115",
+    slug: "drunk-he-drove-a-clio-into-a-pedestrian-alley-in-tournon-and-fell-asleep-on-the-accelerator",
+    slugs: {
+      fr: "ivre-il-engage-sa-clio-dans-une-ruelle-pietonne-a-tournon-et-sendort-le-pied-sur-laccelerateur",
+      es: "ebrio-mete-su-clio-en-un-callejon-peatonal-en-tournon-y-se-duerme-con-el-pie-en-el-acelerador",
+    },
+    section: "faits-divers",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Tournon-sur-Rhône, Ardèche",
+    dumbness: 9,
+    breaking: true,
+    sources: [
+      src(
+        "« Il s’est endormi en appuyant sur l’accélérateur » : ivre, il coince sa voiture dans une ruelle piétonne",
+        "Le Dauphiné Libéré",
+        "https://www.ledauphine.com/faits-divers-justice/2026/09/04/il-s-est-endormi-en-appuyant-sur-l-accelerateur-ivre-il-coince-sa-voiture-dans-une-ruelle-pietonne",
+        "2026-09-04",
+        "local",
+      ),
+      src(
+        "Ivre, il tente de passer en voiture dans une ruelle et s'endort le pied sur l'accélérateur",
+        "La Dépêche du Midi",
+        "https://www.ladepeche.fr/2026/09/05/ivre-il-tente-de-passer-en-voiture-dans-une-ruelle-et-sendort-le-pied-sur-laccelerateur-13537182.php",
+        "2026-09-05",
+        "local",
+      ),
+      src(
+        "Alcoolisé, il emprunte une ruelle très étroite, tente de reculer et reste bloqué : il finit par s’endormir au volant le pied à fond sur l’accélérateur",
+        "Centre Presse Aveyron",
+        "https://www.centrepresseaveyron.fr/2026/09/07/alcoolise-il-emprunte-une-ruelle-tres-etroite-tente-de-reculer-et-reste-bloque-il-finit-par-sendormir-au-volant-le-pied-a-fond-sur-laccelerateur-13538127.php",
+        "2026-09-07",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T11:10:00.000Z",
+    originalLang: "fr",
+    confidence: 0.94,
+    entities: ["Tournon-sur-Rhône", "rue de la Passerelle", "Renault Clio"],
+    copy: {
+      en: c(
+        "Drunk, he drove a Clio into a pedestrian alley in Tournon and fell asleep with his foot on the accelerator",
+        "Tournon-sur-Rhône, Thursday 3 September, between 3 and 4 a.m. Rue de la Passerelle. The gendarmes had trouble waking him. Firefighters checked him. He walked home.",
+        [
+          "Le Dauphiné Libéré, 4 September 2026. A resident: a bold driver tried to cross rue de la Passerelle, coming from rue des Religieuses. The lane is for walkers. A Renault Clio is not a walker. Reverse failed. Then, the resident told the paper, he fell asleep pressing the accelerator, ‘to the great joy of the neighbours.’",
+          "La Dépêche du Midi, 5 September, picked it up: drink or drive, he chose both. The Clio stuck between the walls. Neighbours woke. Gendarmes were called and had trouble opening the driver’s eyes. Firefighters examined him. No hospital. He went home on foot. A tow truck cleared the lane. He was summoned later to the brigade.",
+          "Centre Presse Aveyron, 7 September: he will have to answer in court. YES IT'S REAL read the three regionals. Named streets. Named car. No injury in the copy. The geometry did the work.",
+        ],
+        [
+          "The alley was for pedestrians.",
+          "The Clio fell asleep at full throttle.",
+          "He went home on foot. The car did not.",
+        ],
+        "Dauphiné 4 Sept., Dépêche 5 Sept., Centre Presse 7 Sept. 2026. Named streets. No death, no hospital.",
+      ),
+      fr: c(
+        "Ivre, il engage sa Clio dans une ruelle piétonne à Tournon et s’endort le pied sur l’accélérateur",
+        "Tournon-sur-Rhône, jeudi 3 septembre, entre 3 h et 4 h. Rue de la Passerelle. Les gendarmes ont eu du mal à le réveiller. Les pompiers l’ont ausculté. Il est rentré à pied.",
+        [
+          "Le Dauphiné Libéré, 4 septembre 2026. Un riverain : un automobiliste téméraire a tenté de traverser la rue de la Passerelle en arrivant par la rue des Religieuses. La ruelle est aux piétons. Une Renault Clio n’est pas un piéton. La marche arrière a échoué. Puis, dit-il au journal, « il s’est endormi en appuyant sur l’accélérateur, pour le plus grand bonheur des riverains ».",
+          "La Dépêche du Midi, 5 septembre, reprend : boire ou conduire, il a choisi les deux. La Clio coincée entre les murs. Les manœuvres ont réveillé le quartier. Les gendarmes ont eu du mal à ouvrir les yeux du conducteur. Les pompiers l’ont examiné. Pas d’hôpital. Il est rentré à pied. Une dépanneuse a dégagé la ruelle. Convoqué plus tard à la brigade.",
+          "Centre Presse Aveyron, 7 septembre : il devra s’expliquer au tribunal. YES IT’S REAL a lu les trois régionaux. Rues nommées. Voiture nommée. Pas de blessé dans le papier. La géométrie a fait le travail.",
+        ],
+        [
+          "La ruelle était aux piétons.",
+          "La Clio s’est endormie à fond.",
+          "Il est rentré à pied. Pas la voiture.",
+        ],
+        "Dauphiné 4 sept., Dépêche 5 sept., Centre Presse 7 sept. 2026. Rues nommées. Pas de mort, pas d’hôpital.",
+      ),
+    },
+  }),
 ];
 
 
