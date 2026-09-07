@@ -3087,5 +3087,143 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s73",
+    slug: "american-airlines-618-passenger-duct-taped-first-class-baltimore",
+    slugs: {
+      fr: "american-airlines-618-passager-scotche-premiere-classe-baltimore",
+      es: "american-airlines-618-pasajero-precintado-primera-clase-baltimore",
+    },
+    section: "world",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Baltimore",
+    dumbness: 9,
+    breaking: true,
+    sources: [
+      src(
+        "Unruly Passenger Is Restrained With Duct Tape During a Flight",
+        "The New York Times",
+        "https://www.nytimes.com/2026/09/05/us/american-airlines-passenger-duct-tape.html",
+        "2026-09-05",
+        "wire",
+      ),
+      src(
+        "Disruptive passenger duct-taped to first-class seat as plane makes emergency landing",
+        "CNN",
+        "https://www.cnn.com/2026/09/04/us/disruptive-passenger-duct-tape",
+        "2026-09-04",
+        "wire",
+      ),
+      src(
+        "Un passager agressif scotché à son siège",
+        "franceinfo",
+        "https://www.franceinfo.fr/faits-divers/un-passager-agressif-scotche-a-son-siege_8179061.html",
+        "2026-09-05",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:18:00.000Z",
+    originalLang: "en",
+    confidence: 0.95,
+    entities: ["Arthur Lundeen", "American Airlines", "Juan Mejia", "Richard O’Lenick"],
+    copy: {
+      en: c(
+        "First class, Dallas to Newark: the crew handed over the tape. He finished the flight stuck to the seat",
+        "American Airlines 618, 3 September 2026. Arthur Lundeen, 67, Tucson. Diverted to Baltimore. Zip ties, then duct tape, around the body and the head. NYT, CNN, franceinfo. Charged: second-degree assault, disorderly conduct. Released on his own recognizance.",
+        [
+          "Two hours in. A man in first class becomes loud, then physical. A flight attendant tries to settle it. Passengers Juan Mejia, a retired officer, and Richard O’Lenick get up. The attendant gives them a zip tie. He bites. She brings the tape. Mejia wraps him to the seat. O’Lenick photographs it. The plane lands at BWI. Maryland Transportation Authority Police board.",
+          "American Airlines: a disruptive customer; law enforcement met the aircraft. The FBI is interviewing. We do not reprint the slurs the papers quoted. The method is the story. The tape is cabin kit. CNN notes it is carried for this.",
+          "YES IT'S REAL read the Times against CNN and franceinfo. Named flight, named airport, named charges. The picture went around the world. The roll came from the galley.",
+        ],
+        [
+          "The upgrade did not include an exit.",
+          "The galley had a roll for this.",
+          "He was still there when Baltimore opened the door.",
+        ],
+        "NYT 5 Sept 2026; CNN 4 Sept; franceinfo 5 Sept. AA 618, 3 Sept. No death. Slurs not reprinted.",
+      ),
+      fr: c(
+        "Première classe, Dallas–Newark : l’équipage tend le scotch. Il finit collé au siège",
+        "American Airlines 618, 3 septembre 2026. Arthur Lundeen, 67 ans, Tucson. Dérouté sur Baltimore. Colliers de serrage, puis du scotch, autour du corps et de la tête. NYT, CNN, franceinfo. Chefs : voies de fait au second degré, désordre. Remis en liberté sous caution personnelle.",
+        [
+          "Deux heures de vol. Un homme en première s’énerve, puis frappe. Une hôtesse tente de calmer. Les passagers Juan Mejia, ancien policier, et Richard O’Lenick se lèvent. L’hôtesse leur tend un collier. Il mord. Elle apporte le scotch. Mejia l’enroule au siège. O’Lenick photographie. L’avion se pose à BWI. La police du Maryland monte.",
+          "American Airlines : un client perturbateur ; les forces de l’ordre ont accueilli l’appareil. Le FBI auditionne. On ne réimprime pas les insultes citées par les journaux. La méthode, c’est le papier. Le scotch est dans la soute cabine. CNN le note : on l’embarque pour ça.",
+          "YES IT’S REAL a lu le Times contre CNN et franceinfo. Vol nommé, aéroport nommé, chefs nommés. La photo a fait le tour. Le rouleau venait de la cuisine.",
+        ],
+        [
+          "La première classe n’incluait pas la sortie.",
+          "La cuisine avait un rouleau pour ça.",
+          "Il était encore là quand Baltimore a ouvert la porte.",
+        ],
+        "NYT 5 sept. 2026 ; CNN 4 sept. ; franceinfo 5 sept. AA 618, 3 sept. Pas de mort. Insultes non réimprimées.",
+      ),
+    },
+  }),
+  story({
+    id: "s74",
+    slug: "milwaukee-dallas-passenger-wanted-off-plane-30000-feet-duct-tape",
+    slugs: {
+      fr: "milwaukee-dallas-passager-voulait-descendre-a-9000-metres-scotch",
+      es: "milwaukee-dallas-pasajero-queria-bajar-a-9000-metros-cinta",
+    },
+    section: "world",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Dallas",
+    dumbness: 9,
+    sources: [
+      src(
+        "Passenger Duct-Taped to Seat after Attacking Crew Member",
+        "WorkersCompensation.com citing DFW DPS",
+        "https://www.workerscompensation.com/daily-headlines/passenger-duct-taped-to-seat-after-attacking-crew-member/",
+        "2024-11-23",
+        "local",
+      ),
+      src(
+        "Disruptive passenger duct-taped to first-class seat (2024 Milwaukee–Dallas noted)",
+        "CNN",
+        "https://www.cnn.com/2026/09/04/us/disruptive-passenger-duct-tape",
+        "2026-09-04",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:20:00.000Z",
+    originalLang: "en",
+    confidence: 0.86,
+    entities: ["Doug McCright", "American Airlines", "Dallas Fort Worth"],
+    copy: {
+      en: c(
+        "He told the attendant he needed to exit the aircraft. Right now. At 30,000 feet. They fetched the tape",
+        "American Airlines 1915, Milwaukee to Dallas, November 2024. DFW Department of Public Safety. Passenger Doug McCright, to WDJT: he was bound and determined to get off. I was bound and determined he wasn’t. CNN, this week, listing the tape cases: Milwaukee–Dallas, 2024.",
+        [
+          "A man in the forward galley told a flight attendant he needed to leave the aircraft immediately. He went for a door. Other passengers held him. Another attendant produced duct tape. Wrists, knees, ankles. McCright: the three of us held him for the rest of the flight, about thirty minutes. At first he tore the tape.",
+          "CNN, 4 September 2026, recapping the kit: duct tape and flexible cuffs are on many commercial aircraft for this. We do not diagnose the passenger. We print the altitude and the request.",
+          "YES IT'S REAL read the DFW note through the 2024 report, against CNN’s list. Named flight, named airport, named volunteer. The exit was not a gate.",
+        ],
+        [
+          "Right now was not on the chart.",
+          "The door at that height is not a door.",
+          "The tape lasted until Dallas.",
+        ],
+        "DFW DPS via 23 Nov 2024 report; CNN 4 Sept 2026 recap. AA 1915. No death. No medical lecture.",
+      ),
+      fr: c(
+        "Il dit à l’hôtesse qu’il faut qu’il descende. Tout de suite. À 9 000 mètres. On est allé chercher le scotch",
+        "American Airlines 1915, Milwaukee–Dallas, novembre 2024. Police de Dallas Fort Worth. Le passager Doug McCright, à WDJT : il était décidé à descendre. Moi, j’étais décidé à ce qu’il reste. CNN, cette semaine, dans la liste des scotchages : Milwaukee–Dallas, 2024.",
+        [
+          "Un homme, à l’avant, dit à une hôtesse qu’il doit sortir tout de suite. Il va vers une porte. D’autres le tiennent. Une autre hôtesse sort le scotch. Poignets, genoux, chevilles. McCright : on l’a tenu à trois jusqu’à l’arrivée, une demi-heure. Au début, il arrachait le ruban.",
+          "CNN, 4 septembre 2026, le matériel : scotch et colliers souples, à bord de beaucoup d’appareils, pour ça. On ne diagnostique pas le passager. On imprime l’altitude et la demande.",
+          "YES IT’S REAL a lu la note DFW dans le papier de 2024, contre la liste de CNN. Vol nommé, aéroport nommé, volontaire nommé. La sortie n’était pas une porte.",
+        ],
+        [
+          "Tout de suite n’était pas sur la carte.",
+          "La porte, à cette hauteur, n’est pas une porte.",
+          "Le scotch a tenu jusqu’à Dallas.",
+        ],
+        "DFW DPS via papier 23 nov. 2024 ; CNN 4 sept. 2026. AA 1915. Pas de mort. Pas de leçon médicale.",
+      ),
+    },
+  }),
 ];
 

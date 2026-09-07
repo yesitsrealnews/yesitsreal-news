@@ -362,6 +362,16 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Piazza della Signoria, abril de 2026. Turista de 28 años. El ayuntamiento: daños en las patas de los caballos. Guardian, The Local.",
     w: ["El reto era anatómico. La factura, municipal.", "Los caballos no eran una escalera.", "Neptuno tiene cámaras desde el turista anterior."],
   },
+  s73: {
+    h: "Primera clase, Dallas–Newark: la tripulación pasa la cinta. Termina pegado al asiento",
+    d: "American Airlines 618, 3 de septiembre de 2026. Arthur Lundeen, 67 años. Desvío a Baltimore. NYT, CNN, franceinfo.",
+    w: ["El upgrade no incluía la salida.", "La galera tenía un rollo para esto.", "Seguía ahí cuando Baltimore abrió la puerta."],
+  },
+  s74: {
+    h: "Le dice a la azafata que tiene que bajar. Ya. A 9.000 metros. Fueron a por la cinta",
+    d: "American Airlines 1915, Milwaukee–Dallas, noviembre de 2024. Doug McCright: él quería bajarse. Yo no. CNN lo lista esta semana.",
+    w: ["Ya no estaba en la carta.", "La puerta a esa altura no es una puerta.", "La cinta aguantó hasta Dallas."],
+  },
 };
 
 
