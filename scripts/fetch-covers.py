@@ -124,6 +124,8 @@ COVERS: dict[str, tuple[str, str]] = {
     "s95": ("File:Hamburg ICE1 op Lombardsbrücke kerst (23776695399).jpg", "ICE train Hamburg"),
     "s96": ("File:Psilocybe cubensis (Earle) Singer 514039.jpg", "Psilocybe cubensis mushroom"),
     "s97": ("File:Cannabis sativa.jpg", "Cannabis sativa plant"),
+    "s98": ("File:World Bank Headquarters.jpg", "World Bank headquarters"),
+    "s99": ("File:Paris - UNESCO (29775501630).jpg", "UNESCO headquarters Paris"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")

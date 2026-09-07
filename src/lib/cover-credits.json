@@ -568,5 +568,17 @@
     "artist": "de:Benutzer:Michael_w",
     "license": "CC BY-SA 3.0",
     "page": "https://commons.wikimedia.org/wiki/File%3ACannabis_sativa.jpg"
+  },
+  "s98": {
+    "file": "File:World Bank Headquarters.jpg",
+    "artist": "Shanice Gounden",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWorld_Bank_Headquarters.jpg"
+  },
+  "s99": {
+    "file": "File:Paris - UNESCO (29775501630).jpg",
+    "artist": "Fred Romero from Paris, France",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AParis_-_UNESCO_%2829775501630%29.jpg"
   }
 }

@@ -467,6 +467,16 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Johns Hopkins Hub, 21 de enero de 2026. Bayview. ClinicalTrials.gov NCT06293040, siguen reclutando.",
     w: ["La universidad pagó a gente por beber y vapear.", "Luego les pidió fingir que conducían.", "Dos mil seiscientos sesenta dólares. Nueve visitas."],
   },
+  s98: {
+    h: "El Banco Mundial acaba de dar 3,5 millones a Jordania. No para informatizar las escuelas. Para preparar a quizá informatizarlas más tarde",
+    d: "Amman Net, 6 de septiembre. Sada News, el mismo día. Tres mil quinientas escuelas. El dinero es el inventario.",
+    w: ["Tres millones y medio para contar los enchufes.", "Los portátiles serán otra conversación.", "La subvención lo dice, por escrito."],
+  },
+  s99: {
+    h: "El fondo de juventud de la agencia cultural de la ONU es un cheque de K-pop. Un millón de dólares. El boy band es el Tesoro",
+    d: "UNESCO, 25 de junio de 2026, sede, París. Joshua de SEVENTEEN en la sala. Cien becas. El millón lo pone el grupo.",
+    w: ["El fondo juvenil de la ONU era un cheque de boy band.", "Un millón de dólares. Cien becas pequeñas.", "Joshua estaba en la sala."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",

@@ -4428,7 +4428,138 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s98",
+    slug: "world-bank-3-5-million-to-jordan-to-prepare-to-maybe-later-digitize-schools",
+    slugs: {
+      fr: "banque-mondiale-3-5-millions-a-la-jordanie-pour-preparer-a-peut-etre-numeriser-les-ecoles",
+      es: "banco-mundial-3-5-millones-a-jordania-para-preparar-tal-vez-digitalizar-escuelas",
+    },
+    section: "politics",
+    countryCode: "JO",
+    countryName: "Jordan",
+    location: "Amman",
+    dumbness: 8,
+    sources: [
+      src(
+        "3.5 مليون دولار من البنك الدولي تمهد للتحول الرقمي بالمدارس الحكومية في الأردن",
+        "Amman Net",
+        "http://ammannet.net/%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/35-%D9%85%D9%84%D9%8A%D9%88%D9%86-%D8%AF%D9%88%D9%84%D8%A7%D8%B1-%D9%85%D9%86-%D8%A7%D9%84%D8%A8%D9%86%D9%83-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A-%D8%AA%D9%85%D9%87%D8%AF-%D9%84%D9%84%D8%AA%D8%AD%D9%88%D9%84-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A-%D8%A8%D8%A7%D9%84%D9%85%D8%AF%D8%A7%D8%B1%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D9%8A%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%86",
+        "2026-09-06",
+        "local",
+      ),
+      src(
+        "The World Bank Provides a $3.5 Million Grant to Jordan to Prepare a Digital Transformation Project in Public Education",
+        "Sada News",
+        "https://www.sadanews.ps/en/news/332065.html",
+        "2026-09-06",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:40:00.000Z",
+    originalLang: "en",
+    confidence: 0.91,
+    entities: ["World Bank", "Jordan Path"],
+    copy: {
+      en: c(
+        "The World Bank just gave Jordan 3.5 million dollars. Not to computerise the schools. To prepare to maybe computerise the schools later",
+        "Amman Net, 6 September, reading the grant papers via Al Mamlaka. Sada News, same day. Three thousand five hundred public schools. The money is for an inventory: sockets, wiring, cupboards to charge the machines, Wi-Fi. Then a study of whether to assemble the machines locally.",
+        [
+          "The documents are careful. The 3.5 million is the preparation stage, not the digital transformation of the 3,500 schools. The grant is not a World Bank commitment to fund the project that is being prepared. There is already a 400 million dollar programme called Jordan Path. This is extra paperwork on top.",
+          "We do not mock the sockets. We print the sequence. First you pay millions to count the plugs. Then, perhaps, someone else will pay for the computers. The bank has written the disclaimer into the file so nobody can say they promised the laptops.",
+          "YES IT'S REAL read Amman Net against Sada. Named bank, named sum, named number of schools, named non-commitment. The shopping list is the project.",
+        ],
+        [
+          "Three point five million to count the wall sockets.",
+          "The laptops are a later conversation.",
+          "The grant says so, in writing.",
+        ],
+        "Amman Net 6 Sept 2026; Sada News same day. Grant papers. No death. No punch-down on pupils.",
+      ),
+      fr: c(
+        "La Banque mondiale vient de donner 3,5 millions de dollars à la Jordanie. Pas pour informatiser les écoles. Pour préparer à peut-être les informatiser plus tard",
+        "Amman Net, 6 septembre, d’après les papiers de la subvention via Al Mamlaka. Sada News, le même jour. Trois mille cinq cents écoles publiques. L’argent sert à l’inventaire : prises, câbles, placards pour recharger les machines, Wi-Fi. Puis une étude : assembler les machines sur place, ou pas.",
+        [
+          "Les documents sont prudents. Les 3,5 millions, c’est la phase de préparation, pas la transformation numérique des 3 500 écoles. La subvention n’est pas un engagement de la Banque à financer le projet qu’on prépare. Il y a déjà un programme de 400 millions, Jordan Path. Ici, c’est la paperasse en plus.",
+          "On ne se moque pas des prises. On imprime la séquence. D’abord on paie des millions pour compter les prises. Ensuite, peut-être, quelqu’un d’autre paiera les ordinateurs. La banque a mis le disclaimer dans le dossier, pour que personne ne dise qu’elle a promis les portables.",
+          "YES IT’S REAL a lu Amman Net contre Sada. Banque nommée, somme nommée, nombre d’écoles nommé, non-engagement nommé. La liste de courses, c’est le projet.",
+        ],
+        [
+          "Trois millions et demi pour compter les prises.",
+          "Les portables, ce sera une autre conversation.",
+          "La subvention le dit, par écrit.",
+        ],
+        "Amman Net 6 sept. 2026 ; Sada News le même jour. Papiers de subvention. Pas de mort. Pas de coup bas aux élèves.",
+      ),
+    },
+  }),
+  story({
+    id: "s99",
+    slug: "unesco-youth-fund-paid-by-kpop-band-seventeen-one-million-dollars",
+    slugs: {
+      fr: "unesco-fonds-jeunesse-paye-par-le-groupe-kpop-seventeen-un-million-de-dollars",
+      es: "unesco-fondo-juventud-pagado-por-el-grupo-kpop-seventeen-un-millon-de-dolares",
+    },
+    section: "world",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Paris",
+    dumbness: 7,
+    sources: [
+      src(
+        "UNESCO and SEVENTEEN scale-up global youth empowerment initiative",
+        "UNESCO",
+        "https://www.unesco.org/en/articles/unesco-and-seventeen-scale-global-youth-empowerment-initiative-focused-creativity-and-well-being",
+        "2026-06-25",
+        "gazette",
+      ),
+      src(
+        "UNESCO and SEVENTEEN award grants to 100 youth-led projects around the world",
+        "UNESCO press release",
+        "https://articles.unesco.org/sites/default/files/medias/fichiers/2025/01/PR_UNESCO_and_SEVENTEEN_award_grants_to_100_youth-led_projects_around_the_world_en.pdf",
+        "2025-01-20",
+        "gazette",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:45:00.000Z",
+    originalLang: "en",
+    confidence: 0.94,
+    entities: ["UNESCO", "SEVENTEEN", "Audrey Azoulay", "Joshua"],
+    copy: {
+      en: c(
+        "The UN cultural agency’s youth fund is a K-pop donation. One million dollars. The boy band is the treasury",
+        "UNESCO, 25 June 2026, headquarters, Paris. Joshua of SEVENTEEN in the room. Scale-up of Going Together. One hundred grants already, 5,000 to 7,500 dollars each, 64 countries. The million came from the group, not from the usual diplomats.",
+        [
+          "January 2025: 2,300 applications, 100 winners, music, sport, arts. June 2026: ten of those projects get a second round, through December. Khaled El Enany, director-general, on the podium with a pop star. The communiqué is proud. We print it as filed.",
+          "This is not a vice sermon and not a concert review. It is a budget line. The United Nations Educational, Scientific and Cultural Organization took a cheque from a thirteen-member Korean band and called it a Global Youth Grant Scheme. The cheques to the kids are real. The donor is on the letterhead.",
+          "YES IT'S REAL read the UNESCO pages and the January press release. Named agency, named band, named million, named 100 projects. No invented quotes.",
+        ],
+        [
+          "The UN youth fund was a boy-band cheque.",
+          "One million dollars. One hundred small grants.",
+          "Joshua was in the hall.",
+        ],
+        "UNESCO 25 June 2026; UNESCO PR 20 Jan 2025. Official. No death.",
+      ),
+      fr: c(
+        "Le fonds jeunesse de l’agence culturelle de l’ONU, c’est un chèque de K-pop. Un million de dollars. Le boy band, c’est le Trésor",
+        "UNESCO, 25 juin 2026, siège, Paris. Joshua de SEVENTEEN dans la salle. Passage à l’échelle de Going Together. Cent bourses déjà, 5 000 à 7 500 dollars, 64 pays. Le million vient du groupe, pas des diplomates habituels.",
+        [
+          "Janvier 2025 : 2 300 dossiers, 100 gagnants, musique, sport, arts. Juin 2026 : dix de ces projets ont une deuxième manche, jusqu’en décembre. Khaled El Enany, directeur général, sur l’estrade avec une pop star. Le communiqué est fier. On l’imprime tel quel.",
+          "Ce n’est pas un sermon et ce n’est pas une critique de concert. C’est une ligne budgétaire. L’Organisation des Nations unies pour l’éducation, la science et la culture a pris un chèque d’un groupe coréen de treize et l’a appelé Global Youth Grant Scheme. Les chèques aux jeunes sont vrais. Le donateur est sur l’en-tête.",
+          "YES IT’S REAL a lu les pages UNESCO et le communiqué de janvier. Agence nommée, groupe nommé, million nommé, 100 projets nommés. Pas de citations inventées.",
+        ],
+        [
+          "Le fonds jeunesse de l’ONU, c’était un chèque de boy band.",
+          "Un million de dollars. Cent petites bourses.",
+          "Joshua était dans la salle.",
+        ],
+        "UNESCO 25 juin 2026 ; communiqué UNESCO 20 janv. 2025. Officiel. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 
