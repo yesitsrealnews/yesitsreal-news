@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SectionRouteImport } from './routes/$section'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AcheterRouteImport } from './routes/acheter'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AdvertiseRouteImport } from './routes/advertise'
 import { Route as CambuseRouteImport } from './routes/cambuse'
@@ -20,13 +21,17 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ContestRouteImport } from './routes/contest'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as CorrectionsRouteImport } from './routes/corrections'
+import { Route as CreditRouteImport } from './routes/credit'
+import { Route as CreditsRouteImport } from './routes/credits'
 import { Route as InvestRouteImport } from './routes/invest'
+import { Route as InvestirRouteImport } from './routes/investir'
 import { Route as KitRouteImport } from './routes/kit'
 import { Route as MembershipRouteImport } from './routes/membership'
 import { Route as MethodRouteImport } from './routes/method'
 import { Route as NewsSitemapDotxmlRouteImport } from './routes/news-sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RankingsRouteImport } from './routes/rankings'
+import { Route as RssEnDotxmlRouteImport } from './routes/rss-en[.]xml'
 import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as ShopRouteImport } from './routes/shop'
@@ -34,6 +39,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SocialRouteImport } from './routes/social'
 import { Route as SubmitRouteImport } from './routes/submit'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TeslaRouteImport } from './routes/tesla'
 import { Route as TodayRouteImport } from './routes/today'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminAdsRouteImport } from './routes/admin.ads'
@@ -66,6 +72,11 @@ const SectionRoute = SectionRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcheterRoute = AcheterRouteImport.update({
+  id: '/acheter',
+  path: '/acheter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRoute = AdminRouteImport.update({
@@ -108,9 +119,24 @@ const CorrectionsRoute = CorrectionsRouteImport.update({
   path: '/corrections',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreditRoute = CreditRouteImport.update({
+  id: '/credit',
+  path: '/credit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreditsRoute = CreditsRouteImport.update({
+  id: '/credits',
+  path: '/credits',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InvestRoute = InvestRouteImport.update({
   id: '/invest',
   path: '/invest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestirRoute = InvestirRouteImport.update({
+  id: '/investir',
+  path: '/investir',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KitRoute = KitRouteImport.update({
@@ -141,6 +167,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const RankingsRoute = RankingsRouteImport.update({
   id: '/rankings',
   path: '/rankings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RssEnDotxmlRoute = RssEnDotxmlRouteImport.update({
+  id: '/rss-en.xml',
+  path: '/rss-en.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RssDotxmlRoute = RssDotxmlRouteImport.update({
@@ -176,6 +207,11 @@ const SubmitRoute = SubmitRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeslaRoute = TeslaRouteImport.update({
+  id: '/tesla',
+  path: '/tesla',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TodayRoute = TodayRouteImport.update({
@@ -273,6 +309,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$section': typeof SectionRoute
   '/about': typeof AboutRoute
+  '/acheter': typeof AcheterRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRoute
   '/cambuse': typeof CambuseRoute
@@ -281,13 +318,17 @@ export interface FileRoutesByFullPath {
   '/contest': typeof ContestRoute
   '/cookies': typeof CookiesRoute
   '/corrections': typeof CorrectionsRoute
+  '/credit': typeof CreditRoute
+  '/credits': typeof CreditsRoute
   '/invest': typeof InvestRoute
+  '/investir': typeof InvestirRoute
   '/kit': typeof KitRoute
   '/membership': typeof MembershipRoute
   '/method': typeof MethodRoute
   '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
   '/rankings': typeof RankingsRoute
+  '/rss-en.xml': typeof RssEnDotxmlRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/search': typeof SearchRoute
   '/shop': typeof ShopRoute
@@ -295,6 +336,7 @@ export interface FileRoutesByFullPath {
   '/social': typeof SocialRoute
   '/submit': typeof SubmitRoute
   '/terms': typeof TermsRoute
+  '/tesla': typeof TeslaRoute
   '/today': typeof TodayRoute
   '/admin/ads': typeof AdminAdsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -318,6 +360,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$section': typeof SectionRoute
   '/about': typeof AboutRoute
+  '/acheter': typeof AcheterRoute
   '/advertise': typeof AdvertiseRoute
   '/cambuse': typeof CambuseRoute
   '/careers': typeof CareersRoute
@@ -325,13 +368,17 @@ export interface FileRoutesByTo {
   '/contest': typeof ContestRoute
   '/cookies': typeof CookiesRoute
   '/corrections': typeof CorrectionsRoute
+  '/credit': typeof CreditRoute
+  '/credits': typeof CreditsRoute
   '/invest': typeof InvestRoute
+  '/investir': typeof InvestirRoute
   '/kit': typeof KitRoute
   '/membership': typeof MembershipRoute
   '/method': typeof MethodRoute
   '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
   '/rankings': typeof RankingsRoute
+  '/rss-en.xml': typeof RssEnDotxmlRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/search': typeof SearchRoute
   '/shop': typeof ShopRoute
@@ -339,6 +386,7 @@ export interface FileRoutesByTo {
   '/social': typeof SocialRoute
   '/submit': typeof SubmitRoute
   '/terms': typeof TermsRoute
+  '/tesla': typeof TeslaRoute
   '/today': typeof TodayRoute
   '/admin/ads': typeof AdminAdsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -363,6 +411,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$section': typeof SectionRoute
   '/about': typeof AboutRoute
+  '/acheter': typeof AcheterRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRoute
   '/cambuse': typeof CambuseRoute
@@ -371,13 +420,17 @@ export interface FileRoutesById {
   '/contest': typeof ContestRoute
   '/cookies': typeof CookiesRoute
   '/corrections': typeof CorrectionsRoute
+  '/credit': typeof CreditRoute
+  '/credits': typeof CreditsRoute
   '/invest': typeof InvestRoute
+  '/investir': typeof InvestirRoute
   '/kit': typeof KitRoute
   '/membership': typeof MembershipRoute
   '/method': typeof MethodRoute
   '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
   '/rankings': typeof RankingsRoute
+  '/rss-en.xml': typeof RssEnDotxmlRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/search': typeof SearchRoute
   '/shop': typeof ShopRoute
@@ -385,6 +438,7 @@ export interface FileRoutesById {
   '/social': typeof SocialRoute
   '/submit': typeof SubmitRoute
   '/terms': typeof TermsRoute
+  '/tesla': typeof TeslaRoute
   '/today': typeof TodayRoute
   '/admin/ads': typeof AdminAdsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -410,6 +464,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$section'
     | '/about'
+    | '/acheter'
     | '/admin'
     | '/advertise'
     | '/cambuse'
@@ -418,13 +473,17 @@ export interface FileRouteTypes {
     | '/contest'
     | '/cookies'
     | '/corrections'
+    | '/credit'
+    | '/credits'
     | '/invest'
+    | '/investir'
     | '/kit'
     | '/membership'
     | '/method'
     | '/news-sitemap.xml'
     | '/privacy'
     | '/rankings'
+    | '/rss-en.xml'
     | '/rss.xml'
     | '/search'
     | '/shop'
@@ -432,6 +491,7 @@ export interface FileRouteTypes {
     | '/social'
     | '/submit'
     | '/terms'
+    | '/tesla'
     | '/today'
     | '/admin/ads'
     | '/admin/analytics'
@@ -455,6 +515,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$section'
     | '/about'
+    | '/acheter'
     | '/advertise'
     | '/cambuse'
     | '/careers'
@@ -462,13 +523,17 @@ export interface FileRouteTypes {
     | '/contest'
     | '/cookies'
     | '/corrections'
+    | '/credit'
+    | '/credits'
     | '/invest'
+    | '/investir'
     | '/kit'
     | '/membership'
     | '/method'
     | '/news-sitemap.xml'
     | '/privacy'
     | '/rankings'
+    | '/rss-en.xml'
     | '/rss.xml'
     | '/search'
     | '/shop'
@@ -476,6 +541,7 @@ export interface FileRouteTypes {
     | '/social'
     | '/submit'
     | '/terms'
+    | '/tesla'
     | '/today'
     | '/admin/ads'
     | '/admin/analytics'
@@ -499,6 +565,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$section'
     | '/about'
+    | '/acheter'
     | '/admin'
     | '/advertise'
     | '/cambuse'
@@ -507,13 +574,17 @@ export interface FileRouteTypes {
     | '/contest'
     | '/cookies'
     | '/corrections'
+    | '/credit'
+    | '/credits'
     | '/invest'
+    | '/investir'
     | '/kit'
     | '/membership'
     | '/method'
     | '/news-sitemap.xml'
     | '/privacy'
     | '/rankings'
+    | '/rss-en.xml'
     | '/rss.xml'
     | '/search'
     | '/shop'
@@ -521,6 +592,7 @@ export interface FileRouteTypes {
     | '/social'
     | '/submit'
     | '/terms'
+    | '/tesla'
     | '/today'
     | '/admin/ads'
     | '/admin/analytics'
@@ -545,6 +617,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SectionRoute: typeof SectionRoute
   AboutRoute: typeof AboutRoute
+  AcheterRoute: typeof AcheterRoute
   AdminRoute: typeof AdminRouteWithChildren
   AdvertiseRoute: typeof AdvertiseRoute
   CambuseRoute: typeof CambuseRoute
@@ -553,13 +626,17 @@ export interface RootRouteChildren {
   ContestRoute: typeof ContestRoute
   CookiesRoute: typeof CookiesRoute
   CorrectionsRoute: typeof CorrectionsRoute
+  CreditRoute: typeof CreditRoute
+  CreditsRoute: typeof CreditsRoute
   InvestRoute: typeof InvestRoute
+  InvestirRoute: typeof InvestirRoute
   KitRoute: typeof KitRoute
   MembershipRoute: typeof MembershipRoute
   MethodRoute: typeof MethodRoute
   NewsSitemapDotxmlRoute: typeof NewsSitemapDotxmlRoute
   PrivacyRoute: typeof PrivacyRoute
   RankingsRoute: typeof RankingsRoute
+  RssEnDotxmlRoute: typeof RssEnDotxmlRoute
   RssDotxmlRoute: typeof RssDotxmlRoute
   SearchRoute: typeof SearchRoute
   ShopRoute: typeof ShopRoute
@@ -567,6 +644,7 @@ export interface RootRouteChildren {
   SocialRoute: typeof SocialRoute
   SubmitRoute: typeof SubmitRoute
   TermsRoute: typeof TermsRoute
+  TeslaRoute: typeof TeslaRoute
   TodayRoute: typeof TodayRoute
   ApiContactRoute: typeof ApiContactRoute
   ApiDeskRoute: typeof ApiDeskRoute
@@ -598,6 +676,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acheter': {
+      id: '/acheter'
+      path: '/acheter'
+      fullPath: '/acheter'
+      preLoaderRoute: typeof AcheterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -656,11 +741,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CorrectionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/credit': {
+      id: '/credit'
+      path: '/credit'
+      fullPath: '/credit'
+      preLoaderRoute: typeof CreditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/credits': {
+      id: '/credits'
+      path: '/credits'
+      fullPath: '/credits'
+      preLoaderRoute: typeof CreditsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/invest': {
       id: '/invest'
       path: '/invest'
       fullPath: '/invest'
       preLoaderRoute: typeof InvestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investir': {
+      id: '/investir'
+      path: '/investir'
+      fullPath: '/investir'
+      preLoaderRoute: typeof InvestirRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kit': {
@@ -703,6 +809,13 @@ declare module '@tanstack/react-router' {
       path: '/rankings'
       fullPath: '/rankings'
       preLoaderRoute: typeof RankingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rss-en.xml': {
+      id: '/rss-en.xml'
+      path: '/rss-en.xml'
+      fullPath: '/rss-en.xml'
+      preLoaderRoute: typeof RssEnDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rss.xml': {
@@ -752,6 +865,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tesla': {
+      id: '/tesla'
+      path: '/tesla'
+      fullPath: '/tesla'
+      preLoaderRoute: typeof TeslaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/today': {
@@ -915,6 +1035,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SectionRoute: SectionRoute,
   AboutRoute: AboutRoute,
+  AcheterRoute: AcheterRoute,
   AdminRoute: AdminRouteWithChildren,
   AdvertiseRoute: AdvertiseRoute,
   CambuseRoute: CambuseRoute,
@@ -923,13 +1044,17 @@ const rootRouteChildren: RootRouteChildren = {
   ContestRoute: ContestRoute,
   CookiesRoute: CookiesRoute,
   CorrectionsRoute: CorrectionsRoute,
+  CreditRoute: CreditRoute,
+  CreditsRoute: CreditsRoute,
   InvestRoute: InvestRoute,
+  InvestirRoute: InvestirRoute,
   KitRoute: KitRoute,
   MembershipRoute: MembershipRoute,
   MethodRoute: MethodRoute,
   NewsSitemapDotxmlRoute: NewsSitemapDotxmlRoute,
   PrivacyRoute: PrivacyRoute,
   RankingsRoute: RankingsRoute,
+  RssEnDotxmlRoute: RssEnDotxmlRoute,
   RssDotxmlRoute: RssDotxmlRoute,
   SearchRoute: SearchRoute,
   ShopRoute: ShopRoute,
@@ -937,6 +1062,7 @@ const rootRouteChildren: RootRouteChildren = {
   SocialRoute: SocialRoute,
   SubmitRoute: SubmitRoute,
   TermsRoute: TermsRoute,
+  TeslaRoute: TeslaRoute,
   TodayRoute: TodayRoute,
   ApiContactRoute: ApiContactRoute,
   ApiDeskRoute: ApiDeskRoute,

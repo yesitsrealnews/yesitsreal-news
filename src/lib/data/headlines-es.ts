@@ -567,11 +567,6 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Milán, 23 de enero de 2025. Lo Show dei Record. El acuario es el volante.",
     w: ["La categoría existía porque alguien preguntó.", "El pez era el volante.", "Guinness midió las ruedas."],
   },
-  s118: {
-    h: "Pitbull tuvo que ponerse un casquete calvo porque ya es calvo. 22.141 fans también",
-    d: "Hyde Park, 10 de julio de 2026. El récord no es «calvos». Mr Worldwide se puso uno para contar.",
-    w: ["La categoría es el casquete, no el cráneo.", "El hombre del look tuvo que fingirlo.", "Veintidós mil no se lo quitaron con el calor."],
-  },
   s119: {
     h: "Landerneau pintó a 3.076 personas de azul. El alcalde prohibió servir a los Pitufos de 17 a 19",
     d: "17 de mayo de 2025. Tercer intento. Alemania tenía 2.762. Bretaña llegó a 3.076.",
