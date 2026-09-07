@@ -487,6 +487,16 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Convocatoria, 18 de marzo a 3 de mayo de 2026. Urban Bites, segunda edición. Milán, Almere, Barcelona, Brașov, Lisboa, Salónica.",
     w: ["Cinco mil euros. Un espectáculo sobre las sobras.", "Seis ciudades. Diez cheques.", "El brief estaba en el PDF."],
   },
+  s102: {
+    h: "Para que la UE pague la luz de la oficina, las ONG deben presentar dos veces. Primer formulario: mañana, 17 h. Segundo: el 22 de septiembre. Ganar el primero no es el dinero",
+    d: "LIFE-2026-NGO-OG-FPA. CINEA. Cierra el 8 de septiembre de 2026 a las 17:00. Luego el SGA, el 22. Polonia: hasta 700.000 euros al año.",
+    w: ["Dos formularios. Dos relojes.", "El primer sí no es el dinero.", "El segundo sello es el 22."],
+  },
+  s103: {
+    h: "La región te paga 1.600 euros. Mínimo: 72 colmenas. Hay que moverlas. Tres emplazamientos, al menos. Esa es la convocatoria",
+    d: "Isla de Francia, MAEC API 2026. Cerrada el 15 de mayo. FEADER. Misma tabla en Normandía.",
+    w: ["Mil seiscientos euros. Setenta y dos colmenas.", "Hay que conducirlas.", "Tres sitios, mínimo."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",

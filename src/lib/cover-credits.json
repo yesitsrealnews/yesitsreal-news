@@ -592,5 +592,17 @@
     "artist": "Taz",
     "license": "CC BY 2.0",
     "page": "https://commons.wikimedia.org/wiki/File%3AFood_waste.jpg"
+  },
+  "s102": {
+    "file": "File:Berlaymont building in Brussels.jpg",
+    "artist": "almathias",
+    "license": "CC0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABerlaymont_building_in_Brussels.jpg"
+  },
+  "s103": {
+    "file": "File:Apis mellifera.jpg",
+    "artist": "Cody Hough",
+    "license": "CC BY-SA 3.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AApis_mellifera.jpg"
   }
 }

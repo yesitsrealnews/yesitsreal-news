@@ -4681,7 +4681,152 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s102",
+    slug: "life-ngo-grants-two-forms-tomorrow-then-again-on-the-22nd",
+    slugs: {
+      fr: "life-subventions-ong-deux-dossiers-demain-puis-encore-le-22",
+      es: "life-subvenciones-ong-dos-formularios-manana-y-otra-vez-el-22",
+    },
+    section: "politics",
+    countryCode: "BE",
+    countryName: "Belgium",
+    location: "Brussels",
+    dumbness: 8,
+    sources: [
+      src(
+        "Framework Partnership Agreements (FPA OG)",
+        "CINEA",
+        "https://cinea.ec.europa.eu/funding-opportunities/calls-proposals/framework-partnership-agreements-fpa-og-0_en",
+        "2026-05-12",
+        "official",
+      ),
+      src(
+        "Call fiche LIFE-2026-NGO-OG-FPA",
+        "Ministère de la Transition écologique",
+        "https://www.ecologie.gouv.fr/sites/default/files/documents/call-fiche_life-2026-ngo-og-fpa_en.pdf",
+        "2026-05-12",
+        "official",
+      ),
+      src(
+        "Dodatkowy nabór w ramach programu LIFE. Nawet 700 tys. euro rocznie",
+        "Ministerstwo Klimatu i Środowiska (Poland)",
+        "https://www.gov.pl/web/klimat/dodatkowy-nabor-w-ramach-programu-life--nawet-700-tys-euro-rocznie-na-dzialalnosc-twojej-organizacji",
+        "2026-05-12",
+        "official",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:25:00.000Z",
+    originalLang: "en",
+    confidence: 0.95,
+    entities: ["CINEA", "LIFE programme"],
+    copy: {
+      en: c(
+        "To get the EU to pay the office lights, NGOs must file twice. First form: tomorrow, 17:00. Second form: 22 September. Winning the first one does not mean you get the money",
+        "LIFE-2026-NGO-OG-FPA. CINEA. Closes 8 September 2026, 17:00 CEST. Then LIFE-2026-NGO-OG-SGA, 22 September. The French ecology ministry printed the warning in bold: both. Poland’s climate ministry: up to 700,000 euros a year. FAQ item 7: one form is not enough. FAQ item 8: the framework is not a cheque.",
+        [
+          "The FPA covers financial years 2027 and 2028. It ‘does not create any legitimate expectations or entitlement to get an SGA.’ You complete the marriage first, then you invoice year one, using the FPA reference number in the second portal form. Same week, two calls, two PDFs, two clocks.",
+          "This is the classified, not a sermon. Operating grants exist. The joke is the double door. You apply to be allowed to apply.",
+          "YES IT'S REAL read CINEA, the French fiche and the Polish FAQ. Named calls, named hours, named disclaimer. Tomorrow is the first stamp.",
+        ],
+        [
+          "Two forms. Two clocks.",
+          "The first yes is not the money.",
+          "The second stamp is the 22nd.",
+        ],
+        "CINEA; French fiche; Poland climate ministry. Official. Closes 8 Sept 17:00. No death.",
+      ),
+      fr: c(
+        "Pour que l’UE paie l’électricité du bureau, les ONG doivent déposer deux fois. Premier dossier : demain, 17 h. Second : le 22 septembre. Gagner le premier ne veut pas dire qu’on touche l’argent",
+        "LIFE-2026-NGO-OG-FPA. CINEA. Clôture le 8 septembre 2026, 17 h CEST. Puis LIFE-2026-NGO-OG-SGA, le 22 septembre. Le ministère français a mis l’avertissement en gras : les deux. Le ministère polonais du climat : jusqu’à 700 000 euros par an. FAQ 7 : un seul dossier ne suffit pas. FAQ 8 : le cadre n’est pas un chèque.",
+        [
+          "Le FPA couvre les exercices 2027 et 2028. Il « ne crée aucune attente légitime ni aucun droit à obtenir un SGA ». On se marie d’abord, ensuite on facture l’année un, en collant le numéro FPA dans le second formulaire du portail. La même semaine, deux appels, deux PDF, deux horloges.",
+          "C’est la petite annonce, pas un sermon. Les subventions de fonctionnement existent. La blague, c’est la double porte. On candidate pour avoir le droit de candidater.",
+          "YES IT’S REAL a lu CINEA, la fiche française et la FAQ polonaise. Appels nommés, heures nommées, disclaimer nommé. Demain, c’est le premier tampon.",
+        ],
+        [
+          "Deux dossiers. Deux horloges.",
+          "Le premier oui n’est pas l’argent.",
+          "Le second tampon, c’est le 22.",
+        ],
+        "CINEA ; fiche française ; ministère polonais. Officiel. Clos le 8 sept. 17 h. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s103",
+    slug: "ile-de-france-pays-beekeepers-1600-euros-to-move-72-hives-around",
+    slugs: {
+      fr: "ile-de-france-paie-les-apiculteurs-1600-euros-pour-deplacer-72-ruches",
+      es: "isla-de-francia-paga-a-apicultores-1600-euros-por-mover-72-colmenas",
+    },
+    section: "world",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Île-de-France",
+    dumbness: 7,
+    sources: [
+      src(
+        "FEADER - MAEC API 2026 - Amélioration du potentiel pollinisateur des abeilles (70.29)",
+        "Région Île-de-France",
+        "https://www.iledefrance.fr/aides-et-appels-a-projets/feader-maec-api-2026-amelioration-du-potentiel-pollinisateur-des-abeilles-7029",
+        "2026-08-15",
+        "official",
+      ),
+      src(
+        "MAEC API — tableaux pour le calcul de l’aide forfaitaire",
+        "Europe Île-de-France",
+        "https://www.europeidf.fr/sites/default/files/MAEC%20API%202026%20-%20Tableau%20calcul%20aide%20forfaitaire.pdf",
+        "2026-04-07",
+        "official",
+      ),
+      src(
+        "MAEC « Amélioration du potentiel pollinisateur des abeilles » (API)",
+        "Région Normandie",
+        "https://www.normandie.fr/maec-amelioration-du-potentiel-pollinisateur-des-abeilles-api",
+        "2026-07-07",
+        "official",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:30:00.000Z",
+    originalLang: "fr",
+    confidence: 0.93,
+    entities: ["Région Île-de-France", "FEADER", "MAEC API"],
+    copy: {
+      en: c(
+        "The region will pay you 1,600 euros. Minimum: 72 hives. You must move them. Three sites, at least. That is the call",
+        "Île-de-France, MAEC API 2026, measure 70.29. Closed 15 May. FEADER, 80 percent Brussels, 20 percent the region. Same grid in Normandy, updated 7 July. Floor: 72 colonies. Then 200 euros per extra ten. Example in the PDF: 715 hives, pay the top of the band, 14,400 euros.",
+        [
+          "The point of the money, printed: keep the bees and favour transhumance of the hives across the Île-de-France. An extra site every 24 colonies. A livestock register. Honey colonies only. Headquarters of the farm must sit in the region. Solidarity contributors are eligible.",
+          "We do not mock the bees. We print the tariff. Europe’s farm fund has a price list for moving boxes around the Paris suburbs. Seventy-two is the door. Three car parks is the rule.",
+          "YES IT'S REAL read the regional page against the calculation PDF and the Norman twin. Named measure, named floor, named sites. The call is closed. The grid is still up.",
+        ],
+        [
+          "Sixteen hundred euros. Seventy-two hives.",
+          "You have to drive them.",
+          "Three sites, minimum.",
+        ],
+        "Île-de-France; Europe IdF PDF; Normandy 7 July 2026. Official. Closed 15 May. No death.",
+      ),
+      fr: c(
+        "La Région vous paie 1 600 euros. Minimum : 72 ruches. Il faut les déplacer. Trois emplacements, au moins. C’est l’appel",
+        "Île-de-France, MAEC API 2026, mesure 70.29. Clos le 15 mai. FEADER, 80 % Bruxelles, 20 % la Région. Même grille en Normandie, mise à jour le 7 juillet. Plancher : 72 colonies. Ensuite 200 euros par tranche de dix. Exemple dans le PDF : 715 ruches, on paie le haut de la bande, 14 400 euros.",
+        [
+          "L’objet de l’argent, imprimé : maintenir les abeilles et favoriser la transhumance des ruches sur le territoire francilien. Un emplacement de plus toutes les 24 colonies. Un registre d’élevage. Colonies à miel seulement. Siège d’exploitation en région. Les cotisants solidaires sont éligibles.",
+          "On ne se moque pas des abeilles. On imprime le tarif. Le fonds agricole européen a une grille pour faire rouler des caisses en banlieue parisienne. Soixante-douze, c’est la porte. Trois parkings, c’est la règle.",
+          "YES IT’S REAL a lu la page régionale contre le PDF de calcul et le jumeau normand. Mesure nommée, plancher nommé, emplacements nommés. L’appel est clos. La grille est encore en ligne.",
+        ],
+        [
+          "Mille six cents euros. Soixante-douze ruches.",
+          "Il faut les conduire.",
+          "Trois emplacements, minimum.",
+        ],
+        "Île-de-France ; PDF Europe IdF ; Normandie 7 juill. 2026. Officiel. Clos le 15 mai. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 
