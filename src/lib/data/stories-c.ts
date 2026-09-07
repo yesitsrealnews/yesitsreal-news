@@ -2321,5 +2321,77 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s61",
+    slug: "rv-chemical-toilet-dumped-into-diesel-tank-maverik-montrose",
+    slugs: {
+      fr: "camping-car-vide-wc-chimique-dans-cuve-gazole-maverik-montrose",
+      es: "autocaravana-vacia-wc-quimico-en-deposito-diesel-maverik-montrose",
+    },
+    section: "courts",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Montrose, Colorado",
+    dumbness: 9,
+    sources: [
+      src(
+        "RV Driver Empties Waste Tank Into Colorado Gas Station’s Diesel Supply",
+        "Cowboy State Daily",
+        "https://cowboystatedaily.com/2026/05/27/rv-driver-empties-waste-tank-into-colorado-gas-stations-diesel-supply/",
+        "2026-05-27",
+        "local",
+      ),
+      src(
+        "Il vide ses toilettes de camping-car dans la mauvaise trappe et contamine 76 000 litres de gasoil",
+        "Camping-car.com",
+        "https://www.camping-car.com/actualites/toute-l-actualite/31523-il-vide-ses-toilettes-de-camping-car-dans-la-mauvaise-trappe-et-contamine-76-000-litres-de-gasoil/",
+        "2026-06-14",
+        "local",
+      ),
+      src(
+        "Gas Station Can't Sell Diesel After RV Dumps Its Toilet Into Supply",
+        "Jalopnik",
+        "https://www.jalopnik.com/2186240/rv-waste-dump-gas-station-diesel-supply/",
+        "2026-06-05",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:35:00.000Z",
+    originalLang: "en",
+    confidence: 0.9,
+    entities: ["Maverik", "Montrose", "Memorial Day"],
+    copy: {
+      en: c(
+        "The fuel thieves who siphon a chemical toilet are a legend. What happened at a Colorado pump was the other way round: the toilet went into the diesel",
+        "Maverik, Montrose, Memorial Day 2026. An RV holding tank, a manhole by the road, a diesel cistern just refilled. A cashier confirmed the pumps were shut. Cowboy State Daily, Camping-car.com, Jalopnik. Snopes long ago marked the siphon-thief version ‘legend’.",
+        [
+          "You have heard the one: a thief, at night, a hose, a camper; he sucks what he thinks is diesel and it is the chemical toilet. Snopes rated that family of stories Legend in 1998. The Scottish Daily Record ran a version in 2004. La Dépêche reprinted an Australian one in 2016, an officer named Heath Soutar joking about a bitter taste. No arrest. The black-water valve on an RV is under the chassis; the fuel filler is on the side. The hose does not make that mistake by accident.",
+          "What a cashier at the Maverik in Montrose, Colorado, confirmed to Cowboy State Daily after Memorial Day 2026 is the inverse, and it is on the record. Someone emptied an RV waste tank into a large manhole cover near the road. That cover was the underground diesel tank. The station has a free dump, by pump 30. They did not use it. The tank had just taken a delivery. Diesel pumps shut. Camping-car.com put the volume in the range of a station cistern, tens of thousands of litres, unsalable: bacteria, solids, fuel. Pump, treat as waste, clean the tank.",
+          "YES IT'S REAL read Cowboy State Daily, Camping-car.com and Jalopnik. We do not print the siphon-thief as news. We print the dump that a shop confirmed. The chemistry is the same. The competence is not.",
+        ],
+        [
+          "The viral siphon is folklore. The manhole is a receipt.",
+          "The dedicated dump was next to pump 30.",
+          "The delivery had just gone in. Then the toilet did.",
+        ],
+        "Cowboy State Daily 27 May 2026, cashier on the phone; Camping-car.com 14 June; Jalopnik 5 June. Snopes 1998: siphon-thief family is legend. No death beat.",
+      ),
+      fr: c(
+        "Les voleurs qui siphonnent la toilette chimique, c’est une légende. Au Colorado, c’est la toilette qui est allée dans le gazole",
+        "Maverik, Montrose, Memorial Day 2026. Une cuve de camping-car, une plaque au bord de la route, une citerne de diesel tout juste remplie. Une caissière confirme : pompes fermées. Cowboy State Daily, Camping-car.com, Jalopnik. Snopes a classé la version « siphon de voleur » comme légende.",
+        [
+          "Vous la connaissez : un voleur, la nuit, un tuyau, un camping-car ; il aspire ce qu’il croit du gazole, c’est la toilette chimique. Snopes, 1998 : famille de récits, légende. The Daily Record, Écosse, 2004. La Dépêche, 2016, une version australienne, un officier Heath Soutar et le « goût amer ». Pas d’interpellation. Sur un camping-car, la vanne des eaux noires est sous le châssis ; le bouchon d’essence est sur le flanc. Le tuyau ne se trompe pas tout seul.",
+          "Ce qu’une caissière du Maverik de Montrose, Colorado, a confirmé au Cowboy State Daily après le Memorial Day 2026, c’est l’inverse, et c’est au procès-verbal. Quelqu’un a vidé le réservoir de WC d’un camping-car dans une grande plaque, au bord de la route. Cette plaque, c’était la cuve de diesel. Il y a une borne de vidange gratuite, pompe 30. Ils ne l’ont pas prise. La cuve venait d’être livrée. Pompes gazole arrêtées. Camping-car.com : le volume d’une citerne de station, des dizaines de milliers de litres, impropres à la vente — bactéries, solides, carburant. Pomper, traiter en déchet, laver la cuve.",
+          "YES IT’S REAL a lu Cowboy State Daily, Camping-car.com et Jalopnik. On ne publie pas le siphon de voleur comme une info. On publie la vidange qu’un magasin a confirmée. La chimie est la même. La compétence, non.",
+        ],
+        [
+          "Le siphon viral, c’est du folklore. La plaque, c’est un ticket de caisse.",
+          "La borne de vidange était à la pompe 30.",
+          "La livraison venait d’entrer. Puis les toilettes.",
+        ],
+        "Cowboy State Daily 27 mai 2026, caissière au téléphone ; Camping-car.com 14 juin ; Jalopnik 5 juin. Snopes 1998 : la famille siphon-voleur est une légende. Pas un papier de mort.",
+      ),
+    },
+  }),
 ];
 

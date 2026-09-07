@@ -302,6 +302,11 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Monaghan’s Pub, Woodlawn, Maryland, 29 de agosto de 2017. McInnis y McCoy, un arma, la caja. AP, New York Post, Baltimore Sun. Nadie herido.",
     w: ["La otra sala era el buen humor de toda una comisaría.", "La comisaría estaba a un paso de cebra.", "El dueño no se sorprendió. Los atracadores sí."],
   },
+  s61: {
+    h: "Los ladrones que sifonan el váter químico son una leyenda. En Colorado fue al revés: el váter fue al diésel",
+    d: "Maverik, Montrose, Memorial Day 2026. Un depósito de autocaravana, una tapa junto a la carretera, un tanque de diésel recién llenado. La cajera confirma: surtidores cerrados.",
+    w: ["El sifón viral es folclore. La tapa es un ticket.", "El vaciado correcto estaba en la bomba 30.", "Acababa de entrar el suministro. Luego, el váter."],
+  },
 };
 
 
