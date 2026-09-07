@@ -497,6 +497,16 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Isla de Francia, MAEC API 2026. Cerrada el 15 de mayo. FEADER. Misma tabla en Normandía.",
     w: ["Mil seiscientos euros. Setenta y dos colmenas.", "Hay que conducirlas.", "Tres sitios, mínimo."],
   },
+  s104: {
+    h: "Falló la pista. El Piper amarillo se quedó en el techo. La calle se llama Kitty Hawk. Los que estaban en la cama salieron",
+    d: "Fulshear, Texas, 20 de julio de 2026. Un Piper J3C-65, una sola alma, rumbo a Covey Trails. La FAA: no dábamos control aéreo.",
+    w: ["Kitty Hawk Street.", "Un Cub amarillo en las tejas.", "Los de la cama salieron."],
+  },
+  s105: {
+    h: "Estaba viendo la tele. Un Holden despegó, rozó el techo y se plantó en el jardín. Ella salió. El televisor seguía encendido",
+    d: "High Wycombe, este de Perth, hacia las 21 h, mediados de julio de 2026. Una Commodore, 22 años, bordillo, vuelo, canalones.",
+    w: ["La tele estaba encendida.", "El Holden dejó el suelo.", "Ella salió."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",

@@ -604,5 +604,17 @@
     "artist": "Cody Hough",
     "license": "CC BY-SA 3.0",
     "page": "https://commons.wikimedia.org/wiki/File%3AApis_mellifera.jpg"
+  },
+  "s104": {
+    "file": "File:Piper J-3 Cub.jpg",
+    "artist": "SDASM",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File%3APiper_J-3_Cub.jpg"
+  },
+  "s105": {
+    "file": "File:Holden Commodore.jpg",
+    "artist": "FotoSleuth",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AHolden_Commodore.jpg"
   }
 }

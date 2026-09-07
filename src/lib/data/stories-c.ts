@@ -4825,7 +4825,152 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s104",
+    slug: "piper-cub-lands-on-house-kitty-hawk-street-fulshear",
+    slugs: {
+      fr: "un-piper-cub-atterrit-sur-une-maison-kitty-hawk-street-fulshear",
+      es: "un-piper-cub-aterriza-sobre-una-casa-en-kitty-hawk-street-fulshear",
+    },
+    section: "world",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Fulshear, Texas",
+    dumbness: 8,
+    sources: [
+      src(
+        "Small plane lands on top of Fulshear-area home off Kitty Hawk Street",
+        "ABC13 Houston",
+        "https://abc13.com/post/small-plane-lands-top-richmond-area-home-off-kitty-hawk-street-pilot-taken-hospital-texas-dps-says/19543977/",
+        "2026-07-20",
+        "local",
+      ),
+      src(
+        "Le pilote loupe la piste d’atterrissage, l’avion termine sur le toit d’une maison",
+        "Ouest-France",
+        "https://www.ouest-france.fr/monde/etats-unis/le-pilote-loupe-la-piste-datterrissage-lavion-termine-sur-le-toit-dune-maison-mais-il-survit-miraculeusement-8cae3466-8507-11f1-94d8-e478b94a49e4",
+        "2026-07-23",
+        "wire",
+      ),
+      src(
+        "Pilot injured after a small plane lands on roof of a Houston-area home",
+        "USA Today",
+        "https://www.usatoday.com/story/news/nation/2026/07/20/texas-pilot-crash-houston-fulshear-home/90984061007/",
+        "2026-07-20",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:40:00.000Z",
+    originalLang: "en",
+    confidence: 0.94,
+    entities: ["FAA", "Fulshear Simonton Fire Department"],
+    copy: {
+      en: c(
+        "He missed the strip. The yellow Piper sat on the roof. The street is called Kitty Hawk. The people in bed walked out",
+        "Fulshear, Texas, 20 July 2026, about 6 a.m. A Piper J3C-65, one soul, aiming at Covey Trails airstrip. Fulshear-Simonton Fire: yellow aircraft on the house, Kitty Hawk Street. FAA: we were not providing air traffic control. Only the pilot on board. We will investigate.",
+        [
+          "The owner told ABC13 he was still in bed when the boom hit. First responders found the pilot alert and stuck in the cockpit. Fuel was leaking. They cut the power so the vapour would not find a spark. DPS: minor injuries, Memorial Hermann Katy. Nobody in the house was hurt. Ouest-France printed the same the 23rd.",
+          "We do not do crash sermons. We print the address. A Cub on a roof, on a street named for the first flight. The occupants got up. The plane did not.",
+          "YES IT'S REAL read ABC13 against the FAA note and Ouest-France. Named type, named street, named strip. No invented quotes. The house stood.",
+        ],
+        [
+          "Kitty Hawk Street.",
+          "A yellow Cub on the tiles.",
+          "The people in bed walked out.",
+        ],
+        "ABC13 20 July; FAA; Ouest-France 23 July 2026. Named. No death.",
+      ),
+      fr: c(
+        "Il a loupé la piste. Le Piper jaune est resté sur le toit. La rue s’appelle Kitty Hawk. Les gens au lit sont sortis",
+        "Fulshear, Texas, 20 juillet 2026, vers 6 h. Un Piper J3C-65, une âme, en approche de Covey Trails. Fulshear-Simonton Fire : un appareil jaune sur la maison, Kitty Hawk Street. FAA : on ne fournissait pas le contrôle aérien. Seul le pilote à bord. On enquêtera.",
+        [
+          "Le propriétaire a dit à ABC13 qu’il était encore au lit quand le boom a tapé. Les secours ont trouvé le pilote conscient, coincé dans le cockpit. Du carburant fuyait. Ils ont coupé le courant pour que la vapeur ne trouve pas d’étincelle. DPS : blessures légères, Memorial Hermann Katy. Personne dans la maison n’a été blessé. Ouest-France a imprimé la même chose le 23.",
+          "On ne fait pas de sermon d’accident. On imprime l’adresse. Un Cub sur un toit, dans une rue nommée d’après le premier vol. Les occupants se sont levés. L’avion, non.",
+          "YES IT’S REAL a lu ABC13 contre la note FAA et Ouest-France. Type nommé, rue nommée, piste nommée. Pas de citations inventées. La maison tenait.",
+        ],
+        [
+          "Kitty Hawk Street.",
+          "Un Cub jaune sur les tuiles.",
+          "Les gens au lit sont sortis.",
+        ],
+        "ABC13 20 juill. ; FAA ; Ouest-France 23 juill. 2026. Nommés. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s105",
+    slug: "holden-flies-into-perth-roof-while-woman-watches-tv",
+    slugs: {
+      fr: "une-holden-satterrit-sur-un-toit-a-perth-pendant-que-la-locataire-regarde-la-tele",
+      es: "un-holden-vuela-contra-un-techo-en-perth-mientras-la-inquilina-mira-la-tele",
+    },
+    section: "world",
+    countryCode: "AU",
+    countryName: "Australia",
+    location: "High Wycombe, Perth",
+    dumbness: 8,
+    sources: [
+      src(
+        "Wild moment car flies into elderly woman’s Perth home",
+        "news.com.au",
+        "https://www.news.com.au/travel/travel-updates/incidents/wild-moment-car-flies-into-elderly-womans-perth-home/news-story/79637145b56e503a9879585c3dfc4f83",
+        "2026-07-17",
+        "wire",
+      ),
+      src(
+        "Video captures wild moment car smashes into roof of home as pensioner watches TV",
+        "The Mirror",
+        "https://www.mirror.co.uk/news/world-news/perth-australia-car-crashes-home-37442350",
+        "2026-07-17",
+        "wire",
+      ),
+      src(
+        "Wild footage shows car slamming into woman's home in Perth",
+        "1News",
+        "https://www.1news.co.nz/2026/07/17/wild-footage-shows-car-slamming-into-womans-home-in-perth/",
+        "2026-07-17",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:45:00.000Z",
+    originalLang: "en",
+    confidence: 0.93,
+    entities: ["WA Police", "9News"],
+    copy: {
+      en: c(
+        "She was watching television. A Holden left the ground, clipped the roof, and sat in the garden. She walked out. The set was still on",
+        "High Wycombe, east of Perth, about 9 p.m., mid-July 2026. Corner of Feeney Gardens and Whimbrel Green. A 22-year-old in a Holden Commodore hit the nature strip, went airborne, brought down guttering and a patio awning, and stopped in the front of the house. news.com.au, 9News, the Mirror, 1News. Same tape.",
+        [
+          "The woman in the house, in her seventies, told 9News she had been watching TV. She was unhurt. Neighbours ran. Restorabuild boarded the hole so the rain would not finish the job. Police found the driver around the corner. Charges: dangerous driving, failing to give details. Hospital: non-life-threatening. Midland Magistrates later.",
+          "We do not do age sermons. We print the flight path. The car flew. The programme continued. Nobody in the living room needed a stretcher.",
+          "YES IT'S REAL read news.com.au against the Mirror and 1News. Named suburb, named corner, named charges. No invented quotes. The telly held.",
+        ],
+        [
+          "The television was on.",
+          "The Holden left the ground.",
+          "She walked out.",
+        ],
+        "news.com.au, Mirror, 1News 17 July 2026. Named. No death.",
+      ),
+      fr: c(
+        "Elle regardait la télé. Une Holden a quitté le sol, a râpé le toit, et s’est posée dans le jardin. Elle est sortie. Le poste était encore allumé",
+        "High Wycombe, est de Perth, vers 21 h, mi-juillet 2026. Angle Feeney Gardens et Whimbrel Green. Une conductrice de 22 ans, Holden Commodore, tape la bande engazonnée, décolle, emporte gouttières et auvent, s’arrête dans la façade. news.com.au, 9News, the Mirror, 1News. La même bande.",
+        [
+          "La locataire, la soixantaine avancée, a dit à 9News qu’elle regardait la télé. Indemne. Les voisins ont couru. Restorabuild a bâché le trou pour que la pluie ne finisse pas le travail. La police a retrouvé la conductrice au coin. Chefs : conduite dangereuse, défaut de se présenter. Hôpital : non vital. Midland Magistrates plus tard.",
+          "On ne fait pas de sermon sur l’âge. On imprime la trajectoire. La voiture a volé. L’émission a continué. Personne dans le salon n’a eu besoin d’un brancard.",
+          "YES IT’S REAL a lu news.com.au contre the Mirror et 1News. Banlieue nommée, angle nommé, chefs nommés. Pas de citations inventées. La télé a tenu.",
+        ],
+        [
+          "La télé était allumée.",
+          "La Holden a quitté le sol.",
+          "Elle est sortie.",
+        ],
+        "news.com.au, Mirror, 1News 17 juill. 2026. Nommés. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 
