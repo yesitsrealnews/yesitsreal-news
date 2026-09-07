@@ -537,6 +537,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Gilbert, Arizona. AZFamily, 3 de agosto de 2026. Dave Rich y Marianne Robb. UAP-PD. Policía, bomberos, sanitarios.",
     w: ["Antes llevaron una placa de verdad.", "La nueva toma declaraciones.", "No archivan."],
   },
+  s112: {
+    h: "El alcalde publicó un vídeo. El quiropráctico ofrecía cincuenta dólares si votabas por él. El alcalde: conviene votar a tu alcalde",
+    d: "Manteca, California. Manteca Bulletin, 1 de septiembre de 2026. KCRA, 2 de septiembre. Código electoral 18522. El rival lo envió al fiscal.",
+    w: ["La oferta estaba en su página.", "El alcalde dijo: conviene.", "El rival avisó al fiscal."],
+  },
+  s113: {
+    h: "Count Binface se presentó en Makerfield. Nacionalizar a Adele, kebab de Wigan a dos libras, altavoces a filas. Noventa y cinco votos",
+    d: "Parcial de Makerfield, junio de 2026. Manchester Evening News. Guerrero espacial. Cubo en la cabeza. Manifiesto de veinte puntos.",
+    w: ["Adele era un servicio público, en el papel.", "El kebab tenía techo.", "Noventa y cinco dijeron sí."],
+  },
+  s114: {
+    h: "El candidato republicano a gobernador de Nueva York colgó un anuncio IA de sus rivales jardinando. Los demócratas pidieron la etiqueta",
+    d: "Nueva York. 404 Media, 2 de septiembre de 2026. Bruce Blakeman. Mamdani y Hochul, jardín generado. Denuncia por IA sin etiqueta.",
+    w: ["Los rivales eran generados.", "Jardinaban.", "La pelea es la etiqueta."],
+  },
   s89: {
     h: "Un hombre vendió la Torre Eiffel como chatarra. Luego volvió a venderla",
     d: "París, 1925. Smithsonian, 9 de marzo de 2016. El sitio de la Torre, 2021.",

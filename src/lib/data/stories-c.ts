@@ -5346,7 +5346,197 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s112",
+    slug: "manteca-mayor-posts-a-video-where-a-chiropractor-offers-fifty-dollars-off-for-his-vote",
+    slugs: {
+      fr: "le-maire-de-manteca-poste-une-video-ou-le-chiropracteur-offre-cinquante-dollars-contre-sa-voix",
+      es: "alcalde-de-manteca-publica-video-quiropraxia-cincuenta-dolares-por-su-voto",
+    },
+    section: "politics",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Manteca",
+    dumbness: 8,
+    breaking: true,
+    sources: [
+      src(
+        "Naven accuses Singh of benefiting from offer from new chiropractor",
+        "Manteca Bulletin",
+        "https://www.mantecabulletin.com/news/local-news/naven-accuses-singh-of-benefiting-from-offer-from-new-chiropractor/",
+        "2026-09-01",
+        "local",
+      ),
+      src(
+        "Manteca mayor apologizes for social media video",
+        "KCRA",
+        "https://www.kcra.com/article/manteca-mayor-apologizes-social-media-video/73586575",
+        "2026-09-02",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T09:55:00.000Z",
+    originalLang: "en",
+    confidence: 0.93,
+    entities: ["Gary Singh", "Matt Alexander", "San Joaquin County District Attorney"],
+    copy: {
+      en: c(
+        "The mayor posted a video. The chiropractor offered fifty dollars off if you voted for him. The mayor said: it does pay off to vote for your mayor",
+        "Manteca, California. Manteca Bulletin, 1 September 2026. KCRA, 2 September. Mayor Gary Singh’s weekly shop tour. Dr Matt Alexander, at the end of the clip: anyone who comes in and says they voted for you, between now and 3 November, fifty dollars off the first visit. Singh, on camera: Wow. It does pay off to vote for your mayor.",
+        [
+          "The rival, Jacob Naven, filed with the San Joaquin County district attorney the same day. California Elections Code 18522: a crime to offer something of value to induce a vote. The DA’s office said it had the complaint at 16:55 and would not comment further. Singh took the clip down. He said the offer was unscripted, not funded, not requested. Alexander said no one has asked for the discount, and that it applies to first-time patients anyway.",
+          "We do not decide if a vertebra is for sale. We print the line the mayor said on his own page. The campaign is November. The rebate was fifty.",
+          "YES IT'S REAL read the Bulletin against KCRA. Named mayor, named doctor, named code. No invented quotes. The video did the rest, then vanished.",
+        ],
+        [
+          "The offer was on the mayor’s page.",
+          "The mayor answered: it pays off.",
+          "The rival sent it to the prosecutor.",
+        ],
+        "Manteca Bulletin 1 Sept. ; KCRA 2 Sept. 2026. Named. No death.",
+      ),
+      fr: c(
+        "Le maire a posté une vidéo. Le chiropracteur offrait cinquante dollars si on votait pour lui. Le maire : ça paie, de voter pour son maire",
+        "Manteca, Californie. Manteca Bulletin, 1er septembre 2026. KCRA, 2 septembre. La tournée hebdomadaire des commerces du maire Gary Singh. Dr Matt Alexander, en fin de clip : quiconque entre et dit qu’il a voté pour vous, d’ici le 3 novembre, cinquante dollars sur la première visite. Singh, à la caméra : Wow. Ça paie, de voter pour son maire.",
+        [
+          "Le rival, Jacob Naven, a déposé chez le procureur du comté de San Joaquin le jour même. Code électoral californien 18522 : c’est un délit d’offrir une contrepartie pour une voix. Le bureau du procureur a dit : reçu à 16 h 55, pas de commentaire. Singh a retiré le clip. Il a dit : l’offre n’était pas écrite, pas financée, pas demandée. Alexander : personne n’a réclamé la remise, et elle vaut pour tous les nouveaux patients.",
+          "On ne tranche pas si une vertèbre se vend. On imprime la phrase du maire, sur sa page. Le scrutin, c’est novembre. La ristourne, cinquante.",
+          "YES IT’S REAL a lu le Bulletin contre KCRA. Maire nommé, docteur nommé, article nommé. Pas de citations inventées. La vidéo a fait le reste, puis a disparu.",
+        ],
+        [
+          "L’offre était sur la page du maire.",
+          "Le maire a répondu : ça paie.",
+          "Le rival l’a envoyée au procureur.",
+        ],
+        "Manteca Bulletin 1er sept. ; KCRA 2 sept. 2026. Nommés. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s113",
+    slug: "count-binface-ran-on-nationalising-adele-and-a-two-pound-wigan-kebab",
+    slugs: {
+      fr: "count-binface-voulait-nationaliser-adele-et-plafonner-le-kebab-de-wigan-a-deux-livres",
+      es: "count-binface-queria-nacionalizar-adele-y-poner-techo-al-kebab-de-wigan-a-dos-libras",
+    },
+    section: "politics",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Makerfield",
+    dumbness: 9,
+    sources: [
+      src(
+        "A price cap on Wigan Kebabs and a revival of Ceefax: How Count Binface wants to Makerfield Great Again",
+        "Manchester Evening News",
+        "https://www.manchestereveningnews.co.uk/whats-on/whats-on-news/price-cap-wigan-kebabs-revival-34062950",
+        "2026-06-04",
+        "local",
+      ),
+      src(
+        "How Count Binface plans to Makerfield Great Again",
+        "Manchester Evening News",
+        "https://www.manchestereveningnews.co.uk/news/greater-manchester-news/how-count-binface-plans-makerfield-34125655",
+        "2026-06-16",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:00:00.000Z",
+    originalLang: "en",
+    confidence: 0.94,
+    entities: ["Count Binface", "Makerfield", "Adele"],
+    copy: {
+      en: c(
+        "Count Binface stood in Makerfield. He would nationalise Adele, cap the Wigan kebab at two pounds, and conscript speakerphones. He got ninety-five votes",
+        "Makerfield by-election, June 2026. Manchester Evening News, 4 and 16 June. Count Binface, independent space warrior, bin on the head, twenty-step manifesto. Nationalise Adele. Wigan kebab — a barm cake, the paper notes — at two pounds. Ninety-nine flake at 99p. Ceefax back for Greater Manchester. Cyclists who break the code ride unicycles. Speakerphones on the bus: conscripted. HS2 renamed FFS1. Cut your taxes. Raise everyone else’s.",
+        [
+          "He hoped for at least five votes. He said no British candidate has ever scored zero. He got ninety-five, seventh of fourteen. Andy Burnham won. Keir Starmer, at PMQs, congratulated the Conservatives for 2.2 percent, just edging past Count Binface. The Count told Sky he would move to Makerfield if he won.",
+          "We do not send the bin to the Lords. We print the manifesto as filed. Adele remains private. The kebab cap did not pass. The votes were ninety-five.",
+          "YES IT'S REAL read the Evening News twice. Named seat, named pledges, named tally. No invented quotes. The lid was the candidate.",
+        ],
+        [
+          "Adele was a public utility, on paper.",
+          "The kebab had a price cap.",
+          "Ninety-five people agreed.",
+        ],
+        "Manchester Evening News 4 and 16 June 2026. Named. No death.",
+      ),
+      fr: c(
+        "Count Binface s’est présenté à Makerfield. Il voulait nationaliser Adele, plafonner le kebab de Wigan à deux livres, et enrôler les haut-parleurs. Quatre-vingt-quinze voix",
+        "Législative partielle de Makerfield, juin 2026. Manchester Evening News, 4 et 16 juin. Count Binface, guerrier spatial indépendant, poubelle sur la tête, manifeste en vingt points. Nationaliser Adele. Le kebab de Wigan — un barm cake, précise le journal — à deux livres. Le 99 flake à 99 pence. Le Ceefax de retour sur le Grand Manchester. Les cyclistes hors code : monocycle. Les haut-parleurs dans le bus : enrôlés. HS2 rebaptisé FFS1. Baisser vos impôts. Augmenter ceux des autres.",
+        [
+          "Il visait au moins cinq voix. Il a dit qu’aucun candidat britannique n’a jamais fait zéro. Il en a eu quatre-vingt-quinze, septième sur quatorze. Andy Burnham a gagné. Keir Starmer, aux questions au Premier ministre, a félicité les Conservateurs pour 2,2 pour cent, juste devant Count Binface. Le Comte a dit à Sky qu’il emménagerait à Makerfield s’il gagnait.",
+          "On n’envoie pas la poubelle à la Chambre des lords. On imprime le manifeste tel que déposé. Adele reste privée. Le plafond du kebab n’est pas passé. Les voix : quatre-vingt-quinze.",
+          "YES IT’S REAL a lu l’Evening News deux fois. Circonscription nommée, promesses nommées, score nommé. Pas de citations inventées. Le couvercle était le candidat.",
+        ],
+        [
+          "Adele était un service public, sur le papier.",
+          "Le kebab avait un prix plafond.",
+          "Quatre-vingt-quinze personnes ont dit oui.",
+        ],
+        "Manchester Evening News 4 et 16 juin 2026. Nommés. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s114",
+    slug: "new-york-governor-candidate-posted-an-ai-ad-of-his-rivals-gardening-democrats-filed",
+    slugs: {
+      fr: "un-candidat-gouverneur-de-new-york-poste-une-pub-ia-ou-ses-rivaux-jardinent-les-democrates-ont-depose",
+      es: "candidato-gobernador-de-nueva-york-publica-anuncio-ia-rivales-jardinando-democratas-denuncian",
+    },
+    section: "politics",
+    countryCode: "US",
+    countryName: "United States",
+    location: "New York",
+    dumbness: 7,
+    sources: [
+      src(
+        "The Republican Nominee for New York Governor Made a Creepy, AI-Generated Video of Mamdani and Hochul",
+        "404 Media",
+        "https://www.404media.co/bruce-blakeman-ai-campaign-video-mamdani-hochul/",
+        "2026-09-02",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-07T10:05:00.000Z",
+    originalLang: "en",
+    confidence: 0.9,
+    entities: ["Bruce Blakeman", "Kathy Hochul", "Zohran Mamdani"],
+    copy: {
+      en: c(
+        "The Republican nominee for New York governor posted an AI clip of his rivals gardening together. The Democrats asked the elections board to look at the label",
+        "New York. 404 Media, 2 September 2026. Bruce Blakeman, Republican nominee for governor. An AI video: Mayor Zohran Mamdani and Governor Kathy Hochul, hanging out, gardening, riding bikes, colluding, 404 Media writes, like a prescription commercial. Blakeman’s caption: they think they can cure the cost of living with delusion pills.",
+        [
+          "His own plan, in the same post: zero state income tax on the first 50,000 dollars, 100,000 for joint filers, utility bills halved. The state Democratic Party asked the Board of Elections to investigate unlabeled deceptive AI under state election law. Hochul’s campaign, to News 10: while he resorted to lying, they did not need AI to list his record.",
+          "We do not fact-check the hydrangeas. We print that a gubernatorial race now includes a generated garden. The complaint is about the missing label, not the roses.",
+          "YES IT'S REAL read 404 Media. Named nominee, named clip, named filing. No invented quotes. The garden was not filmed.",
+        ],
+        [
+          "The rivals were generated.",
+          "They were gardening.",
+          "The fight is the missing label.",
+        ],
+        "404 Media 2 Sept. 2026. Named. No death.",
+      ),
+      fr: c(
+        "Le candidat républicain au poste de gouverneur de New York a posté un clip IA de ses rivaux en train de jardiner. Les démocrates ont demandé au bureau électoral de regarder l’étiquette",
+        "New York. 404 Media, 2 septembre 2026. Bruce Blakeman, candidat républicain. Une vidéo IA : le maire Zohran Mamdani et la gouverneure Kathy Hochul, ensemble, au jardin, à vélo, de mèche, écrit 404 Media, comme une pub de cachets. Légende de Blakeman : ils croient soigner le coût de la vie avec des pilules de délire.",
+        [
+          "Son plan, dans le même post : zéro impôt d’État sur les 50 000 premiers dollars, 100 000 pour un couple, factures d’énergie divisées par deux. Le Parti démocrate de l’État a demandé au Board of Elections d’enquêter sur une IA trompeuse non étiquetée, loi électorale. Campagne Hochul, à News 10 : pendant qu’il ment, eux n’ont pas besoin d’IA pour lister son bilan.",
+          "On ne vérifie pas les hortensias. On imprime qu’une course au gouvernorat comporte désormais un jardin généré. La plainte, c’est l’étiquette manquante, pas les roses.",
+          "YES IT’S REAL a lu 404 Media. Candidat nommé, clip nommé, dépôt nommé. Pas de citations inventées. Le jardin n’a pas été filmé.",
+        ],
+        [
+          "Les rivaux étaient générés.",
+          "Ils jardinaient.",
+          "La bagarre, c’est l’étiquette.",
+        ],
+        "404 Media 2 sept. 2026. Nommés. Pas de mort.",
+      ),
+    },
+  }),
 ];
+
 
 
 

@@ -138,6 +138,9 @@ COVERS: dict[str, tuple[str, str]] = {
     "s109": ("File:Night sky.jpg", "Night sky"),
     "s110": ("File:Diamond.jpg", "Diamond"),
     "s111": ("File:Police badge.jpg", "Police badge"),
+    "s112": ("File:Chiropractic Adjustment 13.jpg", "Chiropractic"),
+    "s113": ("File:Wheelie bin.jpg", "Wheelie bin"),
+    "s114": ("File:Garden.jpg", "Garden"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
