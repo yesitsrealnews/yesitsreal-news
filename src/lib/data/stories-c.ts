@@ -1695,10 +1695,10 @@ export const STORIES_C: Story[] = [
     entities: ["Olivier Joly", "Saint-Just-Saint-Rambert"],
     copy: {
       en: c(
-        "A Loire mayor has banned tiger mosquitoes from overflying the commune. None have been fined. He told AFP the apéritif was at stake",
+        "A Loire mayor has banned tiger mosquitoes from overflying the commune. None have been fined. He told AFP the apéritif was at stake. Of course this is France",
         "Olivier Joly, Saint-Just-Saint-Rambert, 15,000 people. Order dated 1 September. franceinfo, Le Parisien, Le Dauphiné. Repeated low or circular flight is ‘likely to cause irritation’.",
         [
-          "Saint-Just-Saint-Rambert, Loire. The mayor, Olivier Joly, signed an order on 1 September 2026 forbidding tiger mosquitoes to overfly the commune, ‘considérant que leurs vols répétés, rasants ou circulaires et leurs piqûres sont de nature à provoquer l’agacement et l’exaspération.’ franceinfo, 4 September. Any mosquito that does not comply ‘s’expose à des poursuites.’ Le Dauphiné, citing Le Progrès: mosquitoes caught in the act of overflight must cease immediately, or report to the municipal traps.",
+          "Saint-Just-Saint-Rambert, Loire. Of course this is France. The mayor, Olivier Joly, signed an order on 1 September 2026 forbidding tiger mosquitoes to overfly the commune, ‘considérant que leurs vols répétés, rasants ou circulaires et leurs piqûres sont de nature à provoquer l’agacement et l’exaspération.’ franceinfo, 4 September. Any mosquito that does not comply ‘s’expose à des poursuites.’ Le Dauphiné, citing Le Progrès: mosquitoes caught in the act of overflight must cease immediately, or report to the municipal traps. The English would have sprayed. We wrote a bylaw, and named the apéro as the public interest.",
           "Joly, divers droite, 15,000 inhabitants, told AFP it was serious and light at once. Residents had greeted him off holiday: they could no longer take the apéro outside. BFM: a €45,000 budget for the fight. ‘Aucun moustique n’a été arrêté ou verbalisé,’ he said.",
           "YES IT'S REAL read franceinfo, Le Parisien and Le Dauphiné. We do not prosecute insects. We print an arrêté. The apéro is the public interest.",
         ],
@@ -5547,7 +5547,7 @@ export const STORIES_C: Story[] = [
     countryName: "France",
     location: "Tournon-sur-Rhône, Ardèche",
     dumbness: 9,
-    breaking: true,
+    breaking: false,
     sources: [
       src(
         "« Il s’est endormi en appuyant sur l’accélérateur » : ivre, il coince sa voiture dans une ruelle piétonne",
@@ -5814,6 +5814,188 @@ export const STORIES_C: Story[] = [
           "Le troisième essai avait un formulaire.",
         ],
         "Fiche Guinness 17 mai 2025. France 24 18 mai. Nommés. Pas de mort.",
+      ),
+    },
+  }),
+  story({
+    id: "s120",
+    slug: "where-can-one-see-basques-french-tourist-offices-log-the-summer-pearls",
+    slugs: {
+      fr: "ou-peut-on-voir-des-basques-les-offices-de-tourisme-ont-encore-lache-leurs-perles",
+      es: "donde-se-pueden-ver-vascos-las-oficinas-de-turismo-francesas-anotan-las-perlas-del-verano",
+    },
+    section: "faits-divers",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Biarritz, Pyrénées-Atlantiques",
+    dumbness: 8,
+    breaking: true,
+    sources: [
+      src(
+        "« Où peut-on voir des Basques ? »… Dans les offices du tourisme, les visiteurs ont encore lâché de belles perles",
+        "20 Minutes",
+        "https://www.20minutes.fr/societe/4243364-20260908-peut-voir-basques-offices-tourisme-visiteurs-encore-lache-belles-perles",
+        "2026-09-08",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-09T08:50:00.000Z",
+    originalLang: "fr",
+    confidence: 0.92,
+    entities: ["Biarritz tourist office", "Jérôme Gicquel"],
+    copy: {
+      en: c(
+        "A visitor in Biarritz asked where one can see Basques. Of course this is France. The tourist offices wrote the summer down",
+        "20 Minutes, 8 September. Biarritz, Saint-Tropez, Lyon, the Périgord. The eclipse glasses, the indoor firework, the boat because he cannot swim.",
+        [
+          "Of course this is France. Biarritz. 20 Minutes, 8 September 2026, Jérôme Gicquel, the annual harvest from the offices. A visitor wanted to know where one could see Basques. Another, same desk, asked for Basques ‘and real ones, or whales’. The office noted fewer pearls than usual. The remaining pearls were enough.",
+          "Elsewhere, as printed: Lyon, alpine skiing in midsummer. Saint-Tropez, a map of the Greek islands, and whether the métro still ran, and whether a man who could not swim might take the boat instead. Rochefort-en-Terre, the Corderie Royale and Pierre Loti’s house, which are in Rochefort. The Loire, a château of ‘Chamboise’, described as a marvel between Chambord and Amboise. Charente-Maritime: is the firework at eleven in the morning or eleven at night, and if it rains, is it fired indoors. Biarritz again: may cinema 3D glasses be used for the eclipse; must one wear the special glasses to cycle home. Périgord: are the châteaux ‘period’.",
+          "YES IT'S REAL read 20 Minutes. The questions are attributed to the offices that took them. No one was fined for asking. We do not invent tourists. We reprint them.",
+        ],
+        [
+          "The Basque Country was asked to produce Basques.",
+          "The firework, in case of rain, was requested indoors.",
+          "Chamboise is not on the map. The question is.",
+        ],
+        "20 Minutes 8 Sept 2026, Jérôme Gicquel. Quotes as the offices. No one harmed.",
+      ),
+      fr: c(
+        "« Où peut-on voir des Basques ? » Les offices de tourisme ont encore noté l’été. C’est la France, évidemment",
+        "20 Minutes, 8 septembre. Biarritz, Saint-Tropez, Lyon, le Périgord. Les lunettes d’éclipse, le feu d’artifice en salle, le bateau parce qu’il ne sait pas nager.",
+        [
+          "Biarritz. 20 Minutes, 8 septembre 2026, Jérôme Gicquel, la récolte annuelle des offices. Un visiteur a demandé où l’on pouvait voir des Basques. Un autre, même guichet : des Basques « et des vrais, ou des baleines ». L’office de Biarritz a vu « moins de perles que d’habitude ». Le reste suffisait.",
+          "Ailleurs, tel que imprimé : Lyon, du ski alpin en plein été. Saint-Tropez, une carte des îles grecques, s’il y a « encore » du métro, et s’il pouvait prendre le bateau, il ne savait pas nager. Rochefort-en-Terre, la Corderie Royale et la maison de Pierre Loti, qui sont à Rochefort. La Loire, un château de « Chamboise », « un pays merveilleux entre Chambord et Amboise ». Charente-Maritime : le feu d’artifice à onze heures du matin ou du soir, et s’il pleut, tiré en salle. Biarritz encore : les lunettes 3D du cinéma pour l’éclipse ; faut-il les lunettes spéciales pour rentrer à vélo. Périgord : les châteaux sont-ils « d’époque ».",
+          "YES IT’S REAL a lu 20 Minutes. Les questions sont celles des offices qui les ont prises. Personne n’a été verbalisé pour avoir demandé. On n’invente pas les touristes. On les réimprime.",
+        ],
+        [
+          "On a demandé au Pays basque de fournir des Basques.",
+          "Le feu d’artifice, s’il pleut, était requis en salle.",
+          "Chamboise n’est pas sur la carte. La question, si.",
+        ],
+        "20 Minutes 8 sept. 2026, Jérôme Gicquel. Citations des offices. Personne blessé.",
+      ),
+    },
+  }),
+  story({
+    id: "s121",
+    slug: "a-boa-constrictor-turns-up-under-the-shutters-in-mussidan-dordogne",
+    slugs: {
+      fr: "un-boa-constrictor-surgit-sous-les-volets-a-mussidan-en-dordogne",
+      es: "un-boa-constrictor-aparece-bajo-las-persianas-en-mussidan-dordogne",
+    },
+    section: "animals",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Mussidan, Dordogne",
+    dumbness: 8,
+    sources: [
+      src(
+        "« J’ai surtout été frappée par sa taille » : un boa constrictor découvert en contrebas d’une résidence de Dordogne",
+        "Sud Ouest",
+        "https://www.sudouest.fr/dordogne/le-bugue/j-ai-surtout-ete-frappee-par-sa-taille-un-boa-constrictor-decouvert-en-contrebas-d-une-residence-de-dordogne-30533106.php",
+        "2026-09-08",
+        "local",
+      ),
+      src(
+        "« Je l'ai trouvé gros ! » : un boa constrictor de 1m50 découvert au pied d'une résidence de Dordogne",
+        "ICI Nouvelle-Aquitaine",
+        "https://www.ici.fr/nouvelle-aquitaine/dordogne-24/mussidan/je-l-ai-trouve-gros-un-boa-constrictor-de-1-50-metre-decouvert-au-pied-d-une-residence-de-dordogne-8554561",
+        "2026-09-08",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-09T08:52:00.000Z",
+    originalLang: "fr",
+    confidence: 0.9,
+    entities: ["Suzy Lachaux", "Éric Malivert", "Aquarium du Bugue"],
+    copy: {
+      en: c(
+        "A Dordogne tenant closing the shutters found a boa constrictor in the grass. The papers cannot agree if it is 1.5 m or 2.4. Of course this is France",
+        "Mussidan, 4 September. Suzy Lachaux, résidence Beaupuy. Pompiers with tongs. Aquarium du Bugue. Sud Ouest 2.40 m; ICI 1.50 m. No owner.",
+        [
+          "Of course this is France. Mussidan, Dordogne. Friday 4 September, Suzy Lachaux was closing the shutters of her flat at the résidence Beaupuy when something moved in the grass below. Sud Ouest, 8 September, Bruno Boucharel: ‘Un serpent se déplaçait lentement, tête dressée.’ She said she was struck by the size. Neighbours Éric and Léna. Éric Malivert saw it was neither viper nor grass snake and called the sapeurs-pompiers, some of whom are trained for this.",
+          "The firefighters identified it with tongs: a boa constrictor. Sud Ouest prints 2.40 m. ICI Nouvelle-Aquitaine, same day, prints 1.50 m and has Éric finding it ‘gros’, possibly in a cherry tree. The prefecture, to ICI: the animal is the sort kept ‘en détention libre’ by private owners. Origin unknown. It went to the aquarium du Bugue via the OFB. Nobody has claimed it.",
+          "YES IT'S REAL read Sud Ouest and ICI. Two lengths, one boa, one pair of shutters. We do not pick a metre. We print both papers. Nobody was bitten in the copy.",
+        ],
+        [
+          "The evening chore was the shutters. The fauna was a boa.",
+          "The regional papers disagree on the tape measure.",
+          "Dordogne is not a terrarium. The aquarium is.",
+        ],
+        "Sud Ouest 8 Sept, ICI 8 Sept. Named witness. Two published lengths. No bite in the copy.",
+      ),
+      fr: c(
+        "À Mussidan, elle ferme les volets : un boa constrictor dans l’herbe. Les journaux ne sont pas d’accord sur le mètre",
+        "4 septembre, résidence Beaupuy. Suzy Lachaux. Pompiers et pince. Aquarium du Bugue. Sud Ouest : 2,40 m. ICI : 1,50 m. Pas de maître.",
+        [
+          "Mussidan, Dordogne. Vendredi 4 septembre, Suzy Lachaux ferme les volets de son appartement, résidence Beaupuy, quand quelque chose bouge dans l’herbe. Sud Ouest, 8 septembre, Bruno Boucharel : « Un serpent se déplaçait lentement, tête dressée. » Elle a surtout été frappée par sa taille. Voisins Éric et Léna. Éric Malivert voit que ce n’est ni une vipère ni une couleuvre, et appelle les sapeurs-pompiers, dont certains sont formés.",
+          "Les pompiers l’identifient à la pince : un boa constrictor. Sud Ouest imprime 2,40 m. ICI Nouvelle-Aquitaine, le même jour, imprime 1,50 m, et Éric le trouve « gros », éventuellement dans un cerisier. La préfecture, à ICI : l’animal est de ceux que des particuliers tiennent « en détention libre ». Origine inconnue. Direction l’aquarium du Bugue, via l’OFB. Personne ne l’a réclamé.",
+          "YES IT’S REAL a lu Sud Ouest et ICI. Deux longueurs, un boa, une paire de volets. On ne choisit pas le mètre. On imprime les deux papiers. Personne n’est mordu dans la copie.",
+        ],
+        [
+          "Le geste du soir, c’était les volets. La faune, un boa.",
+          "Les régionaux ne sont pas d’accord sur le mètre.",
+          "La Dordogne n’est pas un terrarium. L’aquarium, si.",
+        ],
+        "Sud Ouest 8 sept., ICI 8 sept. Témoin nommé. Deux longueurs publiées. Pas de morsure dans la copie.",
+      ),
+    },
+  }),
+  story({
+    id: "s122",
+    slug: "dax-will-race-19000-rubber-ducks-on-the-adour-first-prize-a-car",
+    slugs: {
+      fr: "dax-lâche-19000-canards-en-plastique-sur-ladour-le-premier-gagne-une-voiture",
+      es: "dax-echa-19000-patitos-de-goma-al-adour-el-primero-gana-un-coche",
+    },
+    section: "faits-divers",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Dax, Landes",
+    dumbness: 7,
+    sources: [
+      src(
+        "À Dax, des canards vont voguer par milliers sur l’Adour pour la bonne cause",
+        "Sud Ouest",
+        "https://www.sudouest.fr/societe/associations/a-dax-des-canards-vont-voguer-par-milliers-sur-l-adour-pour-la-bonne-cause-30517637.php",
+        "2026-09-09",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-09T08:54:00.000Z",
+    originalLang: "fr",
+    confidence: 0.91,
+    entities: ["Éric Lafargue", "Toros y salsa", "Adour"],
+    copy: {
+      en: c(
+        "Dax will put 19,000 numbered rubber ducks on the Adour. The first one home wins its sponsor a car. Of course this is France",
+        "Sunday 13 September, 3 p.m., Vieux-Pont to the footbridge. Éric Lafargue to Sud Ouest. A court bailiff on the bank. 5 euros a duck.",
+        [
+          "Of course this is France. Dax, Landes. Sud Ouest, 9 September, Hubert Raffini, with Éric Lafargue, who invented the thing. Sunday 13 September at 15:00, while Toros y salsa fills the town, 19,000 numbered rubber ducks leave the Vieux-Pont on the Adour and race to the passerelle. The first twelve, under a commissaire de justice, pay their ‘godparents’. First prize: a car. Then e-bikes, a trip, a games console, a flat screen. Twenty thousand euros in loot, says the paper.",
+          "Adoption is 5 euros on HelloAsso until Saturday night, or on site an hour before the off, at a caseta in the arena park. Bundles exist: thirty ducks, sixty ducks, champagne, tapas. The English would have done a tombola. We put a huissier on a river of yellow plastic and called it sport.",
+          "YES IT'S REAL read Sud Ouest. Named organiser. Named river. Named prizes. No live bird is raced. The ducks are rubber. The car is not.",
+        ],
+        [
+          "Nineteen thousand ducks, none of them alive.",
+          "A court officer will say which yellow one won a car.",
+          "The town is also holding a bull-and-salsa weekend. The river is the B-plot.",
+        ],
+        "Sud Ouest 9 Sept 2026. Éric Lafargue named. Event 13 Sept. Rubber, not fauna.",
+      ),
+      fr: c(
+        "Dax lâche 19 000 canards en plastique sur l’Adour. Le premier fait gagner une voiture. Évidemment, c’est la France",
+        "Dimanche 13 septembre, 15 h, du Vieux-Pont à la passerelle. Éric Lafargue à Sud Ouest. Un commissaire de justice sur la berge. 5 euros le canard.",
+        [
+          "Dax, Landes. Sud Ouest, 9 septembre, Hubert Raffini, avec Éric Lafargue, l’inventeur. Dimanche 13 septembre à 15 h, pendant Toros y salsa, 19 000 canards en caoutchouc numérotés quittent le Vieux-Pont de l’Adour vers la passerelle. Les douze premiers, sous l’œil d’un commissaire de justice, font gagner leurs parrains. Premier lot : une voiture. Puis des vélos électriques, un voyage, une console, un écran plat. 20 000 euros de lots, dit le journal.",
+          "L’adoption : 5 euros sur HelloAsso jusqu’à samedi soir, ou sur place une heure avant le départ, caseta au parc des arènes. Il y a des formules : trente canards, soixante, champagne, tapas. Les Anglais auraient fait une tombola. Nous mettons un huissier sur une rivière de plastique jaune, et nous appelons ça un sport.",
+          "YES IT’S REAL a lu Sud Ouest. Organisateur nommé. Fleuve nommé. Lots nommés. Aucun oiseau vivant n’est couru. Les canards sont en caoutchouc. La voiture, non.",
+        ],
+        [
+          "Dix-neuf mille canards, aucun vivant.",
+          "Un officier ministériel dira quel jaune a gagné une voiture.",
+          "La ville tient aussi un week-end taureau-salsa. Le fleuve est le deuxième rôle.",
+        ],
+        "Sud Ouest 9 sept. 2026. Éric Lafargue nommé. Épreuve le 13. Caoutchouc, pas faune.",
       ),
     },
   }),

@@ -592,6 +592,21 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Atlanta, 23 de abril de 1985. La propia compañía.",
     w: ["Cambiaron la fórmula a propósito.", "El país denunció con la garganta.", "Setenta y nueve días. Luego: Classic."],
   },
+  s120: {
+    h: "En Biarritz preguntaron dónde se pueden ver vascos. Claro: es Francia. Las oficinas de turismo anotaron el verano",
+    d: "20 Minutes, 8 de septiembre. Biarritz, Saint-Tropez, Lyon, el Périgord. Las gafas del eclipse, el fuego artificial bajo techo, el barco porque no sabe nadar.",
+    w: ["Al País Vasco le pidieron vascos.", "El fuego artificial, si llueve, se pidió en sala.", "Chamboise no está en el mapa. La pregunta, sí."],
+  },
+  s121: {
+    h: "En Dordoña cierra las persianas: un boa constrictor en la hierba. Los periódicos no se ponen de acuerdo en el metro",
+    d: "Mussidan, 4 de septiembre. Suzy Lachaux. Bomberos con pinza. Acuario del Bugue. Sud Ouest: 2,40 m. ICI: 1,50 m. Sin dueño.",
+    w: ["El gesto de la noche eran las persianas. La fauna, un boa.", "Los regionales no coinciden en la cinta.", "Dordoña no es un terrario. El acuario, sí."],
+  },
+  s122: {
+    h: "Dax echa 19.000 patitos de goma al Adour. El primero hace ganar un coche. Claro: es Francia",
+    d: "Domingo 13 de septiembre, 15 h, del Vieux-Pont a la pasarela. Éric Lafargue a Sud Ouest. Un comisario de justicia en la orilla. 5 euros el pato.",
+    w: ["Diecinueve mil patos, ninguno vivo.", "Un oficial dirá qué amarillo ganó un coche.", "La ciudad también tiene un fin de semana de toros y salsa. El río es el segundo papel."],
+  },
 };
 
 

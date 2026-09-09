@@ -164,13 +164,44 @@ function lede(voice: VoiceId, lang: Lang, s: Story, copy: StoryCopy): string | n
   }
 }
 
+function chauvinLede(s: Story): string {
+  const place = s.location;
+  if (s.countryCode === "FR") {
+    return `Of course this is France. ${place}. A republic that writes arrêtés for mosquitoes was never going to leave this in a drawer.`;
+  }
+  if (s.countryCode === "GB" || s.countryCode === "UK") {
+    return `The English, who lecture Europe about common sense, have done this in ${place}. We would have needed an arrêté. They needed a pint, and a licence they did not have.`;
+  }
+  if (s.countryCode === "US") {
+    return `America, which exports the future, produced this in ${place}. In France we would at least have numbered the form.`;
+  }
+  if (s.countryCode === "DE" || s.countryCode === "CH" || s.countryCode === "AT") {
+    return `${place}, in the German-speaking order of things. They have a word for it. We have a shrug, and we print it anyway.`;
+  }
+  if (s.countryCode === "IT" || s.countryCode === "ES" || s.countryCode === "PT") {
+    return `Cousins, ${place}. We say this with affection. The paper is theirs. The smirk is ours.`;
+  }
+  return `This happened in ${place}, ${s.countryName}. Not France. We mention it with the courtesy one keeps for a neighbour who has also, unfortunately, invented paperwork.`;
+}
+
 export function applyVoice(story: Story, copy: StoryCopy, lang: Lang): StoryCopy {
+  let body = [...copy.body];
   const id = voiceForStory(story.id);
-  if (id === "desk") return copy;
-  const extra = lede(id, lang, story, copy);
-  if (!extra) return copy;
-  return {
-    ...copy,
-    body: [extra, ...copy.body],
-  };
+  if (id !== "desk") {
+    const extra = lede(id, lang, story, copy);
+    if (extra) body = [extra, ...body];
+  }
+  if (lang === "en") {
+    const chauvin = chauvinLede(story);
+    const already = body.some(
+      (p) =>
+        p.startsWith("Of course this is France") ||
+        p.startsWith("The English,") ||
+        p.startsWith("America,") ||
+        p.startsWith("Cousins,") ||
+        p.startsWith("This happened in"),
+    );
+    if (!already) body = [chauvin, ...body];
+  }
+  return body === copy.body ? copy : { ...copy, body };
 }
