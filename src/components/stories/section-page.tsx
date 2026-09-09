@@ -32,16 +32,17 @@ export function SectionArchive({
   const week = dumbest(filtered, 5);
   const title = t(lang, SECTION_KEY[section] ?? "secWorld");
   const era = section === "archive";
+  const comment = section === "commentaire";
 
   return (
     <main
       id="main"
       className={cn("mx-auto max-w-7xl px-4 py-8 sm:px-6", era && "era-archive -mx-4 px-4 sm:-mx-6 sm:px-6")}
     >
-      <p className="kicker text-signal">{era ? t(lang, "archiveKicker") : t(lang, "edition")}</p>
+      <p className="kicker text-signal">{era ? t(lang, "archiveKicker") : comment ? t(lang, "commentaireKicker") : t(lang, "edition")}</p>
       <h1 className={cn("mt-2 font-serif text-4xl sm:text-5xl", era && "font-archive italic normal-case")}>{title}</h1>
       <p className={cn("mt-2 max-w-2xl text-sm text-ink-muted", era && "font-[family-name:var(--font-archive-body)] text-base")}>
-        {era ? t(lang, "archiveDek") : t(lang, "tagline4")}
+        {era ? t(lang, "archiveDek") : comment ? t(lang, "commentaireDek") : t(lang, "tagline4")}
       </p>
       {era ? <div className="double-rule mt-6 py-2" /> : null}
 

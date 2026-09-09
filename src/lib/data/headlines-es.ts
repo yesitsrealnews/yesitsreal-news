@@ -607,6 +607,16 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Domingo 13 de septiembre, 15 h, del Vieux-Pont a la pasarela. Éric Lafargue a Sud Ouest. Un comisario de justicia en la orilla. 5 euros el pato.",
     w: ["Diecinueve mil patos, ninguno vivo.", "Un oficial dirá qué amarillo ganó un coche.", "La ciudad también tiene un fin de semana de toros y salsa. El río es el segundo papel."],
   },
+  s123: {
+    h: "El bando es la manera francesa de hablarle a un mosquito. El resto del planeta fumiga. Nosotros legislamos el aire",
+    d: "Nota firmada. franceinfo, 4 de septiembre; Le Parisien, 3 de septiembre. Olivier Joly. El vermú fue interés público. Nadie multado.",
+    w: ["El instrumento era un bando, no un spray.", "El interés público era el aperitivo, impreso.", "El destinatario era el insecto. Basta."],
+  },
+  s124: {
+    h: "Un país que atiende un mostrador para responder «¿dónde se pueden ver vascos?» hace su trabajo",
+    d: "Nota firmada sobre la cosecha de 20 Minutes, 8 de septiembre. Biarritz, Saint-Tropez, Lyon. El fuego artificial en sala. Chamboise.",
+    w: ["La broma no es el turista. Es el formulario que lo pescó.", "Chamboise no existe. El acta, sí.", "Un mostrador que responde disparates sigue siendo servicio público."],
+  },
 };
 
 

@@ -19,6 +19,7 @@ export const SECTIONS: SectionDef[] = [
   { id: "sports", path: "/sports", kicker: "SPORTS" },
   { id: "love-money", path: "/love-money", kicker: "LOVE & MONEY" },
   { id: "courts", path: "/courts", kicker: "COURTS" },
+  { id: "commentaire", path: "/commentaire", kicker: "COMMENTAIRE" },
 ];
 
 /** Built, not on the public masthead. Wake it when the desk says so. */

@@ -5999,6 +5999,129 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s123",
+    slug: "the-arrete-is-how-france-talks-to-a-mosquito",
+    slugs: {
+      fr: "larrete-cest-la-maniere-francaise-de-parler-a-un-moustique",
+      es: "el-bando-es-la-manera-francesa-de-hablarle-a-un-mosquito",
+    },
+    section: "commentaire",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Saint-Just-Saint-Rambert, Loire",
+    dumbness: 8,
+    sources: [
+      src(
+        "Dans la Loire, les moustiques tigres sont désormais interdits de survoler une commune",
+        "franceinfo",
+        "https://www.franceinfo.fr/france/auvergne-rhone-alpes/loire/dans-la-loire-les-moustiques-tigres-sont-desormais-interdits-de-survoler-une-commune_8176550.html",
+        "2026-09-04",
+        "local",
+      ),
+      src(
+        "« On ne peut plus prendre l’apéro dehors ! » : un maire de la Loire « interdit » aux moustiques-tigres de survoler sa commune",
+        "Le Parisien",
+        "https://www.leparisien.fr/politique/on-ne-peut-plus-prendre-lapero-dehors-un-maire-de-la-loire-interdit-aux-moustiques-tigres-de-survoler-sa-commune-03-09-2026-4BH6BREPJZG7HBPCQBSM32NHBY.php",
+        "2026-09-03",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-09T16:40:00.000Z",
+    originalLang: "fr",
+    confidence: 0.94,
+    entities: ["Olivier Joly", "Saint-Just-Saint-Rambert"],
+    copy: {
+      en: c(
+        "The arrêté is how France talks to a mosquito. Of course this is France. The rest of the planet sprays. We legislate the air",
+        "A signed desk note. franceinfo, 4 September; Le Parisien, 3 September. Olivier Joly, Saint-Just-Saint-Rambert. The apéro was named as the public interest. Nobody was fined.",
+        [
+          "Of course this is France. A mayor in the Loire has forbidden tiger mosquitoes to overfly his commune. franceinfo printed the order. Le Parisien printed the apéro. The English, who believe themselves allergic to paperwork, would have bought a coil. We wrote a sentence the insect cannot read, and we slept better.",
+          "This paper exists because that sentence exists. Not because we invented it. Because a republic that inventories cheeses will, sooner or later, inventory a flight path. The arrêté is not a joke that escaped the town hall. It is the town hall doing what it was built for: to put the living world in a folder.",
+          "YES IT'S REAL is not a humour site. It is a newsdesk that refuses to look away when the folder is funny. The sources are named. The mosquito has not been fined, and the mayor said so. That is the whole editorial line, and it will not be improved by a punchline.",
+        ],
+        [
+          "The instrument was a municipal order, not a spray.",
+          "The public interest was the apéritif, in print.",
+          "The insect was the addressee. That is already enough.",
+        ],
+        "Comment. franceinfo 4 Sept; Le Parisien 3 Sept. Named mayor. No one stung in the copy.",
+      ),
+      fr: c(
+        "L’arrêté, c’est la manière française de parler à un moustique. Le reste du monde pulvérise. Nous légiférons l’air",
+        "Note signée de la desk. franceinfo, 4 septembre ; Le Parisien, 3 septembre. Olivier Joly, Saint-Just-Saint-Rambert. L’apéro a été nommé intérêt public. Personne n’a été verbalisé.",
+        [
+          "Un maire de la Loire a interdit aux moustiques-tigres de survoler sa commune. franceinfo a imprimé l’arrêté. Le Parisien a imprimé l’apéro. Les Anglais, qui se croient allergiques au papier, auraient acheté une spirale. Nous avons écrit une phrase que l’insecte ne peut pas lire, et nous avons mieux dormi.",
+          "Ce journal existe parce que cette phrase existe. Pas parce que nous l’avons inventée. Parce qu’une république qui inventorie les fromages finira, tôt ou tard, par inventorier une trajectoire de vol. L’arrêté n’est pas une blague qui a fuité de la mairie. C’est la mairie qui fait ce pour quoi on l’a bâtie : mettre le vivant dans un dossier.",
+          "YES IT’S REAL n’est pas un site d’humour. C’est une desk qui refuse de détourner les yeux quand le dossier est drôle. Les sources sont nommées. Le moustique n’a pas été verbalisé, et le maire l’a dit. Toute la ligne est là. Elle n’a pas besoin d’une chute.",
+        ],
+        [
+          "L’outil, c’était un arrêté, pas une bombe.",
+          "L’intérêt public, c’était l’apéro, imprimé.",
+          "Le destinataire, c’était l’insecte. Ça suffit.",
+        ],
+        "Commentaire. franceinfo 4 sept. ; Le Parisien 3 sept. Maire nommé. Personne piqué dans la copie.",
+      ),
+    },
+  }),
+  story({
+    id: "s124",
+    slug: "a-country-that-answers-where-can-one-see-basques-is-doing-its-job",
+    slugs: {
+      fr: "un-pays-qui-repond-ou-peut-on-voir-des-basques-fait-son-metier",
+      es: "un-pais-que-responde-donde-se-pueden-ver-vascos-hace-su-trabajo",
+    },
+    section: "commentaire",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Biarritz, Pyrénées-Atlantiques",
+    dumbness: 7,
+    sources: [
+      src(
+        "« Où peut-on voir des Basques ? »… Dans les offices du tourisme, les visiteurs ont encore lâché de belles perles",
+        "20 Minutes",
+        "https://www.20minutes.fr/societe/4243364-20260908-peut-voir-basques-offices-tourisme-visiteurs-encore-lache-belles-perles",
+        "2026-09-08",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-09T16:42:00.000Z",
+    originalLang: "fr",
+    confidence: 0.93,
+    entities: ["Biarritz tourist office", "Jérôme Gicquel"],
+    copy: {
+      en: c(
+        "A country that staffs a counter to answer ‘where can one see Basques?’ is doing its job. Of course this is France",
+        "A signed desk note on the 20 Minutes harvest, 8 September. Biarritz, Saint-Tropez, Lyon. The indoor firework. Chamboise.",
+        [
+          "Of course this is France. 20 Minutes, 8 September, Jérôme Gicquel: the tourist offices have closed the summer accounts. Someone asked where to see Basques. Someone else asked for real Basques, or whales. Lyon was asked for alpine skiing in August. Saint-Tropez for a map of the Greek islands, and for a boat, because the visitor could not swim. Charente-Maritime was asked whether the firework was at eleven in the morning or eleven at night, and if it rained, whether it would be fired indoors.",
+          "The temptation is to mock the visitor. That is cheap, and it is not the beat. The beat is the counter that wrote it down. A civilisation that keeps offices for people who are lost on purpose is a civilisation that still believes geography can be explained. Chamboise is not on the map. The question is. That is already a country.",
+          "YES IT'S REAL reprints the offices, not the sneer. Nobody was fined for asking. The Basque Country continues to contain Basques. The indoor firework has not been scheduled. We will print it if it is.",
+        ],
+        [
+          "The joke is not the tourist. It is the form that caught him.",
+          "Chamboise does not exist. The minutes do.",
+          "A counter that answers nonsense is still a public service.",
+        ],
+        "Comment. 20 Minutes 8 Sept 2026. Offices named. No one harmed.",
+      ),
+      fr: c(
+        "Un pays qui tient un guichet pour répondre « où peut-on voir des Basques ? » fait son métier",
+        "Note signée de la desk sur la récolte de 20 Minutes, 8 septembre. Biarritz, Saint-Tropez, Lyon. Le feu d’artifice en salle. Chamboise.",
+        [
+          "20 Minutes, 8 septembre, Jérôme Gicquel : les offices de tourisme ont clos les comptes de l’été. Quelqu’un a demandé où voir des Basques. Quelqu’un d’autre, des Basques vrais, ou des baleines. Lyon, du ski alpin en août. Saint-Tropez, une carte des îles grecques, et un bateau, parce que le visiteur ne savait pas nager. Charente-Maritime : le feu d’artifice à onze heures du matin ou du soir, et s’il pleut, tiré en salle.",
+          "La tentation, c’est de se payer le visiteur. C’est bon marché, et ce n’est pas le beat. Le beat, c’est le guichet qui a noté. Une civilisation qui tient des offices pour les gens perdus exprès est une civilisation qui croit encore qu’on peut expliquer la géographie. Chamboise n’est pas sur la carte. La question, si. C’est déjà un pays.",
+          "YES IT’S REAL réimprime les offices, pas le ricanement. Personne n’a été verbalisé pour avoir demandé. Le Pays basque continue de contenir des Basques. Le feu d’artifice en salle n’a pas été programmé. On l’imprimera s’il l’est.",
+        ],
+        [
+          "La blague, ce n’est pas le touriste. C’est le formulaire qui l’a attrapé.",
+          "Chamboise n’existe pas. Le procès-verbal, si.",
+          "Un guichet qui répond à n’importe quoi reste un service public.",
+        ],
+        "Commentaire. 20 Minutes 8 sept. 2026. Offices nommés. Personne blessé.",
+      ),
+    },
+  }),
 ];
 
 

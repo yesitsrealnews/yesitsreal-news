@@ -66,10 +66,14 @@ const en: Record<UiKey, string> = {
   secSports: "Sports",
   secLove: "Love & Money",
   secCourts: "Courts & Bureaucracy",
+  secCommentaire: "Comment",
   secArchive: "Archive",
   archiveKicker: "The last century",
   archiveDek:
     "The great fails and the great cons, already in print. The Eiffel Tower was sold. Twice. Not a Ponzi lecture: if it does not make you laugh, it does not run here.",
+  commentaireKicker: "Signed",
+  commentaireDek:
+    "The desk, in its own name. Still sourced. Still already in print. The smirk is the point.",
   about: "About",
   method: "Sources & Method",
   corrections: "Corrections",
@@ -320,10 +324,14 @@ const fr = overlay({
   secSports: "Sports",
   secLove: "Amour & argent",
   secCourts: "Justice & bureaucratie",
+  secCommentaire: "Commentaire",
   secArchive: "Archives",
   archiveKicker: "Le siècle dernier",
   archiveDek:
     "Les grands fails et les grandes arnaques, déjà parus. La Tour Eiffel s’est vendue. Deux fois. Pas un cours sur Ponzi : si ça ne fait pas rire, ça ne passe pas.",
+  commentaireKicker: "Signé",
+  commentaireDek:
+    "La desk, en son nom. Toujours sourcé. Toujours déjà paru. Le sourire est le sujet.",
   about: "À propos",
   method: "Sources & méthode",
   corrections: "Corrections",
@@ -563,10 +571,14 @@ const es = overlay({
   secSports: "Deportes",
   secLove: "Amor y dinero",
   secCourts: "Tribunales y burocracia",
+  secCommentaire: "Comentario",
   secArchive: "Archivo",
   archiveKicker: "El siglo pasado",
   archiveDek:
     "Los grandes fails y las grandes estafas, ya publicados. La Torre Eiffel se vendió. Dos veces. No es una clase sobre Ponzi: si no hace reír, no sale.",
+  commentaireKicker: "Firmado",
+  commentaireDek:
+    "La mesa, en su nombre. Siempre con fuente. Siempre ya publicado. La sonrisa es el tema.",
   about: "Quiénes somos",
   method: "Fuentes y método",
   corrections: "Correcciones",
@@ -792,10 +804,14 @@ const de = overlay({
   secSports: "Sport",
   secLove: "Liebe & Geld",
   secCourts: "Gerichte & Bürokratie",
+  secCommentaire: "Kommentar",
   secArchive: "Archiv",
   archiveKicker: "Das letzte Jahrhundert",
   archiveDek:
     "Die großen Fails und die großen Betrügereien, schon gedruckt. Der Eiffelturm wurde verkauft. Zweimal. Keine Ponzi-Vorlesung: wenn es nicht zum Lachen ist, erscheint es nicht.",
+  commentaireKicker: "Gezeichnet",
+  commentaireDek:
+    "Die Desk, in eigenem Namen. Immer belegt. Immer schon gedruckt. Das Lächeln ist der Punkt.",
   about: "Über uns",
   method: "Quellen & Methode",
   corrections: "Korrekturen",
@@ -927,10 +943,14 @@ const ar = overlay({
   secSports: "رياضة",
   secLove: "حب ومال",
   secCourts: "محاكم وبيروقراطية",
+  secCommentaire: "تعليق",
   secArchive: "أرشيف",
   archiveKicker: "القرن الماضي",
   archiveDek:
     "أكبر الإخفاقات والاحتيالات، سبق نشرها. بيع برج إيفل. مرتين. ليست درسًا عن بونزي: إن لم يُضحك، لا يُنشر.",
+  commentaireKicker: "موقّع",
+  commentaireDek:
+    "المكتب، باسمه. مصدر دائمًا. سبق نشره دائمًا. الابتسامة هي الموضوع.",
   about: "من نحن",
   method: "المصادر والمنهج",
   corrections: "تصحيحات",

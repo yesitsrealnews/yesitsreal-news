@@ -47,6 +47,7 @@ export const SECTION_IDS = [
   "sports",
   "love-money",
   "courts",
+  "commentaire",
   "archive",
 ] as const;
 

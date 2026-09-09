@@ -60,7 +60,7 @@ export function inSection(extras: Story[], section: SectionId): Story[] {
   const all = publishedStories(extras);
   if (section === "world") {
     const own = all.filter((s) => s.section === "world");
-    const rest = all.filter((s) => s.section !== "world" && s.section !== "archive" && s.countryCode !== "GB");
+    const rest = all.filter((s) => s.section !== "world" && s.section !== "archive" && s.section !== "commentaire" && s.countryCode !== "GB");
     const mixed = [...own, ...rest];
     return mixed.length ? mixed : all;
   }

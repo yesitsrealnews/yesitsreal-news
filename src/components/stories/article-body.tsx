@@ -39,6 +39,11 @@ export function ArticleBody({
   return (
     <article className={cn("mx-auto max-w-3xl px-4 py-6 sm:px-6", era && "era-archive")}>
       <p className="kicker text-signal">{t(lang, SECTION_KEY[story.section] ?? "secWorld")}</p>
+      {story.section === "commentaire" ? (
+        <p className="mt-2 text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-signal">
+          {t(lang, "commentaireKicker")} · {t(lang, "byline")}
+        </p>
+      ) : null}
       {voice.id !== "desk" ? (
         <p className="mt-2 text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-signal">
           {t(lang, "voiceAfter")} {lang === "fr" ? voice.afterFr : voice.after}
