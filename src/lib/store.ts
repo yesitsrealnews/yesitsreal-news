@@ -254,11 +254,10 @@ export const useAppStore = create<AppState>()(
       },
       setFrontPageIds: (frontPageIds) => set({ frontPageIds }),
       hydrateFrontPage: async () => {
-        if (frontHydratedOnce) return;
         if (frontHydratePromise) return frontHydratePromise;
         frontHydratePromise = (async () => {
           try {
-            const res = await fetch("/api/desk-front-page");
+            const res = await fetch("/api/desk-front-page", { cache: "no-store" });
             const data = (await res.json()) as { ok?: boolean; ids?: string[] };
             if (data?.ok && Array.isArray(data.ids)) {
               get().setFrontPageIds(data.ids.filter((id) => typeof id === "string" && /^s\d+$/.test(id)));
@@ -394,7 +393,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 6,
+      version: 7,
       migrate: (persisted) => {
         const s = (persisted ?? {}) as {
           lang?: string;
@@ -405,7 +404,8 @@ export const useAppStore = create<AppState>()(
         if (!s.lang || s.lang === "en") s.lang = "fr";
         delete s.admin;
         if (!s.deskStatus || typeof s.deskStatus !== "object") s.deskStatus = {};
-        if (!Array.isArray(s.frontPageIds)) s.frontPageIds = [];
+        // Front page pins are server-owned (GitHub issue); never trust localStorage.
+        s.frontPageIds = [];
         return s as typeof persisted;
       },
       partialize: (s) => ({
@@ -417,7 +417,6 @@ export const useAppStore = create<AppState>()(
         rejected: s.rejected,
         extras: s.extras,
         deskStatus: s.deskStatus,
-        frontPageIds: s.frontPageIds,
         allowList: s.allowList,
         denyList: s.denyList,
         newsletter: s.newsletter,
@@ -447,6 +446,8 @@ export const useAppStore = create<AppState>()(
         applyDocument(state.lang, state.theme);
         state.setHydrated(true);
         if (!state.sprintEndsAt) state.ensureSprint();
+        void state.hydrateDeskStatus();
+        void state.hydrateFrontPage();
       },
     },
   ),

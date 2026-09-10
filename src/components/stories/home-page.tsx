@@ -23,13 +23,16 @@ export function HomePage({
   lang,
   extras,
   onSubscribe,
+  frontPageIds: frontPageIdsProp,
 }: {
   lang: Lang;
   extras: Story[];
   onSubscribe: (email: string) => void;
+  frontPageIds?: string[];
 }) {
   const deskStatus = useAppStore((s) => s.deskStatus);
-  const frontPageIds = useAppStore((s) => s.frontPageIds);
+  const storeFrontIds = useAppStore((s) => s.frontPageIds);
+  const frontPageIds = frontPageIdsProp?.length ? frontPageIdsProp : storeFrontIds;
   const all = homeStories(extras, deskStatus, frontPageIds);
   const hero = all[0];
   const rest = all.slice(1);

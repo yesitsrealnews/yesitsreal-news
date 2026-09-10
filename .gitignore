@@ -21,3 +21,4 @@ AGENTS.md
 .project_id
 .vercel
 .env*
+.env.local

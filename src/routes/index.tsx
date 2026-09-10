@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/site-shell";
 import { HomePage } from "@/components/stories/home-page";
@@ -6,8 +7,17 @@ import { useAppStore } from "@/lib/store";
 import { itemListJsonLd, orgJsonLd, SEO_FR, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { homeStories } from "@/lib/catalog";
+import { getFrontPageIds } from "@/lib/desk-front-page";
 
 export const Route = createFileRoute("/")({
+  loader: async () => {
+    try {
+      const frontPageIds = await getFrontPageIds(true);
+      return { frontPageIds };
+    } catch {
+      return { frontPageIds: [] as string[] };
+    }
+  },
   component: Home,
   head: () => ({
     meta: [
@@ -37,18 +47,26 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const { frontPageIds: loaderFrontIds } = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
   const extras = useAppStore((s) => s.extras);
   const deskStatus = useAppStore((s) => s.deskStatus);
-  const frontPageIds = useAppStore((s) => s.frontPageIds);
+  const storeFrontIds = useAppStore((s) => s.frontPageIds);
+  const setFrontPageIds = useAppStore((s) => s.setFrontPageIds);
   const addNewsletter = useAppStore((s) => s.addNewsletter);
+
+  useEffect(() => {
+    if (loaderFrontIds.length) setFrontPageIds(loaderFrontIds);
+  }, [loaderFrontIds, setFrontPageIds]);
+
+  const frontPageIds = storeFrontIds.length ? storeFrontIds : loaderFrontIds;
   const latest = homeStories(extras, deskStatus, frontPageIds);
   return (
     <SiteShell>
       <JsonLd data={orgJsonLd()} />
       <JsonLd data={websiteJsonLd()} />
       <JsonLd data={itemListJsonLd(latest)} />
-      <HomePage lang={lang} extras={extras} onSubscribe={addNewsletter} />
+      <HomePage lang={lang} extras={extras} onSubscribe={addNewsletter} frontPageIds={frontPageIds} />
     </SiteShell>
   );
 }
