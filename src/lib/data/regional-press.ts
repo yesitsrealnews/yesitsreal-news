@@ -1,4 +1,6 @@
-/** French regional daily press (PQR) + related regional desks for allowlist / search. */
+/** Regional daily press (French PQR + world desks) for allowlist / search. */
+
+import { WORLD_REGIONAL_PRESS } from "./regional-press-world";
 
 export type RegionalSource = {
   name: string;
@@ -8,8 +10,8 @@ export type RegionalSource = {
   rss?: string;
 };
 
-/** Comprehensive PQR / locaux + useful regional desks. Domains are public hosts (no www). */
-export const REGIONAL_PRESS: RegionalSource[] = [
+/** French PQR / locaux + useful regional desks. Domains are public hosts (no www). */
+const FRENCH_REGIONAL_PRESS: RegionalSource[] = [
   // --- SIPA Ouest-France ---
   {
     name: "Ouest-France",
@@ -376,6 +378,12 @@ export const REGIONAL_PRESS: RegionalSource[] = [
   },
 ];
 
+/** Combined French PQR + world regional / local desks. */
+export const REGIONAL_PRESS: RegionalSource[] = [
+  ...FRENCH_REGIONAL_PRESS,
+  ...WORLD_REGIONAL_PRESS,
+];
+
 /** Unique regional domains, lowercase, without www. */
 export const REGIONAL_PRESS_DOMAINS: string[] = [
   ...new Set(
@@ -395,6 +403,10 @@ export const NATIONAL_DESK_DOMAINS: string[] = [
   "lefigaro.fr",
   "20minutes.fr",
   "leparisien.fr",
+  "bbc.com",
+  "theguardian.com",
+  "nytimes.com",
+  "washingtonpost.com",
 ].sort((a, b) => a.localeCompare(b));
 
 /** Real satire / spoof hosts to keep out of the desk allowlist. */
