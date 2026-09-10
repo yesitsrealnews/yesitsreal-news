@@ -119,6 +119,8 @@ export const UI_KEYS = [
   "contactDek",
   "contactSend",
   "contactOk",
+  "contactFormNote",
+  "contactTopic",
   "membershipDek",
   "membershipCta",
   "adDummy",

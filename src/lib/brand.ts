@@ -24,6 +24,9 @@ export const EMAILS = {
   jobs: `jobs@${SITE_DOMAIN}`,
 } as const;
 
+/** Real inbox when Namecheap alias forwards fail. Visible aliases stay brand-facing. */
+export const CONTACT_FORWARD_TO = "lair.pierre.guillaume@gmail.com";
+
 export type SocialId =
   | "x"
   | "instagram"
