@@ -30,9 +30,10 @@ export const Route = createFileRoute("/today")({
 function TodayPage() {
   const lang = useAppStore((s) => s.lang);
   const extras = useAppStore((s) => s.extras);
+  const deskStatus = useAppStore((s) => s.deskStatus);
   const add = useAppStore((s) => s.addNewsletter);
   const countShare = useAppStore((s) => s.countShare);
-  const list = dumbest(extras, 5, homeStories(extras));
+  const list = dumbest(extras, 5, homeStories(extras, deskStatus), deskStatus);
   const lead = list[0];
   const rest = list.slice(1);
   const now = formatDate(new Date().toISOString(), lang);

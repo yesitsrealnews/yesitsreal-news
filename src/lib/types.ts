@@ -53,7 +53,7 @@ export const SECTION_IDS = [
 
 export type SectionId = (typeof SECTION_IDS)[number];
 
-export type StoryStatus = "published" | "inbox" | "review" | "scheduled" | "rejected";
+export type StoryStatus = "published" | "inbox" | "review" | "scheduled" | "rejected" | "held" | "deleted";
 
 export type SourceType =
   | "wire"

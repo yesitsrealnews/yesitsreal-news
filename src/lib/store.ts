@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { Lang, Lead, QueueItem, ReactionId, Story, Submission } from "@/lib/types";
+import type { Lang, Lead, QueueItem, ReactionId, Story, StoryStatus, Submission } from "@/lib/types";
 import { detectBrowserLang, isLang } from "@/lib/i18n/langs";
 import { SPRINT_MS } from "@/lib/revenue";
 import {
@@ -19,6 +19,7 @@ const DEFAULT_ALLOW_LIST = uniqueSortedDomains(REGIONAL_PRESS_DOMAINS, NATIONAL_
 
 export type Theme = "light" | "dark";
 export type CookieChoice = "unknown" | "all" | "necessary";
+export type DeskStatusMap = Record<string, "held" | "deleted">;
 
 interface AppState {
   lang: Lang;
@@ -30,6 +31,7 @@ interface AppState {
   inbox: QueueItem[];
   rejected: QueueItem[];
   extras: Story[];
+  deskStatus: DeskStatusMap;
   allowList: string[];
   denyList: string[];
   newsletter: string[];
@@ -55,8 +57,14 @@ interface AppState {
   publishItem: (id: string) => void;
   publishQueueItem: (item: QueueItem) => void;
   rejectQueueItem: (item: QueueItem, reason: string) => void;
+  holdInboxItem: (item: QueueItem) => void;
+  deleteInboxItem: (id: string) => void;
   addExtra: (story: Story) => void;
   updateStory: (story: Story) => void;
+  setDeskStatus: (map: DeskStatusMap) => void;
+  setStoryDeskStatus: (id: string, status: "held" | "deleted" | null) => void;
+  hydrateDeskStatus: () => Promise<void>;
+  applyStoryDeskStatus: (id: string, status: "held" | "deleted" | "published") => Promise<boolean>;
   setAllowList: (list: string[]) => void;
   setDenyList: (list: string[]) => void;
   seedRegionalPress: () => void;
@@ -79,6 +87,9 @@ function applyDocument(lang: Lang, theme: Theme) {
   root.classList.toggle("dark", theme === "dark");
 }
 
+let deskHydratePromise: Promise<void> | null = null;
+let deskHydratedOnce = false;
+
 export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
@@ -91,6 +102,7 @@ export const useAppStore = create<AppState>()(
       inbox: [],
       rejected: [],
       extras: [],
+      deskStatus: {},
       allowList: DEFAULT_ALLOW_LIST,
       denyList: [...DEFAULT_DENY_DOMAINS],
       newsletter: [],
@@ -136,9 +148,12 @@ export const useAppStore = create<AppState>()(
           publishedAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         };
+        const deskStatus = { ...get().deskStatus };
+        delete deskStatus[published.id];
         set({
           inbox: get().inbox.filter((i) => i.id !== item.id),
           extras: [published, ...get().extras.filter((s) => s.id !== published.id)],
+          deskStatus,
         });
       },
       rejectQueueItem: (item, reason) => {
@@ -150,12 +165,85 @@ export const useAppStore = create<AppState>()(
           ],
         });
       },
+      holdInboxItem: (item) => {
+        const held = { ...item.story, status: "held" as const, updatedAt: new Date().toISOString() };
+        set({
+          inbox: [{ ...item, story: held }, ...get().inbox.filter((i) => i.id !== item.id)],
+          extras: get().extras.map((s) => (s.id === held.id ? { ...s, status: "held" } : s)),
+        });
+        void get().applyStoryDeskStatus(held.id, "held");
+      },
+      deleteInboxItem: (id) => {
+        const fromInbox = get().inbox.find((i) => i.id === id);
+        const storyId = fromInbox?.story.id ?? id;
+        set({
+          inbox: get().inbox.filter((i) => i.id !== id),
+          rejected: get().rejected.filter((i) => i.id !== id),
+        });
+        if (/^s\d+$/.test(storyId)) {
+          void get().applyStoryDeskStatus(storyId, "deleted");
+        }
+      },
       addExtra: (story) => set({ extras: [story, ...get().extras] }),
       updateStory: (story) =>
         set({
           extras: [story, ...get().extras.filter((s) => s.id !== story.id)],
           inbox: get().inbox.map((i) => (i.story.id === story.id ? { ...i, story } : i)),
         }),
+      setDeskStatus: (deskStatus) => set({ deskStatus }),
+      setStoryDeskStatus: (id, status) => {
+        const deskStatus = { ...get().deskStatus };
+        if (status === null) delete deskStatus[id];
+        else deskStatus[id] = status;
+        const extras = get().extras.map((s): Story => {
+          if (s.id !== id) return s;
+          const nextStatus: StoryStatus = status === null ? "published" : status;
+          return { ...s, status: nextStatus };
+        });
+        set({ deskStatus, extras });
+      },
+      hydrateDeskStatus: async () => {
+        if (deskHydratedOnce) return;
+        if (deskHydratePromise) return deskHydratePromise;
+        deskHydratePromise = (async () => {
+          try {
+            const res = await fetch("/api/desk-story-status");
+            const data = (await res.json()) as { ok?: boolean; stories?: DeskStatusMap };
+            if (data?.ok && data.stories && typeof data.stories === "object") {
+              get().setDeskStatus(data.stories);
+            }
+          } catch {
+            /* keep cached map */
+          } finally {
+            deskHydratedOnce = true;
+            deskHydratePromise = null;
+          }
+        })();
+        return deskHydratePromise;
+      },
+      applyStoryDeskStatus: async (id, status) => {
+        try {
+          const res = await fetch("/api/desk-story-status", {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ storyId: id, status }),
+          });
+          const data = (await res.json()) as { ok?: boolean; stories?: DeskStatusMap };
+          if (!res.ok || !data?.ok) return false;
+          if (data.stories) get().setDeskStatus(data.stories);
+          else get().setStoryDeskStatus(id, status === "published" ? null : status);
+          const extras = get().extras.map((s): Story => {
+            if (s.id !== id) return s;
+            const nextStatus: StoryStatus = status === "published" ? "published" : status;
+            return { ...s, status: nextStatus };
+          });
+          set({ extras });
+          return true;
+        } catch {
+          return false;
+        }
+      },
       setAllowList: (allowList) => set({ allowList }),
       setDenyList: (denyList) => set({ denyList }),
       seedRegionalPress: () => {
@@ -239,11 +327,12 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 4,
+      version: 5,
       migrate: (persisted) => {
-        const s = (persisted ?? {}) as { lang?: string; admin?: boolean };
+        const s = (persisted ?? {}) as { lang?: string; admin?: boolean; deskStatus?: DeskStatusMap };
         if (!s.lang || s.lang === "en") s.lang = "fr";
         delete s.admin;
+        if (!s.deskStatus || typeof s.deskStatus !== "object") s.deskStatus = {};
         return s as typeof persisted;
       },
       partialize: (s) => ({
@@ -254,6 +343,7 @@ export const useAppStore = create<AppState>()(
         inbox: s.inbox,
         rejected: s.rejected,
         extras: s.extras,
+        deskStatus: s.deskStatus,
         allowList: s.allowList,
         denyList: s.denyList,
         newsletter: s.newsletter,
@@ -278,6 +368,7 @@ export const useAppStore = create<AppState>()(
         if (!state.myReactions) state.myReactions = {};
         if (!state.fakeGuesses) state.fakeGuesses = {};
         if (!state.shares) state.shares = {};
+        if (!state.deskStatus) state.deskStatus = {};
         applyDocument(state.lang, state.theme);
         state.setHydrated(true);
         if (!state.sprintEndsAt) state.ensureSprint();
@@ -298,4 +389,5 @@ export function bootstrapClientPrefs() {
     store.setHydrated(true);
   }
   store.ensureSprint();
+  void store.hydrateDeskStatus();
 }

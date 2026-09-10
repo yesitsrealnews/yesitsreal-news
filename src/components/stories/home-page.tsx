@@ -17,6 +17,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DumbnessScore } from "@/components/stories/dumbness";
 import { BadgeCheck, Eye, Newspaper, Trophy } from "lucide-react";
+import { useAppStore } from "@/lib/store";
 
 export function HomePage({
   lang,
@@ -27,15 +28,16 @@ export function HomePage({
   extras: Story[];
   onSubscribe: (email: string) => void;
 }) {
-  const all = homeStories(extras);
-  const hero = breaking(extras, all);
+  const deskStatus = useAppStore((s) => s.deskStatus);
+  const all = homeStories(extras, deskStatus);
+  const hero = breaking(extras, all, deskStatus);
   const rest = all.filter((s) => s.id !== hero?.id);
   const features = rest.slice(0, 2);
   const [shown, setShown] = useState(8);
   const grid = rest.slice(2, 2 + shown);
-  const read = mostRead(extras, 6, all);
-  const dumb = dumbest(extras, 5, all);
-  const sponsored = sponsoredStory(extras);
+  const read = mostRead(extras, 6, all, deskStatus);
+  const dumb = dumbest(extras, 5, all, deskStatus);
+  const sponsored = sponsoredStory(extras, deskStatus);
 
   if (!hero) return <p className="p-8">{t(lang, "noStories")}</p>;
   const heroCopy = storyCopy(hero, lang);

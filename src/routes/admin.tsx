@@ -27,6 +27,8 @@ function AdminGate() {
   const setAdmin = useAppStore((s) => s.setAdmin);
   const [checked, setChecked] = useState(false);
 
+  const hydrateDeskStatus = useAppStore((s) => s.hydrateDeskStatus);
+
   useEffect(() => {
     let live = true;
     void fetch("/api/desk", { credentials: "include" })
@@ -35,6 +37,7 @@ function AdminGate() {
         if (!live) return;
         setAdmin(Boolean(d.ok));
         setChecked(true);
+        if (d.ok) void hydrateDeskStatus();
       })
       .catch(() => {
         if (!live) return;
@@ -44,7 +47,7 @@ function AdminGate() {
     return () => {
       live = false;
     };
-  }, [setAdmin]);
+  }, [setAdmin, hydrateDeskStatus]);
 
   if (!checked) return <div className="min-h-screen bg-paper" />;
   if (!admin) return <Navigate to="/cambuse" />;

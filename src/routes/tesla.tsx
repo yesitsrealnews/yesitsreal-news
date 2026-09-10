@@ -28,10 +28,11 @@ const MAIL = `mailto:${EMAILS.investors}?subject=${encodeURIComponent("YES IT'S 
 function TeslaReader() {
   const lang = useAppStore((s) => s.lang);
   const extras = useAppStore((s) => s.extras);
+  const deskStatus = useAppStore((s) => s.deskStatus);
   const setLang = useAppStore((s) => s.setLang);
   const fr = lang === "fr";
-  const week = useMemo(() => homeStories(extras).slice(0, 8), [extras]);
-  const fallback = useMemo(() => publishedStories(extras).slice(0, 8), [extras]);
+  const week = useMemo(() => homeStories(extras, deskStatus).slice(0, 8), [extras, deskStatus]);
+  const fallback = useMemo(() => publishedStories(extras, deskStatus).slice(0, 8), [extras, deskStatus]);
   const list = week.length ? week : fallback;
   const [open, setOpen] = useState<string | null>(list[0]?.id ?? null);
 

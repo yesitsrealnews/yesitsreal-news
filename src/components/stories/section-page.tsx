@@ -8,6 +8,7 @@ import { AdSlot } from "@/components/site/ad-slot";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import { useAppStore } from "@/lib/store";
 
 export function SectionArchive({
   section,
@@ -18,7 +19,8 @@ export function SectionArchive({
   lang: Lang;
   extras: Story[];
 }) {
-  const base = inSection(extras, section);
+  const deskStatus = useAppStore((s) => s.deskStatus);
+  const base = inSection(extras, section, deskStatus);
   const countries = countriesFrom(base);
   const [country, setCountry] = useState("all");
   const [minD, setMinD] = useState(0);

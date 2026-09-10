@@ -8,7 +8,8 @@ export const Route = createFileRoute("/admin/translations")({ component: Transla
 
 function TranslationsPage() {
   const extras = useAppStore((s) => s.extras);
-  const stories = publishedStories(extras);
+  const deskStatus = useAppStore((s) => s.deskStatus);
+  const stories = publishedStories(extras, deskStatus);
   return (
     <main className="p-6">
       <h1 className="font-serif text-3xl">Traductions</h1>

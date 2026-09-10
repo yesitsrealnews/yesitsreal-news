@@ -16,6 +16,8 @@ function StoryEditor() {
   const item = inbox.find((i) => i.id === id);
   const publishQueueItem = useAppStore((s) => s.publishQueueItem);
   const rejectQueueItem = useAppStore((s) => s.rejectQueueItem);
+  const holdInboxItem = useAppStore((s) => s.holdInboxItem);
+  const deleteInboxItem = useAppStore((s) => s.deleteInboxItem);
   const updateStory = useAppStore((s) => s.updateStory);
   const upsertInbox = useAppStore((s) => s.upsertInbox);
   const navigate = useNavigate();
@@ -144,6 +146,28 @@ function StoryEditor() {
             </Button>
             <Button variant="outline" onClick={persistDraft}>
               Enregistrer
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                persistDraft();
+                holdInboxItem({
+                  ...current,
+                  story: { ...current.story, copy: { ...current.story.copy, fr: nextFr() } },
+                });
+                void navigate({ to: "/admin/inbox" });
+              }}
+            >
+              Mettre en attente
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                deleteInboxItem(current.id);
+                void navigate({ to: "/admin/inbox" });
+              }}
+            >
+              Supprimer de la file
             </Button>
             <Input placeholder="Motif du refus" value={reason} onChange={(e) => setReason(e.target.value)} />
             <Button

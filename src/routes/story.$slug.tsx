@@ -58,7 +58,8 @@ function StoryPage() {
   const { slug } = Route.useParams();
   const lang = useAppStore((s) => s.lang);
   const extras = useAppStore((s) => s.extras);
-  const story = findStory(slug, extras);
+  const deskStatus = useAppStore((s) => s.deskStatus);
+  const story = findStory(slug, extras, deskStatus);
   if (!story) {
     throw notFound();
   }

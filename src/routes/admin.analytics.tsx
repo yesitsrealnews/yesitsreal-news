@@ -7,9 +7,10 @@ export const Route = createFileRoute("/admin/analytics")({ component: AnalyticsP
 
 function AnalyticsPage() {
   const extras = useAppStore((s) => s.extras);
+  const deskStatus = useAppStore((s) => s.deskStatus);
   const newsletter = useAppStore((s) => s.newsletter);
   const submissions = useAppStore((s) => s.submissions);
-  const stories = publishedStories(extras);
+  const stories = publishedStories(extras, deskStatus);
   const avg = stories.reduce((a, s) => a + s.dumbness, 0) / Math.max(1, stories.length);
   const inbox = useMergedInbox();
   return (

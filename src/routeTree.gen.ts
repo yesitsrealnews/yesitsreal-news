@@ -53,6 +53,7 @@ import { Route as AdminTranslationsRouteImport } from './routes/admin.translatio
 import { Route as ApiCommentsRouteImport } from './routes/api/comments'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as ApiDeskRouteImport } from './routes/api/desk'
+import { Route as ApiDeskStoryStatusRouteImport } from './routes/api/desk-story-status'
 import { Route as ApiIngestRouteImport } from './routes/api/ingest'
 import { Route as ApiPublishRouteImport } from './routes/api/publish'
 import { Route as ApiScoreRouteImport } from './routes/api/score'
@@ -280,6 +281,11 @@ const ApiDeskRoute = ApiDeskRouteImport.update({
   path: '/api/desk',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiDeskStoryStatusRoute = ApiDeskStoryStatusRouteImport.update({
+  id: '/api/desk-story-status',
+  path: '/api/desk-story-status',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiIngestRoute = ApiIngestRouteImport.update({
   id: '/api/ingest',
   path: '/api/ingest',
@@ -355,6 +361,7 @@ export interface FileRoutesByFullPath {
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
+  '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
   '/api/score': typeof ApiScoreRoute
@@ -406,6 +413,7 @@ export interface FileRoutesByTo {
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
+  '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
   '/api/score': typeof ApiScoreRoute
@@ -459,6 +467,7 @@ export interface FileRoutesById {
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
+  '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
   '/api/score': typeof ApiScoreRoute
@@ -513,6 +522,7 @@ export interface FileRouteTypes {
     | '/api/comments'
     | '/api/contact'
     | '/api/desk'
+    | '/api/desk-story-status'
     | '/api/ingest'
     | '/api/publish'
     | '/api/score'
@@ -564,6 +574,7 @@ export interface FileRouteTypes {
     | '/api/comments'
     | '/api/contact'
     | '/api/desk'
+    | '/api/desk-story-status'
     | '/api/ingest'
     | '/api/publish'
     | '/api/score'
@@ -616,6 +627,7 @@ export interface FileRouteTypes {
     | '/api/comments'
     | '/api/contact'
     | '/api/desk'
+    | '/api/desk-story-status'
     | '/api/ingest'
     | '/api/publish'
     | '/api/score'
@@ -661,6 +673,7 @@ export interface RootRouteChildren {
   ApiCommentsRoute: typeof ApiCommentsRoute
   ApiContactRoute: typeof ApiContactRoute
   ApiDeskRoute: typeof ApiDeskRoute
+  ApiDeskStoryStatusRoute: typeof ApiDeskStoryStatusRoute
   ApiIngestRoute: typeof ApiIngestRoute
   ApiPublishRoute: typeof ApiPublishRoute
   ApiScoreRoute: typeof ApiScoreRoute
@@ -978,6 +991,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiDeskRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/desk-story-status': {
+      id: '/api/desk-story-status'
+      path: '/api/desk-story-status'
+      fullPath: '/api/desk-story-status'
+      preLoaderRoute: typeof ApiDeskStoryStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/ingest': {
       id: '/api/ingest'
       path: '/api/ingest'
@@ -1087,6 +1107,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiCommentsRoute: ApiCommentsRoute,
   ApiContactRoute: ApiContactRoute,
   ApiDeskRoute: ApiDeskRoute,
+  ApiDeskStoryStatusRoute: ApiDeskStoryStatusRoute,
   ApiIngestRoute: ApiIngestRoute,
   ApiPublishRoute: ApiPublishRoute,
   ApiScoreRoute: ApiScoreRoute,

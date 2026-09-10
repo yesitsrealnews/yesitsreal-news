@@ -3,11 +3,13 @@ import { STORIES } from "@/lib/data/stories";
 import { SECTIONS } from "@/lib/data/sections";
 import { SITE_URL } from "@/lib/brand";
 import { xmlEscape } from "@/lib/seo";
+import { getDeskStoryStatus } from "@/lib/desk-story-status";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const desk = await getDeskStoryStatus();
         const pages = [
           { loc: "/", lastmod: undefined as string | undefined, changefreq: "hourly", priority: "1.0" },
           { loc: "/today", lastmod: undefined, changefreq: "hourly", priority: "0.9" },
@@ -27,7 +29,7 @@ export const Route = createFileRoute("/sitemap.xml")({
               `<url><loc>${SITE_URL}${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod.slice(0, 10)}</lastmod>` : ""}<changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`,
           )
           .join("");
-        const storyXml = STORIES.filter((s) => s.status === "published" && !s.sponsored)
+        const storyXml = STORIES.filter((s) => s.status === "published" && !s.sponsored && desk[s.id] !== "held" && desk[s.id] !== "deleted")
           .map((s) => {
             const en = `${SITE_URL}/story/${xmlEscape(s.slug)}`;
             const frSlug = s.slugs.fr;

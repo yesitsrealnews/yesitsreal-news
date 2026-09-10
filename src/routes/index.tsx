@@ -39,8 +39,9 @@ export const Route = createFileRoute("/")({
 function Home() {
   const lang = useAppStore((s) => s.lang);
   const extras = useAppStore((s) => s.extras);
+  const deskStatus = useAppStore((s) => s.deskStatus);
   const addNewsletter = useAppStore((s) => s.addNewsletter);
-  const latest = homeStories(extras);
+  const latest = homeStories(extras, deskStatus);
   return (
     <SiteShell>
       <JsonLd data={orgJsonLd()} />

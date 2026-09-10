@@ -18,6 +18,7 @@ import { relatedStories } from "@/lib/catalog";
 import { applyVoice, voiceMeta } from "@/lib/voices";
 import { BadgeCheck, Eye, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAppStore } from "@/lib/store";
 
 export function ArticleBody({
   story,
@@ -28,11 +29,12 @@ export function ArticleBody({
   lang: Lang;
   extras: Story[];
 }) {
+  const deskStatus = useAppStore((s) => s.deskStatus);
   const raw = storyCopy(story, lang);
   const voice = voiceMeta(story.id);
   const copy = applyVoice(story, raw, lang);
   const pending = storyBodyPending(story, lang);
-  const related = relatedStories(story, extras);
+  const related = relatedStories(story, extras, 4, deskStatus);
   const mid = Math.max(2, Math.floor(copy.body.length / 2));
   const slug = storySlug(story, lang);
   const era = story.section === "archive";

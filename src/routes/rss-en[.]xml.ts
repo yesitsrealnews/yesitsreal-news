@@ -3,12 +3,16 @@ import { STORIES } from "@/lib/data/stories";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { coverSrc } from "@/lib/covers";
 import { xmlEscape } from "@/lib/seo";
+import { getDeskStoryStatus } from "@/lib/desk-story-status";
 
 export const Route = createFileRoute("/rss-en.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const items = STORIES.filter((s) => s.status === "published" && !s.sponsored)
+        const desk = await getDeskStoryStatus();
+        const items = STORIES.filter(
+          (s) => s.status === "published" && !s.sponsored && desk[s.id] !== "held" && desk[s.id] !== "deleted",
+        )
           .map((s) => {
             const c = s.copy.en;
             const img = coverSrc(s.id);

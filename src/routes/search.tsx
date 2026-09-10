@@ -16,8 +16,9 @@ function SearchPage() {
   const { q: initial } = Route.useSearch();
   const lang = useAppStore((s) => s.lang);
   const extras = useAppStore((s) => s.extras);
+  const deskStatus = useAppStore((s) => s.deskStatus);
   const [q, setQ] = useState(initial);
-  const results = q.trim() ? searchStories(extras, q, lang) : [];
+  const results = q.trim() ? searchStories(extras, q, lang, deskStatus) : [];
 
   return (
     <SiteShell>

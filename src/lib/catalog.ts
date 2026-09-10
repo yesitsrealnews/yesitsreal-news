@@ -1,9 +1,11 @@
-import type { Lang, SectionId, Story } from "@/lib/types";
+import type { Lang, SectionId, Story, StoryStatus } from "@/lib/types";
 import { STORIES, getStoryBySlug as seedBySlug } from "@/lib/data/stories";
 import { storyCopy } from "@/lib/format";
 
 /** Rolling week for the une. Older copy stays published in rubriques, not on /. */
 export const HOME_WINDOW_DAYS = 7;
+
+export type DeskStatusMap = Record<string, "held" | "deleted">;
 
 export function storyNewsDate(story: Story): Date {
   const stamps = story.sources.map((s) => s.date).filter(Boolean);
@@ -29,35 +31,66 @@ export function mergeStories(extras: Story[]): Story[] {
   );
 }
 
-export function publishedStories(extras: Story[]): Story[] {
-  return mergeStories(extras).filter((s) => s.status === "published" && !s.sponsored);
+function deskOverride(storyId: string, deskStatus?: DeskStatusMap): "held" | "deleted" | undefined {
+  const v = deskStatus?.[storyId];
+  return v === "held" || v === "deleted" ? v : undefined;
+}
+
+function isPubliclyListed(story: Story, deskStatus?: DeskStatusMap): boolean {
+  if (deskOverride(story.id, deskStatus)) return false;
+  return story.status === "published" && !story.sponsored;
+}
+
+export function publishedStories(extras: Story[], deskStatus?: DeskStatusMap): Story[] {
+  return mergeStories(extras).filter((s) => isPubliclyListed(s, deskStatus));
+}
+
+/** Admin list: published seeds/extras plus held/deleted overrides (still visible in Cambuse). */
+export function deskStories(extras: Story[], deskStatus?: DeskStatusMap): Story[] {
+  return mergeStories(extras)
+    .filter((s) => {
+      if (s.sponsored) return false;
+      const o = deskOverride(s.id, deskStatus);
+      if (o) return true;
+      return s.status === "published";
+    })
+    .map((s) => {
+      const o = deskOverride(s.id, deskStatus);
+      if (!o) return s;
+      return { ...s, status: o as StoryStatus };
+    })
+    .sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
 }
 
 /** Une only: news dated in the last seven days. Archive remains live on section and article URLs. */
-export function homeStories(extras: Story[]): Story[] {
-  return publishedStories(extras)
+export function homeStories(extras: Story[], deskStatus?: DeskStatusMap): Story[] {
+  return publishedStories(extras, deskStatus)
     .filter((s) => isThisWeek(s))
     .sort((a, b) => +storyNewsDate(b) - +storyNewsDate(a) || +new Date(b.publishedAt) - +new Date(a.publishedAt));
 }
 
-export function sponsoredStory(extras: Story[]): Story | undefined {
-  return mergeStories(extras).find((s) => s.sponsored && s.status === "published");
+export function sponsoredStory(extras: Story[], deskStatus?: DeskStatusMap): Story | undefined {
+  return mergeStories(extras).find(
+    (s) => s.sponsored && s.status === "published" && !deskOverride(s.id, deskStatus),
+  );
 }
 
-export function findStory(slug: string, extras: Story[]): Story | undefined {
+export function findStory(slug: string, extras: Story[], deskStatus?: DeskStatusMap): Story | undefined {
   const needle = decodeURIComponent(slug).toLowerCase();
   const all = mergeStories(extras);
-  return (
+  const hit =
     all.find(
       (s) =>
         s.slug === needle ||
         Object.values(s.slugs).some((x) => x?.toLowerCase() === needle),
-    ) ?? seedBySlug(needle)
-  );
+    ) ?? seedBySlug(needle);
+  if (!hit) return undefined;
+  if (deskOverride(hit.id, deskStatus)) return undefined;
+  return hit;
 }
 
-export function inSection(extras: Story[], section: SectionId): Story[] {
-  const all = publishedStories(extras);
+export function inSection(extras: Story[], section: SectionId, deskStatus?: DeskStatusMap): Story[] {
+  const all = publishedStories(extras, deskStatus);
   if (section === "world") {
     const own = all.filter((s) => s.section === "world");
     const rest = all.filter((s) => s.section !== "world" && s.section !== "archive" && s.section !== "commentaire" && s.countryCode !== "GB");
@@ -67,8 +100,8 @@ export function inSection(extras: Story[], section: SectionId): Story[] {
   return all.filter((s) => s.section === section);
 }
 
-export function relatedStories(story: Story, extras: Story[], n = 4): Story[] {
-  return publishedStories(extras)
+export function relatedStories(story: Story, extras: Story[], n = 4, deskStatus?: DeskStatusMap): Story[] {
+  return publishedStories(extras, deskStatus)
     .filter((s) => s.id !== story.id)
     .sort((a, b) => {
       const same = Number(b.section === story.section) - Number(a.section === story.section);
@@ -78,27 +111,27 @@ export function relatedStories(story: Story, extras: Story[], n = 4): Story[] {
     .slice(0, n);
 }
 
-export function mostRead(extras: Story[], n = 6, pool?: Story[]): Story[] {
-  return [...(pool ?? publishedStories(extras))]
+export function mostRead(extras: Story[], n = 6, pool?: Story[], deskStatus?: DeskStatusMap): Story[] {
+  return [...(pool ?? publishedStories(extras, deskStatus))]
     .sort((a, b) => b.dumbness * 10 + b.sources.length - (a.dumbness * 10 + a.sources.length))
     .slice(0, n);
 }
 
-export function dumbest(extras: Story[], n = 8, pool?: Story[]): Story[] {
-  return [...(pool ?? publishedStories(extras))].sort(
+export function dumbest(extras: Story[], n = 8, pool?: Story[], deskStatus?: DeskStatusMap): Story[] {
+  return [...(pool ?? publishedStories(extras, deskStatus))].sort(
     (a, b) => b.dumbness - a.dumbness || +new Date(b.publishedAt) - +new Date(a.publishedAt),
   ).slice(0, n);
 }
 
-export function breaking(extras: Story[], pool?: Story[]): Story | undefined {
-  const list = pool ?? publishedStories(extras);
+export function breaking(extras: Story[], pool?: Story[], deskStatus?: DeskStatusMap): Story | undefined {
+  const list = pool ?? publishedStories(extras, deskStatus);
   return list.find((s) => s.breaking) ?? list[0];
 }
 
-export function searchStories(extras: Story[], q: string, lang: Lang): Story[] {
+export function searchStories(extras: Story[], q: string, lang: Lang, deskStatus?: DeskStatusMap): Story[] {
   const query = q.trim().toLowerCase();
   if (!query) return [];
-  return publishedStories(extras).filter((s) => {
+  return publishedStories(extras, deskStatus).filter((s) => {
     const c = storyCopy(s, lang);
     const blob = [c.headline, c.dek, c.body.join(" "), s.location, s.countryName, s.entities.join(" "), s.section].join(" ").toLowerCase();
     return blob.includes(query);

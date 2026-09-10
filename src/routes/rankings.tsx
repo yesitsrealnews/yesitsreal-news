@@ -11,16 +11,17 @@ export const Route = createFileRoute("/rankings")({ component: RankingsPage });
 function RankingsPage() {
   const lang = useAppStore((s) => s.lang);
   const extras = useAppStore((s) => s.extras);
+  const deskStatus = useAppStore((s) => s.deskStatus);
   const [range, setRange] = useState<"today" | "week" | "all">("week");
   const list = useMemo(() => {
-    const all = publishedStories(extras);
+    const all = publishedStories(extras, deskStatus);
     const now = Date.now();
     const cut =
       range === "today" ? now - 36 * 3600 * 1000 : range === "week" ? now - 8 * 24 * 3600 * 1000 : 0;
     return all
       .filter((s) => (cut ? +new Date(s.publishedAt) >= cut : true))
       .sort((a, b) => b.dumbness - a.dumbness || +new Date(b.publishedAt) - +new Date(a.publishedAt));
-  }, [extras, range]);
+  }, [extras, deskStatus, range]);
 
   return (
     <SiteShell>
