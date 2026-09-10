@@ -20,7 +20,7 @@ function AdsPage() {
         <Link to="/advertise" className="underline">
           /advertise
         </Link>
-        . ads@yesitsreal.news
+        . advertisers@yesitsreal.news (or ads@)
       </p>
       <table className="mt-6 w-full border border-rule text-left text-sm">
         <thead className="bg-paper-2 text-xs uppercase tracking-[0.12em]">

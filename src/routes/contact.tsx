@@ -45,6 +45,12 @@ function Contact() {
           </a>
         </li>
         <li>
+          Advertisers:{" "}
+          <a className="font-bold underline" href={`mailto:${EMAILS.advertisers}`}>
+            {EMAILS.advertisers}
+          </a>
+        </li>
+        <li>
           Desk:{" "}
           <a className="underline" href={`mailto:${EMAILS.desk}`}>
             {EMAILS.desk}
