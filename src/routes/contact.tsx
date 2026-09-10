@@ -25,29 +25,35 @@ function Contact() {
   return (
     <LegalPage titleKey="contact">
       <p>{t(lang, "contactDek")}</p>
-      <ul className="mt-4 space-y-1 text-sm">
+            <ul className="mt-4 space-y-1 text-sm">
         <li>
-          Desk:{" "}
-          <a className="font-bold underline" href={`mailto:${EMAILS.desk}`}>
-            {EMAILS.desk}
+          Press:{" "}
+          <a className="font-bold underline" href={`mailto:${EMAILS.press}`}>
+            {EMAILS.press}
           </a>
         </li>
         <li>
-          Press:{" "}
-          <a className="underline" href={`mailto:${EMAILS.press}`}>
-            {EMAILS.press}
+          Investors:{" "}
+          <a className="font-bold underline" href={`mailto:${EMAILS.investors}`}>
+            {EMAILS.investors}
+          </a>
+        </li>
+        <li>
+          Game:{" "}
+          <a className="font-bold underline" href={`mailto:${EMAILS.game}`}>
+            {EMAILS.game}
+          </a>
+        </li>
+        <li>
+          Desk:{" "}
+          <a className="underline" href={`mailto:${EMAILS.desk}`}>
+            {EMAILS.desk}
           </a>
         </li>
         <li>
           Ads:{" "}
           <a className="underline" href={`mailto:${EMAILS.ads}`}>
             {EMAILS.ads}
-          </a>
-        </li>
-        <li>
-          Investors:{" "}
-          <a className="underline" href={`mailto:${EMAILS.investors}`}>
-            {EMAILS.investors}
           </a>
         </li>
         <li>

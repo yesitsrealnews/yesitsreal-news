@@ -17,6 +17,7 @@ export const EMAILS = {
   ads: `ads@${SITE_DOMAIN}`,
   investors: `investors@${SITE_DOMAIN}`,
   contest: `contest@${SITE_DOMAIN}`,
+  game: `game@${SITE_DOMAIN}`,
   legal: `legal@${SITE_DOMAIN}`,
   security: `security@${SITE_DOMAIN}`,
   jobs: `jobs@${SITE_DOMAIN}`,
