@@ -6122,20 +6122,231 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s125",
+    slug: "church-editor-prosecuted-for-picking-up-dead-deer-on-a66",
+    slugs: {
+      fr: "il-ramasse-un-cerf-mort-sur-l-a66-durham-police-deer-act",
+    },
+    section: "courts",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Greta Bridge / Barnard Castle, County Durham",
+    dumbness: 8,
+    sources: [
+      src(
+        "Dalton man picked up dead deer off A66 near Barnard Castle",
+        "The Northern Echo",
+        "https://www.thenorthernecho.co.uk/news/26529647.dalton-man-picked-dead-deer-off-a66-near-barnard-castle/",
+        "2026-09",
+        "local",
+      ),
+      src(
+        "Questions over why man who moved dead deer on A66 was prosecuted",
+        "The Northern Echo",
+        "https://www.thenorthernecho.co.uk/news/26532736.questions-man-moved-dead-deer-prosecuted/",
+        "2026-09",
+        "local",
+      ),
+      src(
+        "Prosecuting me for moving a deer off the A66 is concerning",
+        "The Northern Echo",
+        "https://www.thenorthernecho.co.uk/news/26531514.prosecuting-moving-deer-off-a66-concerning/",
+        "2026-09",
+        "local",
+      ),
+      src(
+        "Church magazine editor prosecuted for picking up deer roadkill…",
+        "Daily Mail",
+        "https://www.dailymail.com/news/article-16114645/Church-magazine-editor-prosecuted-picking-deer-roadkill-home-eat-says-ordeal-entirely-unnecessary.html",
+        "2026-09-08",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-10T16:00:00.000Z",
+    originalLang: "fr",
+    confidence: 0.92,
+    entities: ["Guy Carpenter", "Durham Police", "Deer Act 1991", "National Highways", "Peterlee Magistrates’ Court"],
+    copy: {
+      en: c(
+        "He picks up a dead deer on the A66. Police prosecute him under the Deer Act. He wanted to eat it",
+        "Greta Bridge, near Barnard Castle, 7 June 2026. Guy Carpenter, 42, parish magazine editor. Central reservation. Deer already dead. Blue lights.",
+        [
+          "At Greta Bridge on the A66, County Durham, this is what happened, and it was written down. On 7 June 2026, Guy Carpenter, photographer and editor of the Holmedale Benefice church magazine north of Richmond, saw a dead deer on the central reservation. He stopped, loaded the carcass onto his back, and meant to cross back. A police car arrived, lights on. Officers told him he was committing an offence.",
+          "He said he wanted to take the deer home to eat. And that, even if it were inedible, he would have moved it for other drivers’ safety. The Northern Echo, several September 2026 pieces. Daily Mail, 8 September. Durham Police confirmed: a man about 41–42 was summonsed for removing a deer carcass without the consent of the landowner or occupier, under the Deer Act 1991. In British law a live deer has no owner. Once killed, the carcass belongs to the owner of the ground where it lies. On the A66, that is National Highways. Not Carpenter.",
+          "Monday 7 September 2026, Peterlee Magistrates’ Court. An out-of-court resolution was discussed. Hearing adjourned to 26 October, unless agreed. Bail conditions. Darren Grimes, Durham council deputy leader, wrote that the public-interest test exists “precisely so cases like this do not reach the magistrates”. Benjamin Elks, TaxPayers’ Alliance: taxpayers will struggle to see why scarce resources go here. Carpenter, a former Wetheriggs Animal Sanctuary volunteer, says he has cleared roadkill for years — to clear the road and use the meat. He calls the process “entirely unnecessary”. YES IT’S REAL read The Northern Echo and the Daily Mail. Road named. Act named. Deer already dead. No human injury in the copy.",
+        ],
+        [
+          "The deer was already dead.",
+          "On a trunk road, National Highways “owns” the carcass.",
+          "Brigades are short for burglaries; they found time for a hypothetical stew.",
+        ],
+        "Northern Echo + Daily Mail Sept 2026; Durham Police via those desks. Age ~42. Adjourned to 26 Oct.",
+      ),
+      fr: c(
+        "Il ramasse un cerf mort sur l’A66. La police le poursuit sous le Deer Act. Il voulait le manger",
+        "Greta Bridge, près de Barnard Castle, 7 juin 2026. Guy Carpenter, 42 ans, éditeur d’un magazine paroissial à Dalton. Terre-plein central. Cerf déjà mort. Gyrophares.",
+        [
+          "À Greta Bridge, sur l’A66, County Durham, voici ce qui s’est produit, et ce fut noté. Le 7 juin 2026, Guy Carpenter, photographe et rédacteur du magazine des églises du Holmedale Benefice, au nord de Richmond, a vu un cerf mort sur le terre-plein central. Il a arrêté, a chargé la carcasse sur son dos, a voulu retraverser. Une voiture de police est arrivée, gyrophares. Les agents lui ont dit qu’il commettait une infraction.",
+          "Il a dit qu’il voulait ramener le cerf chez lui pour le manger. Et que, même non comestible, il l’aurait enlevé pour la sécurité des autres conducteurs. The Northern Echo, plusieurs papiers de septembre 2026. Daily Mail, 8 septembre. Durham Police a confirmé : un homme d’environ 41–42 ans a été cité à comparaître pour avoir enlevé la carcasse d’un cerf sans le consentement du propriétaire ou de l’occupant du terrain, en vertu du Deer Act 1991. En droit britannique, un cerf vivant n’a pas de propriétaire. Une fois tué, la carcasse appartient au propriétaire du sol où elle se trouve. Sur l’A66, c’est National Highways. Pas Carpenter.",
+          "Lundi 7 septembre 2026, Peterlee Magistrates’ Court. Une résolution hors tribunal a été évoquée. Audience ajournée au 26 octobre, sauf accord. Liberté sous conditions. Darren Grimes, leader adjoint du conseil de Durham, a écrit que le test d’intérêt public existe « précisément pour que des affaires comme celle-ci n’arrivent pas devant les magistrats ». Benjamin Elks, TaxPayers’ Alliance : les contribuables peineront à comprendre pourquoi des ressources rares vont à ça. Carpenter, ancien volontaire du Wetheriggs Animal Sanctuary, dit ramasser du gibier écrasé depuis des années — pour dégager la route et utiliser la viande. Il appelle la procédure « entièrement inutile ». YES IT’S REAL a lu The Northern Echo et le Daily Mail. Route nommée. Loi nommée. Cerf déjà mort. Pas de blessé humain dans le papier.",
+        ],
+        [
+          "Le cerf était déjà mort.",
+          "Sur une autoroute, c’est National Highways qui « possède » le cadavre.",
+          "Les brigades n’ont pas le temps pour les cambriolages ; elles ont le temps pour un ragoût hypothétique.",
+        ],
+        "Northern Echo + Daily Mail sept. 2026 ; Durham Police via ces bureaux. Âge ~42. Ajourné au 26 oct.",
+      ),
+    },
+  }),
+  story({
+    id: "s126",
+    slug: "westminster-vertical-drinking-sausage-rolls-and-giggling-drinkers",
+    slugs: {
+      fr: "westminster-vertical-drinking-sausage-rolls-greggs-rires-de-pub",
+    },
+    section: "courts",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Westminster / Soho / Leicester Square, London",
+    dumbness: 8,
+    sources: [
+      src(
+        "Curbs on vertical drinking in Soho pubs…",
+        "The Guardian",
+        "https://www.theguardian.com/uk-news/2026/sep/08/vertical-drinking-pubs-west-end-westminster-sadiq-khan-london",
+        "2026-09-08",
+        "local",
+      ),
+      src(
+        "Westminster keeps vertical drinking policy despite backlash",
+        "Morning Advertiser",
+        "https://www.morningadvertiser.co.uk/Article/2026/09/09/westminster-keeps-vertical-drinking-policy-despite-backlash/",
+        "2026-09-09",
+        "local",
+      ),
+      src(
+        "Why there is a row about standing up while drinking in Westminster",
+        "BBC News",
+        "https://www.bbc.co.uk/news/articles/c86nvjxlg9eo",
+        "2026-09",
+        "wire",
+      ),
+      src(
+        "Sausage roll crime fears and giggling drinkers…",
+        "Evening Standard",
+        "https://www.standard.co.uk/news/politics/reasons-westminster-pubs-face-restrictions-licensing-soho-b1292704.html",
+        "2026-09",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-10T16:10:00.000Z",
+    originalLang: "fr",
+    confidence: 0.9,
+    entities: ["Westminster City Council", "Sadiq Khan", "Greggs", "The Globe", "Greene King"],
+    copy: {
+      en: c(
+        "In Westminster they are still fighting ‘vertical drinking’. Bonus: Greggs sausage rolls and pub giggles",
+        "London, September 2026. Westminster Council confirms a licensing policy that discourages high-volume ‘vertical drinking’. Sadiq Khan calls it ‘breathtaking arrogance’. The Standard digs up the rest: Greggs, sausage rolls, and a neighbour who complained about ‘giggling’ drinkers.",
+        [
+          "Westminster City Council licenses more than 4,000 premises, including more than 1,000 in the West End. In 2026 it had to update its licensing policy. The draft caught fire: discourage “high volume vertical drinking”, favour seats and table service, keep the West End cumulative impact zone where new pub licences are in principle refused except in exceptional circumstances.",
+          "Summer consultation: 81% of respondents against the cumulative impact zone, 84% judged the policy bad for business, The Guardian reported (8 September 2026). On 9 September, Morning Advertiser: Westminster keeps the vertical-drinking wording despite the backlash. The council denies any “ban on standing while drinking” — a formula its councillors called “completely ridiculous” — and talks about managing pavements and drunkenness. Tim Barnes, deputy leader: the real brake is lack of police; the mayor should strengthen the Met.",
+          "The Standard documented the rest of the catalogue. The Globe, an 18th-century pub near Baker Street (Greene King): a third licensing review after a single neighbour complained about “giggling” and loitering after midnight. Conditions imposed: public phone numbers for residents, outdoor supervision, a disperse “quickly and quietly” plan. In March, councillors rejected further restrictions. Greggs, Leicester Square, 2023: refused permission to sell sausage rolls, bacon baps and hot drinks between 11pm and 5am — police and services citing “crime and disorder”. Compromise the day before court: sandwiches and sweets at night, not the hot items. The Standard republished the episode in the wake of the 2026 vertical-drinking row. YES IT’S REAL crossed Guardian, BBC (jargon explainers), Morning Advertiser and Evening Standard. No invention. English pubs are still fighting for the right to stand. And to reheat a sausage roll after midnight.",
+        ],
+        [
+          "“Vertical drinking” means drinking while standing.",
+          "One neighbour reported laughter.",
+          "Police once feared crime… via Greggs sausage rolls.",
+        ],
+        "Guardian 8 Sept; Morning Advertiser 9 Sept; BBC; Evening Standard. Council denies a standing ban.",
+      ),
+      fr: c(
+        "À Westminster, on garde la guerre au « vertical drinking ». En bonus : les sausage rolls de Greggs et les rires de pub",
+        "Londres, septembre 2026. Le conseil de Westminster confirme une politique de licences qui décourage la « consommation verticale » à haut volume. Sadiq Khan parle d’« arrogance à couper le souffle ». The Standard ressort le florilège : Greggs, sausage rolls, et un voisin qui se plaint des « giggling » drinkers.",
+        [
+          "Westminster City Council license plus de 4 000 établissements, dont plus de 1 000 dans le West End. En 2026, il devait mettre à jour sa politique de licences. Le projet a mis le feu : décourager le « high volume vertical drinking », favoriser sièges et service à table, maintenir la zone d’impact cumulatif du West End où les nouvelles licences de pubs sont en principe refusées sauf circonstances exceptionnelles.",
+          "Consultation d’été : 81 % des répondants contre la zone d’impact cumulatif, 84 % jugent la politique mauvaise pour le business, rapporte The Guardian (8 septembre 2026). Le 9 septembre, Morning Advertiser : Westminster garde le libellé sur le vertical drinking malgré le tollé. Le conseil nie toute « interdiction de boire debout » — formule jugée « complètement ridicule » par ses élus — et parle de gérer les trottoirs et l’ivresse. Tim Barnes, leader adjoint : le vrai frein, c’est le manque de police ; le maire devrait renforcer la Met.",
+          "The Standard a documenté le reste du catalogue. The Globe, pub du XVIIIe près de Baker Street (Greene King) : troisième passage en revue de licence après la plainte d’un seul voisin sur le « giggling » et le loitering après minuit. Conditions imposées : numéros de téléphone publics pour les riverains, supervision dehors, plan de dispersion « vite et sans bruit ». En mars, les conseillers ont écarté de nouvelles restrictions. Greggs, Leicester Square, 2023 : refus de vendre sausage rolls, bacon baps et boissons chaudes entre 23 h et 5 h — police et services évoquant « crime and disorder ». Compromis la veille du tribunal : sandwichs et sucreries la nuit, pas les hot items. The Standard republie l’épisode dans la foulée de la polémique 2026 sur le vertical drinking. YES IT’S REAL a croisé Guardian, BBC (explication du jargon), Morning Advertiser et Evening Standard. Pas d’invention. Les pubs anglais se battent encore pour le droit de rester debout. Et pour le droit de réchauffer un sausage roll après minuit.",
+        ],
+        [
+          "« Vertical drinking », c’est boire debout.",
+          "Un voisin a signalé des rires.",
+          "La police a un jour craint le crime… via les sausage rolls de Greggs.",
+        ],
+        "Guardian 8 sept. ; Morning Advertiser 9 sept. ; BBC ; Evening Standard. Le conseil nie une interdiction de rester debout.",
+      ),
+    },
+  }),
+  story({
+    id: "s127",
+    slug: "florida-woman-threw-bucket-of-caca-on-neighbor-opa-locka",
+    slugs: {
+      fr: "floride-seau-de-caca-voisine-mari-opa-locka",
+    },
+    section: "faits-divers",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Opa-locka / Miami, Florida",
+    dumbness: 9,
+    sources: [
+      src(
+        "Miami woman threw bucket of poop on neighbor she accused of sleeping with husband, cops say",
+        "NBC 6 South Florida",
+        "https://www.nbcmiami.com/news/local/miami-woman-threw-bucket-of-poop-on-neighbor-she-accused-of-sleeping-with-husband-cops-say/3856371/",
+        "2026-09-08",
+        "local",
+      ),
+      src(
+        "Woman arrested of breaking into neighbor’s home and throwing feces in her face",
+        "The Daily Crime",
+        "https://thedailycrime.org/2026/09/08/woman-arrested-of-breaking-into-neighbors-home-and-throwing-feces-in-her-face/",
+        "2026-09-08",
+        "local",
+      ),
+      src(
+        "Florida woman threw bucket of caca on neighbor she thought was sleeping with her husband, affidavit",
+        "WFLA",
+        "https://www.wfla.com/news/florida/florida-woman-threw-bucket-of-caca-on-neighbor-she-thought-was-sleeping-with-her-husband-affidavit/",
+        "2026-09-09",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-10T16:20:00.000Z",
+    originalLang: "fr",
+    confidence: 0.91,
+    entities: ["Yirsi Esperanza Machado Rivera", "Opa-locka", "Miami-Dade", "Judge Mindy Glazer"],
+    copy: {
+      en: c(
+        "Florida: she threw a bucket of ‘caca’ on the neighbour she accused of being with her husband",
+        "Royal Country Mobile Homes, Northwest 200th Terrace, Opa-locka, near Miami. 7 September 2026. Trailer split in two. Bucket. Affidavit.",
+        [
+          "Yirsi Esperanza Machado Rivera, 50, and the complainant each live in one half of a shared trailer at Royal Country Mobile Homes. On the evening of Monday 7 September, according to the arrest report cited by NBC 6 Miami and The Daily Crime, Machado Rivera knocked on the neighbour’s door. When it opened, she accused her of having a sexual relationship with her husband.",
+          "Then, still according to police, she forced entry, pushed the neighbour, grabbed a bucket containing human faeces and threw it in the victim’s face before leaving. Charges: burglary of an occupied dwelling and battery. Miami-Dade jail records. Held at Turner Guilford Knight Correctional Center. On Tuesday, Judge Mindy Glazer ordered continued pretrial detention, a no-contact order, and a public defender. In court, Glazer summarised: she thinks the neighbour has a relationship with her husband, she forces entry, “then throws poop on the victim, a bucket of poop”.",
+          "Machado Rivera’s account to investigators after Miranda: toilets broken; she used the bucket; she was trying to dispose of it; a dispute over the smell; the neighbour had hit her on the head with a bat; she denies the intrusion and the throw. A witness, according to a note in the file, says she said she had defecated in the bucket in order to throw it in the neighbour’s face. YES IT’S REAL read NBC 6 Miami (Brian Hamacher) and The Daily Crime, which rely on the affidavit / arrest report. No invented quote. No photo of the bucket. Judgment pending. The alleged facts are public.",
+        ],
+        [
+          "Accuse the neighbour.",
+          "Prepare the bucket.",
+          "Call it “caca” to the police.",
+        ],
+        "NBC 6 + Daily Crime 8 Sept 2026, arrest report / affidavit as alleged. Held without bond, Judge Glazer.",
+      ),
+      fr: c(
+        "Floride : elle jette un seau de « caca » sur la voisine qu’elle accusait d’être avec son mari",
+        "Royal Country Mobile Homes, Northwest 200th Terrace, Opa-locka, près de Miami. 7 septembre 2026. Trailer coupé en deux. Seau. Affidavit.",
+        [
+          "Yirsi Esperanza Machado Rivera, 50 ans, et la plaignante habitent chacune une moitié d’un trailer partagé au Royal Country Mobile Homes. Le lundi 7 septembre au soir, selon le rapport d’arrestation cité par NBC 6 Miami et The Daily Crime, Machado Rivera a cogné à la porte de la voisine. Quand celle-ci a ouvert, elle l’a accusée d’avoir une relation sexuelle avec son mari.",
+          "Puis, toujours selon la police, elle est entrée de force, a poussé la voisine, a saisi un seau contenant des excréments humains et l’a jeté au visage de la victime avant de repartir. Chefs d’accusation : burglary of an occupied dwelling et battery. Miami-Dade jail records. Incarcération au Turner Guilford Knight Correctional Center. Mardi, la juge Mindy Glazer a ordonné le maintien en détention provisoire, une interdiction d’approcher la plaignante, et un avocat commis d’office. En audience, Glazer a résumé : elle pense que la voisine a une relation avec son mari, elle force l’entrée, « then throws poop on the victim, a bucket of poop ».",
+          "Version de Machado Rivera aux enquêteurs, après Miranda : toilettes en panne ; elle se servait du seau ; elle essayait de s’en débarrasser ; dispute sur l’odeur ; la voisine l’aurait frappée à la tête avec une batte ; elle nie l’intrusion et le jet. Un témoin, selon une note du dossier, raconte qu’elle aurait dit avoir déféqué dans le seau pour le jeter au visage de la voisine. YES IT’S REAL a lu NBC 6 Miami (Brian Hamacher) et The Daily Crime, qui s’appuient sur l’affidavit / rapport d’arrestation. Pas de citation inventée. Pas de photo du seau. Le jugement reste à venir. Les faits allégués sont publics.",
+        ],
+        [
+          "Accuser la voisine.",
+          "Préparer le seau.",
+          "Appeler ça « caca » devant la police.",
+        ],
+        "NBC 6 + Daily Crime 8 sept. 2026, rapport / affidavit tels qu’allégués. Détention sans caution, juge Glazer.",
+      ),
+    },
+  }),
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

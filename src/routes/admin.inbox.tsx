@@ -1,15 +1,39 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMergedInbox } from "@/lib/admin-inbox";
 import { formatDateTime, storyCopy } from "@/lib/format";
+import { makeQueueItem } from "@/lib/pipeline";
+import { useAppStore } from "@/lib/store";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/admin/inbox")({ component: InboxPage });
 
 function InboxPage() {
   const inbox = useMergedInbox();
+  const upsertInbox = useAppStore((s) => s.upsertInbox);
+  const navigate = useNavigate();
+
+  function createPapier() {
+    const item = makeQueueItem({
+      url: "https://yesitsreal.news/cambuse/brouillon",
+      notes: "Brouillon desk — à remplir.",
+      country: "",
+      name: "La Cambuse",
+    });
+    upsertInbox(item);
+    void navigate({ to: "/admin/story/$id", params: { id: item.id } });
+  }
+
   return (
     <main className="p-6">
-      <h1 className="font-serif text-3xl">File d’attente</h1>
-      <p className="mt-2 text-sm text-ink-muted">À relire avant publication. Titres en français.</p>
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 className="font-serif text-3xl">File d’attente</h1>
+          <p className="mt-2 text-sm text-ink-muted">À relire avant publication. Titres en français.</p>
+        </div>
+        <Button type="button" onClick={createPapier}>
+          Créer un papier
+        </Button>
+      </div>
       <ul className="mt-6 divide-y divide-rule border-y border-rule">
         {inbox.map((item) => {
           const c = storyCopy(item.story, "fr");

@@ -141,6 +141,9 @@ COVERS: dict[str, tuple[str, str]] = {
     "s112": ("File:Chiropractic Adjustment 13.jpg", "Chiropractic"),
     "s113": ("File:Wheelie bin.jpg", "Wheelie bin"),
     "s114": ("File:Garden.jpg", "Garden"),
+    "s125": ("File:Red deer by the road, Cnoc Bad a' Ghille Duibh - geograph.org.uk - 645743.jpg", "red deer roadside UK"),
+    "s126": ("File:Coach and Horses, Greek Street, Soho, W1 (2711029239).jpg", "Soho London pub"),
+    "s127": ("File:Trailer park- Cape Canaveral, Florida (7221106912).jpg", "Florida trailer park"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
