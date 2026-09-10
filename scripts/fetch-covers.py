@@ -4,6 +4,11 @@
 Standing order (DESK.md): no story ships without a credited free photo.
 Never leave the painted TRUE placeholder. Imagine is last resort, not this script.
 Cite in src/lib/cover-credits.json.
+
+Named mugshot / booking photos (DESK.md « Mugshots ») may be added manually under
+COVERS / public/covers/{id}.jpg with credits pointing to the releasing agency page
+(Public record, PD, or CC). This script remains Commons-oriented and does not scrape
+news sites or jail portals for mugshots.
 """
 from __future__ import annotations
 

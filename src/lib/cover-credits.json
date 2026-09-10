@@ -738,9 +738,10 @@
     "page": "https://commons.wikimedia.org/wiki/File%3ACoach_and_Horses%2C_Greek_Street%2C_Soho%2C_W1_%282711029239%29.jpg"
   },
   "s127": {
-    "file": "File:Trailer park- Cape Canaveral, Florida (7221106912).jpg",
-    "artist": "State Library and Archives of Florida",
-    "license": "Public domain",
-    "page": "https://commons.wikimedia.org/wiki/File%3ATrailer_park-_Cape_Canaveral%2C_Florida_%287221106912%29.jpg"
+    "file": "MDCR booking photo 0410077647F",
+    "artist": "Miami-Dade Corrections and Rehabilitation (MDCR)",
+    "license": "Public record",
+    "page": "https://www.miamidade.gov/Apps/mdcr/inmateSearch/",
+    "kind": "mugshot"
   }
 }

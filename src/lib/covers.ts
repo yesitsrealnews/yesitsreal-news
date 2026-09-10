@@ -1,4 +1,4 @@
-/** Desk rule: every published story must have PHOTO_CREDITS + /covers/{id}.jpg (Commons/CC). No painted placeholder on the live site. */
+/** Desk rule: every published story must have PHOTO_CREDITS + /covers/{id}.jpg (Commons/CC or cleared mugshot). No painted placeholder on the live site. */
 import type { SectionId } from "@/lib/types";
 import credits from "./cover-credits.json";
 
@@ -7,6 +7,8 @@ export type CoverCredit = {
   artist: string;
   license: string;
   page: string;
+  /** Official booking / judicial ID photo (public record or Commons PD/CC). */
+  kind?: "mugshot";
 };
 
 export const PHOTO_CREDITS = credits as Record<string, CoverCredit>;
@@ -20,6 +22,7 @@ export function coverSrc(id: string): string | undefined {
 export function coverSrcFallback(id: string): string | undefined {
   const c = PHOTO_CREDITS[id];
   if (!c?.file) return undefined;
+  if (c.kind === "mugshot" && !/^File:/i.test(c.file)) return undefined;
   const file = c.file.replace(/^File:/i, "").replace(/ /g, "_");
   return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=1400`;
 }
@@ -31,6 +34,11 @@ export function coverCredit(id: string): CoverCredit | undefined {
 export function coverCreditLine(id: string): string | undefined {
   const c = PHOTO_CREDITS[id];
   if (!c) return undefined;
+  if (c.kind === "mugshot") {
+    const who = c.artist || "Agency";
+    const lic = c.license || "Public record";
+    return `${who} · ${lic} · booking photo`;
+  }
   const who = c.artist || "Wikimedia Commons";
   return `${who} · ${c.license} · Wikimedia`;
 }
