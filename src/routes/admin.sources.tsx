@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useAppStore } from "@/lib/store";
+import { REGIONAL_PRESS } from "@/lib/data/regional-press";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -11,12 +12,51 @@ function SourcesPage() {
   const denyList = useAppStore((s) => s.denyList);
   const setAllowList = useAppStore((s) => s.setAllowList);
   const setDenyList = useAppStore((s) => s.setDenyList);
+  const seedRegionalPress = useAppStore((s) => s.seedRegionalPress);
   const [a, setA] = useState("");
   const [d, setD] = useState("");
+
   return (
-    <main className="grid gap-8 p-6 md:grid-cols-2">
+    <main className="grid gap-8 p-6 lg:grid-cols-2">
+      <div className="space-y-8 lg:col-span-2">
+        <header className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h1 className="font-serif text-3xl">Sources & PQR</h1>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Base régionale&nbsp;: {REGIONAL_PRESS.length} titres · allowlist&nbsp;:{" "}
+              {allowList.length} domaines · denylist&nbsp;: {denyList.length}
+            </p>
+          </div>
+          <Button type="button" onClick={() => seedRegionalPress()}>
+            Charger / fusionner la base PQR
+          </Button>
+        </header>
+
+        <section className="rounded-lg border border-rule">
+          <div className="border-b border-rule px-4 py-3">
+            <h2 className="font-serif text-xl">Presse régionale (lecture seule)</h2>
+            <p className="text-xs text-muted-foreground">
+              {REGIONAL_PRESS.length} sources PQR / desks — domaines publics
+            </p>
+          </div>
+          <ul className="max-h-72 overflow-y-auto text-sm">
+            {REGIONAL_PRESS.map((s) => (
+              <li
+                key={`${s.name}-${s.domain}-${s.region}`}
+                className="flex flex-wrap justify-between gap-2 border-b border-rule px-4 py-2 last:border-b-0"
+              >
+                <span className="font-medium">{s.name}</span>
+                <span className="text-muted-foreground">
+                  {s.domain} — {s.region}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+
       <section>
-        <h1 className="font-serif text-3xl">Allowlist</h1>
+        <h2 className="font-serif text-2xl">Allowlist</h2>
         <form
           className="mt-4 flex gap-2"
           onSubmit={(e) => {
@@ -25,22 +65,27 @@ function SourcesPage() {
             setA("");
           }}
         >
-          <Input value={a} onChange={(e) => setA(e.target.value)} placeholder="domain" />
-          <Button type="submit">Add</Button>
+          <Input value={a} onChange={(e) => setA(e.target.value)} placeholder="domaine" />
+          <Button type="submit">Ajouter</Button>
         </form>
-        <ul className="mt-4 text-sm">
+        <ul className="mt-4 max-h-96 overflow-y-auto text-sm">
           {allowList.map((x) => (
             <li key={x} className="flex justify-between border-b border-rule py-2">
               {x}
-              <button type="button" className="text-xs underline" onClick={() => setAllowList(allowList.filter((i) => i !== x))}>
-                Remove
+              <button
+                type="button"
+                className="text-xs underline"
+                onClick={() => setAllowList(allowList.filter((i) => i !== x))}
+              >
+                Retirer
               </button>
             </li>
           ))}
         </ul>
       </section>
+
       <section>
-        <h2 className="font-serif text-3xl">Denylist</h2>
+        <h2 className="font-serif text-2xl">Denylist</h2>
         <form
           className="mt-4 flex gap-2"
           onSubmit={(e) => {
@@ -49,15 +94,19 @@ function SourcesPage() {
             setD("");
           }}
         >
-          <Input value={d} onChange={(e) => setD(e.target.value)} placeholder="satire domain" />
-          <Button type="submit">Add</Button>
+          <Input value={d} onChange={(e) => setD(e.target.value)} placeholder="domaine satire" />
+          <Button type="submit">Ajouter</Button>
         </form>
-        <ul className="mt-4 text-sm">
+        <ul className="mt-4 max-h-96 overflow-y-auto text-sm">
           {denyList.map((x) => (
             <li key={x} className="flex justify-between border-b border-rule py-2">
               {x}
-              <button type="button" className="text-xs underline" onClick={() => setDenyList(denyList.filter((i) => i !== x))}>
-                Remove
+              <button
+                type="button"
+                className="text-xs underline"
+                onClick={() => setDenyList(denyList.filter((i) => i !== x))}
+              >
+                Retirer
               </button>
             </li>
           ))}

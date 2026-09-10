@@ -9,6 +9,7 @@ import {
   rateLimit,
   sanitizeText,
 } from "@/lib/security";
+import { isPreferredNewsDomain } from "@/lib/data/regional-press";
 
 export const Route = createFileRoute("/api/ingest")({
   server: {
@@ -33,6 +34,7 @@ export const Route = createFileRoute("/api/ingest")({
           status: "queued",
           dumbness: score.score,
           rationale: score.rationale,
+          preferred: isPreferredNewsDomain(url),
         });
       },
     },

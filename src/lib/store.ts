@@ -3,6 +3,19 @@ import { persist } from "zustand/middleware";
 import type { Lang, Lead, QueueItem, ReactionId, Story, Submission } from "@/lib/types";
 import { detectBrowserLang, isLang } from "@/lib/i18n/langs";
 import { SPRINT_MS } from "@/lib/revenue";
+import {
+  DEFAULT_DENY_DOMAINS,
+  NATIONAL_DESK_DOMAINS,
+  REGIONAL_PRESS_DOMAINS,
+} from "@/lib/data/regional-press";
+
+function uniqueSortedDomains(...lists: string[][]): string[] {
+  return [...new Set(lists.flat().map((d) => d.toLowerCase().replace(/^www\./, "")))].sort((a, b) =>
+    a.localeCompare(b),
+  );
+}
+
+const DEFAULT_ALLOW_LIST = uniqueSortedDomains(REGIONAL_PRESS_DOMAINS, NATIONAL_DESK_DOMAINS);
 
 export type Theme = "light" | "dark";
 export type CookieChoice = "unknown" | "all" | "necessary";
@@ -46,6 +59,7 @@ interface AppState {
   updateStory: (story: Story) => void;
   setAllowList: (list: string[]) => void;
   setDenyList: (list: string[]) => void;
+  seedRegionalPress: () => void;
   addNewsletter: (email: string) => void;
   voteCup: (id: string) => boolean;
   addCupEntry: (entry: { country: string; url: string; notes: string }) => void;
@@ -77,8 +91,8 @@ export const useAppStore = create<AppState>()(
       inbox: [],
       rejected: [],
       extras: [],
-      allowList: ["reuters.example", "afp.example", "ap.example", "gov.uk", "europa.eu", "courts.example"],
-      denyList: ["theonion.example", "babylonbee.example", "clickhole.example"],
+      allowList: DEFAULT_ALLOW_LIST,
+      denyList: [...DEFAULT_DENY_DOMAINS],
       newsletter: [],
       contestVotes: {},
       contestVoted: [],
@@ -144,6 +158,10 @@ export const useAppStore = create<AppState>()(
         }),
       setAllowList: (allowList) => set({ allowList }),
       setDenyList: (denyList) => set({ denyList }),
+      seedRegionalPress: () => {
+        const merged = uniqueSortedDomains(get().allowList, REGIONAL_PRESS_DOMAINS, NATIONAL_DESK_DOMAINS);
+        set({ allowList: merged });
+      },
       addNewsletter: (email) => {
         const clean = email.trim().toLowerCase();
         if (!clean || get().newsletter.includes(clean)) return;
