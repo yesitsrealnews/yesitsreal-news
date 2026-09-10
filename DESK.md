@@ -43,3 +43,27 @@ Placement : use as `public/covers/{id}.jpg` like any cover; do not invent a seco
 Tone : flat illustration of the public record, not mockery crop.
 
 Keep existing Commons-first order; mugshot sits as **1bis** only when rights are clear and the person is the real subject of the paper.
+
+
+## Affiches de campagne (politiques)
+
+**1ter** — quand un **politique nommé** est le sujet (ou un acteur central) du papier, chercher sa **dernière affiche de campagne** comme candidat cover avant le stock thématique générique.
+
+Prefer when :
+
+- official campaign material or Wikimedia Commons (PD/CC) of the latest campaign poster
+- clear credit (party / campaign / photographer) + link to source page
+
+Allowed :
+
+- Commons PD/CC0/BY/BY-SA of campaign posters
+- official campaign assets released for press use / public domain where stated
+
+**Forbidden :**
+
+- unpaid wire / agency photos of the politician without rights
+- private social crops
+- AI “fake poster”
+- parody posters not used by the campaign
+
+If rights are unclear → keep Commons thematic (place, institution, object). Tone flat: illustrate the public figure via their own campaign image, not a meme crop.

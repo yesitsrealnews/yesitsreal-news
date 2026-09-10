@@ -8,7 +8,7 @@ export type CoverCredit = {
   license: string;
   page: string;
   /** Official booking / judicial ID photo (public record or Commons PD/CC). */
-  kind?: "mugshot";
+  kind?: "mugshot" | "campaign-poster";
 };
 
 export const PHOTO_CREDITS = credits as Record<string, CoverCredit>;
@@ -22,7 +22,7 @@ export function coverSrc(id: string): string | undefined {
 export function coverSrcFallback(id: string): string | undefined {
   const c = PHOTO_CREDITS[id];
   if (!c?.file) return undefined;
-  if (c.kind === "mugshot" && !/^File:/i.test(c.file)) return undefined;
+  if ((c.kind === "mugshot" || c.kind === "campaign-poster") && !/^File:/i.test(c.file)) return undefined;
   const file = c.file.replace(/^File:/i, "").replace(/ /g, "_");
   return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=1400`;
 }
@@ -38,6 +38,11 @@ export function coverCreditLine(id: string): string | undefined {
     const who = c.artist || "Agency";
     const lic = c.license || "Public record";
     return `${who} · ${lic} · booking photo`;
+  }
+  if (c.kind === "campaign-poster") {
+    const who = c.artist || "Campaign";
+    const lic = c.license || "Campaign material";
+    return `${who} · ${lic} · campaign poster`;
   }
   const who = c.artist || "Wikimedia Commons";
   return `${who} · ${c.license} · Wikimedia`;
