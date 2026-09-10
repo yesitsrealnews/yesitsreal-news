@@ -15,8 +15,8 @@ export const PHOTO_CREDITS = credits as Record<string, CoverCredit>;
 
 export function coverSrc(id: string): string | undefined {
   if (!PHOTO_CREDITS[id]) return undefined;
-  // Hosted on GitHub — Vercel was 404ing /covers/*.jpg after s38.
-  return `https://cdn.jsdelivr.net/gh/yesitsrealnews/yesitsreal-news@main/public/covers/${id}.jpg`;
+  // Same-origin public/covers — updates on every deploy (jsDelivr @main stayed stale for mugshots).
+  return `/covers/${id}.jpg`;
 }
 
 export function coverSrcFallback(id: string): string | undefined {
