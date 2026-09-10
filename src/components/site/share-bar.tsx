@@ -48,6 +48,14 @@ export function ShareBar({
       className: "bg-[#1877F2] text-white",
     },
     {
+      id: "messenger",
+      label: "Messenger",
+      // Facebook Send Dialog (opens Messenger on mobile / friend picker on desktop).
+      // App id 966242223397117 is the public share-dialog id used when a site has no Meta app.
+      href: `https://www.facebook.com/dialog/send?link=${encodeURIComponent(abs)}&app_id=966242223397117&redirect_uri=${encodeURIComponent(abs)}`,
+      className: "bg-[#0084FF] text-white",
+    },
+    {
       id: "tg",
       label: "Telegram",
       href: `https://t.me/share/url?url=${encodeURIComponent(abs)}&text=${encodeURIComponent(headline)}`,
