@@ -239,6 +239,16 @@ export const UI_KEYS = [
   "hoursAbbr",
   "minutesAbbr",
   "partnerLabel",
+  "commentsTitle",
+  "commentsEmpty",
+  "commentsName",
+  "commentsPlaceholder",
+  "commentsSubmit",
+  "commentsSending",
+  "commentsThanks",
+  "commentsError",
+  "commentsDisabled",
+  "commentsAnon",
 ] as const;
 
 export type UiKey = (typeof UI_KEYS)[number];

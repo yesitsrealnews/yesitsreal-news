@@ -50,6 +50,7 @@ import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
 import { Route as AdminRejectedRouteImport } from './routes/admin.rejected'
 import { Route as AdminSourcesRouteImport } from './routes/admin.sources'
 import { Route as AdminTranslationsRouteImport } from './routes/admin.translations'
+import { Route as ApiCommentsRouteImport } from './routes/api/comments'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as ApiDeskRouteImport } from './routes/api/desk'
 import { Route as ApiIngestRouteImport } from './routes/api/ingest'
@@ -264,6 +265,11 @@ const AdminTranslationsRoute = AdminTranslationsRouteImport.update({
   path: '/translations',
   getParentRoute: () => AdminRoute,
 } as any)
+const ApiCommentsRoute = ApiCommentsRouteImport.update({
+  id: '/api/comments',
+  path: '/api/comments',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
   path: '/api/contact',
@@ -346,6 +352,7 @@ export interface FileRoutesByFullPath {
   '/admin/rejected': typeof AdminRejectedRoute
   '/admin/sources': typeof AdminSourcesRoute
   '/admin/translations': typeof AdminTranslationsRoute
+  '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
   '/api/ingest': typeof ApiIngestRoute
@@ -396,6 +403,7 @@ export interface FileRoutesByTo {
   '/admin/rejected': typeof AdminRejectedRoute
   '/admin/sources': typeof AdminSourcesRoute
   '/admin/translations': typeof AdminTranslationsRoute
+  '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
   '/api/ingest': typeof ApiIngestRoute
@@ -448,6 +456,7 @@ export interface FileRoutesById {
   '/admin/rejected': typeof AdminRejectedRoute
   '/admin/sources': typeof AdminSourcesRoute
   '/admin/translations': typeof AdminTranslationsRoute
+  '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
   '/api/ingest': typeof ApiIngestRoute
@@ -501,6 +510,7 @@ export interface FileRouteTypes {
     | '/admin/rejected'
     | '/admin/sources'
     | '/admin/translations'
+    | '/api/comments'
     | '/api/contact'
     | '/api/desk'
     | '/api/ingest'
@@ -551,6 +561,7 @@ export interface FileRouteTypes {
     | '/admin/rejected'
     | '/admin/sources'
     | '/admin/translations'
+    | '/api/comments'
     | '/api/contact'
     | '/api/desk'
     | '/api/ingest'
@@ -602,6 +613,7 @@ export interface FileRouteTypes {
     | '/admin/rejected'
     | '/admin/sources'
     | '/admin/translations'
+    | '/api/comments'
     | '/api/contact'
     | '/api/desk'
     | '/api/ingest'
@@ -646,6 +658,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   TeslaRoute: typeof TeslaRoute
   TodayRoute: typeof TodayRoute
+  ApiCommentsRoute: typeof ApiCommentsRoute
   ApiContactRoute: typeof ApiContactRoute
   ApiDeskRoute: typeof ApiDeskRoute
   ApiIngestRoute: typeof ApiIngestRoute
@@ -944,6 +957,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminTranslationsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/api/comments': {
+      id: '/api/comments'
+      path: '/api/comments'
+      fullPath: '/api/comments'
+      preLoaderRoute: typeof ApiCommentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/contact': {
       id: '/api/contact'
       path: '/api/contact'
@@ -1064,6 +1084,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   TeslaRoute: TeslaRoute,
   TodayRoute: TodayRoute,
+  ApiCommentsRoute: ApiCommentsRoute,
   ApiContactRoute: ApiContactRoute,
   ApiDeskRoute: ApiDeskRoute,
   ApiIngestRoute: ApiIngestRoute,

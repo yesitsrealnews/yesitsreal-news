@@ -255,6 +255,16 @@ const en: Record<UiKey, string> = {
   hoursAbbr: "h",
   minutesAbbr: "m",
   partnerLabel: "Partner",
+  commentsTitle: "Reader comments",
+  commentsEmpty: "No comments yet. Be the first — keep it short, keep it real.",
+  commentsName: "Display name (optional)",
+  commentsPlaceholder: "Your take — no login, no satire required.",
+  commentsSubmit: "Publish",
+  commentsSending: "Sending…",
+  commentsThanks: "Posted. It’s on the page.",
+  commentsError: "Couldn’t post. Try again in a moment.",
+  commentsDisabled: "Comments are temporarily unavailable.",
+  commentsAnon: "Anonymous",
 };
 
 function overlay(partial: Partial<Record<UiKey, string>>): Record<UiKey, string> {
@@ -513,6 +523,16 @@ const fr = overlay({
   hoursAbbr: "h",
   minutesAbbr: "min",
   partnerLabel: "Partenaire",
+  commentsTitle: "Commentaires lecteurs",
+  commentsEmpty: "Aucun commentaire pour l’instant. Soyez le premier — court et vrai.",
+  commentsName: "Nom affiché (optionnel)",
+  commentsPlaceholder: "Votre réaction — sans compte, sans satire.",
+  commentsSubmit: "Publier",
+  commentsSending: "Envoi…",
+  commentsThanks: "Publié. C’est sur la page.",
+  commentsError: "Impossible d’envoyer. Réessayez dans un instant.",
+  commentsDisabled: "Les commentaires sont temporairement indisponibles.",
+  commentsAnon: "Anonyme",
 });
 
 const es = overlay({
@@ -746,6 +766,16 @@ const es = overlay({
   hoursAbbr: "h",
   minutesAbbr: "min",
   partnerLabel: "Patrocinio",
+  commentsTitle: "Comentarios de lectores",
+  commentsEmpty: "Aún no hay comentarios. Sea el primero — breve y real.",
+  commentsName: "Nombre (opcional)",
+  commentsPlaceholder: "Su reacción — sin cuenta.",
+  commentsSubmit: "Publicar",
+  commentsSending: "Enviando…",
+  commentsThanks: "Publicado.",
+  commentsError: "No se pudo enviar. Inténtelo de nuevo.",
+  commentsDisabled: "Los comentarios no están disponibles temporalmente.",
+  commentsAnon: "Anónimo",
 });
 
 const de = overlay({
@@ -885,6 +915,16 @@ const de = overlay({
   correctionsEmpty: "Keine Korrekturen. Wir schauen weiter.",
   rss: "RSS",
   follow: "Folgen",
+  commentsTitle: "Leserkommentare",
+  commentsEmpty: "Noch keine Kommentare. Seien Sie der Erste — kurz und echt.",
+  commentsName: "Anzeigename (optional)",
+  commentsPlaceholder: "Ihre Reaktion — ohne Konto.",
+  commentsSubmit: "Veröffentlichen",
+  commentsSending: "Senden…",
+  commentsThanks: "Veröffentlicht.",
+  commentsError: "Konnte nicht senden. Bitte später erneut versuchen.",
+  commentsDisabled: "Kommentare sind vorübergehend nicht verfügbar.",
+  commentsAnon: "Anonym",
 });
 
 const ar = overlay({
@@ -1024,6 +1064,16 @@ const ar = overlay({
   correctionsEmpty: "لا تصحيحات في الملف. سنواصل النظر.",
   rss: "RSS",
   follow: "تابع",
+  commentsTitle: "تعليقات القرّاء",
+  commentsEmpty: "لا تعليقات بعد. كن الأول.",
+  commentsName: "الاسم (اختياري)",
+  commentsPlaceholder: "رأيك — بلا حساب.",
+  commentsSubmit: "نشر",
+  commentsSending: "جارٍ الإرسال…",
+  commentsThanks: "تم النشر.",
+  commentsError: "تعذّر الإرسال. حاول لاحقًا.",
+  commentsDisabled: "التعليقات غير متاحة مؤقتًا.",
+  commentsAnon: "مجهول",
 });
 
 const extras: Partial<Record<Lang, Record<UiKey, string>>> = { en, fr, es, de, ar };

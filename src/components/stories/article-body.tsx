@@ -12,6 +12,7 @@ import { StoryCover } from "@/components/stories/cover";
 import { QuoteCardButton } from "@/components/stories/quote-card";
 import { ReactionBar } from "@/components/stories/reactions";
 import { SoundsFake } from "@/components/stories/sounds-fake";
+import { ReaderComments } from "@/components/stories/reader-comments";
 import { SourceVideo } from "@/components/stories/source-video";
 import { relatedStories } from "@/lib/catalog";
 import { applyVoice, voiceMeta } from "@/lib/voices";
@@ -165,6 +166,8 @@ export function ArticleBody({
         <p className="mt-2 max-w-xl text-sm text-ink-muted">{t(lang, "shareNote")} · @yesitsrealnews</p>
         <ShareBar lang={lang} path={`/story/${slug}`} headline={copy.headline} className="mt-4" />
       </section>
+
+      <ReaderComments storyId={story.id} lang={lang} />
 
       <div className="mt-8">
         <AdSlot lang={lang} slot="native" salt={`${story.id}-end`} />
