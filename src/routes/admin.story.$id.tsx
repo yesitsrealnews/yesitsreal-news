@@ -20,6 +20,9 @@ function StoryEditor() {
   const deleteInboxItem = useAppStore((s) => s.deleteInboxItem);
   const updateStory = useAppStore((s) => s.updateStory);
   const upsertInbox = useAppStore((s) => s.upsertInbox);
+  const frontPageIds = useAppStore((s) => s.frontPageIds);
+  const pinToFront = useAppStore((s) => s.pinToFront);
+  const unpinFromFront = useAppStore((s) => s.unpinFromFront);
   const navigate = useNavigate();
   const [tab, setTab] = useState<"draft" | "sources" | "facts">("draft");
   const fr = item ? storyCopy(item.story, "fr") : undefined;
@@ -132,6 +135,26 @@ function StoryEditor() {
         <aside className="border border-rule p-4">
           <p className="kicker">Décision</p>
           <div className="mt-4 flex flex-col gap-2">
+            {/^s\d+$/.test(current.story.id) ? (
+              <>
+                {frontPageIds[0] !== current.story.id ? (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => void pinToFront(current.story.id)}
+                  >
+                    {frontPageIds.includes(current.story.id) ? "Remonter en une" : "Mettre en une"}
+                  </Button>
+                ) : (
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-signal">Une #1 (hero)</p>
+                )}
+                {frontPageIds.includes(current.story.id) ? (
+                  <Button type="button" variant="outline" onClick={() => void unpinFromFront(current.story.id)}>
+                    Retirer de la une
+                  </Button>
+                ) : null}
+              </>
+            ) : null}
             <Button
               onClick={() => {
                 persistDraft();

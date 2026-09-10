@@ -5,7 +5,7 @@ import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { formatCount, storyViews } from "@/lib/engagement";
-import { breaking, dumbest, homeStories, mostRead, sponsoredStory } from "@/lib/catalog";
+import { dumbest, homeStories, mostRead, sponsoredStory } from "@/lib/catalog";
 import { StoryCard } from "@/components/stories/story-card";
 import { StoryCover } from "@/components/stories/cover";
 import { Newsletter } from "@/components/site/newsletter";
@@ -29,9 +29,10 @@ export function HomePage({
   onSubscribe: (email: string) => void;
 }) {
   const deskStatus = useAppStore((s) => s.deskStatus);
-  const all = homeStories(extras, deskStatus);
-  const hero = breaking(extras, all, deskStatus);
-  const rest = all.filter((s) => s.id !== hero?.id);
+  const frontPageIds = useAppStore((s) => s.frontPageIds);
+  const all = homeStories(extras, deskStatus, frontPageIds);
+  const hero = all[0];
+  const rest = all.slice(1);
   const features = rest.slice(0, 2);
   const [shown, setShown] = useState(8);
   const grid = rest.slice(2, 2 + shown);

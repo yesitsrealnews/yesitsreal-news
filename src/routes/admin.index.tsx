@@ -14,12 +14,23 @@ function statusBadge(status: string) {
   return <span className="ms-2 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-800">En ligne</span>;
 }
 
+function uneBadge(rank: number) {
+  return (
+    <span className="ms-2 rounded bg-signal/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-signal">
+      Une #{rank}
+    </span>
+  );
+}
+
 function AdminHome() {
   const inbox = useMergedInbox();
   const rejected = useMergedRejected();
   const extras = useAppStore((s) => s.extras);
   const deskStatus = useAppStore((s) => s.deskStatus);
+  const frontPageIds = useAppStore((s) => s.frontPageIds);
   const applyStoryDeskStatus = useAppStore((s) => s.applyStoryDeskStatus);
+  const pinToFront = useAppStore((s) => s.pinToFront);
+  const unpinFromFront = useAppStore((s) => s.unpinFromFront);
   const upsertInbox = useAppStore((s) => s.upsertInbox);
   const navigate = useNavigate();
   const published = publishedStories(extras, deskStatus);
@@ -62,22 +73,38 @@ function AdminHome() {
       </div>
       <section className="mt-10">
         <h2 className="kicker">Papiers en ligne</h2>
+        <p className="mt-1 text-xs text-ink-muted">La une suit l’ordre des pastilles Une (#1 = hero).</p>
         <ul className="mt-3 divide-y divide-rule border-y border-rule">
           {online.slice(0, 40).map((s) => {
             const c = storyCopy(s, "fr");
             const override = deskStatus[s.id];
             const rowStatus = override ?? (s.status === "held" || s.status === "deleted" ? s.status : "published");
+            const pinIndex = frontPageIds.indexOf(s.id);
+            const isPinned = pinIndex >= 0;
+            const isFirstPin = pinIndex === 0;
+            const canPin = /^s\d+$/.test(s.id) && rowStatus !== "deleted";
             return (
               <li key={s.id} className="flex flex-wrap items-start justify-between gap-3 py-3">
                 <a href={`/story/${s.slugs.fr || s.slug}`} className="min-w-0 flex-1 hover:bg-paper-2">
                   <p className="kicker text-signal">
                     {s.section}
                     {statusBadge(rowStatus)}
+                    {isPinned ? uneBadge(pinIndex + 1) : null}
                   </p>
                   <p className="mt-1 font-serif text-lg">{c.headline}</p>
                   <p className="mt-1 text-sm text-ink-muted">{c.dek}</p>
                 </a>
                 <div className="flex shrink-0 flex-wrap gap-2">
+                  {canPin && !isFirstPin ? (
+                    <Button type="button" variant="outline" size="sm" onClick={() => void pinToFront(s.id)}>
+                      {isPinned ? "Remonter en une" : "Mettre en une"}
+                    </Button>
+                  ) : null}
+                  {canPin && isPinned ? (
+                    <Button type="button" variant="outline" size="sm" onClick={() => void unpinFromFront(s.id)}>
+                      Retirer de la une
+                    </Button>
+                  ) : null}
                   {rowStatus !== "held" ? (
                     <Button type="button" variant="outline" size="sm" onClick={() => void applyStoryDeskStatus(s.id, "held")}>
                       Attente

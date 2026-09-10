@@ -32,6 +32,7 @@ interface AppState {
   rejected: QueueItem[];
   extras: Story[];
   deskStatus: DeskStatusMap;
+  frontPageIds: string[];
   allowList: string[];
   denyList: string[];
   newsletter: string[];
@@ -65,6 +66,10 @@ interface AppState {
   setStoryDeskStatus: (id: string, status: "held" | "deleted" | null) => void;
   hydrateDeskStatus: () => Promise<void>;
   applyStoryDeskStatus: (id: string, status: "held" | "deleted" | "published") => Promise<boolean>;
+  setFrontPageIds: (ids: string[]) => void;
+  hydrateFrontPage: () => Promise<void>;
+  pinToFront: (storyId: string) => Promise<boolean>;
+  unpinFromFront: (storyId: string) => Promise<boolean>;
   setAllowList: (list: string[]) => void;
   setDenyList: (list: string[]) => void;
   seedRegionalPress: () => void;
@@ -89,6 +94,8 @@ function applyDocument(lang: Lang, theme: Theme) {
 
 let deskHydratePromise: Promise<void> | null = null;
 let deskHydratedOnce = false;
+let frontHydratePromise: Promise<void> | null = null;
+let frontHydratedOnce = false;
 
 export const useAppStore = create<AppState>()(
   persist(
@@ -103,6 +110,7 @@ export const useAppStore = create<AppState>()(
       rejected: [],
       extras: [],
       deskStatus: {},
+      frontPageIds: [],
       allowList: DEFAULT_ALLOW_LIST,
       denyList: [...DEFAULT_DENY_DOMAINS],
       newsletter: [],
@@ -244,6 +252,65 @@ export const useAppStore = create<AppState>()(
           return false;
         }
       },
+      setFrontPageIds: (frontPageIds) => set({ frontPageIds }),
+      hydrateFrontPage: async () => {
+        if (frontHydratedOnce) return;
+        if (frontHydratePromise) return frontHydratePromise;
+        frontHydratePromise = (async () => {
+          try {
+            const res = await fetch("/api/desk-front-page");
+            const data = (await res.json()) as { ok?: boolean; ids?: string[] };
+            if (data?.ok && Array.isArray(data.ids)) {
+              get().setFrontPageIds(data.ids.filter((id) => typeof id === "string" && /^s\d+$/.test(id)));
+            }
+          } catch {
+            /* keep cached ids */
+          } finally {
+            frontHydratedOnce = true;
+            frontHydratePromise = null;
+          }
+        })();
+        return frontHydratePromise;
+      },
+      pinToFront: async (storyId) => {
+        if (!/^s\d+$/.test(storyId)) return false;
+        try {
+          const res = await fetch("/api/desk-front-page", {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "pin", storyId }),
+          });
+          const data = (await res.json()) as { ok?: boolean; ids?: string[] };
+          if (!res.ok || !data?.ok) return false;
+          if (Array.isArray(data.ids)) get().setFrontPageIds(data.ids);
+          else {
+            const ids = get().frontPageIds.filter((id) => id !== storyId);
+            get().setFrontPageIds([storyId, ...ids]);
+          }
+          return true;
+        } catch {
+          return false;
+        }
+      },
+      unpinFromFront: async (storyId) => {
+        if (!/^s\d+$/.test(storyId)) return false;
+        try {
+          const res = await fetch("/api/desk-front-page", {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "unpin", storyId }),
+          });
+          const data = (await res.json()) as { ok?: boolean; ids?: string[] };
+          if (!res.ok || !data?.ok) return false;
+          if (Array.isArray(data.ids)) get().setFrontPageIds(data.ids);
+          else get().setFrontPageIds(get().frontPageIds.filter((id) => id !== storyId));
+          return true;
+        } catch {
+          return false;
+        }
+      },
       setAllowList: (allowList) => set({ allowList }),
       setDenyList: (denyList) => set({ denyList }),
       seedRegionalPress: () => {
@@ -327,12 +394,18 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 5,
+      version: 6,
       migrate: (persisted) => {
-        const s = (persisted ?? {}) as { lang?: string; admin?: boolean; deskStatus?: DeskStatusMap };
+        const s = (persisted ?? {}) as {
+          lang?: string;
+          admin?: boolean;
+          deskStatus?: DeskStatusMap;
+          frontPageIds?: string[];
+        };
         if (!s.lang || s.lang === "en") s.lang = "fr";
         delete s.admin;
         if (!s.deskStatus || typeof s.deskStatus !== "object") s.deskStatus = {};
+        if (!Array.isArray(s.frontPageIds)) s.frontPageIds = [];
         return s as typeof persisted;
       },
       partialize: (s) => ({
@@ -344,6 +417,7 @@ export const useAppStore = create<AppState>()(
         rejected: s.rejected,
         extras: s.extras,
         deskStatus: s.deskStatus,
+        frontPageIds: s.frontPageIds,
         allowList: s.allowList,
         denyList: s.denyList,
         newsletter: s.newsletter,
@@ -369,6 +443,7 @@ export const useAppStore = create<AppState>()(
         if (!state.fakeGuesses) state.fakeGuesses = {};
         if (!state.shares) state.shares = {};
         if (!state.deskStatus) state.deskStatus = {};
+        if (!state.frontPageIds) state.frontPageIds = [];
         applyDocument(state.lang, state.theme);
         state.setHydrated(true);
         if (!state.sprintEndsAt) state.ensureSprint();
@@ -390,4 +465,5 @@ export function bootstrapClientPrefs() {
   }
   store.ensureSprint();
   void store.hydrateDeskStatus();
+  void store.hydrateFrontPage();
 }

@@ -62,11 +62,22 @@ export function deskStories(extras: Story[], deskStatus?: DeskStatusMap): Story[
     .sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
 }
 
-/** Une only: news dated in the last seven days. Archive remains live on section and article URLs. */
-export function homeStories(extras: Story[], deskStatus?: DeskStatusMap): Story[] {
-  return publishedStories(extras, deskStatus)
-    .filter((s) => isThisWeek(s))
+/** Une: desk pins first (even outside the week window), then this week’s published list. */
+export function homeStories(extras: Story[], deskStatus?: DeskStatusMap, frontIds?: string[]): Story[] {
+  const published = publishedStories(extras, deskStatus);
+  const byId = new Map(published.map((s) => [s.id, s]));
+  const pins: Story[] = [];
+  const pinned = new Set<string>();
+  for (const id of frontIds ?? []) {
+    const s = byId.get(id);
+    if (!s || pinned.has(id)) continue;
+    pins.push(s);
+    pinned.add(id);
+  }
+  const week = published
+    .filter((s) => !pinned.has(s.id) && isThisWeek(s))
     .sort((a, b) => +storyNewsDate(b) - +storyNewsDate(a) || +new Date(b.publishedAt) - +new Date(a.publishedAt));
+  return [...pins, ...week];
 }
 
 export function sponsoredStory(extras: Story[], deskStatus?: DeskStatusMap): Story | undefined {

@@ -40,8 +40,9 @@ function Home() {
   const lang = useAppStore((s) => s.lang);
   const extras = useAppStore((s) => s.extras);
   const deskStatus = useAppStore((s) => s.deskStatus);
+  const frontPageIds = useAppStore((s) => s.frontPageIds);
   const addNewsletter = useAppStore((s) => s.addNewsletter);
-  const latest = homeStories(extras, deskStatus);
+  const latest = homeStories(extras, deskStatus, frontPageIds);
   return (
     <SiteShell>
       <JsonLd data={orgJsonLd()} />
