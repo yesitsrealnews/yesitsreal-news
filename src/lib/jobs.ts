@@ -31,7 +31,7 @@ export const JOBS: Job[] = [
         title: "Editor, Accidents & Faits Divers",
         dek: "You can smell a preventable disaster from 800 words and you refuse to punch down.",
         bullets: [
-          "Own the accidents, faits divers, and crime-fails rails.",
+          "Own the accidents, faits divers, and justice rails.",
           "Kill anything that is satire, rumor, or tragedy without incompetence.",
           "Ship 6–10 desk-ready drafts a week with sources attached.",
         ],
@@ -40,7 +40,7 @@ export const JOBS: Job[] = [
         title: "Chef·fe de rubrique Accidents & faits divers",
         dek: "Vous sentez une catastrophe évitable à 800 mots, et vous ne frappez jamais vers le bas.",
         bullets: [
-          "Piloter les rails accidents, faits divers, crime & ratés.",
+          "Piloter les rails accidents, faits divers, justice.",
           "Tuer tout ce qui est satire, rumeur, ou drame sans incompétence.",
           "Livrer 6 à 10 papiers sourcés par semaine.",
         ],

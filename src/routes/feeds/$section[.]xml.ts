@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { isPublicSectionId } from "@/lib/data/sections";
+import { isPublicSectionId, canonicalSection } from "@/lib/data/sections";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { coverSrc } from "@/lib/covers";
 import { xmlEscape, storySeoCopy } from "@/lib/seo";
@@ -11,8 +11,9 @@ export const Route = createFileRoute("/feeds/$section.xml")({
     handlers: {
       GET: async ({ params }) => {
         const raw = (params as { section?: string; "section.xml"?: string }).section ?? params["section.xml"] ?? "";
-        const section = raw.replace(/\.xml$/i, "");
-        if (!isPublicSectionId(section)) {
+        const requested = raw.replace(/\.xml$/i, "");
+        const section = canonicalSection(requested);
+        if (!section || !isPublicSectionId(section)) {
           return new Response("Not found", { status: 404 });
         }
         const desk = await getDeskStoryStatus();

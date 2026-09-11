@@ -1,6 +1,7 @@
 import type { Lang, SectionId, Story, StoryStatus } from "@/lib/types";
 import { STORIES, getStoryBySlug as seedBySlug } from "@/lib/data/stories";
 import { storyCopy } from "@/lib/format";
+import { canonicalSection } from "@/lib/data/sections";
 
 /** Rolling week for the une. Older copy stays published in rubriques, not on /. */
 export const HOME_WINDOW_DAYS = 7;
@@ -25,10 +26,16 @@ export function isThisWeek(story: Story, now = Date.now()): boolean {
 export function mergeStories(extras: Story[]): Story[] {
   const map = new Map<string, Story>();
   for (const s of STORIES) map.set(s.id, s);
-  for (const s of extras) map.set(s.id, s);
+  for (const s of extras) map.set(s.id, canonicalizeStory(s));
   return [...map.values()].sort(
     (a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt),
   );
+}
+
+function canonicalizeStory(s: Story): Story {
+  const section = canonicalSection(s.section);
+  if (!section || section === s.section) return s;
+  return { ...s, section };
 }
 
 function deskOverride(storyId: string, deskStatus?: DeskStatusMap): "held" | "deleted" | undefined {

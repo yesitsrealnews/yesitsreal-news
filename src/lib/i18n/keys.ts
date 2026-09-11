@@ -251,6 +251,7 @@ export const UI_KEYS = [
   "commentsError",
   "commentsDisabled",
   "commentsAnon",
+  "getApp",
 ] as const;
 
 export type UiKey = (typeof UI_KEYS)[number];
@@ -261,7 +262,7 @@ export const SECTION_KEY: Record<string, UiKey> = {
   stars: "secStars",
   science: "secScience",
   "faits-divers": "secFaits",
-  crime: "secCrime",
+  crime: "secCourts",
   politics: "secPolitics",
   animals: "secAnimals",
   tech: "secTech",

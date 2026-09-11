@@ -54,7 +54,6 @@ export const SECTION_INK: Record<SectionId, { a: string; b: string; c: string }>
   stars: { a: "#8a5a12", b: "#111111", c: "#ffe400" },
   science: { a: "#143d66", b: "#111111", c: "#ffe400" },
   "faits-divers": { a: "#0f7a4a", b: "#111111", c: "#ffe400" },
-  crime: { a: "#5a1020", b: "#e10600", c: "#f4f1ea" },
   politics: { a: "#e10600", b: "#1a1a1a", c: "#ffe400" },
   animals: { a: "#0f7a4a", b: "#143d66", c: "#ffe400" },
   tech: { a: "#143d66", b: "#e10600", c: "#f4f1ea" },

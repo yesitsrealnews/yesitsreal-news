@@ -4976,7 +4976,7 @@ export const STORIES_C: Story[] = [
       fr: "riom-trois-hommes-belient-un-distributeur-de-pizzas-pas-de-liquide-pied-de-biche-dans-la-tete",
       es: "riom-tres-hombres-embisten-un-distribuidor-de-pizzas-sin-efectivo-palanca-en-la-cabeza",
     },
-    section: "crime",
+    section: "courts",
     countryCode: "FR",
     countryName: "France",
     location: "Riom",

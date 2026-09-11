@@ -15,7 +15,6 @@ const SECTION_FR: Record<SectionId, string> = {
   stars: "Célébrités",
   science: "Science",
   "faits-divers": "Faits divers",
-  crime: "Crime & ratés",
   politics: "Politique",
   animals: "Animaux",
   tech: "Tech",

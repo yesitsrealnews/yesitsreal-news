@@ -59,13 +59,13 @@ const en: Record<UiKey, string> = {
   secStars: "Stars",
   secScience: "Science & Studies",
   secFaits: "Faits Divers",
-  secCrime: "Crime & Fails",
+  secCrime: "Justice",
   secPolitics: "Politics",
   secAnimals: "Animals",
   secTech: "Tech",
   secSports: "Sports",
   secLove: "Love & Money",
-  secCourts: "Courts & Bureaucracy",
+  secCourts: "Justice",
   secCommentaire: "Comment",
   secArchive: "Archive",
   archiveKicker: "The last century",
@@ -267,6 +267,7 @@ const en: Record<UiKey, string> = {
   commentsError: "Couldn’t post. Try again in a moment.",
   commentsDisabled: "Comments are temporarily unavailable.",
   commentsAnon: "Anonymous",
+  getApp: "The app",
 };
 
 function overlay(partial: Partial<Record<UiKey, string>>): Record<UiKey, string> {
@@ -329,13 +330,13 @@ const fr = overlay({
   secStars: "Célébrités",
   secScience: "Science & études",
   secFaits: "Faits divers",
-  secCrime: "Crime & ratés",
+  secCrime: "Justice",
   secPolitics: "Politique",
   secAnimals: "Animaux",
   secTech: "Tech",
   secSports: "Sports",
   secLove: "Amour & argent",
-  secCourts: "Justice & bureaucratie",
+  secCourts: "Justice",
   secCommentaire: "Commentaire",
   secArchive: "Archives",
   archiveKicker: "Le siècle dernier",
@@ -537,6 +538,7 @@ const fr = overlay({
   commentsError: "Impossible d’envoyer. Réessayez dans un instant.",
   commentsDisabled: "Les commentaires sont temporairement indisponibles.",
   commentsAnon: "Anonyme",
+  getApp: "L’app",
 });
 
 const es = overlay({
@@ -588,13 +590,13 @@ const es = overlay({
   secStars: "Famosos",
   secScience: "Ciencia y estudios",
   secFaits: "Sucesos",
-  secCrime: "Crimen y fracasos",
+  secCrime: "Justicia",
   secPolitics: "Política",
   secAnimals: "Animales",
   secTech: "Tecnología",
   secSports: "Deportes",
   secLove: "Amor y dinero",
-  secCourts: "Tribunales y burocracia",
+  secCourts: "Justicia",
   secCommentaire: "Comentario",
   secArchive: "Archivo",
   archiveKicker: "El siglo pasado",
@@ -780,6 +782,7 @@ const es = overlay({
   commentsError: "No se pudo enviar. Inténtelo de nuevo.",
   commentsDisabled: "Los comentarios no están disponibles temporalmente.",
   commentsAnon: "Anónimo",
+  getApp: "La app",
 });
 
 const de = overlay({
@@ -831,13 +834,13 @@ const de = overlay({
   secStars: "Stars",
   secScience: "Wissenschaft & Studien",
   secFaits: "Vermischtes",
-  secCrime: "Kriminalität & Fails",
+  secCrime: "Justiz",
   secPolitics: "Politik",
   secAnimals: "Tiere",
   secTech: "Technik",
   secSports: "Sport",
   secLove: "Liebe & Geld",
-  secCourts: "Gerichte & Bürokratie",
+  secCourts: "Justiz",
   secCommentaire: "Kommentar",
   secArchive: "Archiv",
   archiveKicker: "Das letzte Jahrhundert",
@@ -929,6 +932,7 @@ const de = overlay({
   commentsError: "Konnte nicht senden. Bitte später erneut versuchen.",
   commentsDisabled: "Kommentare sind vorübergehend nicht verfügbar.",
   commentsAnon: "Anonym",
+  getApp: "Die App",
 });
 
 const ar = overlay({
@@ -980,13 +984,13 @@ const ar = overlay({
   secStars: "نجوم",
   secScience: "علم ودراسات",
   secFaits: "وقائع غريبة",
-  secCrime: "جريمة وإخفاقات",
+  secCrime: "عدالة",
   secPolitics: "سياسة",
   secAnimals: "حيوانات",
   secTech: "تقنية",
   secSports: "رياضة",
   secLove: "حب ومال",
-  secCourts: "محاكم وبيروقراطية",
+  secCourts: "عدالة",
   secCommentaire: "تعليق",
   secArchive: "أرشيف",
   archiveKicker: "القرن الماضي",
@@ -1078,6 +1082,7 @@ const ar = overlay({
   commentsError: "تعذّر الإرسال. حاول لاحقًا.",
   commentsDisabled: "التعليقات غير متاحة مؤقتًا.",
   commentsAnon: "مجهول",
+  getApp: "التطبيق",
 });
 
 const extras: Partial<Record<Lang, Record<UiKey, string>>> = { en, fr, es, de, ar };

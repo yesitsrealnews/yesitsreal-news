@@ -12,6 +12,9 @@ export const Route = createFileRoute("/$section")({
     if (params.section === "declarations") {
       throw redirect({ to: "/$section", params: { section: "politics" } });
     }
+    if (params.section === "crime") {
+      throw redirect({ to: "/$section", params: { section: "courts" } });
+    }
     if (params.section === "archive") {
       throw redirect({ to: "/" });
     }

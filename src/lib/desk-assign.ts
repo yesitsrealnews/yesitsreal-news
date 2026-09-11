@@ -6,6 +6,7 @@ import { isSafeHttpUrl, sanitizeText } from "@/lib/security";
 import type { ClaimRow, FactPack, QueueItem, SectionId, Source, Story, StoryCopy } from "@/lib/types";
 import { SECTION_IDS } from "@/lib/types";
 import { VOICE_IDS, VOICES, type VoiceId } from "@/lib/voices";
+import { canonicalSection } from "@/lib/data/sections";
 
 export type DeskAssignInput = {
   subject: string;
@@ -99,7 +100,10 @@ function asVoice(raw?: string): VoiceId {
 }
 
 function asSection(raw: string | undefined, fallback: SectionId): SectionId {
-  if (raw && (SECTION_IDS as readonly string[]).includes(raw)) return raw as SectionId;
+  if (!raw) return fallback;
+  const mapped = canonicalSection(raw);
+  if (mapped) return mapped;
+  if ((SECTION_IDS as readonly string[]).includes(raw)) return raw as SectionId;
   return fallback;
 }
 
@@ -259,7 +263,7 @@ Réponds UNIQUEMENT un JSON :
   "bodyEn": ["paragraphes EN. Si le pays n’est pas la France, lede légèrement chauvin à la française."],
   "whyDumbEn": ["","",""],
   "factCheckNoteEn": "",
-  "section": "world|accidents|stars|science|faits-divers|crime|politics|animals|tech|sports|love-money|courts|commentaire",
+  "section": "world|accidents|stars|science|faits-divers|politics|animals|tech|sports|love-money|courts|commentaire",
   "countryCode": "FR",
   "countryName": "France",
   "location": "ville ou région",

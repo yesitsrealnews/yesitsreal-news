@@ -289,7 +289,7 @@ export const STORIES_A: Story[] = [
     id: "s09",
     slug: "police-raid-roomba-reported-as-prowler",
     slugs: { fr: "police-raid-roomba-intrus", es: "policia-redada-roomba", de: "polizei-razzia-saugroboter" },
-    section: "crime",
+    section: "courts",
     countryCode: "AU",
     countryName: "Australia",
     location: "Geelong",

@@ -40,7 +40,6 @@ export const SECTION_IDS = [
   "stars",
   "science",
   "faits-divers",
-  "crime",
   "politics",
   "animals",
   "tech",
