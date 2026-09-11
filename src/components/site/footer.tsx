@@ -92,6 +92,16 @@ export function Footer({ lang }: { lang: Lang }) {
               </li>
             ))}
             <li>
+              <a href="/rss.xml" className="hover:underline">
+                {t(lang, "rss")} · FR
+              </a>
+            </li>
+            <li>
+              <a href="/rss-en.xml" className="hover:underline">
+                {t(lang, "rss")} · EN
+              </a>
+            </li>
+            <li>
               <Link to="/privacy" className="hover:underline">
                 {t(lang, "privacy")}
               </Link>

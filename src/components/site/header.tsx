@@ -42,6 +42,9 @@ export function Header({
           <a href={`mailto:${EMAILS.desk}`} className="text-[0.65rem] font-bold tracking-[0.04em] hover:text-scream">
             {EMAILS.desk}
           </a>
+          <a href="/rss.xml" className="text-[0.65rem] font-extrabold uppercase tracking-[0.12em] hover:text-scream">
+            {t(lang, "rss")}
+          </a>
         </div>
       </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-2 sm:px-6">
@@ -85,6 +88,9 @@ export function Header({
                 </Link>
                 <a href={`mailto:${EMAILS.desk}`} className="px-3 py-3 text-sm">
                   {EMAILS.desk}
+                </a>
+                <a href="/rss.xml" className="px-3 py-3 text-sm font-bold">
+                  {t(lang, "rss")}
                 </a>
               </nav>
             </SheetContent>

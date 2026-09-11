@@ -85,7 +85,7 @@ function SourcesPage() {
           <div className="border-b border-rule px-4 py-3">
             <h2 className="font-serif text-xl">Flux RSS branchés</h2>
             <p className="text-xs text-muted-foreground">
-              {RSS_FEEDS.length} flux vérifiés — tirage depuis la file d’attente
+              {RSS_FEEDS.length} flux vérifiés — tirage depuis la file d’attente (pas de publication auto)
             </p>
           </div>
           <ul className="max-h-56 overflow-y-auto text-sm">

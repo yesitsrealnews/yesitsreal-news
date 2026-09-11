@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMergedInbox } from "@/lib/admin-inbox";
 import { formatDateTime, storyCopy } from "@/lib/format";
 import { makeQueueItem } from "@/lib/pipeline";
@@ -15,6 +15,27 @@ function InboxPage() {
   const navigate = useNavigate();
   const [pulling, setPulling] = useState(false);
   const [pullNote, setPullNote] = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        const res = await fetch("/api/rss-pull?stored=1", { credentials: "include" });
+        const data = (await res.json()) as { ok?: boolean; count?: number; at?: string; items?: QueueItem[] };
+        if (cancelled || !res.ok || !data.ok) return;
+        for (const item of data.items ?? []) upsertInbox(item);
+        if (data.at) {
+          const when = formatDateTime(data.at, "fr");
+          setPullNote(`${data.count ?? 0} pistes RSS en cache · dernier tirage ${when}`);
+        }
+      } catch {
+        /* preview without desk cookie is fine */
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [upsertInbox]);
 
   function createPapier() {
     const item = makeQueueItem({
@@ -32,14 +53,14 @@ function InboxPage() {
     setPullNote("");
     try {
       const res = await fetch("/api/rss-pull", { method: "POST", credentials: "include" });
-      const data = (await res.json()) as { ok?: boolean; count?: number; items?: QueueItem[]; failed?: string[] };
+      const data = (await res.json()) as { ok?: boolean; count?: number; items?: QueueItem[]; failed?: string[]; scanned?: number };
       if (!res.ok || !data.ok) {
         setPullNote("Les flux n’ont pas répondu. Réessaie dans une minute.");
         return;
       }
       for (const item of data.items ?? []) upsertInbox(item);
       const fail = data.failed?.length ? ` · silencieux : ${data.failed.slice(0, 4).join(", ")}` : "";
-      setPullNote(`${data.count ?? 0} pistes versées dans la file${fail}`);
+      setPullNote(`${data.count ?? 0} pistes sur ${data.scanned ?? "?"} flux${fail}`);
     } catch {
       setPullNote("Réseau. Réessaie.");
     } finally {

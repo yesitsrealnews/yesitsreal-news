@@ -53,12 +53,14 @@ import { Route as AdminTranslationsRouteImport } from './routes/admin.translatio
 import { Route as ApiCommentsRouteImport } from './routes/api/comments'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as ApiDeskRouteImport } from './routes/api/desk'
-import { Route as ApiDeskStoryStatusRouteImport } from './routes/api/desk-story-status'
 import { Route as ApiDeskFrontPageRouteImport } from './routes/api/desk-front-page'
+import { Route as ApiDeskStoryStatusRouteImport } from './routes/api/desk-story-status'
 import { Route as ApiIngestRouteImport } from './routes/api/ingest'
 import { Route as ApiPublishRouteImport } from './routes/api/publish'
+import { Route as ApiRssPullRouteImport } from './routes/api/rss-pull'
 import { Route as ApiScoreRouteImport } from './routes/api/score'
 import { Route as ApiTranslateRouteImport } from './routes/api/translate'
+import { Route as FeedsSectionDotxmlRouteImport } from './routes/feeds/$section[.]xml'
 import { Route as StorySlugRouteImport } from './routes/story.$slug'
 import { Route as AdminStoryIdRouteImport } from './routes/admin.story.$id'
 
@@ -282,14 +284,14 @@ const ApiDeskRoute = ApiDeskRouteImport.update({
   path: '/api/desk',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiDeskStoryStatusRoute = ApiDeskStoryStatusRouteImport.update({
-  id: '/api/desk-story-status',
-  path: '/api/desk-story-status',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiDeskFrontPageRoute = ApiDeskFrontPageRouteImport.update({
   id: '/api/desk-front-page',
   path: '/api/desk-front-page',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDeskStoryStatusRoute = ApiDeskStoryStatusRouteImport.update({
+  id: '/api/desk-story-status',
+  path: '/api/desk-story-status',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiIngestRoute = ApiIngestRouteImport.update({
@@ -302,6 +304,11 @@ const ApiPublishRoute = ApiPublishRouteImport.update({
   path: '/api/publish',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiRssPullRoute = ApiRssPullRouteImport.update({
+  id: '/api/rss-pull',
+  path: '/api/rss-pull',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiScoreRoute = ApiScoreRouteImport.update({
   id: '/api/score',
   path: '/api/score',
@@ -310,6 +317,11 @@ const ApiScoreRoute = ApiScoreRouteImport.update({
 const ApiTranslateRoute = ApiTranslateRouteImport.update({
   id: '/api/translate',
   path: '/api/translate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedsSectionDotxmlRoute = FeedsSectionDotxmlRouteImport.update({
+  id: '/feeds/$section.xml',
+  path: '/feeds/$section.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StorySlugRoute = StorySlugRouteImport.update({
@@ -367,12 +379,14 @@ export interface FileRoutesByFullPath {
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
-  '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
+  '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
+  '/api/rss-pull': typeof ApiRssPullRoute
   '/api/score': typeof ApiScoreRoute
   '/api/translate': typeof ApiTranslateRoute
+  '/feeds/$section.xml': typeof FeedsSectionDotxmlRoute
   '/story/$slug': typeof StorySlugRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/story/$id': typeof AdminStoryIdRoute
@@ -420,12 +434,14 @@ export interface FileRoutesByTo {
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
-  '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
+  '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
+  '/api/rss-pull': typeof ApiRssPullRoute
   '/api/score': typeof ApiScoreRoute
   '/api/translate': typeof ApiTranslateRoute
+  '/feeds/$section.xml': typeof FeedsSectionDotxmlRoute
   '/story/$slug': typeof StorySlugRoute
   '/admin': typeof AdminIndexRoute
   '/admin/story/$id': typeof AdminStoryIdRoute
@@ -475,12 +491,14 @@ export interface FileRoutesById {
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
-  '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
+  '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
+  '/api/rss-pull': typeof ApiRssPullRoute
   '/api/score': typeof ApiScoreRoute
   '/api/translate': typeof ApiTranslateRoute
+  '/feeds/$section.xml': typeof FeedsSectionDotxmlRoute
   '/story/$slug': typeof StorySlugRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/story/$id': typeof AdminStoryIdRoute
@@ -531,12 +549,14 @@ export interface FileRouteTypes {
     | '/api/comments'
     | '/api/contact'
     | '/api/desk'
-    | '/api/desk-story-status'
     | '/api/desk-front-page'
+    | '/api/desk-story-status'
     | '/api/ingest'
     | '/api/publish'
+    | '/api/rss-pull'
     | '/api/score'
     | '/api/translate'
+    | '/feeds/$section.xml'
     | '/story/$slug'
     | '/admin/'
     | '/admin/story/$id'
@@ -584,12 +604,14 @@ export interface FileRouteTypes {
     | '/api/comments'
     | '/api/contact'
     | '/api/desk'
-    | '/api/desk-story-status'
     | '/api/desk-front-page'
+    | '/api/desk-story-status'
     | '/api/ingest'
     | '/api/publish'
+    | '/api/rss-pull'
     | '/api/score'
     | '/api/translate'
+    | '/feeds/$section.xml'
     | '/story/$slug'
     | '/admin'
     | '/admin/story/$id'
@@ -638,12 +660,14 @@ export interface FileRouteTypes {
     | '/api/comments'
     | '/api/contact'
     | '/api/desk'
-    | '/api/desk-story-status'
     | '/api/desk-front-page'
+    | '/api/desk-story-status'
     | '/api/ingest'
     | '/api/publish'
+    | '/api/rss-pull'
     | '/api/score'
     | '/api/translate'
+    | '/feeds/$section.xml'
     | '/story/$slug'
     | '/admin/'
     | '/admin/story/$id'
@@ -685,12 +709,14 @@ export interface RootRouteChildren {
   ApiCommentsRoute: typeof ApiCommentsRoute
   ApiContactRoute: typeof ApiContactRoute
   ApiDeskRoute: typeof ApiDeskRoute
-  ApiDeskStoryStatusRoute: typeof ApiDeskStoryStatusRoute
   ApiDeskFrontPageRoute: typeof ApiDeskFrontPageRoute
+  ApiDeskStoryStatusRoute: typeof ApiDeskStoryStatusRoute
   ApiIngestRoute: typeof ApiIngestRoute
   ApiPublishRoute: typeof ApiPublishRoute
+  ApiRssPullRoute: typeof ApiRssPullRoute
   ApiScoreRoute: typeof ApiScoreRoute
   ApiTranslateRoute: typeof ApiTranslateRoute
+  FeedsSectionDotxmlRoute: typeof FeedsSectionDotxmlRoute
   StorySlugRoute: typeof StorySlugRoute
 }
 
@@ -1004,18 +1030,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiDeskRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/desk-story-status': {
-      id: '/api/desk-story-status'
-      path: '/api/desk-story-status'
-      fullPath: '/api/desk-story-status'
-      preLoaderRoute: typeof ApiDeskStoryStatusRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/desk-front-page': {
       id: '/api/desk-front-page'
       path: '/api/desk-front-page'
       fullPath: '/api/desk-front-page'
       preLoaderRoute: typeof ApiDeskFrontPageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/desk-story-status': {
+      id: '/api/desk-story-status'
+      path: '/api/desk-story-status'
+      fullPath: '/api/desk-story-status'
+      preLoaderRoute: typeof ApiDeskStoryStatusRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/ingest': {
@@ -1032,6 +1058,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublishRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/rss-pull': {
+      id: '/api/rss-pull'
+      path: '/api/rss-pull'
+      fullPath: '/api/rss-pull'
+      preLoaderRoute: typeof ApiRssPullRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/score': {
       id: '/api/score'
       path: '/api/score'
@@ -1044,6 +1077,13 @@ declare module '@tanstack/react-router' {
       path: '/api/translate'
       fullPath: '/api/translate'
       preLoaderRoute: typeof ApiTranslateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feeds/$section.xml': {
+      id: '/feeds/$section.xml'
+      path: '/feeds/$section.xml'
+      fullPath: '/feeds/$section.xml'
+      preLoaderRoute: typeof FeedsSectionDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/story/$slug': {
@@ -1127,12 +1167,14 @@ const rootRouteChildren: RootRouteChildren = {
   ApiCommentsRoute: ApiCommentsRoute,
   ApiContactRoute: ApiContactRoute,
   ApiDeskRoute: ApiDeskRoute,
-  ApiDeskStoryStatusRoute: ApiDeskStoryStatusRoute,
   ApiDeskFrontPageRoute: ApiDeskFrontPageRoute,
+  ApiDeskStoryStatusRoute: ApiDeskStoryStatusRoute,
   ApiIngestRoute: ApiIngestRoute,
   ApiPublishRoute: ApiPublishRoute,
+  ApiRssPullRoute: ApiRssPullRoute,
   ApiScoreRoute: ApiScoreRoute,
   ApiTranslateRoute: ApiTranslateRoute,
+  FeedsSectionDotxmlRoute: FeedsSectionDotxmlRoute,
   StorySlugRoute: StorySlugRoute,
 }
 export const routeTree = rootRouteImport
