@@ -44,6 +44,7 @@ import { Route as TodayRouteImport } from './routes/today'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminAdsRouteImport } from './routes/admin.ads'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminAssignRouteImport } from './routes/admin.assign'
 import { Route as AdminCalibrationRouteImport } from './routes/admin.calibration'
 import { Route as AdminInboxRouteImport } from './routes/admin.inbox'
 import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
@@ -53,6 +54,7 @@ import { Route as AdminTranslationsRouteImport } from './routes/admin.translatio
 import { Route as ApiCommentsRouteImport } from './routes/api/comments'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as ApiDeskRouteImport } from './routes/api/desk'
+import { Route as ApiDeskAssignRouteImport } from './routes/api/desk-assign'
 import { Route as ApiDeskFrontPageRouteImport } from './routes/api/desk-front-page'
 import { Route as ApiDeskStoryStatusRouteImport } from './routes/api/desk-story-status'
 import { Route as ApiIngestRouteImport } from './routes/api/ingest'
@@ -239,6 +241,11 @@ const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAssignRoute = AdminAssignRouteImport.update({
+  id: '/assign',
+  path: '/assign',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminCalibrationRoute = AdminCalibrationRouteImport.update({
   id: '/calibration',
   path: '/calibration',
@@ -282,6 +289,11 @@ const ApiContactRoute = ApiContactRouteImport.update({
 const ApiDeskRoute = ApiDeskRouteImport.update({
   id: '/api/desk',
   path: '/api/desk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDeskAssignRoute = ApiDeskAssignRouteImport.update({
+  id: '/api/desk-assign',
+  path: '/api/desk-assign',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiDeskFrontPageRoute = ApiDeskFrontPageRouteImport.update({
@@ -370,6 +382,7 @@ export interface FileRoutesByFullPath {
   '/today': typeof TodayRoute
   '/admin/ads': typeof AdminAdsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/assign': typeof AdminAssignRoute
   '/admin/calibration': typeof AdminCalibrationRoute
   '/admin/inbox': typeof AdminInboxRoute
   '/admin/leads': typeof AdminLeadsRoute
@@ -379,6 +392,7 @@ export interface FileRoutesByFullPath {
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
+  '/api/desk-assign': typeof ApiDeskAssignRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
   '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
@@ -425,6 +439,7 @@ export interface FileRoutesByTo {
   '/today': typeof TodayRoute
   '/admin/ads': typeof AdminAdsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/assign': typeof AdminAssignRoute
   '/admin/calibration': typeof AdminCalibrationRoute
   '/admin/inbox': typeof AdminInboxRoute
   '/admin/leads': typeof AdminLeadsRoute
@@ -434,6 +449,7 @@ export interface FileRoutesByTo {
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
+  '/api/desk-assign': typeof ApiDeskAssignRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
   '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
@@ -482,6 +498,7 @@ export interface FileRoutesById {
   '/today': typeof TodayRoute
   '/admin/ads': typeof AdminAdsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/assign': typeof AdminAssignRoute
   '/admin/calibration': typeof AdminCalibrationRoute
   '/admin/inbox': typeof AdminInboxRoute
   '/admin/leads': typeof AdminLeadsRoute
@@ -491,6 +508,7 @@ export interface FileRoutesById {
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
+  '/api/desk-assign': typeof ApiDeskAssignRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
   '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
@@ -709,6 +727,7 @@ export interface RootRouteChildren {
   ApiCommentsRoute: typeof ApiCommentsRoute
   ApiContactRoute: typeof ApiContactRoute
   ApiDeskRoute: typeof ApiDeskRoute
+  ApiDeskAssignRoute: typeof ApiDeskAssignRoute
   ApiDeskFrontPageRoute: typeof ApiDeskFrontPageRoute
   ApiDeskStoryStatusRoute: typeof ApiDeskStoryStatusRoute
   ApiIngestRoute: typeof ApiIngestRoute
@@ -967,6 +986,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAnalyticsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/assign': {
+      id: '/admin/assign'
+      path: '/assign'
+      fullPath: '/admin/assign'
+      preLoaderRoute: typeof AdminAssignRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/calibration': {
       id: '/admin/calibration'
       path: '/calibration'
@@ -1028,6 +1054,13 @@ declare module '@tanstack/react-router' {
       path: '/api/desk'
       fullPath: '/api/desk'
       preLoaderRoute: typeof ApiDeskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/desk-assign': {
+      id: '/api/desk-assign'
+      path: '/api/desk-assign'
+      fullPath: '/api/desk-assign'
+      preLoaderRoute: typeof ApiDeskAssignRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/desk-front-page': {
@@ -1106,6 +1139,7 @@ declare module '@tanstack/react-router' {
 interface AdminRouteChildren {
   AdminAdsRoute: typeof AdminAdsRoute
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAssignRoute: typeof AdminAssignRoute
   AdminCalibrationRoute: typeof AdminCalibrationRoute
   AdminInboxRoute: typeof AdminInboxRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
@@ -1119,6 +1153,7 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminAdsRoute: AdminAdsRoute,
   AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAssignRoute: AdminAssignRoute,
   AdminCalibrationRoute: AdminCalibrationRoute,
   AdminInboxRoute: AdminInboxRoute,
   AdminLeadsRoute: AdminLeadsRoute,
@@ -1167,6 +1202,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiCommentsRoute: ApiCommentsRoute,
   ApiContactRoute: ApiContactRoute,
   ApiDeskRoute: ApiDeskRoute,
+  ApiDeskAssignRoute: ApiDeskAssignRoute,
   ApiDeskFrontPageRoute: ApiDeskFrontPageRoute,
   ApiDeskStoryStatusRoute: ApiDeskStoryStatusRoute,
   ApiIngestRoute: ApiIngestRoute,
