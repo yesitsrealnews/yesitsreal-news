@@ -76,7 +76,11 @@ export function homeStories(extras: Story[], deskStatus?: DeskStatusMap, frontId
   }
   const week = published
     .filter((s) => !pinned.has(s.id) && isThisWeek(s))
-    .sort((a, b) => +storyNewsDate(b) - +storyNewsDate(a) || +new Date(b.publishedAt) - +new Date(a.publishedAt));
+    .sort((a, b) => {
+      const br = Number(!!b.breaking) - Number(!!a.breaking);
+      if (br) return br;
+      return +new Date(b.publishedAt) - +new Date(a.publishedAt) || +storyNewsDate(b) - +storyNewsDate(a);
+    });
   return [...pins, ...week];
 }
 
