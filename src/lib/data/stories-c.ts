@@ -5829,7 +5829,7 @@ export const STORIES_C: Story[] = [
     countryName: "France",
     location: "Biarritz, Pyrénées-Atlantiques",
     dumbness: 8,
-    breaking: true,
+    breaking: false,
     sources: [
       src(
         "« Où peut-on voir des Basques ? »… Dans les offices du tourisme, les visiteurs ont encore lâché de belles perles",
@@ -6568,6 +6568,79 @@ export const STORIES_C: Story[] = [
           "Les amies plaisantent — puis l’Ami nage.",
         ],
         "Nord Littoral 9 sept. 2026 + Delta FM le même jour. Proprio identifiée seulement comme 15 ans ; pas de nom. Véhicule vide ; plongeurs confirment.",
+      ),
+    },
+  }),
+  story({
+    id: "s131",
+    slug: "scientists-replace-cement-with-human-faecal-biochar-concrete-42-percent-stronger",
+    slugs: {
+      fr: "du-biochar-de-boue-fecale-humaine-dans-le-beton-42-pour-cent-plus-resistant-a-la-flexion",
+      es: "biochar-de-lodos-fecales-en-el-hormigon-un-42-por-ciento-mas-resistente-a-flexion",
+    },
+    section: "science",
+    countryCode: "IN",
+    countryName: "India",
+    location: "Jaipur / Warangal, India",
+    dumbness: 9,
+    breaking: true,
+    sources: [
+      src(
+        "Mechanical, durability, and microstructural performance of biochar-modified concrete using faecal sludge–derived biochar",
+        "Scientific Reports",
+        "https://www.nature.com/articles/s41598-026-66956-6",
+        "2026-09-05",
+        "university",
+      ),
+      src(
+        "Scientists Are Making Concrete With Human Poop – And It Gets 42% Stronger",
+        "ScienceAlert",
+        "https://www.sciencealert.com/scientists-are-making-concrete-with-human-poop-and-it-gets-42-stronger",
+        "2026-09-09",
+        "wire",
+      ),
+      src(
+        "Scientists turned human poop into concrete; one mixture was 42% stronger after 91 days of curing",
+        "Times of India",
+        "https://timesofindia.indiatimes.com/science/discovery/scientists-turned-human-poop-into-concrete-one-mixture-was-42-stronger-after-91-days-of-curing/articleshow/134013038.cms",
+        "2026-09-11",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-11T11:55:00.000Z",
+    originalLang: "en",
+    confidence: 0.95,
+    entities: ["Raghuvesh Tiwari", "Manipal University Jaipur", "Warangal"],
+    copy: {
+      en: c(
+        "Researchers replaced a tenth of the cement with char from human faecal sludge. After 91 days the mix was 42 percent stronger in bending",
+        "Scientific Reports, 5 September. Raghuvesh Tiwari, Manipal University Jaipur. Warangal plant. ScienceAlert, Times of India. Lab cubes, not a tower.",
+        [
+          "This happened in Jaipur, India. Not France. We mention it anyway: a civil engineer has improved concrete with the one raw material every city already produces. Scientific Reports, 5 September 2026, DOI 10.1038/s41598-026-66956-6. Raghuvesh Tiwari, Priyansha Mehra, Sanchit Anand, Manipal University Jaipur; Shaik Hussain, Louisiana Tech. The feedstock is faecal sludge from a treatment plant in Warangal, dried, then heated at 350–450 °C with almost no oxygen. The char is ground. It replaces 5, 10 or 15 percent of the cement.",
+          "ScienceAlert, Michelle Starr, 9 September: after 91 days, 10 percent replacement — 21 percent more compressive strength, 42 percent more flexural strength. Five percent: +20 and +36. The paper’s own sentence, as quoted: the mix ‘yields significant improvements in concrete properties.’ Fifteen percent is worse than the middle doses. The cubes are not a skyline. The authors, and ScienceAlert, say real weather — freeze-thaw, salt, heat — is still to be tested. Heavy metals in sludge are a known problem; whether they stay locked in the slab is not settled.",
+          "YES IT'S REAL read the paper, ScienceAlert and the Times of India. Named lab, named plant, named percentages. We do not pour a building. We print that the strongest mix, on the bench, was the one with a tenth of the cement swapped for char from human waste. The Romans used lime. Jaipur used the treatment plant.",
+        ],
+        [
+          "The additive started at the sewage works.",
+          "Ten percent of the cement came out. The bend test went up 42 percent.",
+          "The paper is cubes in a lab. The headline is not a tower.",
+        ],
+        "Scientific Reports 5 Sept 2026; ScienceAlert 9 Sept; TOI 11 Sept. Named authors. Lab specimens, not a building.",
+      ),
+      fr: c(
+        "Ils remplacent un dixième du ciment par du charbon de boue fécale humaine. Au bout de 91 jours, le mélange résiste 42 % de plus à la flexion",
+        "Scientific Reports, 5 septembre. Raghuvesh Tiwari, Manipal University Jaipur. Usine de Warangal. ScienceAlert, Times of India. Des cubes de labo, pas une tour.",
+        [
+          "Jaipur, Inde. Scientific Reports, 5 septembre 2026, DOI 10.1038/s41598-026-66956-6. Raghuvesh Tiwari, Priyansha Mehra, Sanchit Anand, Manipal University Jaipur ; Shaik Hussain, Louisiana Tech. La matière première : boue fécale d’une station de Warangal, séchée, chauffée à 350–450 °C presque sans oxygène. On broie le charbon. On remplace 5, 10 ou 15 % du ciment.",
+          "ScienceAlert, Michelle Starr, 9 septembre : après 91 jours, à 10 % de substitution — +21 % en compression, +42 % en flexion. À 5 % : +20 et +36. La phrase de l’article, telle que citée : le mélange « yields significant improvements in concrete properties ». À 15 %, c’est moins bon que les doses du milieu. Ce ne sont pas des immeubles. Les auteurs, et ScienceAlert, disent que le vrai climat — gel, sel, chaleur — reste à tester. Les métaux lourds de la boue sont un problème connu ; s’ils restent coincés dans la dalle, ce n’est pas tranché.",
+          "YES IT’S REAL a lu le papier, ScienceAlert et le Times of India. Labo nommé, usine nommée, pourcentages nommés. On ne coule pas un bâtiment. On imprime que le mélange le plus fort, sur le banc, est celui où un dixième du ciment a été échangé contre du charbon de déchet humain. Les Romains avaient la chaux. Jaipur a la station d’épuration.",
+        ],
+        [
+          "L’ajout vient de la station d’épuration.",
+          "Dix pour cent du ciment en moins. La flexion, +42 %.",
+          "Le papier, ce sont des cubes. Le titre n’est pas une tour.",
+        ],
+        "Scientific Reports 5 sept. 2026 ; ScienceAlert 9 sept. ; TOI 11 sept. Auteurs nommés. Spécimens de labo, pas un immeuble.",
       ),
     },
   }),

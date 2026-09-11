@@ -617,6 +617,11 @@ export const ES_HEADLINES: Record<string, Hed> = {
     d: "Nota firmada sobre la cosecha de 20 Minutes, 8 de septiembre. Biarritz, Saint-Tropez, Lyon. El fuego artificial en sala. Chamboise.",
     w: ["La broma no es el turista. Es el formulario que lo pescó.", "Chamboise no existe. El acta, sí.", "Un mostrador que responde disparates sigue siendo servicio público."],
   },
+  s131: {
+    h: "Sustituyen un décimo del cemento por carbón de lodo fecal humano. A los 91 días, el hormigón resiste un 42% más a flexión",
+    d: "Scientific Reports, 5 de septiembre. Raghuvesh Tiwari, Manipal University Jaipur. Planta de Warangal. Cubos de laboratorio, no una torre.",
+    w: ["El aditivo sale de la depuradora.", "Diez por ciento menos de cemento. La flexión, +42%.", "El paper son cubos. El titular no es un edificio."],
+  },
 };
 
 
