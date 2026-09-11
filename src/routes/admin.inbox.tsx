@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { AssignForm } from "@/components/admin/assign-form";
 import { useMergedInbox } from "@/lib/admin-inbox";
 import { formatDateTime, storyCopy } from "@/lib/format";
 import { makeQueueItem } from "@/lib/pipeline";
@@ -80,9 +81,24 @@ function InboxPage() {
           <Button type="button" variant="outline" onClick={() => void pullRss()} disabled={pulling}>
             {pulling ? "Lecture des flux…" : "Tirer les flux RSS"}
           </Button>
+          <Button type="button" variant="outline" asChild>
+            <Link to="/admin/assign">Commander un papier</Link>
+          </Button>
           <Button type="button" onClick={createPapier}>
             Créer un papier
           </Button>
+        </div>
+      </div>
+      <div className="mt-6 border border-rule bg-paper-2 p-4">
+        <p className="kicker text-signal">Vous avez repéré un sujet</p>
+        <p className="mt-1 text-sm text-ink-muted">
+          Collez le fait et l’URL. La desk rédige. Vous relisez.{" "}
+          <Link to="/admin/assign" className="underline">
+            Plus d’options
+          </Link>
+        </p>
+        <div className="mt-4">
+          <AssignForm compact />
         </div>
       </div>
       <ul className="mt-6 divide-y divide-rule border-y border-rule">
@@ -94,6 +110,7 @@ function InboxPage() {
                 <p className="kicker text-signal">
                   {item.story.section} · {item.story.status}
                   {item.submittedBy.startsWith("RSS") ? " · RSS" : ""}
+                  {item.submittedBy.startsWith("Commande") ? " · Commande" : ""}
                 </p>
                 <h2 className="mt-1 font-serif text-xl">{c.headline}</h2>
                 <p className="mt-1 text-sm text-ink-muted">{c.dek}</p>

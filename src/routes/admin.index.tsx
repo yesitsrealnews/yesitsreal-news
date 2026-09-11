@@ -59,9 +59,14 @@ function AdminHome() {
           <h1 className="font-serif text-3xl">Tableau</h1>
           <p className="mt-2 text-sm text-ink-muted">Les titres ci-dessous sont en français, comme sur le journal.</p>
         </div>
-        <Button type="button" onClick={createPapier}>
-          Créer un papier
-        </Button>
+        <div className="flex flex-wrap gap-2">
+          <Button type="button" variant="outline" asChild>
+            <Link to="/admin/assign">Commander un papier</Link>
+          </Button>
+          <Button type="button" onClick={createPapier}>
+            Créer un papier
+          </Button>
+        </div>
       </div>
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
         {tiles.map((t) => (

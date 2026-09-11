@@ -94,19 +94,20 @@ function headlineFromNotes(notes: string): string {
   return clipped.charAt(0).toUpperCase() + clipped.slice(1);
 }
 
-function guessSection(text: string): Story["section"] {
+export function guessSection(text: string): Story["section"] {
   const h = text.toLowerCase();
-  if (/court|sue|sues|judge|tax|tribunal/.test(h)) return "courts";
-  if (/mayor|minister|parliament|law|council|maire/.test(h)) return "politics";
-  if (/study|university|scientist|étude/.test(h)) return "science";
-  if (/dog|cat|duck|pigeon|otter|animal/.test(h)) return "animals";
-  if (/app|ai|printer|software|tech|imprimante/.test(h)) return "tech";
-  if (/match|club|player|coach|goal/.test(h)) return "sports";
-  if (/police|raid|arrest|theft/.test(h)) return "crime";
-  if (/crash|bump|lane|gps|accident/.test(h)) return "accidents";
-  if (/celebrity|star|influencer|red carpet|awards|oscar|grammy/.test(h)) return "stars";
-  if (/said|announces|declares|press/.test(h)) return "politics";
-  if (/bank|hotel|dating|money|love/.test(h)) return "love-money";
+  if (/court|sue|sues|judge|tax|tribunal|plainte|procureur|justice|huissier/.test(h)) return "courts";
+  if (/mayor|minister|parliament|law|council|maire|arrêté|arrete|préfet|prefet|macron|élection|election/.test(h))
+    return "politics";
+  if (/study|university|scientist|étude|etude|ig nobel|biochar|béton|beton/.test(h)) return "science";
+  if (/dog|cat|duck|pigeon|otter|animal|chien|chat|canard|vache|cerf/.test(h)) return "animals";
+  if (/app|ai|printer|software|tech|imprimante|application/.test(h)) return "tech";
+  if (/match|club|player|coach|goal|football|rugby|olymp/.test(h)) return "sports";
+  if (/police|raid|arrest|theft|voleur|braqu|gendarme|cambriol/.test(h)) return "crime";
+  if (/crash|bump|lane|accident|toit|camion|voiturette/.test(h)) return "accidents";
+  if (/celebrity|star|influencer|red carpet|awards|oscar|grammy|south park/.test(h)) return "stars";
+  if (/said|announces|declares|press|déclare|communique/.test(h)) return "politics";
+  if (/bank|hotel|dating|money|love|arnaque|escro/.test(h)) return "love-money";
   return "faits-divers";
 }
 

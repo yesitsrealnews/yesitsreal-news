@@ -2,6 +2,7 @@ import { createFileRoute, Link, Navigate, Outlet, useRouterState } from "@tansta
 import { useEffect, useState } from "react";
 import { useAppStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
+import type { QueueItem } from "@/lib/types";
 
 export const Route = createFileRoute("/admin")({
   component: AdminGate,
@@ -13,6 +14,7 @@ export const Route = createFileRoute("/admin")({
 const LINKS = [
   { to: "/admin", label: "Tableau" },
   { to: "/admin/inbox", label: "File d’attente" },
+  { to: "/admin/assign", label: "Commander" },
   { to: "/admin/translations", label: "Traductions" },
   { to: "/admin/rejected", label: "Refusés" },
   { to: "/admin/sources", label: "Sources" },
@@ -29,6 +31,7 @@ function AdminGate() {
 
   const hydrateDeskStatus = useAppStore((s) => s.hydrateDeskStatus);
   const hydrateFrontPage = useAppStore((s) => s.hydrateFrontPage);
+  const upsertInbox = useAppStore((s) => s.upsertInbox);
 
   useEffect(() => {
     let live = true;
@@ -41,6 +44,15 @@ function AdminGate() {
         if (d.ok) {
           void hydrateDeskStatus();
           void hydrateFrontPage();
+          void fetch("/api/desk-assign", { credentials: "include" })
+            .then((r) => r.json())
+            .then((payload: { ok?: boolean; items?: QueueItem[] }) => {
+              if (!live || !payload?.ok || !Array.isArray(payload.items)) return;
+              for (const item of payload.items) {
+                if (item?.id) upsertInbox(item);
+              }
+            })
+            .catch(() => undefined);
         }
       })
       .catch(() => {
@@ -51,7 +63,7 @@ function AdminGate() {
     return () => {
       live = false;
     };
-  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage]);
+  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, upsertInbox]);
 
   if (!checked) return <div className="min-h-screen bg-paper" />;
   if (!admin) return <Navigate to="/cambuse" />;

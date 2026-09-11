@@ -68,6 +68,7 @@ function StoryEditor() {
     <main className="p-4 md:p-6">
       <p className="kicker text-signal">
         {current.story.section} · {current.story.location}
+        {current.submittedBy.startsWith("Commande") ? " · Commande desk" : ""}
       </p>
       <h1 className="mt-2 font-serif text-2xl md:text-3xl">Relire en français</h1>
       <div className="mt-4 flex gap-2">
