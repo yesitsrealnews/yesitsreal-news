@@ -42,3 +42,25 @@ export function seedReactions(id: string): Record<ReactionId, number> {
     there: 12 + (n % 90),
   };
 }
+
+export function shareToMessenger(url: string): void {
+  if (typeof window === "undefined") return;
+  const encoded = encodeURIComponent(url);
+  const desktopDialog =
+    "https://www.facebook.com/dialog/send?app_id=966242223397117&link=" +
+    encoded +
+    "&redirect_uri=" +
+    encodeURIComponent("https://www.facebook.com/");
+  const isMobile = /Android|iPhone|iPad|iPod|webOS|Mobile/i.test(navigator.userAgent || "");
+  if (isMobile) {
+    window.location.href = "fb-messenger://share/?link=" + encoded;
+    // Soft fallback: deep link may no-op if Messenger is not installed.
+    window.setTimeout(() => {
+      if (document.visibilityState === "visible") {
+        window.open(desktopDialog, "_blank", "noopener,noreferrer");
+      }
+    }, 1800);
+    return;
+  }
+  window.open(desktopDialog, "_blank", "noopener,noreferrer");
+}

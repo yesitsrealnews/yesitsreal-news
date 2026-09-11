@@ -3,7 +3,7 @@ import { Copy, Share2 } from "lucide-react";
 import { t } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { absUrl, nativeShare, shareCopy } from "@/lib/viral";
+import { absUrl, nativeShare, shareCopy, shareToMessenger } from "@/lib/viral";
 import { useAppStore } from "@/lib/store";
 
 export function ShareBar({
@@ -48,14 +48,6 @@ export function ShareBar({
       className: "bg-[#1877F2] text-white",
     },
     {
-      id: "messenger",
-      label: "Messenger",
-      // Facebook Send Dialog (opens Messenger on mobile / friend picker on desktop).
-      // App id 966242223397117 is the public share-dialog id used when a site has no Meta app.
-      href: `https://www.facebook.com/dialog/send?link=${encodeURIComponent(abs)}&app_id=966242223397117&redirect_uri=${encodeURIComponent(abs)}`,
-      className: "bg-[#0084FF] text-white",
-    },
-    {
       id: "tg",
       label: "Telegram",
       href: `https://t.me/share/url?url=${encodeURIComponent(abs)}&text=${encodeURIComponent(headline)}`,
@@ -82,6 +74,16 @@ export function ShareBar({
             {l.label}
           </a>
         ))}
+        <button
+          type="button"
+          className="inline-flex h-14 items-center justify-center bg-[#0084FF] px-3 text-sm font-extrabold uppercase tracking-[0.08em] text-white active:scale-[0.98]"
+          onClick={() => {
+            shareToMessenger(abs);
+            mark();
+          }}
+        >
+          Messenger
+        </button>
         <button
           type="button"
           className="inline-flex h-14 items-center justify-center gap-2 bg-scream px-3 text-sm font-extrabold uppercase tracking-[0.08em] text-scream-ink active:scale-[0.98]"
