@@ -143,13 +143,36 @@ export function breaking(extras: Story[], pool?: Story[], deskStatus?: DeskStatu
   return list.find((s) => s.breaking) ?? list[0];
 }
 
+function fold(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .toLowerCase();
+}
+
 export function searchStories(extras: Story[], q: string, lang: Lang, deskStatus?: DeskStatusMap): Story[] {
-  const query = q.trim().toLowerCase();
-  if (!query) return [];
+  const raw = q.trim();
+  if (!raw) return [];
+  const tokens = fold(raw)
+    .split(/[^\p{L}\p{N}]+/u)
+    .filter((t) => t.length >= 2);
+  if (!tokens.length) return [];
   return publishedStories(extras, deskStatus).filter((s) => {
-    const c = storyCopy(s, lang);
-    const blob = [c.headline, c.dek, c.body.join(" "), s.location, s.countryName, s.entities.join(" "), s.section].join(" ").toLowerCase();
-    return blob.includes(query);
+    const copies = Object.values(s.copy);
+    const blob = fold(
+      [
+        ...copies.flatMap((c) => [c.headline, c.dek, c.body.join(" "), c.whyDumb.join(" "), c.factCheckNote]),
+        s.location,
+        s.countryName,
+        s.countryCode,
+        s.section,
+        s.entities.join(" "),
+        s.slug,
+        ...Object.values(s.slugs ?? {}),
+        ...s.sources.flatMap((src) => [src.title, src.publisher, src.url]),
+      ].join(" "),
+    );
+    return tokens.every((t) => blob.includes(t));
   });
 }
 

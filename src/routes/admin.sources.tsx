@@ -15,6 +15,17 @@ function SourcesPage() {
   const seedRegionalPress = useAppStore((s) => s.seedRegionalPress);
   const [a, setA] = useState("");
   const [d, setD] = useState("");
+  const [srcQ, setSrcQ] = useState("");
+  const filteredPress = srcQ.trim()
+    ? REGIONAL_PRESS.filter((s) => {
+        const blob = `${s.name} ${s.domain} ${s.region} ${s.group ?? ""}`.toLowerCase();
+        return srcQ
+          .toLowerCase()
+          .split(/\s+/)
+          .filter(Boolean)
+          .every((t) => blob.includes(t));
+      })
+    : REGIONAL_PRESS;
 
   return (
     <main className="grid gap-8 p-6 lg:grid-cols-2">
@@ -36,11 +47,18 @@ function SourcesPage() {
           <div className="border-b border-rule px-4 py-3">
             <h2 className="font-serif text-xl">Presse régionale (lecture seule)</h2>
             <p className="text-xs text-muted-foreground">
-              {REGIONAL_PRESS.length} sources PQR / desks — domaines publics
+              {filteredPress.length} / {REGIONAL_PRESS.length} titres — domaines publics
             </p>
+            <Input
+              className="mt-2"
+              value={srcQ}
+              onChange={(e) => setSrcQ(e.target.value)}
+              placeholder="Filtrer : pays, titre, domaine…"
+              aria-label="Filtrer la base PQR"
+            />
           </div>
           <ul className="max-h-72 overflow-y-auto text-sm">
-            {REGIONAL_PRESS.map((s) => (
+            {filteredPress.map((s) => (
               <li
                 key={`${s.name}-${s.domain}-${s.region}`}
                 className="flex flex-wrap justify-between gap-2 border-b border-rule px-4 py-2 last:border-b-0"

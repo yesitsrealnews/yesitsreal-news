@@ -443,6 +443,7 @@ export const useAppStore = create<AppState>()(
         if (!state.shares) state.shares = {};
         if (!state.deskStatus) state.deskStatus = {};
         if (!state.frontPageIds) state.frontPageIds = [];
+        state.allowList = uniqueSortedDomains(state.allowList ?? [], REGIONAL_PRESS_DOMAINS, NATIONAL_DESK_DOMAINS);
         applyDocument(state.lang, state.theme);
         state.setHydrated(true);
         if (!state.sprintEndsAt) state.ensureSprint();

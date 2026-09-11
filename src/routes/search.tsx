@@ -40,6 +40,9 @@ function SearchPage() {
         </form>
         <div className="mt-8 space-y-8">
           {q.trim() && results.length === 0 ? <p>{t(lang, "searchEmpty")}</p> : null}
+          {q.trim() && results.length > 0 ? (
+            <p className="mb-4 text-sm text-ink-muted">{results.length} — {t(lang, "searchResults")}</p>
+          ) : null}
           {results.map((s) => (
             <div key={s.id} className="border-t border-rule pt-4">
               <StoryCard story={s} lang={lang} />

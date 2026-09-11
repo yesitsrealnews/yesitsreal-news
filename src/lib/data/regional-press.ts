@@ -1,6 +1,7 @@
 /** Regional daily press (French PQR + world desks) for allowlist / search. */
 
 import { WORLD_REGIONAL_PRESS } from "./regional-press-world";
+import { REGIONAL_PRESS_PLUS } from "./regional-press-plus";
 
 export type RegionalSource = {
   name: string;
@@ -382,6 +383,10 @@ const FRENCH_REGIONAL_PRESS: RegionalSource[] = [
 export const REGIONAL_PRESS: RegionalSource[] = [
   ...FRENCH_REGIONAL_PRESS,
   ...WORLD_REGIONAL_PRESS,
+  ...REGIONAL_PRESS_PLUS.filter((s) => {
+    const d = s.domain.toLowerCase();
+    return ![...FRENCH_REGIONAL_PRESS, ...WORLD_REGIONAL_PRESS].some((x) => x.domain.toLowerCase() === d);
+  }),
 ];
 
 /** Unique regional domains, lowercase, without www. */
@@ -404,10 +409,41 @@ export const NATIONAL_DESK_DOMAINS: string[] = [
   "20minutes.fr",
   "leparisien.fr",
   "bbc.com",
+  "bbc.co.uk",
   "theguardian.com",
   "nytimes.com",
   "washingtonpost.com",
-].sort((a, b) => a.localeCompare(b));
+  "nature.com",
+  "science.org",
+  "sciencealert.com",
+  "scientificamerican.com",
+  "newscientist.com",
+  "phys.org",
+  "eurekalert.org",
+  "arstechnica.com",
+  "theconversation.com",
+  "timesofindia.indiatimes.com",
+  "indiatoday.in",
+  "elconfidencial.com",
+  "elpais.com",
+  "elmundo.es",
+  "20minutos.es",
+  "lemonde.fr",
+  "cnn.com",
+  "npr.org",
+  "pbs.org",
+  "aljazeera.com",
+  "dw.com",
+  "rfi.fr",
+  "france24.com",
+  "bfmtv.com",
+  "huffingtonpost.fr",
+  "nouvelobs.com",
+  "lexpress.fr",
+  "lepoint.fr",
+  "lejdd.fr",
+  "mediapart.fr",
+].filter((d, i, arr) => arr.indexOf(d) === i).sort((a, b) => a.localeCompare(b));
 
 /** Real satire / spoof hosts to keep out of the desk allowlist. */
 export const DEFAULT_DENY_DOMAINS: string[] = [
