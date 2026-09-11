@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useAppStore } from "@/lib/store";
 import { REGIONAL_PRESS } from "@/lib/data/regional-press";
+import { RSS_FEEDS } from "@/lib/rss-feeds";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -66,7 +67,34 @@ function SourcesPage() {
                 <span className="font-medium">{s.name}</span>
                 <span className="text-muted-foreground">
                   {s.domain} — {s.region}
+                  {s.rss ? (
+                    <>
+                      {" · "}
+                      <a href={s.rss} className="underline" target="_blank" rel="noopener noreferrer">
+                        RSS
+                      </a>
+                    </>
+                  ) : null}
                 </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="rounded-lg border border-rule">
+          <div className="border-b border-rule px-4 py-3">
+            <h2 className="font-serif text-xl">Flux RSS branchés</h2>
+            <p className="text-xs text-muted-foreground">
+              {RSS_FEEDS.length} flux vérifiés — tirage depuis la file d’attente
+            </p>
+          </div>
+          <ul className="max-h-56 overflow-y-auto text-sm">
+            {RSS_FEEDS.map((f) => (
+              <li key={f.url} className="flex flex-wrap justify-between gap-2 border-b border-rule px-4 py-2 last:border-b-0">
+                <span className="font-medium">{f.name}</span>
+                <a href={f.url} className="text-muted-foreground underline" target="_blank" rel="noopener noreferrer">
+                  {f.domain}
+                </a>
               </li>
             ))}
           </ul>

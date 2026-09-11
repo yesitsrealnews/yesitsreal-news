@@ -2,6 +2,7 @@
 
 import { WORLD_REGIONAL_PRESS } from "./regional-press-world";
 import { REGIONAL_PRESS_PLUS } from "./regional-press-plus";
+import { rssUrlForDomain } from "@/lib/rss-feeds";
 
 export type RegionalSource = {
   name: string;
@@ -380,7 +381,7 @@ const FRENCH_REGIONAL_PRESS: RegionalSource[] = [
 ];
 
 /** Combined French PQR + world regional / local desks. */
-export const REGIONAL_PRESS: RegionalSource[] = [
+const REGIONAL_PRESS_RAW: RegionalSource[] = [
   ...FRENCH_REGIONAL_PRESS,
   ...WORLD_REGIONAL_PRESS,
   ...REGIONAL_PRESS_PLUS.filter((s) => {
@@ -388,6 +389,11 @@ export const REGIONAL_PRESS: RegionalSource[] = [
     return ![...FRENCH_REGIONAL_PRESS, ...WORLD_REGIONAL_PRESS].some((x) => x.domain.toLowerCase() === d);
   }),
 ];
+
+export const REGIONAL_PRESS: RegionalSource[] = REGIONAL_PRESS_RAW.map((s) => ({
+  ...s,
+  rss: s.rss ?? rssUrlForDomain(s.domain),
+}));
 
 /** Unique regional domains, lowercase, without www. */
 export const REGIONAL_PRESS_DOMAINS: string[] = [

@@ -46,6 +46,13 @@ export function SectionArchive({
       <p className={cn("mt-2 max-w-2xl text-sm text-ink-muted", era && "font-[family-name:var(--font-archive-body)] text-base")}>
         {era ? t(lang, "archiveDek") : comment ? t(lang, "commentaireDek") : t(lang, "tagline4")}
       </p>
+      {!era ? (
+        <p className="mt-3 text-xs">
+          <a href={`/feeds/${section}.xml`} className="font-extrabold uppercase tracking-[0.12em] text-signal hover:underline">
+            {t(lang, "rss")}
+          </a>
+        </p>
+      ) : null}
       {era ? <div className="double-rule mt-6 py-2" /> : null}
 
       <form
