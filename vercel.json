@@ -3,7 +3,7 @@
   "crons": [
     {
       "path": "/api/rss-pull",
-      "schedule": "20 */6 * * *"
+      "schedule": "20 6 * * *"
     }
   ]
 }
