@@ -1880,6 +1880,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-06T20:00:00.000Z",
     originalLang: "en",
+      bylines: { fr: "Abilio" },
     confidence: 0.9,
     entities: ["Allan Walls", "Surf Coast Shire", "Lorne"],
     copy: {
@@ -3865,6 +3866,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-07T11:00:00.000Z",
     originalLang: "ja",
+      bylines: { fr: "Abilio" },
     confidence: 0.93,
     entities: ["JR Kinashi", "Kagawa Prefecture", "Ikeda Toyohito"],
     copy: {
@@ -3923,6 +3925,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-07T11:02:00.000Z",
     originalLang: "fr",
+      bylines: { fr: "Abilio" },
     confidence: 0.9,
     entities: ["Assemblée nationale", "Palais Bourbon", "Sites & Monuments"],
     copy: {
@@ -3981,6 +3984,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-07T11:04:00.000Z",
     originalLang: "en",
+      bylines: { fr: "Abilio" },
     confidence: 0.91,
     entities: ["Liverpool City Council", "Austral"],
     copy: {
@@ -4054,6 +4058,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-07T11:15:00.000Z",
     originalLang: "fr",
+      bylines: { fr: "Abilio" },
     confidence: 0.94,
     entities: ["Emmanuel Macron", "Toei Animation", "Bandai Namco", "Qiddiya", "Mohammed ben Salmane"],
     copy: {
@@ -4458,6 +4463,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-07T09:40:00.000Z",
     originalLang: "en",
+      bylines: { fr: "Abilio" },
     confidence: 0.91,
     entities: ["World Bank", "Jordan Path"],
     copy: {
@@ -4646,6 +4652,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-07T10:10:00.000Z",
     originalLang: "en",
+      bylines: { fr: "Abilio" },
     confidence: 0.9,
     entities: ["Milan Urban Food Policy Pact", "Feed Your Future"],
     copy: {

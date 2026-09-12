@@ -114,3 +114,12 @@ Les articles **français** sur fétichistes, voleurs de culottes / sous-vêtemen
 - Les autres langues gardent le byline desk par défaut.
 - EN et autres : pas Capdeville sauf consigne contraire.
 
+
+## Signature — gaspillage / économie (FR)
+
+Les articles **français** sur le **gaspillage** (argent public, budgets absurdes, dépenses inutiles, grands chiffres sans délivrable) et les bizarreries **économie** associées sont signés **Abilio** (spécialiste économie).
+
+- Champ story : `bylines: { fr: "Abilio" }`
+- Autres langues : byline desk par défaut.
+- Ne pas confondre avec Capdeville (fétichismes / bizarreries sexuelles).
+
