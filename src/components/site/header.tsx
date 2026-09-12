@@ -8,7 +8,6 @@ import type { Lang } from "@/lib/types";
 import { LanguageSwitcher } from "@/components/site/language-switcher";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { LiveStats } from "@/components/site/live-stats";
 
 export function Header({
   lang,
@@ -29,8 +28,7 @@ export function Header({
       >
         {t(lang, "skipToContent")}
       </a>
-      <div className="hidden items-center justify-between gap-3 border-b border-rule bg-ink px-4 py-1 text-paper md:flex md:px-6">
-        <LiveStats lang={lang} />
+      <div className="hidden items-center justify-end gap-3 border-b border-rule bg-ink px-4 py-1 text-paper md:flex md:px-6">
         <div className="flex items-center gap-4">
           <a
             href={SOCIAL[0].url}
@@ -68,9 +66,6 @@ export function Header({
                     {t(lang, SECTION_KEY[s.id])}
                   </Link>
                 ))}
-                <Link to="/contest" className="px-3 py-3 text-sm font-bold">
-                  {t(lang, "contest")}
-                </Link>
                 <Link to="/today" className="px-3 py-3 text-sm">
                   {t(lang, "today")}
                 </Link>
@@ -106,12 +101,6 @@ export function Header({
         </Link>
 
         <div className="flex items-center">
-          <Link
-            to="/contest"
-            className="hidden h-11 items-center bg-scream px-2.5 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-scream-ink md:inline-flex"
-          >
-            {t(lang, "contest")}
-          </Link>
           <Link
             to="/search"
             search={{ q: "" }}

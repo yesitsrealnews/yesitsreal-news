@@ -33,9 +33,6 @@ export function SprintBanner({ lang }: { lang: Lang }) {
         <Link to="/shop" className="text-scream hover:underline">
           {t(lang, "shop")}
         </Link>
-        <Link to="/contest" className="hidden sm:inline hover:underline">
-          {t(lang, "contest")}
-        </Link>
       </span>
     </div>
   );

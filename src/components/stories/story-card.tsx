@@ -1,10 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { BadgeCheck, Eye } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 import type { Lang, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
 import { flagEmoji, storyCopy, storySlug } from "@/lib/format";
-import { formatCount, storyViews } from "@/lib/engagement";
 import { DumbnessScore } from "@/components/stories/dumbness";
 import { StoryCover } from "@/components/stories/cover";
 import { Badge } from "@/components/ui/badge";
@@ -23,7 +22,6 @@ export function StoryCard({
   const copy = storyCopy(story, lang);
   const sectionLabel = t(lang, SECTION_KEY[story.section] ?? "secWorld");
   const slug = storySlug(story, lang);
-  const views = formatCount(storyViews(story.id), lang);
   const voice = voiceMeta(story.id);
 
   return (
@@ -82,10 +80,6 @@ export function StoryCard({
           {flagEmoji(story.countryCode)} {story.location}
         </span>
         <DumbnessScore score={story.dumbness} lang={lang} size="sm" />
-        <span className="inline-flex items-center gap-1">
-          <Eye className="size-3" />
-          {views} {t(lang, "viewsLabel")}
-        </span>
         {story.factChecked && !story.sponsored ? (
           <span className="inline-flex items-center gap-1 text-true">
             <BadgeCheck className="size-3.5" />

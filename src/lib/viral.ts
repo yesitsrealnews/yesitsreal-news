@@ -1,5 +1,5 @@
 import { t } from "@/lib/i18n";
-import type { Lang, ReactionId } from "@/lib/types";
+import type { Lang, ReactionId, Story } from "@/lib/types";
 import { SITE_URL } from "@/lib/brand";
 
 export const REACTIONS: { id: ReactionId; key: "reactUnreal" | "reactPeak" | "reactBoss" | "reactThere" }[] = [
@@ -8,6 +8,16 @@ export const REACTIONS: { id: ReactionId; key: "reactUnreal" | "reactPeak" | "re
   { id: "boss", key: "reactBoss" },
   { id: "there", key: "reactThere" },
 ];
+
+
+/** Path for share/OG: localized slug for UI lang (FR slug when lang=fr). */
+export function storySharePath(story: Story, lang: Lang): string {
+  const slug =
+    story.slugs[lang] ??
+    (lang === "fr" ? story.slugs.fr : undefined) ??
+    story.slug;
+  return `/story/${slug}`;
+}
 
 export function absUrl(path: string): string {
   if (path.startsWith("http")) return path;

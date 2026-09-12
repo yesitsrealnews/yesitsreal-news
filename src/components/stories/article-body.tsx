@@ -1,8 +1,8 @@
 import type { Lang, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
-import { flagEmoji, formatDateTime, readingMinutes, storyBodyPending, storyCopy, storySlug } from "@/lib/format";
-import { formatCount, storyViews } from "@/lib/engagement";
+import { flagEmoji, formatDateTime, readingMinutes, storyBodyPending, storyCopy } from "@/lib/format";
+import { storySharePath } from "@/lib/viral";
 import { DumbnessScore } from "@/components/stories/dumbness";
 import { Badge } from "@/components/ui/badge";
 import { AdSlot } from "@/components/site/ad-slot";
@@ -16,7 +16,7 @@ import { ReaderComments } from "@/components/stories/reader-comments";
 import { SourceVideo } from "@/components/stories/source-video";
 import { relatedStories } from "@/lib/catalog";
 import { applyVoice, voiceMeta } from "@/lib/voices";
-import { BadgeCheck, Eye, MapPin } from "lucide-react";
+import { BadgeCheck, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/lib/store";
 
@@ -36,7 +36,6 @@ export function ArticleBody({
   const pending = storyBodyPending(story, lang);
   const related = relatedStories(story, extras, 4, deskStatus);
   const mid = Math.max(2, Math.floor(copy.body.length / 2));
-  const slug = storySlug(story, lang);
   const era = story.section === "archive";
 
   return (
@@ -78,10 +77,6 @@ export function ArticleBody({
           {t(lang, "published")} {formatDateTime(story.publishedAt, lang)}
         </span>
         <span>{readingMinutes(copy.body)} min</span>
-        <span className="inline-flex items-center gap-1">
-          <Eye className="size-3.5" />
-          {formatCount(storyViews(story.id), lang)} {t(lang, "viewsLabel")}
-        </span>
         {story.sponsored ? (
           <Badge tone="gold">{t(lang, "sponsored")}</Badge>
         ) : (
@@ -102,7 +97,7 @@ export function ArticleBody({
 
       <SourceVideo storyId={story.id} lang={lang} />
 
-      <ShareBar lang={lang} path={`/story/${slug}`} headline={copy.headline} className="mt-6" />
+      <ShareBar lang={lang} path={storySharePath(story, lang)} headline={copy.headline} className="mt-6" />
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <QuoteCardButton story={story} lang={lang} />
       </div>
@@ -166,7 +161,7 @@ export function ArticleBody({
         <p className="kicker text-signal">{t(lang, "notSatire")}</p>
         <h2 className="mt-2 font-serif text-3xl uppercase leading-none">{t(lang, "tagline2")}</h2>
         <p className="mt-2 max-w-xl text-sm text-ink-muted">{t(lang, "shareNote")} · @yesitsrealnews</p>
-        <ShareBar lang={lang} path={`/story/${slug}`} headline={copy.headline} className="mt-4" />
+        <ShareBar lang={lang} path={storySharePath(story, lang)} headline={copy.headline} className="mt-4" />
       </section>
 
       <ReaderComments storyId={story.id} lang={lang} />

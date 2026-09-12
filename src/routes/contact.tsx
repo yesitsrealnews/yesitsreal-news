@@ -80,12 +80,6 @@ function Contact() {
           </a>
         </li>
         <li>
-          Cup:{" "}
-          <a className="underline" href={mailtoHref("contest", EMAILS.contest)}>
-            {EMAILS.contest}
-          </a>
-        </li>
-        <li>
           Security:{" "}
           <a className="underline" href={mailtoHref("security", EMAILS.security)}>
             {EMAILS.security}

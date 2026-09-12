@@ -4,19 +4,18 @@ import type { Lang, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
-import { formatCount, storyViews } from "@/lib/engagement";
+import { storySharePath } from "@/lib/viral";
 import { dumbest, homeStories, mostRead, sponsoredStory } from "@/lib/catalog";
 import { StoryCard } from "@/components/stories/story-card";
 import { StoryCover } from "@/components/stories/cover";
 import { Newsletter } from "@/components/site/newsletter";
 import { AdSlot } from "@/components/site/ad-slot";
 import { SocialRail } from "@/components/site/social-rail";
-import { LiveStats } from "@/components/site/live-stats";
 import { ShareBar } from "@/components/site/share-bar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DumbnessScore } from "@/components/stories/dumbness";
-import { BadgeCheck, Eye, Newspaper, Trophy } from "lucide-react";
+import { BadgeCheck, Newspaper } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 
 export function HomePage({
@@ -57,10 +56,6 @@ export function HomePage({
         <Link to="/shop" className="inline-flex h-11 items-center bg-scream px-4 text-xs font-extrabold uppercase tracking-[0.14em] text-scream-ink">
           {t(lang, "shopCta")}
         </Link>
-        <Link to="/contest" className="inline-flex h-11 items-center border border-ink px-4 text-xs font-extrabold uppercase tracking-[0.14em]">
-          <Trophy className="me-2 size-4" />
-          {t(lang, "contest")}
-        </Link>
       </div>
       <p className="mb-5 max-w-3xl border-s-4 border-signal ps-4 text-sm font-medium leading-snug sm:text-base">
         {t(lang, "raisonLine")}{" "}
@@ -89,7 +84,6 @@ export function HomePage({
         <div className="flex flex-col justify-center lg:col-span-5">
           <div className="flex flex-wrap items-center gap-2">
             <span className="kicker text-signal">{t(lang, SECTION_KEY[hero.section])}</span>
-            <LiveStats lang={lang} />
           </div>
           <h1 className="mt-3 font-serif text-4xl uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
             <Link to="/story/$slug" params={{ slug: heroSlug }}>
@@ -106,13 +100,9 @@ export function HomePage({
               <BadgeCheck className="size-3.5" />
               {t(lang, "factChecked")}
             </span>
-            <span className="inline-flex items-center gap-1">
-              <Eye className="size-3.5" />
-              {formatCount(storyViews(hero.id), lang)} {t(lang, "viewsLabel")}
-            </span>
             <time>{formatDate(hero.publishedAt, lang)}</time>
           </div>
-          <ShareBar lang={lang} path={`/story/${heroSlug}`} headline={heroCopy.headline} className="mt-5" />
+          <ShareBar lang={lang} path={storySharePath(hero, lang)} headline={heroCopy.headline} className="mt-5" />
         </div>
       </section>
 
@@ -149,28 +139,6 @@ export function HomePage({
           ) : null}
         </div>
         <aside className="space-y-8 lg:col-span-4">
-          <Link to="/contest" className="block bg-scream p-5 text-scream-ink">
-            <p className="kicker flex items-center gap-2">
-              <Trophy className="size-4" />
-              {t(lang, "contest")}
-            </p>
-            <p className="mt-2 font-serif text-3xl uppercase leading-none">{t(lang, "contestTitle")}</p>
-            <p className="mt-2 text-sm">{t(lang, "contestDek")}</p>
-            <span className="mt-4 inline-flex h-11 items-center bg-ink px-4 text-xs font-extrabold uppercase tracking-[0.14em] text-paper">
-              {t(lang, "contestCta")}
-            </span>
-          </Link>
-          <Link to="/contest" className="block border-2 border-ink p-5">
-            <p className="kicker flex items-center gap-2 text-signal">
-              <Trophy className="size-4" />
-              {t(lang, "contest")}
-            </p>
-            <p className="mt-2 font-serif text-3xl uppercase leading-none">{t(lang, "contestPrize")}</p>
-            <p className="mt-2 text-sm">{t(lang, "contestHow")}</p>
-            <span className="mt-4 inline-flex h-11 items-center text-xs font-extrabold uppercase tracking-[0.14em] underline">
-              {t(lang, "contestCta")}
-            </span>
-          </Link>
           <AdSlot lang={lang} slot="sidebar" className="hidden lg:block" salt="home-side" />
           {read.length ? (
           <section>
