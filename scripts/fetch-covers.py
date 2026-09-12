@@ -2,7 +2,7 @@
 """Pull Wikimedia Commons stills (PD / CC) for EVERY story cover.
 
 Standing order (DESK.md): no story ships without a credited free photo.
-Never leave the painted TRUE placeholder. Imagine is last resort, not this script.
+Never leave the painted TRUE placeholder. Photos only (culprit / witness / animal / object). No drawings, no Imagine.
 Cite in src/lib/cover-credits.json.
 
 Named mugshot / booking photos (DESK.md « Mugshots ») may be added manually under

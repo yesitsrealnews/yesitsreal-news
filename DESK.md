@@ -2,19 +2,31 @@
 
 ## Photo, chaque papier
 
-**Aucun article ne sort sans image.** Interdit : dégradé « TRUE », blob SVG, visuel IA par défaut, stock flou hors sujet.
+**Aucun article ne sort sans image.** **Photos d’illustration uniquement.**
 
-Ordre obligatoire :
+Sujets autorisés (par ordre de préférence, droits clairs) :
 
-1. **Wikimedia Commons** (PD, CC0, CC BY, CC BY-SA). Sujet réel du papier (animal, lieu, objet, personne si photo Commons existante).
-2. Même règle Unsplash / Pexels **uniquement** si Commons n’a rien de tenable. Crédit + licence.
-3. **Imagine, à la limite** — dernier recours, si rien de libre n’illustre. Pas de visages de personnes vivantes inventés. Pas de fausse une photojournalistique. Style photo, pas cartoon.
+1. **Photo du coupable** (accusé nommé) — mugshot / identité judiciaire publique, ou portrait Commons / officiel libre.
+2. **Photo d’un témoin** nommé en public, si photo libre / officielle disponible.
+3. **Photo drôle / réelle d’un animal cité** dans le papier (Commons PD/CC).
+4. **Photo de l’objet en question** (le butin, le véhicule, le lieu précis du fait si c’est l’objet du papier).
+
+Sources licence : Wikimedia Commons (PD, CC0, CC BY, CC BY-SA) d’abord ; Unsplash / Pexels seulement si Commons n’a rien ; mugshot **1bis** si public record (voir ci-dessous). Affiche de campagne pour politiques nommés (**1ter**).
+
+**Interdit absolument :**
+
+- dessins, cartoons, croquis, cliparts, « dessins moches »
+- blobs SVG, dégradés « TRUE », placeholders peints
+- visuels IA / Imagine (plus de recours « dernier recours »)
+- stock flou hors sujet
+- visages inventés, composites tabloïd sans droits
+- mineurs ; photos réseaux sociaux privés ; wire payant sans droits
 
 Fichiers : `public/covers/{id}.jpg` + entrée `src/lib/cover-credits.json` (artist, license, page). Crédit affiché sur l’image.
 
 Script : `python3 scripts/fetch-covers.py`
 
-Sans jpg + crédit → **on ne pousse pas**.
+Sans **vraie photo** jpg + crédit → **on ne pousse pas**.
 
 ## Mugshots / photos d’identité judiciaire
 
