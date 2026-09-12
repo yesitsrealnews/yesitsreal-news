@@ -1,7 +1,7 @@
 import type { Lang, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
-import { flagEmoji, formatDateTime, readingMinutes, storyBodyPending, storyCopy } from "@/lib/format";
+import { flagEmoji, formatDateTime, readingMinutes, storyBodyPending, storyByline, storyCopy } from "@/lib/format";
 import { storySharePath } from "@/lib/viral";
 import { DumbnessScore } from "@/components/stories/dumbness";
 import { Badge } from "@/components/ui/badge";
@@ -43,7 +43,7 @@ export function ArticleBody({
       <p className="kicker text-signal">{t(lang, SECTION_KEY[story.section] ?? "secWorld")}</p>
       {story.section === "commentaire" ? (
         <p className="mt-2 text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-signal">
-          {t(lang, "commentaireKicker")} · {t(lang, "byline")}
+          {t(lang, "commentaireKicker")} · {storyByline(story, lang) ?? t(lang, "byline")}
         </p>
       ) : null}
       {voice.id !== "desk" ? (
@@ -67,7 +67,7 @@ export function ArticleBody({
           era && "double-rule border-y-0",
         )}
       >
-        <span>{t(lang, "byline")}</span>
+        <span>{storyByline(story, lang) ?? t(lang, "byline")}</span>
         <span className="inline-flex items-center gap-1">
           <span aria-hidden>{flagEmoji(story.countryCode)}</span>
           <MapPin className="size-3.5" />

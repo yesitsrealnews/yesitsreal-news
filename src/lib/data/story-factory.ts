@@ -36,6 +36,7 @@ export function story(p: {
   sponsored?: boolean;
   entities: string[];
   originalLang?: Lang;
+  bylines?: Story["bylines"];
   confidence?: number;
   copy: Story["copy"];
 }): Story {
@@ -58,6 +59,7 @@ export function story(p: {
     status: "published",
     entities: p.entities,
     originalLang: p.originalLang ?? "en",
+    bylines: p.bylines,
     sensitivity: "none",
     copy: p.copy,
   };

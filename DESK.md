@@ -105,3 +105,12 @@ Ton flat YES IT’S REAL inchangé. Exactitude sourcée inchangée.
 
 
 **Exception UK / Angleterre / faits britanniques :** en VF, monter d’un cran le moqueur (ironie française, piques sèches). Toujours vrai, sourcé, plat — pas de satire inventée, pas de grief, pas de mineurs.
+
+## Signature — fétichismes / bizarreries sexuelles (FR)
+
+Les articles **français** sur fétichistes, voleurs de culottes / sous-vêtements, bagarres sex-toy, et autres bizarreries sexuelles adultes (faits-divers absurdes, adults only) sont signés **Clement Capdeville**.
+
+- Champ story : `bylines: { fr: "Clement Capdeville" }`
+- Les autres langues gardent le byline desk par défaut.
+- EN et autres : pas Capdeville sauf consigne contraire.
+

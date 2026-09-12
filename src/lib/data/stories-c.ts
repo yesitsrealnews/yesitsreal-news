@@ -6609,6 +6609,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-11T11:55:00.000Z",
     originalLang: "en",
+      bylines: { fr: "Clement Capdeville" },
     confidence: 0.95,
     entities: ["Raghuvesh Tiwari", "Manipal University Jaipur", "Warangal"],
     copy: {
@@ -6673,6 +6674,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-12T06:15:00.000Z",
     originalLang: "fr",
+      bylines: { fr: "Clement Capdeville" },
     confidence: 0.93,
     entities: ["Saint-Félix-de-Villadeix", "Lalinde", "Bergerac", "Dordogne"],
     copy: {
@@ -6730,6 +6732,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-12T06:25:00.000Z",
     originalLang: "en",
+      bylines: { fr: "Clement Capdeville" },
     confidence: 0.9,
     entities: ["Dennis Kwek", "Bukit Batok Central", "Institute of Mental Health", "Singapore"],
     copy: {
@@ -6801,6 +6804,7 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-12T06:35:00.000Z",
     originalLang: "en",
+      bylines: { fr: "Clement Capdeville" },
     confidence: 0.94,
     entities: ["Marcin Zielinski", "Hertfordshire Constabulary", "Cambridge Crown Court", "Stevenage"],
     copy: {

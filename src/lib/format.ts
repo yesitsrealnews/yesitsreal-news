@@ -1,7 +1,6 @@
 import { format, formatDistanceToNow, parseISO } from "date-fns";
 import { ar, bn, cs, da, de, el, enGB, es, fi, fr, he, hi, hu, id, it, ja, ko, nb, nl, pl, pt, ro, ru, sv, th, tr, uk, vi, zhCN, zhTW } from "date-fns/locale";
-import type { Lang } from "@/lib/types";
-import type { Story, StoryCopy } from "@/lib/types";
+import type { Lang, Story, StoryCopy } from "@/lib/types";
 import { LANG_BY_CODE } from "@/lib/i18n/langs";
 import { localizedCopy } from "@/lib/data/headlines";
 
@@ -87,4 +86,10 @@ export function flagEmoji(iso2: string): string {
 export function readingMinutes(body: string[]): number {
   const words = body.join(" ").split(/\s+/).filter(Boolean).length;
   return Math.max(2, Math.round(words / 220));
+}
+
+/** Named signature when set on the story; else null (caller uses desk i18n). */
+export function storyByline(story: Story, lang: Lang): string | null {
+  const named = story.bylines?.[lang]?.trim();
+  return named || null;
 }

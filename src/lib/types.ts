@@ -100,6 +100,8 @@ export interface Story {
   status: StoryStatus;
   entities: string[];
   originalLang: Lang;
+  /** Per-language signature; missing langs fall back to desk byline i18n */
+  bylines?: Partial<Record<Lang, string>>;
   sensitivity: "none" | "death";
   rejectReason?: string;
   copy: Partial<Record<Lang, StoryCopy>> & { en: StoryCopy };
