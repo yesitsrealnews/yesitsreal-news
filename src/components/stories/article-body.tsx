@@ -123,17 +123,6 @@ export function ArticleBody({
         ))}
       </div>
 
-      {!story.sponsored ? (
-        <section className="mt-10 border-2 border-ink bg-scream p-5 text-scream-ink">
-          <h2 className="kicker">{t(lang, "whyDumb")}</h2>
-          <ol className="mt-3 list-decimal space-y-2 ps-5 text-sm font-medium">
-            {copy.whyDumb.map((w) => (
-              <li key={w}>{w}</li>
-            ))}
-          </ol>
-        </section>
-      ) : null}
-
       <section className="mt-8 border border-rule p-5">
         <h2 className="kicker text-ink-muted">{t(lang, "originalSources")}</h2>
         <p className="mt-2 text-xs text-ink-muted">{copy.factCheckNote}</p>
