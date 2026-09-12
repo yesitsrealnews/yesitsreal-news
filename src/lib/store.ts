@@ -141,7 +141,11 @@ export const useAppStore = create<AppState>()(
       setHydrated: (hydrated) => set({ hydrated }),
       addSubmission: (s) => set({ submissions: [s, ...get().submissions] }),
       setInbox: (inbox) => set({ inbox }),
-      upsertInbox: (item) => set({ inbox: [item, ...get().inbox.filter((i) => i.id !== item.id)] }),
+      upsertInbox: (item) => {
+        const purged = new Set(get().purgedIds);
+        if (purged.has(item.id) || (item.story?.id && purged.has(item.story.id))) return;
+        set({ inbox: [item, ...get().inbox.filter((i) => i.id !== item.id)] });
+      },
       rejectItem: (id, reason) => {
         const item = get().inbox.find((i) => i.id === id);
         if (!item) return;
@@ -226,13 +230,13 @@ export const useAppStore = create<AppState>()(
         set({ deskStatus, extras });
       },
       hydrateDeskStatus: async () => {
-        if (deskHydratedOnce) return;
         if (deskHydratePromise) return deskHydratePromise;
         deskHydratePromise = (async () => {
           try {
-            const res = await fetch("/api/desk-story-status");
+            const res = await fetch("/api/desk-story-status", { cache: "no-store" });
             const data = (await res.json()) as { ok?: boolean; stories?: DeskStatusMap };
             if (data?.ok && data.stories && typeof data.stories === "object") {
+              // Server is source of truth for hold/delete overrides.
               get().setDeskStatus(data.stories);
             }
           } catch {
@@ -245,6 +249,13 @@ export const useAppStore = create<AppState>()(
         return deskHydratePromise;
       },
       applyStoryDeskStatus: async (id, status) => {
+        const prevOverride = get().deskStatus[id];
+        const prevExtra = get().extras.find((s) => s.id === id);
+        // Optimistic — Cambuse must drop the row immediately.
+        get().setStoryDeskStatus(id, status === "published" ? null : status);
+        if (status === "deleted" && get().frontPageIds.includes(id)) {
+          void get().unpinFromFront(id);
+        }
         try {
           const res = await fetch("/api/desk-story-status", {
             method: "POST",
@@ -253,9 +264,14 @@ export const useAppStore = create<AppState>()(
             body: JSON.stringify({ storyId: id, status }),
           });
           const data = (await res.json()) as { ok?: boolean; stories?: DeskStatusMap };
-          if (!res.ok || !data?.ok) return false;
+          if (!res.ok || !data?.ok) {
+            get().setStoryDeskStatus(id, prevOverride ?? null);
+            if (prevExtra) {
+              set({ extras: [prevExtra, ...get().extras.filter((s) => s.id !== id)] });
+            }
+            return false;
+          }
           if (data.stories) get().setDeskStatus(data.stories);
-          else get().setStoryDeskStatus(id, status === "published" ? null : status);
           const extras = get().extras.map((s): Story => {
             if (s.id !== id) return s;
             const nextStatus: StoryStatus = status === "published" ? "published" : status;
@@ -264,6 +280,10 @@ export const useAppStore = create<AppState>()(
           set({ extras });
           return true;
         } catch {
+          get().setStoryDeskStatus(id, prevOverride ?? null);
+          if (prevExtra) {
+            set({ extras: [prevExtra, ...get().extras.filter((s) => s.id !== id)] });
+          }
           return false;
         }
       },

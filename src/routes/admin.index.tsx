@@ -121,7 +121,12 @@ function AdminHome() {
                         variant="outline"
                         size="sm"
                         onClick={() => {
-                          void applyStoryDeskStatus(s.id, "deleted");
+                          void (async () => {
+                            const ok = await applyStoryDeskStatus(s.id, "deleted");
+                            if (!ok) {
+                              window.alert("Suppression non enregistrée (session ou réseau). Réessaie.");
+                            }
+                          })();
                         }}
                       >
                         Supprimer

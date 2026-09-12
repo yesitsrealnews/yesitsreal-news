@@ -57,6 +57,7 @@ export function deskStories(extras: Story[], deskStatus?: DeskStatusMap): Story[
   return mergeStories(extras)
     .filter((s) => {
       if (s.sponsored) return false;
+      if (s.status === "deleted") return false;
       const o = deskOverride(s.id, deskStatus);
       if (o === "deleted") return false;
       if (o === "held") return true;

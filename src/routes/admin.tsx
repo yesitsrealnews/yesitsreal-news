@@ -31,7 +31,6 @@ function AdminGate() {
   const hydrateDeskStatus = useAppStore((s) => s.hydrateDeskStatus);
   const hydrateFrontPage = useAppStore((s) => s.hydrateFrontPage);
   const setInbox = useAppStore((s) => s.setInbox);
-  const purgedIds = useAppStore((s) => s.purgedIds);
 
   useEffect(() => {
     let live = true;
@@ -44,11 +43,12 @@ function AdminGate() {
         if (d.ok) {
           void hydrateDeskStatus();
           void hydrateFrontPage();
-          void fetch("/api/desk-assign", { credentials: "include" })
+          void fetch("/api/desk-assign", { credentials: "include", cache: "no-store" })
             .then((r) => r.json())
             .then((payload: { ok?: boolean; items?: QueueItem[] }) => {
               if (!live || !payload?.ok || !Array.isArray(payload.items)) return;
-              const purged = new Set(purgedIds);
+              // Fresh purgedIds — do not close over a stale render (avoids resurrecting deletes).
+              const purged = new Set(useAppStore.getState().purgedIds);
               const next = payload.items.filter(
                 (item) => item?.id && !purged.has(item.id) && !purged.has(item.story?.id),
               );
@@ -65,7 +65,8 @@ function AdminGate() {
     return () => {
       live = false;
     };
-  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, setInbox, purgedIds]);
+    // Intentionally omit purgedIds: re-running this effect after Supprimer raced the DELETE and could restore rows.
+  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, setInbox]);
 
   if (!checked) return <div className="min-h-screen bg-paper" />;
   if (!admin) return <Navigate to="/cambuse" />;

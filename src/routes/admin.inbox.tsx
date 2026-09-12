@@ -89,15 +89,15 @@ function InboxPage() {
       });
       const data = (await res.json()) as { ok?: boolean; items?: QueueItem[] };
       if (res.ok && data.ok && Array.isArray(data.items)) {
-        const purged = new Set(purgedIds);
+        const purged = new Set(useAppStore.getState().purgedIds);
         purged.add(item.id);
         if (item.story?.id) purged.add(item.story.id);
         setInbox(data.items.filter((it) => it?.id && !purged.has(it.id) && !purged.has(it.story?.id)));
-      } else {
-        rejectQueueItem(item, "Proposition refusée en Cambuse");
+      } else if (!res.ok || !data.ok) {
+        window.alert("Suppression serveur échouée — la ligne reste hors file localement.");
       }
     } catch {
-      rejectQueueItem(item, "Proposition refusée en Cambuse");
+      window.alert("Réseau — suppression locale ok, sync serveur à refaire.");
     }
     setBusyId("");
   }
