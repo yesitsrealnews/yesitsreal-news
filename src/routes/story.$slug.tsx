@@ -10,6 +10,11 @@ import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { coverSrc } from "@/lib/covers";
 
 export const Route = createFileRoute("/story/$slug")({
+  loader: ({ params }) => {
+    const story = findStory(params.slug, []);
+    if (!story) throw notFound();
+    return {};
+  },
   component: StoryPage,
   head: ({ params }) => {
     const story = findStory(params.slug, []);

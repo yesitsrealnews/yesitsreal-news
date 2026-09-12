@@ -4,6 +4,7 @@ import { SectionArchive } from "@/components/stories/section-page";
 import { isSectionId } from "@/lib/data/sections";
 import { useAppStore } from "@/lib/store";
 import { t } from "@/lib/i18n";
+import { DICT } from "@/lib/i18n/dict";
 import { SECTION_KEY } from "@/lib/i18n/keys";
 import { SITE_URL } from "@/lib/brand";
 
@@ -30,14 +31,16 @@ export const Route = createFileRoute("/$section")({
   },
   head: ({ params }) => {
     if (!isSectionId(params.section)) return {};
-    const title = `${params.section} — YES IT'S REAL`;
+    const key = SECTION_KEY[params.section] ?? "secWorld";
+    const label = DICT.fr[key] ?? params.section;
+    const title = `${label} — YES IT'S REAL`;
     const url = `${SITE_URL}/${params.section}`;
     return {
       meta: [
         { title },
         {
           name: "description",
-          content: `Rubrique ${params.section} — faits vrais, sourcés, déjà parus. Ça s’est vraiment passé. YES IT'S REAL.`,
+          content: `Rubrique ${label} — faits vrais, sourcés, déjà parus. Ça s’est vraiment passé. YES IT'S REAL.`,
         },
         { property: "og:title", content: title },
         { property: "og:url", content: url },

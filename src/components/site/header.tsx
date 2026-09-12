@@ -121,7 +121,7 @@ export function Header({
         </div>
       </div>
       <div className="hidden border-t border-rule md:block">
-        <nav className="mx-auto flex max-w-7xl items-center gap-0 overflow-x-auto px-4">
+        <nav className="mx-auto flex max-w-7xl flex-wrap items-center px-4">
           <Link to="/" className="shrink-0 px-3 py-2.5 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] hover:text-signal">
             {t(lang, "home")}
           </Link>

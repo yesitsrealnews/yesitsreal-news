@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { STORIES } from "@/lib/data/stories";
+import { publishedStories } from "@/lib/catalog";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { coverSrc } from "@/lib/covers";
 import { xmlEscape } from "@/lib/seo";
@@ -10,9 +10,7 @@ export const Route = createFileRoute("/rss-en.xml")({
     handlers: {
       GET: async () => {
         const desk = await getDeskStoryStatus();
-        const items = STORIES.filter(
-          (s) => s.status === "published" && !s.sponsored && desk[s.id] !== "held" && desk[s.id] !== "deleted",
-        )
+        const items = publishedStories([], desk)
           .map((s) => {
             const c = s.copy.en;
             const img = coverSrc(s.id);

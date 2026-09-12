@@ -63,7 +63,8 @@ export function HomePage({
           {t(lang, "about")}
         </Link>
         {" · "}
-        {t(lang, "thisWeek")}.{" "}
+        {t(lang, "thisWeek")}
+        {" · "}
         <Link to="/rankings" className="underline underline-offset-2">
           {t(lang, "allTime")}
         </Link>

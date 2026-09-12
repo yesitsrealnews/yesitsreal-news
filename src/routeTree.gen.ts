@@ -55,8 +55,8 @@ import { Route as ApiCommentsRouteImport } from './routes/api/comments'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as ApiDeskRouteImport } from './routes/api/desk'
 import { Route as ApiDeskAssignRouteImport } from './routes/api/desk-assign'
-import { Route as ApiDeskRewriteRouteImport } from './routes/api/desk-rewrite'
 import { Route as ApiDeskFrontPageRouteImport } from './routes/api/desk-front-page'
+import { Route as ApiDeskRewriteRouteImport } from './routes/api/desk-rewrite'
 import { Route as ApiDeskStoryStatusRouteImport } from './routes/api/desk-story-status'
 import { Route as ApiIngestRouteImport } from './routes/api/ingest'
 import { Route as ApiPublishRouteImport } from './routes/api/publish'
@@ -297,14 +297,14 @@ const ApiDeskAssignRoute = ApiDeskAssignRouteImport.update({
   path: '/api/desk-assign',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiDeskRewriteRoute = ApiDeskRewriteRouteImport.update({
-  id: '/api/desk-rewrite',
-  path: '/api/desk-rewrite',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiDeskFrontPageRoute = ApiDeskFrontPageRouteImport.update({
   id: '/api/desk-front-page',
   path: '/api/desk-front-page',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDeskRewriteRoute = ApiDeskRewriteRouteImport.update({
+  id: '/api/desk-rewrite',
+  path: '/api/desk-rewrite',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiDeskStoryStatusRoute = ApiDeskStoryStatusRouteImport.update({
@@ -399,8 +399,8 @@ export interface FileRoutesByFullPath {
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
   '/api/desk-assign': typeof ApiDeskAssignRoute
-  '/api/desk-rewrite': typeof ApiDeskRewriteRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
+  '/api/desk-rewrite': typeof ApiDeskRewriteRoute
   '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
@@ -457,8 +457,8 @@ export interface FileRoutesByTo {
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
   '/api/desk-assign': typeof ApiDeskAssignRoute
-  '/api/desk-rewrite': typeof ApiDeskRewriteRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
+  '/api/desk-rewrite': typeof ApiDeskRewriteRoute
   '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
@@ -517,8 +517,8 @@ export interface FileRoutesById {
   '/api/contact': typeof ApiContactRoute
   '/api/desk': typeof ApiDeskRoute
   '/api/desk-assign': typeof ApiDeskAssignRoute
-  '/api/desk-rewrite': typeof ApiDeskRewriteRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
+  '/api/desk-rewrite': typeof ApiDeskRewriteRoute
   '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
   '/api/publish': typeof ApiPublishRoute
@@ -567,6 +567,7 @@ export interface FileRouteTypes {
     | '/today'
     | '/admin/ads'
     | '/admin/analytics'
+    | '/admin/assign'
     | '/admin/calibration'
     | '/admin/inbox'
     | '/admin/leads'
@@ -576,7 +577,9 @@ export interface FileRouteTypes {
     | '/api/comments'
     | '/api/contact'
     | '/api/desk'
+    | '/api/desk-assign'
     | '/api/desk-front-page'
+    | '/api/desk-rewrite'
     | '/api/desk-story-status'
     | '/api/ingest'
     | '/api/publish'
@@ -587,9 +590,6 @@ export interface FileRouteTypes {
     | '/story/$slug'
     | '/admin/'
     | '/admin/story/$id'
-    | '/admin/assign'
-    | '/api/desk-assign'
-    | '/api/desk-rewrite'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -625,6 +625,7 @@ export interface FileRouteTypes {
     | '/today'
     | '/admin/ads'
     | '/admin/analytics'
+    | '/admin/assign'
     | '/admin/calibration'
     | '/admin/inbox'
     | '/admin/leads'
@@ -634,7 +635,9 @@ export interface FileRouteTypes {
     | '/api/comments'
     | '/api/contact'
     | '/api/desk'
+    | '/api/desk-assign'
     | '/api/desk-front-page'
+    | '/api/desk-rewrite'
     | '/api/desk-story-status'
     | '/api/ingest'
     | '/api/publish'
@@ -645,9 +648,6 @@ export interface FileRouteTypes {
     | '/story/$slug'
     | '/admin'
     | '/admin/story/$id'
-    | '/admin/assign'
-    | '/api/desk-assign'
-    | '/api/desk-rewrite'
   id:
     | '__root__'
     | '/'
@@ -684,6 +684,7 @@ export interface FileRouteTypes {
     | '/today'
     | '/admin/ads'
     | '/admin/analytics'
+    | '/admin/assign'
     | '/admin/calibration'
     | '/admin/inbox'
     | '/admin/leads'
@@ -693,7 +694,9 @@ export interface FileRouteTypes {
     | '/api/comments'
     | '/api/contact'
     | '/api/desk'
+    | '/api/desk-assign'
     | '/api/desk-front-page'
+    | '/api/desk-rewrite'
     | '/api/desk-story-status'
     | '/api/ingest'
     | '/api/publish'
@@ -743,8 +746,8 @@ export interface RootRouteChildren {
   ApiContactRoute: typeof ApiContactRoute
   ApiDeskRoute: typeof ApiDeskRoute
   ApiDeskAssignRoute: typeof ApiDeskAssignRoute
-  ApiDeskRewriteRoute: typeof ApiDeskRewriteRoute
   ApiDeskFrontPageRoute: typeof ApiDeskFrontPageRoute
+  ApiDeskRewriteRoute: typeof ApiDeskRewriteRoute
   ApiDeskStoryStatusRoute: typeof ApiDeskStoryStatusRoute
   ApiIngestRoute: typeof ApiIngestRoute
   ApiPublishRoute: typeof ApiPublishRoute
@@ -1079,18 +1082,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiDeskAssignRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/desk-rewrite': {
-      id: '/api/desk-rewrite'
-      path: '/api/desk-rewrite'
-      fullPath: '/api/desk-rewrite'
-      preLoaderRoute: typeof ApiDeskRewriteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/desk-front-page': {
       id: '/api/desk-front-page'
       path: '/api/desk-front-page'
       fullPath: '/api/desk-front-page'
       preLoaderRoute: typeof ApiDeskFrontPageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/desk-rewrite': {
+      id: '/api/desk-rewrite'
+      path: '/api/desk-rewrite'
+      fullPath: '/api/desk-rewrite'
+      preLoaderRoute: typeof ApiDeskRewriteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/desk-story-status': {
@@ -1226,8 +1229,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiContactRoute: ApiContactRoute,
   ApiDeskRoute: ApiDeskRoute,
   ApiDeskAssignRoute: ApiDeskAssignRoute,
-  ApiDeskRewriteRoute: ApiDeskRewriteRoute,
   ApiDeskFrontPageRoute: ApiDeskFrontPageRoute,
+  ApiDeskRewriteRoute: ApiDeskRewriteRoute,
   ApiDeskStoryStatusRoute: ApiDeskStoryStatusRoute,
   ApiIngestRoute: ApiIngestRoute,
   ApiPublishRoute: ApiPublishRoute,

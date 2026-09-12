@@ -490,7 +490,6 @@ export const useAppStore = create<AppState>()(
         state.allowList = uniqueSortedDomains(state.allowList ?? [], REGIONAL_PRESS_DOMAINS, NATIONAL_DESK_DOMAINS);
         applyDocument(state.lang, state.theme);
         state.setHydrated(true);
-        if (!state.sprintEndsAt) state.ensureSprint();
         void state.hydrateDeskStatus();
         void state.hydrateFrontPage();
       },
@@ -509,7 +508,6 @@ export function bootstrapClientPrefs() {
     applyDocument(useAppStore.getState().lang, useAppStore.getState().theme);
     store.setHydrated(true);
   }
-  store.ensureSprint();
   void store.hydrateDeskStatus();
   void store.hydrateFrontPage();
 }

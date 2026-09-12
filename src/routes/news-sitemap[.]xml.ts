@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { STORIES } from "@/lib/data/stories";
+import { publishedStories } from "@/lib/catalog";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { storySeoCopy, xmlEscape } from "@/lib/seo";
 import { getDeskStoryStatus } from "@/lib/desk-story-status";
@@ -9,13 +9,12 @@ export const Route = createFileRoute("/news-sitemap.xml")({
     handlers: {
       GET: async () => {
         const desk = await getDeskStoryStatus();
-        const live = (s: (typeof STORIES)[number]) =>
-          s.status === "published" && !s.sponsored && desk[s.id] !== "held" && desk[s.id] !== "deleted";
+        const live = publishedStories([], desk);
         const cutoff = Date.now() - 48 * 60 * 60 * 1000;
-        const items = STORIES.filter(live).filter(
+        const items = live.filter(
           (s) => +new Date(s.publishedAt) >= cutoff || +new Date(s.updatedAt || s.publishedAt) >= cutoff,
         );
-        const listed = items.length ? items : STORIES.filter(live).slice(0, 20);
+        const listed = items.length ? items : live.slice(0, 20);
         const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">${listed
           .map((s) => {

@@ -38,6 +38,10 @@ function canonicalizeStory(s: Story): Story {
   return { ...s, section };
 }
 
+function inventedSources(story: Story): boolean {
+  return story.sources.some((s) => /(?:^|[/.])example(?:[/:]|$)/i.test(s.url) || /example\.com/i.test(s.url));
+}
+
 function deskOverride(storyId: string, deskStatus?: DeskStatusMap): "held" | "deleted" | undefined {
   const v = deskStatus?.[storyId];
   return v === "held" || v === "deleted" ? v : undefined;
@@ -45,6 +49,7 @@ function deskOverride(storyId: string, deskStatus?: DeskStatusMap): "held" | "de
 
 function isPubliclyListed(story: Story, deskStatus?: DeskStatusMap): boolean {
   if (deskOverride(story.id, deskStatus)) return false;
+  if (inventedSources(story)) return false;
   return story.status === "published" && !story.sponsored;
 }
 
@@ -110,6 +115,7 @@ export function findStory(slug: string, extras: Story[], deskStatus?: DeskStatus
     ) ?? seedBySlug(needle);
   if (!hit) return undefined;
   if (deskOverride(hit.id, deskStatus)) return undefined;
+  if (inventedSources(hit)) return undefined;
   return hit;
 }
 
