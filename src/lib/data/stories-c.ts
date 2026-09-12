@@ -6609,7 +6609,6 @@ export const STORIES_C: Story[] = [
     ],
     publishedAt: "2026-09-11T11:55:00.000Z",
     originalLang: "en",
-      bylines: { fr: "Clement Capdeville" },
     confidence: 0.95,
     entities: ["Raghuvesh Tiwari", "Manipal University Jaipur", "Warangal"],
     copy: {
