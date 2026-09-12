@@ -3,6 +3,7 @@ import { SiteShell } from "@/components/site/site-shell";
 import { ArticleBody } from "@/components/stories/article-body";
 import { JsonLd } from "@/components/site/json-ld";
 import { findStory } from "@/lib/catalog";
+import { getDeskStoryStatus } from "@/lib/desk-story-status";
 import { useAppStore } from "@/lib/store";
 import { storyCopy } from "@/lib/format";
 import { articleJsonLd, breadcrumbJsonLd, storyCanonical, storySeoCopy } from "@/lib/seo";
@@ -10,8 +11,9 @@ import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { coverSrc } from "@/lib/covers";
 
 export const Route = createFileRoute("/story/$slug")({
-  loader: ({ params }) => {
-    const story = findStory(params.slug, []);
+  loader: async ({ params }) => {
+    const desk = await getDeskStoryStatus();
+    const story = findStory(params.slug, [], desk);
     if (!story) throw notFound();
     return {};
   },
