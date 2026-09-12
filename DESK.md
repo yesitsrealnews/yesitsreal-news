@@ -1,5 +1,12 @@
 # Cambuse — consignes
 
+## Publicité / marques tierces
+
+Pas de bannières marketing Tesla / SpaceX / Starlink / xAI / X collées sans accord média ou licence.
+OK : cartes maison + liens vers sites officiels, labellisés « pas un partenariat payé ».
+Referral Tesla/Starlink : seulement avec le lien perso de Pierre (app propriétaire).
+Deals payants : advertisers@yesitsreal.news.
+
 ## Photo, chaque papier
 
 **Aucun article ne sort sans image.** **Photos d’illustration uniquement.**

@@ -13,6 +13,10 @@ export type CoverCredit = {
 
 export const PHOTO_CREDITS = credits as Record<string, CoverCredit>;
 
+export function hasCoverPhoto(id: string): boolean {
+  return Boolean(PHOTO_CREDITS[id]);
+}
+
 export function coverSrc(id: string): string | undefined {
   if (!PHOTO_CREDITS[id]) return undefined;
   // Same-origin public/covers — updates on every deploy (jsDelivr @main stayed stale for mugshots).

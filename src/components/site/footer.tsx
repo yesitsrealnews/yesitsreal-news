@@ -2,10 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { t } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
 import { EMAILS, SOCIAL } from "@/lib/brand";
+import { FooterPartners } from "@/components/site/footer-partners";
 
 export function Footer({ lang }: { lang: Lang }) {
   return (
     <footer className="mt-16 border-t-4 border-ink bg-paper-2 pb-20 md:pb-10">
+      <FooterPartners lang={lang} />
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
           <p className="masthead-wordmark text-3xl">{t(lang, "siteName")}</p>

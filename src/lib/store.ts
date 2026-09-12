@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { hasCoverPhoto } from "@/lib/covers";
 import type { Lang, Lead, QueueItem, ReactionId, Story, StoryStatus, Submission } from "@/lib/types";
 import { detectBrowserLang, isLang } from "@/lib/i18n/langs";
 import { SPRINT_MS } from "@/lib/revenue";
@@ -152,6 +153,13 @@ export const useAppStore = create<AppState>()(
         get().publishQueueItem(item);
       },
       publishQueueItem: (item) => {
+        if (!hasCoverPhoto(item.story.id)) {
+          console.warn(`[desk] refuse publish ${item.story.id}: photo + crédit manquants`);
+          if (typeof window !== "undefined") {
+            window.alert("Impossible de publier : photo jpg + crédit manquants (DESK).");
+          }
+          return;
+        }
         const published: Story = {
           ...item.story,
           status: "published",

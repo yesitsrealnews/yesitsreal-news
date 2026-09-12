@@ -5,6 +5,7 @@ import { useMergedInbox } from "@/lib/admin-inbox";
 import { formatDateTime, storyCopy } from "@/lib/format";
 import { makeQueueItem } from "@/lib/pipeline";
 import type { QueueItem } from "@/lib/types";
+import { hasCoverPhoto } from "@/lib/covers";
 import { useAppStore } from "@/lib/store";
 import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
@@ -157,7 +158,12 @@ function InboxPage() {
                 <Button
                   type="button"
                   size="sm"
-                  disabled={busyId === item.id}
+                  disabled={busyId === item.id || !hasCoverPhoto(item.story.id)}
+                  title={
+                    hasCoverPhoto(item.story.id)
+                      ? undefined
+                      : "Photo jpg + crédit requis avant Publier"
+                  }
                   onClick={() => {
                     publishQueueItem(item);
                   }}

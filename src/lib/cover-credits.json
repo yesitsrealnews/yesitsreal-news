@@ -107,6 +107,12 @@
     "license": "CC BY-SA 4.0",
     "page": "https://commons.wikimedia.org/wiki/File%3AThe_Goldfish_Bowl_by_Henri_Matisse_in_the_Metropolitan_Museum_of_Art.jpg"
   },
+  "s19": {
+    "file": "File:Beer on ice in hotel room.jpg",
+    "artist": "Ruth Hartnup from Vancouver, Canada",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABeer_on_ice_in_hotel_room.jpg"
+  },
   "s20": {
     "file": "File:Football pitch.jpg",
     "artist": "LensEye Media",
@@ -190,6 +196,12 @@
     "artist": "Johnscotaus",
     "license": "CC BY-SA 4.0",
     "page": "https://commons.wikimedia.org/wiki/File%3ATheatre_Stage_Albert_Hall_looking_stage_left_showing_theatre_curtains_%282016%29.jpg"
+  },
+  "s34": {
+    "file": "File:Woman taking Selfie at Elliott Bay, Seattle, 2014.jpg",
+    "artist": "Maëlick from Charleroi, Belgium",
+    "license": "CC BY-SA 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWoman_taking_Selfie_at_Elliott_Bay%2C_Seattle%2C_2014.jpg"
   },
   "s35": {
     "file": "File:Aerial view of oil refinery next to the Gulf of Mexico near Houston, Texas LCCN2011630532.tif",
@@ -635,6 +647,12 @@
     "license": "CC BY-SA 4.0",
     "page": "https://commons.wikimedia.org/wiki/File%3ABicycle.jpg"
   },
+  "s109": {
+    "file": "File:Night sky.jpg",
+    "artist": "Andy from Pittsburgh, United States",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ANight_sky.jpg"
+  },
   "s110": {
     "file": "File:Radar antenna.jpg",
     "artist": "US Army",
@@ -647,11 +665,11 @@
     "license": "CC BY-SA 4.0",
     "page": "https://commons.wikimedia.org/wiki/File%3APolice_badge.jpg"
   },
-  "s109": {
-    "file": "File:Night sky.jpg",
-    "artist": "Andy from Pittsburgh, United States",
-    "license": "CC BY 2.0",
-    "page": "https://commons.wikimedia.org/wiki/File%3ANight_sky.jpg"
+  "s112": {
+    "file": "File:Chiropractic Adjustment 13.jpg",
+    "artist": "Joy Loban",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiropractic_Adjustment_13.jpg"
   },
   "s113": {
     "file": "File:Wheelie bin.jpg",
@@ -718,12 +736,6 @@
     "artist": "Arno8892",
     "license": "CC BY-SA 4.0",
     "page": "https://commons.wikimedia.org/wiki/File%3ABiarritz_vue_g%C3%A9n%C3%A9rale.jpg"
-  },
-  "s112": {
-    "file": "File:Chiropractic Adjustment 13.jpg",
-    "artist": "Joy Loban",
-    "license": "Public domain",
-    "page": "https://commons.wikimedia.org/wiki/File%3AChiropractic_Adjustment_13.jpg"
   },
   "s125": {
     "file": "File:Red deer by the road, Cnoc Bad a' Ghille Duibh - geograph.org.uk - 645743.jpg",

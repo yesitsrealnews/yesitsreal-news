@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useMergedInbox } from "@/lib/admin-inbox";
+import { hasCoverPhoto } from "@/lib/covers";
 import { useAppStore } from "@/lib/store";
 import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
@@ -157,6 +158,12 @@ function StoryEditor() {
               </>
             ) : null}
             <Button
+              disabled={!hasCoverPhoto(current.story.id)}
+              title={
+                hasCoverPhoto(current.story.id)
+                  ? undefined
+                  : "Photo jpg + crédit requis avant Publier"
+              }
               onClick={() => {
                 persistDraft();
                 publishQueueItem({
