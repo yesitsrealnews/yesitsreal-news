@@ -13,6 +13,7 @@ export const Route = createFileRoute("/admin/inbox")({ component: InboxPage });
 function InboxPage() {
   const inbox = useMergedInbox();
   const upsertInbox = useAppStore((s) => s.upsertInbox);
+  const publishQueueItem = useAppStore((s) => s.publishQueueItem);
   const navigate = useNavigate();
   const [pulling, setPulling] = useState(false);
   const [pullNote, setPullNote] = useState("");
@@ -74,7 +75,7 @@ function InboxPage() {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="font-serif text-3xl">File d’attente</h1>
-          <p className="mt-2 text-sm text-ink-muted">À relire avant publication. Titres en français. Les flux RSS ne publient pas tout seuls.</p>
+          <p className="mt-2 text-sm text-ink-muted">À relire avant publication. Titres en français. Pre Pubs de la veille arrivent ici — Publier met en ligne (extras). Les flux RSS ne publient pas tout seuls.</p>
           {pullNote ? <p className="mt-2 text-sm text-signal">{pullNote}</p> : null}
         </div>
         <div className="flex flex-wrap gap-2">
@@ -104,13 +105,15 @@ function InboxPage() {
       <ul className="mt-6 divide-y divide-rule border-y border-rule">
         {inbox.map((item) => {
           const c = storyCopy(item.story, "fr");
+          const isPre = item.submittedBy.startsWith("Pre Pub") || item.submittedBy.startsWith("Veille");
           return (
-            <li key={item.id} className="py-4">
-              <Link to="/admin/story/$id" params={{ id: item.id }} className="block hover:bg-paper-2">
+            <li key={item.id} className="flex flex-wrap items-start justify-between gap-3 py-4">
+              <Link to="/admin/story/$id" params={{ id: item.id }} className="min-w-0 flex-1 hover:bg-paper-2">
                 <p className="kicker text-signal">
                   {item.story.section} · {item.story.status}
                   {item.submittedBy.startsWith("RSS") ? " · RSS" : ""}
                   {item.submittedBy.startsWith("Commande") ? " · Commande" : ""}
+                  {isPre ? " · Pre Pub" : ""}
                 </p>
                 <h2 className="mt-1 font-serif text-xl">{c.headline}</h2>
                 <p className="mt-1 text-sm text-ink-muted">{c.dek}</p>
@@ -119,6 +122,22 @@ function InboxPage() {
                   {item.submittedBy} · {formatDateTime(item.submittedAt, "fr")}
                 </p>
               </Link>
+              <div className="flex shrink-0 flex-wrap gap-2">
+                <Button
+                  type="button"
+                  size="sm"
+                  onClick={() => {
+                    publishQueueItem(item);
+                  }}
+                >
+                  Publier
+                </Button>
+                <Button type="button" size="sm" variant="outline" asChild>
+                  <Link to="/admin/story/$id" params={{ id: item.id }}>
+                    Relire
+                  </Link>
+                </Button>
+              </div>
             </li>
           );
         })}

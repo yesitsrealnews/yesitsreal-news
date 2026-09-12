@@ -7,7 +7,7 @@ const ISSUE_TITLE = "desk:assignments";
 const LABEL = "desk-assign";
 const LABEL_COLOR = "8B1E3F";
 const API = "https://api.github.com";
-const MAX_ITEMS = 6;
+const MAX_ITEMS = 24;
 
 type IssuePayload = { v: 1; at: string; items: QueueItem[] };
 type GhIssue = { number: number; title: string; body?: string | null };
