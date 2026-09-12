@@ -81,3 +81,6 @@ Ordre conseillé : rédiger le FR pour le lecteur FR (souvent `originalLang: "fr
 
 Ton flat YES IT’S REAL inchangé. Exactitude sourcée inchangée.
 
+Ton flat YES IT'S REAL inchangé. Exactitude sourcée inchangée.
+
+**Exception UK / Angleterre / faits britanniques :** en VF, monter d’un cran le moqueur (ironie française, piques sèches). Toujours vrai, sourcé, plat — pas de satire inventée, pas de grief, pas de mineurs.
