@@ -44,7 +44,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         return new Response(body, {
           headers: {
             "content-type": "application/xml; charset=utf-8",
-            "cache-control": "public, max-age=300",
+            "cache-control": "public, max-age=60, must-revalidate",
           },
         });
       },

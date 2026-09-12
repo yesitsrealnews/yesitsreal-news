@@ -38,8 +38,26 @@ function canonicalizeStory(s: Story): Story {
   return { ...s, section };
 }
 
+function inventedHost(url: string): boolean {
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return (
+      host === "example" ||
+      host.endsWith(".example") ||
+      host === "example.com" ||
+      host.endsWith(".example.com") ||
+      host === "example.net" ||
+      host.endsWith(".example.net") ||
+      host === "example.org" ||
+      host.endsWith(".example.org")
+    );
+  } catch {
+    return /(?:^|[/.])example(?:[/.:]|$)/i.test(url);
+  }
+}
+
 function inventedSources(story: Story): boolean {
-  return story.sources.some((s) => /(?:^|[/.])example(?:[/:]|$)/i.test(s.url) || /example\.com/i.test(s.url));
+  return story.sources.some((s) => inventedHost(s.url));
 }
 
 function deskOverride(storyId: string, deskStatus?: DeskStatusMap): "held" | "deleted" | undefined {

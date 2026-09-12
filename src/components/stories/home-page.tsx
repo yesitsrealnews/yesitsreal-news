@@ -79,7 +79,6 @@ export function HomePage({
           <span className="absolute left-3 top-3 flex flex-wrap gap-2">
             {hero.breaking ? <Badge tone="signal">{t(lang, "breaking")}</Badge> : null}
             <Badge tone="scream">{t(lang, "truePill")}</Badge>
-            <Badge>{t(lang, "thisWeek")}</Badge>
           </span>
         </Link>
         <div className="flex flex-col justify-center lg:col-span-5">

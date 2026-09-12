@@ -36,6 +36,7 @@ export const Route = createFileRoute("/$section")({
     const title = `${label} — YES IT'S REAL`;
     const url = `${SITE_URL}/${params.section}`;
     return {
+      title,
       meta: [
         { title },
         {

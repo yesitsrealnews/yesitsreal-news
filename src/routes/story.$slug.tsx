@@ -26,6 +26,7 @@ export const Route = createFileRoute("/story/$slug")({
     const enUrl = `${SITE_URL}/story/${story.slug}`;
     const frUrl = story.slugs.fr ? `${SITE_URL}/story/${story.slugs.fr}` : enUrl;
     return {
+      title: `${c.headline} — ${SITE_NAME}`,
       meta: [
         { title: `${c.headline} — ${SITE_NAME}` },
         { name: "description", content: `${c.dek} YES IT'S REAL — ça s’est vraiment passé.` },
