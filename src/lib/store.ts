@@ -113,7 +113,7 @@ export const useAppStore = create<AppState>()(
       rejected: [],
       purgedIds: [],
       extras: [],
-      deskStatus: {},
+      deskStatus: { s135: "held", s136: "held", s137: "held" },
       frontPageIds: [],
       allowList: DEFAULT_ALLOW_LIST,
       denyList: [...DEFAULT_DENY_DOMAINS],
@@ -178,6 +178,9 @@ export const useAppStore = create<AppState>()(
           extras: [published, ...get().extras.filter((s) => s.id !== published.id)],
           deskStatus,
         });
+        if (/^s\d+$/.test(published.id)) {
+          void get().applyStoryDeskStatus(published.id, "published");
+        }
       },
       rejectQueueItem: (item, _reason) => {
         // Hard destroy — no Refusés archive. reason kept for API compat only.
