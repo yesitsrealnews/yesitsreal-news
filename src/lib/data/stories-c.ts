@@ -6644,4 +6644,197 @@ export const STORIES_C: Story[] = [
       ),
     },
   }),
+  story({
+    id: "s132",
+    slug: "dordogne-farmer-stole-neighbours-panties-hid-them-in-manure-pile",
+    slugs: {
+      fr: "dordogne-agriculteur-volait-culottes-voisine-cachees-dans-le-fumier",
+    },
+    section: "faits-divers",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Saint-Félix-de-Villadeix, Dordogne",
+    dumbness: 9.4,
+    sources: [
+      src(
+        "Dordogne : il volait les culottes de sa voisine et les cachait dans le tas de fumier",
+        "ICI / France Bleu Périgord",
+        "https://www.ici.fr/infos/faits-divers-justice/dordogne-il-volait-les-culottes-de-sa-voisine-et-les-cachait-dans-le-tas-de-fumier-6948680",
+        "2024-04-04",
+        "local",
+      ),
+      src(
+        "St Félix de Villadeix. Depuis presqu’un an il volait les vêtements et sous-vêtements de sa voisine",
+        "Le Démocrate de Bergerac",
+        "https://www.ledemocratedebergerac.fr/st-felix-de-villadeix-depuis-presquun-an-il-volait-les-vetements-et-sous-vetements-de-sa-voisine/",
+        "2024-04-04",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-12T06:15:00.000Z",
+    originalLang: "fr",
+    confidence: 0.93,
+    entities: ["Saint-Félix-de-Villadeix", "Lalinde", "Bergerac", "Dordogne"],
+    copy: {
+      en: c(
+        "Dordogne farmer stole his neighbour’s panties and hid some in the manure pile",
+        "Saint-Félix-de-Villadeix, canton of Lalinde. Key taken in May 2023. Camera. Arrested 1 April 2024. Bergerac court: six months suspended. We do not name the neighbour.",
+        [
+          "ICI / France Bleu Périgord (Marc Bertrand, 4 April 2024) and Le Démocrate de Bergerac report the same village file. A farmer in his forties — Le Démocrate says 49 — in Saint-Félix-de-Villadeix, Dordogne, had taken a key to his neighbours’ house in May 2023. While they were out he went in and took women’s underwear and other clothes. The neighbours noticed items vanishing. Gendarmes advised a discreet camera. It filmed him. He was arrested on Monday 1 April 2024.",
+          "At his place, officers found several pairs of panties and other garments, including some in a manure pile. Not the whole haul, the papers say. Presented at Bergerac court: six months in prison with a suspended sentence, care order, ban on contact with the neighbour, €2,800 for moral damage and €1,000 for the clothes. YES IT’S REAL does not name the neighbour. The press keeps her as a woman in her thirties. Flat property crime with a farmyard punchline.",
+          "Cross-check: ICI (Radio France local) plus the Bergerac weekly. Named commune. Named court. Named sums. No rape charge in the copy we read — theft, intrusion, manure. The absurdity is where the evidence sat.",
+        ],
+        [
+          "Steal the key. Steal the laundry.",
+          "Hide the evidence in the manure.",
+          "Bergerac court: six months suspended — and a care order.",
+        ],
+        "ICI / France Bleu Périgord 4 Apr 2024 + Le Démocrate de Bergerac. Victim not named. Manure find in gendarmerie search.",
+      ),
+      fr: c(
+        "Dordogne : un agriculteur volait les culottes de sa voisine et en cachait dans le tas de fumier",
+        "Saint-Félix-de-Villadeix, canton de Lalinde. Clé prise en mai 2023. Caméra. Arrestation le 1er avril 2024. Tribunal de Bergerac : six mois avec sursis. La voisine n’est pas nommée.",
+        [
+          "ICI / France Bleu Périgord (Marc Bertrand, 4 avril 2024) et Le Démocrate de Bergerac tiennent le même dossier de village. Un agriculteur d’une quarantaine d’années — 49 ans selon Le Démocrate — à Saint-Félix-de-Villadeix (Dordogne) avait subtilisé une clé de la maison de ses voisins en mai 2023. En leur absence, il y entrait pour prendre des culottes et d’autres vêtements. Les voisins ont vu disparaître du linge. Les gendarmes ont conseillé une caméra discrète. Elle l’a filmé. Interpellation le lundi 1er avril 2024.",
+          "Chez lui, les gendarmes ont retrouvé plusieurs culottes et vêtements, notamment dans un tas de fumier. Pas tout le butin, disent les journaux. Présenté au tribunal de Bergerac : six mois de prison avec sursis, obligation de soins, interdiction de contact avec la voisine, 2 800 € de préjudice moral et 1 000 € pour les vêtements. YES IT’S REAL ne nomme pas la voisine. La presse la laisse comme une trentenaire. Crime de biens, punchline de ferme.",
+          "Croisement : ICI (local Radio France) et l’hebdo bergeracois. Commune nommée. Tribunal nommé. Sommes nommées. Pas de chef de viol dans les papiers lus — vol, intrusion, fumier. L’absurdité, c’est l’endroit où gisaient les preuves.",
+        ],
+        [
+          "Voler la clé. Voler le linge.",
+          "Cacher les preuves dans le fumier.",
+          "Bergerac : six mois avec sursis — et des soins.",
+        ],
+        "ICI / France Bleu Périgord 4 avr. 2024 + Le Démocrate de Bergerac. Victime non nommée. Fumier constaté par les gendarmes.",
+      ),
+    },
+  }),
+  story({
+    id: "s133",
+    slug: "singapore-airline-security-guard-dennis-kwek-stole-320-womens-underwear",
+    slugs: {
+      fr: "singapour-agent-securite-aerienne-dennis-kwek-320-sous-vetements-voles",
+    },
+    section: "faits-divers",
+    countryCode: "SG",
+    countryName: "Singapore",
+    location: "Bukit Batok Central, Singapore",
+    dumbness: 9,
+    sources: [
+      src(
+        "S’porean man, 61, pleads guilty after stealing 320 women’s underwear over 5 years",
+        "Mothership",
+        "https://mothership.sg/2026/02/sporean-alcohol-disorder-underwear-steal/",
+        "2026-02-28",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-12T06:25:00.000Z",
+    originalLang: "en",
+    confidence: 0.9,
+    entities: ["Dennis Kwek", "Bukit Batok Central", "Institute of Mental Health", "Singapore"],
+    copy: {
+      en: c(
+        "Singapore airline security guard Dennis Kwek pleaded guilty after five years and 320 pairs of women’s underwear",
+        "Caught 21 May 2025 at Bukit Batok Central with ten items in his pockets. Seven more bags at home: 310. Alcohol use disorder, IMH. Urge after drinking, court heard.",
+        [
+          "Mothership (Constance Tan, 28 February 2026), citing Shin Min Daily News court reporting: Dennis Kwek, 61, Singaporean, pleaded guilty on 27 February after stealing 320 pieces of women’s underwear over about five years. He was an airline security guard at the time of arrest. On 21 May 2025, around 4:20 a.m., a resident at a Bukit Batok Central flat heard light footsteps, saw a man in black T-shirt, blue mask and black cap, chased him, and found six pairs of underwear and four bras in his bulging trouser pockets. Police were called.",
+          "Back at Kwek’s home, officers found seven bags with another 310 pieces. He admitted the five-year run. Prosecution: Institute of Mental Health diagnosis of alcohol use disorder; urge to steal underwear after drinking. Ordered into mandatory treatment and evaluation. He apologised, said he had quit alcohol for 278 days, joined a support group. One count under the Miscellaneous Offences (Public Order and Nuisance) Act; sentencing listed for 1 April. Ceiling cited: up to one year, fine up to S$3,000, or both.",
+          "YES IT’S REAL read Mothership’s English write-up of the Shin Min court file. Named defendant. Named suburb. Named count. Fetish theft as absurd property crime — bags of laundry, not a thriller. Cover is Marina Bay thematic; no mugshot scrape.",
+        ],
+        [
+          "Airline security by day.",
+          "Seven bags of stolen underwear at home.",
+          "Court: alcohol disorder — and a plea.",
+        ],
+        "Mothership 28 Feb 2026, citing Shin Min Daily News court reporting. Named: Dennis Kwek. Sentencing date as reported.",
+      ),
+      fr: c(
+        "Singapour : Dennis Kwek, agent de sécurité aérienne, plaide coupable après 320 sous-vêtements féminins volés",
+        "Pris le 21 mai 2025 à Bukit Batok Central avec dix pièces dans les poches. Sept sacs de plus chez lui : 310. Trouble lié à l’alcool, IMH. Envie après avoir bu, dit le parquet.",
+        [
+          "Mothership (Constance Tan, 28 février 2026), d’après le compte rendu d’audience de Shin Min Daily News : Dennis Kwek, 61 ans, Singapourien, a plaidé coupable le 27 février après avoir volé 320 sous-vêtements féminins en environ cinq ans. Il était agent de sécurité aérienne au moment de l’arrestation. Le 21 mai 2025, vers 4 h 20, un résident d’un immeuble de Bukit Batok Central a entendu des pas légers, vu un homme en T-shirt noir, masque bleu et casquette noire, l’a poursuivi et a trouvé six culottes et quatre soutiens-gorge dans ses poches de pantalon gonflées. Police appelée.",
+          "Chez Kwek, sept sacs avec 310 pièces supplémentaires. Il a reconnu la série sur cinq ans. Parquet : diagnostic de trouble lié à l’alcool à l’Institute of Mental Health ; envie de voler des sous-vêtements après avoir bu. Traitement et évaluation obligatoires. Il s’est excusé, dit avoir arrêté l’alcool depuis 278 jours, rejoint un groupe de soutien. Un chef sous le Miscellaneous Offences (Public Order and Nuisance) Act ; peine annoncée pour le 1er avril. Plafond cité : jusqu’à un an, amende jusqu’à 3 000 S$, ou les deux.",
+          "YES IT’S REAL a lu la reprise anglaise de Mothership du dossier Shin Min. Accusé nommé. Quartier nommé. Chef nommé. Vol fétichiste traité comme crime de biens absurde — des sacs de linge, pas un thriller. Couverture thématique Marina Bay ; pas de mugshot gratté.",
+        ],
+        [
+          "Sécurité aérienne le jour.",
+          "Sept sacs de sous-vêtements volés chez lui.",
+          "Tribunal : trouble alcoolique — et un mea culpa.",
+        ],
+        "Mothership 28 fév. 2026, citant Shin Min Daily News. Accusé nommé : Dennis Kwek. Date de peine telle que rapportée.",
+      ),
+    },
+  }),
+  story({
+    id: "s134",
+    slug: "hertfordshire-pc-marcin-zielinski-stole-underwear-on-duty-ring-doorbell",
+    slugs: {
+      fr: "hertfordshire-policier-marcin-zielinski-vole-sous-vetements-en-service-ring",
+    },
+    section: "courts",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Stevenage / Cambridge Crown Court, England",
+    dumbness: 9,
+    sources: [
+      src(
+        "Police officer who stole underwear jailed",
+        "BBC News",
+        "https://www.bbc.co.uk/news/articles/cn47233pqpko",
+        "2025-08-18",
+        "wire",
+      ),
+      src(
+        "Officer who stole underwear barred from policing",
+        "BBC News",
+        "https://www.bbc.co.uk/news/articles/cr4qv2pe9xwo",
+        "2025-10-07",
+        "wire",
+      ),
+      src(
+        "Former Herts police officer sentenced for theft offences",
+        "Herts Advertiser",
+        "https://www.hertsad.co.uk/news/25400404.former-herts-police-officer-sentenced-theft-offences/",
+        "2025-08-19",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-12T06:35:00.000Z",
+    originalLang: "en",
+    confidence: 0.94,
+    entities: ["Marcin Zielinski", "Hertfordshire Constabulary", "Cambridge Crown Court", "Stevenage"],
+    copy: {
+      en: c(
+        "Hertfordshire PC Marcin Zielinski stole underwear on an on-duty house search — Ring doorbell caught it",
+        "Section 32 search, Stevenage, 12 September 2024. Four months at Cambridge Crown Court, August 2025. Barred for life, October. We name the officer; not the resident.",
+        [
+          "BBC News (Louise Parry) and the Herts Advertiser: Marcin Zielinski, 47, of St Albans, a Hertfordshire Police constable, stole a woman’s underwear while carrying out a Section 32 search at a Stevenage home on 12 September 2024. He admitted theft and corrupt or improper exercise of police powers and privileges. He resigned while under investigation in November 2024. On 18 August 2025 Cambridge Crown Court jailed him for four months. A resident had been arrested on an unrelated matter and was later released with no further action.",
+          "Ring doorbell footage, reported across UK outlets covering the same case, showed the officer taking underwear during the search; a partner at the address found the clip while the resident was still in custody. Force line, Assistant Chief Constable Genna Telfer: fundamental betrayal of the public. In October 2025 a misconduct panel put him on the barred list for life; Hertfordshire said he would have been dismissed had he not already resigned. Deputy Chief Constable Andy Mariner: no place for people like him in the constabulary.",
+          "YES IT’S REAL crossed two BBC pieces and the Herts Advertiser. Named officer. Named court. Named force. Flat courts file: on-duty theft of laundry, doorbell as witness, custody not romance. Cover is Cambridge Crown Court — Commons CC — not a scraped mugshot.",
+        ],
+        [
+          "Search warrant powers. Underwear in the pocket.",
+          "The Ring doorbell kept the receipt.",
+          "Four months — then barred for life.",
+        ],
+        "BBC 18 Aug + 7 Oct 2025; Herts Advertiser. Named: Marcin Zielinski. Resident not named here. Ring doorbell in contemporaneous UK coverage.",
+      ),
+      fr: c(
+        "Hertfordshire : le PC Marcin Zielinski a volé des sous-vêtements en service — la sonnette Ring l’a filmé",
+        "Perquisition Section 32, Stevenage, 12 septembre 2024. Quatre mois à Cambridge Crown Court, août 2025. Radiation à vie en octobre. On nomme l’officier ; pas la résidente.",
+        [
+          "BBC News (Louise Parry) et le Herts Advertiser : Marcin Zielinski, 47 ans, de St Albans, agent de Hertfordshire Police, a volé un sous-vêtement féminin pendant une perquisition Section 32 dans une maison de Stevenage le 12 septembre 2024. Il a reconnu le vol et l’exercice corrompu ou indu de pouvoirs de police. Démission pendant l’enquête, novembre 2024. Le 18 août 2025, Cambridge Crown Court l’a condamné à quatre mois de prison. Une résidente avait été arrêtée pour une affaire sans lien ; suites classées sans suite.",
+          "Des images de sonnette Ring, reprises par la presse britannique sur le même dossier, montrent l’officier prenant le sous-vêtement pendant la perquisition ; un partenaire au domicile a trouvé la vidéo pendant que la résidente était encore en garde. Ligne de la force, assistant chief constable Genna Telfer : trahison fondamentale du public. En octobre 2025, un panel de discipline l’a inscrit à vie sur la liste d’interdiction ; Hertfordshire dit qu’il aurait été révoqué s’il n’avait pas déjà démissionné. Deputy chief constable Andy Mariner : pas de place pour des gens comme lui.",
+          "YES IT’S REAL a croisé deux papiers BBC et le Herts Advertiser. Officier nommé. Tribunal nommé. Force nommée. Dossier justice plat : vol de linge en service, sonnette comme témoin, garde à vue sans roman. Couverture : Cambridge Crown Court — Commons CC — pas de mugshot gratté.",
+        ],
+        [
+          "Pouvoirs de perquisition. Culotte dans la poche.",
+          "La sonnette Ring a gardé la preuve.",
+          "Quatre mois — puis radiation à vie.",
+        ],
+        "BBC 18 août + 7 oct. 2025 ; Herts Advertiser. Nommé : Marcin Zielinski. Résidente non nommée ici. Sonnette Ring dans la couverture UK contemporaine.",
+      ),
+    },
+  }),
+
 ];

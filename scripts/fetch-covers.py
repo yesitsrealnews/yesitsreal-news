@@ -22,8 +22,8 @@ from pathlib import Path
 
 from PIL import Image
 
-OUT = Path("/workspace/public/covers")
-CREDITS = Path("/workspace/src/lib/cover-credits.json")
+OUT = Path(__file__).resolve().parents[1] / "public" / "covers"
+CREDITS = Path(__file__).resolve().parents[1] / "src" / "lib" / "cover-credits.json"
 UA = "YESITSREAL/1.0 (newsroom covers; https://yesitsreal.news; desk@yesitsreal.news)"
 API = "https://commons.wikimedia.org/w/api.php"
 
@@ -149,6 +149,9 @@ COVERS: dict[str, tuple[str, str]] = {
     "s125": ("File:Red deer by the road, Cnoc Bad a' Ghille Duibh - geograph.org.uk - 645743.jpg", "red deer roadside UK"),
     "s126": ("File:Coach and Horses, Greek Street, Soho, W1 (2711029239).jpg", "Soho London pub"),
     "s127": ("File:Trailer park- Cape Canaveral, Florida (7221106912).jpg", "Florida trailer park"),
+    "s132": ("File:Pile of manure on a field.jpg", "manure pile farm field"),
+    "s133": ("File:Singapore Marina Bay Dusk 2018-02-27.jpg", "Singapore Marina Bay skyline"),
+    "s134": ("File:Cambridge Crown Court.jpg", "Cambridge Crown Court"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
