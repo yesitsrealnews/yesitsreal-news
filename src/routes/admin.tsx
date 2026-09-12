@@ -16,7 +16,6 @@ const LINKS = [
   { to: "/admin/inbox", label: "File d’attente" },
   { to: "/admin/assign", label: "Commander" },
   { to: "/admin/translations", label: "Traductions" },
-  { to: "/admin/rejected", label: "Refusés" },
   { to: "/admin/sources", label: "Sources" },
   { to: "/admin/calibration", label: "Réglages" },
   { to: "/admin/ads", label: "Pubs" },
@@ -32,7 +31,7 @@ function AdminGate() {
   const hydrateDeskStatus = useAppStore((s) => s.hydrateDeskStatus);
   const hydrateFrontPage = useAppStore((s) => s.hydrateFrontPage);
   const upsertInbox = useAppStore((s) => s.upsertInbox);
-  const rejected = useAppStore((s) => s.rejected);
+  const purgedIds = useAppStore((s) => s.purgedIds);
 
   useEffect(() => {
     let live = true;
@@ -49,9 +48,9 @@ function AdminGate() {
             .then((r) => r.json())
             .then((payload: { ok?: boolean; items?: QueueItem[] }) => {
               if (!live || !payload?.ok || !Array.isArray(payload.items)) return;
-              const rejectedIds = new Set(rejected.map((r) => r.id));
+              const purged = new Set(purgedIds);
               for (const item of payload.items) {
-                if (item?.id && !rejectedIds.has(item.id)) upsertInbox(item);
+                if (item?.id && !purged.has(item.id) && !purged.has(item.story?.id)) upsertInbox(item);
               }
             })
             .catch(() => undefined);
@@ -65,7 +64,7 @@ function AdminGate() {
     return () => {
       live = false;
     };
-  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, upsertInbox, rejected]);
+  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, upsertInbox, purgedIds]);
 
   if (!checked) return <div className="min-h-screen bg-paper" />;
   if (!admin) return <Navigate to="/cambuse" />;

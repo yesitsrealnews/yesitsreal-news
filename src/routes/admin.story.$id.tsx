@@ -29,7 +29,6 @@ function StoryEditor() {
   const [hed, setHed] = useState(fr?.headline ?? "");
   const [dek, setDek] = useState(fr?.dek ?? "");
   const [body, setBody] = useState(fr?.body.join("\n\n") ?? "");
-  const [reason, setReason] = useState("");
 
   if (!item) {
     return (
@@ -187,21 +186,24 @@ function StoryEditor() {
             <Button
               variant="outline"
               onClick={() => {
-                deleteInboxItem(current.id);
-                void navigate({ to: "/admin/inbox" });
+                void (async () => {
+                  try {
+                    await fetch("/api/desk-assign", {
+                      method: "DELETE",
+                      credentials: "include",
+                      headers: { "content-type": "application/json" },
+                      body: JSON.stringify({ id: current.id }),
+                    });
+                  } catch {
+                    /* local purge still */
+                  }
+                  deleteInboxItem(current.id);
+                  rejectQueueItem(current, "destroyed");
+                  void navigate({ to: "/admin/inbox" });
+                })();
               }}
             >
-              Supprimer de la file
-            </Button>
-            <Input placeholder="Motif du refus" value={reason} onChange={(e) => setReason(e.target.value)} />
-            <Button
-              variant="outline"
-              onClick={() => {
-                rejectQueueItem(current, reason || "Refus desk");
-                void navigate({ to: "/admin/inbox" });
-              }}
-            >
-              Refuser
+              Supprimer définitivement
             </Button>
           </div>
         </aside>

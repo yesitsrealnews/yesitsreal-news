@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { useMergedInbox, useMergedRejected } from "@/lib/admin-inbox";
+import { useMergedInbox } from "@/lib/admin-inbox";
 import { deskStories, publishedStories } from "@/lib/catalog";
 import { storyCopy } from "@/lib/format";
 import { makeQueueItem } from "@/lib/pipeline";
@@ -90,7 +90,6 @@ function RewriteControls({ story }: { story: Story }) {
 
 function AdminHome() {
   const inbox = useMergedInbox();
-  const rejected = useMergedRejected();
   const extras = useAppStore((s) => s.extras);
   const deskStatus = useAppStore((s) => s.deskStatus);
   const frontPageIds = useAppStore((s) => s.frontPageIds);
@@ -104,7 +103,6 @@ function AdminHome() {
   const tiles = [
     { n: inbox.length, l: "À relire", to: "/admin/inbox" },
     { n: published.length, l: "En ligne", to: "/" },
-    { n: rejected.length, l: "Refusés", to: "/admin/rejected" },
   ];
 
   function createPapier() {
@@ -134,7 +132,7 @@ function AdminHome() {
           </Button>
         </div>
       </div>
-      <div className="mt-6 grid gap-4 sm:grid-cols-3">
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {tiles.map((t) => (
           <Link key={t.l} to={t.to} className="border border-rule p-4 hover:bg-paper-2">
             <p className="font-serif text-4xl tabular-nums">{t.n}</p>
@@ -183,11 +181,18 @@ function AdminHome() {
                       </Button>
                     ) : null}
                     {rowStatus !== "deleted" ? (
-                      <Button type="button" variant="outline" size="sm" onClick={() => void applyStoryDeskStatus(s.id, "deleted")}>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          void applyStoryDeskStatus(s.id, "deleted");
+                        }}
+                      >
                         Supprimer
                       </Button>
                     ) : null}
-                    {rowStatus === "held" || rowStatus === "deleted" ? (
+                    {rowStatus === "held" ? (
                       <Button type="button" size="sm" onClick={() => void applyStoryDeskStatus(s.id, "published")}>
                         Remettre en ligne
                       </Button>

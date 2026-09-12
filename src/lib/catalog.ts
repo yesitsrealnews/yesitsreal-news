@@ -52,13 +52,14 @@ export function publishedStories(extras: Story[], deskStatus?: DeskStatusMap): S
   return mergeStories(extras).filter((s) => isPubliclyListed(s, deskStatus));
 }
 
-/** Admin list: published seeds/extras plus held/deleted overrides (still visible in Cambuse). */
+/** Admin list: published + held. Deleted desk overrides are destroyed from the list (no archive). */
 export function deskStories(extras: Story[], deskStatus?: DeskStatusMap): Story[] {
   return mergeStories(extras)
     .filter((s) => {
       if (s.sponsored) return false;
       const o = deskOverride(s.id, deskStatus);
-      if (o) return true;
+      if (o === "deleted") return false;
+      if (o === "held") return true;
       return s.status === "published";
     })
     .map((s) => {

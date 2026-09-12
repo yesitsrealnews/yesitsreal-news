@@ -93,7 +93,7 @@ function InboxPage() {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="font-serif text-3xl">File d’attente</h1>
-          <p className="mt-2 text-sm text-ink-muted">À relire avant publication. Titres en français. Pre Pubs de la veille arrivent ici — Publier met en ligne (extras). Les flux RSS ne publient pas tout seuls.</p>
+          <p className="mt-2 text-sm text-ink-muted">À relire avant publication. Titres en français. Pre Pubs ici. Publier = en ligne. Supprimer = destruction définitive (pas d’archive).</p>
           {pullNote ? <p className="mt-2 text-sm text-signal">{pullNote}</p> : null}
         </div>
         <div className="flex flex-wrap gap-2">

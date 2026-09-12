@@ -30,6 +30,8 @@ interface AppState {
   submissions: Submission[];
   inbox: QueueItem[];
   rejected: QueueItem[];
+  /** Ids destroyed from Cambuse — never rehydrate. Lightweight, no archive body. */
+  purgedIds: string[];
   extras: Story[];
   deskStatus: DeskStatusMap;
   frontPageIds: string[];
@@ -108,6 +110,7 @@ export const useAppStore = create<AppState>()(
       submissions: [],
       inbox: [],
       rejected: [],
+      purgedIds: [],
       extras: [],
       deskStatus: {},
       frontPageIds: [],
@@ -164,13 +167,14 @@ export const useAppStore = create<AppState>()(
           deskStatus,
         });
       },
-      rejectQueueItem: (item, reason) => {
+      rejectQueueItem: (item, _reason) => {
+        // Hard destroy — no Refusés archive. reason kept for API compat only.
+        const purged = [...new Set([item.id, ...get().purgedIds])].slice(0, 500);
         set({
           inbox: get().inbox.filter((i) => i.id !== item.id),
-          rejected: [
-            { ...item, story: { ...item.story, status: "rejected", rejectReason: reason } },
-            ...get().rejected.filter((i) => i.id !== item.id),
-          ],
+          rejected: [],
+          purgedIds: purged,
+          extras: get().extras.filter((s) => s.id !== item.story.id && s.id !== item.id),
         });
       },
       holdInboxItem: (item) => {
@@ -184,9 +188,12 @@ export const useAppStore = create<AppState>()(
       deleteInboxItem: (id) => {
         const fromInbox = get().inbox.find((i) => i.id === id);
         const storyId = fromInbox?.story.id ?? id;
+        const purged = [...new Set([id, storyId, ...get().purgedIds])].slice(0, 500);
         set({
-          inbox: get().inbox.filter((i) => i.id !== id),
-          rejected: get().rejected.filter((i) => i.id !== id),
+          inbox: get().inbox.filter((i) => i.id !== id && i.story.id !== storyId),
+          rejected: [],
+          purgedIds: purged,
+          extras: get().extras.filter((s) => s.id !== id && s.id !== storyId),
         });
         if (/^s\d+$/.test(storyId)) {
           void get().applyStoryDeskStatus(storyId, "deleted");
@@ -393,19 +400,28 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 7,
+      version: 8,
       migrate: (persisted) => {
         const s = (persisted ?? {}) as {
           lang?: string;
           admin?: boolean;
           deskStatus?: DeskStatusMap;
           frontPageIds?: string[];
+          rejected?: unknown;
+          purgedIds?: string[];
         };
         if (!s.lang || s.lang === "en") s.lang = "fr";
         delete s.admin;
         if (!s.deskStatus || typeof s.deskStatus !== "object") s.deskStatus = {};
         // Front page pins are server-owned (GitHub issue); never trust localStorage.
         s.frontPageIds = [];
+        // Drop Refusés archive — free storage; keep only lightweight purged ids.
+        const oldRejected = Array.isArray(s.rejected) ? s.rejected : [];
+        const fromRejected = oldRejected
+          .map((r) => (r && typeof r === "object" && "id" in r ? String((r as { id: string }).id) : ""))
+          .filter(Boolean);
+        s.purgedIds = [...new Set([...(s.purgedIds ?? []), ...fromRejected])].slice(0, 500);
+        delete s.rejected;
         return s as typeof persisted;
       },
       partialize: (s) => ({
@@ -414,7 +430,7 @@ export const useAppStore = create<AppState>()(
         cookies: s.cookies,
         submissions: s.submissions,
         inbox: s.inbox,
-        rejected: s.rejected,
+        purgedIds: s.purgedIds,
         extras: s.extras,
         deskStatus: s.deskStatus,
         allowList: s.allowList,
