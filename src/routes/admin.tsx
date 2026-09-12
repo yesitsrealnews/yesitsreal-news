@@ -32,6 +32,7 @@ function AdminGate() {
   const hydrateDeskStatus = useAppStore((s) => s.hydrateDeskStatus);
   const hydrateFrontPage = useAppStore((s) => s.hydrateFrontPage);
   const upsertInbox = useAppStore((s) => s.upsertInbox);
+  const rejected = useAppStore((s) => s.rejected);
 
   useEffect(() => {
     let live = true;
@@ -48,8 +49,9 @@ function AdminGate() {
             .then((r) => r.json())
             .then((payload: { ok?: boolean; items?: QueueItem[] }) => {
               if (!live || !payload?.ok || !Array.isArray(payload.items)) return;
+              const rejectedIds = new Set(rejected.map((r) => r.id));
               for (const item of payload.items) {
-                if (item?.id) upsertInbox(item);
+                if (item?.id && !rejectedIds.has(item.id)) upsertInbox(item);
               }
             })
             .catch(() => undefined);
@@ -63,7 +65,7 @@ function AdminGate() {
     return () => {
       live = false;
     };
-  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, upsertInbox]);
+  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, upsertInbox, rejected]);
 
   if (!checked) return <div className="min-h-screen bg-paper" />;
   if (!admin) return <Navigate to="/cambuse" />;

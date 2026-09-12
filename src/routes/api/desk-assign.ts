@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { deskTokenOk, readDeskCookie } from "@/lib/desk-auth.server";
 import { runDeskAssign } from "@/lib/desk-assign";
-import { getStoredAssignments, saveAssignment } from "@/lib/desk-assign-store";
+import { getStoredAssignments, removeAssignment, saveAssignment } from "@/lib/desk-assign-store";
 import { clientKey, jsonLimited, limitedJson, rateLimit, sanitizeText } from "@/lib/security";
 
 function noIndex(body: unknown, status: number): Response {
@@ -77,6 +77,21 @@ export const Route = createFileRoute("/api/desk-assign")({
           },
           200,
         );
+      },
+      DELETE: async ({ request }) => {
+        const desk = await deskTokenOk(readDeskCookie(request));
+        if (!desk) return noIndex({ ok: false, reason: "auth" }, 401);
+        const body = await jsonLimited<{ id?: string }>(request, 2_000);
+        if (!body) return noIndex({ ok: false, reason: "payload" }, 413);
+        const id = sanitizeText(body.id, 80);
+        if (!id) return noIndex({ ok: false, reason: "payload", message: "Il faut l’id de la proposition." }, 400);
+        try {
+          const stored = await removeAssignment(id);
+          if (!stored) return noIndex({ ok: false, reason: "payload", message: "Suppression impossible." }, 400);
+          return noIndex({ ok: true, id, count: stored.items.length, items: stored.items }, 200);
+        } catch {
+          return noIndex({ ok: false, reason: "payload", message: "Suppression impossible." }, 400);
+        }
       },
     },
   },

@@ -147,3 +147,23 @@ export async function saveAssignment(item: QueueItem): Promise<{ at: string; ite
   mem = { issueNumber: issue.number, items: merged, at, fetchedAt: Date.now() };
   return { at, items: [...merged] };
 }
+
+export async function removeAssignment(id: string): Promise<{ at: string; items: QueueItem[] } | null> {
+  const token = commentsToken();
+  if (!token) return null;
+  const clean = id.trim();
+  if (!clean) return null;
+  const issue = await findOrCreateIssue(token);
+  if (!issue) return null;
+  const prev = parseBody(issue.body);
+  const merged = prev.items.filter((i) => i.id !== clean && i.story?.id !== clean);
+  const at = new Date().toISOString();
+  const patched = await gh<GhIssue>(token, `/repos/${OWNER}/${REPO}/issues/${issue.number}`, {
+    method: "PATCH",
+    body: JSON.stringify({ body: formatBody(at, merged) }),
+  });
+  if (!patched.ok) return null;
+  mem = { issueNumber: issue.number, items: merged, at, fetchedAt: Date.now() };
+  return { at, items: [...merged] };
+}
+
