@@ -67,3 +67,17 @@ Allowed :
 - parody posters not used by the campaign
 
 If rights are unclear → keep Commons thematic (place, institution, object). Tone flat: illustrate the public figure via their own campaign image, not a meme crop.
+
+## Français — rédaction
+
+**Le français n’est pas une traduction calquée de l’anglais.** Chaque papier FR doit être écrit comme un article de presse française : syntaxe correcte, accords, temps, ponctuation typographique française (« » ; espaces fines avant ; ? !), formulation idiomatique.
+
+Interdit :
+- anglicismes de structure (calques word-for-word)
+- phrases qui « sonnent » EN en FR
+- titres FR qui sont juste l’EN traduit mot à mot quand une tournure FR naturelle existe
+
+Ordre conseillé : rédiger le FR pour le lecteur FR (souvent `originalLang: "fr"`), puis l’EN — ou réécrire le FR à part, jamais coller une gloss.
+
+Ton flat YES IT’S REAL inchangé. Exactitude sourcée inchangée.
+
