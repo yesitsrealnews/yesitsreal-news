@@ -118,6 +118,18 @@ Ton flat YES IT’S REAL inchangé. Exactitude sourcée inchangée.
 
 **Exception UK / Angleterre / faits britanniques :** en VF, monter d’un cran le moqueur (ironie française, piques sèches). Toujours vrai, sourcé, plat — pas de satire inventée, pas de grief, pas de mineurs.
 
+
+## Ton — moquerie multilangue
+
+Les articles sont **moqueurs dans toutes les langues**, pas seulement en FR.
+
+- Adapter l’humour au **pays / culture** du fait (registre comique local), pas un calque du ton FR.
+- Ex. : ironie sèche française ; understatement / deadpan britannique ; absurde plat US faits-divers ; pince-sans-rire DE ; etc.
+- Toujours : vrai, sourcé, déjà publié. Jamais inventer. Jamais grief / mineurs / wars focus.
+- UK/Angleterre en FR : déjà un cran plus moqueur (ironie française). Les autres langues du même papier doivent aussi porter une moquerie **locale**, pas une traduction neutre.
+- Curseur Cambuse « Moquerie » module l’intensité ; le **style** reste calé sur le pays.
+
+
 ## Signature — fétichismes / bizarreries sexuelles (FR)
 
 Les articles **français** sur fétichistes, voleurs de culottes / sous-vêtements, bagarres sex-toy, et autres bizarreries sexuelles adultes (faits-divers absurdes, adults only) sont signés **Clement Capdeville**.
