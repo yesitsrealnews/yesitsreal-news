@@ -6,6 +6,7 @@ import { formatDateTime, storyCopy } from "@/lib/format";
 import { makeQueueItem } from "@/lib/pipeline";
 import type { QueueItem } from "@/lib/types";
 import { useAppStore } from "@/lib/store";
+import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/admin/inbox")({ component: InboxPage });
@@ -93,7 +94,7 @@ function InboxPage() {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="font-serif text-3xl">File d’attente</h1>
-          <p className="mt-2 text-sm text-ink-muted">À relire avant publication. Titres en français. Pre Pubs ici. Publier = en ligne. Supprimer = destruction définitive (pas d’archive).</p>
+          <p className="mt-2 text-sm text-ink-muted">À relire avant publication. Titres en français. Pre Pubs ici. Publier = en ligne. Réécrire = consignes → même Pre Pub. Supprimer = destruction définitive (pas d’archive).</p>
           {pullNote ? <p className="mt-2 text-sm text-signal">{pullNote}</p> : null}
         </div>
         <div className="flex flex-wrap gap-2">
@@ -156,6 +157,14 @@ function InboxPage() {
                     Relire
                   </Link>
                 </Button>
+                <RewriteControls
+                  story={item.story}
+                  mode="inplace"
+                  queueItem={item}
+                  onInPlace={(merged) => {
+                    void navigate({ to: "/admin/story/$id", params: { id: merged.id } });
+                  }}
+                />
                 <Button
                   type="button"
                   size="sm"

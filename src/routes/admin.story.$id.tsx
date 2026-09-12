@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useMergedInbox } from "@/lib/admin-inbox";
 import { useAppStore } from "@/lib/store";
+import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -170,6 +171,17 @@ function StoryEditor() {
             <Button variant="outline" onClick={persistDraft}>
               Enregistrer
             </Button>
+            <RewriteControls
+              story={current.story}
+              mode="inplace"
+              queueItem={current}
+              onInPlace={(merged) => {
+                const frNext = storyCopy(merged.story, "fr");
+                setHed(frNext.headline);
+                setDek(frNext.dek);
+                setBody(frNext.body.join("\n\n"));
+              }}
+            />
             <Button
               variant="outline"
               onClick={() => {

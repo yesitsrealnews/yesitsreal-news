@@ -1,13 +1,11 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
 import { useMergedInbox } from "@/lib/admin-inbox";
 import { deskStories, publishedStories } from "@/lib/catalog";
 import { storyCopy } from "@/lib/format";
 import { makeQueueItem } from "@/lib/pipeline";
 import { useAppStore } from "@/lib/store";
-import type { QueueItem, Story } from "@/lib/types";
+import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 
 export const Route = createFileRoute("/admin/")({ component: AdminHome });
 
@@ -22,69 +20,6 @@ function uneBadge(rank: number) {
     <span className="ms-2 rounded bg-signal/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-signal">
       Une #{rank}
     </span>
-  );
-}
-
-function RewriteControls({ story }: { story: Story }) {
-  const [open, setOpen] = useState(false);
-  const [instructions, setInstructions] = useState("");
-  const [busy, setBusy] = useState(false);
-  const [err, setErr] = useState("");
-  const upsertInbox = useAppStore((s) => s.upsertInbox);
-  const navigate = useNavigate();
-
-  async function submit() {
-    setBusy(true);
-    setErr("");
-    try {
-      const res = await fetch("/api/desk-rewrite", {
-        method: "POST",
-        credentials: "include",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ storyId: story.id, instructions, story }),
-      });
-      const data = (await res.json()) as { ok?: boolean; message?: string; item?: QueueItem };
-      if (!res.ok || !data.ok || !data.item) {
-        setErr(data.message || "Réécriture impossible.");
-        setBusy(false);
-        return;
-      }
-      upsertInbox(data.item);
-      void navigate({ to: "/admin/story/$id", params: { id: data.item.id } });
-    } catch {
-      setErr("Réseau / session. Réessaie.");
-      setBusy(false);
-    }
-  }
-
-  if (!open) {
-    return (
-      <Button type="button" variant="outline" size="sm" onClick={() => setOpen(true)}>
-        Réécrire
-      </Button>
-    );
-  }
-
-  return (
-    <div className="w-full max-w-md space-y-2 rounded border border-ink bg-paper-2 p-3 sm:w-80">
-      <p className="text-xs font-bold uppercase tracking-[0.12em]">Réécrire — consignes</p>
-      <Textarea
-        value={instructions}
-        onChange={(e) => setInstructions(e.target.value)}
-        placeholder="Ex. : FR plus moqueur, syntaxe impeccable, moins de calque EN…"
-        className="min-h-24 bg-paper text-sm"
-        maxLength={2000}
-      />
-      {err ? <p className="text-xs text-signal">{err}</p> : null}
-      <div className="flex flex-wrap gap-2">
-        <Button type="button" size="sm" disabled={busy || instructions.trim().length < 8} onClick={() => void submit()}>
-          {busy ? "Réécriture…" : "Lancer"}
-        </Button>
-        <Button type="button" variant="outline" size="sm" disabled={busy} onClick={() => setOpen(false)}>
-          Annuler
-        </Button>
-      </div>
-    </div>
   );
 }
 
