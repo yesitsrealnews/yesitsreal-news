@@ -14,8 +14,11 @@ export const Route = createFileRoute("/admin/inbox")({ component: InboxPage });
 function InboxPage() {
   const inbox = useMergedInbox();
   const upsertInbox = useAppStore((s) => s.upsertInbox);
+  const setInbox = useAppStore((s) => s.setInbox);
   const publishQueueItem = useAppStore((s) => s.publishQueueItem);
   const rejectQueueItem = useAppStore((s) => s.rejectQueueItem);
+  const deleteInboxItem = useAppStore((s) => s.deleteInboxItem);
+  const purgedIds = useAppStore((s) => s.purgedIds);
   const navigate = useNavigate();
   const [pulling, setPulling] = useState(false);
   const [pullNote, setPullNote] = useState("");
@@ -75,17 +78,26 @@ function InboxPage() {
 
   async function dismissItem(item: QueueItem) {
     setBusyId(item.id);
+    deleteInboxItem(item.id);
     try {
-      await fetch("/api/desk-assign", {
+      const res = await fetch("/api/desk-assign", {
         method: "DELETE",
         credentials: "include",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ id: item.id }),
       });
+      const data = (await res.json()) as { ok?: boolean; items?: QueueItem[] };
+      if (res.ok && data.ok && Array.isArray(data.items)) {
+        const purged = new Set(purgedIds);
+        purged.add(item.id);
+        if (item.story?.id) purged.add(item.story.id);
+        setInbox(data.items.filter((it) => it?.id && !purged.has(it.id) && !purged.has(it.story?.id)));
+      } else {
+        rejectQueueItem(item, "Proposition refusée en Cambuse");
+      }
     } catch {
-      /* local dismiss still happens */
+      rejectQueueItem(item, "Proposition refusée en Cambuse");
     }
-    rejectQueueItem(item, "Proposition refusée en Cambuse");
     setBusyId("");
   }
 

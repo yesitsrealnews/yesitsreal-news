@@ -30,7 +30,7 @@ function AdminGate() {
 
   const hydrateDeskStatus = useAppStore((s) => s.hydrateDeskStatus);
   const hydrateFrontPage = useAppStore((s) => s.hydrateFrontPage);
-  const upsertInbox = useAppStore((s) => s.upsertInbox);
+  const setInbox = useAppStore((s) => s.setInbox);
   const purgedIds = useAppStore((s) => s.purgedIds);
 
   useEffect(() => {
@@ -49,9 +49,10 @@ function AdminGate() {
             .then((payload: { ok?: boolean; items?: QueueItem[] }) => {
               if (!live || !payload?.ok || !Array.isArray(payload.items)) return;
               const purged = new Set(purgedIds);
-              for (const item of payload.items) {
-                if (item?.id && !purged.has(item.id) && !purged.has(item.story?.id)) upsertInbox(item);
-              }
+              const next = payload.items.filter(
+                (item) => item?.id && !purged.has(item.id) && !purged.has(item.story?.id),
+              );
+              setInbox(next);
             })
             .catch(() => undefined);
         }
@@ -64,7 +65,7 @@ function AdminGate() {
     return () => {
       live = false;
     };
-  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, upsertInbox, purgedIds]);
+  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, setInbox, purgedIds]);
 
   if (!checked) return <div className="min-h-screen bg-paper" />;
   if (!admin) return <Navigate to="/cambuse" />;

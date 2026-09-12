@@ -54,12 +54,45 @@ function parseBody(body?: string | null): { at: string; items: QueueItem[] } {
   }
 }
 
+/** GitHub issue body hard limit ~65536. Never silently keep only 4. */
+const BODY_LIMIT = 58_000;
+
+function compactItem(item: QueueItem): QueueItem {
+  const story = item.story;
+  const copy = { ...story.copy };
+  for (const lang of Object.keys(copy) as (keyof typeof copy)[]) {
+    const c = copy[lang];
+    if (!c) continue;
+    copy[lang] = {
+      ...c,
+      body: (c.body ?? []).slice(0, 6).map((p) => (p.length > 900 ? `${p.slice(0, 897)}…` : p)),
+      dek: c.dek.length > 320 ? `${c.dek.slice(0, 317)}…` : c.dek,
+      headline: c.headline.length > 140 ? `${c.headline.slice(0, 137)}…` : c.headline,
+    };
+  }
+  return {
+    ...item,
+    story: {
+      ...story,
+      copy,
+      sources: (story.sources ?? []).slice(0, 6),
+      entities: (story.entities ?? []).slice(0, 12),
+    },
+    pack: {
+      ...item.pack,
+      claims: (item.pack?.claims ?? []).slice(0, 4),
+      stillNeeds: (item.pack?.stillNeeds ?? []).slice(0, 4),
+      suggestedEdits: (item.pack?.suggestedEdits ?? []).slice(0, 3),
+    },
+  };
+}
+
 function formatBody(at: string, items: QueueItem[]): string {
-  const payload: IssuePayload = { v: 1, at, items: items.slice(0, MAX_ITEMS) };
-  let body = JSON.stringify(payload, null, 2);
-  if (body.length > 60_000) {
-    const slim = items.slice(0, 4);
-    body = JSON.stringify({ v: 1, at, items: slim }, null, 2);
+  let list = items.slice(0, MAX_ITEMS).map(compactItem);
+  let body = JSON.stringify({ v: 1, at, items: list } as IssuePayload);
+  while (body.length > BODY_LIMIT && list.length > 1) {
+    list = list.slice(0, -1); // drop oldest (end of list — newest are prepended)
+    body = JSON.stringify({ v: 1, at, items: list } as IssuePayload);
   }
   return body;
 }
