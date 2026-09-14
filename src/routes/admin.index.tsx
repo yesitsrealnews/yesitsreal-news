@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/admin/")({ component: AdminHome });
 
 function statusBadge(status: string) {
-  if (status === "held") return <span className="ms-2 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-900">Attente</span>;
+  if (status === "held" || status === "review") return <span className="ms-2 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-900">Attente</span>;
   if (status === "deleted") return <span className="ms-2 rounded bg-red-100 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-red-800">Supprimé</span>;
   return <span className="ms-2 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-800">En ligne</span>;
 }

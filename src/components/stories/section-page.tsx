@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import type { Lang, SectionId, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
-import { countriesFrom, dumbest, inSection } from "@/lib/catalog";
+import { countriesFrom, inSection } from "@/lib/catalog";
 import { StoryCard } from "@/components/stories/story-card";
 import { AdSlot } from "@/components/site/ad-slot";
 import { Button } from "@/components/ui/button";
@@ -23,15 +23,13 @@ export function SectionArchive({
   const base = inSection(extras, section, deskStatus);
   const countries = countriesFrom(base);
   const [country, setCountry] = useState("all");
-  const [minD, setMinD] = useState(0);
   const [shown, setShown] = useState(12);
 
   const filtered = useMemo(
-    () =>
-      base.filter((s) => (country === "all" ? true : s.countryCode === country) && s.dumbness >= minD),
-    [base, country, minD],
+    () => base.filter((s) => (country === "all" ? true : s.countryCode === country)),
+    [base, country],
   );
-  const week = dumbest(filtered, 5);
+  const latest = filtered.slice(0, 5);
   const title = t(lang, SECTION_KEY[section] ?? "secWorld");
   const era = section === "archive";
   const comment = section === "commentaire";
@@ -56,7 +54,7 @@ export function SectionArchive({
       {era ? <div className="double-rule mt-6 py-2" /> : null}
 
       <form
-        className="mt-6 grid gap-4 border border-rule p-4 sm:grid-cols-4"
+        className="mt-6 grid gap-4 border border-rule p-4 sm:grid-cols-3"
         onSubmit={(e) => e.preventDefault()}
       >
         <div>
@@ -75,28 +73,12 @@ export function SectionArchive({
             ))}
           </select>
         </div>
-        <div>
-          <Label htmlFor="dumb">{t(lang, "minDumbness")}</Label>
-          <select
-            id="dumb"
-            className="mt-1 h-11 w-full border border-rule bg-card px-2 text-sm"
-            value={minD}
-            onChange={(e) => setMinD(Number(e.target.value))}
-          >
-            {[0, 6, 7, 8, 9].map((n) => (
-              <option key={n} value={n}>
-                {n === 0 ? "—" : `${n}+`}
-              </option>
-            ))}
-          </select>
-        </div>
         <div className="flex items-end">
           <Button
             type="button"
             variant="outline"
             onClick={() => {
               setCountry("all");
-              setMinD(0);
             }}
           >
             {t(lang, "filterReset")}
@@ -125,11 +107,9 @@ export function SectionArchive({
         </div>
         <aside className="space-y-6 lg:col-span-4">
           <section>
-            <h2 className="kicker border-b border-rule pb-2">
-              {era ? t(lang, "archiveKicker") : t(lang, "unbelievableWeek")}
-            </h2>
+            <h2 className="kicker border-b border-rule pb-2">{t(lang, "latest")}</h2>
             <ul className="mt-3 space-y-4">
-              {week.map((s) => (
+              {latest.map((s) => (
                 <li key={s.id}>
                   <StoryCard story={s} lang={lang} variant="rail" />
                 </li>

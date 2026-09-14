@@ -4,7 +4,7 @@ import type { Lang, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
 import { flagEmoji, storyCopy, storySlug } from "@/lib/format";
-import { DumbnessScore } from "@/components/stories/dumbness";
+import { SourceProof } from "@/components/stories/source-proof";
 import { StoryCover } from "@/components/stories/cover";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -79,7 +79,7 @@ export function StoryCard({
         <span>
           {flagEmoji(story.countryCode)} {story.location}
         </span>
-        <DumbnessScore score={story.dumbness} lang={lang} size="sm" />
+        <SourceProof story={story} lang={lang} size="sm" />
         {story.factChecked && !story.sponsored ? (
           <span className="inline-flex items-center gap-1 text-true">
             <BadgeCheck className="size-3.5" />

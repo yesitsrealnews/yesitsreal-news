@@ -5,7 +5,7 @@ import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { storySharePath } from "@/lib/viral";
-import { dumbest, homeStories, mostRead, sponsoredStory } from "@/lib/catalog";
+import { homeStories, sponsoredStory } from "@/lib/catalog";
 import { StoryCard } from "@/components/stories/story-card";
 import { StoryCover } from "@/components/stories/cover";
 import { Newsletter } from "@/components/site/newsletter";
@@ -14,7 +14,7 @@ import { SocialRail } from "@/components/site/social-rail";
 import { ShareBar } from "@/components/site/share-bar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DumbnessScore } from "@/components/stories/dumbness";
+import { SourceProof } from "@/components/stories/source-proof";
 import { BadgeCheck, Newspaper } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 
@@ -38,8 +38,6 @@ export function HomePage({
   const features = rest.slice(0, 2);
   const [shown, setShown] = useState(8);
   const grid = rest.slice(2, 2 + shown);
-  const read = mostRead(extras, 6, all, deskStatus);
-  const dumb = dumbest(extras, 5, all, deskStatus);
   const sponsored = sponsoredStory(extras, deskStatus);
 
   if (!hero) return <p className="p-8">{t(lang, "noStories")}</p>;
@@ -63,10 +61,8 @@ export function HomePage({
           {t(lang, "about")}
         </Link>
         {" · "}
-        {t(lang, "thisWeek")}
-        {" · "}
-        <Link to="/rankings" className="underline underline-offset-2">
-          {t(lang, "allTime")}
+        <Link to="/method" className="underline underline-offset-2">
+          {t(lang, "method")}
         </Link>
       </p>
       <section className="grid gap-6 border-b-4 border-ink pb-6 lg:grid-cols-12">
@@ -95,7 +91,7 @@ export function HomePage({
             <span>
               {flagEmoji(hero.countryCode)} {hero.location}
             </span>
-            <DumbnessScore score={hero.dumbness} lang={lang} />
+            <SourceProof story={hero} lang={lang} names />
             <span className="inline-flex items-center gap-1 text-true">
               <BadgeCheck className="size-3.5" />
               {t(lang, "factChecked")}
@@ -140,34 +136,6 @@ export function HomePage({
         </div>
         <aside className="space-y-8 lg:col-span-4">
           <AdSlot lang={lang} slot="sidebar" className="hidden lg:block" salt="home-side" />
-          {read.length ? (
-          <section>
-            <h2 className="kicker border-b-2 border-ink pb-2 text-ink">{t(lang, "mostRead")}</h2>
-            <ol className="mt-3 space-y-3">
-              {read.map((s, i) => (
-                <li key={s.id} className="flex gap-3">
-                  <span className="font-serif text-3xl leading-none text-signal tabular-nums">{i + 1}</span>
-                  <StoryCard story={s} lang={lang} variant="rail" />
-                </li>
-              ))}
-            </ol>
-          </section>
-          ) : null}
-          {dumb.length ? (
-          <section>
-            <h2 className="kicker border-b-2 border-signal pb-2 text-signal">{t(lang, "dumbestToday")}</h2>
-            <ul className="mt-3 space-y-4">
-              {dumb.map((s) => (
-                <li key={s.id}>
-                  <StoryCard story={s} lang={lang} variant="rail" />
-                </li>
-              ))}
-            </ul>
-            <Link to="/today" className="mt-3 inline-block text-xs font-extrabold uppercase tracking-[0.14em] underline">
-              {t(lang, "todayShare")}
-            </Link>
-          </section>
-          ) : null}
           <SocialRail lang={lang} />
           {sponsored ? (
             <div className="border-2 border-gold p-4">

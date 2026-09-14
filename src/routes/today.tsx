@@ -4,13 +4,12 @@ import { ShareBar } from "@/components/site/share-bar";
 import { QuoteCardButton } from "@/components/stories/quote-card";
 import { StoryCard } from "@/components/stories/story-card";
 import { Newsletter } from "@/components/site/newsletter";
-import { Badge } from "@/components/ui/badge";
 import { t } from "@/lib/i18n";
 import { useAppStore } from "@/lib/store";
 import { SITE_URL } from "@/lib/brand";
-import { dumbest, homeStories } from "@/lib/catalog";
+import { homeStories } from "@/lib/catalog";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
-import { DumbnessScore } from "@/components/stories/dumbness";
+import { SourceProof } from "@/components/stories/source-proof";
 
 export const Route = createFileRoute("/today")({
   component: TodayPage,
@@ -19,7 +18,7 @@ export const Route = createFileRoute("/today")({
       { title: "Le briefing du jour — YES IT'S REAL" },
       {
         name: "description",
-        content: "Cinq faits vrais du jour. Sourcés. Déjà parus. Ça s’est vraiment passé.",
+        content: "Le briefing du jour ouvré. Faits vrais, sourcés, déjà parus. Une pierre à la fois.",
       },
       { property: "og:title", content: "Le briefing du jour — YES IT'S REAL" },
     ],
@@ -33,7 +32,7 @@ function TodayPage() {
   const deskStatus = useAppStore((s) => s.deskStatus);
   const add = useAppStore((s) => s.addNewsletter);
   const countShare = useAppStore((s) => s.countShare);
-  const list = dumbest(extras, 5, homeStories(extras, deskStatus), deskStatus);
+  const list = homeStories(extras, deskStatus).slice(0, 5);
   const lead = list[0];
   const rest = list.slice(1);
   const now = formatDate(new Date().toISOString(), lang);
@@ -54,7 +53,6 @@ function TodayPage() {
 
         {lead ? (
           <article className="mt-10 border-b-4 border-ink pb-8">
-            <Badge tone="scream">{t(lang, "dumbestToday")}</Badge>
             <h2 className="mt-3 font-serif text-4xl uppercase leading-[0.95]">
               <Link to="/story/$slug" params={{ slug: storySlug(lead, lang) }}>
                 {storyCopy(lead, lang).headline}
@@ -65,7 +63,7 @@ function TodayPage() {
               <span>
                 {flagEmoji(lead.countryCode)} {lead.location}
               </span>
-              <DumbnessScore score={lead.dumbness} lang={lang} />
+              <SourceProof story={lead} lang={lang} names />
             </div>
             <div className="mt-4">
               <QuoteCardButton story={lead} lang={lang} onSaved={() => countShare(`card-${lead.id}`)} />

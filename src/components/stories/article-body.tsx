@@ -3,7 +3,7 @@ import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
 import { flagEmoji, formatDateTime, readingMinutes, storyBodyPending, storyByline, storyCopy } from "@/lib/format";
 import { storySharePath } from "@/lib/viral";
-import { DumbnessScore } from "@/components/stories/dumbness";
+import { SourceProof } from "@/components/stories/source-proof";
 import { Badge } from "@/components/ui/badge";
 import { AdSlot } from "@/components/site/ad-slot";
 import { ShareBar } from "@/components/site/share-bar";
@@ -85,7 +85,7 @@ export function ArticleBody({
             {t(lang, "factChecked")}
           </span>
         )}
-        <DumbnessScore score={story.dumbness} lang={lang} />
+        <SourceProof story={story} lang={lang} names />
       </div>
 
       <div className="relative my-6 aspect-[16/9] overflow-hidden bg-ink">
@@ -94,6 +94,20 @@ export function ArticleBody({
           <Badge tone="scream">{t(lang, "truePill")}</Badge>
         </span>
       </div>
+
+      <section className="mb-6 border-2 border-ink p-4">
+        <h2 className="kicker text-ink">{t(lang, "originalSources")}</h2>
+        <ul className="mt-3 space-y-2 text-sm">
+          {story.sources.map((s) => (
+            <li key={s.url}>
+              <a href={s.url} className="underline underline-offset-2" rel="noopener noreferrer">
+                {s.publisher}: {s.title}
+              </a>
+              <span className="text-ink-muted"> · {s.date}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <SourceVideo storyId={story.id} lang={lang} />
 
@@ -136,9 +150,6 @@ export function ArticleBody({
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-xs text-ink-muted">
-          Confidence {Math.round(story.confidence * 100)}% · {story.countryName}
-        </p>
         {voice.id !== "desk" ? (
           <p className="mt-3 text-xs text-ink-muted">
             {t(lang, "voiceAfter")} {lang === "fr" ? voice.afterFr : voice.after}. {t(lang, "voiceDisclaimer")}

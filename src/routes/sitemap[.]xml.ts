@@ -13,7 +13,6 @@ export const Route = createFileRoute("/sitemap.xml")({
         const pages = [
           { loc: "/", lastmod: undefined as string | undefined, changefreq: "hourly", priority: "1.0" },
           { loc: "/today", lastmod: undefined, changefreq: "hourly", priority: "0.9" },
-          { loc: "/rankings", lastmod: undefined, changefreq: "daily", priority: "0.6" },
           { loc: "/about", lastmod: undefined, changefreq: "weekly", priority: "0.6" },
           { loc: "/method", lastmod: undefined, changefreq: "weekly", priority: "0.5" },
           { loc: "/contact", lastmod: undefined, changefreq: "monthly", priority: "0.4" },

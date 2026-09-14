@@ -61,22 +61,16 @@ export function Header({
                 <Link to="/" className="px-3 py-3 text-sm font-medium">
                   {t(lang, "home")}
                 </Link>
+                <Link to="/today" className="px-3 py-3 text-sm">
+                  {t(lang, "today")}
+                </Link>
                 {SECTIONS.map((s) => (
                   <Link key={s.id} to="/$section" params={{ section: s.id }} className="px-3 py-3 text-sm">
                     {t(lang, SECTION_KEY[s.id])}
                   </Link>
                 ))}
-                <Link to="/today" className="px-3 py-3 text-sm">
-                  {t(lang, "today")}
-                </Link>
                 <Link to="/shop" className="px-3 py-3 text-sm">
                   {t(lang, "shop")}
-                </Link>
-                <Link to="/rankings" className="px-3 py-3 text-sm">
-                  {t(lang, "rankings")}
-                </Link>
-                <Link to="/social" className="px-3 py-3 text-sm">
-                  {t(lang, "social")}
                 </Link>
                 <Link to="/submit" className="px-3 py-3 text-sm">
                   {t(lang, "submit")}
@@ -138,12 +132,6 @@ export function Header({
               {t(lang, SECTION_KEY[s.id])}
             </Link>
           ))}
-          <Link to="/rankings" className="shrink-0 px-3 py-2.5 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-ink-muted hover:text-ink">
-            {t(lang, "rankings")}
-          </Link>
-          <Link to="/social" className="shrink-0 px-3 py-2.5 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-ink-muted hover:text-ink">
-            {t(lang, "social")}
-          </Link>
           <Link to="/shop" className="ms-auto shrink-0 px-3 py-2.5 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-ink hover:text-signal">
             {t(lang, "shop")}
           </Link>

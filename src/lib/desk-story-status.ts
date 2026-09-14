@@ -1,4 +1,5 @@
 import { commentsToken } from "@/lib/comments-github";
+import { REVUE_HOLD_IDS } from "@/lib/data/stories-revue";
 
 const OWNER = "yesitsrealnews";
 const REPO = "yesitsreal-news";
@@ -8,7 +9,7 @@ const LABEL_COLOR = "141414";
 const API = "https://api.github.com";
 const STORY_ID_RE = /^s\d+$/;
 
-export type DeskStoryOverride = "held" | "deleted";
+export type DeskStoryOverride = "held" | "deleted" | "published";
 export type DeskStoryStatusMap = Record<string, DeskStoryOverride>;
 
 type IssuePayload = { v: 1; stories: DeskStoryStatusMap };
@@ -24,6 +25,12 @@ export function isValidDeskStoryId(storyId: unknown): storyId is string {
 
 export function deskStatusToken(): string | null {
   return commentsToken();
+}
+
+function fallbackHolds(): DeskStoryStatusMap {
+  const out: DeskStoryStatusMap = {};
+  for (const id of REVUE_HOLD_IDS) out[id] = "held";
+  return out;
 }
 
 function ghHeaders(token: string): HeadersInit {
@@ -63,7 +70,7 @@ function parseBody(raw: string | null | undefined): DeskStoryStatusMap {
     const out: DeskStoryStatusMap = {};
     for (const [id, status] of Object.entries(parsed.stories)) {
       if (!isValidDeskStoryId(id)) continue;
-      if (status === "held" || status === "deleted") out[id] = status;
+      if (status === "held" || status === "deleted" || status === "published") out[id] = status;
     }
     return out;
   } catch {
@@ -84,7 +91,7 @@ async function ensureLabel(token: string): Promise<void> {
     body: JSON.stringify({
       name: LABEL,
       color: LABEL_COLOR,
-      description: "Desk hold/delete overrides for published stories",
+      description: "Desk hold/delete/publish overrides for catalog stories",
     }),
   });
 }
@@ -139,21 +146,23 @@ export async function getDeskStoryStatus(force = false): Promise<DeskStoryStatus
 
   const token = deskStatusToken();
   if (!token) {
-    mem = { issueNumber: null, stories: {}, at: Date.now() };
-    return {};
+    const stories = fallbackHolds();
+    mem = { issueNumber: null, stories, at: Date.now() };
+    return { ...stories };
   }
 
   try {
     const issue = await findIssue(token);
     if (!issue) {
-      mem = { issueNumber: null, stories: {}, at: Date.now() };
-      return {};
+      const stories = fallbackHolds();
+      mem = { issueNumber: null, stories, at: Date.now() };
+      return { ...stories };
     }
     const stories = parseBody(issue.body);
     mem = { issueNumber: issue.number, stories, at: Date.now() };
     return { ...stories };
   } catch {
-    return mem ? { ...mem.stories } : {};
+    return mem ? { ...mem.stories } : fallbackHolds();
   }
 }
 

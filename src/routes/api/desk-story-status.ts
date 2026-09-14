@@ -15,13 +15,15 @@ export const Route = createFileRoute("/api/desk-story-status")({
       GET: async () => {
         const token = deskStatusToken();
         if (!token) {
-          return limitedJson({ ok: true, stories: {} });
+          // 200 + ok:false — do not 503 (browser console) and do not return stories:{}
+          // which would wipe client holds.
+          return limitedJson({ ok: false, reason: "unavailable" });
         }
         try {
           const stories = await getDeskStoryStatus();
           return limitedJson({ ok: true, stories });
         } catch {
-          return limitedJson({ ok: true, stories: {} });
+          return limitedJson({ ok: false, reason: "unavailable" });
         }
       },
       POST: async ({ request }) => {
@@ -47,10 +49,8 @@ export const Route = createFileRoute("/api/desk-story-status")({
 
         const raw = typeof body.status === "string" ? body.status.trim() : "";
         let next: DeskStoryOverride | null;
-        if (raw === "held" || raw === "deleted") {
+        if (raw === "held" || raw === "deleted" || raw === "published") {
           next = raw;
-        } else if (raw === "published") {
-          next = null;
         } else {
           return limitedJson({ ok: false, reason: "invalid" }, 400);
         }

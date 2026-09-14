@@ -1,12 +1,11 @@
-import type { Lang, SectionId, Story, StoryStatus } from "@/lib/types";
+import type { Lang, SectionId, Story } from "@/lib/types";
 import { STORIES, getStoryBySlug as seedBySlug } from "@/lib/data/stories";
-import { storyCopy } from "@/lib/format";
 import { canonicalSection } from "@/lib/data/sections";
 
 /** Rolling week for the une. Older copy stays published in rubriques, not on /. */
 export const HOME_WINDOW_DAYS = 7;
 
-export type DeskStatusMap = Record<string, "held" | "deleted">;
+export type DeskStatusMap = Record<string, "held" | "deleted" | "published">;
 
 export function storyNewsDate(story: Story): Date {
   const stamps = story.sources.map((s) => s.date).filter(Boolean);
@@ -60,22 +59,25 @@ function inventedSources(story: Story): boolean {
   return story.sources.some((s) => inventedHost(s.url));
 }
 
-function deskOverride(storyId: string, deskStatus?: DeskStatusMap): "held" | "deleted" | undefined {
+function deskOverride(storyId: string, deskStatus?: DeskStatusMap): "held" | "deleted" | "published" | undefined {
   const v = deskStatus?.[storyId];
-  return v === "held" || v === "deleted" ? v : undefined;
+  return v === "held" || v === "deleted" || v === "published" ? v : undefined;
 }
 
 function isPubliclyListed(story: Story, deskStatus?: DeskStatusMap): boolean {
-  if (deskOverride(story.id, deskStatus)) return false;
+  const o = deskOverride(story.id, deskStatus);
+  if (o === "held" || o === "deleted") return false;
   if (inventedSources(story)) return false;
-  return story.status === "published" && !story.sponsored;
+  if (story.sponsored) return false;
+  if (o === "published") return true;
+  return story.status === "published";
 }
 
 export function publishedStories(extras: Story[], deskStatus?: DeskStatusMap): Story[] {
   return mergeStories(extras).filter((s) => isPubliclyListed(s, deskStatus));
 }
 
-/** Admin list: published + held. Deleted desk overrides are destroyed from the list (no archive). */
+/** Admin list: published + held + review. Deleted desk overrides are destroyed from the list (no archive). */
 export function deskStories(extras: Story[], deskStatus?: DeskStatusMap): Story[] {
   return mergeStories(extras)
     .filter((s) => {
@@ -83,13 +85,14 @@ export function deskStories(extras: Story[], deskStatus?: DeskStatusMap): Story[
       if (s.status === "deleted") return false;
       const o = deskOverride(s.id, deskStatus);
       if (o === "deleted") return false;
-      if (o === "held") return true;
-      return s.status === "published";
+      if (o === "held" || o === "published") return true;
+      return s.status === "published" || s.status === "review" || s.status === "held";
     })
-    .map((s) => {
+    .map((s): Story => {
       const o = deskOverride(s.id, deskStatus);
-      if (!o) return s;
-      return { ...s, status: o as StoryStatus };
+      if (o === "held" || o === "deleted") return { ...s, status: o };
+      if (o === "published") return { ...s, status: "published" };
+      return s;
     })
     .sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
 }
@@ -118,7 +121,7 @@ export function homeStories(extras: Story[], deskStatus?: DeskStatusMap, frontId
 
 export function sponsoredStory(extras: Story[], deskStatus?: DeskStatusMap): Story | undefined {
   return mergeStories(extras).find(
-    (s) => s.sponsored && s.status === "published" && !deskOverride(s.id, deskStatus),
+    (s) => s.sponsored && s.status === "published" && deskOverride(s.id, deskStatus) !== "held" && deskOverride(s.id, deskStatus) !== "deleted",
   );
 }
 
@@ -132,8 +135,7 @@ export function findStory(slug: string, extras: Story[], deskStatus?: DeskStatus
         Object.values(s.slugs).some((x) => x?.toLowerCase() === needle),
     ) ?? seedBySlug(needle);
   if (!hit) return undefined;
-  if (deskOverride(hit.id, deskStatus)) return undefined;
-  if (inventedSources(hit)) return undefined;
+  if (!isPubliclyListed(hit, deskStatus)) return undefined;
   return hit;
 }
 
@@ -154,20 +156,20 @@ export function relatedStories(story: Story, extras: Story[], n = 4, deskStatus?
     .sort((a, b) => {
       const same = Number(b.section === story.section) - Number(a.section === story.section);
       if (same) return same;
-      return b.dumbness - a.dumbness;
+      return b.sources.length - a.sources.length || +new Date(b.publishedAt) - +new Date(a.publishedAt);
     })
     .slice(0, n);
 }
 
 export function mostRead(extras: Story[], n = 6, pool?: Story[], deskStatus?: DeskStatusMap): Story[] {
   return [...(pool ?? publishedStories(extras, deskStatus))]
-    .sort((a, b) => b.dumbness * 10 + b.sources.length - (a.dumbness * 10 + a.sources.length))
+    .sort((a, b) => b.sources.length - a.sources.length || +new Date(b.publishedAt) - +new Date(a.publishedAt))
     .slice(0, n);
 }
 
 export function dumbest(extras: Story[], n = 8, pool?: Story[], deskStatus?: DeskStatusMap): Story[] {
   return [...(pool ?? publishedStories(extras, deskStatus))].sort(
-    (a, b) => b.dumbness - a.dumbness || +new Date(b.publishedAt) - +new Date(a.publishedAt),
+    (a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt),
   ).slice(0, n);
 }
 

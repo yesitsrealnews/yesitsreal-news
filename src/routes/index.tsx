@@ -6,17 +6,17 @@ import { JsonLd } from "@/components/site/json-ld";
 import { useAppStore } from "@/lib/store";
 import { itemListJsonLd, orgJsonLd, SEO_FR, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
-import { homeStories } from "@/lib/catalog";
+import { homeStories, type DeskStatusMap } from "@/lib/catalog";
 import { getFrontPageIds } from "@/lib/desk-front-page";
+import { getDeskStoryStatus } from "@/lib/desk-story-status";
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    try {
-      const frontPageIds = await getFrontPageIds(true);
-      return { frontPageIds };
-    } catch {
-      return { frontPageIds: [] as string[] };
-    }
+    const [frontPageIds, desk] = await Promise.all([
+      getFrontPageIds(true).catch(() => [] as string[]),
+      getDeskStoryStatus().catch(() => ({} as DeskStatusMap)),
+    ]);
+    return { frontPageIds, desk };
   },
   component: Home,
   head: () => ({
@@ -47,10 +47,10 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { frontPageIds: loaderFrontIds } = Route.useLoaderData();
+  const { frontPageIds: loaderFrontIds, desk: loaderDesk } = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
   const extras = useAppStore((s) => s.extras);
-  const deskStatus = useAppStore((s) => s.deskStatus);
+  const storeDesk = useAppStore((s) => s.deskStatus);
   const storeFrontIds = useAppStore((s) => s.frontPageIds);
   const setFrontPageIds = useAppStore((s) => s.setFrontPageIds);
   const addNewsletter = useAppStore((s) => s.addNewsletter);
@@ -60,6 +60,7 @@ function Home() {
   }, [loaderFrontIds, setFrontPageIds]);
 
   const frontPageIds = storeFrontIds.length ? storeFrontIds : loaderFrontIds;
+  const deskStatus = { ...loaderDesk, ...storeDesk };
   const latest = homeStories(extras, deskStatus, frontPageIds);
   return (
     <SiteShell>

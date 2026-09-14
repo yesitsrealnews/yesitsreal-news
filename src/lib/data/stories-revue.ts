@@ -1,9 +1,13 @@
 import type { Story } from "@/lib/types";
 import { enCopy as c, src, story } from "@/lib/data/story-factory";
 
-/** Revue de presse — in the catalog so Publier can go live, held in Cambuse until the desk clicks. */
+/** Held until the desk clicks Publier. Catalog status is review so they never leak. */
+function revue(p: Parameters<typeof story>[0]): Story {
+  return story({ ...p, status: "review" });
+}
+
 export const REVUE_STORIES: Story[] = [
-  story({
+  revue({
     id: "s135",
     slug: "turin-caselle-dried-crocodile-head-in-luggage-from-miami",
     slugs: {
@@ -74,7 +78,7 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
-  story({
+  revue({
     id: "s136",
     slug: "denton-fedex-191-turtles-tortoises-walk-in-shipment-china",
     slugs: {
@@ -126,15 +130,15 @@ export const REVUE_STORIES: Story[] = [
           "China is a destination. A high-street FedEx is not a terrarium.",
           "The zoo has them. The form does not.",
         ],
-        "CBS Texas 3 Sept; FOX 4 3 Sept; Houston Chronicle 6 Sept 2026. Sender unnamed. Destination China as reported by FOX 4 via Denton Animal Services.",
+        "CBS Texas 3 Sept; FOX 4 3 Sept; Houston Chronicle 6 Sept 2026. Sender unnamed. Destination China per FOX 4 / Denton Animal Services.",
       ),
       fr: c(
-        "Quelqu’un a voulu envoyer 191 tortues au FedEx du coin, direction la Chine",
-        "1er septembre 2026, Denton, Texas. Le comptoir. Animal Services, puis le zoo de Dallas. Fish and Wildlife ouvre un dossier. L’expéditeur n’est pas nommé.",
+        "Quelqu’un a voulu envoyer 191 tortues au FedEx de Denton. Direction la Chine. Au comptoir.",
+        "1er septembre 2026. FedEx Office, Denton, Texas. Animal Services, puis le zoo de Dallas. Fish and Wildlife ouvre un dossier. L’expéditeur n’est pas nommé.",
         [
-          "CBS Texas (Doug Myers, 3 septembre), FOX 4 et le Houston Chronicle : un FedEx Office de Denton appelle les Animal Services de la ville après qu’un client au comptoir a tenté d’expédier 191 tortues et tortues terrestres vivantes. FOX 4 : récupérées le 1er septembre ; destination, telle que rapportée à la ville, la Chine. Le refuge : « Business not as usual. » Ils les logent dans un bureau, préviennent l’U.S. Fish and Wildlife, puis les 191 partent au Dallas Zoo.",
-          "Un FedEx de quartier n’expédie pas les reptiles vivants pour un client de passage. Compte commercial pré-agréé, Priority Overnight, service spécialisé — pas le magasin du mardi. La personne qui a apporté les cartons n’est pas nommée. Le dossier fédéral est ouvert. Les tortues, dit le refuge, sont à l’abri.",
-          "YES IT'S REAL a croisé CBS Texas, FOX 4 et le Chronicle. Ville nommée. Zoo nommé. Agence nommée. On n’invente pas un trafiquant. La couverture, des tortues à tempes rouges — Commons, domaine public — pas la caisse saisie.",
+          "CBS Texas (Doug Myers, 3 septembre), FOX 4 et le Houston Chronicle : un FedEx Office de Denton appelle les services animaliers de la ville après qu’un client au comptoir a voulu expédier 191 tortues vivantes. FOX 4 : récupérées le 1er septembre ; destination, selon la ville, la Chine. Le refuge : « Business not as usual. » Ils les logent dans un bureau, appellent U.S. Fish and Wildlife, puis transférent les 191 au zoo de Dallas.",
+          "Les comptoirs FedEx ne prennent pas les reptiles vivants pour un client de passage. Priority Overnight, comptes commerciaux pré-approuvés, service spécialisé — pas un magasin un mardi. La personne qui a apporté les cartons n’est pas nommée. Le dossier fédéral est ouvert. Les tortues, dit le refuge, sont saines.",
+          "YES IT'S REAL a croisé CBS Texas, FOX 4 et le Chronicle. Ville nommée. Zoo nommé. Agence nommée. On n’invente pas un trafiquant. La couverture, des tortues à oreilles rouges — Commons, domaine public — pas une caisse saisie.",
         ],
         [
           "Cent quatre-vingt-onze. Au comptoir.",
@@ -145,7 +149,7 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
-  story({
+  revue({
     id: "s137",
     slug: "gareoult-bans-leashed-dogs-from-markets-and-village-fetes",
     slugs: {
@@ -217,3 +221,5 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 ];
+
+export const REVUE_HOLD_IDS = REVUE_STORIES.map((s) => s.id);

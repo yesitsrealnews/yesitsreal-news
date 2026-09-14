@@ -20,7 +20,7 @@ const DEFAULT_ALLOW_LIST = uniqueSortedDomains(REGIONAL_PRESS_DOMAINS, NATIONAL_
 
 export type Theme = "light" | "dark";
 export type CookieChoice = "unknown" | "all" | "necessary";
-export type DeskStatusMap = Record<string, "held" | "deleted">;
+export type DeskStatusMap = Record<string, "held" | "deleted" | "published">;
 
 interface AppState {
   lang: Lang;
@@ -66,7 +66,7 @@ interface AppState {
   addExtra: (story: Story) => void;
   updateStory: (story: Story) => void;
   setDeskStatus: (map: DeskStatusMap) => void;
-  setStoryDeskStatus: (id: string, status: "held" | "deleted" | null) => void;
+  setStoryDeskStatus: (id: string, status: "held" | "deleted" | "published" | null) => void;
   hydrateDeskStatus: () => Promise<void>;
   applyStoryDeskStatus: (id: string, status: "held" | "deleted" | "published") => Promise<boolean>;
   setFrontPageIds: (ids: string[]) => void;
@@ -227,7 +227,7 @@ export const useAppStore = create<AppState>()(
         else deskStatus[id] = status;
         const extras = get().extras.map((s): Story => {
           if (s.id !== id) return s;
-          const nextStatus: StoryStatus = status === null ? "published" : status;
+          const nextStatus: StoryStatus = status === null ? "published" : status === "published" ? "published" : status;
           return { ...s, status: nextStatus };
         });
         set({ deskStatus, extras });
@@ -238,12 +238,11 @@ export const useAppStore = create<AppState>()(
           try {
             const res = await fetch("/api/desk-story-status", { cache: "no-store" });
             const data = (await res.json()) as { ok?: boolean; stories?: DeskStatusMap };
-            if (data?.ok && data.stories && typeof data.stories === "object") {
-              // Server is source of truth for hold/delete overrides.
+            if (res.ok && data?.ok && data.stories && typeof data.stories === "object") {
               get().setDeskStatus(data.stories);
             }
           } catch {
-            /* keep cached map */
+            /* keep cached map — never wipe holds on a failed fetch */
           } finally {
             deskHydratedOnce = true;
             deskHydratePromise = null;
@@ -255,7 +254,7 @@ export const useAppStore = create<AppState>()(
         const prevOverride = get().deskStatus[id];
         const prevExtra = get().extras.find((s) => s.id === id);
         // Optimistic — Cambuse must drop the row immediately.
-        get().setStoryDeskStatus(id, status === "published" ? null : status);
+        get().setStoryDeskStatus(id, status);
         if (status === "deleted" && get().frontPageIds.includes(id)) {
           void get().unpinFromFront(id);
         }
@@ -431,7 +430,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 8,
+      version: 9,
       migrate: (persisted) => {
         const s = (persisted ?? {}) as {
           lang?: string;
@@ -444,7 +443,6 @@ export const useAppStore = create<AppState>()(
         if (!s.lang || s.lang === "en") s.lang = "fr";
         delete s.admin;
         if (!s.deskStatus || typeof s.deskStatus !== "object") s.deskStatus = {};
-        // Front page pins are server-owned (GitHub issue); never trust localStorage.
         s.frontPageIds = [];
         // Drop Refusés archive — free storage; keep only lightweight purged ids.
         const oldRejected = Array.isArray(s.rejected) ? s.rejected : [];

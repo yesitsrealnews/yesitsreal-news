@@ -6,23 +6,24 @@ export interface SectionDef {
   kicker: string;
 }
 
+/** Public masthead — keep it short. The briefing is the product. */
 export const SECTIONS: SectionDef[] = [
+  { id: "faits-divers", path: "/faits-divers", kicker: "FAITS DIVERS" },
+  { id: "courts", path: "/courts", kicker: "JUSTICE" },
+  { id: "animals", path: "/animals", kicker: "ANIMALS" },
   { id: "world", path: "/world", kicker: "WORLD" },
+];
+
+/** Built, not on the public masthead. URLs still resolve. */
+export const DORMANT_SECTIONS: SectionDef[] = [
   { id: "accidents", path: "/accidents", kicker: "ACCIDENTS" },
   { id: "stars", path: "/stars", kicker: "STARS" },
   { id: "science", path: "/science", kicker: "SCIENCE" },
-  { id: "faits-divers", path: "/faits-divers", kicker: "FAITS DIVERS" },
   { id: "politics", path: "/politics", kicker: "POLITICS" },
-  { id: "animals", path: "/animals", kicker: "ANIMALS" },
   { id: "tech", path: "/tech", kicker: "TECH" },
   { id: "sports", path: "/sports", kicker: "SPORTS" },
   { id: "love-money", path: "/love-money", kicker: "LOVE & MONEY" },
-  { id: "courts", path: "/courts", kicker: "JUSTICE" },
   { id: "commentaire", path: "/commentaire", kicker: "COMMENTAIRE" },
-];
-
-/** Built, not on the public masthead. Wake it when the desk says so. */
-export const DORMANT_SECTIONS: SectionDef[] = [
   { id: "archive", path: "/archive", kicker: "ARCHIVE" },
 ];
 

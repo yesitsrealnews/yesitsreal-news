@@ -17,9 +17,7 @@ export const Route = createFileRoute("/feeds/$section.xml")({
           return new Response("Not found", { status: 404 });
         }
         const desk = await getDeskStoryStatus();
-        const list = inSection([], section)
-          .filter((s) => desk[s.id] !== "held" && desk[s.id] !== "deleted")
-          .slice(0, 40);
+        const list = inSection([], section, desk).slice(0, 40);
         const items = list
           .map((s) => {
             const c = storySeoCopy(s);

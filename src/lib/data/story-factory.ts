@@ -1,4 +1,4 @@
-import type { Lang, Source, Story, StoryCopy, SectionId } from "@/lib/types";
+import type { Lang, Source, Story, StoryCopy, SectionId, StoryStatus } from "@/lib/types";
 
 export function src(
   title: string,
@@ -38,6 +38,7 @@ export function story(p: {
   originalLang?: Lang;
   bylines?: Story["bylines"];
   confidence?: number;
+  status?: StoryStatus;
   copy: Story["copy"];
 }): Story {
   return {
@@ -56,7 +57,7 @@ export function story(p: {
     updatedAt: p.updatedAt ?? p.publishedAt,
     breaking: p.breaking,
     sponsored: p.sponsored,
-    status: "published",
+    status: p.status ?? "published",
     entities: p.entities,
     originalLang: p.originalLang ?? "en",
     bylines: p.bylines,

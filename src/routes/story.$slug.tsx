@@ -15,11 +15,11 @@ export const Route = createFileRoute("/story/$slug")({
     const desk = await getDeskStoryStatus();
     const story = findStory(params.slug, [], desk);
     if (!story) throw notFound();
-    return {};
+    return { desk };
   },
   component: StoryPage,
-  head: ({ params }) => {
-    const story = findStory(params.slug, []);
+  head: ({ params, loaderData }) => {
+    const story = findStory(params.slug, [], loaderData?.desk);
     if (!story) return {};
     const c = storySeoCopy(story);
     const img = coverSrc(story.id);
