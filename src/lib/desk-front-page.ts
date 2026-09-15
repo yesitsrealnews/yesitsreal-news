@@ -16,7 +16,8 @@ type IssuePayload = { v: 1; ids: string[] };
 type GhIssue = { number: number; title: string; body?: string | null };
 
 let mem: { issueNumber: number | null; ids: FrontPageIds; at: number } | null = null;
-const CACHE_MS = 30_000;
+const CACHE_MS = 4_000;
+const KNOWN_ISSUE = 3;
 
 export function isValidFrontStoryId(storyId: unknown): storyId is string {
   return typeof storyId === "string" && STORY_ID_RE.test(storyId);
@@ -96,10 +97,9 @@ async function ensureLabel(token: string): Promise<void> {
 }
 
 async function findIssue(token: string): Promise<GhIssue | null> {
-  if (mem?.issueNumber) {
-    const cached = await gh<GhIssue>(token, `/repos/${OWNER}/${REPO}/issues/${mem.issueNumber}`);
-    if (cached.ok && cached.data && cached.data.title === ISSUE_TITLE) return cached.data;
-  }
+  const n = mem?.issueNumber ?? KNOWN_ISSUE;
+  const cached = await gh<GhIssue>(token, `/repos/${OWNER}/${REPO}/issues/${n}`);
+  if (cached.ok && cached.data && cached.data.title === ISSUE_TITLE) return cached.data;
 
   const q = encodeURIComponent(`repo:${OWNER}/${REPO} is:issue in:title "${ISSUE_TITLE}"`);
   const search = await gh<{ items?: GhIssue[] }>(token, `/search/issues?q=${q}&per_page=5`);

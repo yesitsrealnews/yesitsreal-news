@@ -11,6 +11,7 @@ export type RssFeed = {
 export const RSS_FEEDS: RssFeed[] = [
   // --- PQR / locaux FR (EBRA, SIPA, Sud Ouest, Centre / Est / Nord) ---
   { name: "Ouest-France", domain: "ouest-france.fr", url: "https://www.ouest-france.fr/rss/une", region: "Bretagne / Pays de la Loire / Normandie", countryCode: "FR" },
+  { name: "Ouest-France insolite", domain: "ouest-france.fr", url: "https://www.ouest-france.fr/rss/insolite", region: "FR — insolite", countryCode: "FR" },
   { name: "Sud Ouest", domain: "sudouest.fr", url: "https://www.sudouest.fr/rss.xml", region: "Nouvelle-Aquitaine", countryCode: "FR" },
   { name: "Le Télégramme", domain: "letelegramme.fr", url: "https://www.letelegramme.fr/rss.xml", region: "Bretagne", countryCode: "FR" },
   { name: "La Dépêche du Midi", domain: "ladepeche.fr", url: "https://www.ladepeche.fr/rss.xml", region: "Occitanie", countryCode: "FR" },
@@ -64,6 +65,7 @@ export const RSS_FEEDS: RssFeed[] = [
   { name: "Le Figaro", domain: "lefigaro.fr", url: "https://www.lefigaro.fr/rss/figaro_actualites.xml", region: "FR — national", countryCode: "FR" },
   { name: "Le Parisien", domain: "leparisien.fr", url: "https://feeds.leparisien.fr/leparisien/rss", region: "FR — Île-de-France / national", countryCode: "FR" },
   { name: "20 Minutes", domain: "20minutes.fr", url: "https://www.20minutes.fr/feeds/rss-une.xml", region: "FR — national", countryCode: "FR" },
+  { name: "20 Minutes insolite", domain: "20minutes.fr", url: "https://www.20minutes.fr/feeds/rss-insolite.xml", region: "FR — insolite", countryCode: "FR" },
   { name: "franceinfo", domain: "francetvinfo.fr", url: "https://www.franceinfo.fr/titres.rss", region: "FR — national", countryCode: "FR" },
   { name: "France 24", domain: "france24.com", url: "https://www.france24.com/fr/rss", region: "FR — world desk", countryCode: "FR" },
   { name: "RFI", domain: "rfi.fr", url: "https://www.rfi.fr/fr/rss", region: "FR — world desk", countryCode: "FR" },
@@ -118,6 +120,29 @@ export const RSS_FEEDS: RssFeed[] = [
   { name: "Nature", domain: "nature.com", url: "https://www.nature.com/nature.rss", region: "Science", countryCode: "GB" },
   { name: "The Conversation Europe", domain: "theconversation.com", url: "https://www.theconversation.com/europe/articles.atom", region: "Science / ideas", countryCode: "FR" },
 ];
+
+const PRIORITY_NAMES = new Set([
+  "Ouest-France",
+  "Ouest-France insolite",
+  "Sud Ouest",
+  "Le Télégramme",
+  "La Dépêche du Midi",
+  "Midi Libre",
+  "L'Indépendant",
+  "Charente Libre",
+  "Le Dauphiné Libéré",
+  "Le Progrès",
+  "Nice-Matin",
+  "La Voix du Nord",
+  "20 Minutes insolite",
+  "BBC News",
+  "The Guardian",
+  "ScienceAlert",
+]);
+
+export function priorityFeeds(): RssFeed[] {
+  return RSS_FEEDS.filter((f) => PRIORITY_NAMES.has(f.name) || /insolite/i.test(f.name) || /insolite/i.test(f.url));
+}
 
 export const RSS_BY_DOMAIN: Record<string, string> = Object.fromEntries(
   RSS_FEEDS.map((f) => [f.domain.toLowerCase(), f.url]),

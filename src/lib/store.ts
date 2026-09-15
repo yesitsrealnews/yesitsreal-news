@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { hasCoverPhoto } from "@/lib/covers";
 import type { Lang, Lead, QueueItem, ReactionId, Story, StoryStatus, Submission } from "@/lib/types";
 import { detectBrowserLang, isLang } from "@/lib/i18n/langs";
 import { SPRINT_MS } from "@/lib/revenue";
@@ -56,10 +55,11 @@ interface AppState {
   setHydrated: (on: boolean) => void;
   addSubmission: (s: Submission) => void;
   setInbox: (items: QueueItem[]) => void;
+  mergeInboxFromServer: (items: QueueItem[]) => void;
   upsertInbox: (item: QueueItem) => void;
   rejectItem: (id: string, reason: string) => void;
   publishItem: (id: string) => void;
-  publishQueueItem: (item: QueueItem) => void;
+  publishQueueItem: (item: QueueItem) => Promise<boolean>;
   rejectQueueItem: (item: QueueItem, reason: string) => void;
   holdInboxItem: (item: QueueItem) => void;
   deleteInboxItem: (id: string) => void;
@@ -68,6 +68,7 @@ interface AppState {
   setDeskStatus: (map: DeskStatusMap) => void;
   setStoryDeskStatus: (id: string, status: "held" | "deleted" | "published" | null) => void;
   hydrateDeskStatus: () => Promise<void>;
+  hydratePublishedExtras: () => Promise<void>;
   applyStoryDeskStatus: (id: string, status: "held" | "deleted" | "published") => Promise<boolean>;
   setFrontPageIds: (ids: string[]) => void;
   hydrateFrontPage: () => Promise<void>;
@@ -113,7 +114,7 @@ export const useAppStore = create<AppState>()(
       rejected: [],
       purgedIds: [],
       extras: [],
-      deskStatus: { s135: "held", s136: "held", s137: "held" },
+      deskStatus: { s135: "held", s136: "held", s137: "held", s138: "held", s139: "held" },
       frontPageIds: [],
       allowList: DEFAULT_ALLOW_LIST,
       denyList: [...DEFAULT_DENY_DOMAINS],
@@ -141,6 +142,17 @@ export const useAppStore = create<AppState>()(
       setHydrated: (hydrated) => set({ hydrated }),
       addSubmission: (s) => set({ submissions: [s, ...get().submissions] }),
       setInbox: (inbox) => set({ inbox }),
+      mergeInboxFromServer: (items) => {
+        const purged = new Set(get().purgedIds);
+        const incoming = items.filter((i) => i?.id && !purged.has(i.id) && !purged.has(i.story?.id));
+        const incomingIds = new Set(incoming.map((i) => i.id));
+        const local = get().inbox.filter((i) => {
+          if (!i?.id || purged.has(i.id) || purged.has(i.story?.id)) return false;
+          if (incomingIds.has(i.id)) return false;
+          return true;
+        });
+        set({ inbox: [...incoming, ...local] });
+      },
       upsertInbox: (item) => {
         const purged = new Set(get().purgedIds);
         if (purged.has(item.id) || (item.story?.id && purged.has(item.story.id))) return;
@@ -154,32 +166,66 @@ export const useAppStore = create<AppState>()(
       publishItem: (id) => {
         const item = get().inbox.find((i) => i.id === id);
         if (!item) return;
-        get().publishQueueItem(item);
+        void get().publishQueueItem(item);
       },
-      publishQueueItem: (item) => {
-        if (!hasCoverPhoto(item.story.id)) {
-          console.warn(`[desk] refuse publish ${item.story.id}: photo + crédit manquants`);
-          if (typeof window !== "undefined") {
-            window.alert("Impossible de publier : photo jpg + crédit manquants (DESK).");
-          }
-          return;
-        }
-        const published: Story = {
+      publishQueueItem: async (item) => {
+        const payload: Story = {
           ...item.story,
           status: "published",
           factChecked: true,
-          publishedAt: new Date().toISOString(),
+          publishedAt: item.story.publishedAt || new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         };
-        const deskStatus = { ...get().deskStatus };
-        delete deskStatus[published.id];
-        set({
-          inbox: get().inbox.filter((i) => i.id !== item.id),
-          extras: [published, ...get().extras.filter((s) => s.id !== published.id)],
-          deskStatus,
-        });
-        if (/^s\d+$/.test(published.id)) {
-          void get().applyStoryDeskStatus(published.id, "published");
+        try {
+          const res = await fetch("/api/publish", {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ story: payload, storyId: payload.id }),
+          });
+          const data = (await res.json().catch(() => ({}))) as {
+            ok?: boolean;
+            reason?: string;
+            story?: Story;
+            stories?: DeskStatusMap;
+            ids?: string[];
+            extras?: Story[];
+          };
+          if (res.status === 401 || data.reason === "unauthorized") {
+            if (typeof window !== "undefined") {
+              window.alert("Session cambuse expirée. Reconnecte-toi, puis Publier.");
+            }
+            return false;
+          }
+          if (!res.ok || !data.ok || !data.story) {
+            if (typeof window !== "undefined") {
+              window.alert("Publication non enregistrée (réseau). Réessaie.");
+            }
+            return false;
+          }
+          const published = data.story;
+          const deskStatus = data.stories
+            ? data.stories
+            : { ...get().deskStatus, [published.id]: "published" as const };
+          const extras = data.extras?.length
+            ? data.extras
+            : [published, ...get().extras.filter((s) => s.id !== published.id && s.id !== item.story.id)];
+          set({
+            inbox: get().inbox.filter(
+              (i) => i.id !== item.id && i.story.id !== item.story.id && i.story.id !== published.id,
+            ),
+            extras,
+            deskStatus,
+            frontPageIds: Array.isArray(data.ids)
+              ? data.ids
+              : [published.id, ...get().frontPageIds.filter((id) => id !== published.id)],
+          });
+          return true;
+        } catch {
+          if (typeof window !== "undefined") {
+            window.alert("Réseau. Réessaie.");
+          }
+          return false;
         }
       },
       rejectQueueItem: (item, _reason) => {
@@ -250,6 +296,19 @@ export const useAppStore = create<AppState>()(
         })();
         return deskHydratePromise;
       },
+      hydratePublishedExtras: async () => {
+        try {
+          const res = await fetch("/api/publish", { cache: "no-store" });
+          const data = (await res.json()) as { ok?: boolean; stories?: Story[] };
+          if (res.ok && data?.ok && Array.isArray(data.stories) && data.stories.length) {
+            const have = new Map(get().extras.map((s) => [s.id, s]));
+            for (const s of data.stories) have.set(s.id, s);
+            set({ extras: [...have.values()] });
+          }
+        } catch {
+          /* keep local extras */
+        }
+      },
       applyStoryDeskStatus: async (id, status) => {
         const prevOverride = get().deskStatus[id];
         const prevExtra = get().extras.find((s) => s.id === id);
@@ -280,6 +339,9 @@ export const useAppStore = create<AppState>()(
             return { ...s, status: nextStatus };
           });
           set({ extras });
+          if (status === "published") {
+            void get().pinToFront(id);
+          }
           return true;
         } catch {
           get().setStoryDeskStatus(id, prevOverride ?? null);
@@ -493,6 +555,7 @@ export const useAppStore = create<AppState>()(
         state.setHydrated(true);
         void state.hydrateDeskStatus();
         void state.hydrateFrontPage();
+        void state.hydratePublishedExtras();
       },
     },
   ),
@@ -511,4 +574,5 @@ export function bootstrapClientPrefs() {
   }
   void store.hydrateDeskStatus();
   void store.hydrateFrontPage();
+  void store.hydratePublishedExtras();
 }

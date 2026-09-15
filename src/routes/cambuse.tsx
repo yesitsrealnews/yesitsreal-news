@@ -28,13 +28,14 @@ function Cambuse() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-paper px-4 text-ink">
-      <p className="kicker text-signal">{fr ? "La cambuse" : "The galley"}</p>
-      <h1 className="mt-3 font-serif text-4xl">YES IT'S REAL</h1>
+      <p className="stamp">La cambuse</p>
+      <h1 className="mt-6 font-serif text-5xl">YES IT'S REAL</h1>
       <p className="mt-2 max-w-sm text-center text-sm text-ink-muted">
         {fr ? "Réservé à la desk." : "Desk only."}
       </p>
       <form
-        className="relative mt-8 flex w-full max-w-sm flex-col gap-3"
+        className="relative mt-8 flex w-full max-w-sm flex-col gap-3 rounded-3xl border-2 border-ink bg-card p-5 shadow-[6px_6px_0_0_var(--color-signal)]"
+
         onSubmit={(e) => {
           e.preventDefault();
           if (locked || busy) return;
@@ -76,7 +77,7 @@ function Cambuse() {
             {locked ? (fr ? "Verrouillée." : "Locked.") : fr ? "Non." : "No."}
           </p>
         ) : null}
-        <Button type="submit" disabled={locked || busy}>
+        <Button type="submit" disabled={locked || busy} variant="pop">
           {fr ? "Entrer" : "Enter"}
         </Button>
       </form>

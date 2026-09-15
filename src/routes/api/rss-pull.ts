@@ -13,8 +13,8 @@ function noIndex(body: unknown, status: number): Response {
   return new Response(res.body, { status: res.status, headers });
 }
 
-async function runPull() {
-  const { hits, scanned, failed } = await pullRssFeeds();
+async function runPull(quick: boolean) {
+  const { hits, scanned, failed } = await pullRssFeeds({ quick });
   try {
     await saveRssHits(hits);
   } catch {
@@ -60,7 +60,7 @@ export const Route = createFileRoute("/api/rss-pull")({
         if (!rateLimit(`rss-pull:${clientKey(request)}`, 4, 60_000)) {
           return noIndex({ ok: false, reason: "rate-limited" }, 429);
         }
-        return noIndex(await runPull(), 200);
+        return noIndex(await runPull(Boolean(cron) || url.searchParams.get("quick") === "1"), 200);
       },
       POST: async ({ request }) => {
         const desk = await deskTokenOk(readDeskCookie(request));
@@ -68,7 +68,7 @@ export const Route = createFileRoute("/api/rss-pull")({
         if (!rateLimit(`rss-pull:${clientKey(request)}`, 4, 60_000)) {
           return noIndex({ ok: false, reason: "rate-limited" }, 429);
         }
-        return noIndex(await runPull(), 200);
+        return noIndex(await runPull(false), 200);
       },
     },
   },

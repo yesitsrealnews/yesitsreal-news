@@ -69,7 +69,7 @@ function AdminHome() {
       </div>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {tiles.map((t) => (
-          <Link key={t.l} to={t.to} className="border border-rule p-4 hover:bg-paper-2">
+          <Link key={t.l} to={t.to} className="rounded-2xl border-2 border-ink bg-card p-4 shadow-[4px_4px_0_0_var(--color-ink)] hover:bg-scream">
             <p className="font-serif text-4xl tabular-nums">{t.n}</p>
             <p className="mt-1 text-xs uppercase tracking-[0.14em] text-ink-muted">{t.l}</p>
           </Link>
@@ -81,8 +81,10 @@ function AdminHome() {
         <ul className="mt-3 divide-y divide-rule border-y border-rule">
           {online.slice(0, 40).map((s) => {
             const c = storyCopy(s, "fr");
-            const override = deskStatus[s.id];
-            const rowStatus = override ?? (s.status === "held" || s.status === "deleted" ? s.status : "published");
+            const override = deskStatus[s.id] as "held" | "deleted" | "published" | undefined;
+            const rowStatus: "held" | "review" | "deleted" | "published" =
+              override ??
+              (s.status === "held" || s.status === "review" || s.status === "deleted" ? s.status : "published");
             const pinIndex = frontPageIds.indexOf(s.id);
             const isPinned = pinIndex >= 0;
             const isFirstPin = pinIndex === 0;
@@ -132,9 +134,23 @@ function AdminHome() {
                         Supprimer
                       </Button>
                     ) : null}
-                    {rowStatus === "held" ? (
-                      <Button type="button" size="sm" onClick={() => void applyStoryDeskStatus(s.id, "published")}>
-                        Remettre en ligne
+                    {rowStatus === "held" || rowStatus === "review" ? (
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="pop"
+                        onClick={() => {
+                          void (async () => {
+                            const ok = await applyStoryDeskStatus(s.id, "published");
+                            if (!ok) {
+                              window.alert("Publication non enregistrée. Reconnecte-toi, puis réessaie.");
+                              return;
+                            }
+                            await pinToFront(s.id);
+                          })();
+                        }}
+                      >
+                        Publier
                       </Button>
                     ) : null}
                     {rowStatus !== "deleted" ? <RewriteControls story={s} /> : null}

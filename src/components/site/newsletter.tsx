@@ -4,6 +4,7 @@ import type { Lang } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Honeypot } from "@/components/site/honeypot";
+import { TrueStamp } from "@/components/site/true-stamp";
 import { isEmail, isHoneypotTripped } from "@/lib/security";
 
 export function Newsletter({
@@ -19,9 +20,9 @@ export function Newsletter({
   const [err, setErr] = useState("");
 
   return (
-    <section className="border-2 border-ink bg-ink p-6 text-paper md:p-8">
-      <p className="kicker text-scream">{t(lang, "edition")}</p>
-      <h2 className="mt-2 font-serif text-4xl uppercase text-paper">{t(lang, "newsletterTitle")}</h2>
+    <section className="rounded-3xl border-2 border-ink bg-ink p-6 text-paper shadow-[6px_6px_0_0_var(--color-signal)] md:p-8">
+      <TrueStamp tone="scream">{t(lang, "edition")}</TrueStamp>
+      <h2 className="mt-4 font-serif text-4xl text-paper sm:text-5xl">{t(lang, "newsletterTitle")}</h2>
       <p className="mt-2 max-w-xl text-sm text-paper/80">{t(lang, "newsletterDek")}</p>
       {ok ? (
         <p className="mt-4 text-sm text-scream">{t(lang, "newsletterOk")}</p>
@@ -48,9 +49,9 @@ export function Newsletter({
             onChange={(e) => setEmail(e.target.value)}
             placeholder={t(lang, "newsletterEmail")}
             aria-label={t(lang, "newsletterEmail")}
-            className="border-paper/30 bg-paper text-ink sm:max-w-xs"
+            className="border-paper/40 bg-paper text-ink sm:max-w-xs"
           />
-          <Button type="submit" variant="gold">
+          <Button type="submit" variant="pop">
             {t(lang, "newsletterCta")}
           </Button>
         </form>

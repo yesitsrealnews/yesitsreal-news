@@ -3,7 +3,7 @@ import { SiteShell } from "@/components/site/site-shell";
 import { ArticleBody } from "@/components/stories/article-body";
 import { JsonLd } from "@/components/site/json-ld";
 import { findStory } from "@/lib/catalog";
-import { getDeskStoryStatus } from "@/lib/desk-story-status";
+import { loadPublicDesk, mergeExtras } from "@/lib/desk-public";
 import { useAppStore } from "@/lib/store";
 import { storyCopy } from "@/lib/format";
 import { articleJsonLd, breadcrumbJsonLd, storyCanonical, storySeoCopy } from "@/lib/seo";
@@ -12,14 +12,14 @@ import { coverSrc } from "@/lib/covers";
 
 export const Route = createFileRoute("/story/$slug")({
   loader: async ({ params }) => {
-    const desk = await getDeskStoryStatus();
-    const story = findStory(params.slug, [], desk);
+    const publicDesk = await loadPublicDesk();
+    const story = findStory(params.slug, publicDesk.extras, publicDesk.desk);
     if (!story) throw notFound();
-    return { desk };
+    return publicDesk;
   },
   component: StoryPage,
   head: ({ params, loaderData }) => {
-    const story = findStory(params.slug, [], loaderData?.desk);
+    const story = findStory(params.slug, loaderData?.extras ?? [], loaderData?.desk);
     if (!story) return {};
     const c = storySeoCopy(story);
     const img = coverSrc(story.id);
@@ -64,9 +64,10 @@ export const Route = createFileRoute("/story/$slug")({
 
 function StoryPage() {
   const { slug } = Route.useParams();
+  const loaded = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
-  const extras = useAppStore((s) => s.extras);
-  const deskStatus = useAppStore((s) => s.deskStatus);
+  const extras = mergeExtras(loaded.extras, useAppStore((s) => s.extras));
+  const deskStatus = { ...loaded.desk, ...useAppStore((s) => s.deskStatus) };
   const story = findStory(slug, extras, deskStatus);
   if (!story) {
     throw notFound();

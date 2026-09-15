@@ -15,14 +15,14 @@ export function Badge({
     signal: "bg-signal text-signal-fg",
     gold: "bg-gold text-ink",
     true: "bg-true text-true-fg",
-    muted: "border border-rule text-ink-muted bg-transparent",
+    muted: "border-2 border-ink text-ink bg-card",
     ad: "bg-ad text-ad-ink",
     scream: "bg-scream text-scream-ink",
   } as const;
   return (
     <span
       className={cn(
-        "inline-flex items-center px-1.5 py-0.5 font-sans text-[0.625rem] font-extrabold uppercase tracking-[0.14em]",
+        "inline-flex items-center rounded-md border-2 border-ink px-1.5 py-0.5 font-sans text-[0.625rem] font-extrabold uppercase tracking-[0.14em] shadow-[2px_2px_0_0_var(--color-ink)]",
         tones[tone],
         className,
       )}

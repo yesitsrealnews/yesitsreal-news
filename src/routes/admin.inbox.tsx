@@ -5,7 +5,6 @@ import { useMergedInbox } from "@/lib/admin-inbox";
 import { formatDateTime, storyCopy } from "@/lib/format";
 import { makeQueueItem } from "@/lib/pipeline";
 import type { QueueItem } from "@/lib/types";
-import { hasCoverPhoto } from "@/lib/covers";
 import { useAppStore } from "@/lib/store";
 import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
@@ -15,15 +14,13 @@ export const Route = createFileRoute("/admin/inbox")({ component: InboxPage });
 function InboxPage() {
   const inbox = useMergedInbox();
   const upsertInbox = useAppStore((s) => s.upsertInbox);
-  const setInbox = useAppStore((s) => s.setInbox);
   const publishQueueItem = useAppStore((s) => s.publishQueueItem);
-  const rejectQueueItem = useAppStore((s) => s.rejectQueueItem);
   const deleteInboxItem = useAppStore((s) => s.deleteInboxItem);
-  const purgedIds = useAppStore((s) => s.purgedIds);
   const navigate = useNavigate();
   const [pulling, setPulling] = useState(false);
   const [pullNote, setPullNote] = useState("");
   const [busyId, setBusyId] = useState("");
+  const [publishNote, setPublishNote] = useState("");
 
   useEffect(() => {
     let cancelled = false;
@@ -87,13 +84,8 @@ function InboxPage() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ id: item.id }),
       });
-      const data = (await res.json()) as { ok?: boolean; items?: QueueItem[] };
-      if (res.ok && data.ok && Array.isArray(data.items)) {
-        const purged = new Set(useAppStore.getState().purgedIds);
-        purged.add(item.id);
-        if (item.story?.id) purged.add(item.story.id);
-        setInbox(data.items.filter((it) => it?.id && !purged.has(it.id) && !purged.has(it.story?.id)));
-      } else if (!res.ok || !data.ok) {
+      const data = (await res.json()) as { ok?: boolean };
+      if (!res.ok || !data.ok) {
         window.alert("Suppression serveur échouée — la ligne reste hors file localement.");
       }
     } catch {
@@ -109,6 +101,7 @@ function InboxPage() {
           <h1 className="font-serif text-3xl">File d’attente</h1>
           <p className="mt-2 text-sm text-ink-muted">À relire avant publication. Titres en français. Pre Pubs ici. Publier = en ligne. Réécrire = consignes → même Pre Pub. Supprimer = destruction définitive (pas d’archive).</p>
           {pullNote ? <p className="mt-2 text-sm text-signal">{pullNote}</p> : null}
+          {publishNote ? <p className="mt-2 text-sm font-semibold text-true">{publishNote}</p> : null}
         </div>
         <div className="flex flex-wrap gap-2">
           <Button type="button" variant="outline" onClick={() => void pullRss()} disabled={pulling}>
@@ -122,7 +115,7 @@ function InboxPage() {
           </Button>
         </div>
       </div>
-      <div className="mt-6 border border-rule bg-paper-2 p-4">
+      <div className="mt-6 rounded-2xl border-2 border-ink bg-card p-4 shadow-[4px_4px_0_0_var(--color-ink)]">
         <p className="kicker text-signal">Vous avez repéré un sujet</p>
         <p className="mt-1 text-sm text-ink-muted">
           Collez le fait et l’URL. La desk rédige. Vous relisez.{" "}
@@ -150,7 +143,7 @@ function InboxPage() {
                 <h2 className="mt-1 font-serif text-xl">{c.headline}</h2>
                 <p className="mt-1 text-sm text-ink-muted">{c.dek}</p>
                 <p className="mt-2 text-xs text-ink-muted">
-                  Bêtise {item.story.dumbness} · confiance {Math.round(item.pack.confidence * 100)} % ·{" "}
+                  {item.story.sources.length} source{item.story.sources.length > 1 ? "s" : ""} ·{" "}
                   {item.submittedBy} · {formatDateTime(item.submittedAt, "fr")}
                 </p>
               </Link>
@@ -158,17 +151,21 @@ function InboxPage() {
                 <Button
                   type="button"
                   size="sm"
-                  disabled={busyId === item.id || !hasCoverPhoto(item.story.id)}
-                  title={
-                    hasCoverPhoto(item.story.id)
-                      ? undefined
-                      : "Photo jpg + crédit requis avant Publier"
-                  }
+                  variant="pop"
+                  disabled={busyId === item.id}
                   onClick={() => {
-                    publishQueueItem(item);
+                    setBusyId(item.id);
+                    void publishQueueItem(item).then((ok) => {
+                      setBusyId("");
+                      setPublishNote(
+                        ok
+                          ? `« ${c.headline} » est en ligne.`
+                          : "Publication ratée. Session ou réseau — reconnecte-toi si besoin.",
+                      );
+                    });
                   }}
                 >
-                  Publier
+                  {busyId === item.id ? "Publication…" : "Publier"}
                 </Button>
                 <Button type="button" size="sm" variant="outline" asChild>
                   <Link to="/admin/story/$id" params={{ id: item.id }}>
@@ -197,7 +194,7 @@ function InboxPage() {
           );
         })}
         {inbox.length === 0 ? (
-          <li className="py-8 text-sm">File vide. Tire les flux RSS, ou les papiers déjà en ligne sont dans Tableau.</li>
+          <li className="py-8 text-sm">File vide. Les pistes du matin atterrissent ici. Tu peux aussi tirer les flux.</li>
         ) : null}
       </ul>
     </main>

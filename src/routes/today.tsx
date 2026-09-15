@@ -3,15 +3,18 @@ import { SiteShell } from "@/components/site/site-shell";
 import { ShareBar } from "@/components/site/share-bar";
 import { QuoteCardButton } from "@/components/stories/quote-card";
 import { StoryCard } from "@/components/stories/story-card";
+import { StoryCover } from "@/components/stories/cover";
 import { Newsletter } from "@/components/site/newsletter";
 import { t } from "@/lib/i18n";
 import { useAppStore } from "@/lib/store";
 import { SITE_URL } from "@/lib/brand";
 import { homeStories } from "@/lib/catalog";
+import { loadPublicDesk, mergeExtras } from "@/lib/desk-public";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { SourceProof } from "@/components/stories/source-proof";
 
 export const Route = createFileRoute("/today")({
+  loader: async () => loadPublicDesk(),
   component: TodayPage,
   head: () => ({
     meta: [
@@ -27,12 +30,14 @@ export const Route = createFileRoute("/today")({
 });
 
 function TodayPage() {
+  const loaded = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
-  const extras = useAppStore((s) => s.extras);
-  const deskStatus = useAppStore((s) => s.deskStatus);
+  const extras = mergeExtras(loaded?.extras, useAppStore((s) => s.extras));
+  const deskStatus = { ...(loaded?.desk ?? {}), ...useAppStore((s) => s.deskStatus) };
+  const frontPageIds = (useAppStore((s) => s.frontPageIds).length ? useAppStore.getState().frontPageIds : loaded?.frontPageIds) ?? [];
   const add = useAppStore((s) => s.addNewsletter);
   const countShare = useAppStore((s) => s.countShare);
-  const list = homeStories(extras, deskStatus).slice(0, 5);
+  const list = homeStories(extras, deskStatus, frontPageIds).slice(0, 5);
   const lead = list[0];
   const rest = list.slice(1);
   const now = formatDate(new Date().toISOString(), lang);
@@ -41,7 +46,7 @@ function TodayPage() {
     <SiteShell>
       <main id="main" className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
         <p className="kicker text-signal">{t(lang, "edition")} · {now}</p>
-        <h1 className="mt-2 font-serif text-5xl uppercase leading-[0.9] sm:text-7xl">{t(lang, "todayTitle")}</h1>
+        <h1 className="mt-2 font-serif text-5xl leading-[0.9] sm:text-7xl">{t(lang, "todayTitle")}</h1>
         <p className="mt-4 text-lg">{t(lang, "todayDek")}</p>
         <ShareBar
           lang={lang}
@@ -53,7 +58,14 @@ function TodayPage() {
 
         {lead ? (
           <article className="mt-10 border-b-4 border-ink pb-8">
-            <h2 className="mt-3 font-serif text-4xl uppercase leading-[0.95]">
+            <Link
+              to="/story/$slug"
+              params={{ slug: storySlug(lead, lang) }}
+              className="photo-frame relative mb-5 block aspect-[16/9]"
+            >
+              <StoryCover id={lead.id} section={lead.section} alt={storyCopy(lead, lang).headline} priority />
+            </Link>
+            <h2 className="mt-3 font-serif text-4xl leading-[0.95]">
               <Link to="/story/$slug" params={{ slug: storySlug(lead, lang) }}>
                 {storyCopy(lead, lang).headline}
               </Link>

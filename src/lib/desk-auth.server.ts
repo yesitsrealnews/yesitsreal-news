@@ -2,7 +2,7 @@ import { timingSafeEqual } from "node:crypto";
 import { SignJWT, jwtVerify } from "jose";
 
 export const DESK_COOKIE = "yir_cambuse";
-const MAX_AGE = 60 * 60 * 12;
+const MAX_AGE = 60 * 60 * 24 * 30;
 
 function deskCode(): string {
   return (process.env.DESK_CODE || process.env.CAMBUSE_CODE || "1aPepette").trim();
@@ -47,10 +47,14 @@ export function readDeskCookie(request: Request): string | undefined {
 
 export function deskCookieHeader(token: string, request: Request): string {
   const proto = request.headers.get("x-forwarded-proto") || "";
+  const host = (request.headers.get("x-forwarded-host") || request.headers.get("host") || "").split(":")[0];
   const secure = proto === "https" ? "; Secure" : "";
-  return `${DESK_COOKIE}=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${MAX_AGE}${secure}`;
+  const domain = host.endsWith("yesitsreal.news") ? "; Domain=.yesitsreal.news" : "";
+  return `${DESK_COOKIE}=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${MAX_AGE}${secure}${domain}`;
 }
 
-export function clearDeskCookieHeader(): string {
-  return `${DESK_COOKIE}=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0`;
+export function clearDeskCookieHeader(request?: Request): string {
+  const host = (request?.headers.get("x-forwarded-host") || request?.headers.get("host") || "").split(":")[0];
+  const domain = host.endsWith("yesitsreal.news") ? "; Domain=.yesitsreal.news" : "";
+  return `${DESK_COOKIE}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${domain}`;
 }

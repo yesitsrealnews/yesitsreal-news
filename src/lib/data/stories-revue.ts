@@ -220,6 +220,163 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
+
+  revue({
+    id: "s138",
+    slug: "vilablareix-rooster-revenge-dog-barking-farigola",
+    slugs: {
+      fr: "vilablareix-il-prend-un-coq-pour-repondre-aux-chiens-du-voisin",
+    },
+    section: "animals",
+    countryCode: "ES",
+    countryName: "Spain",
+    location: "Vilablareix, Gérone",
+    dumbness: 9,
+    sources: [
+      src(
+        "El cant d'un gall divideix Vilablareix, al Gironès",
+        "RTVE / La 2Cat",
+        "https://www.rtve.es/play/noticies/20260915/poble-girones-confrontat-cant-gall-vilablareix/17225167.shtml",
+        "2026-09-15",
+        "wire",
+      ),
+      src(
+        "Il adopte un coq pour se venger des aboiements du chien de son voisin : à bout, tout le quartier porte plainte",
+        "Midi Libre",
+        "https://www.midilibre.fr/2026/09/14/il-adopte-un-coq-pour-se-venger-des-aboiements-du-chien-de-son-voisin-a-bout-tout-le-quartier-porte-plainte-13550719.php",
+        "2026-09-14",
+        "local",
+      ),
+      src(
+        "Excédé par les aboiements des chiens de son quartier, il achète un coq... qui chante nuit et jour",
+        "La Dépêche du Midi",
+        "https://www.ladepeche.fr/2026/09/14/excede-par-les-aboiements-des-chiens-de-son-quartier-il-achete-un-coq-qui-chante-nuit-et-jour-poussant-a-bout-les-habitants-du-village-13550689.php",
+        "2026-09-14",
+        "local",
+      ),
+      src(
+        "Après s’être plaint des aboiements des chiens du voisin, il achète un coq et rend chèvre tout le quartier",
+        "Ouest-France",
+        "https://www.ouest-france.fr/europe/espagne/apres-setre-plaint-des-aboiements-des-chiens-du-voisin-il-achete-un-coq-et-rend-chevre-tout-le-quartier-ff6e4520-ac23-11f1-8801-66f16947434c",
+        "2026-09-10",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-15T12:00:00.000Z",
+    originalLang: "es",
+    confidence: 0.94,
+    entities: ["Vilablareix", "Maite Tixis", "Mossos d'Esquadra", "carrer Farigola"],
+    copy: {
+      en: c(
+        "He complained about the dogs. Then he got a rooster. The street filed a complaint. The mayor says it is a loudspeaker.",
+        "Vilablareix, Girona. Carrer Farigola. Twenty-seven neighbours. Mayor Maite Tixis. Owner Francisco. Mossos four visits. No deaths, no minors — a poultry feud.",
+        [
+          "RTVE’s La 2Cat (Adrián Soler Royes, 15 September 2026), Midi Libre and La Dépêche (14 September) and Ouest-France (10 September), all citing the Catalan local press: in Vilablareix, south of Girona, a man who had spoken for the street about barking dogs then installed a rooster. Neighbours on carrer Farigola have lived with it for months. Midi Libre: a complaint signed by 27 residents went to the town hall.",
+          "The owner, Francisco, told La 2Cat he puts the bird inside at night and denies a loudspeaker. Mayor Maite Tixis told the same programme the police report ‘determines that there really is a loudspeaker that puts rooster noises on at night.’ The Mossos, the French papers say, have been four times and found no device. He says if dogs bark and cats meow, a rooster that sings in the day is not his remaining problem to solve.",
+          "YES IT'S REAL crossed RTVE, Midi Libre, La Dépêche and Ouest-France. Named town. Named mayor. Named street. We do not name a breed we have not been given. Cover is a farmyard rooster — Commons CC — not the bird on Farigola.",
+        ],
+        [
+          "The mediation was a rooster.",
+          "Twenty-seven signatures. One bird. A mayor talking about a speaker.",
+          "Spain still settles barking with poultry.",
+        ],
+        "RTVE La 2Cat 15 Sept 2026; Midi Libre 14 Sept; La Dépêche 14 Sept; Ouest-France 10 Sept. Mayor: Maite Tixis. Owner first-named Francisco.",
+      ),
+      fr: c(
+        "Il s’était plaint des chiens. Il a pris un coq. Le quartier a porté plainte. La maire parle d’un haut-parleur.",
+        "Vilablareix, Gérone. Carrer Farigola. Vingt-sept voisins. Maire Maite Tixis. Le propriétaire, Francisco. Les Mossos, quatre visites. Personne n’est blessé — une guerre de basse-cour.",
+        [
+          "RTVE / La 2Cat (Adrián Soler Royes, 15 septembre 2026), Midi Libre et La Dépêche (14 septembre) et Ouest-France (10 septembre), tous d’après la presse catalane : à Vilablareix, au sud de Gérone, un homme qui s’était fait le porte-parole de la rue contre les aboiements a ensuite installé un coq. Les voisins du carrer Farigola vivent avec depuis des mois. Midi Libre : une plainte signée par 27 habitants est arrivée à la mairie.",
+          "Le propriétaire, Francisco, dit à La 2Cat qu’il rentre l’animal le soir et nie le haut-parleur. La maire Maite Tixis, au même magazine : le procès-verbal « détermine qu’il y a vraiment un haut-parleur qui met des bruits de coq la nuit ». Les Mossos, écrivent les journaux français, sont passés quatre fois et n’ont rien trouvé. Lui : s’il y a des chiens qui aboient et des chats qui miaulent, un coq qui chante le jour n’est plus son affaire à régler.",
+          "YES IT'S REAL a croisé RTVE, Midi Libre, La Dépêche et Ouest-France. Commune nommée. Maire nommée. Rue nommée. On ne nomme pas une race qu’on ne nous a pas donnée. La couverture, un coq de basse-cour — Commons, licence claire — pas le volatile de Farigola.",
+        ],
+        [
+          "La médiation, c’était un coq.",
+          "Vingt-sept signatures. Un oiseau. Une maire qui parle d’enceinte.",
+          "L’Espagne règle encore les aboiements par la volaille.",
+        ],
+        "RTVE La 2Cat 15 sept. 2026 ; Midi Libre 14 sept. ; La Dépêche 14 sept. ; Ouest-France 10 sept. Maire : Maite Tixis. Propriétaire prénommé Francisco.",
+      ),
+    },
+  }),
+  revue({
+    id: "s139",
+    slug: "norway-haaland-effect-carrot-sales-landbruksdirektoratet",
+    slugs: {
+      fr: "norvege-effet-haaland-les-carottes-en-botte-ont-leur-ministere",
+    },
+    section: "sports",
+    countryCode: "NO",
+    countryName: "Norway",
+    location: "Norway",
+    dumbness: 8,
+    sources: [
+      src(
+        "Stort salg av gulrøtter i sommer: – Haaland-effekt",
+        "NRK",
+        "https://www.nrk.no/nyheter/stort-salg-av-gulrotter-i-sommer_-_-haaland-effekt-1.17982936",
+        "2026-08-08",
+        "wire",
+      ),
+      src(
+        "Knallsalg av gulrøtter i sommer: – Haaland-effekt",
+        "TV 2",
+        "https://www.tv2.no/nyheter/knallsalg-av-gulrotter-i-sommer-haaland-effekt/19110866/",
+        "2026-08-08",
+        "wire",
+      ),
+      src(
+        "« Le bonbon Haaland » : comment le Norvégien a boosté la consommation de carottes dans son pays",
+        "L'Équipe",
+        "https://www.lequipe.fr/Football/Actualites/-le-bonbon-haaland-comment-le-norvegien-a-booste-la-consommation-de-carottes-dans-son-pays/1718862",
+        "2026-09-15",
+        "wire",
+      ),
+      src(
+        "Ukens marked for frukt og grønt",
+        "Landbruksdirektoratet",
+        "https://www.landbruksdirektoratet.no/nb/industri-og-handel/marked-og-pris/ukens-marked",
+        "2026-08-08",
+        "official",
+      ),
+    ],
+    publishedAt: "2026-09-15T12:10:00.000Z",
+    originalLang: "no",
+    confidence: 0.93,
+    entities: ["Erling Braut Haaland", "Landbruksdirektoratet", "Bama"],
+    copy: {
+      en: c(
+        "Norway’s agriculture directorate put a Haaland effect in the weekly fruit-and-veg note. The crop was bunched carrots.",
+        "Landbruksdirektoratet, summer 2026. NRK and TV 2, 8 August. L'Équipe picked it up 15 September. Bama ads. No invented sales figure.",
+        [
+          "NRK and TV 2, 8 August 2026, quoting the Norwegian agriculture directorate’s weekly fruit-and-veg report: producers described a ‘Haaland-effekt’ on bunched carrots after the World Cup. The directorate also noted cauliflower and other summer vegetables moving. L'Équipe (Tom Prevot, 15 September) brought the same note to French newsrooms; Ouest-France followed the same day.",
+          "The directorate did not publish a percentage in the pieces we have. What it did publish is the phrase, in an official market note, next to a footballer who eats carrots in a Bama advert and in car videos on the way to matches. TV 2: seven World Cup goals in four games for Norway; also a man in a truck, eating a root vegetable, on national television.",
+          "YES IT'S REAL crossed NRK, TV 2, L'Équipe and the directorate’s market page. Named agency. Named player. We do not invent a tonnage. Cover is bunched carrots — Commons CC — not a Bama still.",
+        ],
+        [
+          "The ministry of vegetables named a striker.",
+          "The snack is a carrot. The metric is a vibe.",
+          "Norway files football under produce.",
+        ],
+        "NRK + TV 2, 8 Aug 2026, quoting Landbruksdirektoratet; L'Équipe 15 Sept. No percentage in the copy we cite.",
+      ),
+      fr: c(
+        "La Norvège a mis un « effet Haaland » dans la note hebdo des carottes. C’est le ministère qui le dit.",
+        "Landbruksdirektoratet, été 2026. NRK et TV 2, 8 août. L'Équipe le ramène le 15 septembre. Pubs Bama. Pas de chiffre inventé.",
+        [
+          "NRK et TV 2, 8 août 2026, d’après la note hebdomadaire fruits et légumes de la direction norvégienne de l’agriculture : les producteurs décrivent un « Haaland-effekt » sur la carotte en botte, après la Coupe du monde. La direction note aussi le chou-fleur et d’autres légumes d’été. L'Équipe (Tom Prevot, 15 septembre) sort la même note dans les rédactions françaises ; Ouest-France suit le jour même.",
+          "La direction ne publie pas de pourcentage dans les papiers que nous avons. Elle publie la formule, dans une note de marché officielle, à côté d’un attaquant qui mange des carottes dans une pub Bama et dans des vidéos en voiture, en route vers le match. TV 2 : sept buts en quatre matches pour la Norvège ; aussi un homme au volant d’un chariot élévateur, une racine entre les dents, à la télévision nationale.",
+          "YES IT'S REAL a croisé NRK, TV 2, L'Équipe et la page marché de la direction. Agence nommée. Joueur nommé. On n’invente pas un tonnage. La couverture, des carottes en botte — Commons, licence claire — pas un photogramme Bama.",
+        ],
+        [
+          "Le ministère des légumes a nommé un avant-centre.",
+          "Le snack, c’est une carotte. L’unité, c’est une humeur.",
+          "La Norvège classe le football aux primeurs.",
+        ],
+        "NRK + TV 2, 8 août 2026, d’après Landbruksdirektoratet ; L'Équipe 15 sept. Pas de pourcentage dans les textes cités.",
+      ),
+    },
+  }),
 ];
 
 export const REVUE_HOLD_IDS = REVUE_STORIES.map((s) => s.id);

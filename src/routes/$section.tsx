@@ -2,6 +2,7 @@ import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/site-shell";
 import { SectionArchive } from "@/components/stories/section-page";
 import { isSectionId } from "@/lib/data/sections";
+import { loadPublicDesk, mergeExtras } from "@/lib/desk-public";
 import { useAppStore } from "@/lib/store";
 import { t } from "@/lib/i18n";
 import { DICT } from "@/lib/i18n/dict";
@@ -29,6 +30,7 @@ export const Route = createFileRoute("/$section")({
       throw notFound();
     }
   },
+  loader: async () => loadPublicDesk(),
   head: ({ params }) => {
     if (!isSectionId(params.section)) return {};
     const key = SECTION_KEY[params.section] ?? "secWorld";
@@ -58,7 +60,8 @@ function SectionRoute() {
     throw notFound();
   }
   const lang = useAppStore((s) => s.lang);
-  const extras = useAppStore((s) => s.extras);
+  const loaded = Route.useLoaderData();
+  const extras = mergeExtras(loaded?.extras, useAppStore((s) => s.extras));
   const title = t(lang, SECTION_KEY[section] ?? "secWorld");
   return (
     <SiteShell>

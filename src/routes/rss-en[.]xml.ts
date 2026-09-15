@@ -3,14 +3,14 @@ import { publishedStories } from "@/lib/catalog";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { coverSrc } from "@/lib/covers";
 import { xmlEscape } from "@/lib/seo";
-import { getDeskStoryStatus } from "@/lib/desk-story-status";
+import { loadPublicDesk } from "@/lib/desk-public";
 
 export const Route = createFileRoute("/rss-en.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const desk = await getDeskStoryStatus();
-        const items = publishedStories([], desk)
+        const { extras, desk } = await loadPublicDesk();
+        const items = publishedStories(extras, desk)
           .map((s) => {
             const c = s.copy.en;
             const img = coverSrc(s.id);

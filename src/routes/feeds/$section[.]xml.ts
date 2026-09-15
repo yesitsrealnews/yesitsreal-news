@@ -3,7 +3,7 @@ import { isPublicSectionId, canonicalSection } from "@/lib/data/sections";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { coverSrc } from "@/lib/covers";
 import { xmlEscape, storySeoCopy } from "@/lib/seo";
-import { getDeskStoryStatus } from "@/lib/desk-story-status";
+import { loadPublicDesk } from "@/lib/desk-public";
 import { inSection } from "@/lib/catalog";
 
 export const Route = createFileRoute("/feeds/$section.xml")({
@@ -16,8 +16,8 @@ export const Route = createFileRoute("/feeds/$section.xml")({
         if (!section || !isPublicSectionId(section)) {
           return new Response("Not found", { status: 404 });
         }
-        const desk = await getDeskStoryStatus();
-        const list = inSection([], section, desk).slice(0, 40);
+        const { extras, desk } = await loadPublicDesk();
+        const list = inSection(extras, section, desk).slice(0, 40);
         const items = list
           .map((s) => {
             const c = storySeoCopy(s);

@@ -30,7 +30,8 @@ function AdminGate() {
 
   const hydrateDeskStatus = useAppStore((s) => s.hydrateDeskStatus);
   const hydrateFrontPage = useAppStore((s) => s.hydrateFrontPage);
-  const setInbox = useAppStore((s) => s.setInbox);
+  const hydratePublishedExtras = useAppStore((s) => s.hydratePublishedExtras);
+  const mergeInboxFromServer = useAppStore((s) => s.mergeInboxFromServer);
 
   useEffect(() => {
     let live = true;
@@ -43,6 +44,7 @@ function AdminGate() {
         if (d.ok) {
           void hydrateDeskStatus();
           void hydrateFrontPage();
+          void hydratePublishedExtras();
           void fetch("/api/desk-assign", { credentials: "include", cache: "no-store" })
             .then((r) => r.json())
             .then((payload: { ok?: boolean; items?: QueueItem[] }) => {
@@ -52,7 +54,7 @@ function AdminGate() {
               const next = payload.items.filter(
                 (item) => item?.id && !purged.has(item.id) && !purged.has(item.story?.id),
               );
-              setInbox(next);
+              mergeInboxFromServer(next);
             })
             .catch(() => undefined);
         }
@@ -66,7 +68,7 @@ function AdminGate() {
       live = false;
     };
     // Intentionally omit purgedIds: re-running this effect after Supprimer raced the DELETE and could restore rows.
-  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, setInbox]);
+  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, hydratePublishedExtras, mergeInboxFromServer]);
 
   if (!checked) return <div className="min-h-screen bg-paper" />;
   if (!admin) return <Navigate to="/cambuse" />;
@@ -78,9 +80,9 @@ function AdminShell() {
   const setAdmin = useAppStore((s) => s.setAdmin);
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <header className="flex items-center justify-between border-b border-rule px-4 py-3">
+      <header className="flex items-center justify-between border-b-2 border-ink bg-scream px-4 py-3">
         <div>
-          <p className="kicker text-signal">La cambuse</p>
+          <p className="kicker text-ink">La cambuse</p>
           <p className="font-serif text-xl">Le journal</p>
         </div>
         <div className="flex gap-3 text-sm">
@@ -100,14 +102,14 @@ function AdminShell() {
         </div>
       </header>
       <div className="flex min-h-[calc(100vh-57px)]">
-        <nav className="hidden w-52 shrink-0 border-e border-rule md:block">
+        <nav className="hidden w-52 shrink-0 border-e-2 border-ink md:block">
           {LINKS.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               className={cn(
                 "block px-4 py-3 text-sm",
-                pathname === l.to ? "bg-paper-2 font-semibold" : "text-ink-muted hover:text-ink",
+                pathname === l.to ? "bg-scream font-extrabold" : "text-ink-muted hover:text-ink",
               )}
             >
               {l.label}

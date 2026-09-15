@@ -12,7 +12,7 @@ import { Newsletter } from "@/components/site/newsletter";
 import { AdSlot } from "@/components/site/ad-slot";
 import { SocialRail } from "@/components/site/social-rail";
 import { ShareBar } from "@/components/site/share-bar";
-import { Badge } from "@/components/ui/badge";
+import { TrueStamp } from "@/components/site/true-stamp";
 import { Button } from "@/components/ui/button";
 import { SourceProof } from "@/components/stories/source-proof";
 import { BadgeCheck, Newspaper } from "lucide-react";
@@ -47,15 +47,21 @@ export function HomePage({
   return (
     <main id="main" className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
       <div className="mb-5 flex flex-wrap gap-2">
-        <Link to="/today" className="inline-flex h-11 items-center bg-ink px-4 text-xs font-extrabold uppercase tracking-[0.14em] text-paper">
+        <Link
+          to="/today"
+          className="inline-flex h-11 items-center rounded-full border-2 border-ink bg-ink px-4 text-xs font-extrabold uppercase tracking-[0.14em] text-paper shadow-[3px_3px_0_0_var(--color-signal)]"
+        >
           <Newspaper className="me-2 size-4" />
           {t(lang, "todayTitle")}
         </Link>
-        <Link to="/shop" className="inline-flex h-11 items-center bg-scream px-4 text-xs font-extrabold uppercase tracking-[0.14em] text-scream-ink">
+        <Link
+          to="/shop"
+          className="inline-flex h-11 items-center rounded-full border-2 border-ink bg-scream px-4 text-xs font-extrabold uppercase tracking-[0.14em] text-scream-ink shadow-[3px_3px_0_0_var(--color-ink)]"
+        >
           {t(lang, "shopCta")}
         </Link>
       </div>
-      <p className="mb-5 max-w-3xl border-s-4 border-signal ps-4 text-sm font-medium leading-snug sm:text-base">
+      <p className="mb-5 max-w-3xl rounded-2xl border-2 border-ink bg-card px-4 py-3 text-sm font-medium leading-snug shadow-[4px_4px_0_0_var(--color-signal)] sm:text-base">
         {t(lang, "raisonLine")}{" "}
         <Link to="/about" className="underline underline-offset-2">
           {t(lang, "about")}
@@ -65,23 +71,23 @@ export function HomePage({
           {t(lang, "method")}
         </Link>
       </p>
-      <section className="grid gap-6 border-b-4 border-ink pb-6 lg:grid-cols-12">
+      <section className="grid gap-6 border-b-2 border-ink pb-8 lg:grid-cols-12">
         <Link
           to="/story/$slug"
           params={{ slug: heroSlug }}
-          className="relative block aspect-[16/10] overflow-hidden bg-ink lg:col-span-7 lg:aspect-auto lg:min-h-[28rem]"
+          className="photo-frame relative block aspect-[16/10] lg:col-span-7 lg:aspect-auto lg:min-h-[28rem]"
         >
-          <StoryCover id={hero.id} section={hero.section} alt="" priority className="h-full w-full" />
-          <span className="absolute left-3 top-3 flex flex-wrap gap-2">
-            {hero.breaking ? <Badge tone="signal">{t(lang, "breaking")}</Badge> : null}
-            <Badge tone="scream">{t(lang, "truePill")}</Badge>
+          <StoryCover id={hero.id} section={hero.section} alt={heroCopy.headline} priority className="h-full w-full" />
+          <span className="absolute left-3 top-4 flex flex-wrap gap-2">
+            {hero.breaking ? <TrueStamp tone="signal">{t(lang, "breaking")}</TrueStamp> : null}
+            <TrueStamp>{t(lang, "truePill")}</TrueStamp>
           </span>
         </Link>
         <div className="flex flex-col justify-center lg:col-span-5">
           <div className="flex flex-wrap items-center gap-2">
             <span className="kicker text-signal">{t(lang, SECTION_KEY[hero.section])}</span>
           </div>
-          <h1 className="mt-3 font-serif text-4xl uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mt-3 font-serif text-4xl leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl">
             <Link to="/story/$slug" params={{ slug: heroSlug }}>
               {heroCopy.headline}
             </Link>
@@ -128,7 +134,7 @@ export function HomePage({
           </div>
           {shown < rest.length - 2 ? (
             <div className="mt-8">
-              <Button variant="signal" onClick={() => setShown((n) => n + 8)}>
+              <Button variant="pop" onClick={() => setShown((n) => n + 8)}>
                 {t(lang, "loadMore")}
               </Button>
             </div>
@@ -138,7 +144,7 @@ export function HomePage({
           <AdSlot lang={lang} slot="sidebar" className="hidden lg:block" salt="home-side" />
           <SocialRail lang={lang} />
           {sponsored ? (
-            <div className="border-2 border-gold p-4">
+            <div className="rounded-2xl border-2 border-ink bg-gold p-4 shadow-[4px_4px_0_0_var(--color-ink)]">
               <StoryCard story={sponsored} lang={lang} variant="compact" />
             </div>
           ) : null}

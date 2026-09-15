@@ -46,8 +46,8 @@ export const Route = createFileRoute("/api/desk")({
           "Set-Cookie": deskCookieHeader(token, request),
         });
       },
-      DELETE: async () => {
-        return noIndexJson({ ok: true }, 200, { "Set-Cookie": clearDeskCookieHeader() });
+      DELETE: async ({ request }) => {
+        return noIndexJson({ ok: true }, 200, { "Set-Cookie": clearDeskCookieHeader(request) });
       },
     },
   },

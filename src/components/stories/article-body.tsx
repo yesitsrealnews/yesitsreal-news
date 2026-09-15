@@ -16,6 +16,7 @@ import { ReaderComments } from "@/components/stories/reader-comments";
 import { SourceVideo } from "@/components/stories/source-video";
 import { relatedStories } from "@/lib/catalog";
 import { applyVoice, voiceMeta } from "@/lib/voices";
+import { TrueStamp } from "@/components/site/true-stamp";
 import { BadgeCheck, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/lib/store";
@@ -53,8 +54,8 @@ export function ArticleBody({
       ) : null}
       <h1
         className={cn(
-          "mt-3 font-serif text-4xl uppercase leading-[0.98] tracking-tight sm:text-5xl",
-          era && "font-archive italic normal-case leading-[1.12]",
+          "mt-3 font-serif text-4xl leading-[0.96] tracking-tight sm:text-5xl",
+          era && "font-archive italic leading-[1.12]",
         )}
       >
         {copy.headline}
@@ -88,14 +89,14 @@ export function ArticleBody({
         <SourceProof story={story} lang={lang} names />
       </div>
 
-      <div className="relative my-6 aspect-[16/9] overflow-hidden bg-ink">
+      <div className="photo-frame relative my-6 aspect-[16/9]">
         <StoryCover id={story.id} section={story.section} alt={copy.headline} priority credit />
-        <span className="absolute left-3 top-3">
-          <Badge tone="scream">{t(lang, "truePill")}</Badge>
+        <span className="absolute left-3 top-4">
+          <TrueStamp>{t(lang, "truePill")}</TrueStamp>
         </span>
       </div>
 
-      <section className="mb-6 border-2 border-ink p-4">
+      <section className="mb-6 rounded-2xl border-2 border-ink bg-card p-4 shadow-[4px_4px_0_0_var(--color-ink)]">
         <h2 className="kicker text-ink">{t(lang, "originalSources")}</h2>
         <ul className="mt-3 space-y-2 text-sm">
           {story.sources.map((s) => (
@@ -120,7 +121,7 @@ export function ArticleBody({
       </div>
 
       {story.sponsored ? (
-        <p className="mt-6 border border-gold bg-paper-2 px-4 py-3 text-sm">
+        <p className="mt-6 rounded-2xl border-2 border-ink bg-gold px-4 py-3 text-sm">
           {t(lang, "sponsored")}. {copy.factCheckNote}
         </p>
       ) : null}
@@ -137,7 +138,7 @@ export function ArticleBody({
         ))}
       </div>
 
-      <section className="mt-8 border border-rule p-5">
+      <section className="mt-8 rounded-2xl border-2 border-ink bg-card p-5 shadow-[4px_4px_0_0_var(--color-ink)]">
         <h2 className="kicker text-ink-muted">{t(lang, "originalSources")}</h2>
         <p className="mt-2 text-xs text-ink-muted">{copy.factCheckNote}</p>
         <ul className="mt-3 space-y-2 text-sm">
@@ -157,9 +158,9 @@ export function ArticleBody({
         ) : null}
       </section>
 
-      <section className="mt-8 border-4 border-signal bg-paper p-5">
-        <p className="kicker text-signal">{t(lang, "notSatire")}</p>
-        <h2 className="mt-2 font-serif text-3xl uppercase leading-none">{t(lang, "tagline2")}</h2>
+      <section className="mt-8 rounded-3xl border-2 border-ink bg-scream p-5 shadow-[5px_5px_0_0_var(--color-signal)]">
+        <p className="kicker text-ink">{t(lang, "notSatire")}</p>
+        <h2 className="mt-2 font-serif text-3xl leading-none">{t(lang, "tagline2")}</h2>
         <p className="mt-2 max-w-xl text-sm text-ink-muted">{t(lang, "shareNote")} · @yesitsrealnews</p>
         <ShareBar lang={lang} path={storySharePath(story, lang)} headline={copy.headline} className="mt-4" />
       </section>
@@ -171,7 +172,7 @@ export function ArticleBody({
       </div>
 
       <section className="mt-12">
-        <h2 className="font-serif text-3xl uppercase">{t(lang, "related")}</h2>
+        <h2 className="font-serif text-3xl">{t(lang, "related")}</h2>
         <div className="mt-4 grid gap-6 sm:grid-cols-2">
           {related.map((s) => (
             <StoryCard key={s.id} story={s} lang={lang} variant="compact" />

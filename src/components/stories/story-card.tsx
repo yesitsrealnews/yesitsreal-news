@@ -7,6 +7,7 @@ import { flagEmoji, storyCopy, storySlug } from "@/lib/format";
 import { SourceProof } from "@/components/stories/source-proof";
 import { StoryCover } from "@/components/stories/cover";
 import { Badge } from "@/components/ui/badge";
+import { TrueStamp } from "@/components/site/true-stamp";
 import { cn } from "@/lib/utils";
 import { voiceMeta } from "@/lib/voices";
 
@@ -31,22 +32,24 @@ export function StoryCard({
           to="/story/$slug"
           params={{ slug }}
           className={cn(
-            "relative mb-3 block overflow-hidden bg-ink",
+            "photo-frame relative mb-3 block",
             variant === "feature" ? "aspect-[16/9]" : "aspect-[4/3]",
           )}
         >
           <StoryCover
             id={story.id}
             section={story.section}
-            alt=""
+            alt={copy.headline}
             className="transition-transform duration-300 group-hover:scale-[1.04]"
           />
-          <span className="absolute left-2 top-2">
-            <Badge tone="scream">{t(lang, "truePill")}</Badge>
+          <span className="absolute left-2 top-3">
+            <TrueStamp tilt={-8}>{t(lang, "truePill")}</TrueStamp>
           </span>
           {story.breaking ? (
-            <span className="absolute right-2 top-2">
-              <Badge tone="signal">{t(lang, "breaking")}</Badge>
+            <span className="absolute right-2 top-3">
+              <TrueStamp tone="signal" tilt={6}>
+                {t(lang, "breaking")}
+              </TrueStamp>
             </span>
           ) : null}
         </Link>
@@ -62,10 +65,10 @@ export function StoryCard({
       </div>
       <h3
         className={cn(
-          "font-serif uppercase tracking-tight text-ink group-hover:underline decoration-2 underline-offset-4",
+          "font-serif tracking-tight text-ink group-hover:underline decoration-2 underline-offset-4",
           variant === "compact" || variant === "rail" ? "text-lg leading-snug" : "text-2xl leading-[1.05]",
           variant === "feature" && "text-3xl sm:text-4xl",
-          story.section === "archive" && "font-archive italic normal-case tracking-normal leading-snug",
+          story.section === "archive" && "font-archive italic tracking-normal leading-snug",
         )}
       >
         <Link to="/story/$slug" params={{ slug }}>

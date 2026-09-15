@@ -20,13 +20,13 @@ export function SourceProof({
   return (
     <span
       className={cn(
-        "inline-flex max-w-full items-center gap-1.5 font-sans text-ink",
+        "inline-flex max-w-full items-center gap-1.5 rounded-full border-2 border-ink bg-true/15 px-2 py-0.5 font-sans text-ink",
         size === "sm" ? "text-[0.7rem]" : "text-xs",
       )}
       title={pubs.join(" · ")}
     >
-      <span className="kicker text-[0.6rem] text-ink-muted">{t(lang, "sources")}</span>
-      <span className="font-semibold tabular-nums">{n}</span>
+      <span className="kicker text-[0.55rem] text-true">{t(lang, "sources")}</span>
+      <span className="font-extrabold tabular-nums">{n}</span>
       {shown ? <span className="truncate text-ink-muted">· {shown}</span> : null}
     </span>
   );

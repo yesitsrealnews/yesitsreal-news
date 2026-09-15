@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       { title: SEO_FR.title },
       { name: "description", content: SEO_FR.description },
       { name: "keywords", content: SEO_FR.keywords },
-      { name: "theme-color", content: "#141414" },
+      { name: "theme-color", content: "#C6FF3D" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large" },
       { name: "googlebot-news", content: "index, follow" },
@@ -39,7 +39,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;700;800&family=Figtree:ital,wght@0,400;0,600;0,800;1,400&family=Newsreader:ital,opsz,wght@0,8..72,400;0,8..72,600;1,8..72,400&family=Playfair+Display:ital,wght@0,700;1,700&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap",
       },
       { rel: "alternate", type: "application/rss+xml", href: `${SITE_URL}/rss.xml`, title: "YES IT'S REAL — Français" },
       { rel: "alternate", type: "application/rss+xml", href: `${SITE_URL}/rss-en.xml`, title: "YES IT'S REAL — English" },
@@ -59,7 +59,10 @@ export const Route = createRootRoute({
           Revenez à la une, ou écrivez à la rédaction. Ça, par contre, n’est pas arrivé.
         </p>
         <p className="mt-6 text-xs text-ink-muted">{error instanceof Error ? error.message : "unknown"}</p>
-        <a href="/" className="mt-8 inline-flex h-11 items-center bg-ink px-4 text-sm font-bold uppercase tracking-[0.12em] text-paper">
+        <a
+          href="/"
+          className="mt-8 inline-flex h-11 items-center rounded-full border-2 border-ink bg-scream px-4 text-sm font-extrabold uppercase tracking-[0.12em] text-scream-ink shadow-[3px_3px_0_0_var(--color-ink)]"
+        >
           Retour à la une
         </a>
       </main>

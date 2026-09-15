@@ -6,17 +6,12 @@ import { JsonLd } from "@/components/site/json-ld";
 import { useAppStore } from "@/lib/store";
 import { itemListJsonLd, orgJsonLd, SEO_FR, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
-import { homeStories, type DeskStatusMap } from "@/lib/catalog";
-import { getFrontPageIds } from "@/lib/desk-front-page";
-import { getDeskStoryStatus } from "@/lib/desk-story-status";
+import { homeStories } from "@/lib/catalog";
+import { loadPublicDesk, mergeExtras } from "@/lib/desk-public";
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    const [frontPageIds, desk] = await Promise.all([
-      getFrontPageIds(true).catch(() => [] as string[]),
-      getDeskStoryStatus().catch(() => ({} as DeskStatusMap)),
-    ]);
-    return { frontPageIds, desk };
+    return loadPublicDesk();
   },
   component: Home,
   head: () => ({
@@ -47,17 +42,21 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { frontPageIds: loaderFrontIds, desk: loaderDesk } = Route.useLoaderData();
+  const { frontPageIds: loaderFrontIds, desk: loaderDesk, extras: loaderExtras } = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
-  const extras = useAppStore((s) => s.extras);
+  const extras = mergeExtras(loaderExtras, useAppStore((s) => s.extras));
   const storeDesk = useAppStore((s) => s.deskStatus);
   const storeFrontIds = useAppStore((s) => s.frontPageIds);
   const setFrontPageIds = useAppStore((s) => s.setFrontPageIds);
+  const setDeskStatus = useAppStore((s) => s.setDeskStatus);
   const addNewsletter = useAppStore((s) => s.addNewsletter);
 
   useEffect(() => {
     if (loaderFrontIds.length) setFrontPageIds(loaderFrontIds);
-  }, [loaderFrontIds, setFrontPageIds]);
+    if (loaderDesk && Object.keys(loaderDesk).length) {
+      setDeskStatus({ ...useAppStore.getState().deskStatus, ...loaderDesk });
+    }
+  }, [loaderFrontIds, loaderDesk, setFrontPageIds, setDeskStatus]);
 
   const frontPageIds = storeFrontIds.length ? storeFrontIds : loaderFrontIds;
   const deskStatus = { ...loaderDesk, ...storeDesk };

@@ -2,15 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { publishedStories } from "@/lib/catalog";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { coverSrc } from "@/lib/covers";
+import { loadPublicDesk } from "@/lib/desk-public";
 import { SEO_FR, storySeoCopy, xmlEscape } from "@/lib/seo";
-import { getDeskStoryStatus } from "@/lib/desk-story-status";
 
 export const Route = createFileRoute("/rss.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const desk = await getDeskStoryStatus();
-        const published = publishedStories([], desk);
+        const { extras, desk } = await loadPublicDesk();
+        const published = publishedStories(extras, desk);
         const items = published
           .map((s) => {
             const c = storySeoCopy(s);

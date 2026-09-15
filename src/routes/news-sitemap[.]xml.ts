@@ -2,14 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { publishedStories } from "@/lib/catalog";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { storySeoCopy, xmlEscape } from "@/lib/seo";
-import { getDeskStoryStatus } from "@/lib/desk-story-status";
+import { loadPublicDesk } from "@/lib/desk-public";
 
 export const Route = createFileRoute("/news-sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const desk = await getDeskStoryStatus();
-        const live = publishedStories([], desk);
+        const { extras, desk } = await loadPublicDesk();
+        const live = publishedStories(extras, desk);
         const cutoff = Date.now() - 48 * 60 * 60 * 1000;
         const items = live.filter(
           (s) => +new Date(s.publishedAt) >= cutoff || +new Date(s.updatedAt || s.publishedAt) >= cutoff,

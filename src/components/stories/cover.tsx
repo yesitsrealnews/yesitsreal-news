@@ -1,8 +1,10 @@
+import { useState } from "react";
+import { CoverCard } from "@/components/stories/cover-card";
 import { coverCredit, coverCreditLine, coverSrc, coverSrcFallback } from "@/lib/covers";
 import type { SectionId } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-/** Photos only. Never drawings, gradients, or the old TRUE SVG. */
+/** Photo when we have one. Otherwise an honest desk card — never an empty hole. */
 export function StoryCover({
   id,
   section: _section,
@@ -21,20 +23,10 @@ export function StoryCover({
   const src = coverSrc(id);
   const line = credit ? coverCreditLine(id) : undefined;
   const meta = coverCredit(id);
+  const [failed, setFailed] = useState(false);
 
-  if (!src) {
-    return (
-      <div
-        className={cn(
-          "flex h-full w-full items-end bg-ink px-3 py-2 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-paper/80",
-          className,
-        )}
-        role="img"
-        aria-label={alt || "Photo manquante"}
-      >
-        Photo manquante
-      </div>
-    );
+  if (!src || failed) {
+    return <CoverCard id={id} label={alt} className={className} />;
   }
 
   const img = (
@@ -51,16 +43,7 @@ export function StoryCover({
           e.currentTarget.src = fb;
           return;
         }
-        e.currentTarget.style.display = "none";
-        const parent = e.currentTarget.parentElement;
-        if (parent && !parent.querySelector("[data-missing-photo]")) {
-          const miss = document.createElement("div");
-          miss.dataset.missingPhoto = "1";
-          miss.className =
-            "flex h-full w-full items-end bg-ink px-3 py-2 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-paper/80";
-          miss.textContent = "Photo manquante";
-          parent.appendChild(miss);
-        }
+        setFailed(true);
       }}
     />
   );

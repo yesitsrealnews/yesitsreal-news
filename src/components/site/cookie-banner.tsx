@@ -11,7 +11,7 @@ export function CookieBanner({
   onChoice: (choice: "all" | "necessary") => void;
 }) {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t-2 border-ink bg-scream p-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] text-scream-ink shadow-[0_-8px_24px_rgba(0,0,0,0.12)] md:bottom-4 md:left-4 md:right-auto md:max-w-md md:border-2 md:pb-4">
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t-2 border-ink bg-scream p-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] text-scream-ink shadow-[0_-8px_0_0_var(--color-ink)] md:bottom-4 md:left-4 md:right-auto md:max-w-md md:rounded-2xl md:border-2 md:pb-4 md:shadow-[5px_5px_0_0_var(--color-ink)]">
       <p className="kicker mb-2">{t(lang, "cookieTitle")}</p>
       <p className="mb-4 text-sm leading-relaxed">{t(lang, "cookieBody")}</p>
       <div className="flex flex-wrap gap-2">

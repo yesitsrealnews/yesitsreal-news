@@ -6,25 +6,25 @@ import { FooterPartners } from "@/components/site/footer-partners";
 
 export function Footer({ lang }: { lang: Lang }) {
   return (
-    <footer className="mt-16 border-t-4 border-ink bg-paper-2 pb-20 md:pb-10">
+    <footer className="mt-16 border-t-2 border-ink bg-ink pb-20 text-paper md:pb-10">
       <FooterPartners lang={lang} />
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
           <p className="masthead-wordmark text-3xl">{t(lang, "siteName")}</p>
-          <p className="mt-2 text-sm font-semibold uppercase tracking-[0.08em]">{t(lang, "tagline1")}</p>
-          <p className="mt-3 max-w-lg text-sm font-medium text-ink">{t(lang, "raisonLine")}</p>
-          <p className="mt-3 max-w-lg text-sm leading-relaxed text-ink-muted">{t(lang, "disclaimer")}</p>
+          <p className="mt-2 text-sm font-extrabold uppercase tracking-[0.08em]">{t(lang, "tagline1")}</p>
+          <p className="mt-3 max-w-lg text-sm font-medium text-paper">{t(lang, "raisonLine")}</p>
+          <p className="mt-3 max-w-lg text-sm leading-relaxed text-paper/70">{t(lang, "disclaimer")}</p>
           <p className="mt-4 text-sm">
             <a className="font-bold underline" href={`mailto:${EMAILS.desk}`}>
               {EMAILS.desk}
             </a>
           </p>
-          <p className="mt-1 text-xs text-ink-muted">
+          <p className="mt-1 text-xs text-paper/60">
             {EMAILS.press} · {EMAILS.ads} · {EMAILS.jobs} · {EMAILS.investors}
           </p>
         </div>
         <div>
-          <p className="kicker mb-3 text-ink-muted">{t(lang, "desk")}</p>
+          <p className="kicker mb-3 text-scream">{t(lang, "desk")}</p>
           <ul className="space-y-2 text-sm">
             <li>
               <Link to="/today" className="font-bold hover:underline">
@@ -79,7 +79,7 @@ export function Footer({ lang }: { lang: Lang }) {
           </ul>
         </div>
         <div>
-          <p className="kicker mb-3 text-ink-muted">{t(lang, "followUs")}</p>
+          <p className="kicker mb-3 text-scream">{t(lang, "followUs")}</p>
           <ul className="space-y-2 text-sm">
             {SOCIAL.slice(0, 6).map((s) => (
               <li key={s.id}>
@@ -116,7 +116,7 @@ export function Footer({ lang }: { lang: Lang }) {
           </ul>
         </div>
       </div>
-      <p className="border-t border-rule px-4 py-4 text-center text-xs text-ink-muted">
+      <p className="border-t border-paper/20 px-4 py-4 text-center text-xs text-paper/60">
         © {new Date().getFullYear()} YES IT'S REAL · {EMAILS.desk} · {t(lang, "shareNote")}
         <br />
         {lang === "fr"

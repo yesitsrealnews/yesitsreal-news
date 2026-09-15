@@ -1,7 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useMergedInbox } from "@/lib/admin-inbox";
-import { hasCoverPhoto } from "@/lib/covers";
 import { useAppStore } from "@/lib/store";
 import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
@@ -78,7 +77,7 @@ function StoryEditor() {
             key={k}
             type="button"
             onClick={() => setTab(k)}
-            className={`h-10 px-3 text-xs font-semibold uppercase tracking-[0.12em] ${tab === k ? "bg-ink text-paper" : "border border-rule"}`}
+            className={`h-10 rounded-full px-3 text-xs font-extrabold uppercase tracking-[0.12em] ${tab === k ? "bg-ink text-paper" : "border-2 border-ink"}`}
           >
             {tabs[k]}
           </button>
@@ -134,7 +133,7 @@ function StoryEditor() {
             </div>
           ) : null}
         </div>
-        <aside className="border border-rule p-4">
+        <aside className="rounded-2xl border-2 border-ink bg-card p-4 shadow-[4px_4px_0_0_var(--color-ink)]">
           <p className="kicker">Décision</p>
           <div className="mt-4 flex flex-col gap-2">
             {/^s\d+$/.test(current.story.id) ? (
@@ -158,19 +157,15 @@ function StoryEditor() {
               </>
             ) : null}
             <Button
-              disabled={!hasCoverPhoto(current.story.id)}
-              title={
-                hasCoverPhoto(current.story.id)
-                  ? undefined
-                  : "Photo jpg + crédit requis avant Publier"
-              }
+              variant="pop"
               onClick={() => {
                 persistDraft();
-                publishQueueItem({
+                void publishQueueItem({
                   ...current,
                   story: { ...current.story, copy: { ...current.story.copy, fr: nextFr() } },
+                }).then((ok) => {
+                  if (ok) void navigate({ to: "/admin/inbox" });
                 });
-                void navigate({ to: "/admin/inbox" });
               }}
             >
               Publier

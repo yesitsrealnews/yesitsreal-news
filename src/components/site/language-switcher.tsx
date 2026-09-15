@@ -31,7 +31,7 @@ export function LanguageSwitcher({
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
-          className="inline-flex h-11 min-w-11 items-center gap-1.5 px-2 text-xs font-medium uppercase tracking-[0.12em] text-ink hover:bg-paper-2"
+          className="inline-flex h-11 min-w-11 items-center gap-1.5 rounded-full px-2 text-xs font-medium uppercase tracking-[0.12em] text-ink hover:bg-scream"
           aria-label={t(lang, "language")}
         >
           <Languages className="size-4" />
@@ -41,7 +41,7 @@ export function LanguageSwitcher({
       <DropdownMenu.Portal>
         <DropdownMenu.Content
           align="end"
-          className="z-50 max-h-[min(70vh,28rem)] w-72 overflow-hidden border border-rule bg-paper text-ink shadow-lg"
+          className="z-50 max-h-[min(70vh,28rem)] w-72 overflow-hidden rounded-2xl border-2 border-ink bg-paper text-ink shadow-[5px_5px_0_0_var(--color-ink)]"
         >
           <div className="border-b border-rule p-2">
             <input

@@ -10,9 +10,14 @@ export function useMergedInbox(): QueueItem[] {
   const purgedIds = useAppStore((s) => s.purgedIds);
   const deskStatus = useAppStore((s) => s.deskStatus);
   const live = new Set(publishedStories(extras, deskStatus).map((s) => s.id));
-  const gone = new Set([...purgedIds, ...extras.map((s) => s.id), ...live]);
+  const publishedExtraIds = extras
+    .filter((s) => s.status === "published" || deskStatus[s.id] === "published")
+    .map((s) => s.id);
+  const gone = new Set([...purgedIds, ...publishedExtraIds, ...live]);
   const alive = inbox.filter((i) => !gone.has(i.id) && !gone.has(i.story?.id));
   const ids = new Set(alive.map((i) => i.id));
   const seeds = SEED_INBOX.filter((i) => !gone.has(i.id) && !gone.has(i.story?.id) && !ids.has(i.id));
-  return [...alive, ...seeds].map(queueWithFrench);
+  return [...alive, ...seeds]
+    .map(queueWithFrench)
+    .sort((a, b) => +new Date(b.submittedAt) - +new Date(a.submittedAt));
 }
