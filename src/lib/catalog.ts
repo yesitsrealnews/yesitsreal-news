@@ -25,7 +25,13 @@ export function isThisWeek(story: Story, now = Date.now()): boolean {
 export function mergeStories(extras: Story[]): Story[] {
   const map = new Map<string, Story>();
   for (const s of STORIES) map.set(s.id, s);
-  for (const s of extras) map.set(s.id, canonicalizeStory(s));
+  const catalogUrls = new Set(
+    STORIES.filter((s) => s.status === "published").flatMap((s) => s.sources.map((x) => x.url)),
+  );
+  for (const s of extras) {
+    if (s.sources.some((x) => catalogUrls.has(x.url))) continue;
+    map.set(s.id, canonicalizeStory(s));
+  }
   return [...map.values()].sort(
     (a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt),
   );
@@ -128,12 +134,18 @@ export function sponsoredStory(extras: Story[], deskStatus?: DeskStatusMap): Sto
 export function findStory(slug: string, extras: Story[], deskStatus?: DeskStatusMap): Story | undefined {
   const needle = decodeURIComponent(slug).toLowerCase();
   const all = mergeStories(extras);
-  const hit =
-    all.find(
-      (s) =>
-        s.slug === needle ||
-        Object.values(s.slugs).some((x) => x?.toLowerCase() === needle),
-    ) ?? seedBySlug(needle);
+  const match = (s: Story) =>
+    s.id.toLowerCase() === needle ||
+    s.slug === needle ||
+    Object.values(s.slugs).some((x) => x?.toLowerCase() === needle);
+  let hit = all.find(match) ?? seedBySlug(needle);
+  if (!hit) {
+    const extra = extras.find(match);
+    if (extra) {
+      const urls = new Set(extra.sources.map((s) => s.url));
+      hit = STORIES.find((s) => s.sources.some((x) => urls.has(x.url)));
+    }
+  }
   if (!hit) return undefined;
   if (!isPubliclyListed(hit, deskStatus)) return undefined;
   return hit;
@@ -185,6 +197,17 @@ function fold(s: string): string {
     .toLowerCase();
 }
 
+function tokenVariants(t: string): string[] {
+  const out = [t];
+  if (t.endsWith("es") && t.length > 4) out.push(t.slice(0, -2));
+  else if (t.endsWith("s") && t.length > 3) out.push(t.slice(0, -1));
+  return out;
+}
+
+function fieldHits(field: string, variants: string[]): boolean {
+  return variants.some((v) => field.includes(v));
+}
+
 export function searchStories(extras: Story[], q: string, lang: Lang, deskStatus?: DeskStatusMap): Story[] {
   const raw = q.trim();
   if (!raw) return [];
@@ -192,11 +215,15 @@ export function searchStories(extras: Story[], q: string, lang: Lang, deskStatus
     .split(/[^\p{L}\p{N}]+/u)
     .filter((t) => t.length >= 2);
   if (!tokens.length) return [];
-  return publishedStories(extras, deskStatus).filter((s) => {
+  const ranked: { story: Story; score: number }[] = [];
+  for (const s of publishedStories(extras, deskStatus)) {
     const copies = Object.values(s.copy);
-    const blob = fold(
+    const headline = fold(copies.map((c) => c.headline).join(" "));
+    const dek = fold(copies.map((c) => c.dek).join(" "));
+    const sources = fold(s.sources.flatMap((src) => [src.title, src.publisher]).join(" "));
+    const rest = fold(
       [
-        ...copies.flatMap((c) => [c.headline, c.dek, c.body.join(" "), c.whyDumb.join(" "), c.factCheckNote]),
+        ...copies.flatMap((c) => [c.body.join(" "), c.whyDumb.join(" "), c.factCheckNote]),
         s.location,
         s.countryName,
         s.countryCode,
@@ -204,11 +231,28 @@ export function searchStories(extras: Story[], q: string, lang: Lang, deskStatus
         s.entities.join(" "),
         s.slug,
         ...Object.values(s.slugs ?? {}),
-        ...s.sources.flatMap((src) => [src.title, src.publisher, src.url]),
+        ...s.sources.map((src) => src.url),
       ].join(" "),
     );
-    return tokens.every((t) => blob.includes(t));
-  });
+    let score = 0;
+    let miss = false;
+    for (const t of tokens) {
+      const vars = tokenVariants(t);
+      if (fieldHits(headline, vars)) score += 8;
+      else if (fieldHits(dek, vars)) score += 4;
+      else if (fieldHits(sources, vars)) score += 3;
+      else if (fieldHits(rest, vars)) score += 1;
+      else {
+        miss = true;
+        break;
+      }
+    }
+    if (miss || score === 0) continue;
+    ranked.push({ story: s, score });
+  }
+  return ranked
+    .sort((a, b) => b.score - a.score || +new Date(b.story.publishedAt) - +new Date(a.story.publishedAt))
+    .map((r) => r.story);
 }
 
 export function countriesFrom(stories: Story[]): { code: string; name: string }[] {

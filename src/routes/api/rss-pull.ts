@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { deskTokenOk, readDeskCookie } from "@/lib/desk-auth.server";
 import { clientKey, limitedJson, rateLimit } from "@/lib/security";
-import { RSS_FEEDS } from "@/lib/rss-feeds";
+import { RSS_FEEDS, feedKind, feedPriority } from "@/lib/rss-feeds";
 import { hitToQueueItem, pullRssFeeds } from "@/lib/rss-ingest";
 import { getStoredRssHits, saveRssHits } from "@/lib/rss-store";
 
@@ -37,7 +37,17 @@ export const Route = createFileRoute("/api/rss-pull")({
         const catalog = url.searchParams.get("catalog") === "1";
         if (catalog) {
           return noIndex(
-            { ok: true, feeds: RSS_FEEDS.map((f) => ({ name: f.name, domain: f.domain, url: f.url, region: f.region })) },
+            {
+              ok: true,
+              feeds: RSS_FEEDS.map((f) => ({
+                name: f.name,
+                domain: f.domain,
+                url: f.url,
+                region: f.region,
+                kind: feedKind(f),
+                priority: feedPriority(f),
+              })),
+            },
             200,
           );
         }

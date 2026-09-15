@@ -104,6 +104,8 @@ export interface Story {
   bylines?: Partial<Record<Lang, string>>;
   sensitivity: "none" | "death";
   rejectReason?: string;
+  /** Remote source photo when we have no Commons file. Honest credit, never a generated fake. */
+  coverUrl?: string;
   copy: Partial<Record<Lang, StoryCopy>> & { en: StoryCopy };
 }
 
@@ -128,6 +130,8 @@ export interface QueueItem {
   submittedBy: string;
   submittedAt: string;
   sourceUrl: string;
+  /** RSS enclosure / media:content — desk only, not a publishable cover. */
+  leadImage?: string;
 }
 
 export interface Submission {

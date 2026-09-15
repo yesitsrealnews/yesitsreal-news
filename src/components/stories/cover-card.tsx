@@ -34,7 +34,7 @@ export function CoverCard({
       <p className="font-serif text-2xl leading-[0.95] tracking-tight sm:text-3xl">{short}</p>
       <div className="flex items-end justify-between gap-3">
         <span className="text-[0.6rem] font-bold uppercase tracking-[0.12em] text-paper/60">
-          Visuel desk · pas une photo de l’événement
+          Visuel desk
         </span>
         <span className={cn("h-3 w-16 rounded-sm border-2 border-paper", bands[hue])} />
       </div>

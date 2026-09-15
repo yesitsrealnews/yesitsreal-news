@@ -1,5 +1,7 @@
 import { commentsToken } from "@/lib/comments-github";
 import { STORIES } from "@/lib/data/stories";
+import { polishPublishedStory } from "@/lib/publish-copy";
+import { isSafeHttpUrl } from "@/lib/security";
 import { SECTION_IDS, type Lang, type SectionId, type Source, type Story, type StoryCopy } from "@/lib/types";
 
 const OWNER = "yesitsrealnews";
@@ -89,7 +91,7 @@ export function sanitizeDeskStory(raw: unknown): Story | null {
     : [];
   if (!sources.length) return null;
   const slugs = s.slugs && typeof s.slugs === "object" ? { ...s.slugs, en: s.slugs.en || s.slug, fr: s.slugs.fr || s.slug } : { en: s.slug, fr: s.slug };
-  return {
+  const built: Story = {
     id: s.id.trim().slice(0, 40),
     slug: s.slug.trim().slice(0, 96),
     slugs,
@@ -110,7 +112,9 @@ export function sanitizeDeskStory(raw: unknown): Story | null {
     bylines: s.bylines,
     sensitivity: s.sensitivity === "death" ? "death" : "none",
     copy,
+    ...(typeof s.coverUrl === "string" && isSafeHttpUrl(s.coverUrl) ? { coverUrl: s.coverUrl.slice(0, 400) } : {}),
   };
+  return polishPublishedStory(built);
 }
 
 function parseBody(raw?: string | null): Story[] {

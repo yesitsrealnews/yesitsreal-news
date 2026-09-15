@@ -1,7 +1,24 @@
 import type { FactPack, QueueItem, Story, StoryCopy } from "@/lib/types";
 import { storyWithFrench } from "@/lib/desk-fr";
 
-const SATIRE_HOSTS = ["theonion", "babylonbee", "clickhole", "waterfordwhispers"];
+const SATIRE_HOSTS = [
+  "theonion",
+  "babylonbee",
+  "clickhole",
+  "waterfordwhispers",
+  "thepoke",
+  "thedailymash",
+  "newsthump",
+  "legorafi",
+  "nordpresse",
+  "elmundotoday",
+  "worldnewsdailyreport",
+  "huzlers",
+  "empirenews",
+  "newsbiscuit",
+  "thespoof",
+  "fakingnews",
+];
 
 export function looksLikeSatire(url: string): boolean {
   const host = url.toLowerCase();

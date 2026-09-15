@@ -11,7 +11,6 @@ import { StoryCard } from "@/components/stories/story-card";
 import { StoryCover } from "@/components/stories/cover";
 import { QuoteCardButton } from "@/components/stories/quote-card";
 import { ReactionBar } from "@/components/stories/reactions";
-import { SoundsFake } from "@/components/stories/sounds-fake";
 import { ReaderComments } from "@/components/stories/reader-comments";
 import { SourceVideo } from "@/components/stories/source-video";
 import { relatedStories } from "@/lib/catalog";
@@ -61,7 +60,6 @@ export function ArticleBody({
         {copy.headline}
       </h1>
       <p className={cn("mt-4 text-lg text-ink-muted", era && "font-[family-name:var(--font-archive-body)]")}>{copy.dek}</p>
-      <SoundsFake storyId={story.id} lang={lang} />
       <div
         className={cn(
           "mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-y-2 border-ink py-3 text-xs font-medium text-ink-muted",
@@ -90,7 +88,7 @@ export function ArticleBody({
       </div>
 
       <div className="photo-frame relative my-6 aspect-[16/9]">
-        <StoryCover id={story.id} section={story.section} alt={copy.headline} priority credit />
+        <StoryCover id={story.id} section={story.section} alt={copy.headline} remote={story.coverUrl} priority credit />
         <span className="absolute left-3 top-4">
           <TrueStamp>{t(lang, "truePill")}</TrueStamp>
         </span>

@@ -1,13 +1,15 @@
 import type { QueueItem } from "@/lib/types";
 import { looksLikeSatire, makeQueueItem } from "@/lib/pipeline";
 import { isSafeHttpUrl } from "@/lib/security";
-import { RSS_FEEDS, priorityFeeds, type RssFeed } from "@/lib/rss-feeds";
+import { RSS_FEEDS, feedKind, feedPriority, type RssFeed } from "@/lib/rss-feeds";
 import { parseFeed, type ParsedRssItem } from "@/lib/rss-parse";
-import { shouldKeepHit } from "@/lib/rss-keep";
+import { scoreHit } from "@/lib/rss-keep";
 
-const UA = "YESITSREAL-desk/1.0 (https://www.yesitsreal.news/; desk@yesitsreal.news)";
-const FETCH_MS = 3500;
-const POOL = 6;
+const UA =
+  "Mozilla/5.0 (compatible; YESITSREAL-desk/1.0; +https://www.yesitsreal.news/) AppleWebKit/537.36 Chrome/128.0.0.0 Safari/537.36";
+const FETCH_MS = 2800;
+const POOL = 12;
+const MAX_HITS = 18;
 
 export type RssHit = {
   feed: string;
@@ -18,6 +20,9 @@ export type RssHit = {
   published: string;
   countryCode: string;
   keep: boolean;
+  score?: number;
+  beat?: string;
+  image?: string;
 };
 
 function hashId(url: string): string {
@@ -27,7 +32,7 @@ function hashId(url: string): string {
 }
 
 export function shouldKeep(title: string, summary: string, feed: RssFeed): boolean {
-  return shouldKeepHit(title, summary, feed.region);
+  return scoreHit(title, summary, feed.region, feedKind(feed)).keep;
 }
 
 async function fetchFeedXml(url: string): Promise<string | null> {
@@ -56,7 +61,7 @@ async function mapPool<T, R>(items: T[], n: number, fn: (item: T) => Promise<R>)
 }
 
 export async function pullRssFeeds(opts?: { quick?: boolean }): Promise<{ hits: RssHit[]; scanned: number; failed: string[] }> {
-  const feeds = opts?.quick ? priorityFeeds() : RSS_FEEDS;
+  const feeds = opts?.quick ? RSS_FEEDS.filter((f) => feedPriority(f) === 1) : RSS_FEEDS;
   const failed: string[] = [];
   const hits: RssHit[] = [];
   const seen = new Set<string>();
@@ -79,7 +84,8 @@ export async function pullRssFeeds(opts?: { quick?: boolean }): Promise<{ hits: 
       if (!isSafeHttpUrl(item.url) || looksLikeSatire(item.url)) continue;
       if (seen.has(item.url)) continue;
       seen.add(item.url);
-      if (!shouldKeep(item.title, item.summary, feed)) continue;
+      const scored = scoreHit(item.title, item.summary, feed.region, feedKind(feed));
+      if (!scored.keep) continue;
       hits.push({
         feed: feed.name,
         domain: feed.domain,
@@ -89,18 +95,23 @@ export async function pullRssFeeds(opts?: { quick?: boolean }): Promise<{ hits: 
         published: item.published,
         countryCode: feed.countryCode,
         keep: true,
+        score: scored.score,
+        beat: scored.beat,
+        ...(item.image && isSafeHttpUrl(item.image) ? { image: item.image } : {}),
       });
     }
   });
 
-  hits.sort((a, b) => +new Date(b.published) - +new Date(a.published));
-  return { hits: hits.slice(0, 12), scanned: feeds.length, failed };
+  hits.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || +new Date(b.published) - +new Date(a.published));
+  return { hits: hits.slice(0, MAX_HITS), scanned: feeds.length, failed };
 }
 
 export function hitToQueueItem(hit: RssHit): QueueItem {
+  const visuel = hit.image ? ` Visuel source : ${hit.image}` : "";
+  const beat = hit.beat && hit.beat !== "insolite-feed" ? ` Beat : ${hit.beat}.` : "";
   const item = makeQueueItem({
     url: hit.url,
-    notes: `${hit.title}. ${hit.summary}`.slice(0, 1100),
+    notes: `${hit.title}. ${hit.summary}${beat}${visuel}`.slice(0, 1100),
     country: hit.countryCode,
     name: `RSS · ${hit.feed}`,
   });
@@ -125,5 +136,9 @@ export function hitToQueueItem(hit: RssHit): QueueItem {
   item.submittedAt = hit.published;
   item.submittedBy = `Veille · ${hit.feed}`;
   item.sourceUrl = hit.url;
+  if (hit.image && isSafeHttpUrl(hit.image)) {
+    item.leadImage = hit.image;
+    item.story.coverUrl = hit.image;
+  }
   return item;
 }

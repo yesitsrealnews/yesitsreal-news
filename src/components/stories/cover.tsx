@@ -12,6 +12,7 @@ export function StoryCover({
   className,
   priority = false,
   credit = false,
+  remote,
 }: {
   id: string;
   section: SectionId;
@@ -19,9 +20,11 @@ export function StoryCover({
   className?: string;
   priority?: boolean;
   credit?: boolean;
+  /** Publisher photo from the originating desk. Not a generated fake. */
+  remote?: string;
 }) {
-  const src = coverSrc(id);
-  const line = credit ? coverCreditLine(id) : undefined;
+  const src = coverSrc(id) || remote;
+  const line = credit && coverSrc(id) ? coverCreditLine(id) : credit && remote ? "Visuel d’origine · source" : undefined;
   const meta = coverCredit(id);
   const [failed, setFailed] = useState(false);
 
@@ -49,16 +52,18 @@ export function StoryCover({
   );
 
   if (!line) return img;
+  const cls =
+    "absolute bottom-0 inset-x-0 bg-ink/70 px-2 py-1 text-[0.6rem] font-medium uppercase tracking-[0.08em] text-paper/90";
   return (
     <span className="relative block h-full w-full">
       {img}
-      <a
-        href={meta?.page}
-        className="absolute bottom-0 inset-x-0 bg-ink/70 px-2 py-1 text-[0.6rem] font-medium uppercase tracking-[0.08em] text-paper/90 hover:underline"
-        rel="noopener noreferrer"
-      >
-        {line}
-      </a>
+      {meta?.page ? (
+        <a href={meta.page} className={`${cls} hover:underline`} rel="noopener noreferrer">
+          {line}
+        </a>
+      ) : (
+        <span className={cls}>{line}</span>
+      )}
     </span>
   );
 }

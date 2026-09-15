@@ -379,4 +379,65 @@ export const REVUE_STORIES: Story[] = [
   }),
 ];
 
+/** Desk already published these from the cambuse. Not revue — they are live. */
+export const DESK_LIVE: Story[] = [
+  story({
+    id: "s140",
+    slug: "latrape-billy-goat-holds-man-in-his-house-firefighters-sedate-it",
+    slugs: {
+      fr: "latrape-un-bouc-sequestre-un-habitant-les-pompiers-sedatent-lanimal",
+    },
+    section: "animals",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Latrape, Haute-Garonne",
+    dumbness: 8,
+    sources: [
+      src(
+        "Scène insolite au sud de Toulouse, un habitant séquestré chez lui par un bouc sauvage et agressif : les pompiers sédatent l’animal",
+        "La Dépêche du Midi",
+        "https://www.ladepeche.fr/2026/09/15/scene-insolite-au-sud-de-toulouse-un-habitant-sequestre-chez-lui-par-un-bouc-sauvage-et-agressif-les-pompiers-sedatent-lanimal-13552745.php",
+        "2026-09-15",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-15T18:22:00.000Z",
+    originalLang: "fr",
+    confidence: 0.91,
+    entities: ["Latrape", "SDIS 31", "SACPA", "impasse de Sardi"],
+    copy: {
+      en: c(
+        "A billy goat held a man in his house in Latrape. Nine firefighters. A vet. The pound.",
+        "Latrape, near Cazères, Tuesday 14 September. Impasse de Sardi. A stray billy, aggressive. The resident locked himself in. La Dépêche, 15 September.",
+        [
+          "La Dépêche du Midi, 15 September 2026: in Latrape, in the Volvestre south of Toulouse, a stray billy goat walked into a property on impasse de Sardi on Tuesday 14 in the morning. The resident, the paper says, ended up stuck inside: the animal was aggressive, with horns. He called the fire service. La Dépêche called it ‘a very original hostage-taking.’ We keep the phrase. We do not invent a first name: the paper does not give one.",
+          "Haute-Garonne firefighters sent five vehicles and nine sapeurs-pompiers, including animal-risk specialists. They moved the goat first so the man could leave. A firefighter veterinarian then sedated it. A few minutes. Then SACPA, the animal-control pound, took it. La Dépêche: it is not established whether the billy belongs to a farmer nearby, nor how it landed there.",
+          "YES IT'S REAL read La Dépêche. Named commune. Named lane. Named headcount. We do not name the resident; the paper didn’t. Cover is a farmyard billy — Commons, clear licence — not the animal on impasse de Sardi.",
+        ],
+        [
+          "The hostage-taking had horns.",
+          "Nine firefighters for one ruminant.",
+          "SACPA now has a goat. The man has his door.",
+        ],
+        "La Dépêche du Midi, 15 Sept 2026. Events of 14 Sept in Latrape (31). SACPA. No personal names in the originating copy.",
+      ),
+      fr: c(
+        "Un bouc le séquestre dans sa maison à Latrape. Neuf pompiers, un véto, la fourrière.",
+        "Latrape, près de Cazères, mardi 14 septembre. Impasse de Sardi. Un bouc en divagation, agressif. L’habitant s’enferme. La Dépêche, 15 septembre.",
+        [
+          "La Dépêche du Midi, 15 septembre 2026 : à Latrape, dans le Volvestre, au sud de Toulouse, un bouc en divagation s’introduit dans une propriété, impasse de Sardi, le mardi 14 au matin. L’habitant, dit le journal, se retrouve bloqué chez lui : l’animal est agressif, armé de cornes. Il prévient les secours. La Dépêche appelle ça « une prise d’otage très originale ». On reprend le mot. On n’invente pas de prénom : le journal n’en donne pas.",
+          "Les sapeurs-pompiers de Haute-Garonne engagent cinq véhicules et neuf hommes, dont des spécialistes du risque animalier. Ils déplacent d’abord le bouc, pour que l’homme puisse sortir. Un vétérinaire sapeur-pompier sédate l’animal. Quelques minutes. Puis la SACPA, la fourrière, le prend en charge. La Dépêche : on ne sait pas s’il appartient à un agriculteur du secteur, ni comment il a atterri là.",
+          "YES IT'S REAL a lu La Dépêche. Commune nommée. Impasse nommée. Effectif nommé. On ne nomme pas l’habitant ; le journal non plus. La couverture, un bouc de ferme — Commons, licence claire — pas l’animal de l’impasse de Sardi.",
+        ],
+        [
+          "La prise d’otage a des cornes.",
+          "Neuf pompiers pour un ruminant.",
+          "La SACPA a maintenant un bouc. L’habitant a sa porte.",
+        ],
+        "La Dépêche du Midi, 15 sept. 2026. Faits du 14 sept. à Latrape (31). SACPA. Aucun nom de personne dans le papier d’origine.",
+      ),
+    },
+  }),
+];
+
 export const REVUE_HOLD_IDS = REVUE_STORIES.map((s) => s.id);

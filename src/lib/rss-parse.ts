@@ -3,6 +3,7 @@ export type ParsedRssItem = {
   url: string;
   summary: string;
   published: string;
+  image?: string;
 };
 
 function cdata(s: string): string {
@@ -54,6 +55,29 @@ function blocks(xml: string, tag: string): string[] {
   return xml.match(re) ?? [];
 }
 
+function looksLikeImage(url: string): boolean {
+  if (!/^https?:\/\//i.test(url)) return false;
+  if (/\.(jpe?g|png|webp|gif)(?:[?#]|$)/i.test(url)) return true;
+  if (/\/image|\/photo|\/media|\/img|twimg|cloudinary|imgix|staticflickr/i.test(url)) return true;
+  return false;
+}
+
+function imageFrom(block: string): string | undefined {
+  const enclosure = block.match(/<enclosure[^>]*>/gi) ?? [];
+  for (const tag of enclosure) {
+    const url = tag.match(/\burl=["']([^"']+)["']/i)?.[1];
+    const type = tag.match(/\btype=["']([^"']+)["']/i)?.[1] ?? "";
+    if (url && (/^image\//i.test(type) || looksLikeImage(url))) return url.trim();
+  }
+  const media =
+    block.match(/<media:content[^>]+url=["']([^"']+)["'][^>]*>/i)?.[1] ||
+    block.match(/<media:thumbnail[^>]+url=["']([^"']+)["'][^>]*>/i)?.[1];
+  if (media && looksLikeImage(media)) return media.trim();
+  const img = block.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1];
+  if (img && looksLikeImage(img)) return img.trim();
+  return undefined;
+}
+
 export function parseFeed(xml: string): ParsedRssItem[] {
   const src = xml.slice(0, 900_000);
   const raw = [...blocks(src, "item"), ...blocks(src, "entry")];
@@ -67,7 +91,14 @@ export function parseFeed(xml: string): ParsedRssItem[] {
     seen.add(url);
     const summary = inner(block, "description") || inner(block, "summary") || inner(block, "content");
     const published = inner(block, "pubDate") || inner(block, "updated") || inner(block, "published") || inner(block, "dc:date");
-    out.push({ title, url, summary: summary.slice(0, 400), published: isoDate(published) });
+    const image = imageFrom(block);
+    out.push({
+      title,
+      url,
+      summary: summary.slice(0, 400),
+      published: isoDate(published),
+      ...(image ? { image } : {}),
+    });
   }
   return out;
 }

@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useAppStore } from "@/lib/store";
 import { REGIONAL_PRESS } from "@/lib/data/regional-press";
-import { RSS_FEEDS } from "@/lib/rss-feeds";
+import { RSS_FEEDS, feedKind, feedPriority } from "@/lib/rss-feeds";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -17,6 +17,8 @@ function SourcesPage() {
   const [a, setA] = useState("");
   const [d, setD] = useState("");
   const [srcQ, setSrcQ] = useState("");
+  const [rssQ, setRssQ] = useState("");
+
   const filteredPress = srcQ.trim()
     ? REGIONAL_PRESS.filter((s) => {
         const blob = `${s.name} ${s.domain} ${s.region} ${s.group ?? ""}`.toLowerCase();
@@ -28,6 +30,32 @@ function SourcesPage() {
       })
     : REGIONAL_PRESS;
 
+  const rssWithMeta = useMemo(
+    () =>
+      RSS_FEEDS.map((f) => ({
+        ...f,
+        kind: feedKind(f),
+        prio: feedPriority(f),
+      })),
+    [],
+  );
+
+  const filteredRss = rssQ.trim()
+    ? rssWithMeta.filter((f) => {
+        const blob = `${f.name} ${f.domain} ${f.region} ${f.kind}`.toLowerCase();
+        return rssQ
+          .toLowerCase()
+          .split(/\s+/)
+          .filter(Boolean)
+          .every((t) => blob.includes(t));
+      })
+    : rssWithMeta;
+
+  const insoliteN = rssWithMeta.filter((f) => f.kind === "insolite" || f.kind === "animaux").length;
+  const faitsN = rssWithMeta.filter((f) => f.kind === "faits-divers").length;
+  const morningN = rssWithMeta.filter((f) => f.prio === 1).length;
+  const withRss = REGIONAL_PRESS.filter((s) => s.rss).length;
+
   return (
     <main className="grid gap-8 p-6 lg:grid-cols-2">
       <div className="space-y-8 lg:col-span-2">
@@ -35,8 +63,10 @@ function SourcesPage() {
           <div>
             <h1 className="font-serif text-3xl">Sources & PQR</h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              Base régionale&nbsp;: {REGIONAL_PRESS.length} titres · allowlist&nbsp;:{" "}
-              {allowList.length} domaines · denylist&nbsp;: {denyList.length}
+              Base régionale&nbsp;: {REGIONAL_PRESS.length} titres ({withRss} avec RSS) · flux
+              branchés&nbsp;: {RSS_FEEDS.length} · file du matin&nbsp;: {morningN} · insolite&nbsp;:{" "}
+              {insoliteN} · faits-divers&nbsp;: {faitsN} · allowlist&nbsp;: {allowList.length} ·
+              denylist&nbsp;: {denyList.length}
             </p>
           </div>
           <Button type="button" onClick={() => seedRegionalPress()}>
@@ -85,13 +115,27 @@ function SourcesPage() {
           <div className="border-b border-rule px-4 py-3">
             <h2 className="font-serif text-xl">Flux RSS branchés</h2>
             <p className="text-xs text-muted-foreground">
-              {RSS_FEEDS.length} flux vérifiés — tirage depuis la file d’attente (pas de publication auto)
+              {filteredRss.length} / {RSS_FEEDS.length} — matin = prioritaire pour la file. Insolite
+              et faits-divers passent un filtre plus large. Pas de publication auto.
             </p>
+            <Input
+              className="mt-2"
+              value={rssQ}
+              onChange={(e) => setRssQ(e.target.value)}
+              placeholder="Filtrer les flux : insolite, DH, Wales…"
+              aria-label="Filtrer les flux RSS"
+            />
           </div>
-          <ul className="max-h-56 overflow-y-auto text-sm">
-            {RSS_FEEDS.map((f) => (
+          <ul className="max-h-72 overflow-y-auto text-sm">
+            {filteredRss.map((f) => (
               <li key={f.url} className="flex flex-wrap justify-between gap-2 border-b border-rule px-4 py-2 last:border-b-0">
-                <span className="font-medium">{f.name}</span>
+                <span>
+                  <span className="font-medium">{f.name}</span>
+                  <span className="ml-2 text-[0.7rem] uppercase tracking-wide text-ink-muted">
+                    {f.kind}
+                    {f.prio === 1 ? " · matin" : ""}
+                  </span>
+                </span>
                 <a href={f.url} className="text-muted-foreground underline" target="_blank" rel="noopener noreferrer">
                   {f.domain}
                 </a>

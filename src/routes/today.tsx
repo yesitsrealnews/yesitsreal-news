@@ -63,7 +63,7 @@ function TodayPage() {
               params={{ slug: storySlug(lead, lang) }}
               className="photo-frame relative mb-5 block aspect-[16/9]"
             >
-              <StoryCover id={lead.id} section={lead.section} alt={storyCopy(lead, lang).headline} priority />
+              <StoryCover id={lead.id} section={lead.section} alt={storyCopy(lead, lang).headline} remote={lead.coverUrl} priority />
             </Link>
             <h2 className="mt-3 font-serif text-4xl leading-[0.95]">
               <Link to="/story/$slug" params={{ slug: storySlug(lead, lang) }}>

@@ -449,6 +449,24 @@ export const NATIONAL_DESK_DOMAINS: string[] = [
   "lepoint.fr",
   "lejdd.fr",
   "mediapart.fr",
+  "dhnet.be",
+  "sudinfo.be",
+  "rtbf.be",
+  "hln.be",
+  "blick.ch",
+  "ledevoir.com",
+  "journaldemontreal.com",
+  "metro.co.uk",
+  "upi.com",
+  "nypost.com",
+  "rte.ie",
+  "ad.nl",
+  "nrk.no",
+  "aftenposten.no",
+  "yle.fi",
+  "abc.es",
+  "lavanguardia.com",
+  "20minutos.es",
 ].filter((d, i, arr) => arr.indexOf(d) === i).sort((a, b) => a.localeCompare(b));
 
 /** Real satire / spoof hosts to keep out of the desk allowlist. */
@@ -467,6 +485,10 @@ export const DEFAULT_DENY_DOMAINS: string[] = [
   "newsbiscuit.com",
   "thespoof.com",
   "fakingnews.com",
+  "thepoke.co.uk",
+  "thepoke.com",
+  "thedailymash.co.uk",
+  "newsthump.com",
 ].sort((a, b) => a.localeCompare(b));
 
 function hostFrom(urlOrHost: string): string {

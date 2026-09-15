@@ -40,6 +40,7 @@ export function StoryCard({
             id={story.id}
             section={story.section}
             alt={copy.headline}
+            remote={story.coverUrl}
             className="transition-transform duration-300 group-hover:scale-[1.04]"
           />
           <span className="absolute left-2 top-3">

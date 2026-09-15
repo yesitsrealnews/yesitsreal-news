@@ -7,7 +7,7 @@ const ISSUE_TITLE = "desk:rss-inbox";
 const LABEL = "desk-rss";
 const LABEL_COLOR = "1D4E89";
 const API = "https://api.github.com";
-const MAX_HITS = 50;
+const MAX_HITS = 60;
 
 type IssuePayload = { v: 1; at: string; hits: RssHit[] };
 type GhIssue = { number: number; title: string; body?: string | null };

@@ -2,9 +2,9 @@ import type { Story } from "@/lib/types";
 import { STORIES_A } from "@/lib/data/stories-a";
 import { STORIES_B } from "@/lib/data/stories-b";
 import { STORIES_C } from "@/lib/data/stories-c";
-import { REVUE_STORIES } from "@/lib/data/stories-revue";
+import { DESK_LIVE, REVUE_STORIES } from "@/lib/data/stories-revue";
 
-export const STORIES: Story[] = [...STORIES_A, ...STORIES_B, ...STORIES_C, ...REVUE_STORIES];
+export const STORIES: Story[] = [...STORIES_A, ...STORIES_B, ...STORIES_C, ...REVUE_STORIES, ...DESK_LIVE];
 
 export function getStoryBySlug(slug: string): Story | undefined {
   const needle = decodeURIComponent(slug).toLowerCase();

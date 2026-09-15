@@ -140,12 +140,25 @@ function InboxPage() {
                   {item.submittedBy.startsWith("Commande") ? " · Commande" : ""}
                   {isPre ? " · Pre Pub" : ""}
                 </p>
-                <h2 className="mt-1 font-serif text-xl">{c.headline}</h2>
-                <p className="mt-1 text-sm text-ink-muted">{c.dek}</p>
-                <p className="mt-2 text-xs text-ink-muted">
-                  {item.story.sources.length} source{item.story.sources.length > 1 ? "s" : ""} ·{" "}
-                  {item.submittedBy} · {formatDateTime(item.submittedAt, "fr")}
-                </p>
+                <div className="mt-1 flex gap-3">
+                  {item.leadImage ? (
+                    <img
+                      src={item.leadImage}
+                      alt=""
+                      referrerPolicy="no-referrer"
+                      className="mt-1 size-16 shrink-0 rounded-md border-2 border-ink object-cover"
+                    />
+                  ) : null}
+                  <div className="min-w-0">
+                    <h2 className="font-serif text-xl">{c.headline}</h2>
+                    <p className="mt-1 text-sm text-ink-muted">{c.dek}</p>
+                    <p className="mt-2 text-xs text-ink-muted">
+                      {item.story.sources.length} source{item.story.sources.length > 1 ? "s" : ""} ·{" "}
+                      {item.submittedBy} · {formatDateTime(item.submittedAt, "fr")}
+                      {item.leadImage ? " · visuel source" : ""}
+                    </p>
+                  </div>
+                </div>
               </Link>
               <div className="flex shrink-0 flex-wrap gap-2">
                 <Button
