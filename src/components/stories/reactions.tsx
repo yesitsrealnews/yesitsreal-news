@@ -1,6 +1,6 @@
 import { t } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
-import { REACTIONS, seedReactions } from "@/lib/viral";
+import { REACTIONS } from "@/lib/viral";
 import { useAppStore } from "@/lib/store";
 import { formatCount } from "@/lib/engagement";
 import { cn } from "@/lib/utils";
@@ -9,12 +9,11 @@ export function ReactionBar({ storyId, lang }: { storyId: string; lang: Lang }) 
   const extra = useAppStore((s) => s.reactions[storyId]);
   const mine = useAppStore((s) => s.myReactions[storyId]);
   const react = useAppStore((s) => s.react);
-  const seed = seedReactions(storyId);
 
   return (
     <div className="flex flex-wrap gap-2" role="group" aria-label={t(lang, "share")}>
       {REACTIONS.map((r) => {
-        const n = seed[r.id] + (extra?.[r.id] ?? 0);
+        const n = extra?.[r.id] ?? 0;
         const on = mine === r.id;
         return (
           <button
@@ -28,7 +27,7 @@ export function ReactionBar({ storyId, lang }: { storyId: string; lang: Lang }) 
             )}
           >
             {t(lang, r.key)}
-            <span className="tabular-nums text-ink-muted">{formatCount(n, lang)}</span>
+            {n > 0 ? <span className="tabular-nums text-ink-muted">{formatCount(n, lang)}</span> : null}
           </button>
         );
       })}

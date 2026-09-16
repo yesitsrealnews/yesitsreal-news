@@ -6,9 +6,7 @@ import { t } from "@/lib/i18n";
 import { useAppStore } from "@/lib/store";
 import { EMAILS, SOCIAL } from "@/lib/brand";
 import { CONTENT_CALENDAR, deskFeed } from "@/lib/social-feed";
-import { formatCount } from "@/lib/engagement";
 import { formatDate } from "@/lib/format";
-import { Heart } from "lucide-react";
 
 export const Route = createFileRoute("/social")({ component: SocialPage });
 
@@ -100,10 +98,6 @@ function SocialPage() {
                 <a href={p.href} className="font-bold uppercase underline">
                   {t(lang, "readMore")}
                 </a>
-                <span className="inline-flex items-center gap-1">
-                  <Heart className="size-3" />
-                  {formatCount(p.faves, lang)}
-                </span>
               </div>
             </li>
           ))}

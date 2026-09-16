@@ -8,7 +8,6 @@ export interface DeskPost {
   time: string;
   text: string;
   href: string;
-  faves: number;
 }
 
 function hash(s: string) {
@@ -29,15 +28,14 @@ export function deskFeed(now = Date.UTC(2026, 7, 28, 12, 0, 0)): DeskPost[] {
       network: net.name,
       handle: net.handle,
       time: new Date(now - ageH * 3600_000).toISOString(),
-      text: `${copy.headline}\n\nIt's real. ${s.sources.length} sources. Dumbness ${s.dumbness}/10.`,
+      text: `${copy.headline}\n\nIt's real. ${s.sources.length} sources.`,
       href: `/story/${s.slug}`,
-      faves: 120 + (hash(s.id + net.id) % 8400),
     };
   });
 }
 
 export const CONTENT_CALENDAR = [
-  { slot: "07:00", item: "Overnight dumbness — one sourced post on X + Telegram" },
+  { slot: "07:00", item: "Overnight — one sourced post on X + Telegram" },
   { slot: "09:30", item: "TikTok A-roll: read the minute, smash cut to the duck" },
   { slot: "12:00", item: "Instagram carousel: headline / source / why-dumb" },
   { slot: "15:00", item: "Cup vote prompt. Country vs country." },

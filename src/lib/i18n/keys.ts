@@ -251,6 +251,11 @@ export const UI_KEYS = [
   "commentsError",
   "commentsDisabled",
   "commentsAnon",
+  "commentsNeedNewsletter",
+  "commentsNeedEmail",
+  "originArticle",
+  "originNewsroomX",
+  "originNewsroomNote",
   "getApp",
 ] as const;
 

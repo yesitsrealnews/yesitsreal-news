@@ -9,7 +9,6 @@ export const REACTIONS: { id: ReactionId; key: "reactUnreal" | "reactPeak" | "re
   { id: "there", key: "reactThere" },
 ];
 
-
 /** Path for share/OG: localized slug for UI lang (FR slug when lang=fr). */
 export function storySharePath(story: Story, lang: Lang): string {
   const slug =
@@ -38,21 +37,6 @@ export async function nativeShare(payload: { title: string; text: string; url: s
   }
 }
 
-export function seedReactions(id: string): Record<ReactionId, number> {
-  let h = 2166136261;
-  for (let i = 0; i < id.length; i++) {
-    h ^= id.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  const n = Math.abs(h >>> 0);
-  return {
-    unreal: 120 + (n % 1800),
-    peak: 80 + (n % 960),
-    boss: 40 + (n % 420),
-    there: 12 + (n % 90),
-  };
-}
-
 export function shareToMessenger(url: string): void {
   if (typeof window === "undefined") return;
   const encoded = encodeURIComponent(url);
@@ -64,7 +48,6 @@ export function shareToMessenger(url: string): void {
   const isMobile = /Android|iPhone|iPad|iPod|webOS|Mobile/i.test(navigator.userAgent || "");
   if (isMobile) {
     window.location.href = "fb-messenger://share/?link=" + encoded;
-    // Soft fallback: deep link may no-op if Messenger is not installed.
     window.setTimeout(() => {
       if (document.visibilityState === "visible") {
         window.open(desktopDialog, "_blank", "noopener,noreferrer");

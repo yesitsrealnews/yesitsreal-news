@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   clientKey,
+  isEmail,
   isHoneypotTripped,
   jsonLimited,
   limitedJson,
@@ -42,6 +43,7 @@ export const Route = createFileRoute("/api/comments")({
           storyId?: string;
           author?: string;
           body?: string;
+          email?: string;
           company_url?: string;
         }>(request);
         if (!body) return limitedJson({ ok: false, reason: "payload" }, 413);
@@ -50,6 +52,11 @@ export const Route = createFileRoute("/api/comments")({
         const storyId = typeof body.storyId === "string" ? body.storyId.trim() : "";
         if (!isValidStoryId(storyId)) {
           return limitedJson({ ok: false, reason: "invalid" }, 400);
+        }
+
+        const email = typeof body.email === "string" ? body.email.trim() : "";
+        if (!isEmail(email)) {
+          return limitedJson({ ok: false, reason: "need-email" }, 400);
         }
 
         const author = sanitizeText(body.author, 40) || "Anonyme";

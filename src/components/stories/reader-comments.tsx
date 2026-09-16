@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Honeypot } from "@/components/site/honeypot";
+import { useAppStore } from "@/lib/store";
+import { isEmail, isHoneypotTripped } from "@/lib/security";
 
 type CommentRow = {
   id: string;
@@ -16,12 +18,20 @@ type CommentRow = {
 };
 
 export function ReaderComments({ storyId, lang }: { storyId: string; lang: Lang }) {
+  const newsletter = useAppStore((s) => s.newsletter);
+  const addNewsletter = useAppStore((s) => s.addNewsletter);
+  const subscribed = newsletter.length > 0;
+  const subscriberEmail = newsletter[0] ?? "";
+
   const [comments, setComments] = useState<CommentRow[]>([]);
   const [disabled, setDisabled] = useState(false);
   const [loading, setLoading] = useState(true);
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
   const [hp, setHp] = useState("");
+  const [gateEmail, setGateEmail] = useState("");
+  const [gateHp, setGateHp] = useState("");
+  const [gateErr, setGateErr] = useState("");
   const [sending, setSending] = useState(false);
   const [thanks, setThanks] = useState(false);
   const [err, setErr] = useState("");
@@ -49,11 +59,26 @@ export function ReaderComments({ storyId, lang }: { storyId: string; lang: Lang 
     void load();
   }, [load]);
 
+  function onGate(e: FormEvent) {
+    e.preventDefault();
+    setGateErr("");
+    if (isHoneypotTripped(gateHp)) return;
+    if (!isEmail(gateEmail)) {
+      setGateErr(t(lang, "invalidEmail"));
+      return;
+    }
+    addNewsletter(gateEmail);
+  }
+
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setErr("");
     setThanks(false);
     if (hp.trim()) return;
+    if (!isEmail(subscriberEmail)) {
+      setErr(t(lang, "commentsNeedEmail"));
+      return;
+    }
     setSending(true);
     try {
       const res = await fetch("/api/comments", {
@@ -63,6 +88,7 @@ export function ReaderComments({ storyId, lang }: { storyId: string; lang: Lang 
           storyId,
           author: author.trim() || undefined,
           body,
+          email: subscriberEmail,
           company_url: hp,
         }),
       });
@@ -77,6 +103,8 @@ export function ReaderComments({ storyId, lang }: { storyId: string; lang: Lang 
           setErr(t(lang, "commentsDisabled"));
         } else if (data.reason === "rate-limited") {
           setErr(t(lang, "rateLimited"));
+        } else if (data.reason === "need-email") {
+          setErr(t(lang, "commentsNeedEmail"));
         } else {
           setErr(t(lang, "commentsError"));
         }
@@ -123,7 +151,31 @@ export function ReaderComments({ storyId, lang }: { storyId: string; lang: Lang 
         )}
       </div>
 
-      {!disabled ? (
+      {!disabled && !subscribed ? (
+        <form className="relative mt-6 space-y-3 border-t-2 border-ink pt-5" onSubmit={onGate}>
+          <Honeypot value={gateHp} onChange={setGateHp} />
+          <p className="text-sm text-ink">{t(lang, "commentsNeedNewsletter")}</p>
+          <Label htmlFor={`comments-nl-${storyId}`}>{t(lang, "newsletterEmail")}</Label>
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <Input
+              id={`comments-nl-${storyId}`}
+              type="email"
+              required
+              maxLength={180}
+              value={gateEmail}
+              onChange={(e) => setGateEmail(e.target.value)}
+              placeholder={t(lang, "newsletterEmail")}
+              className="sm:max-w-xs"
+            />
+            <Button type="submit" variant="signal">
+              {t(lang, "newsletterCta")}
+            </Button>
+          </div>
+          {gateErr ? <p className="text-sm text-signal">{gateErr}</p> : null}
+        </form>
+      ) : null}
+
+      {!disabled && subscribed ? (
         <form className="relative mt-6 space-y-3 border-t-2 border-ink pt-5" onSubmit={onSubmit}>
           <Honeypot value={hp} onChange={setHp} />
           <div>

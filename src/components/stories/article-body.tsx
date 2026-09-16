@@ -4,6 +4,7 @@ import { SECTION_KEY } from "@/lib/i18n/keys";
 import { flagEmoji, formatDateTime, readingMinutes, storyBodyPending, storyByline, storyCopy } from "@/lib/format";
 import { storySharePath } from "@/lib/viral";
 import { SourceProof } from "@/components/stories/source-proof";
+import { OriginSources } from "@/components/stories/origin-sources";
 import { Badge } from "@/components/ui/badge";
 import { AdSlot } from "@/components/site/ad-slot";
 import { ShareBar } from "@/components/site/share-bar";
@@ -98,18 +99,8 @@ export function ArticleBody({
         </span>
       </div>
 
-      <section className="mb-6 rounded-2xl border-2 border-ink bg-card p-4 shadow-[4px_4px_0_0_var(--color-ink)]">
-        <h2 className="kicker text-ink">{t(lang, "originalSources")}</h2>
-        <ul className="mt-3 space-y-2 text-sm">
-          {story.sources.map((s) => (
-            <li key={s.url}>
-              <a href={s.url} className="underline underline-offset-2" rel="noopener noreferrer">
-                {s.publisher}: {s.title}
-              </a>
-              <span className="text-ink-muted"> · {s.date}</span>
-            </li>
-          ))}
-        </ul>
+      <section className="mb-6">
+        <OriginSources story={story} lang={lang} lead />
       </section>
 
       <SourceVideo storyId={story.id} lang={lang} />
@@ -140,25 +131,14 @@ export function ArticleBody({
         ))}
       </div>
 
-      <section className="mt-8 rounded-2xl border-2 border-ink bg-card p-5 shadow-[4px_4px_0_0_var(--color-ink)]">
-        <h2 className="kicker text-ink-muted">{t(lang, "originalSources")}</h2>
-        <p className="mt-2 text-xs text-ink-muted">{copy.factCheckNote}</p>
-        <ul className="mt-3 space-y-2 text-sm">
-          {story.sources.map((s) => (
-            <li key={s.url}>
-              <a href={s.url} className="underline underline-offset-2" rel="noopener noreferrer">
-                {s.publisher}: {s.title}
-              </a>
-              <span className="text-ink-muted"> · {s.date}</span>
-            </li>
-          ))}
-        </ul>
-        {voice.id !== "desk" ? (
-          <p className="mt-3 text-xs text-ink-muted">
-            {t(lang, "voiceAfter")} {lang === "fr" ? voice.afterFr : voice.after}. {t(lang, "voiceDisclaimer")}
-          </p>
-        ) : null}
-      </section>
+      <div className="mt-8">
+        <OriginSources story={story} lang={lang} note={copy.factCheckNote} />
+      </div>
+      {voice.id !== "desk" ? (
+        <p className="mt-3 text-xs text-ink-muted">
+          {t(lang, "voiceAfter")} {lang === "fr" ? voice.afterFr : voice.after}. {t(lang, "voiceDisclaimer")}
+        </p>
+      ) : null}
 
       <section className="mt-8 rounded-3xl border-2 border-ink bg-scream p-5 shadow-[5px_5px_0_0_var(--color-signal)]">
         <p className="kicker text-ink">{t(lang, "notSatire")}</p>
