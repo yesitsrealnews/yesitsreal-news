@@ -1,10 +1,11 @@
-import { format, formatDistanceToNow, parseISO } from "date-fns";
-import { ar, bn, cs, da, de, el, enGB, es, fi, fr, he, hi, hu, id, it, ja, ko, nb, nl, pl, pt, ro, ru, sv, th, tr, uk, vi, zhCN, zhTW } from "date-fns/locale";
+import { format, formatDistanceToNow, parseISO, type Locale } from "date-fns";
+import { de, enGB, es, fr, it, nl, pt } from "date-fns/locale";
 import type { Lang, Story, StoryCopy } from "@/lib/types";
 import { LANG_BY_CODE } from "@/lib/i18n/langs";
 import { localizedCopy } from "@/lib/data/headlines";
 
-const LOCALES = {
+/** Ship the desk languages. The rest fall back to English dates — saves ~200 kB of date-fns locales. */
+const LOCALES: Partial<Record<Lang, Locale>> = {
   en: enGB,
   fr,
   es,
@@ -12,31 +13,7 @@ const LOCALES = {
   de,
   it,
   nl,
-  pl,
-  sv,
-  no: nb,
-  da,
-  fi,
-  cs,
-  ro,
-  hu,
-  el,
-  tr,
-  ar,
-  he,
-  hi,
-  bn,
-  ur: ar,
-  id,
-  vi,
-  th,
-  ja,
-  ko,
-  zh: zhCN,
-  "zh-TW": zhTW,
-  uk,
-  ru,
-} as const;
+};
 
 export function localeFor(lang: Lang) {
   return LOCALES[lang] ?? enGB;

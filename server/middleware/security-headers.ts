@@ -27,6 +27,28 @@ function isDeskPath(pathname: string): boolean {
   );
 }
 
+function cacheControlFor(pathname: string): string | null {
+  if (isDeskPath(pathname)) return "private, no-store";
+  if (
+    pathname.startsWith("/covers/") ||
+    pathname.startsWith("/brand/") ||
+    pathname.startsWith("/assets/") ||
+    pathname.startsWith("/ads/") ||
+    pathname === "/favicon.svg" ||
+    pathname === "/og.jpg" ||
+    pathname === "/og.webp"
+  ) {
+    return "public, max-age=31536000, immutable";
+  }
+  if (pathname.endsWith(".xml") || pathname === "/robots.txt" || pathname === "/ads.txt") {
+    return "public, s-maxage=600, stale-while-revalidate=86400";
+  }
+  if (!pathname.startsWith("/api/")) {
+    return "public, s-maxage=60, stale-while-revalidate=86400";
+  }
+  return null;
+}
+
 export default async function securityHeadersMiddleware(
   event: unknown,
   next: () => unknown | Promise<unknown>,
@@ -40,6 +62,12 @@ export default async function securityHeadersMiddleware(
     const path = pathOf(event);
     if (isDeskPath(path) && !headers.has("X-Robots-Tag")) {
       headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    }
+    const cache = cacheControlFor(path);
+    if (cache && !headers.has("Cache-Control")) {
+      headers.set("Cache-Control", cache);
+      headers.set("CDN-Cache-Control", cache);
+      headers.set("Vercel-CDN-Cache-Control", cache);
     }
     const proto = (event as { req?: { headers?: Headers } })?.req?.headers?.get("x-forwarded-proto");
     if (proto === "https" && !headers.has("Strict-Transport-Security")) {

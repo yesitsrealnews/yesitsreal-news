@@ -4,8 +4,8 @@
   --font-serif: "Bricolage Grotesque", "Arial Black", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Figtree", "Avenir Next", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Newsreader", Georgia, "Times New Roman", serif;
-  --font-archive: "Playfair Display", "Didot", "Times New Roman", serif;
-  --font-archive-body: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --font-archive: "Bricolage Grotesque", "Didot", "Times New Roman", serif;
+  --font-archive-body: Newsreader, Georgia, "Times New Roman", serif;
 
   --color-paper: #ffffff;
   --color-paper-2: #eef1f6;

@@ -176,6 +176,20 @@ export default defineConfig(({ command, isPreview }) => ({
     strictPort: true,
   },
   resolve: { tsconfigPaths: true },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          if (id.includes("node_modules/date-fns")) return "date-fns";
+          if (id.includes("node_modules/react-dom") || id.includes("node_modules/react/")) return "react";
+          if (id.includes("stories-a") || id.includes("stories-b") || id.includes("stories-c") || id.includes("stories-revue")) {
+            return "stories";
+          }
+          return undefined;
+        },
+      },
+    },
+  },
   plugins: [
     pgliteBootstrapPlugin(),
     // Before tanstackStart so /auth/popup never falls through to the SPA.
@@ -196,6 +210,15 @@ export default defineConfig(({ command, isPreview }) => ({
             // false, so removing this silently unwires /?install=1 on deploys.
             serverDir: "./server",
             vercel: { regions: ["iad1"] },
+            routeRules: {
+              "/covers/**": { headers: { "cache-control": "public, max-age=31536000, immutable" } },
+              "/brand/**": { headers: { "cache-control": "public, max-age=31536000, immutable" } },
+              "/ads/**": { headers: { "cache-control": "public, max-age=31536000, immutable" } },
+              "/assets/**": { headers: { "cache-control": "public, max-age=31536000, immutable" } },
+              "/": { swr: 60 },
+              "/today": { swr: 60 },
+              "/story/**": { swr: 120 },
+            },
           }),
         ]
       : []),

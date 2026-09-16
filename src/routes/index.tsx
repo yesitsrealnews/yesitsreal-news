@@ -7,6 +7,7 @@ import { useAppStore } from "@/lib/store";
 import { itemListJsonLd, orgJsonLd, SEO_FR, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { homeStories } from "@/lib/catalog";
+import { coverDisplaySrc, coverSizes, coverSrcSet } from "@/lib/covers";
 import { loadPublicDesk, mergeExtras } from "@/lib/desk-public";
 
 export const Route = createFileRoute("/")({
@@ -14,7 +15,11 @@ export const Route = createFileRoute("/")({
     return loadPublicDesk();
   },
   component: Home,
-  head: () => ({
+  head: ({ loaderData }) => {
+    const latest = homeStories(loaderData?.extras ?? [], loaderData?.desk, loaderData?.frontPageIds);
+    const heroId = latest[0]?.id;
+    const heroWebp = heroId ? coverDisplaySrc(heroId) : undefined;
+    return {
     meta: [
       { title: SEO_FR.title },
       { name: "description", content: SEO_FR.description },
@@ -37,8 +42,22 @@ export const Route = createFileRoute("/")({
       { rel: "canonical", href: SITE_URL },
       { rel: "alternate", hrefLang: "fr", href: SITE_URL },
       { rel: "alternate", hrefLang: "x-default", href: SITE_URL },
+      ...(heroWebp
+        ? [
+            {
+              rel: "preload",
+              as: "image",
+              href: heroWebp,
+              type: "image/webp",
+              imageSrcSet: coverSrcSet(heroId!, "webp"),
+              imageSizes: coverSizes("hero"),
+              fetchPriority: "high" as const,
+            },
+          ]
+        : []),
     ],
-  }),
+  };
+  },
 });
 
 function Home() {

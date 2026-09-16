@@ -88,7 +88,15 @@ export function ArticleBody({
       </div>
 
       <div className="photo-frame relative my-6 aspect-[16/9]">
-        <StoryCover id={story.id} section={story.section} alt={copy.headline} remote={story.coverUrl} priority credit />
+        <StoryCover
+          id={story.id}
+          section={story.section}
+          alt={copy.headline}
+          remote={story.coverUrl}
+          priority
+          credit
+          sizes="(min-width: 768px) 768px, 100vw"
+        />
         <span className="absolute left-3 top-4">
           <TrueStamp>{t(lang, "truePill")}</TrueStamp>
         </span>

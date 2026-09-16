@@ -8,7 +8,7 @@ import { useAppStore } from "@/lib/store";
 import { storyCopy } from "@/lib/format";
 import { articleJsonLd, breadcrumbJsonLd, storyCanonical, storySeoCopy } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
-import { coverSrc } from "@/lib/covers";
+import { coverDisplaySrc, coverSizes, coverSrc, coverSrcSet } from "@/lib/covers";
 
 export const Route = createFileRoute("/story/$slug")({
   loader: async ({ params }) => {
@@ -57,6 +57,19 @@ export const Route = createFileRoute("/story/$slug")({
         { rel: "alternate", hrefLang: "fr", href: frUrl },
         { rel: "alternate", hrefLang: "en", href: enUrl },
         { rel: "alternate", hrefLang: "x-default", href: frUrl },
+        ...(coverDisplaySrc(story.id)
+          ? [
+              {
+                rel: "preload",
+                as: "image",
+                href: coverDisplaySrc(story.id)!,
+                type: "image/webp",
+                imageSrcSet: coverSrcSet(story.id, "webp"),
+                imageSizes: coverSizes("article"),
+                fetchPriority: "high" as const,
+              },
+            ]
+          : []),
       ],
     };
   },
@@ -66,8 +79,8 @@ function StoryPage() {
   const { slug } = Route.useParams();
   const loaded = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
-  const extras = mergeExtras(loaded.extras, useAppStore((s) => s.extras));
-  const deskStatus = { ...loaded.desk, ...useAppStore((s) => s.deskStatus) };
+  const extras = mergeExtras(loaded?.extras ?? [], useAppStore((s) => s.extras));
+  const deskStatus = { ...(loaded?.desk ?? {}), ...useAppStore((s) => s.deskStatus) };
   const story = findStory(slug, extras, deskStatus);
   if (!story) {
     throw notFound();

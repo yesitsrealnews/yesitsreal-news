@@ -1,5 +1,5 @@
 /** Desk rule: every published story must have PHOTO_CREDITS + /covers/{id}.jpg (Commons/CC or cleared mugshot). No painted placeholder on the live site. */
-import type { SectionId } from "@/lib/types";
+import type { SectionId } from "./types";
 import credits from "./cover-credits.json";
 
 export type CoverCredit = {
@@ -13,14 +13,34 @@ export type CoverCredit = {
 
 export const PHOTO_CREDITS = credits as Record<string, CoverCredit>;
 
+export const COVER_WIDTH = 960;
+export const COVER_HEIGHT = 720;
+
 export function hasCoverPhoto(id: string): boolean {
   return Boolean(PHOTO_CREDITS[id]);
 }
 
+/** JPEG kept for Open Graph / crawlers that still prefer it. */
 export function coverSrc(id: string): string | undefined {
   if (!PHOTO_CREDITS[id]) return undefined;
-  // Same-origin public/covers — updates on every deploy (jsDelivr @main stayed stale for mugshots).
   return `/covers/${id}.jpg`;
+}
+
+/** Display URL — WebP on the Vercel CDN after the build step. */
+export function coverDisplaySrc(id: string): string | undefined {
+  if (!PHOTO_CREDITS[id]) return undefined;
+  return `/covers/${id}.webp`;
+}
+
+export function coverSrcSet(id: string, format: "webp" | "avif"): string | undefined {
+  if (!PHOTO_CREDITS[id]) return undefined;
+  return `/covers/${id}-480.${format} 480w, /covers/${id}-960.${format} 960w`;
+}
+
+export function coverSizes(kind: "hero" | "article" | "card" = "card"): string {
+  if (kind === "hero") return "(min-width: 1024px) 60vw, 100vw";
+  if (kind === "article") return "(min-width: 768px) 768px, 100vw";
+  return "(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw";
 }
 
 export function coverSrcFallback(id: string): string | undefined {
@@ -28,7 +48,7 @@ export function coverSrcFallback(id: string): string | undefined {
   if (!c?.file) return undefined;
   if ((c.kind === "mugshot" || c.kind === "campaign-poster") && !/^File:/i.test(c.file)) return undefined;
   const file = c.file.replace(/^File:/i, "").replace(/ /g, "_");
-  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=1400`;
+  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=960`;
 }
 
 export function coverCredit(id: string): CoverCredit | undefined {

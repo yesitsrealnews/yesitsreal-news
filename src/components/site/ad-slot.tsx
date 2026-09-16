@@ -38,8 +38,12 @@ export function AdSlot({
       <div className={cn("mt-2 flex gap-3", slot === "sidebar" && "flex-col")}>
         {ad.image && slot !== "anchor" ? (
           <img
-            src={ad.image}
+            src={ad.image.replace(/\.jpe?g$/i, ".webp")}
             alt=""
+            width={slot === "sidebar" ? 400 : 224}
+            height={slot === "sidebar" ? 160 : 80}
+            loading="lazy"
+            decoding="async"
             className={cn(
               "object-cover outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10",
               slot === "sidebar" ? "h-40 w-full" : "h-16 w-24 shrink-0 sm:h-20 sm:w-28",
@@ -47,6 +51,9 @@ export function AdSlot({
               slot === "inarticle" && "h-28 w-full sm:h-32",
               slot === "native" && "h-20 w-28",
             )}
+            onError={(e) => {
+              if (ad.image && e.currentTarget.src !== ad.image) e.currentTarget.src = ad.image;
+            }}
           />
         ) : null}
         <div className="min-w-0">
