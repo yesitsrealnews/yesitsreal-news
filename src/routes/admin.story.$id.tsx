@@ -111,7 +111,6 @@ function StoryEditor() {
           {tab === "facts" ? (
             <div className="space-y-3 text-sm">
               <p>Confiance {Math.round(current.pack.confidence * 100)} %</p>
-              <p>{current.pack.dumbnessRationale}</p>
               <table className="w-full border border-rule text-left text-xs">
                 <thead className="bg-paper-2">
                   <tr>

@@ -26,7 +26,7 @@ export function slimCard(story: Story): Story {
   const copy = Object.fromEntries(
     Object.entries(story.copy).map(([lang, c]) => [lang, stripCopy(c, false)]),
   ) as Story["copy"];
-  return { ...story, copy };
+  return { ...story, copy, dumbness: 0 };
 }
 
 /** Article payload — keep bodies, drop unused locale copies except en/fr/original. */
@@ -37,7 +37,7 @@ export function slimFull(story: Story): Story {
       .filter(([lang]) => keep.has(lang))
       .map(([lang, c]) => [lang, stripCopy(c, true)]),
   ) as Story["copy"];
-  return { ...story, copy };
+  return { ...story, copy, dumbness: 0 };
 }
 
 export function overlayHome(

@@ -11,7 +11,6 @@ function AnalyticsPage() {
   const newsletter = useAppStore((s) => s.newsletter);
   const submissions = useAppStore((s) => s.submissions);
   const stories = publishedStories(extras, deskStatus);
-  const avg = stories.reduce((a, s) => a + s.dumbness, 0) / Math.max(1, stories.length);
   const inbox = useMergedInbox();
   return (
     <main className="p-6">
@@ -19,7 +18,6 @@ function AnalyticsPage() {
       <p className="mt-2 text-sm text-ink-muted">Preview counters. No tracker ships until cookie consent is all.</p>
       <dl className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Stat k="Published" v={String(stories.length)} />
-        <Stat k="Mean dumbness" v={avg.toFixed(1)} />
         <Stat k="Queue" v={String(inbox.length)} />
         <Stat k="Briefing list" v={String(newsletter.length)} />
         <Stat k="Submissions" v={String(submissions.length)} />

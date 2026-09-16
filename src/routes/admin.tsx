@@ -17,7 +17,6 @@ const LINKS = [
   { to: "/admin/assign", label: "Commander" },
   { to: "/admin/translations", label: "Traductions" },
   { to: "/admin/sources", label: "Sources" },
-  { to: "/admin/calibration", label: "Réglages" },
   { to: "/admin/ads", label: "Pubs" },
   { to: "/admin/leads", label: "Contacts" },
   { to: "/admin/analytics", label: "Audience" },
