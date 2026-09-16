@@ -1,7 +1,6 @@
 import { useEffect, type ReactNode } from "react";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
-import { Ticker } from "@/components/site/ticker";
 import { AdSlot, MobileAnchorAd } from "@/components/site/ad-slot";
 import { ADS_PUBLIC } from "@/lib/ads";
 import { CookieBanner } from "@/components/site/cookie-banner";
@@ -22,7 +21,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <Ticker lang={lang} />
       <Header
         lang={lang}
         theme={theme}
