@@ -26,7 +26,7 @@ export const CREATIVES: Creative[] = [
     dek: "Named source, live URL, already published. We check. It really happened.",
     cta: "Send a story",
     href: "/submit",
-    image: "/ads/cup.jpg",
+    image: "/ads/cup.webp",
     partner: "YES IT'S REAL",
   },
   {
@@ -37,7 +37,7 @@ export const CREATIVES: Creative[] = [
     dek: "Heavy black tee. Red stamp. No slogan long enough to become a memo.",
     cta: "Get the shirt",
     href: "/membership",
-    image: "/ads/merch.jpg",
+    image: "/ads/merch.webp",
     partner: "YES IT'S REAL Shop",
   },
   {

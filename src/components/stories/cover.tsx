@@ -35,14 +35,14 @@ export function StoryCover({
   remote?: string;
   sizes?: string;
 }) {
+  const prod = import.meta.env.PROD;
   const local = coverSrc(id);
   const webp = coverDisplaySrc(id);
-  const src = local || remote;
+  const src = local ? (prod && webp ? webp : local) : remote;
   const line = credit && local ? coverCreditLine(id) : credit && remote ? "Visuel d’origine · source" : undefined;
   const meta = coverCredit(id);
   const [failed, setFailed] = useState(false);
   const sizeAttr = sizes || coverSizes(priority ? "hero" : "card");
-  const prod = import.meta.env.PROD;
 
   if (!src || failed) {
     return <CoverCard id={id} label={alt} className={className} />;
@@ -58,7 +58,7 @@ export function StoryCover({
       height={COVER_HEIGHT}
       sizes={sizeAttr}
       loading={priority ? "eager" : "lazy"}
-      fetchPriority={priority ? "high" : "low"}
+      fetchPriority={priority ? "high" : undefined}
       decoding="async"
       referrerPolicy="no-referrer"
       onError={(e) => {

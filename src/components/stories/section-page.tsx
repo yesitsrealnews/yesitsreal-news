@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import type { Lang, SectionId, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
-import { countriesFrom, inSection } from "@/lib/catalog";
+import { countriesFrom, overlaySection } from "@/lib/public-feed";
 import { StoryCard } from "@/components/stories/story-card";
 import { AdSlot } from "@/components/site/ad-slot";
 import { Button } from "@/components/ui/button";
@@ -13,14 +13,16 @@ import { useAppStore } from "@/lib/store";
 export function SectionArchive({
   section,
   lang,
+  stories,
   extras,
 }: {
   section: SectionId;
   lang: Lang;
+  stories: Story[];
   extras: Story[];
 }) {
   const deskStatus = useAppStore((s) => s.deskStatus);
-  const base = inSection(extras, section, deskStatus);
+  const base = overlaySection(stories, extras, section, deskStatus);
   const countries = countriesFrom(base);
   const [country, setCountry] = useState("all");
   const [shown, setShown] = useState(12);

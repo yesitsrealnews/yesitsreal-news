@@ -2,7 +2,6 @@ import { format, formatDistanceToNow, parseISO, type Locale } from "date-fns";
 import { de, enGB, es, fr, it, nl, pt } from "date-fns/locale";
 import type { Lang, Story, StoryCopy } from "@/lib/types";
 import { LANG_BY_CODE } from "@/lib/i18n/langs";
-import { localizedCopy } from "@/lib/data/headlines";
 
 /** Ship the desk languages. The rest fall back to English dates — saves ~200 kB of date-fns locales. */
 const LOCALES: Partial<Record<Lang, Locale>> = {
@@ -31,12 +30,16 @@ export function fromNow(iso: string, lang: Lang) {
   return formatDistanceToNow(parseISO(iso), { addSuffix: true, locale: localeFor(lang) });
 }
 
+/** Headlines are baked on the server. Client must not import the headlines tables. */
 export function storyCopy(story: Story, lang: Lang): StoryCopy {
-  return localizedCopy(story, lang).copy;
+  return story.copy[lang] ?? story.copy.en;
 }
 
 export function storyBodyPending(story: Story, lang: Lang): boolean {
-  return localizedCopy(story, lang).bodyPending;
+  const c = story.copy[lang];
+  if (!c) return lang !== "en" && lang !== story.originalLang;
+  if (lang === "en" || lang === story.originalLang) return false;
+  return c.body.length === 0;
 }
 
 export function storySlug(story: Story, lang: Lang): string {

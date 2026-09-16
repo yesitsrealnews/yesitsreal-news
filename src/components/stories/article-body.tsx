@@ -13,28 +13,24 @@ import { QuoteCardButton } from "@/components/stories/quote-card";
 import { ReactionBar } from "@/components/stories/reactions";
 import { ReaderComments } from "@/components/stories/reader-comments";
 import { SourceVideo } from "@/components/stories/source-video";
-import { relatedStories } from "@/lib/catalog";
 import { applyVoice, voiceMeta } from "@/lib/voices";
 import { TrueStamp } from "@/components/site/true-stamp";
 import { BadgeCheck, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useAppStore } from "@/lib/store";
 
 export function ArticleBody({
   story,
   lang,
-  extras,
+  related,
 }: {
   story: Story;
   lang: Lang;
-  extras: Story[];
+  related: Story[];
 }) {
-  const deskStatus = useAppStore((s) => s.deskStatus);
   const raw = storyCopy(story, lang);
   const voice = voiceMeta(story.id);
   const copy = applyVoice(story, raw, lang);
   const pending = storyBodyPending(story, lang);
-  const related = relatedStories(story, extras, 4, deskStatus);
   const mid = Math.max(2, Math.floor(copy.body.length / 2));
   const era = story.section === "archive";
 

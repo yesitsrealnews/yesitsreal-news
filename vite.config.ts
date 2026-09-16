@@ -182,9 +182,6 @@ export default defineConfig(({ command, isPreview }) => ({
         manualChunks(id: string) {
           if (id.includes("node_modules/date-fns")) return "date-fns";
           if (id.includes("node_modules/react-dom") || id.includes("node_modules/react/")) return "react";
-          if (id.includes("stories-a") || id.includes("stories-b") || id.includes("stories-c") || id.includes("stories-revue")) {
-            return "stories";
-          }
           return undefined;
         },
       },
@@ -215,9 +212,15 @@ export default defineConfig(({ command, isPreview }) => ({
               "/brand/**": { headers: { "cache-control": "public, max-age=31536000, immutable" } },
               "/ads/**": { headers: { "cache-control": "public, max-age=31536000, immutable" } },
               "/assets/**": { headers: { "cache-control": "public, max-age=31536000, immutable" } },
-              "/": { swr: 60 },
-              "/today": { swr: 60 },
-              "/story/**": { swr: 120 },
+              "/fonts/**": { headers: { "cache-control": "public, max-age=31536000, immutable" } },
+              "/": { isr: 60 },
+              "/today": { isr: 60 },
+              "/story/**": { isr: 120 },
+              "/faits-divers": { isr: 120 },
+              "/courts": { isr: 120 },
+              "/animals": { isr: 120 },
+              "/world": { isr: 120 },
+              "/search": { isr: 60 },
             },
           }),
         ]

@@ -2,8 +2,8 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/site-shell";
 import { ArticleBody } from "@/components/stories/article-body";
 import { JsonLd } from "@/components/site/json-ld";
-import { findStory } from "@/lib/catalog";
-import { loadPublicDesk, mergeExtras } from "@/lib/desk-public";
+import { mergeExtras, overlayFind, overlayRelated } from "@/lib/public-feed";
+import { loadStoryFeed } from "@/lib/public-feed-rpc";
 import { useAppStore } from "@/lib/store";
 import { storyCopy } from "@/lib/format";
 import { articleJsonLd, breadcrumbJsonLd, storyCanonical, storySeoCopy } from "@/lib/seo";
@@ -12,14 +12,13 @@ import { coverDisplaySrc, coverSizes, coverSrc, coverSrcSet } from "@/lib/covers
 
 export const Route = createFileRoute("/story/$slug")({
   loader: async ({ params }) => {
-    const publicDesk = await loadPublicDesk();
-    const story = findStory(params.slug, publicDesk.extras, publicDesk.desk);
-    if (!story) throw notFound();
-    return publicDesk;
+    const data = await loadStoryFeed({ data: { slug: params.slug } });
+    if (!data.story) throw notFound();
+    return data;
   },
   component: StoryPage,
   head: ({ params, loaderData }) => {
-    const story = findStory(params.slug, loaderData?.extras ?? [], loaderData?.desk);
+    const story = loaderData?.story;
     if (!story) return {};
     const c = storySeoCopy(story);
     const img = coverSrc(story.id);
@@ -81,17 +80,25 @@ function StoryPage() {
   const lang = useAppStore((s) => s.lang);
   const extras = mergeExtras(loaded?.extras ?? [], useAppStore((s) => s.extras));
   const deskStatus = { ...(loaded?.desk ?? {}), ...useAppStore((s) => s.deskStatus) };
-  const story = findStory(slug, extras, deskStatus);
+  const seed = loaded?.story ? [loaded.story] : [];
+  const story = overlayFind(seed, slug, extras, deskStatus) ?? loaded?.story;
   if (!story) {
     throw notFound();
   }
+  const related = overlayRelated(
+    [...seed, ...(loaded?.related ?? [])],
+    story,
+    extras,
+    4,
+    deskStatus,
+  );
   const copy = storyCopy(story, lang);
   return (
     <SiteShell>
       <title>{`${copy.headline} — YES IT'S REAL`}</title>
       <JsonLd data={articleJsonLd(story, slug)} />
       <JsonLd data={breadcrumbJsonLd(story)} />
-      <ArticleBody story={story} lang={lang} extras={extras} />
+      <ArticleBody story={story} lang={lang} related={related} />
     </SiteShell>
   );
 }

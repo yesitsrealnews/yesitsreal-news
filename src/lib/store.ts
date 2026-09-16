@@ -3,19 +3,27 @@ import { persist } from "zustand/middleware";
 import type { Lang, Lead, QueueItem, ReactionId, Story, StoryStatus, Submission } from "@/lib/types";
 import { detectBrowserLang, isLang } from "@/lib/i18n/langs";
 import { SPRINT_MS } from "@/lib/revenue";
-import {
-  DEFAULT_DENY_DOMAINS,
-  NATIONAL_DESK_DOMAINS,
-  REGIONAL_PRESS_DOMAINS,
-} from "@/lib/data/regional-press";
 
-function uniqueSortedDomains(...lists: string[][]): string[] {
-  return [...new Set(lists.flat().map((d) => d.toLowerCase().replace(/^www\./, "")))].sort((a, b) =>
-    a.localeCompare(b),
-  );
-}
-
-const DEFAULT_ALLOW_LIST = uniqueSortedDomains(REGIONAL_PRESS_DOMAINS, NATIONAL_DESK_DOMAINS);
+const SATIRE_DENY = [
+  "theonion.com",
+  "babylonbee.com",
+  "clickhole.com",
+  "waterfordwhispersnews.com",
+  "legorafi.fr",
+  "nordpresse.be",
+  "dailymash.co.uk",
+  "elmundotoday.com",
+  "worldnewsdailyreport.com",
+  "huzlers.com",
+  "empirenews.net",
+  "newsbiscuit.com",
+  "thespoof.com",
+  "fakingnews.com",
+  "thepoke.co.uk",
+  "thepoke.com",
+  "thedailymash.co.uk",
+  "newsthump.com",
+];
 
 export type Theme = "light" | "dark";
 export type CookieChoice = "unknown" | "all" | "necessary";
@@ -116,8 +124,8 @@ export const useAppStore = create<AppState>()(
       extras: [],
       deskStatus: { s135: "held", s136: "held", s137: "held", s138: "held", s139: "held" },
       frontPageIds: [],
-      allowList: DEFAULT_ALLOW_LIST,
-      denyList: [...DEFAULT_DENY_DOMAINS],
+      allowList: [] as string[],
+      denyList: [...SATIRE_DENY],
       newsletter: [],
       contestVotes: {},
       contestVoted: [],
@@ -412,8 +420,16 @@ export const useAppStore = create<AppState>()(
       setAllowList: (allowList) => set({ allowList }),
       setDenyList: (denyList) => set({ denyList }),
       seedRegionalPress: () => {
-        const merged = uniqueSortedDomains(get().allowList, REGIONAL_PRESS_DOMAINS, NATIONAL_DESK_DOMAINS);
-        set({ allowList: merged });
+        void import("@/lib/data/regional-press").then((mod) => {
+          const merged = [
+            ...new Set(
+              [...get().allowList, ...mod.REGIONAL_PRESS_DOMAINS, ...mod.NATIONAL_DESK_DOMAINS].map((d) =>
+                d.toLowerCase().replace(/^www\./, ""),
+              ),
+            ),
+          ].sort((a, b) => a.localeCompare(b));
+          set({ allowList: merged });
+        });
       },
       addNewsletter: (email) => {
         const clean = email.trim().toLowerCase();
@@ -550,7 +566,8 @@ export const useAppStore = create<AppState>()(
         if (!state.shares) state.shares = {};
         if (!state.deskStatus) state.deskStatus = {};
         if (!state.frontPageIds) state.frontPageIds = [];
-        state.allowList = uniqueSortedDomains(state.allowList ?? [], REGIONAL_PRESS_DOMAINS, NATIONAL_DESK_DOMAINS);
+        if (!Array.isArray(state.allowList)) state.allowList = [];
+        if (!Array.isArray(state.denyList) || !state.denyList.length) state.denyList = [...SATIRE_DENY];
         applyDocument(state.lang, state.theme);
         state.setHydrated(true);
         void state.hydrateDeskStatus();

@@ -6,7 +6,7 @@ const HEADERS: Record<string, string> = {
   "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
   "X-Frame-Options": "DENY",
   "Content-Security-Policy":
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
 };
 
 function pathOf(event: unknown): string {
@@ -34,6 +34,7 @@ function cacheControlFor(pathname: string): string | null {
     pathname.startsWith("/brand/") ||
     pathname.startsWith("/assets/") ||
     pathname.startsWith("/ads/") ||
+    pathname.startsWith("/fonts/") ||
     pathname === "/favicon.svg" ||
     pathname === "/og.jpg" ||
     pathname === "/og.webp"

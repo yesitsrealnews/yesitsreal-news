@@ -6,18 +6,15 @@ import { JsonLd } from "@/components/site/json-ld";
 import { useAppStore } from "@/lib/store";
 import { itemListJsonLd, orgJsonLd, SEO_FR, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
-import { homeStories } from "@/lib/catalog";
 import { coverDisplaySrc, coverSizes, coverSrcSet } from "@/lib/covers";
-import { loadPublicDesk, mergeExtras } from "@/lib/desk-public";
+import { mergeExtras, overlayHome, overlaySponsored } from "@/lib/public-feed";
+import { loadHomeFeed } from "@/lib/public-feed-rpc";
 
 export const Route = createFileRoute("/")({
-  loader: async () => {
-    return loadPublicDesk();
-  },
+  loader: async () => loadHomeFeed(),
   component: Home,
   head: ({ loaderData }) => {
-    const latest = homeStories(loaderData?.extras ?? [], loaderData?.desk, loaderData?.frontPageIds);
-    const heroId = latest[0]?.id;
+    const heroId = loaderData?.latest?.[0]?.id;
     const heroWebp = heroId ? coverDisplaySrc(heroId) : undefined;
     return {
     meta: [
@@ -61,9 +58,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { frontPageIds: loaderFrontIds, desk: loaderDesk, extras: loaderExtras } = Route.useLoaderData();
+  const loaded = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
-  const extras = mergeExtras(loaderExtras, useAppStore((s) => s.extras));
+  const extras = mergeExtras(loaded?.extras, useAppStore((s) => s.extras));
   const storeDesk = useAppStore((s) => s.deskStatus);
   const storeFrontIds = useAppStore((s) => s.frontPageIds);
   const setFrontPageIds = useAppStore((s) => s.setFrontPageIds);
@@ -71,21 +68,23 @@ function Home() {
   const addNewsletter = useAppStore((s) => s.addNewsletter);
 
   useEffect(() => {
-    if (loaderFrontIds.length) setFrontPageIds(loaderFrontIds);
-    if (loaderDesk && Object.keys(loaderDesk).length) {
-      setDeskStatus({ ...useAppStore.getState().deskStatus, ...loaderDesk });
+    if (loaded?.frontPageIds?.length) setFrontPageIds(loaded.frontPageIds);
+    if (loaded?.desk && Object.keys(loaded.desk).length) {
+      setDeskStatus({ ...useAppStore.getState().deskStatus, ...loaded.desk });
     }
-  }, [loaderFrontIds, loaderDesk, setFrontPageIds, setDeskStatus]);
+  }, [loaded?.frontPageIds, loaded?.desk, setFrontPageIds, setDeskStatus]);
 
-  const frontPageIds = storeFrontIds.length ? storeFrontIds : loaderFrontIds;
-  const deskStatus = { ...loaderDesk, ...storeDesk };
-  const latest = homeStories(extras, deskStatus, frontPageIds);
+  const frontPageIds = storeFrontIds.length ? storeFrontIds : (loaded?.frontPageIds ?? []);
+  const deskStatus = { ...(loaded?.desk ?? {}), ...storeDesk };
+  const latest = overlayHome(loaded?.latest ?? [], extras, deskStatus, frontPageIds);
+  const sponsored = overlaySponsored(loaded?.sponsored ? [loaded.sponsored] : [], extras, deskStatus) ?? loaded?.sponsored ?? undefined;
+
   return (
     <SiteShell>
       <JsonLd data={orgJsonLd()} />
       <JsonLd data={websiteJsonLd()} />
       <JsonLd data={itemListJsonLd(latest)} />
-      <HomePage lang={lang} extras={extras} onSubscribe={addNewsletter} frontPageIds={frontPageIds} />
+      <HomePage lang={lang} stories={latest} sponsored={sponsored} onSubscribe={addNewsletter} />
     </SiteShell>
   );
 }

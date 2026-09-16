@@ -5,7 +5,6 @@ import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { storySharePath } from "@/lib/viral";
-import { homeStories, sponsoredStory } from "@/lib/catalog";
 import { StoryCard } from "@/components/stories/story-card";
 import { StoryCover } from "@/components/stories/cover";
 import { Newsletter } from "@/components/site/newsletter";
@@ -16,29 +15,23 @@ import { TrueStamp } from "@/components/site/true-stamp";
 import { Button } from "@/components/ui/button";
 import { SourceProof } from "@/components/stories/source-proof";
 import { BadgeCheck, Newspaper } from "lucide-react";
-import { useAppStore } from "@/lib/store";
 
 export function HomePage({
   lang,
-  extras,
+  stories,
+  sponsored,
   onSubscribe,
-  frontPageIds: frontPageIdsProp,
 }: {
   lang: Lang;
-  extras: Story[];
+  stories: Story[];
+  sponsored?: Story | null;
   onSubscribe: (email: string) => void;
-  frontPageIds?: string[];
 }) {
-  const deskStatus = useAppStore((s) => s.deskStatus);
-  const storeFrontIds = useAppStore((s) => s.frontPageIds);
-  const frontPageIds = frontPageIdsProp?.length ? frontPageIdsProp : storeFrontIds;
-  const all = homeStories(extras, deskStatus, frontPageIds);
-  const hero = all[0];
-  const rest = all.slice(1);
+  const hero = stories[0];
+  const rest = stories.slice(1);
   const features = rest.slice(0, 2);
   const [shown, setShown] = useState(8);
   const grid = rest.slice(2, 2 + shown);
-  const sponsored = sponsoredStory(extras, deskStatus);
 
   if (!hero) return <p className="p-8">{t(lang, "noStories")}</p>;
   const heroCopy = storyCopy(hero, lang);

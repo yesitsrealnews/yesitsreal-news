@@ -8,13 +8,13 @@ import { Newsletter } from "@/components/site/newsletter";
 import { t } from "@/lib/i18n";
 import { useAppStore } from "@/lib/store";
 import { SITE_URL } from "@/lib/brand";
-import { homeStories } from "@/lib/catalog";
-import { loadPublicDesk, mergeExtras } from "@/lib/desk-public";
+import { mergeExtras, overlayHome } from "@/lib/public-feed";
+import { loadTodayFeed } from "@/lib/public-feed-rpc";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { SourceProof } from "@/components/stories/source-proof";
 
 export const Route = createFileRoute("/today")({
-  loader: async () => loadPublicDesk(),
+  loader: async () => loadTodayFeed(),
   component: TodayPage,
   head: () => ({
     meta: [
@@ -37,7 +37,7 @@ function TodayPage() {
   const frontPageIds = (useAppStore((s) => s.frontPageIds).length ? useAppStore.getState().frontPageIds : loaded?.frontPageIds) ?? [];
   const add = useAppStore((s) => s.addNewsletter);
   const countShare = useAppStore((s) => s.countShare);
-  const list = homeStories(extras, deskStatus, frontPageIds).slice(0, 5);
+  const list = overlayHome(loaded?.latest ?? [], extras, deskStatus, frontPageIds).slice(0, 5);
   const lead = list[0];
   const rest = list.slice(1);
   const now = formatDate(new Date().toISOString(), lang);

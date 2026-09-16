@@ -32,6 +32,20 @@ export function coverDisplaySrc(id: string): string | undefined {
   return `/covers/${id}.webp`;
 }
 
+/** Remote publisher photo via Vercel Image Optimization CDN. Local covers stay static AVIF/WebP. */
+export function optimizedRemoteSrc(url: string | undefined, width = 960): string | undefined {
+  if (!url) return undefined;
+  if (url.startsWith("/") || url.startsWith("data:")) return url;
+  try {
+    const u = new URL(url);
+    if (u.protocol !== "http:" && u.protocol !== "https:") return undefined;
+  } catch {
+    return undefined;
+  }
+  if (!import.meta.env.PROD) return url;
+  return `/_vercel/image?url=${encodeURIComponent(url)}&w=${width}&q=70`;
+}
+
 export function coverSrcSet(id: string, format: "webp" | "avif"): string | undefined {
   if (!PHOTO_CREDITS[id]) return undefined;
   return `/covers/${id}-480.${format} 480w, /covers/${id}-960.${format} 960w`;

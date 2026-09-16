@@ -1,12 +1,14 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { EMAILS, SITE_NAME, SITE_URL } from "@/lib/brand";
-import { homeStories, publishedStories } from "@/lib/catalog";
+import { mergeExtras, overlayHome } from "@/lib/public-feed";
+import { loadHomeFeed } from "@/lib/public-feed-rpc";
 import { storyCopy, storySlug } from "@/lib/format";
 import { useAppStore } from "@/lib/store";
 import type { Lang, Story } from "@/lib/types";
 
 export const Route = createFileRoute("/tesla")({
+  loader: async () => loadHomeFeed(),
   head: () => ({
     meta: [
       { title: `Lecteur Tesla — ${SITE_NAME}` },
@@ -26,14 +28,17 @@ export const Route = createFileRoute("/tesla")({
 const MAIL = `mailto:${EMAILS.investors}?subject=${encodeURIComponent("YES IT'S REAL — Tesla in-car / Theater")}`;
 
 function TeslaReader() {
+  const loaded = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
-  const extras = useAppStore((s) => s.extras);
-  const deskStatus = useAppStore((s) => s.deskStatus);
+  const extras = mergeExtras(loaded?.extras, useAppStore((s) => s.extras));
+  const deskStatus = { ...(loaded?.desk ?? {}), ...useAppStore((s) => s.deskStatus) };
   const setLang = useAppStore((s) => s.setLang);
   const fr = lang === "fr";
-  const week = useMemo(() => homeStories(extras, deskStatus).slice(0, 8), [extras, deskStatus]);
-  const fallback = useMemo(() => publishedStories(extras, deskStatus).slice(0, 8), [extras, deskStatus]);
-  const list = week.length ? week : fallback;
+  const week = useMemo(
+    () => overlayHome(loaded?.latest ?? [], extras, deskStatus, loaded?.frontPageIds).slice(0, 8),
+    [loaded?.latest, loaded?.frontPageIds, extras, deskStatus],
+  );
+  const list = week.length ? week : (loaded?.latest ?? []).slice(0, 8);
   const [open, setOpen] = useState<string | null>(list[0]?.id ?? null);
 
   return (
