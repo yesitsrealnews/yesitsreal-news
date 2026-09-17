@@ -377,6 +377,301 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
+
+  revue({
+    id: "s141",
+    slug: "brussels-flemish-mp-stuck-13-hours-parliament-toilet-lock",
+    slugs: {
+      fr: "bruxelles-depute-flamand-coince-13-heures-toilettes-parlement",
+    },
+    section: "politics",
+    countryCode: "BE",
+    countryName: "Belgium",
+    location: "Brussels, Flemish Parliament",
+    dumbness: 9,
+    sources: [
+      src(
+        "Far-right MP freed after being stuck in Flemish Parliament toilet for 13 hours",
+        "The Brussels Times",
+        "https://www.brusselstimes.com/2319603/far-right-mp-taken-to-hospital-after-being-stuck-for-13-hours-in-parliament-toilet",
+        "2026-09-16",
+        "wire",
+      ),
+      src(
+        "« J’ai dû jouer les MacGyver » : coincé dans les toilettes du Parlement flamand pendant 13 heures",
+        "Sudinfo",
+        "https://www.sudinfo.be/id1194477/article/2026-09-16/jai-du-jouer-les-macgyver-coince-dans-les-toilettes-du-parlement-flamand-pendant",
+        "2026-09-16",
+        "local",
+      ),
+      src(
+        "Un député flamand reste enfermé 13 heures dans les toilettes du Parlement",
+        "La Libre",
+        "https://www.lalibre.be/belgique/politique-belge/2026/09/16/un-depute-flamand-reste-enferme-13-heures-dans-les-toilettes-du-parlement-7HHHM2TK7NH2LACWVKDUIFHZMU/",
+        "2026-09-16",
+        "local",
+      ),
+      src(
+        "Un député passe 13 heures enfermé dans les toilettes",
+        "L'Indépendant",
+        "https://www.lindependant.fr/2026/09/16/un-depute-passe-13-heures-enferme-dans-les-toilettes-prive-dair-il-doit-etre-hospitalise-le-lendemain-matin-13553775.php",
+        "2026-09-16",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-17T09:00:00.000Z",
+    originalLang: "nl",
+    confidence: 0.95,
+    entities: ["Frédéric Erens", "Vlaams Parlement", "Hôpital Saint-Jean"],
+    copy: {
+      en: c(
+        "The lock jammed. The MP spent 13 hours in a Flemish Parliament toilet. He drilled two holes for air.",
+        "Tuesday 15 September, after a meeting. No phone. Motion-sensor ventilation. Crowbar at 6 a.m. Brussels Times, Sudinfo, La Libre, L'Indépendant.",
+        [
+          "The Brussels Times (16 September), Sudinfo, La Libre and L'Indépendant, after HLN / VTM Nieuws: Frédéric Erens, 58, Vlaams Belang MP for Flemish Brabant, went to the toilet after a meeting at the Flemish Parliament in Brussels on Tuesday 15 September. The lock jammed. He had left his phone. He shouted. He knocked. The night security round did not find him.",
+          "Sudinfo, quoting Het Nieuwsblad: the toilet ventilation runs on a motion sensor, so the air stopped. Erens told HLN, as La Libre prints it: ‘I had to play MacGyver. With a metal object I found in the toilets, I made two holes in the door, one at the top and one at the bottom, so oxygen could come in.’ A cleaner found him around 6 a.m. Wednesday. The door would not open from outside. Military police used a crowbar. He was taken to Saint-Jean hospital in Brussels; L'Indépendant says he was light-headed, then better in the open air.",
+          "YES IT'S REAL crossed The Brussels Times, Sudinfo, La Libre and L'Indépendant. Named MP. Named parliament. Named hospital. We do not invent a lock brand. Cover is the Flemish Parliament chamber — Commons, clear licence — not the cubicle.",
+        ],
+        [
+          "The meeting ended. The lock did not.",
+          "Thirteen hours. Two holes. One crowbar.",
+          "Belgium still legislates behind a door that sometimes stays shut.",
+        ],
+        "Brussels Times + Sudinfo + La Libre + L'Indépendant, 16 Sept 2026, after HLN / VTM / Het Nieuwsblad. Events of 15–16 Sept. Erens named. No invented quotes.",
+      ),
+      fr: c(
+        "La serrure bloque. Le député passe 13 heures aux toilettes du Parlement flamand. Il perce deux trous pour l’air.",
+        "Mardi 15 septembre, après une réunion. Pas de téléphone. Ventilation à détecteur. Pied-de-biche à 6 h. The Brussels Times, Sudinfo, La Libre, L'Indépendant.",
+        [
+          "The Brussels Times (16 septembre), Sudinfo, La Libre et L'Indépendant, d’après HLN / VTM Nieuws : Frédéric Erens, 58 ans, député Vlaams Belang du Brabant flamand, passe aux toilettes du Parlement flamand, à Bruxelles, après une réunion, le mardi 15 septembre. La serrure se bloque. Il n’a pas son téléphone. Il crie. Il frappe. La ronde de sécurité ne le trouve pas.",
+          "Sudinfo, d’après Het Nieuwsblad : la ventilation des toilettes ne tourne que s’il y a du mouvement. La nuit, l’air s’arrête. Erens dit à HLN, tel que La Libre le reprend : « J’ai dû jouer les MacGyver. Avec un objet métallique que j’ai trouvé dans les toilettes, j’ai fait deux trous dans la porte, un en haut et un en bas, afin de faire entrer de l’oxygène. » Une employée du nettoyage le trouve vers 6 h, mercredi. La porte ne s’ouvre pas de l’extérieur. La police militaire sort un pied-de-biche. On l’emmène à l’hôpital Saint-Jean, à Bruxelles. L'Indépendant : il était étourdi ; ça va mieux à l’air.",
+          "YES IT'S REAL a croisé The Brussels Times, Sudinfo, La Libre et L'Indépendant. Député nommé. Parlement nommé. Hôpital nommé. On n’invente pas une marque de serrure. La couverture, l’hémicycle du Parlement flamand — Commons, licence claire — pas la cabine.",
+        ],
+        [
+          "La réunion est finie. La serrure, non.",
+          "Treize heures. Deux trous. Un pied-de-biche.",
+          "La Belgique légifère encore derrière une porte qui, parfois, reste fermée.",
+        ],
+        "Brussels Times + Sudinfo + La Libre + L'Indépendant, 16 sept. 2026, d’après HLN / VTM / Het Nieuwsblad. Faits des 15–16 sept. Erens nommé. Aucune citation inventée.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s142",
+    slug: "san-diego-golden-retriever-nash-brings-toys-to-burglar",
+    slugs: {
+      fr: "san-diego-le-golden-retriever-apporte-ses-jouets-au-cambrioleur",
+    },
+    section: "animals",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Sherman Heights, San Diego",
+    dumbness: 9,
+    sources: [
+      src(
+        "‘Guard dog’ Nash greets burglars with a toy inside San Diego house",
+        "FOX 5 San Diego",
+        "https://fox5sandiego.com/news/san-diego-burglary-ring-camera/",
+        "2026-09-16",
+        "local",
+      ),
+      src(
+        "Watch golden retriever beg to play with intruder in San Diego break-in",
+        "Los Angeles Times",
+        "https://www.latimes.com/california/story/2026-09-16/golden-retriever-begs-to-play-with-intruder-in-san-diego-break-in",
+        "2026-09-16",
+        "wire",
+      ),
+      src(
+        "Golden Retriever brings toys to intruder during San Diego home break-in",
+        "New York Post",
+        "https://nypost.com/2026/09/16/us-news/golden-retriever-brings-toys-to-intruder-during-san-diego-home-break-in/",
+        "2026-09-16",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-17T09:10:00.000Z",
+    originalLang: "en",
+    confidence: 0.94,
+    entities: ["Nash", "Dante Rowley", "Sherman Heights", "San Diego Police"],
+    copy: {
+      en: c(
+        "The burglar ate the yogurt. The golden retriever brought him toys. Then he tried the police.",
+        "Sherman Heights, San Diego. Open upstairs window. A ladder. Nash, four, 90 lb. FOX 5, Los Angeles Times, New York Post, 16 September.",
+        [
+          "FOX 5 San Diego (Zara Barker, 16 September 2026), the Los Angeles Times (Grace Toohey) and the New York Post: Dante Rowley and his fiancée were away when a man climbed a ladder to an open second-floor window of their house in Sherman Heights, near 20th and J. Ring cameras. FOX 5: he took off his shoes and his shirt, sat in the foyer, ate yogurt, turkey and cheese from the fridge, then had a nap. Rowley, to FOX 5: he said something like ‘Oh, that’s good, maybe there’s more.’",
+          "Nash, a four-year-old golden retriever, kept coming back with a toy. The Times: another dog went out the dog flap. Rowley, to FOX 5: ‘Nash is not the greatest guard dog.’ He watched from a plane, texted San Diego police, and opened the Ring app for them. Officers sent a drone in, then came in. Nash offered them a toy too. FOX 5 names John Cline, 57, arrested on suspicion of first-degree burglary. The Times, the same day, does not name him.",
+          "YES IT'S REAL crossed FOX 5, the Times and the Post. Named street. Named dog. Named owner. We take the suspect’s name as FOX 5 printed it, not further. Cover is two goldens with a toy — Commons CC — not Nash.",
+        ],
+        [
+          "The job was fetch. The visitor was not.",
+          "Yogurt, turkey, cheese, a nap. Then the dog again.",
+          "San Diego still staffs some houses with a welcoming committee.",
+        ],
+        "FOX 5 San Diego + LA Times + NY Post, 16 Sept 2026. Nash / Dante Rowley named. Suspect named only as FOX 5 named him.",
+      ),
+      fr: c(
+        "Le cambrioleur mange le yaourt. Le golden retriever lui apporte ses jouets. Puis il s’y prend avec la police.",
+        "Sherman Heights, San Diego. Fenêtre ouverte à l’étage. Une échelle. Nash, quatre ans, 40 kg. FOX 5, Los Angeles Times, New York Post, 16 septembre.",
+        [
+          "FOX 5 San Diego (Zara Barker, 16 septembre 2026), le Los Angeles Times (Grace Toohey) et le New York Post : Dante Rowley et sa fiancée sont absents quand un homme pose une échelle sous une fenêtre ouverte, à l’étage, dans leur maison de Sherman Heights, vers 20th et J. Caméras Ring. FOX 5 : il enlève ses chaussures et sa chemise, s’assoit dans l’entrée, mange du yaourt, de la dinde et du fromage dans le frigo, puis fait un somme. Rowley, à FOX 5 : le type a dit à peu près « Oh, that’s good, maybe there’s more. »",
+          "Nash, golden retriever de quatre ans, revient avec un jouet. Le Times : l’autre chien passe par la chatière. Rowley, à FOX 5 : « Nash is not the greatest guard dog. » Il suit ça depuis l’avion, écrit à la police de San Diego, leur ouvre l’appli Ring. Les agents envoient un drone, puis entrent. Nash leur tend aussi un jouet. FOX 5 nomme John Cline, 57 ans, arrêté pour suspicion de cambriolage au premier degré. Le Times, le même jour, ne le nomme pas.",
+          "YES IT'S REAL a croisé FOX 5, le Times et le Post. Rue nommée. Chien nommé. Propriétaire nommé. Le nom du suspect, on le prend tel que FOX 5 l’a imprimé, pas plus. La couverture, deux golden retrievers avec un jouet — Commons, licence claire — pas Nash.",
+        ],
+        [
+          "La mission, c’était rapporter le jouet. Le visiteur, non.",
+          "Yaourt, dinde, fromage, un somme. Puis le chien, encore.",
+          "San Diego équipe encore certaines maisons d’un comité d’accueil.",
+        ],
+        "FOX 5 San Diego + LA Times + NY Post, 16 sept. 2026. Nash / Dante Rowley nommés. Suspect nommé seulement comme FOX 5 l’a nommé.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s143",
+    slug: "gray-haute-saone-caiman-python-boas-seized-from-flat",
+    slugs: {
+      fr: "gray-haute-saone-caiman-python-boas-saisis-dans-un-appartement",
+    },
+    section: "animals",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Gray, Haute-Saône",
+    dumbness: 8,
+    sources: [
+      src(
+        "En Haute-Saône, ce couple détenait sans « aucune qualification » dix reptiles dont un python royal et plusieurs boas",
+        "Le Figaro",
+        "https://www.lefigaro.fr/animaux/en-haute-saone-ce-couple-detenait-sans-aucune-qualification-dix-reptiles-dont-un-python-royal-et-plusieurs-boas-20260908",
+        "2026-09-08",
+        "wire",
+      ),
+      src(
+        "Un couple détenait illégalement un caïman, un python et des boas à son domicile : les gendarmes saisissent onze animaux",
+        "Charente Libre",
+        "https://www.charentelibre.fr/societe/un-couple-detenait-illegalement-un-caiman-un-python-et-des-boas-a-son-domicile-les-gendarmes-saisissent-onze-animaux-30534110.php",
+        "2026-09-08",
+        "local",
+      ),
+      src(
+        "Un python royal, des boas constricteurs ou encore un caïman à lunettes saisis par les gendarmes à Gray",
+        "ICI",
+        "https://www.ici.fr/bourgogne-franche-comte/haute-saone-70/gray/un-python-royal-des-boas-constricteurs-ou-encore-un-caiman-a-lunettes-saisis-par-les-gendarmes-a-gray-en-haute-saone-6853144",
+        "2026-09-08",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-17T09:20:00.000Z",
+    originalLang: "fr",
+    confidence: 0.96,
+    entities: ["Gray", "OFB", "gendarmerie de Haute-Saône", "refuge de Kaa"],
+    copy: {
+      en: c(
+        "A caiman in the flat. A royal python. Three boas. An iguana. Gray, Haute-Saône. No papers.",
+        "Search, Thursday 3 September, 7.30 a.m. Gendarmes and OFB. SPA tip in April. Figaro, Charente Libre, ICI, 8 September.",
+        [
+          "Le Figaro (AFP), Charente Libre and ICI, 8 September 2026, quoting the Haute-Saône gendarmerie: on Thursday 3 September at 7.30 a.m., gendarmes and the French biodiversity office (OFB) searched a couple’s home in Gray, a town of about 5,000, fifty kilometres from Besançon. They took ‘a spectacled caiman, a green iguana, two tegus, two “tortues d’estampe”, three boa constrictors and a royal python, plus a rodent (a prairie dog)’, all held illegally. The pair are not named.",
+          "The gendarmerie: the couple had bought animals that need a declaration, ‘with no qualification to keep these species’. Squadron chief Nicolas Guillemin told AFP, as ICI reports: the animals were ‘a bit everywhere in the flat, in vivariums and cages’. Most reptiles went to the Kaa refuge in Barlin (Pas-de-Calais). The prairie dog went to Parc Sainte-Croix in Rhodes (Moselle). The Vesoul prosecutor had opened a preliminary inquiry after an SPA report in April 2026. Interviews later.",
+          "YES IT'S REAL crossed AFP / Le Figaro, Charente Libre and ICI. Named town. Named agencies. Named shelters. We do not name the couple; the gendarmerie did not. Cover is a spectacled caiman — Commons, public domain — not the animal in Gray.",
+        ],
+        [
+          "The flat had a caiman. The file did not.",
+          "Eleven animals. Zero papers. One prairie dog, for the road.",
+          "France still finds the equator in Haute-Saône, behind a door.",
+        ],
+        "Figaro (AFP) + Charente Libre + ICI, 8 Sept 2026. Search of 3 Sept in Gray (70). Couple unnamed. Inventory as the gendarmerie listed it.",
+      ),
+      fr: c(
+        "Un caïman dans l’appart. Un python royal. Trois boas. Un iguane. Gray, Haute-Saône. Aucun papier.",
+        "Perquisition, jeudi 3 septembre, 7 h 30. Gendarmes et OFB. Signalement SPA en avril. Le Figaro, Charente Libre, ICI, 8 septembre.",
+        [
+          "Le Figaro (AFP), Charente Libre et ICI, 8 septembre 2026, d’après la gendarmerie de Haute-Saône : jeudi 3 septembre, 7 h 30, les gendarmes et l’Office français de la biodiversité (OFB) perquisitionnent le domicile d’un couple à Gray, 5 000 habitants, à une cinquantaine de kilomètres de Besançon. Ils saisissent « un caïman à lunettes, un iguane vert, deux tégus, deux tortues d’estampe, trois boas constricteurs et un python royal, ainsi qu’un rongeur (chien de prairie) », détenus illégalement. Le couple n’est pas nommé.",
+          "La gendarmerie : le couple a acquis des reptiles soumis à déclaration, « ne disposant d’aucune qualification pour détenir ces espèces ». Le chef d’escadron Nicolas Guillemin, à l’AFP, tel qu’ICI le reprend : les animaux étaient « un peu partout dans l’appartement, dans des vivariums et des cages ». La plupart des reptiles partent au refuge de Kaa, à Barlin (Pas-de-Calais). Le chien de prairie, au parc Sainte-Croix, à Rhodes (Moselle). Le parquet de Vesoul avait ouvert une enquête préliminaire après un signalement de la SPA, en avril 2026. Audition plus tard.",
+          "YES IT'S REAL a croisé AFP / Le Figaro, Charente Libre et ICI. Ville nommée. Services nommés. Refuges nommés. On ne nomme pas le couple ; la gendarmerie non plus. La couverture, un caïman à lunettes — Commons, domaine public — pas l’animal de Gray.",
+        ],
+        [
+          "L’appart avait un caïman. Le dossier, non.",
+          "Onze bêtes. Zéro papier. Un chien de prairie, pour la route.",
+          "La France trouve encore l’équateur en Haute-Saône, derrière une porte.",
+        ],
+        "Figaro (AFP) + Charente Libre + ICI, 8 sept. 2026. Perquisition du 3 sept. à Gray (70). Couple non nommé. Inventaire tel que la gendarmerie l’a listé.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s144",
+    slug: "kirkland-911-burglar-bobcat-on-the-stairs-drone",
+    slugs: {
+      fr: "kirkland-il-appelle-le-911-pour-un-cambrioleur-cest-un-lynx-roux",
+    },
+    section: "animals",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Kirkland, Washington",
+    dumbness: 9,
+    sources: [
+      src(
+        "Police bust ‘cat burglar’ bobcat, caught on video in Kirkland home",
+        "The Seattle Times",
+        "https://www.seattletimes.com/seattle-news/law-justice/police-bust-cat-burglar-bobcat-caught-on-video-in-kirkland-home/",
+        "2026-09-02",
+        "local",
+      ),
+      src(
+        "Cat Burglar: Bobcat breaks into Kirkland, WA home after climbing tree",
+        "FOX 13 Seattle",
+        "https://www.fox13seattle.com/news/bobcat-kirkland-wa",
+        "2026-09-01",
+        "local",
+      ),
+      src(
+        "Washington homeowner hears banging, calls 911 before police find growling bobcat at top of stairs",
+        "Fox News",
+        "https://www.foxnews.com/us/washington-homeowner-hears-mysterious-banging-calls-911-police-find-growling-bobcat-top-stairs",
+        "2026-09-02",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-17T09:30:00.000Z",
+    originalLang: "en",
+    confidence: 0.95,
+    entities: ["Kirkland Police", "Moss Bay", "Officer Brian Farman", "Forbes Creek"],
+    copy: {
+      en: c(
+        "He called 911 for a burglar. At the top of the stairs: a bobcat. The police flew a drone indoors.",
+        "Moss Bay, Kirkland, Washington. Open window, a tree, a house cat. No injuries. Seattle Times, FOX 13, Fox News.",
+        [
+          "The Seattle Times (2 September 2026), FOX 13 Seattle (1 September) and Fox News, after the Kirkland Police Department: a resident in the Moss Bay neighbourhood heard banging, thought of a break-in, and called 911. Officers found a bobcat at the top of the stairs. The Times names Officer Brian Farman. Police: the animal had probably climbed a tree and gone through an open window, ‘possibly drawn inside by the resident’s cat.’ The house cat was unharmed. Nobody was hurt — not the owner, not the officers, not the bobcat.",
+          "To keep a distance, officers flew an unmanned aircraft inside the house and herded the animal into a room. Washington Department of Fish and Wildlife arrived, sedated it, and released it near Forbes Creek, close to where it had been found. Kirkland police posted the drone video and called it a ‘cat burglar.’ The papers kept the phrase. We keep it too.",
+          "YES IT'S REAL crossed the Seattle Times, FOX 13 and Fox News. Named neighbourhood. Named officer. Named creek. We do not name the resident; the police did not. Cover is a bobcat — Commons CC — not the one on the landing.",
+        ],
+        [
+          "The burglar had tufted ears.",
+          "A drone in the hallway. A cat on the stairs. A cat in the house, still.",
+          "Kirkland still sends wildlife calls to people with a badge.",
+        ],
+        "Seattle Times 2 Sept ; FOX 13 1 Sept ; Fox News 2 Sept 2026. Kirkland PD. Moss Bay. No injuries. Resident unnamed.",
+      ),
+      fr: c(
+        "Il appelle le 911 pour un cambrioleur. En haut de l’escalier : un lynx roux. La police sort le drone, dans le salon.",
+        "Moss Bay, Kirkland, Washington. Fenêtre ouverte, un arbre, un chat de maison. Personne n’est blessé. Seattle Times, FOX 13, Fox News.",
+        [
+          "The Seattle Times (2 septembre 2026), FOX 13 Seattle (1er septembre) et Fox News, d’après la police de Kirkland : un habitant du quartier de Moss Bay entend du bruit, pense à une intrusion, compose le 911. Les agents trouvent un lynx roux en haut de l’escalier. Le Times nomme l’officer Brian Farman. La police : l’animal a probablement grimpé à un arbre et est passé par une fenêtre ouverte, « possibly drawn inside by the resident’s cat ». Le chat de la maison est indemne. Personne n’est blessé — ni le propriétaire, ni les agents, ni le lynx.",
+          "Pour garder la distance, les agents font voler un drone dans la maison et rabattent l’animal dans une pièce. Le Washington Department of Fish and Wildlife arrive, le sédate, le relâche près de Forbes Creek, à deux pas de là où on l’a trouvé. La police de Kirkland poste la vidéo du drone et parle d’un « cat burglar ». Les journaux gardent le mot. Nous aussi.",
+          "YES IT'S REAL a croisé le Seattle Times, FOX 13 et Fox News. Quartier nommé. Agent nommé. Ruisseau nommé. On ne nomme pas l’habitant ; la police non plus. La couverture, un lynx roux — Commons, licence claire — pas celui du palier.",
+        ],
+        [
+          "Le cambrioleur avait des pinceaux aux oreilles.",
+          "Un drone dans le couloir. Un félin dans l’escalier. Un chat dans la maison, toujours.",
+          "Kirkland envoie encore les appels animaliers à des gens avec un badge.",
+        ],
+        "Seattle Times 2 sept. ; FOX 13 1er sept. ; Fox News 2 sept. 2026. Police de Kirkland. Moss Bay. Aucun blessé. Habitant non nommé.",
+      ),
+    },
+  }),
 ];
 
 /** Desk already published these from the cambuse. Not revue — they are live. */

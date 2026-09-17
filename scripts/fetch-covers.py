@@ -155,6 +155,13 @@ COVERS: dict[str, tuple[str, str]] = {
     "s135": ("File:Nile crocodile head.jpg", "nile crocodile head"),
     "s136": ("File:Trachemys scripta elegans.jpg", "red-eared slider turtles"),
     "s137": ("File:Marché provençal.jpg", "Provence outdoor market"),
+    "s138": ("File:Coq brun noir.jpg", "farm rooster crowing"),
+    "s139": ("File:Carrots of many colors.jpg", "orange carrots bunch"),
+    "s140": ("File:Burenziegenbock 1 (cropped).JPG", "boer goat billy"),
+    "s141": ("File:Flemish Parliament Brussels.jpg", "Flemish Parliament Brussels hemicycle"),
+    "s142": ("File:Dogs playing.JPG", "golden retriever dog toy"),
+    "s143": ("File:Caiman crocodilus pair.jpg", "spectacled caiman"),
+    "s144": ("File:Lynx rufus.jpg", "bobcat lynx rufus"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
@@ -254,8 +261,18 @@ def download(url: str) -> bytes:
 
 
 def main() -> None:
+    import sys
+
+    wanted = [a for a in sys.argv[1:] if a in COVERS]
+    ids = wanted if wanted else sorted(COVERS, key=lambda x: int(x[1:]))
     credits = {}
-    for sid in sorted(COVERS, key=lambda x: int(x[1:])):
+    if CREDITS.exists():
+        try:
+            credits = json.loads(CREDITS.read_text())
+        except json.JSONDecodeError:
+            credits = {}
+
+    for sid in ids:
         print(f"→ {sid}", flush=True)
         try:
             hit = pick(sid)
@@ -286,7 +303,7 @@ def main() -> None:
         except Exception as e:
             print("  fail save", e)
         time.sleep(0.45)
-    CREDITS.write_text(json.dumps(credits, indent=2, ensure_ascii=False))
+    CREDITS.write_text(json.dumps(credits, indent=2, ensure_ascii=False) + "\n")
     print("wrote", CREDITS, "n=", len(credits))
 
 

@@ -103,6 +103,12 @@ export const NEWSROOM_X: Record<string, string> = {
   "usatoday.com": "USATODAY",
   "oregonlive.com": "Oregonian",
   "upi.com": "UPI",
+  "foxnews.com": "FoxNews",
+  "fox5sandiego.com": "fox5sandiego",
+  "nbcsandiego.com": "NBC7SanDiego",
+  "seattletimes.com": "seattletimes",
+  "fox13seattle.com": "fox13seattle",
+  "geekwire.com": "geekwire",
   // ES / IT / DE / NL
   "elpais.com": "el_pais",
   "elmundo.es": "elmundoes",
@@ -122,6 +128,8 @@ export const NEWSROOM_X: Record<string, string> = {
   "faz.net": "faznet",
   "ad.nl": "ADnl",
   "hln.be": "hlnbe",
+  "brusselstimes.com": "BrusselsTimes",
+  "vtm.be": "VTMNIEUWS",
   // World
   "abc.net.au": "abcnews",
   "smh.com.au": "smh",

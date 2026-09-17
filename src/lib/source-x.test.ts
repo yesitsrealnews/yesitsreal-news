@@ -11,6 +11,16 @@ describe("newsroom X", () => {
     assert.deepEqual(hit, { handle: "@ladepechedumidi", href: "https://x.com/ladepechedumidi" });
   });
 
+  it("maps Brussels Times and FOX 5 San Diego to official newsrooms", () => {
+    assert.deepEqual(newsroomXForUrl("https://www.brusselstimes.com/2319603/mp-toilet"), {
+      handle: "@BrusselsTimes",
+      href: "https://x.com/BrusselsTimes",
+    });
+    assert.equal(newsroomXForUrl("https://fox5sandiego.com/news/san-diego-burglary-ring-camera/")?.handle, "@fox5sandiego");
+    assert.equal(newsroomXForUrl("https://www.seattletimes.com/seattle-news/bobcat/")?.handle, "@seattletimes");
+    assert.equal(newsroomXForUrl("https://www.fox13seattle.com/news/bobcat-kirkland-wa")?.handle, "@fox13seattle");
+  });
+
   it("maps subdomains to the parent newsroom", () => {
     const hit = newsroomXForUrl("https://nantes.ouest-france.fr/faits-divers/foo");
     assert.equal(hit?.handle, "@OuestFrance");
