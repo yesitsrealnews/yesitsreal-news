@@ -1280,8 +1280,11 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
+];
 
-  revue({
+/** Desk already published these from the cambuse. Live on the une. */
+export const DESK_LIVE: Story[] = [
+  story({
     id: "s153",
     slug: "thizy-les-bourgs-bans-laundry-on-balconies-not-naples",
     slugs: {
@@ -1346,7 +1349,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s154",
     slug: "chambery-51-bats-trapped-in-liberty-building-motion-lights",
     slugs: {
@@ -1411,7 +1414,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s155",
     slug: "epinassey-valais-cow-falls-into-swimming-pool-at-night",
     slugs: {
@@ -1476,7 +1479,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s156",
     slug: "kirchroth-danube-anaconda-captured-with-laundry-crate",
     slugs: {
@@ -1548,7 +1551,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s157",
     slug: "kirchheim-am-ries-karl-heinz-wallaby-guards-chickens-from-foxes",
     slugs: {
@@ -1620,7 +1623,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s158",
     slug: "warsaw-central-emil-the-moose-holds-trains-eighty-moose-minutes",
     slugs: {
@@ -1691,7 +1694,7 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
-  revue({
+  story({
     id: "s159",
     slug: "la-trinite-gendarmerie-pokemon-theme-megaphone-auchan-queue",
     slugs: {
@@ -1755,7 +1758,7 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
-  revue({
+  story({
     id: "s160",
     slug: "nantes-toothpaste-on-the-peephole-burglar-cylinder-lock",
     slugs: {
@@ -1826,7 +1829,7 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
-  revue({
+  story({
     id: "s161",
     slug: "castilleja-de-la-cuesta-gazpacho-vinegar-four-times-the-limit",
     slugs: {
@@ -1913,7 +1916,7 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
-  revue({
+  story({
     id: "s162",
     slug: "des-moines-exile-brewing-trashed-panda-raccoon-dumpster",
     slugs: {
@@ -1977,7 +1980,7 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
-  revue({
+  story({
     id: "s163",
     slug: "saint-joachim-256450-euros-cash-in-the-town-hall-letterbox",
     slugs: {
@@ -2048,11 +2051,7 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
-];
 
-
-/** Desk already published these from the cambuse. Not revue — they are live. */
-export const DESK_LIVE: Story[] = [
   story({
     id: "s140",
     slug: "latrape-billy-goat-holds-man-in-his-house-firefighters-sedate-it",
