@@ -13,10 +13,25 @@ export function useMergedInbox(): QueueItem[] {
   const publishedExtraIds = extras
     .filter((s) => s.status === "published" || deskStatus[s.id] === "published")
     .map((s) => s.id);
-  const gone = new Set([...purgedIds, ...publishedExtraIds, ...live]);
+  const killed = new Set(
+    Object.entries(deskStatus)
+      .filter(([, v]) => v === "deleted")
+      .map(([id]) => id),
+  );
+  const gone = new Set([...purgedIds, ...publishedExtraIds, ...live, ...killed]);
   const alive = inbox.filter((i) => !gone.has(i.id) && !gone.has(i.story?.id));
   const ids = new Set(alive.map((i) => i.id));
-  const seeds = SEED_INBOX.filter((i) => !gone.has(i.id) && !gone.has(i.story?.id) && !ids.has(i.id));
+  // Revue de presse (SEED_INBOX): stay in File d'attente until Publier or a desk
+  // "deleted" override. purgedIds used to bury the whole morning review after
+  // one Supprimer, which left La Cambuse empty.
+  const seeds = SEED_INBOX.filter((i) => {
+    const sid = i.story?.id ?? i.id;
+    if (live.has(i.id) || live.has(sid)) return false;
+    if (publishedExtraIds.includes(i.id) || publishedExtraIds.includes(sid)) return false;
+    if (killed.has(i.id) || killed.has(sid)) return false;
+    if (ids.has(i.id)) return false;
+    return true;
+  });
   return [...alive, ...seeds]
     .map(queueWithFrench)
     .sort((a, b) => +new Date(b.submittedAt) - +new Date(a.submittedAt));

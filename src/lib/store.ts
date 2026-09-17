@@ -508,7 +508,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 9,
+      version: 10,
       migrate: (persisted) => {
         const s = (persisted ?? {}) as {
           lang?: string;
@@ -527,7 +527,16 @@ export const useAppStore = create<AppState>()(
         const fromRejected = oldRejected
           .map((r) => (r && typeof r === "object" && "id" in r ? String((r as { id: string }).id) : ""))
           .filter(Boolean);
-        s.purgedIds = [...new Set([...(s.purgedIds ?? []), ...fromRejected])].slice(0, 500);
+        const purged = [...new Set([...(s.purgedIds ?? []), ...fromRejected])];
+        // Revue de presse seeds must reappear in File d'attente until Publier.
+        s.purgedIds = purged
+          .filter((id) => {
+            const n = /^s(\d+)$/.exec(id);
+            if (!n) return true;
+            const num = Number(n[1]);
+            return num < 135 || num === 140 || num > 199;
+          })
+          .slice(0, 500);
         delete s.rejected;
         return s as typeof persisted;
       },

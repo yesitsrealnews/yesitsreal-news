@@ -74,7 +74,14 @@ describe("RSS_FEEDS", () => {
     assert.ok(morning.some((f) => /insolite/i.test(f.name)));
     assert.ok(morning.some((f) => f.domain === "dhnet.be"));
     assert.ok(RSS_FEEDS.some((f) => f.domain === "upi.com"));
+    assert.ok(RSS_FEEDS.some((f) => f.domain === "letelegramme.fr" && /faits-divers/i.test(f.name)));
+    assert.ok(RSS_FEEDS.some((f) => f.domain === "maire-info.com"));
+    assert.ok(RSS_FEEDS.some((f) => f.domain === "japantimes.co.jp"));
+    assert.ok(RSS_FEEDS.some((f) => f.domain === "jeuneafrique.com"));
+    assert.ok(RSS_FEEDS.some((f) => f.name === "Metro UK weird"));
     assert.equal(feedKind(RSS_FEEDS.find((f) => f.name === "20 Minutes insolite")!), "insolite");
+    assert.equal(feedKind(RSS_FEEDS.find((f) => f.name === "Metro UK weird")!), "insolite");
+    assert.equal(feedKind(RSS_FEEDS.find((f) => f.name === "BFMTV police-justice")!), "faits-divers");
     assert.equal(feedPriority(RSS_FEEDS.find((f) => f.name === "UPI Odd News")!), 1);
   });
 

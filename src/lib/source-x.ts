@@ -164,6 +164,34 @@ export const NEWSROOM_X: Record<string, string> = {
   "phys.org": "physorg",
   "nature.com": "Nature",
   "theconversation.com": "ConversationEDU",
+  // FR — extra PQR / municipal / outre-mer
+  "lamontagne.fr": "LaMontagneFr",
+  "corsematin.com": "CorseMatin",
+  "corsenetinfos.corsica": "CorseNetInfos",
+  "maire-info.com": "Maire_info",
+  "huffingtonpost.fr": "HuffPostFR",
+  "tahiti-infos.com": "TahitiInfos",
+  // Belgique / Suisse
+  "lavenir.net": "lavenir_net",
+  "tdg.ch": "tdgch",
+  "24heures.ch": "24heuresch",
+  "20min.ch": "20minCH",
+  "rts.ch": "rtsinfo",
+  // World desks added 2026-09-17
+  "metro.co.uk": "MetroUK",
+  "wfla.com": "WFLA",
+  "eldiario.es": "eldiarioes",
+  "ilmessaggero.it": "IlMessaggero",
+  "publico.pt": "publico",
+  "observador.pt": "observadorpt",
+  "orf.at": "ORF",
+  "derstandard.at": "derStandard",
+  "nos.nl": "NOS",
+  "nhk.or.jp": "NHK",
+  "straitstimes.com": "StraitsTimes",
+  "theage.com.au": "theage",
+  "jeuneafrique.com": "JeuneAfrique",
+  "eltiempo.com": "ELTIEMPO",
 };
 
 const HANDLE_RE = /^[A-Za-z0-9_]{1,15}$/;

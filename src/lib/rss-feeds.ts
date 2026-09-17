@@ -1,4 +1,4 @@
-/** Verified public RSS/Atom endpoints (probed 2026-09-11, expanded 2026-09-15). */
+/** Verified public RSS/Atom endpoints (probed 2026-09-11, expanded 2026-09-17). */
 
 import type { RssKind } from "@/lib/rss-keep";
 
@@ -193,13 +193,63 @@ export const RSS_FEEDS: RssFeed[] = [
   { name: "Phys.org", domain: "phys.org", url: "https://phys.org/rss-feed/", region: "Science", countryCode: "US" },
   { name: "Nature", domain: "nature.com", url: "https://www.nature.com/nature.rss", region: "Science", countryCode: "GB" },
   { name: "The Conversation Europe", domain: "theconversation.com", url: "https://www.theconversation.com/europe/articles.atom", region: "Science / ideas", countryCode: "FR" },
+
+  // --- Expansion 2026-09-17 (probed live) ---
+  { name: "Le Télégramme faits-divers", domain: "letelegramme.fr", url: "https://www.letelegramme.fr/faits-divers/rss.xml", region: "Bretagne — faits-divers", countryCode: "FR", kind: "faits-divers", priority: 1 },
+  { name: "France Bleu une", domain: "francebleu.fr", url: "https://www.francebleu.fr/rss/a-la-une.xml", region: "FR — réseaux locaux", countryCode: "FR", priority: 1 },
+  { name: "Corse Net Infos", domain: "corsenetinfos.corsica", url: "https://www.corsenetinfos.corsica/xml/syndication.rss", region: "Corse", countryCode: "FR", priority: 1 },
+  { name: "Tahiti Infos", domain: "tahiti-infos.com", url: "https://www.tahiti-infos.com/xml/syndication.rss", region: "FR — Polynésie", countryCode: "FR" },
+  { name: "Maire-info", domain: "maire-info.com", url: "https://www.maire-info.com/rss", region: "FR — municipal", countryCode: "FR", priority: 1 },
+  { name: "20 Minutes société", domain: "20minutes.fr", url: "https://www.20minutes.fr/feeds/rss-societe.xml", region: "FR — société", countryCode: "FR" },
+  { name: "BFMTV police-justice", domain: "bfmtv.com", url: "https://www.bfmtv.com/rss/police-justice/", region: "FR — faits-divers", countryCode: "FR", kind: "faits-divers", priority: 1 },
+  { name: "L'Obs société", domain: "nouvelobs.com", url: "https://www.nouvelobs.com/societe/rss.xml", region: "FR — société", countryCode: "FR" },
+  { name: "L'Express actualité", domain: "lexpress.fr", url: "https://www.lexpress.fr/rss/actualite.xml", region: "FR — national", countryCode: "FR" },
+  { name: "HuffPost FR", domain: "huffingtonpost.fr", url: "https://www.huffingtonpost.fr/feeds/index.xml", region: "FR — national", countryCode: "FR" },
+  { name: "DH faits-divers", domain: "dhnet.be", url: "https://www.dhnet.be/arc/outboundfeeds/rss/section/faits-divers/?outputType=xml", region: "BE — faits-divers", countryCode: "BE", kind: "faits-divers", priority: 1 },
+  { name: "La Libre faits-divers", domain: "lalibre.be", url: "https://www.lalibre.be/arc/outboundfeeds/rss/section/belgique/faits-divers/?outputType=xml", region: "BE — faits-divers", countryCode: "BE", kind: "faits-divers", priority: 1 },
+  { name: "L'Avenir", domain: "lavenir.net", url: "https://www.lavenir.net/arc/outboundfeeds/rss/?outputType=xml", region: "BE — Wallonie", countryCode: "BE", priority: 1 },
+  { name: "RTBF régions", domain: "rtbf.be", url: "https://rss.rtbf.be/article/rss/highlight_rtbfinfo_regions.xml", region: "BE — régions", countryCode: "BE", priority: 1 },
+  { name: "Metro UK weird", domain: "metro.co.uk", url: "https://www.metro.co.uk/news/weird/feed/", region: "UK — weird", countryCode: "GB", kind: "insolite", priority: 1 },
+  { name: "NY Post weird but true", domain: "nypost.com", url: "https://nypost.com/tag/weird-but-true/feed/", region: "US — oddities", countryCode: "US", kind: "insolite", priority: 1 },
+  { name: "NPR Science", domain: "npr.org", url: "https://feeds.npr.org/1007/rss.xml", region: "Science", countryCode: "US" },
+  { name: "ABC News US", domain: "abcnews.go.com", url: "https://abcnews.go.com/abcnews/topstories", region: "US", countryCode: "US" },
+  { name: "NBC News", domain: "nbcnews.com", url: "https://feeds.nbcnews.com/nbcnews/public/news", region: "US", countryCode: "US" },
+  { name: "Fox News", domain: "foxnews.com", url: "https://moxie.foxnews.com/google-publisher/latest.xml", region: "US", countryCode: "US" },
+  { name: "LA Times California", domain: "latimes.com", url: "https://www.latimes.com/california/rss2.0.xml", region: "US — California", countryCode: "US" },
+  { name: "WFLA", domain: "wfla.com", url: "https://www.wfla.com/feed/", region: "US — Tampa Bay", countryCode: "US", kind: "faits-divers" },
+  { name: "FOX 5 San Diego", domain: "fox5sandiego.com", url: "https://www.fox5sandiego.com/feed/", region: "US — San Diego", countryCode: "US", kind: "faits-divers" },
+  { name: "ABC Sociedad", domain: "abc.es", url: "https://www.abc.es/rss/feeds/abc_SociedadSociedad.xml", region: "ES — sociedad", countryCode: "ES" },
+  { name: "El Correo", domain: "elcorreo.com", url: "https://www.elcorreo.com/rss/atom/", region: "ES — Pays basque", countryCode: "ES" },
+  { name: "Heraldo de Aragón", domain: "heraldo.es", url: "https://www.heraldo.es/rss/", region: "ES — Aragon", countryCode: "ES" },
+  { name: "eldiario.es", domain: "eldiario.es", url: "https://www.eldiario.es/rss/", region: "ES", countryCode: "ES" },
+  { name: "Il Messaggero", domain: "ilmessaggero.it", url: "https://www.ilmessaggero.it/rss/home.xml", region: "IT — Lazio", countryCode: "IT" },
+  { name: "Il Mattino", domain: "ilmattino.it", url: "https://www.ilmattino.it/rss/home.xml", region: "IT — Campania", countryCode: "IT" },
+  { name: "Público PT", domain: "publico.pt", url: "https://feeds.feedburner.com/PublicoRSS", region: "PT", countryCode: "PT" },
+  { name: "Correio da Manhã", domain: "cmjornal.pt", url: "https://www.cmjornal.pt/rss", region: "PT", countryCode: "PT", kind: "faits-divers" },
+  { name: "Observador", domain: "observador.pt", url: "https://observador.pt/feed/", region: "PT", countryCode: "PT" },
+  { name: "ORF", domain: "orf.at", url: "https://rss.orf.at/news.xml", region: "AT", countryCode: "AT" },
+  { name: "Der Standard", domain: "derstandard.at", url: "https://www.derstandard.at/rss", region: "AT", countryCode: "AT" },
+  { name: "NOS", domain: "nos.nl", url: "https://feeds.nos.nl/nosnieuwsalgemeen", region: "NL", countryCode: "NL" },
+  { name: "Japan Times", domain: "japantimes.co.jp", url: "https://www.japantimes.co.jp/feed/", region: "JP", countryCode: "JP" },
+  { name: "Asahi Shimbun", domain: "asahi.com", url: "https://www.asahi.com/rss/asahi/newsheadlines.rdf", region: "JP", countryCode: "JP" },
+  { name: "NHK", domain: "nhk.or.jp", url: "https://www3.nhk.or.jp/rss/news/cat0.xml", region: "JP", countryCode: "JP" },
+  { name: "Straits Times world", domain: "straitstimes.com", url: "https://www.straitstimes.com/news/world/rss.xml", region: "SG — world", countryCode: "SG" },
+  { name: "Philippine Daily Inquirer", domain: "inquirer.net", url: "https://www.inquirer.net/fullfeed", region: "PH", countryCode: "PH" },
+  { name: "Jeune Afrique", domain: "jeuneafrique.com", url: "https://www.jeuneafrique.com/feed/", region: "Afrique", countryCode: "FR" },
+  { name: "RFI Afrique", domain: "rfi.fr", url: "https://www.rfi.fr/fr/afrique/rss", region: "FR — Afrique", countryCode: "FR" },
+  { name: "France 24 Afrique", domain: "france24.com", url: "https://www.france24.com/fr/afrique/rss", region: "FR — Afrique", countryCode: "FR" },
+  { name: "Punch Nigeria", domain: "punchng.com", url: "https://www.punchng.com/feed/", region: "NG — Lagos", countryCode: "NG" },
+  { name: "El Tiempo", domain: "eltiempo.com", url: "https://www.eltiempo.com/rss/colombia.xml", region: "CO — Bogotá", countryCode: "CO" },
+  { name: "g1 Fantástico", domain: "g1.globo.com", url: "https://g1.globo.com/rss/g1/fantastico/", region: "BR — insolite", countryCode: "BR", kind: "insolite" },
+  { name: "The Age", domain: "theage.com.au", url: "https://www.theage.com.au/rss/feed.xml", region: "AU — Melbourne", countryCode: "AU" },
+  { name: "ABC Australia just in", domain: "abc.net.au", url: "https://www.abc.net.au/news/feed/2942460/rss.xml", region: "AU", countryCode: "AU" },
 ];
 
 function inferKind(f: RssFeed): RssKind {
   if (f.kind) return f.kind;
   const blob = `${f.name} ${f.url} ${f.region}`;
-  if (/insolite|odd news|oddities|\bweird\b|oddly/i.test(blob)) return "insolite";
-  if (/faits-divers|faits divers|cronaca|panorama|sucesos/i.test(blob)) return "faits-divers";
+  if (/insolite|odd news|oddities|\bweird\b|oddly|fantastico|weird but true/i.test(blob)) return "insolite";
+  if (/faits-divers|faits divers|cronaca|panorama|sucesos|sociedad|police-justice/i.test(blob)) return "faits-divers";
   if (/animaux|animal/i.test(blob)) return "animaux";
   return "general";
 }
@@ -225,10 +275,10 @@ for (const f of RSS_FEEDS) {
   const kind = inferKind(f);
   if (!RSS_BY_DOMAIN[d] || kind === "general") RSS_BY_DOMAIN[d] = f.url;
 }
-RSS_BY_DOMAIN["francebleu.fr"] = RSS_BY_DOMAIN["ici.fr"] ?? "https://www.ici.fr/rss/a-la-une.xml";
 RSS_BY_DOMAIN["franceinfo.fr"] = RSS_BY_DOMAIN["francetvinfo.fr"] ?? "https://www.franceinfo.fr/titres.rss";
 RSS_BY_DOMAIN["franceinter.fr"] = RSS_BY_DOMAIN["radiofrance.fr"] ?? "https://www.radiofrance.fr/franceinter/rss";
 RSS_BY_DOMAIN["nordeclair.fr"] = RSS_BY_DOMAIN["lavoixdunord.fr"] ?? "https://www.lavoixdunord.fr/rss.xml";
+
 
 export function rssUrlForDomain(domain: string): string | undefined {
   return RSS_BY_DOMAIN[domain.toLowerCase().replace(/^www\./, "")];

@@ -1,13 +1,16 @@
 import type { QueueItem, Story } from "@/lib/types";
+import { coverDisplaySrc } from "@/lib/covers";
 import { REVUE_STORIES } from "@/lib/data/stories-revue";
 
 function revueItem(story: Story): QueueItem {
   const fr = story.copy.fr ?? story.copy.en;
+  const leadImage = coverDisplaySrc(story.id);
   return {
     id: story.id,
     submittedBy: "Veille · revue de presse",
     submittedAt: story.publishedAt,
     sourceUrl: story.sources[0]!.url,
+    ...(leadImage ? { leadImage } : {}),
     pack: {
       confidence: story.confidence,
       claims: story.sources.slice(0, 3).map((s) => ({

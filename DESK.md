@@ -93,6 +93,8 @@ If rights are unclear → keep Commons thematic (place, institution, object). To
 
 Chasser (vrai, déjà publié, sourcé, ton plat) :
 
+**Base de recherche (toutes les revues)** : `src/lib/data/revue-search.ts` + `src/lib/data/desk-beat.md`. France toujours lourd ; le reste tourne. Ne pas resserrer la liste à trois affiliés US.
+
 1. Accidents spectaculaires / idiots **sans victimes humaines** (dégâts matériels)
 2. Divorces / jugements / pétitions absurdes
 3. Voleurs de culottes / fétichismes absurdes (**adultes only**)

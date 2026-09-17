@@ -66,7 +66,8 @@ function SourcesPage() {
               Base régionale&nbsp;: {REGIONAL_PRESS.length} titres ({withRss} avec RSS) · flux
               branchés&nbsp;: {RSS_FEEDS.length} · file du matin&nbsp;: {morningN} · insolite&nbsp;:{" "}
               {insoliteN} · faits-divers&nbsp;: {faitsN} · allowlist&nbsp;: {allowList.length} ·
-              denylist&nbsp;: {denyList.length}
+              denylist&nbsp;: {denyList.length}. Les revues suivantes scannent les clusters FR +
+              BE/CH/QC à chaque fois, le reste du monde tourne.
             </p>
           </div>
           <Button type="button" onClick={() => seedRegionalPress()}>
