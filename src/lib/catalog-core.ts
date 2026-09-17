@@ -128,6 +128,25 @@ export function homeStories(
   return [...pins, ...week];
 }
 
+/** Public une: keep the server-ordered list, then append desk extras the HTML missed. */
+export function appendToHome(serverLatest: Story[], extras: Story[], deskStatus?: DeskStatusMap): Story[] {
+  const seen = new Set<string>();
+  const out: Story[] = [];
+  for (const s of serverLatest) {
+    if (!s?.id || seen.has(s.id) || !isPubliclyListed(s, deskStatus)) continue;
+    seen.add(s.id);
+    out.push(s);
+  }
+  const extraListed = extras
+    .filter((s) => s?.id && !seen.has(s.id) && isPubliclyListed(s, deskStatus) && isThisWeek(s))
+    .sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
+  for (const s of extraListed) {
+    seen.add(s.id);
+    out.push(s);
+  }
+  return out;
+}
+
 export function sponsoredStory(seed: Story[], extras: Story[], deskStatus?: DeskStatusMap): Story | undefined {
   return mergeStories(seed, extras).find(
     (s) =>

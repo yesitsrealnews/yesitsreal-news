@@ -18,7 +18,12 @@ export function useMergedInbox(): QueueItem[] {
       .filter(([, v]) => v === "deleted")
       .map(([id]) => id),
   );
-  const gone = new Set([...purgedIds, ...publishedExtraIds, ...live, ...killed]);
+  const gone = new Set([
+    ...purgedIds.filter((id) => !id.startsWith("q-rss-")),
+    ...publishedExtraIds,
+    ...live,
+    ...killed,
+  ]);
   const alive = inbox.filter((i) => !gone.has(i.id) && !gone.has(i.story?.id));
   const ids = new Set(alive.map((i) => i.id));
   // Revue de presse (SEED_INBOX): stay in File d'attente until Publier or a desk

@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { AssignForm } from "@/components/admin/assign-form";
 import { useMergedInbox } from "@/lib/admin-inbox";
+import { fetchStoredRss } from "@/lib/desk-rss-client";
 import { formatDateTime, storyCopy } from "@/lib/format";
 import { makeQueueItem } from "@/lib/pipeline";
 import type { QueueItem } from "@/lib/types";
@@ -14,6 +15,7 @@ export const Route = createFileRoute("/admin/inbox")({ component: InboxPage });
 function InboxPage() {
   const inbox = useMergedInbox();
   const upsertInbox = useAppStore((s) => s.upsertInbox);
+  const ingestRss = useAppStore((s) => s.ingestRss);
   const publishQueueItem = useAppStore((s) => s.publishQueueItem);
   const deleteInboxItem = useAppStore((s) => s.deleteInboxItem);
   const navigate = useNavigate();
@@ -25,23 +27,18 @@ function InboxPage() {
   useEffect(() => {
     let cancelled = false;
     void (async () => {
-      try {
-        const res = await fetch("/api/rss-pull?stored=1", { credentials: "include" });
-        const data = (await res.json()) as { ok?: boolean; count?: number; at?: string; items?: QueueItem[] };
-        if (cancelled || !res.ok || !data.ok) return;
-        for (const item of data.items ?? []) upsertInbox(item);
-        if (data.at) {
-          const when = formatDateTime(data.at, "fr");
-          setPullNote(`${data.count ?? 0} pistes RSS en cache · dernier tirage ${when}`);
-        }
-      } catch {
-        /* preview without desk cookie is fine */
+      const stored = await fetchStoredRss();
+      if (cancelled || !stored) return;
+      ingestRss(stored.items);
+      if (stored.at) {
+        const when = formatDateTime(stored.at, "fr");
+        setPullNote(`${stored.count} pistes RSS en cache · dernier tirage ${when}`);
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, [upsertInbox]);
+  }, [ingestRss]);
 
   function createPapier() {
     const item = makeQueueItem({
@@ -64,7 +61,7 @@ function InboxPage() {
         setPullNote("Les flux n’ont pas répondu. Réessaie dans une minute.");
         return;
       }
-      for (const item of data.items ?? []) upsertInbox(item);
+      ingestRss(data.items ?? []);
       const fail = data.failed?.length ? ` · silencieux : ${data.failed.slice(0, 4).join(", ")}` : "";
       setPullNote(`${data.count ?? 0} pistes sur ${data.scanned ?? "?"} flux${fail}`);
     } catch {

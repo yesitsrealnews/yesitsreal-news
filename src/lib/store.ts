@@ -65,6 +65,7 @@ interface AppState {
   addSubmission: (s: Submission) => void;
   setInbox: (items: QueueItem[]) => void;
   mergeInboxFromServer: (items: QueueItem[]) => void;
+  ingestRss: (items: QueueItem[]) => void;
   upsertInbox: (item: QueueItem) => void;
   rejectItem: (id: string, reason: string) => void;
   publishItem: (id: string) => void;
@@ -162,9 +163,27 @@ export const useAppStore = create<AppState>()(
         });
         set({ inbox: [...incoming, ...local] });
       },
+      ingestRss: (items) => {
+        const incoming = items.filter((i) => i?.id);
+        if (!incoming.length) return;
+        const incomingIds = new Set(incoming.flatMap((i) => [i.id, i.story?.id].filter(Boolean) as string[]));
+        const local = get().inbox.filter((i) => !incomingIds.has(i.id) && !incomingIds.has(i.story?.id));
+        set({
+          inbox: [...incoming, ...local],
+          purgedIds: get().purgedIds.filter((id) => !incomingIds.has(id)),
+        });
+      },
       upsertInbox: (item) => {
+        const rss = item.id.startsWith("q-rss-") || item.submittedBy.startsWith("Veille ·") || item.submittedBy.startsWith("RSS");
         const purged = new Set(get().purgedIds);
-        if (purged.has(item.id) || (item.story?.id && purged.has(item.story.id))) return;
+        if (!rss && (purged.has(item.id) || (item.story?.id && purged.has(item.story.id)))) return;
+        if (rss) {
+          set({
+            inbox: [item, ...get().inbox.filter((i) => i.id !== item.id)],
+            purgedIds: get().purgedIds.filter((id) => id !== item.id && id !== item.story?.id),
+          });
+          return;
+        }
         set({ inbox: [item, ...get().inbox.filter((i) => i.id !== item.id)] });
       },
       rejectItem: (id, reason) => {
@@ -258,14 +277,15 @@ export const useAppStore = create<AppState>()(
       deleteInboxItem: (id) => {
         const fromInbox = get().inbox.find((i) => i.id === id);
         const storyId = fromInbox?.story.id ?? id;
-        const purged = [...new Set([id, storyId, ...get().purgedIds])].slice(0, 500);
+        const isCatalog = /^s\d+$/.test(storyId);
+        const purged = isCatalog ? [...new Set([id, storyId, ...get().purgedIds])].slice(0, 500) : get().purgedIds;
         set({
           inbox: get().inbox.filter((i) => i.id !== id && i.story.id !== storyId),
           rejected: [],
           purgedIds: purged,
           extras: get().extras.filter((s) => s.id !== id && s.id !== storyId),
         });
-        if (/^s\d+$/.test(storyId)) {
+        if (isCatalog) {
           void get().applyStoryDeskStatus(storyId, "deleted");
         }
       },
@@ -514,7 +534,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 11,
+      version: 12,
       migrate: (persisted) => {
         const s = (persisted ?? {}) as {
           lang?: string;
@@ -535,9 +555,10 @@ export const useAppStore = create<AppState>()(
           .map((r) => (r && typeof r === "object" && "id" in r ? String((r as { id: string }).id) : ""))
           .filter(Boolean);
         const purged = [...new Set([...(s.purgedIds ?? []), ...fromRejected])];
-        // Revue de presse seeds must reappear in File d'attente until Publier.
+        // Revue seeds reappear until Publier. RSS leads are not durable deletes.
         s.purgedIds = purged
           .filter((id) => {
+            if (id.startsWith("q-rss-")) return false;
             const n = /^s(\d+)$/.exec(id);
             if (!n) return true;
             const num = Number(n[1]);

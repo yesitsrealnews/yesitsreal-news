@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { mergeStories, publishedStories, type DeskStatusMap } from "./catalog-core.ts";
+import { appendToHome, mergeStories, publishedStories, type DeskStatusMap } from "./catalog-core.ts";
 import type { Story, StoryCopy } from "./types.ts";
 
 const copy: StoryCopy = {
@@ -80,5 +80,25 @@ describe("publishedStories + desk", () => {
     const list = publishedStories(seed, extras, desk);
     assert.equal(list.length, 1);
     assert.equal(list[0]?.slug, "thizy-linge");
+  });
+});
+
+describe("appendToHome", () => {
+  it("keeps the server une order and ignores persist extras with the same id", () => {
+    const server = [
+      fake({ id: "s163", slug: "saint-joachim" }),
+      fake({ id: "s140", slug: "latrape-bouc" }),
+    ];
+    const extras = [fake({ id: "s163", slug: "rss-junk", publishedAt: "2026-09-18T01:00:00.000Z" })];
+    const list = appendToHome(server, extras);
+    assert.deepEqual(list.map((s) => s.id), ["s163", "s140"]);
+    assert.equal(list[0]?.slug, "saint-joachim");
+  });
+
+  it("appends a fresh extra the HTML missed", () => {
+    const server = [fake({ id: "s163", slug: "saint-joachim" })];
+    const extras = [fake({ id: "s164", slug: "new-desk-paper", publishedAt: "2026-09-18T01:00:00.000Z" })];
+    const list = appendToHome(server, extras);
+    assert.deepEqual(list.map((s) => s.id), ["s163", "s164"]);
   });
 });

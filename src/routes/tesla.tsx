@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { EMAILS, SITE_NAME, SITE_URL } from "@/lib/brand";
-import { mergeExtras, overlayDesk, overlayHome } from "@/lib/public-feed";
+import { composePublicHome, mergeExtras, overlayDesk } from "@/lib/public-feed";
 import { loadHomeFeed } from "@/lib/public-feed-rpc";
+import { useLiveHome } from "@/lib/use-live-home";
 import { storyCopy, storySlug } from "@/lib/format";
 import { useAppStore } from "@/lib/store";
 import type { Lang, Story } from "@/lib/types";
@@ -28,15 +29,15 @@ export const Route = createFileRoute("/tesla")({
 const MAIL = `mailto:${EMAILS.investors}?subject=${encodeURIComponent("YES IT'S REAL — Tesla in-car / Theater")}`;
 
 function TeslaReader() {
-  const loaded = Route.useLoaderData();
+  const loaded = useLiveHome(Route.useLoaderData());
   const lang = useAppStore((s) => s.lang);
   const extras = mergeExtras(loaded?.extras, useAppStore((s) => s.extras));
   const deskStatus = overlayDesk(loaded?.desk, useAppStore((s) => s.deskStatus));
   const setLang = useAppStore((s) => s.setLang);
   const fr = lang === "fr";
   const week = useMemo(
-    () => overlayHome(loaded?.latest ?? [], extras, deskStatus, loaded?.frontPageIds).slice(0, 8),
-    [loaded?.latest, loaded?.frontPageIds, extras, deskStatus],
+    () => composePublicHome(loaded?.latest ?? [], extras, deskStatus).slice(0, 8),
+    [loaded?.latest, extras, deskStatus],
   );
   const list = week.length ? week : (loaded?.latest ?? []).slice(0, 8);
   const [open, setOpen] = useState<string | null>(list[0]?.id ?? null);

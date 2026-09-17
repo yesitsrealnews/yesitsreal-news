@@ -42,10 +42,10 @@ function cacheControlFor(pathname: string): string | null {
     return "public, max-age=31536000, immutable";
   }
   if (pathname.endsWith(".xml") || pathname === "/robots.txt" || pathname === "/ads.txt") {
-    return "public, s-maxage=600, stale-while-revalidate=86400";
+    return "public, s-maxage=120, stale-while-revalidate=300";
   }
   if (!pathname.startsWith("/api/")) {
-    return "public, s-maxage=60, stale-while-revalidate=86400";
+    return "public, s-maxage=30, stale-while-revalidate=90";
   }
   return null;
 }

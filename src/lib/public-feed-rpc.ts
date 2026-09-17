@@ -24,7 +24,7 @@ async function deskAndCatalog() {
   return { desk, catalog, bake };
 }
 
-async function homePayload() {
+export async function homePayload() {
   const { desk, catalog, bake } = await deskAndCatalog();
   const latest = catalog.homeStories(desk.extras, desk.desk, desk.frontPageIds).map((s) => slimCard(bake(s)));
   const sponsored = catalog.sponsoredStory(desk.extras, desk.desk);

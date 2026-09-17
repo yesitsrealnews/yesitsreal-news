@@ -7,8 +7,9 @@ import { useAppStore } from "@/lib/store";
 import { itemListJsonLd, orgJsonLd, SEO_FR, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { coverDisplaySrc, coverSizes, coverSrcSet } from "@/lib/covers";
-import { mergeExtras, overlayDesk, overlayHome, overlaySponsored } from "@/lib/public-feed";
+import { composePublicHome, mergeExtras, overlayDesk, overlaySponsored } from "@/lib/public-feed";
 import { loadHomeFeed } from "@/lib/public-feed-rpc";
+import { useLiveHome } from "@/lib/use-live-home";
 
 export const Route = createFileRoute("/")({
   loader: async () => loadHomeFeed(),
@@ -58,11 +59,10 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const loaded = Route.useLoaderData();
+  const loaded = useLiveHome(Route.useLoaderData());
   const lang = useAppStore((s) => s.lang);
   const extras = mergeExtras(loaded?.extras, useAppStore((s) => s.extras));
   const storeDesk = useAppStore((s) => s.deskStatus);
-  const storeFrontIds = useAppStore((s) => s.frontPageIds);
   const setFrontPageIds = useAppStore((s) => s.setFrontPageIds);
   const setDeskStatus = useAppStore((s) => s.setDeskStatus);
   const addNewsletter = useAppStore((s) => s.addNewsletter);
@@ -74,9 +74,8 @@ function Home() {
     }
   }, [loaded?.frontPageIds, loaded?.desk, setFrontPageIds, setDeskStatus]);
 
-  const frontPageIds = storeFrontIds.length ? storeFrontIds : (loaded?.frontPageIds ?? []);
   const deskStatus = overlayDesk(loaded?.desk, storeDesk);
-  const latest = overlayHome(loaded?.latest ?? [], extras, deskStatus, frontPageIds);
+  const latest = composePublicHome(loaded?.latest ?? [], extras, deskStatus);
   const sponsored = overlaySponsored(loaded?.sponsored ? [loaded.sponsored] : [], extras, deskStatus) ?? loaded?.sponsored ?? undefined;
 
   return (

@@ -59,6 +59,7 @@ import { Route as ApiDeskFrontPageRouteImport } from './routes/api/desk-front-pa
 import { Route as ApiDeskRewriteRouteImport } from './routes/api/desk-rewrite'
 import { Route as ApiDeskStoryStatusRouteImport } from './routes/api/desk-story-status'
 import { Route as ApiIngestRouteImport } from './routes/api/ingest'
+import { Route as ApiPublicHomeRouteImport } from './routes/api/public-home'
 import { Route as ApiPublishRouteImport } from './routes/api/publish'
 import { Route as ApiRssPullRouteImport } from './routes/api/rss-pull'
 import { Route as ApiScoreRouteImport } from './routes/api/score'
@@ -317,6 +318,11 @@ const ApiIngestRoute = ApiIngestRouteImport.update({
   path: '/api/ingest',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHomeRoute = ApiPublicHomeRouteImport.update({
+  id: '/api/public-home',
+  path: '/api/public-home',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublishRoute = ApiPublishRouteImport.update({
   id: '/api/publish',
   path: '/api/publish',
@@ -403,6 +409,7 @@ export interface FileRoutesByFullPath {
   '/api/desk-rewrite': typeof ApiDeskRewriteRoute
   '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
+  '/api/public-home': typeof ApiPublicHomeRoute
   '/api/publish': typeof ApiPublishRoute
   '/api/rss-pull': typeof ApiRssPullRoute
   '/api/score': typeof ApiScoreRoute
@@ -461,6 +468,7 @@ export interface FileRoutesByTo {
   '/api/desk-rewrite': typeof ApiDeskRewriteRoute
   '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
+  '/api/public-home': typeof ApiPublicHomeRoute
   '/api/publish': typeof ApiPublishRoute
   '/api/rss-pull': typeof ApiRssPullRoute
   '/api/score': typeof ApiScoreRoute
@@ -521,6 +529,7 @@ export interface FileRoutesById {
   '/api/desk-rewrite': typeof ApiDeskRewriteRoute
   '/api/desk-story-status': typeof ApiDeskStoryStatusRoute
   '/api/ingest': typeof ApiIngestRoute
+  '/api/public-home': typeof ApiPublicHomeRoute
   '/api/publish': typeof ApiPublishRoute
   '/api/rss-pull': typeof ApiRssPullRoute
   '/api/score': typeof ApiScoreRoute
@@ -582,6 +591,7 @@ export interface FileRouteTypes {
     | '/api/desk-rewrite'
     | '/api/desk-story-status'
     | '/api/ingest'
+    | '/api/public-home'
     | '/api/publish'
     | '/api/rss-pull'
     | '/api/score'
@@ -640,6 +650,7 @@ export interface FileRouteTypes {
     | '/api/desk-rewrite'
     | '/api/desk-story-status'
     | '/api/ingest'
+    | '/api/public-home'
     | '/api/publish'
     | '/api/rss-pull'
     | '/api/score'
@@ -699,6 +710,7 @@ export interface FileRouteTypes {
     | '/api/desk-rewrite'
     | '/api/desk-story-status'
     | '/api/ingest'
+    | '/api/public-home'
     | '/api/publish'
     | '/api/rss-pull'
     | '/api/score'
@@ -750,6 +762,7 @@ export interface RootRouteChildren {
   ApiDeskRewriteRoute: typeof ApiDeskRewriteRoute
   ApiDeskStoryStatusRoute: typeof ApiDeskStoryStatusRoute
   ApiIngestRoute: typeof ApiIngestRoute
+  ApiPublicHomeRoute: typeof ApiPublicHomeRoute
   ApiPublishRoute: typeof ApiPublishRoute
   ApiRssPullRoute: typeof ApiRssPullRoute
   ApiScoreRoute: typeof ApiScoreRoute
@@ -1110,6 +1123,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiIngestRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public-home': {
+      id: '/api/public-home'
+      path: '/api/public-home'
+      fullPath: '/api/public-home'
+      preLoaderRoute: typeof ApiPublicHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/publish': {
       id: '/api/publish'
       path: '/api/publish'
@@ -1233,6 +1253,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiDeskRewriteRoute: ApiDeskRewriteRoute,
   ApiDeskStoryStatusRoute: ApiDeskStoryStatusRoute,
   ApiIngestRoute: ApiIngestRoute,
+  ApiPublicHomeRoute: ApiPublicHomeRoute,
   ApiPublishRoute: ApiPublishRoute,
   ApiRssPullRoute: ApiRssPullRoute,
   ApiScoreRoute: ApiScoreRoute,

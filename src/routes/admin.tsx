@@ -1,6 +1,7 @@
 import { createFileRoute, Link, Navigate, Outlet, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useAppStore } from "@/lib/store";
+import { fetchStoredRss } from "@/lib/desk-rss-client";
 import { cn } from "@/lib/utils";
 import type { QueueItem } from "@/lib/types";
 
@@ -31,6 +32,7 @@ function AdminGate() {
   const hydrateFrontPage = useAppStore((s) => s.hydrateFrontPage);
   const hydratePublishedExtras = useAppStore((s) => s.hydratePublishedExtras);
   const mergeInboxFromServer = useAppStore((s) => s.mergeInboxFromServer);
+  const ingestRss = useAppStore((s) => s.ingestRss);
 
   useEffect(() => {
     let live = true;
@@ -44,6 +46,10 @@ function AdminGate() {
           void hydrateDeskStatus();
           void hydrateFrontPage();
           void hydratePublishedExtras();
+          void fetchStoredRss().then((rss) => {
+            if (!live || !rss?.items.length) return;
+            ingestRss(rss.items);
+          });
           void fetch("/api/desk-assign", { credentials: "include", cache: "no-store" })
             .then((r) => r.json())
             .then((payload: { ok?: boolean; items?: QueueItem[] }) => {
@@ -67,7 +73,7 @@ function AdminGate() {
       live = false;
     };
     // Intentionally omit purgedIds: re-running this effect after Supprimer raced the DELETE and could restore rows.
-  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, hydratePublishedExtras, mergeInboxFromServer]);
+  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, hydratePublishedExtras, mergeInboxFromServer, ingestRss]);
 
   if (!checked) return <div className="min-h-screen bg-paper" />;
   if (!admin) return <Navigate to="/cambuse" />;

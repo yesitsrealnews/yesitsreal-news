@@ -1,5 +1,6 @@
 import type { Story, StoryCopy } from "@/lib/types";
 import {
+  appendToHome as appendFromSeed,
   findStory as findFromSeed,
   homeStories as homeFromSeed,
   inSection as sectionFromSeed,
@@ -48,6 +49,15 @@ export function overlayHome(
   frontIds?: string[],
 ): Story[] {
   return homeFromSeed(seed, extras, deskStatus, frontIds);
+}
+
+/** Prefer the server une. Persist pins must not reshuffle the public paper. */
+export function composePublicHome(
+  serverLatest: Story[],
+  extras: Story[],
+  deskStatus?: DeskStatusMap,
+): Story[] {
+  return appendFromSeed(serverLatest, extras, deskStatus);
 }
 
 export function overlaySection(

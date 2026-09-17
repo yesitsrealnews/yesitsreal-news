@@ -8,8 +8,9 @@ import { Newsletter } from "@/components/site/newsletter";
 import { t } from "@/lib/i18n";
 import { useAppStore } from "@/lib/store";
 import { SITE_URL } from "@/lib/brand";
-import { mergeExtras, overlayDesk, overlayHome } from "@/lib/public-feed";
+import { mergeExtras, overlayDesk, composePublicHome } from "@/lib/public-feed";
 import { loadTodayFeed } from "@/lib/public-feed-rpc";
+import { useLiveHome } from "@/lib/use-live-home";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { SourceProof } from "@/components/stories/source-proof";
 
@@ -30,14 +31,13 @@ export const Route = createFileRoute("/today")({
 });
 
 function TodayPage() {
-  const loaded = Route.useLoaderData();
+  const loaded = useLiveHome(Route.useLoaderData());
   const lang = useAppStore((s) => s.lang);
   const extras = mergeExtras(loaded?.extras, useAppStore((s) => s.extras));
   const deskStatus = overlayDesk(loaded?.desk, useAppStore((s) => s.deskStatus));
-  const frontPageIds = (useAppStore((s) => s.frontPageIds).length ? useAppStore.getState().frontPageIds : loaded?.frontPageIds) ?? [];
   const add = useAppStore((s) => s.addNewsletter);
   const countShare = useAppStore((s) => s.countShare);
-  const list = overlayHome(loaded?.latest ?? [], extras, deskStatus, frontPageIds).slice(0, 5);
+  const list = composePublicHome(loaded?.latest ?? [], extras, deskStatus).slice(0, 5);
   const lead = list[0];
   const rest = list.slice(1);
   const now = formatDate(new Date().toISOString(), lang);
