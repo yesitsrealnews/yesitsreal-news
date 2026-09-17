@@ -19,6 +19,10 @@ describe("newsroom X", () => {
     assert.equal(newsroomXForUrl("https://fox5sandiego.com/news/san-diego-burglary-ring-camera/")?.handle, "@fox5sandiego");
     assert.equal(newsroomXForUrl("https://www.seattletimes.com/seattle-news/bobcat/")?.handle, "@seattletimes");
     assert.equal(newsroomXForUrl("https://www.fox13seattle.com/news/bobcat-kirkland-wa")?.handle, "@fox13seattle");
+    assert.equal(newsroomXForUrl("https://fox8.com/news/gulf-of-cleveland/")?.handle, "@FOX8News");
+    assert.equal(newsroomXForUrl("https://www.japantimes.co.jp/news/2026/08/12/lizards/")?.handle, "@japantimes");
+    assert.equal(newsroomXForUrl("https://www.irishtimes.com/world/uk/2026/09/03/guinness/")?.handle, "@IrishTimes");
+    assert.equal(newsroomXForUrl("https://www.scientificamerican.com/article/ig-nobel/")?.handle, "@sciam");
   });
 
   it("maps subdomains to the parent newsroom", () => {

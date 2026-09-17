@@ -672,7 +672,616 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
+
+  revue({
+    id: "s145",
+    slug: "riom-pizza-vending-machine-heist-zero-cash",
+    slugs: {
+      fr: "riom-casse-du-distributeur-de-pizzas-zero-espece",
+    },
+    section: "faits-divers",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Riom, Puy-de-Dôme",
+    dumbness: 9,
+    sources: [
+      src(
+        "La vidéo gag d’une attaque de distributeur de pizzas en Auvergne fait un carton : « C’est presque triste d’en arriver là »",
+        "Le Parisien",
+        "https://www.leparisien.fr/puy-de-dome-63/la-video-gag-dune-attaque-de-distributeur-de-pizzas-en-auvergne-fait-un-carton-cest-presque-triste-den-arriver-la-03-09-2026-QOXA4YDOGRF5NCKWRVZ67ZU52E.php",
+        "2026-09-03",
+        "local",
+      ),
+      src(
+        "« On dirait une parodie » : Quand la vidéo d’un casse raté au distributeur de pizzas devient virale",
+        "20 Minutes",
+        "https://www.20minutes.fr/arts-stars/insolite/4242310-20260902-dirait-parodie-quand-video-casse-rate-distributeur-pizzas-devient-virale",
+        "2026-09-02",
+        "wire",
+      ),
+      src(
+        "Ils ratent le casse d’un distributeur de pizzas : le gérant se moque, la vidéo fait le buzz",
+        "Le Dauphiné Libéré",
+        "https://www.ledauphine.com/faits-divers-justice/2026/09/01/ils-ratent-le-casse-d-un-distributeur-de-pizzas-le-gerant-se-moque-la-video-fait-le-buzz",
+        "2026-09-01",
+        "local",
+      ),
+      src(
+        "VIDÉO. Les champions du jour : la tentative de braquage d’un distributeur de pizzas devient une succession de gags",
+        "Centre Presse Aveyron",
+        "https://www.centrepresseaveyron.fr/2026/09/03/video-les-champions-du-jour-la-tentative-de-braquage-dun-distributeur-de-pizzas-devient-une-succession-de-gags-le-gerant-publie-la-video-qui-devient-13532305.php",
+        "2026-09-03",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-17T18:00:00.000Z",
+    originalLang: "fr",
+    confidence: 0.96,
+    entities: ["Henri Pizza", "Riom", "Instagram henri.pizza_riom"],
+    copy: {
+      en: c(
+        "Three men crowbar a pizza vending machine in Riom, ram it with a car, leave with nothing. Card only. It said so on the front.",
+        "Henri Pizza, Riom, Puy-de-Dôme. Video posted 29 August. Le Parisien, 20 Minutes, Le Dauphiné, Centre Presse. About €1,000 in damage. Zero cash.",
+        [
+          "Le Parisien (Alix Vermande, 3 September 2026), 20 Minutes (2 September), Le Dauphiné (1 September) and Centre Presse Aveyron: three masked men attack an Henri Pizza vending machine in Riom. Crowbar first. One of them hits his accomplice on the head. Another sits down hard, then rubs his skull through the balaclava. They switch to a ram-car. Le Parisien calls it an old Clio; Centre Presse, a Peugeot 106. We keep both. The door gives. Inside: no cash. Card payments only. The front of the machine said so.",
+          "The co-manager posted the CCTV on Instagram on Saturday 29 August, under henri.pizza_riom. He wrote, as Le Dauphiné quotes: ‘Tu viens cambrioler notre distributeur de pizzas… mais tu assommes ton collègue ! Ça démarre bien.’ Centre Presse: ‘À votre avis, combien ont-ils dérobé ? Zéro euro.’ About a thousand euros of damage. The machine was repaired. Nobody is named. Nobody is charged in the copy we have.",
+          "YES IT'S REAL crossed Le Parisien, 20 Minutes, Le Dauphiné and Centre Presse. Named shop. Named town. Named method. We do not invent a registration plate. Cover is a pizza — Commons CC — not the wrecked cabinet in Riom.",
+        ],
+        [
+          "The front of the machine had already answered.",
+          "A crowbar, a hatchback, three balaclavas. Zero euros.",
+          "Auvergne still sells pizza at a kiosk that does not keep a till.",
+        ],
+        "Le Parisien 3 Sept (Alix Vermande); 20 Minutes 2 Sept; Le Dauphiné 1 Sept; Centre Presse 3 Sept 2026. Clio vs 106: both papers kept. Suspects unnamed.",
+      ),
+      fr: c(
+        "Trois hommes ouvrent un distributeur de pizzas à Riom, à coups de pied-de-biche puis de voiture. Dedans : zéro. C’était écrit.",
+        "Henri Pizza, Riom, Puy-de-Dôme. Vidéo postée le 29 août. Le Parisien, 20 Minutes, Le Dauphiné, Centre Presse. Un millier d’euros de dégâts. Pas une pièce.",
+        [
+          "Le Parisien (Alix Vermande, 3 septembre 2026), 20 Minutes (2 septembre), Le Dauphiné (1er septembre) et Centre Presse Aveyron : trois hommes cagoulés s’en prennent à un distributeur Henri Pizza, à Riom. D’abord le pied-de-biche. L’un d’eux envoie l’outil sur le crâne du complice. Un autre s’asseoit par terre, se masse la tête à travers la cagoule. Ils passent à la voiture-bélier. Le Parisien parle d’une vieille Clio ; Centre Presse, d’une Peugeot 106. On garde les deux. La porte cède. Dedans : pas d’espèces. Carte seulement. C’était écrit sur la façade.",
+          "Le cogérant poste la vidéosurveillance sur Instagram le samedi 29 août, compte henri.pizza_riom. Il écrit, tel que Le Dauphiné le reprend : « Tu viens cambrioler notre distributeur de pizzas… mais tu assommes ton collègue ! Ça démarre bien. » Centre Presse : « À votre avis, combien ont-ils dérobé ? Zéro euro. » Un millier d’euros de dégâts. La machine a été réparée. Personne n’est nommé. Personne n’est mis en cause dans les papiers que nous avons.",
+          "YES IT'S REAL a croisé Le Parisien, 20 Minutes, Le Dauphiné et Centre Presse. Enseigne nommée. Ville nommée. Méthode nommée. On n’invente pas une plaque. La couverture, une pizza — Commons, licence claire — pas l’armoire cabossée de Riom.",
+        ],
+        [
+          "La façade avait déjà répondu.",
+          "Un pied-de-biche, une citadine, trois cagoules. Zéro euro.",
+          "L’Auvergne vend encore la pizza dans un kiosque qui n’a pas de caisse.",
+        ],
+        "Le Parisien 3 sept. (Alix Vermande) ; 20 Minutes 2 sept. ; Le Dauphiné 1er sept. ; Centre Presse 3 sept. 2026. Clio ou 106 : les deux journaux. Suspects non nommés.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s146",
+    slug: "cleveland-city-council-renames-lake-erie-gulf-of-cleveland",
+    slugs: {
+      fr: "cleveland-le-conseil-municipal-rebaptise-le-lac-erie-golfe-de-cleveland",
+    },
+    section: "politics",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Cleveland, Ohio",
+    dumbness: 8,
+    sources: [
+      src(
+        "Ohio city council joins the renaming trend with ‘Gulf of Cleveland’",
+        "NBC News",
+        "https://www.nbcnews.com/politics/donald-trump/ohio-city-council-lake-erie-gulf-of-cleveland-trump-rcna597902",
+        "2026-09-15",
+        "wire",
+      ),
+      src(
+        "Resolution passed to rename portion of Lake Erie ‘The Gulf of Cleveland’",
+        "FOX 8 Cleveland",
+        "https://fox8.com/news/resolution-passed-to-rename-portion-of-lake-erie-the-gulf-of-cleveland/",
+        "2026-09-16",
+        "local",
+      ),
+      src(
+        "Official Who Filed To Rename Lake Erie Admits It’s ‘Shockingly Dumb’",
+        "Newsweek",
+        "https://www.newsweek.com/official-filed-rename-lake-erie-admits-shockingly-dumb-12448656",
+        "2026-09-16",
+        "wire",
+      ),
+      src(
+        "Cleveland City Council passes resolution renaming portion of Lake Erie ‘Gulf Of Cleveland’",
+        "Cleveland 19 / WOIO",
+        "https://www.cleveland19.com/2026/09/15/cleveland-city-council-passes-resolution-renaming-portion-lake-erie-gulf-cleveland/",
+        "2026-09-15",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-17T18:10:00.000Z",
+    originalLang: "fr",
+    confidence: 0.95,
+    entities: ["Kris Harsh", "Cleveland City Council", "Resolution 1047-2026", "Lake Erie"],
+    copy: {
+      en: c(
+        "Cleveland City Council renamed two miles of Lake Erie the Gulf of Cleveland. 13–1. The sponsor told Newsweek: shockingly dumb. That’s the point.",
+        "Monday 14 September 2026. Resolution 1047-2026. Councilman Kris Harsh. NBC, FOX 8, Newsweek, WOIO. Not binding. They still want Apple and Google to print it.",
+        [
+          "NBC News (Megan Brand, 15 September), FOX 8 (Tino Bovenzi, 16 September), Newsweek and WOIO Cleveland 19: Cleveland City Council passed resolution 1047-2026 on Monday 14 September, 13 votes to 1. It ‘renames the area of Lake Erie from the easternmost and westernmost points of its shoreline and two miles into Lake Erie from its shoreline as the Gulf of Cleveland.’ FOX 8 prints the sentence. The clerk is to tell Apple and Google.",
+          "Councilman Kris Harsh, the sponsor, told Newsweek: ‘It’s shockingly dumb. And that’s the point.’ NBC: no force of law. WOIO: city maps and documents are to use the new name anyway. Harsh told the chamber he had made a map. ‘This is all it takes. It’s now the Gulf of Cleveland.’ The Pennsylvania idea of a ‘Lake Pennsylvania’ is in the same meeting, as FOX 8 and NBC report it. We leave the White House where it is. The paper is a lake that became a gulf, on a vote.",
+          "YES IT'S REAL crossed NBC, FOX 8, Newsweek and WOIO. Named council. Named resolution. Named councillor. Cover is Lake Erie — Commons CC — not a new sea.",
+        ],
+        [
+          "Two miles. A gulf. A show of hands.",
+          "The sponsor said it was dumb. The clerk is writing to Cupertino.",
+          "Ohio still names water the way other people name products.",
+        ],
+        "NBC 15 Sept (Megan Brand); FOX 8 16 Sept (Tino Bovenzi); Newsweek 16 Sept; WOIO 15 Sept 2026. Resolution 1047-2026. 13–1. Kris Harsh named.",
+      ),
+      fr: c(
+        "Cleveland vote : deux milles du lac Érié s’appellent désormais le golfe de Cleveland. 13 voix contre 1. L’élu, à Newsweek : « shockingly dumb ». C’est le but.",
+        "Lundi 14 septembre 2026. Résolution 1047-2026. Conseiller Kris Harsh. NBC, FOX 8, Newsweek, WOIO. Pas de force de loi. Ils veulent quand même qu’Apple et Google l’écrivent.",
+        [
+          "NBC News (Megan Brand, 15 septembre), FOX 8 (Tino Bovenzi, 16 septembre), Newsweek et WOIO Cleveland 19 : le conseil municipal de Cleveland adopte la résolution 1047-2026 le lundi 14 septembre, 13 voix contre 1. Elle « renames the area of Lake Erie from the easternmost and westernmost points of its shoreline and two miles into Lake Erie from its shoreline as the Gulf of Cleveland ». FOX 8 imprime la phrase. Le greffier doit écrire à Apple et à Google.",
+          "Le conseiller Kris Harsh, qui porte le texte, dit à Newsweek : « It’s shockingly dumb. And that’s the point. » NBC : pas de force de loi. WOIO : les cartes et les documents de la ville doivent quand même user du nouveau nom. Harsh, en séance, dit qu’il a fait une carte. « This is all it takes. It’s now the Gulf of Cleveland. » L’idée pennsylvanienne d’un « Lake Pennsylvania » est dans la même séance, tel que FOX 8 et NBC la rapportent. On laisse la Maison-Blanche où elle est. Le papier, c’est un lac devenu golfe, à main levée.",
+          "YES IT'S REAL a croisé NBC, FOX 8, Newsweek et WOIO. Conseil nommé. Résolution nommée. Élu nommé. La couverture, le lac Érié — Commons, licence claire — pas une mer nouvelle.",
+        ],
+        [
+          "Deux milles. Un golfe. Un vote.",
+          "L’élu dit que c’est bête. Le greffier écrit à Cupertino.",
+          "L’Ohio nomme encore l’eau comme d’autres nomment un produit.",
+        ],
+        "NBC 15 sept. (Megan Brand) ; FOX 8 16 sept. (Tino Bovenzi) ; Newsweek 16 sept. ; WOIO 15 sept. 2026. Résolution 1047-2026. 13–1. Kris Harsh nommé.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s147",
+    slug: "ig-nobel-2026-cockroach-milk-chemistry-zurich",
+    slugs: {
+      fr: "ig-nobel-2026-le-lait-de-cafard-a-le-prix-de-chimie",
+    },
+    section: "science",
+    countryCode: "CH",
+    countryName: "Switzerland",
+    location: "Zurich",
+    dumbness: 8,
+    sources: [
+      src(
+        "2026 Ig Nobels honor cockroach milk, interspecies kissing, taunting venomous snakes, and more",
+        "Scientific American",
+        "https://www.scientificamerican.com/article/2026-ig-nobels-honor-cockroach-milk-interspecies-kissing-taunting-venomous-snakes-and-more/",
+        "2026-09-04",
+        "university",
+      ),
+      src(
+        "Ig Nobel prize 2026: cockroach milk wins chemistry award at first ceremony outside the US",
+        "Chemistry World",
+        "https://www.chemistryworld.com/news/cockroaches-producing-energy-rich-milk-bag-this-years-chemistry-ig-nobel-prize/4024123.article",
+        "2026-09-04",
+        "university",
+      ),
+      src(
+        "Studies on cockroach milk and nose-blowing crowned winners of this year’s Ig Nobel Prize",
+        "The Independent",
+        "https://www.independent.co.uk/news/science/ig-nobel-prize-cockroack-milk-nose-blowing-trump-b3044535.html",
+        "2026-09-04",
+        "wire",
+      ),
+      src(
+        "Au menu des Nobel de la science improbable, l’art du mouchage, l’urinoir parfait et les amis vicieux",
+        "Le Monde",
+        "https://www.lemonde.fr/sciences/article/2026/09/03/au-menu-des-nobel-de-la-science-improbable-l-art-du-mouchage-l-urinoir-parfait-et-les-amis-vicieux_6765194_1650684.html",
+        "2026-09-03",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-17T18:20:00.000Z",
+    originalLang: "fr",
+    confidence: 0.95,
+    entities: [
+      "Ig Nobel",
+      "Diploptera punctata",
+      "Leonard Chavas",
+      "Subramanian Ramaswamy",
+      "Marc Abrahams",
+    ],
+    copy: {
+      en: c(
+        "The 2026 Ig Nobel for chemistry went to cockroach milk. More than three times the energy of cow’s milk. Hats were worn.",
+        "Zurich, Thursday 3 September. First ceremony outside the United States. Scientific American, Chemistry World, The Independent. Le Monde covered the move to Switzerland.",
+        [
+          "Scientific American (Adam Kovac, 4 September 2026), Chemistry World and The Independent: the chemistry Ig Nobel in Zurich on Thursday 3 September went to work on milk proteins from Diploptera punctata, the Pacific beetle cockroach, one of the few cockroaches that feeds live-born young on a crystalline ‘milk’. The papers: more than three times the energy of cow’s milk proteins. Chemistry World names Leonard Chavas, Subramanian Ramaswamy and Nathan Coussens on stage, in cockroach hats, singing.",
+          "Le Monde (Pierre Barthélémy, 3 September) covered the ceremony’s exile: after thirty-five editions in Boston, Marc Abrahams took it to Zurich, at the polytechnic and the university, because, he told Le Monde, it had become dangerous for foreign guests to go to the United States. The paper lists other prizes of the night — nose-blowing, a splash-free urinal, vicious friends. We keep the chemistry one. We do not invent a supermarket carton.",
+          "YES IT'S REAL crossed Scientific American, Chemistry World, The Independent and Le Monde. Named prize. Named species. Named hall. Cover is a cockroach — Commons CC — not a dairy aisle.",
+        ],
+        [
+          "The chemistry prize was a roach.",
+          "Three times the cow. A hat. A song.",
+          "Science still files the larder under insects, once a year, in public.",
+        ],
+        "SciAm 4 Sept (Adam Kovac); Chemistry World 4 Sept; Independent 4 Sept; Le Monde 3 Sept 2026 (Pierre Barthélémy) for the Zurich move. Species: Diploptera punctata.",
+      ),
+      fr: c(
+        "L’Ig Nobel de chimie 2026 est allé au lait de cafard. Plus de trois fois l’énergie du lait de vache. Ils avaient des chapeaux.",
+        "Zurich, jeudi 3 septembre. Première cérémonie hors des États-Unis. Scientific American, Chemistry World, The Independent. Le Monde a suivi le déménagement.",
+        [
+          "Scientific American (Adam Kovac, 4 septembre 2026), Chemistry World et The Independent : l’Ig Nobel de chimie, à Zurich le jeudi 3 septembre, récompense un travail sur les protéines du « lait » de Diploptera punctata, le cafard du Pacifique, l’une des rares blattes qui nourrit ses petits nés vivants avec un lait cristallin. Les journaux : plus de trois fois l’énergie des protéines du lait de vache. Chemistry World nomme Leonard Chavas, Subramanian Ramaswamy et Nathan Coussens sur scène, en chapeaux cafard, en train de chanter.",
+          "Le Monde (Pierre Barthélémy, 3 septembre) raconte l’exil de la cérémonie : après trente-cinq éditions à Boston, Marc Abrahams l’a emmenée à Zurich, à l’École polytechnique et à l’université, parce que, dit-il au Monde, il était devenu dangereux pour les invités étrangers de se rendre aux États-Unis. Le journal aligne d’autres prix de la soirée — le mouchage, l’urinoir sans éclaboussures, les amis vicieux. On garde la chimie. On n’invente pas une brique au rayon frais.",
+          "YES IT'S REAL a croisé Scientific American, Chemistry World, The Independent et Le Monde. Prix nommé. Espèce nommée. Salle nommée. La couverture, un cafard — Commons, licence claire — pas un linéaire laitier.",
+        ],
+        [
+          "Le prix de chimie, c’était une blatte.",
+          "Trois fois la vache. Un chapeau. Une chanson.",
+          "La science range encore le garde-manger aux insectes, une fois l’an, en public.",
+        ],
+        "SciAm 4 sept. (Adam Kovac) ; Chemistry World 4 sept. ; Independent 4 sept. ; Le Monde 3 sept. 2026 (Pierre Barthélémy) pour le déménagement à Zurich. Espèce : Diploptera punctata.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s148",
+    slug: "metropolitan-opera-boa-princess-auditions-cosi-fan-tutte",
+    slugs: {
+      fr: "met-opera-un-boa-nomme-princess-gagne-laudition-de-cosi-fan-tutte",
+    },
+    section: "stars",
+    countryCode: "US",
+    countryName: "United States",
+    location: "New York",
+    dumbness: 8,
+    sources: [
+      src(
+        "Even snakes have to audition for the opera at the Met",
+        "NBC New York / AP",
+        "https://www.nbcnewyork.com/entertainment/entertainment-news/even-snakes-audition-opera-met/6544304/",
+        "2026-09-05",
+        "wire",
+      ),
+      src(
+        "Photos show snakes auditioning for a role at New York’s Metropolitan Opera",
+        "AP News",
+        "https://apnews.com/photo-gallery/photos-show-snakes-auditioning-role-new-york-s-metropolitan-opera-243dd1411be147d6a5511e47845a8b8b",
+        "2026-09-05",
+        "wire",
+      ),
+      src(
+        "At the Met, snakes have to audition for the opera",
+        "Taipei Times / AP",
+        "https://www.taipeitimes.com/News/world/archives/2026/09/07/2003863832",
+        "2026-09-07",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-17T18:30:00.000Z",
+    originalLang: "fr",
+    confidence: 0.94,
+    entities: ["Metropolitan Opera", "Princess", "Nala", "Zoe Ziegfeld", "Nancy Novograd", "Così fan tutte"],
+    copy: {
+      en: c(
+        "At the Met, a boa constrictor named Princess won the audition. Nala is the understudy. Mozart, Coney Island, 1950s.",
+        "Friday 28 August 2026, Metropolitan Opera, New York. Così fan tutte. AP, NBC New York, Taipei Times. Animal wrangler Nancy Novograd. Handler Zoe Ziegfeld.",
+        [
+          "AP (David R. Martin and Jeffrey Collins), as NBC New York ran it on 5 September 2026 and the Taipei Times on 7 September: at the Metropolitan Opera, snakes auditioned on Friday 28 August for a part in the house’s Coney Island 1950s take on Mozart’s Così fan tutte. Zoe Ziegfeld, carnival performer turned snake-handler on stage, lifts each animal, looks it in the eye. Nancy Novograd, the animal talent, to AP: animals have to perform as human talent does.",
+          "The part went to a sun-glow boa constrictor named Princess, yellow-peach, larger, ‘better visual presence on stage.’ Ziegfeld wrote afterwards, as AP quotes: the trial ‘is not about her, but rather about me and my strength.’ A smaller brown boa, Nala, is the understudy. We do not invent a critic’s notice. We do not invent a bite.",
+          "YES IT'S REAL crossed AP, NBC New York and the Taipei Times. Named house. Named snakes. Named handler. Cover is a boa constrictor — Commons CC — not Princess under the lights.",
+        ],
+        [
+          "Mozart still shares the call with a reptile.",
+          "Princess got the part. Nala waits in the wings.",
+          "New York auditions everyone, including the cold-blooded.",
+        ],
+        "AP / NBC New York 5 Sept 2026; Taipei Times 7 Sept. Auditions 28 Aug at the Met. Princess and Nala named in the copy.",
+      ),
+      fr: c(
+        "Au Met, un boa nommé Princess a gagné l’audition. Nala est doublure. Mozart, Coney Island, années 50.",
+        "Vendredi 28 août 2026, Metropolitan Opera, New York. Così fan tutte. AP, NBC New York, Taipei Times. La dresseuse Nancy Novograd. Sur scène, Zoe Ziegfeld.",
+        [
+          "AP (David R. Martin et Jeffrey Collins), tel que NBC New York le sort le 5 septembre 2026 et le Taipei Times le 7 : au Metropolitan Opera, des serpents passent une audition le vendredi 28 août pour un rôle dans la version Coney Island années 50 du Così fan tutte de Mozart. Zoe Ziegfeld, saltimbanque devenue charmeuse sur scène, soulève chaque bête, la regarde dans les yeux. Nancy Novograd, qui fournit les animaux, à l’AP : les bêtes doivent jouer, comme le talent humain.",
+          "Le rôle revient à un boa sun-glow nommé Princess, jaune-pêche, plus grand, « better visual presence on stage ». Ziegfeld écrit ensuite, tel qu’AP le cite : l’essai « is not about her, but rather about me and my strength ». Un boa brun plus petit, Nala, est doublure. On n’invente pas une critique. On n’invente pas une morsure.",
+          "YES IT'S REAL a croisé AP, NBC New York et le Taipei Times. Maison nommée. Serpents nommés. Dresseuse nommée. La couverture, un boa constricteur — Commons, licence claire — pas Princess sous les projecteurs.",
+        ],
+        [
+          "Mozart partage encore la convocation avec un reptile.",
+          "Princess a le rôle. Nala attend dans les coulisses.",
+          "New York auditionne tout le monde, y compris le sang froid.",
+        ],
+        "AP / NBC New York 5 sept. 2026 ; Taipei Times 7 sept. Auditions du 28 août au Met. Princess et Nala nommées dans le papier d’origine.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s149",
+    slug: "runcorn-70000-pints-of-guinness-stolen-two-lorries",
+    slugs: {
+      fr: "runcorn-70000-pintes-de-guinness-volees-dans-deux-camions",
+    },
+    section: "faits-divers",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Runcorn, Cheshire",
+    dumbness: 8,
+    sources: [
+      src(
+        "Thieves steal 70,000 pints of Guinness in two lorries",
+        "BBC News",
+        "https://www.bbc.co.uk/news/articles/c5yjred1dleo",
+        "2026-09-03",
+        "wire",
+      ),
+      src(
+        "More than 70,000 pints worth of Guinness stolen from English depot",
+        "The Irish Times",
+        "https://www.irishtimes.com/world/uk/2026/09/03/more-than-70000-pints-worth-of-guinness-stolen-from-english-depot/",
+        "2026-09-03",
+        "wire",
+      ),
+      src(
+        "Police recover trailers used to steal 70,000 pints of Guinness",
+        "BBC News",
+        "https://www.bbc.com/news/articles/c39mz7ggmrmo",
+        "2026-09-07",
+        "wire",
+      ),
+      src(
+        "More than 70,000 pints of Guinness stolen in lorries at Cheshire depot",
+        "ITV News Granada",
+        "https://www.itv.com/news/granada/2026-09-03/seventy-thousand-pints-of-guinness-stolen-in-lorries-at-cheshire-depot",
+        "2026-09-04",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-17T18:40:00.000Z",
+    originalLang: "fr",
+    confidence: 0.96,
+    entities: ["Cheshire Police", "Whitehouse Industrial Estate", "GXO", "Diageo", "Det Sgt Gary McClatchey"],
+    copy: {
+      en: c(
+        "Someone stole 70,000 pints of Guinness from a depot in Runcorn. Two lorries. The trailers turned up. The beer did not.",
+        "Bank Holiday Monday 31 August. Whitehouse Industrial Estate, Aston Lane. BBC, Irish Times, ITV. About £115,000 of stout. Destined for pubs.",
+        [
+          "BBC News (3 then 7 September 2026), The Irish Times (3 September) and ITV Granada: two HGVs hooked two trailers at a depot on Whitehouse Industrial Estate, Aston Lane, Runcorn, on Monday 31 August — one around 19.45, the second around 21.30. Combined: more than 800 barrels, about 70,000 pints of Guinness, worth about £115,000, meant for pubs. ITV: Diageo has a packaging warehouse on the estate. The trailers wore GXO curtains. Unique numbers DL736 and DL542.",
+          "Cheshire Police later found the empty trailers in Skelmersdale, Lancashire, about thirty miles on. The barrels were not in them. No arrests in the copy we have. Detective Sergeant Gary McClatchey, to the BBC: ‘It is famously said that Guinness is good for you, but that is only the case when it has been bought and paid for.’ We keep the line. We do not invent a cellar.",
+          "YES IT'S REAL crossed the BBC, The Irish Times and ITV. Named estate. Named force. Named sergeant. Cover is a pint of stout — Commons CC — not the missing kegs.",
+        ],
+        [
+          "Two lorries. No round.",
+          "The trailers came home. The black stuff did not.",
+          "England still loses beer by the trailer, then quotes the advert.",
+        ],
+        "BBC 3 Sept + 7 Sept; Irish Times 3 Sept; ITV Granada 4 Sept 2026. 31 Aug, Runcorn. McClatchey named. No arrests in the cited copy.",
+      ),
+      fr: c(
+        "On a volé 70 000 pintes de Guinness dans un dépôt de Runcorn. Deux camions. Les remorques sont réapparues. La bière, non.",
+        "Lundi de bank holiday, 31 août. Whitehouse Industrial Estate, Aston Lane. BBC, Irish Times, ITV. Environ 115 000 £ de stout. Destiné aux pubs.",
+        [
+          "BBC News (3 puis 7 septembre 2026), The Irish Times (3 septembre) et ITV Granada : deux poids lourds accrochent deux remorques dans un dépôt du Whitehouse Industrial Estate, Aston Lane, à Runcorn, le lundi 31 août — l’un vers 19 h 45, le second vers 21 h 30. Au total : plus de 800 fûts, environ 70 000 pintes de Guinness, quelque 115 000 £, destinés aux pubs. ITV : Diageo a un entrepôt d’emballage sur la zone. Les bâches portent GXO. Numéros DL736 et DL542.",
+          "La police du Cheshire retrouve plus tard les remorques vides à Skelmersdale, dans le Lancashire, à une trentaine de miles. Les fûts n’y sont plus. Pas d’arrestation dans les papiers que nous avons. Le detective sergeant Gary McClatchey, à la BBC : « It is famously said that Guinness is good for you, but that is only the case when it has been bought and paid for. » On garde la phrase. On n’invente pas une cave.",
+          "YES IT'S REAL a croisé la BBC, The Irish Times et ITV. Zone nommée. Police nommée. Sergent nommé. La couverture, une pinte de stout — Commons, licence claire — pas les fûts manquants.",
+        ],
+        [
+          "Deux camions. Pas une tournée.",
+          "Les remorques sont rentrées. Le truc noir, non.",
+          "L’Angleterre perd encore la bière à la remorque, puis cite la pub.",
+        ],
+        "BBC 3 sept. + 7 sept. ; Irish Times 3 sept. ; ITV Granada 4 sept. 2026. 31 août, Runcorn. McClatchey nommé. Pas d’arrestation dans les textes cités.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s150",
+    slug: "haneda-200-lizards-in-22-pairs-of-socks",
+    slugs: {
+      fr: "haneda-200-lezards-dans-22-paires-de-chaussettes",
+    },
+    section: "animals",
+    countryCode: "JP",
+    countryName: "Japan",
+    location: "Haneda Airport, Tokyo",
+    dumbness: 9,
+    sources: [
+      src(
+        "Mexican man arrested over attempt to smuggle some 200 lizards into Japan",
+        "The Japan Times",
+        "https://www.japantimes.co.jp/news/2026/08/12/japan/crime-legal/man-arrested-lizards-smuggling/",
+        "2026-08-12",
+        "wire",
+      ),
+      src(
+        "Lizards Hidden in Socks Lead to Smuggling Arrest in Tokyo",
+        "Nippon.com / Jiji",
+        "https://www.nippon.com/en/news/yjj2026081200511/",
+        "2026-08-12",
+        "wire",
+      ),
+      src(
+        "Mexican arrested for attempting to smuggle rare lizards into Japan",
+        "NHK World",
+        "https://www3.nhk.or.jp/nhkworld/en/news/20260812_19/",
+        "2026-08-12",
+        "official",
+      ),
+    ],
+    publishedAt: "2026-09-17T18:50:00.000Z",
+    originalLang: "fr",
+    confidence: 0.94,
+    entities: [
+      "Daniel Isaac Velasco Baltazar",
+      "Tokyo Customs",
+      "Haneda",
+      "CITES",
+    ],
+    copy: {
+      en: c(
+        "He packed about 200 lizards into 22 pairs of socks and flew them into Haneda. Customs had been tipped off. One was already dead.",
+        "Saturday 8 August 2026. Haneda, from South Korea. Japan Times, Jiji / Nippon.com, NHK. CITES. The passenger is named: Daniel Isaac Velasco Baltazar, 23, Mexican.",
+        [
+          "The Japan Times (Jiji, 12 August 2026), Nippon.com (same wire) and NHK World: Tokyo police arrested Daniel Isaac Velasco Baltazar, 23, a Mexican national, after Tokyo Customs at Haneda found about 200 lizards in his suitcase on Saturday 8 August, on a flight from South Korea. Twenty-two pairs of socks. Rolled in T-shirts. One lizard was dead. Nine of them, the charge specifies, were arboreal alligator lizards, CITES-listed, highland Mexico.",
+          "Police had an anonymous tip in late July that a Mexican national would try to bring lizards in for a reptile fair. He admitted the facts, the papers say. He told investigators he had bought them in Mexico for about 560 to 750 yen each — three to five dollars. In Japan, NHK and Tokyo Reporter note, a collector’s animal of that kind can reach about 100,000 yen. We do not invent a buyer. We do not invent a price at the stall.",
+          "YES IT'S REAL crossed Japan Times, Jiji and NHK. Named airport. Named passenger, as the police named him. Named convention. Cover is an alligator lizard — Commons CC — not the socks on the belt.",
+        ],
+        [
+          "The socks were the licence.",
+          "Two hundred. Twenty-two pairs. One already gone.",
+          "Customs still opens the laundry.",
+        ],
+        "Japan Times + Jiji 12 Aug; NHK World 12 Aug 2026. Facts of 8 Aug at Haneda. Passenger named in the police copy. One death among the animals, as reported.",
+      ),
+      fr: c(
+        "Il a mis environ 200 lézards dans 22 paires de chaussettes et les a fait atterrir à Haneda. La douane était prévenue. Un était déjà mort.",
+        "Samedi 8 août 2026. Haneda, en provenance de Corée du Sud. Japan Times, Jiji / Nippon.com, NHK. CITES. Le passager est nommé : Daniel Isaac Velasco Baltazar, 23 ans, Mexicain.",
+        [
+          "The Japan Times (Jiji, 12 août 2026), Nippon.com (même dépêche) et NHK World : la police de Tokyo arrête Daniel Isaac Velasco Baltazar, 23 ans, de nationalité mexicaine, après que la douane de Haneda a trouvé, le samedi 8 août, dans sa valise, environ 200 lézards, arrivés de Corée du Sud. Vingt-deux paires de chaussettes. Enroulées dans des T-shirts. Un lézard est mort. Neuf d’entre eux, précise la prévention, sont des lézards alligators arboricoles, listés CITES, hauts plateaux du Mexique.",
+          "La police avait un tuyau anonyme, fin juillet : un Mexicain s’apprêtait à entrer des lézards pour une bourse aux reptiles. Il reconnaît les faits, disent les journaux. Il dit aux enquêteurs les avoir achetés au Mexique entre 560 et 750 yens pièce — trois à cinq dollars. Au Japon, notent NHK et Tokyo Reporter, un animal de collection de ce genre peut atteindre 100 000 yens. On n’invente pas un acheteur. On n’invente pas un prix au stand.",
+          "YES IT'S REAL a croisé Japan Times, Jiji et NHK. Aéroport nommé. Passager nommé, comme la police l’a nommé. Convention nommée. La couverture, un lézard alligator — Commons, licence claire — pas les chaussettes sur le tapis.",
+        ],
+        [
+          "La licence, c’étaient les chaussettes.",
+          "Deux cents. Vingt-deux paires. Un déjà mort.",
+          "La douane ouvre encore le linge.",
+        ],
+        "Japan Times + Jiji 12 août ; NHK World 12 août 2026. Faits du 8 août à Haneda. Passager nommé dans le communiqué de police. Un animal mort, tel que rapporté.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s151",
+    slug: "france-pokemon-30-overnight-queues-livret-a",
+    slugs: {
+      fr: "pokemon-30-ans-ils-dorment-devant-le-magasin-plus-rentable-quun-livret-a",
+    },
+    section: "sports",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Quimper, Niort, Quévert",
+    dumbness: 7,
+    sources: [
+      src(
+        "« Plus rentable qu’un livret A » : ils passent la nuit dans la rue pour acheter le coffret des 30 ans de Pokémon",
+        "Ouest-France",
+        "https://www.ouest-france.fr/gaming/pokemon/plus-rentable-quun-livret-a-ils-passent-la-nuit-dans-la-rue-pour-acheter-le-coffret-des-30-ans-de-pokemon-e5ad290e-b1b3-11f1-bc32-13ddcee9efa7",
+        "2026-09-16",
+        "local",
+      ),
+      src(
+        "La chasse aux cartes Pokémon s’est emparée de la ville de Quimper",
+        "Ouest-France",
+        "https://www.ouest-france.fr/bretagne/quimper-29000/la-chasse-aux-cartes-pokemon-sest-emparee-de-la-ville-de-quimper-4e14676a-b1ae-11f1-bc32-13ddcee9efa7",
+        "2026-09-16",
+        "local",
+      ),
+      src(
+        "« Le premier client est arrivé hier soir » : pour les 30 ans de Pokémon, des fans se ruent dans ce magasin en Bretagne",
+        "Ouest-France",
+        "https://www.ouest-france.fr/bretagne/dinan-22100/le-premier-client-est-arrive-hier-soir-pour-les-30-ans-de-pokemon-des-fans-se-ruent-dans-ce-magasin-en-bretagne-27cea390-b1db-11f1-bc32-13ddcee9efa7",
+        "2026-09-16",
+        "local",
+      ),
+      src(
+        "« À peine sorti avec le coffret, on m’en a proposé le double » : la folie Pokémon reprend de plus belle",
+        "Le Maine Libre / Ouest-France",
+        "https://www.ouest-france.fr/gaming/pokemon/cartes-pokemon/a-peine-sorti-avec-le-coffret-on-men-a-propose-le-double-la-folie-pokemon-reprend-de-plus-belle-a8962ccc-b1aa-11f1-926d-8837bd37b66e",
+        "2026-09-17",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-17T19:00:00.000Z",
+    originalLang: "fr",
+    confidence: 0.93,
+    entities: ["JouéClub", "Ludotrotteur", "Quévert", "Niort", "Quimper"],
+    copy: {
+      en: c(
+        "They slept outside the toy shop for Pokémon’s 30th. One man was there at 11 p.m. Ouest-France put it next to the livret A.",
+        "Wednesday 16 September 2026. Niort, Quimper, Quévert, Le Mans. Ouest-France, Le Maine Libre. First in line from the evening before.",
+        [
+          "Ouest-France (16 September 2026) and Le Maine Libre (17 September): the 30th-anniversary Pokémon boxes went on sale on Wednesday 16. In Niort, Ouest-France writes, the first people arrived at 8 p.m. on Tuesday and slept in front of JouéClub. By morning, two 25- and 24-year-olds, Alexis and Antoine, said they were at least 150 in the queue. The paper’s headline puts the night next to the livret A.",
+          "In Quimper, Hubert Mary: Théo Yvonnou was at the cultural centre at 5 a.m.; ‘one of the guys had been there since 11 p.m. the night before and had slept in his car.’ In Quévert, Côtes-d’Armor, Marion Fiault: JouéClub manager Frédéric Basset said the first customer arrived at 10.30 p.m. the evening before, others asked to sleep. He told the paper the palette felt like gold bars. In Le Mans, Le Maine Libre: a buyer was offered double in the street, still holding the box.",
+          "YES IT'S REAL crossed Ouest-France and Le Maine Libre. Named towns. Named shops. Named manager. We do not invent a card’s resale price. Cover is a generic fanned pack of playing cards — Commons CC — not a Nintendo still.",
+        ],
+        [
+          "The savings product was a cardboard box.",
+          "Eleven at night. A car. A pavement. A livret A, for scale.",
+          "France still queues for paper monsters as if they were bread.",
+        ],
+        "Ouest-France 16 Sept (Niort, Quimper, Quévert); Maine Libre 17 Sept 2026. Sale of 16 Sept. Named first names as the papers printed them.",
+      ),
+      fr: c(
+        "Ils ont dormi devant le magasin de jouets pour les 30 ans de Pokémon. L’un était là à 23 h. Ouest-France a mis ça à côté du livret A.",
+        "Mercredi 16 septembre 2026. Niort, Quimper, Quévert, Le Mans. Ouest-France, Le Maine Libre. Premiers de la file dès la veille au soir.",
+        [
+          "Ouest-France (16 septembre 2026) et Le Maine Libre (17 septembre) : les coffrets des 30 ans de Pokémon sont en vente le mercredi 16. À Niort, écrit Ouest-France, les premiers sont arrivés à 20 h, le mardi, et ont dormi devant le JouéClub. Le matin, deux Niortais de 25 et 24 ans, Alexis et Antoine, disent qu’ils étaient au moins 150 dans la file. Le titre du journal met la nuit à côté du livret A.",
+          "À Quimper, Hubert Mary : Théo Yvonnou est à l’Espace culturel à 5 h ; « l’un des mecs était là dès 23 h, la veille, et avait dormi dans sa voiture ». À Quévert, Côtes-d’Armor, Marion Fiault : le gérant du JouéClub, Frédéric Basset, dit que le premier client est arrivé à 22 h 30 la veille, d’autres ont demandé à dormir. Il dit au journal que la palette, on aurait dit des lingots. Au Mans, Le Maine Libre : on propose le double à un acheteur, dans la rue, le coffret encore dans les mains.",
+          "YES IT'S REAL a croisé Ouest-France et Le Maine Libre. Villes nommées. Magasins nommés. Gérant nommé. On n’invente pas un prix de carte. La couverture, un jeu de cartes éventail — Commons, licence claire — pas un photogramme Nintendo.",
+        ],
+        [
+          "Le produit d’épargne, c’était un carton.",
+          "Onze heures du soir. Une voiture. Un trottoir. Un livret A, pour l’échelle.",
+          "La France fait encore la queue pour des monstres en papier, comme pour le pain.",
+        ],
+        "Ouest-France 16 sept. (Niort, Quimper, Quévert) ; Maine Libre 17 sept. 2026. Mise en vente du 16 sept. Prénoms tels que les journaux les impriment.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s152",
+    slug: "sauternes-sika-deer-chateau-yquem-vines",
+    slugs: {
+      fr: "sauternes-un-cerf-sika-deguste-les-vignes-dyquem",
+    },
+    section: "animals",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Sauternes, Gironde",
+    dumbness: 8,
+    sources: [
+      src(
+        "Un cerf sika s’échappe d’un parc animalier et se retrouve au milieu des vignes du prestigieux château d’Yquem",
+        "ICI",
+        "https://www.ici.fr/nouvelle-aquitaine/gironde-33/sauternes/un-cerf-sika-s-echappe-d-un-parc-animalier-et-se-retrouve-au-milieu-des-vignes-du-prestigieux-chateau-d-yquem-2737594",
+        "2026-09-16",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-17T19:10:00.000Z",
+    originalLang: "fr",
+    confidence: 0.86,
+    entities: ["Château d’Yquem", "Patrick Meng", "parc animalier du Sud-Gironde", "Landiras"],
+    copy: {
+      en: c(
+        "A sika deer left a park in Landiras, walked into the vines at Yquem, then the patio. The keeper: a deer who knows his grapes. They have not caught it.",
+        "Wednesday 16 September 2026. Sauternes, Gironde. ICI (Alice Marot). Storm Nils, February. Harvest. Capture failed.",
+        [
+          "ICI (Alice Marot, 16 September 2026): a sika deer, a Japanese deer, escaped from the Sud-Gironde wildlife park in Landiras during storm Nils in February, and was seen on Wednesday in the vines of Château d’Yquem, in Sauternes, and in the patio of the house. Yquem is named. LVMH is named as owner. Capture attempts that day failed.",
+          "Patrick Meng, the park’s manager, went to the spot. Until now, ICI writes, the animal had stayed around Landiras. ‘Et puis là, il y a eu les vendanges, et visiblement il se trouve bien dans les vignes.’ Then: ‘Il a choisi les bons cépages, c’est un cerf connaisseur.’ We keep the sentence. We do not invent a tasting note. We do not invent a bottle.",
+          "YES IT'S REAL read ICI. Named château. Named park. Named keeper. One named local station — the desk can still want a second paper. Cover is a sika deer — Commons CC — not the animal in the rows.",
+        ],
+        [
+          "The cellar’s neighbour has antlers.",
+          "A patio at Yquem. A harvest. No net.",
+          "Gironde still lets the park walk into the classification of 1855.",
+        ],
+        "ICI, Alice Marot, 16 Sept 2026. Landiras park, Yquem, Sauternes. Patrick Meng named. Single named source; hold if a second paper is wanted.",
+      ),
+      fr: c(
+        "Un cerf sika sort d’un parc à Landiras, entre dans les vignes d’Yquem, puis dans le patio. Le responsable : un cerf connaisseur. Ils ne l’ont pas eu.",
+        "Mercredi 16 septembre 2026. Sauternes, Gironde. ICI (Alice Marot). Tempête Nils, février. Vendanges. Capture ratée.",
+        [
+          "ICI (Alice Marot, 16 septembre 2026) : un cerf sika, cerf du Japon, échappé du parc animalier du Sud-Gironde, à Landiras, pendant la tempête Nils, en février, est vu mercredi dans les vignes du château d’Yquem, à Sauternes, et dans le patio de la maison. Yquem est nommé. LVMH, comme propriétaire. Les tentatives de capture du jour restent vaines.",
+          "Patrick Meng, le responsable du parc, s’est déplacé. Jusque-là, écrit ICI, l’animal restait autour de Landiras. « Et puis là, il y a eu les vendanges, et visiblement il se trouve bien dans les vignes. » Puis : « Il a choisi les bons cépages, c’est un cerf connaisseur. » On garde la phrase. On n’invente pas une note de dégustation. On n’invente pas une bouteille.",
+          "YES IT'S REAL a lu ICI. Château nommé. Parc nommé. Responsable nommé. Une station locale nommée — la desk peut encore vouloir un second titre. La couverture, un cerf sika — Commons, licence claire — pas l’animal dans les rangs.",
+        ],
+        [
+          "Le voisin du chai a des bois.",
+          "Un patio à Yquem. Des vendanges. Pas de filet.",
+          "La Gironde laisse encore le parc se promener dans le classement de 1855.",
+        ],
+        "ICI, Alice Marot, 16 sept. 2026. Parc de Landiras, Yquem, Sauternes. Patrick Meng nommé. Une source nommée ; retenir si un second titre est exigé.",
+      ),
+    },
+  }),
 ];
+
 
 /** Desk already published these from the cambuse. Not revue — they are live. */
 export const DESK_LIVE: Story[] = [

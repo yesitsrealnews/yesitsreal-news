@@ -162,6 +162,14 @@ COVERS: dict[str, tuple[str, str]] = {
     "s142": ("File:Dogs playing.JPG", "golden retriever dog toy"),
     "s143": ("File:Caiman crocodilus pair.jpg", "spectacled caiman"),
     "s144": ("File:Lynx rufus.jpg", "bobcat lynx rufus"),
+    "s145": ("File:Pizza 1.jpg", "pizza margherita"),
+    "s146": ("File:Lake Erie from space.jpg", "Lake Erie shoreline"),
+    "s147": ("File:Cockroach.jpg", "cockroach insect"),
+    "s148": ("File:Boa constrictor (2).jpg", "boa constrictor snake"),
+    "s149": ("File:Guinness.jpg", "pint of Guinness stout"),
+    "s150": ("File:Abronia graminea.jpg", "arboreal alligator lizard"),
+    "s151": ("File:Playing cards.jpg", "fanned playing cards"),
+    "s152": ("File:Sika Deer (Cervus nippon).jpg", "sika deer cervus nippon"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
