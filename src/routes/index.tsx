@@ -7,7 +7,7 @@ import { useAppStore } from "@/lib/store";
 import { itemListJsonLd, orgJsonLd, SEO_FR, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { coverDisplaySrc, coverSizes, coverSrcSet } from "@/lib/covers";
-import { mergeExtras, overlayHome, overlaySponsored } from "@/lib/public-feed";
+import { mergeExtras, overlayDesk, overlayHome, overlaySponsored } from "@/lib/public-feed";
 import { loadHomeFeed } from "@/lib/public-feed-rpc";
 
 export const Route = createFileRoute("/")({
@@ -75,7 +75,7 @@ function Home() {
   }, [loaded?.frontPageIds, loaded?.desk, setFrontPageIds, setDeskStatus]);
 
   const frontPageIds = storeFrontIds.length ? storeFrontIds : (loaded?.frontPageIds ?? []);
-  const deskStatus = { ...(loaded?.desk ?? {}), ...storeDesk };
+  const deskStatus = overlayDesk(loaded?.desk, storeDesk);
   const latest = overlayHome(loaded?.latest ?? [], extras, deskStatus, frontPageIds);
   const sponsored = overlaySponsored(loaded?.sponsored ? [loaded.sponsored] : [], extras, deskStatus) ?? loaded?.sponsored ?? undefined;
 

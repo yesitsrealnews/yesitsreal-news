@@ -2,7 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/site-shell";
 import { ArticleBody } from "@/components/stories/article-body";
 import { JsonLd } from "@/components/site/json-ld";
-import { mergeExtras, overlayFind, overlayRelated } from "@/lib/public-feed";
+import { mergeExtras, overlayDesk, overlayFind, overlayRelated } from "@/lib/public-feed";
 import { loadStoryFeed } from "@/lib/public-feed-rpc";
 import { useAppStore } from "@/lib/store";
 import { storyCopy } from "@/lib/format";
@@ -79,7 +79,7 @@ function StoryPage() {
   const loaded = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
   const extras = mergeExtras(loaded?.extras ?? [], useAppStore((s) => s.extras));
-  const deskStatus = { ...(loaded?.desk ?? {}), ...useAppStore((s) => s.deskStatus) };
+  const deskStatus = overlayDesk(loaded?.desk, useAppStore((s) => s.deskStatus));
   const seed = loaded?.story ? [loaded.story] : [];
   const story = overlayFind(seed, slug, extras, deskStatus) ?? loaded?.story;
   if (!story) {

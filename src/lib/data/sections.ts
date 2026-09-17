@@ -1,4 +1,4 @@
-import type { SectionId } from "@/lib/types";
+import type { SectionId } from "../types.ts";
 
 export interface SectionDef {
   id: SectionId;

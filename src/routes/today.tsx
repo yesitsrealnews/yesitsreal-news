@@ -8,7 +8,7 @@ import { Newsletter } from "@/components/site/newsletter";
 import { t } from "@/lib/i18n";
 import { useAppStore } from "@/lib/store";
 import { SITE_URL } from "@/lib/brand";
-import { mergeExtras, overlayHome } from "@/lib/public-feed";
+import { mergeExtras, overlayDesk, overlayHome } from "@/lib/public-feed";
 import { loadTodayFeed } from "@/lib/public-feed-rpc";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { SourceProof } from "@/components/stories/source-proof";
@@ -33,7 +33,7 @@ function TodayPage() {
   const loaded = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
   const extras = mergeExtras(loaded?.extras, useAppStore((s) => s.extras));
-  const deskStatus = { ...(loaded?.desk ?? {}), ...useAppStore((s) => s.deskStatus) };
+  const deskStatus = overlayDesk(loaded?.desk, useAppStore((s) => s.deskStatus));
   const frontPageIds = (useAppStore((s) => s.frontPageIds).length ? useAppStore.getState().frontPageIds : loaded?.frontPageIds) ?? [];
   const add = useAppStore((s) => s.addNewsletter);
   const countShare = useAppStore((s) => s.countShare);

@@ -7,6 +7,7 @@ import {
   sponsoredStory as sponsoredFromSeed,
   type DeskStatusMap,
 } from "@/lib/catalog-core";
+import { isCatalogId, isCatalogSourceUrl } from "@/lib/data/stories";
 import type { SectionId } from "@/lib/types";
 
 const EMPTY_WHY: StoryCopy["whyDumb"] = ["", "", ""];
@@ -81,11 +82,24 @@ export function overlayRelated(
   return relatedFromSeed(seed, story, extras, n, deskStatus);
 }
 
+function acceptExtra(s: Story): boolean {
+  if (isCatalogId(s.id)) return false;
+  if (s.sources.some((x) => isCatalogSourceUrl(x.url))) return false;
+  return true;
+}
+
+/** Server desk wins per id so a stale Cambuse persist cannot bury the une. */
+export function overlayDesk(server?: DeskStatusMap, client?: DeskStatusMap): DeskStatusMap {
+  return { ...(client ?? {}), ...(server ?? {}) };
+}
+
 export function mergeExtras(server: Story[] | undefined, client: Story[]): Story[] {
-  if (!server?.length) return client;
   const map = new Map<string, Story>();
-  for (const s of server) map.set(s.id, s);
+  for (const s of server ?? []) {
+    if (acceptExtra(s)) map.set(s.id, s);
+  }
   for (const s of client) {
+    if (!acceptExtra(s)) continue;
     const prev = map.get(s.id);
     if (!prev || +new Date(s.updatedAt) >= +new Date(prev.updatedAt)) map.set(s.id, s);
   }

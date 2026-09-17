@@ -1,5 +1,5 @@
 import { commentsToken } from "@/lib/comments-github";
-import { STORIES } from "@/lib/data/stories";
+import { STORIES, isCatalogId, isCatalogSourceUrl } from "@/lib/data/stories";
 import { polishPublishedStory } from "@/lib/publish-copy";
 import { isSafeHttpUrl } from "@/lib/security";
 import { SECTION_IDS, type Lang, type SectionId, type Source, type Story, type StoryCopy } from "@/lib/types";
@@ -203,15 +203,19 @@ export function nextStoryId(...idLists: string[][]): string {
 }
 
 export function isCatalogStory(id: string): boolean {
-  return STORIES.some((s) => s.id === id);
+  return isCatalogId(id);
+}
+
+export function dropCatalogCollisions(stories: Story[]): Story[] {
+  return stories.filter((s) => !isCatalogId(s.id) && !s.sources.some((x) => isCatalogSourceUrl(x.url)));
 }
 
 export async function getPublishedExtras(force = false): Promise<Story[]> {
-  if (!force && mem && Date.now() - mem.at < CACHE_MS) return [...mem.stories];
+  if (!force && mem && Date.now() - mem.at < CACHE_MS) return dropCatalogCollisions(mem.stories);
   const token = commentsToken();
   if (!token) {
     mem = { issueNumber: null, stories: mem?.stories ?? [], at: Date.now() };
-    return [...(mem.stories ?? [])];
+    return dropCatalogCollisions(mem.stories ?? []);
   }
   try {
     const issue = await findIssue(token);
@@ -219,11 +223,11 @@ export async function getPublishedExtras(force = false): Promise<Story[]> {
       mem = { issueNumber: null, stories: [], at: Date.now() };
       return [];
     }
-    const stories = parseBody(issue.body);
+    const stories = dropCatalogCollisions(parseBody(issue.body));
     mem = { issueNumber: issue.number, stories, at: Date.now() };
     return [...stories];
   } catch {
-    return mem ? [...mem.stories] : [];
+    return mem ? dropCatalogCollisions(mem.stories) : [];
   }
 }
 
@@ -232,8 +236,11 @@ export async function upsertPublishedStory(story: Story): Promise<Story[] | null
   if (!token) return null;
   const issue = await findOrCreateIssue(token);
   if (!issue) return null;
-  const current = parseBody(issue.body);
-  const next = [story, ...current.filter((s) => s.id !== story.id)].slice(0, MAX_ITEMS);
+  const current = dropCatalogCollisions(parseBody(issue.body));
+  const incoming = dropCatalogCollisions([story])[0];
+  const next = incoming
+    ? [incoming, ...current.filter((s) => s.id !== incoming.id)].slice(0, MAX_ITEMS)
+    : current.slice(0, MAX_ITEMS);
   const patched = await gh<GhIssue>(token, `/repos/${OWNER}/${REPO}/issues/${issue.number}`, {
     method: "PATCH",
     body: JSON.stringify({ body: formatBody(next) }),

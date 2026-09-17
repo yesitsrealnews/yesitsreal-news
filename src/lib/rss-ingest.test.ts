@@ -57,6 +57,27 @@ describe("shouldKeepHit", () => {
     assert.equal(shouldKeepHit("Sa mise à l’eau tourne court : le bateau coule au bout de la cale", "remorque"), true);
   });
 
+  it("drops Manchester City football and traumatising court copy", () => {
+    assert.equal(
+      shouldKeepHit(
+        "« Un effet Haaland » : l’attaquant de Manchester City, principale raison de la hausse",
+        "football",
+      ),
+      false,
+    );
+    assert.equal(
+      shouldKeepHit("Isère. « Une scène pénible et traumatisante » : un jeune homme condamné", "tribunal"),
+      false,
+    );
+  });
+
+  it("still keeps the Norwegian Haaland-carrot note", () => {
+    assert.equal(
+      shouldKeepHit("Stort salg av gulrøtter i sommer: – Haaland-effekt", "Landbruksdirektoratet gulrot"),
+      true,
+    );
+  });
+
   it("scores animal beats above a generic insolite label", () => {
     const animal = scoreHit("Un sanglier dans le métro de Rennes", "station République");
     const weak = scoreHit("Faits divers du jour", "un quiproquo en mairie", "", "faits-divers");

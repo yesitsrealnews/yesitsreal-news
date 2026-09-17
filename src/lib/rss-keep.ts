@@ -17,7 +17,7 @@ function fold(s: string): string {
 
 /** Harm / grief / minors / war — never a piste. Bare « guerre » is NOT here (guerre de voisin is a beat). */
 export const RSS_SKIP =
-  /\b(dead|died|death|killed|killing|murder|suicide|massacre|war in|world war|rape|tue\b|tuee|tuerie|deces|decede|\bmeurt\b|\bmourir\b|\bmort\b|\bmorte\b|mortel|blesse|blessure|injured|hospitalis|guerre en|guerre d(?:'|e l)|viol\b|mineur|underage|child sex|\ba 1[0-7]\s*ans\b|1[0-7]-year-old|rapt|pedophil|agress(?:e|ee|ion|er)?|roue de coups|tabass|coup de poing|machette|poignard|sabre|fusill|disparition|malaise|incendie|cannabis|cocaine|drogue|violences sexuelles|atteinte sex|periscolaire|gilets jaunes|elections?\s+municipales|west nile|migrant|attentat|terror|otage|hostage|gaza|ukraine|cisjordanie|grave accident|cancer|chimio)\b/i;
+  /\b(dead|died|death|killed|killing|murder|suicide|massacre|war in|world war|rape|tue\b|tuee|tuerie|deces|decede|\bmeurt\b|\bmourir\b|\bmort\b|\bmorte\b|mortel|blesse|blessure|injured|hospitalis|guerre en|guerre d(?:'|e l)|viol\b|mineur|underage|child sex|\ba 1[0-7]\s*ans\b|1[0-7]-year-old|rapt|pedophil|agress(?:e|ee|ion|er)?|roue de coups|tabass|coup de poing|machette|poignard|sabre|fusill|disparition|malaise|incendie|cannabis|cocaine|drogue|violences sexuelles|atteinte sex|periscolaire|gilets jaunes|elections?\s+municipales|west nile|migrant|attentat|terror|otage|hostage|gaza|ukraine|cisjordanie|grave accident|cancer|chimio|manchester city|premier league|ligue 1|scene penible et traumatisant|traumatisante)\b/i;
 
 /** Label-level insolite — enough on a dedicated insolite/odd feed. */
 const SOFT =

@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { EMAILS, SITE_NAME, SITE_URL } from "@/lib/brand";
-import { mergeExtras, overlayHome } from "@/lib/public-feed";
+import { mergeExtras, overlayDesk, overlayHome } from "@/lib/public-feed";
 import { loadHomeFeed } from "@/lib/public-feed-rpc";
 import { storyCopy, storySlug } from "@/lib/format";
 import { useAppStore } from "@/lib/store";
@@ -31,7 +31,7 @@ function TeslaReader() {
   const loaded = Route.useLoaderData();
   const lang = useAppStore((s) => s.lang);
   const extras = mergeExtras(loaded?.extras, useAppStore((s) => s.extras));
-  const deskStatus = { ...(loaded?.desk ?? {}), ...useAppStore((s) => s.deskStatus) };
+  const deskStatus = overlayDesk(loaded?.desk, useAppStore((s) => s.deskStatus));
   const setLang = useAppStore((s) => s.setLang);
   const fr = lang === "fr";
   const week = useMemo(

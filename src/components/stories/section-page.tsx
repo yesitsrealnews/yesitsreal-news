@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import type { Lang, SectionId, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
-import { countriesFrom, overlaySection } from "@/lib/public-feed";
+import { countriesFrom, overlayDesk, overlaySection, type DeskStatusMap } from "@/lib/public-feed";
 import { StoryCard } from "@/components/stories/story-card";
 import { AdSlot } from "@/components/site/ad-slot";
 import { Button } from "@/components/ui/button";
@@ -15,13 +15,15 @@ export function SectionArchive({
   lang,
   stories,
   extras,
+  desk,
 }: {
   section: SectionId;
   lang: Lang;
   stories: Story[];
   extras: Story[];
+  desk?: DeskStatusMap;
 }) {
-  const deskStatus = useAppStore((s) => s.deskStatus);
+  const deskStatus = overlayDesk(desk, useAppStore((s) => s.deskStatus));
   const base = overlaySection(stories, extras, section, deskStatus);
   const countries = countriesFrom(base);
   const [country, setCountry] = useState("all");

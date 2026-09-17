@@ -3,6 +3,7 @@ import { persist } from "zustand/middleware";
 import type { Lang, Lead, QueueItem, ReactionId, Story, StoryStatus, Submission } from "@/lib/types";
 import { detectBrowserLang, isLang } from "@/lib/i18n/langs";
 import { SPRINT_MS } from "@/lib/revenue";
+import { isCatalogId, isCatalogSourceUrl } from "@/lib/data/stories";
 
 const SATIRE_DENY = [
   "theonion.com",
@@ -308,11 +309,16 @@ export const useAppStore = create<AppState>()(
         try {
           const res = await fetch("/api/publish", { cache: "no-store" });
           const data = (await res.json()) as { ok?: boolean; stories?: Story[] };
-          if (res.ok && data?.ok && Array.isArray(data.stories) && data.stories.length) {
-            const have = new Map(get().extras.map((s) => [s.id, s]));
-            for (const s of data.stories) have.set(s.id, s);
-            set({ extras: [...have.values()] });
-          }
+          if (!res.ok || !data?.ok || !Array.isArray(data.stories)) return;
+          const fromServer = data.stories.filter((s) => s && typeof s.id === "string" && !isCatalogId(s.id));
+          const serverIds = new Set(fromServer.map((s) => s.id));
+          const fromClient = get().extras.filter((s) => {
+            if (!s?.id || isCatalogId(s.id)) return false;
+            if (s.sources.some((x) => isCatalogSourceUrl(x.url))) return false;
+            if (fromServer.length && serverIds.has(s.id)) return false;
+            return true;
+          });
+          set({ extras: [...fromServer, ...fromClient] });
         } catch {
           /* keep local extras */
         }
@@ -508,7 +514,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 10,
+      version: 11,
       migrate: (persisted) => {
         const s = (persisted ?? {}) as {
           lang?: string;
@@ -517,6 +523,7 @@ export const useAppStore = create<AppState>()(
           frontPageIds?: string[];
           rejected?: unknown;
           purgedIds?: string[];
+          extras?: Story[];
         };
         if (!s.lang || s.lang === "en") s.lang = "fr";
         delete s.admin;
@@ -538,6 +545,13 @@ export const useAppStore = create<AppState>()(
           })
           .slice(0, 500);
         delete s.rejected;
+        if (Array.isArray(s.extras)) {
+          s.extras = s.extras.filter((e) => {
+            if (!e || typeof e !== "object" || !e.id) return false;
+            if (isCatalogId(e.id)) return false;
+            return !e.sources?.some((x) => x?.url && isCatalogSourceUrl(x.url));
+          });
+        }
         return s as typeof persisted;
       },
       partialize: (s) => ({

@@ -1,5 +1,5 @@
-import type { Lang, SectionId, Story } from "@/lib/types";
-import { canonicalSection } from "@/lib/data/sections";
+import type { Lang, SectionId, Story } from "./types.ts";
+import { canonicalSection } from "./data/sections.ts";
 
 /** Rolling week for the une. Older copy stays published in rubriques, not on /. */
 export const HOME_WINDOW_DAYS = 7;
@@ -24,15 +24,18 @@ export function isThisWeek(story: Story, now = Date.now()): boolean {
 export function mergeStories(seed: Story[], extras: Story[]): Story[] {
   const map = new Map<string, Story>();
   for (const s of seed) map.set(s.id, s);
+  const seedIds = new Set(map.keys());
   const catalogUrls = new Set(
     seed.filter((s) => s.status === "published").flatMap((s) => s.sources.map((x) => x.url)),
   );
   for (const s of extras) {
+    if (seedIds.has(s.id)) continue;
     if (s.sources.some((x) => catalogUrls.has(x.url))) continue;
     map.set(s.id, canonicalizeStory(s));
   }
   return [...map.values()].sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
 }
+
 
 function canonicalizeStory(s: Story): Story {
   const section = canonicalSection(s.section);

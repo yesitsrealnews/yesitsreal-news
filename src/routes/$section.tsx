@@ -67,7 +67,7 @@ function SectionRoute() {
   return (
     <SiteShell>
       <title>{`${title} — YES IT'S REAL`}</title>
-      <SectionArchive section={section} lang={lang} stories={loaded?.stories ?? []} extras={extras} />
+      <SectionArchive section={section} lang={lang} stories={loaded?.stories ?? []} extras={extras} desk={loaded?.desk} />
     </SiteShell>
   );
 }
