@@ -2109,6 +2109,510 @@ export const DESK_LIVE: Story[] = [
       ),
     },
   }),
+
+  revue({
+    id: "s164",
+    slug: "saint-just-saint-rambert-mayor-bans-tiger-mosquitoes-from-flying-over-town",
+    slugs: {
+      fr: "saint-just-saint-rambert-le-maire-interdit-aux-moustiques-tigres-de-survoler-la-commune",
+    },
+    section: "politics",
+    countryCode: "FR",
+    countryName: "France",
+    location: "Saint-Just-Saint-Rambert, Loire",
+    dumbness: 8,
+    sources: [
+      src(
+        "Dans la Loire, les moustiques tigres sont désormais interdits de survoler une commune",
+        "franceinfo",
+        "https://www.franceinfo.fr/france/auvergne-rhone-alpes/loire/dans-la-loire-les-moustiques-tigres-sont-desormais-interdits-de-survoler-une-commune_8176550.html",
+        "2026-09-04",
+        "wire",
+      ),
+      src(
+        "« On ne peut plus prendre l’apéro dehors ! » : un maire de la Loire « interdit » aux moustiques-tigres de survoler sa commune",
+        "Le Parisien",
+        "https://www.leparisien.fr/politique/on-ne-peut-plus-prendre-lapero-dehors-un-maire-de-la-loire-interdit-aux-moustiques-tigres-de-survoler-sa-commune-03-09-2026-4BH6BREPJZG7HBPCQBSM32NHBY.php",
+        "2026-09-03",
+        "wire",
+      ),
+      src(
+        "Loire : une commune interdit aux moustiques tigres de la survoler",
+        "Le Figaro",
+        "https://www.lefigaro.fr/actualite-france/loire-une-commune-interdit-aux-moustiques-tigres-de-la-survoler-20260903",
+        "2026-09-03",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-18T06:10:00.000Z",
+    originalLang: "fr",
+    confidence: 0.96,
+    entities: ["Olivier Joly", "Saint-Just-Saint-Rambert", "TL7 Loire"],
+    copy: {
+      en: c(
+        "A Loire mayor banned tiger mosquitoes from flying over his town. Offenders ‘face prosecution’.",
+        "Saint-Just-Saint-Rambert, 15,000 people. Order dated 1 September 2026. Mayor Olivier Joly. franceinfo, Le Parisien/AFP, Le Figaro.",
+        [
+          "franceinfo (4 September) and Le Parisien with AFP (3 September): Olivier Joly, mayor of Saint-Just-Saint-Rambert in the Loire, signed an order on 1 September forbidding tiger mosquitoes to overfly the commune, ‘considering that their repeated, low or circular flights and their bites are liable to cause irritation and exasperation.’ Any mosquito that ignores the instruction ‘exposes itself to prosecution.’ The text was first reported by local channel TL7 Loire.",
+          "Joly told AFP residents had come at him after the holidays: they could no longer have an apéro outside. The town has already spent €45,000 on traps, bat boxes, tit nesting boxes and poles for swallows. The order also tells people to empty flower-pot saucers, old tyres and gutters. ‘No mosquito has been arrested or fined,’ the mayor said.",
+        ],
+        [
+          "The bylaw names the species. It does not name a bailiff for insects.",
+          "€45,000 of hardware, plus a sentence.",
+          "The apéro is a municipal interest.",
+        ],
+        "franceinfo 4 Sept; Parisien/AFP + Figaro 3 Sept 2026. Order 1 Sept, Saint-Just-Saint-Rambert. Mayor Olivier Joly named.",
+      ),
+      fr: c(
+        "Un maire de la Loire interdit aux moustiques tigres de survoler sa commune. Les contrevenants « s’exposent à des poursuites ».",
+        "Saint-Just-Saint-Rambert, 15 000 habitants. Arrêté du 1er septembre 2026. Le maire Olivier Joly. franceinfo, Le Parisien/AFP, Le Figaro.",
+        [
+          "franceinfo (4 septembre) et Le Parisien avec AFP (3 septembre) : Olivier Joly, maire de Saint-Just-Saint-Rambert (Loire), signe le 1er septembre un arrêté qui interdit aux moustiques tigres de survoler la commune, « considérant que leurs vols répétés, rasants ou circulaires et leurs piqûres sont de nature à provoquer l’agacement et l’exaspération ». Tout moustique tigre qui n’obéit pas « s’expose à des poursuites ». Le texte a d’abord été lu par TL7 Loire.",
+          "Joly dit à l’AFP que les administrés lui sont tombés dessus au retour des vacances : on ne peut plus prendre l’apéro dehors. La ville a déjà mis 45 000 euros dans des pièges, des gîtes à chauves-souris, des nichoirs à mésanges et des mâts pour hirondelles. L’arrêté demande aussi de vider les soucoupes, les pneus et les gouttières. « Aucun moustique n’a été arrêté ou verbalisé », dit le maire.",
+        ],
+        [
+          "L’arrêté nomme l’espèce. Pas l’huissier des insectes.",
+          "45 000 euros de matériel, plus une phrase.",
+          "L’apéro est un intérêt municipal.",
+        ],
+        "franceinfo 4 sept. ; Parisien/AFP + Figaro 3 sept. 2026. Arrêté du 1er sept., Saint-Just-Saint-Rambert. Maire Olivier Joly nommé.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s165",
+    slug: "flemish-mp-frederic-erens-stuck-13-hours-parliament-toilet",
+    slugs: {
+      fr: "depute-flamand-frederic-erens-coince-13-heures-toilettes-parlement",
+    },
+    section: "politics",
+    countryCode: "BE",
+    countryName: "Belgium",
+    location: "Flemish Parliament, Brussels",
+    dumbness: 8,
+    sources: [
+      src(
+        "Far-right MP freed after being stuck in Flemish Parliament toilet for 13 hours",
+        "The Brussels Times",
+        "https://www.brusselstimes.com/2319603/far-right-mp-taken-to-hospital-after-being-stuck-for-13-hours-in-parliament-toilet",
+        "2026-09-16",
+        "wire",
+      ),
+      src(
+        "La serrure lâche, il n’a pas de téléphone : un député reste enfermé pendant 13 heures aux toilettes",
+        "Ouest-France",
+        "https://www.ouest-france.fr/europe/belgique/la-serrure-lache-il-na-pas-de-telephone-un-depute-reste-enferme-pendant-13-heures-aux-toilettes-08dc60dc-b1e8-11f1-bc32-13ddcee9efa7",
+        "2026-09-17",
+        "wire",
+      ),
+      src(
+        "« J’ai dû jouer les MacGyver » : coincé dans les toilettes du Parlement flamand pendant 13 heures, le député Frédéric Erens raconte",
+        "Sudinfo",
+        "https://www.sudinfo.be/id1194477/article/2026-09-16/jai-du-jouer-les-macgyver-coince-dans-les-toilettes-du-parlement-flamand-pendant",
+        "2026-09-16",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-18T06:12:00.000Z",
+    originalLang: "nl",
+    confidence: 0.95,
+    entities: ["Frédéric Erens", "Vlaams Belang", "Flemish Parliament", "HLN"],
+    copy: {
+      en: c(
+        "An MP spent 13 hours locked in a Flemish Parliament toilet. No phone. A crowbar in the morning.",
+        "Brussels, Tuesday night to Wednesday 16 September 2026. Frédéric Erens, Vlaams Belang, 58. Brussels Times, Ouest-France, Sudinfo after HLN.",
+        [
+          "The Brussels Times (16 September) and Ouest-France (17 September), after HLN and VTM: after a meeting next to the Flemish Parliament, Frédéric Erens went to the toilet before going home. The lock spring broke. He had left his phone on the table — ‘the first time,’ he told HLN. He shouted and banged. The floor had emptied. Thirteen hours.",
+          "The extractor only runs when it detects movement, so the air stopped. He found a piece of metal and punched two holes in the door, top and bottom. ‘I had to play MacGyver,’ he told Het Nieuwsblad. A cleaner found him around 6 a.m. She could not open it from outside. Military police used a crowbar. He was taken to Saint-Jean hospital with breathing trouble. Parliament called it an unfortunate combination of circumstances.",
+        ],
+        [
+          "The legislature has a lock. It did not have a spare key on the night shift.",
+          "The phone stayed on the table. The MP stayed in the cubicle.",
+          "MacGyver is not in the standing orders.",
+        ],
+        "Brussels Times 16 Sept; Ouest-France 17 Sept; Sudinfo/HLN 16 Sept 2026. Frédéric Erens named. Flemish Parliament, Brussels.",
+      ),
+      fr: c(
+        "Un député passe 13 heures enfermé aux toilettes du Parlement flamand. Pas de téléphone. Un pied-de-biche au matin.",
+        "Bruxelles, de mardi soir au mercredi 16 septembre 2026. Frédéric Erens, Vlaams Belang, 58 ans. Brussels Times, Ouest-France, Sudinfo d’après HLN.",
+        [
+          "The Brussels Times (16 septembre) et Ouest-France (17 septembre), d’après HLN et VTM : après une réunion à côté du Parlement flamand, Frédéric Erens passe aux toilettes avant de rentrer. Le ressort de la serrure casse. Il a laissé son téléphone sur la table — « la première fois », dit-il à HLN. Il crie, il frappe. L’étage est vide. Treize heures.",
+          "La VMC ne se déclenche qu’au mouvement : l’air s’arrête. Il trouve un objet métallique, perce deux trous dans la porte, haut et bas. « J’ai dû jouer les MacGyver », dit-il à Het Nieuwsblad. Une femme de ménage le trouve vers 6 h. Elle n’ouvre pas de l’extérieur. La police militaire sort un pied-de-biche. Il part à l’hôpital Saint-Jean, mal à respirer. Le Parlement : un malheureux concours de circonstances.",
+        ],
+        [
+          "L’assemblée a une serrure. Pas de double pour la nuit.",
+          "Le téléphone est resté sur la table. Le député, dans la cabine.",
+          "MacGyver n’est pas au règlement.",
+        ],
+        "Brussels Times 16 sept. ; Ouest-France 17 sept. ; Sudinfo/HLN 16 sept. 2026. Frédéric Erens nommé. Parlement flamand, Bruxelles.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s166",
+    slug: "nova-friburgo-friends-walk-five-capybaras-home-across-the-avenue",
+    slugs: {
+      fr: "nova-friburgo-des-amis-raccompagnent-cinq-capivaras-a-travers-lavenue",
+    },
+    section: "animals",
+    countryCode: "BR",
+    countryName: "Brazil",
+    location: "Nova Friburgo, Rio de Janeiro",
+    dumbness: 7,
+    sources: [
+      src(
+        "‘Deu trabalho, viu?’: amigos ajudam capivaras a atravessar avenida e voltar para o rio em Nova Friburgo, RJ",
+        "g1",
+        "https://g1.globo.com/rj/regiao-serrana/noticia/2026/09/17/deu-trabalho-viu-amigos-ajudam-capivaras-a-atravessar-avenida-e-voltar-para-o-rio-em-nova-friburgo-rj.ghtml",
+        "2026-09-17",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-18T06:14:00.000Z",
+    originalLang: "pt",
+    confidence: 0.93,
+    entities: ["Larissa Donato", "Bruna Copque", "Lucas Marquet", "Ygor Cardinot", "Rio Bengalas"],
+    copy: {
+      en: c(
+        "At 3:30 a.m. in Nova Friburgo, four friends walked five capybaras off the avenue and back to the river.",
+        "Avenida Comte Bittencourt, Centro. Tuesday 15 September 2026. g1, 17 September. Video past 300,000 views.",
+        [
+          "g1, 17 September 2026: around 3:30 a.m. on Tuesday 15, Larissa Donato, Bruna Copque, Lucas Marquet and Ygor Cardinot turned onto Avenida Comte Bittencourt in central Nova Friburgo, in the Serra of Rio de Janeiro, and almost hit five capybaras in the carriageway. They looped the avenue and came back. ‘There was no leaving them in the middle of the street. At night the cars come fast,’ Bruna told g1.",
+          "They spent the rest of the small hours steering the family off the tarmac toward the Rio Bengalas and waiting to see they did not walk back. Larissa, on the video: ‘Almost 3:30 in the morning and we’re trying to put the capybaras back in the river. That’s it. There’s one, there’s five, they’re all back there.’ g1: more than 300,000 views.",
+        ],
+        [
+          "Traffic calming, rodent-sized.",
+          "The night shift was four people and five capybaras.",
+          "The river is named. The avenue is named. The friends are named.",
+        ],
+        "g1, 17 Sept 2026. Facts of 15 Sept, Nova Friburgo. Named quartet. Rio Bengalas. One originating desk.",
+      ),
+      fr: c(
+        "À 3 h 30 à Nova Friburgo, quatre amis raccompagnent cinq capivaras de l’avenue jusqu’à la rivière.",
+        "Avenida Comte Bittencourt, centre-ville. Mardi 15 septembre 2026. g1, 17 septembre. La vidéo dépasse 300 000 vues.",
+        [
+          "g1, 17 septembre 2026 : vers 3 h 30 le mardi 15, Larissa Donato, Bruna Copque, Lucas Marquet et Ygor Cardinot s’engagent sur l’avenida Comte Bittencourt, au centre de Nova Friburgo, dans la Serra de Rio, et manquent d’heurter cinq capivaras sur la chaussée. Ils font demi-tour. « On ne pouvait pas les laisser au milieu de la rue. La nuit, les voitures vont vite », dit Bruna à g1.",
+          "Ils passent le reste de la nuit à pousser la famille hors du bitume vers le rio Bengalas, et à vérifier qu’elle ne revient pas. Larissa, sur la vidéo : « Presque 3 h 30 du matin, et on essaie de remettre les capivaras dans la rivière. Voilà. Y en a une, y en a cinq, elles sont toutes derrière. » g1 : plus de 300 000 vues.",
+        ],
+        [
+          "Ralentisseur, format rongeur.",
+          "L’équipe de nuit : quatre personnes, cinq capivaras.",
+          "La rivière est nommée. L’avenue aussi. Les amis aussi.",
+        ],
+        "g1, 17 sept. 2026. Faits du 15 sept., Nova Friburgo. Quatuor nommé. Rio Bengalas. Un journal d’origine.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s167",
+    slug: "ramapo-new-york-emu-breaks-from-petting-zoo-police-drone-chase",
+    slugs: {
+      fr: "ramapo-new-york-un-emeu-fugue-du-petting-zoo-course-poursuite-drone",
+    },
+    section: "animals",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Ramapo, New York",
+    dumbness: 8,
+    sources: [
+      src(
+        "Emu escape from petting zoo prompts police chase in New York",
+        "UPI",
+        "https://www.upi.com/Odd_News/2026/09/14/emu-chase-petting-zoo-Ramapo-New-York/4691789392344/",
+        "2026-09-14",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-18T06:16:00.000Z",
+    originalLang: "en",
+    confidence: 0.92,
+    entities: ["Town of Ramapo Police Department", "Sgt. Anton"],
+    copy: {
+      en: c(
+        "An emu left a Ramapo petting zoo. Police brought a drone. Sgt. Anton closed the road.",
+        "Rockland County, New York, Saturday 12 September 2026. Town of Ramapo Police Department, via UPI, 14 September. No injuries. No ticket.",
+        [
+          "UPI, 14 September 2026, after the Town of Ramapo Police Department: on Saturday, officers were called because ‘an emu decided to make a break for it from a local petting zoo.’ They found the bird. ‘Convincing an emu that the adventure was over took a little teamwork.’ The department’s Drone as First Responder followed it from the air.",
+          "The department: ‘We don’t know why the chicken crossed the road, but the emu crossed the road because Sgt. Anton didn’t give it an option.’ It was walked back to the zoo. ‘No injuries, no citations and no word yet on whether it plans to escape again.’",
+        ],
+        [
+          "The fugitive was flightless. The air support was not.",
+          "Sgt. Anton is now traffic, Australian-bird division.",
+          "The zoo got its emu. The emu got a police report.",
+        ],
+        "UPI, 14 Sept 2026, quoting Ramapo PD. Saturday 12 Sept, Rockland County. Sgt. Anton named. One originating desk.",
+      ),
+      fr: c(
+        "Un émeu quitte le petting zoo de Ramapo. La police sort le drone. Le sergent Anton ferme la route.",
+        "Rockland County, New York, samedi 12 septembre 2026. Police de Ramapo, via UPI, 14 septembre. Pas de blessé. Pas de PV.",
+        [
+          "UPI, 14 septembre 2026, d’après la police de Ramapo : samedi, les agents sont appelés parce qu’« un émeu a décidé de se faire la belle depuis un petting zoo local ». Ils le trouvent. « Convaincre un émeu que l’aventure était finie a demandé un peu d’équipe. » Le drone Drone as First Responder le suit du ciel.",
+          "La police : « On ne sait pas pourquoi le poulet a traversé la route, mais l’émeu l’a traversée parce que le sergent Anton ne lui a pas laissé le choix. » Retour au zoo à pied. « Pas de blessés, pas de contravention, et pas encore de mot sur une récidive. »",
+        ],
+        [
+          "Le fuyard ne vole pas. L’appui aérien, si.",
+          "Le sergent Anton passe à la circulation, brigade oiseau australien.",
+          "Le zoo récupère l’émeu. L’émeu a un rapport de police.",
+        ],
+        "UPI, 14 sept. 2026, police de Ramapo. Samedi 12 sept., Rockland County. Sergent Anton nommé. Un journal d’origine.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s168",
+    slug: "somerset-rambo-the-ram-wedged-in-a-concrete-pipe-chimney-rods",
+    slugs: {
+      fr: "somerset-rambo-le-belier-coince-dans-un-tuyau-en-beton",
+    },
+    section: "animals",
+    countryCode: "GB",
+    countryName: "United Kingdom",
+    location: "Somerton, Somerset",
+    dumbness: 8,
+    sources: [
+      src(
+        "Wedged ram rescued from concrete pipe in England",
+        "UPI",
+        "https://www.upi.com/Odd_News/2026/09/15/Somerset-ram-concrete-pipe-rescue/7591789489658/",
+        "2026-09-15",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-18T06:18:00.000Z",
+    originalLang: "en",
+    confidence: 0.92,
+    entities: ["Rambo", "Somerton Fire Station", "Devon and Somerset Fire and Rescue Service"],
+    copy: {
+      en: c(
+        "Rambo, 220 lb, was firmly wedged in a concrete pipe. Somerset firefighters used chimney rods.",
+        "Somerton, England. Devon and Somerset Fire and Rescue, Somerton station, via UPI, 15 September 2026. Reunited with his farmers.",
+        [
+          "UPI, 15 September 2026: Somerton Fire Station, Devon and Somerset Fire and Rescue Service, posted that crews ‘had to think outside the box’ for a 220-pound ram named Rambo, ‘firmly wedged’ in a concrete pipe.",
+          "‘Using our chimney rods, the crew were able to feed a GP line around Rambo, while a hearth sheet was carefully positioned underneath him. Once everything was safely in place, the line was pulled, allowing Rambo to slide along the sheet and out of the pipe.’ The service said he was ‘happy’ afterwards and went back to his farmers.",
+        ],
+        [
+          "The livestock was named Rambo. The tool was a chimney rod.",
+          "A hearth sheet is now agricultural kit.",
+          "The pipe lost. The ram walked.",
+        ],
+        "UPI, 15 Sept 2026, quoting Somerton Fire Station / DSFRS. Ram named Rambo. One originating desk.",
+      ),
+      fr: c(
+        "Rambo, 100 kg, coincé dans un tuyau en béton. Les pompiers du Somerset sortent les cannes de ramonage.",
+        "Somerton, Angleterre. Devon and Somerset Fire and Rescue, caserne de Somerton, via UPI, 15 septembre 2026. Rendu à ses éleveurs.",
+        [
+          "UPI, 15 septembre 2026 : la caserne de Somerton, Devon and Somerset Fire and Rescue Service, écrit que l’équipe a dû « sortir du cadre » pour un bélier de 100 kilos nommé Rambo, « fermement coincé » dans un tuyau en béton.",
+          "« Avec nos cannes de ramonage, l’équipe a passé une sangle autour de Rambo, une bâche de foyer glissée dessous. Une fois en place, on a tiré : Rambo a glissé sur la bâche et est sorti du tuyau. » Le service le dit « content » ensuite, rendu à ses éleveurs.",
+        ],
+        [
+          "Le bétail s’appelle Rambo. L’outil, une canne de ramoneur.",
+          "La bâche de cheminée devient du matériel agricole.",
+          "Le tuyau a perdu. Le bélier a marché.",
+        ],
+        "UPI, 15 sept. 2026, caserne de Somerton / DSFRS. Bélier nommé Rambo. Un journal d’origine.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s169",
+    slug: "cape-town-city-wants-to-cage-sixty-chacma-baboons-simons-town",
+    slugs: {
+      fr: "le-cap-la-ville-veut-mettre-en-cage-soixante-baboins-simons-town",
+    },
+    section: "animals",
+    countryCode: "ZA",
+    countryName: "South Africa",
+    location: "Simon's Town, Cape Town",
+    dumbness: 7,
+    sources: [
+      src(
+        "Cape Town's plan to cage baboons sparks outcry",
+        "Reuters",
+        "https://www.reuters.com/business/environment/cape-towns-plan-cage-baboons-sparks-outcry-2026-09-17/",
+        "2026-09-17",
+        "wire",
+      ),
+      src(
+        "Baboon troop trapped inside Gordon’s Bay home causes widespread destruction",
+        "DistrictMail & Helderberg Gazette",
+        "https://novanews.co.za/districtmailhelderberg/baboon-troop-trapped-inside-gordons-bay-home-causes-widespread-destruction/",
+        "2026-09-16",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-18T06:20:00.000Z",
+    originalLang: "en",
+    confidence: 0.94,
+    entities: ["Gregg Oelofse", "Sue-Anne Norton", "Simon's Town", "Gordon's Bay"],
+    copy: {
+      en: c(
+        "Cape Town wants to put about 60 chacma baboons in a permanent cage. This week a troop let itself into a house.",
+        "Simon's Town and Gordon's Bay, September 2026. Reuters, 17 September. DistrictMail, 16 September, on Blushing Bride Street, 8 September.",
+        [
+          "Reuters, 17 September 2026: the City of Cape Town plans to permanently cage around 60 chacma baboons from the Simon's Town area, presented as an alternative to culling. Gregg Oelofse, the city’s coastal and environmental manager, said communities were in conflict with each other over the animals. Resident Sue-Anne Norton, who feeds fruit to baboons at her house, told Reuters they are not domestic: ‘You cannot put them in a cage.’ Protesters called Cape Town the ‘City of Chacma Torture’ and carried toy baboons in makeshift cages.",
+          "DistrictMail, 16 September: on 8 September a troop of about ten baboons got into a house on Blushing Bride Street, Mountainside, Gordon's Bay, and could not get out. GBSec officers banged sticks and opened windows. About ten ran out. Televisions smashed, cupboards and fridges emptied, the house soiled. Under CapeNature rules it is illegal to capture or move baboons without a permit.",
+        ],
+        [
+          "The city offers a cage. The baboons chose a kitchen.",
+          "Blushing Bride Street is now on the blotter.",
+          "The stuffed toys at the protest had better housing than the plan.",
+        ],
+        "Reuters 17 Sept 2026 (Simon's Town plan). DistrictMail 16 Sept (Gordon's Bay, 8 Sept). Oelofse and Norton named.",
+      ),
+      fr: c(
+        "Le Cap veut mettre une soixantaine de babouins chacma en cage permanente. Cette semaine, une troupe s’est invitée dans une maison.",
+        "Simon's Town et Gordon's Bay, septembre 2026. Reuters, 17 septembre. DistrictMail, 16 septembre, sur Blushing Bride Street, le 8.",
+        [
+          "Reuters, 17 septembre 2026 : la ville du Cap prévoit d’enfermer en permanence une soixantaine de babouins chacma du secteur de Simon's Town, présenté comme une alternative à l’abattage. Gregg Oelofse, responsable littoral et environnement, dit que les habitants se disputent entre eux à cause des animaux. Sue-Anne Norton, qui leur donne des fruits chez elle, dit à Reuters qu’ils ne sont pas des animaux domestiques : « On ne peut pas les mettre en cage. » Des manifestants ont surnommé Le Cap « City of Chacma Torture » et promenaient des babouins en peluche dans des cages de fortune.",
+          "DistrictMail, 16 septembre : le 8 septembre, une dizaine de babouins entrent dans une maison, Blushing Bride Street, Mountainside, Gordon's Bay, et n’en sortent plus. Les agents GBSec tapent des bâtons, ouvrent les fenêtres. Une dizaine s’enfuit. Télés cassées, placards et frigos vidés, maison souillée. CapeNature : capturer ou déplacer un babouin sans permis est illégal.",
+        ],
+        [
+          "La ville propose une cage. Les babouins ont choisi une cuisine.",
+          "Blushing Bride Street entre au rapport de police.",
+          "Les peluches de la manif sont mieux logées que le plan.",
+        ],
+        "Reuters 17 sept. 2026 (plan Simon's Town). DistrictMail 16 sept. (Gordon's Bay, 8 sept.). Oelofse et Norton nommés.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s170",
+    slug: "shimane-tottori-troop-of-japanese-macaques-walks-two-prefectures",
+    slugs: {
+      fr: "shimane-tottori-une-troupe-de-macaques-traverse-deux-prefectures",
+    },
+    section: "animals",
+    countryCode: "JP",
+    countryName: "Japan",
+    location: "Yasugi, Shimane / Yonago, Tottori",
+    dumbness: 7,
+    sources: [
+      src(
+        "20匹以上が住宅街に…“サルの群れ”県またぎ大移動か 島根と鳥取で目撃相次ぐ",
+        "日テレNEWS NNN",
+        "https://news.yahoo.co.jp/articles/8d4e21db58e5fc21ffa3284afef8e2073af816f3",
+        "2026-09-16",
+        "wire",
+      ),
+      src(
+        "鳥取・米子市でサル約10頭の群れが出没「刺激せず戸締まり徹底を」",
+        "ABEMA TIMES",
+        "https://news.yahoo.co.jp/articles/4f9ea7d79b5f13f690ae6cca940c9ea58469138d",
+        "2026-09-15",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-18T06:22:00.000Z",
+    originalLang: "ja",
+    confidence: 0.9,
+    entities: ["Yasugi", "Yonago", "Okudani"],
+    copy: {
+      en: c(
+        "A troop of Japanese macaques, 20-plus, walked a residential street in Shimane and showed up in Tottori.",
+        "Yasugi, Shimane, then Yonago, Tottori, mid-September 2026. NNN, 16 September. Yonago city, 15 September, via ABEMA.",
+        [
+          "NNN / Nippon TV, 16 September 2026: since last month, sightings of a macaque troop have stacked up in Shimane and Tottori. Last week the animals walked a residential street in Yasugi, Shimane — NNN counted at least 27 on the footage, one carrying a small monkey on its back. On 15 September they were seen in neighbouring Tottori, moving through trees, calling.",
+          "The city of Yonago posted on 15 September, 8:30 a.m.: about ten animals near Okudani community centre. Do not provoke, do not feed, lock the doors, call the police or the city’s agriculture desk. Yonago said a troop that size is a first for the city. The two prefectures think it is the same group on the move.",
+        ],
+        [
+          "The commute crossed a prefectural line.",
+          "Yonago’s advice is a municipal circular: lock up, don’t pack a banana.",
+          "Twenty-seven is a crowd. It is also a census.",
+        ],
+        "NNN 16 Sept 2026. Yonago city / ABEMA 15 Sept. Yasugi and Yonago named. No personal names in the originating copy.",
+      ),
+      fr: c(
+        "Une troupe de macaques japonais, plus de 20, traverse une rue d’immeubles à Shimane et débarque à Tottori.",
+        "Yasugi (Shimane), puis Yonago (Tottori), mi-septembre 2026. NNN, 16 septembre. Ville de Yonago, 15 septembre, via ABEMA.",
+        [
+          "NNN / Nippon TV, 16 septembre 2026 : depuis le mois dernier, les signalements d’une troupe de macaques s’accumulent à Shimane et Tottori. La semaine dernière, les bêtes marchent dans une rue résidentielle de Yasugi, Shimane — NNN en compte au moins 27 sur les images, l’une avec un petit sur le dos. Le 15 septembre, on les voit dans le Tottori d’à côté, dans les arbres, en criant.",
+          "La ville de Yonago poste le 15 septembre à 8 h 30 : une dizaine d’animaux près de la maison de quartier d’Okudani. Ne pas provoquer, ne pas nourrir, fermer à clé, appeler la police ou le service agricole. Yonago dit qu’une troupe de cette taille, c’est une première en ville. Les deux préfectures pensent que c’est le même groupe en déplacement.",
+        ],
+        [
+          "Le trajet a franchi une limite de préfecture.",
+          "Le communiqué de Yonago : fermer à clé, pas de banane.",
+          "Vingt-sept, c’est une foule. C’est aussi un recensement.",
+        ],
+        "NNN 16 sept. 2026. Ville de Yonago / ABEMA 15 sept. Yasugi et Yonago nommés. Pas de nom de personne dans le papier d’origine.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s171",
+    slug: "concord-nh-1894-magazine-returned-132-years-overdue-12055-fine-frozen",
+    slugs: {
+      fr: "concord-new-hampshire-magazine-de-1894-rendu-avec-132-ans-de-retard",
+    },
+    section: "faits-divers",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Concord, New Hampshire",
+    dumbness: 7,
+    sources: [
+      src(
+        "Magazine that was 132 years overdue returned to US library",
+        "BBC News",
+        "https://www.bbc.co.uk/news/articles/cmn0jk2z760eo",
+        "2026-09-16",
+        "wire",
+      ),
+      src(
+        "Magazine from 1894 returned to New Hampshire library after over 130 years",
+        "The Guardian",
+        "https://www.theguardian.com/us-news/2026/sep/16/magazine-checked-out-late-19-century-returned",
+        "2026-09-16",
+        "wire",
+      ),
+      src(
+        "Man returns 132-year-old overdue book after Concord Public Library freezes fines",
+        "NHPR / Concord Monitor",
+        "https://www.nhpr.org/nh-news/2026-09-12/book-overdue-since-1894-returned-concord-library-freezes-fines",
+        "2026-09-12",
+        "local",
+      ),
+    ],
+    publishedAt: "2026-09-18T06:24:00.000Z",
+    originalLang: "en",
+    confidence: 0.96,
+    entities: ["John Hanson", "Concord Public Library", "The Century Illustrated Monthly Magazine"],
+    copy: {
+      en: c(
+        "Concord Public Library got back a magazine 132 years late. The fine would have been $12,055. They had just frozen fines.",
+        "Concord, New Hampshire. September 1894 issue of The Century Illustrated Monthly Magazine. John Hanson, 84. BBC, Guardian, NHPR / Concord Monitor.",
+        [
+          "BBC and The Guardian, 16 September 2026, after the Concord Monitor and the library: John Hanson, 84, walked into Concord Public Library with the September 1894 Century Illustrated Monthly Magazine. It had been due in a week. It was 48,220 days late. Theoretical fine: $12,055. On 1 September the library had started a year-long fine freeze. Hanson told the Monitor he saw the article at the grocery store and thought this would be a good time to bring it back.",
+          "He said he had no idea how it entered the house — a move in 1966, not his father’s card, not his late wife Carol, who never returned anything late. The library will not recirculate it. It is bound for the Concord Room. ‘Of course we expected long overdue books,’ the library posted. ‘Certainly not something from the late 19th century.’",
+        ],
+        [
+          "The amnesty caught a Victorian periodical.",
+          "$12,055 is a line the library wrote down so it would not collect it.",
+          "The borrower of 1894 is still unnamed. Hanson brought the object home.",
+        ],
+        "BBC + Guardian 16 Sept; NHPR/Concord Monitor 12 Sept 2026. John Hanson named. Concord Public Library. Fine freeze 1 Sept.",
+      ),
+      fr: c(
+        "La bibliothèque de Concord récupère un magazine avec 132 ans de retard. L’amende aurait fait 12 055 dollars. Ils venaient de geler les pénalités.",
+        "Concord, New Hampshire. Numéro de septembre 1894 du Century Illustrated Monthly Magazine. John Hanson, 84 ans. BBC, Guardian, NHPR / Concord Monitor.",
+        [
+          "BBC et The Guardian, 16 septembre 2026, d’après le Concord Monitor et la bibliothèque : John Hanson, 84 ans, entre à la Concord Public Library avec le Century Illustrated Monthly Magazine de septembre 1894. Prêt d’une semaine. 48 220 jours de retard. Amende théorique : 12 055 dollars. Le 1er septembre, la bibliothèque a lancé un gel des amendes pour un an. Hanson dit au Monitor qu’il a vu l’article à l’épicerie, et que c’était le bon moment pour le ramener.",
+          "Il ne sait pas comment l’objet est entré chez lui — un déménagement en 1966, pas la carte du père, pas celle de sa femme Carol, qui ne rendait jamais rien en retard. La bibliothèque ne le remettra pas en rayon. Direction la Concord Room. « Évidemment, on s’attendait à des livres en retard, a posté la bibliothèque. Pas à un truc de la fin du XIXe. »",
+        ],
+        [
+          "L’amnistie a attrapé un périodique victorien.",
+          "12 055 dollars : un chiffre écrit pour ne pas l’encaisser.",
+          "L’emprunteur de 1894 n’est toujours pas nommé. Hanson a rapporté l’objet.",
+        ],
+        "BBC + Guardian 16 sept. ; NHPR/Concord Monitor 12 sept. 2026. John Hanson nommé. Concord Public Library. Gel des amendes au 1er sept.",
+      ),
+    },
+  }),
 ];
 
 export const REVUE_HOLD_IDS = REVUE_STORIES.map((s) => s.id);

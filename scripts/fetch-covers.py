@@ -181,6 +181,14 @@ COVERS: dict[str, tuple[str, str]] = {
     "s161": ("File:Gazpacho.jpg", "spanish gazpacho tomato soup"),
     "s162": ("File:Raccoon (Procyon lotor) 2.jpg", "raccoon procyon lotor"),
     "s163": ("File:Boite aux lettres dans le Nord, France.jpg", "french mailbox boite aux lettres"),
+    "s164": ("File:Aedes albopictus bloodfeeding PLoS.jpg", "aedes albopictus tiger mosquito"),
+    "s165": ("File:Vlaams Parlement.jpg", "flemish parliament brussels building"),
+    "s166": ("File:046 Capybara by the river in Encontro das Águas State Park Photo by Giles Laurent.jpg", "capybara hydrochoerus"),
+    "s167": ("File:Emu - Melbourne Zoo.jpg", "emu dromaius novaehollandiae"),
+    "s168": ("File:Bélier.jpg", "belier ram sheep horns"),
+    "s169": ("File:Chacma baboon (Papio ursinus ursinus) male.jpg", "chacma baboon papio ursinus"),
+    "s170": ("File:Macaca fuscata fuscata -Arashiyama, Kyoto, Japan-8.jpg", "japanese macaque snow monkey"),
+    "s171": ("File:Azumino Public Central Library bookshelves ac (4).jpg", "public library bookshelves"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
