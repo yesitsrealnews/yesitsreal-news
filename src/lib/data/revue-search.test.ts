@@ -21,7 +21,7 @@ describe("revue search base", () => {
 
   it("lists unique valid hosts and never satire", () => {
     const sites = allRevueSites();
-    assert.ok(sites.length >= 80);
+    assert.ok(sites.length >= 100);
     assert.equal(sites.length, new Set(sites).size);
     for (const host of sites) {
       assert.match(host, /^[a-z0-9.-]+\.[a-z]{2,}$/);
@@ -55,6 +55,7 @@ describe("revue search base", () => {
     assert.ok(a.queries.every((q) => q.includes("after:")));
     assert.ok(a.queries.some((q) => q.includes("site:ouest-france.fr")));
     assert.ok(a.queries.some((q) => q.includes("-site:theonion.com")));
+    assert.ok(a.queries.some((q) => q.includes("Cape Town") || q.includes("capivara") || q.includes("Tokyo")));
     const rotA = rotateClusters(new Date("2026-09-17T09:00:00Z")).map((c) => c.id);
     const rotB = rotateClusters(new Date("2026-09-18T09:00:00Z")).map((c) => c.id);
     assert.notDeepEqual(rotA, rotB);

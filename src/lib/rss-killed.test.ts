@@ -1,6 +1,14 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { expandKillKeys, filterRssHits, isKilledHit, rssHitId, type RssHitLike } from "./rss-killed.ts";
+import {
+  canonicalRssUrl,
+  expandKillKeys,
+  filterRssHits,
+  isKilledHit,
+  rssHitId,
+  titleKillKey,
+  type RssHitLike,
+} from "./rss-killed.ts";
 
 function hit(partial: RssHitLike): RssHitLike {
   return partial;
@@ -28,6 +36,41 @@ describe("filterRssHits", () => {
     assert.equal(isKilledHit(dead, new Set([id])), true);
   });
 
+  it("drops the same paper when the RSS URL grows tracking params", () => {
+    const clean = "https://www.ladepeche.fr/insolite/coq.html";
+    const dirty = "http://www.ladepeche.fr/insolite/coq.html?utm_source=rss&utm_medium=feed#top";
+    const dead = hit({
+      feed: "La Dépêche insolite",
+      title: "Un coq chez le voisin, le syndic s’en mêle",
+      url: dirty,
+      summary: "aboiement haie",
+    });
+    const out = filterRssHits([dead], [clean]);
+    assert.equal(out.length, 0);
+    assert.equal(canonicalRssUrl(dirty), canonicalRssUrl(clean));
+    assert.equal(rssHitId(dirty), rssHitId(clean));
+  });
+
+  it("drops a reincarnation that only changed the headline wrapper", () => {
+    const url = "https://nypost.com/2026/09/17/raccoon-dumpster/";
+    const first = hit({
+      feed: "NY Post oddities",
+      title: "Raccoon found cozied up in Iowa brewery dumpster",
+      url,
+      summary: "Trashed Panda",
+    });
+    const again = hit({
+      feed: "UPI Odd News",
+      title: "Raccoon found cozied up in Iowa brewery dumpster",
+      url: "https://www.upi.com/Odd_News/2026/09/17/raccoon-iowa/",
+      summary: "same animal",
+    });
+    const keys = expandKillKeys([first.url], [first]);
+    const out = filterRssHits([again], keys);
+    assert.equal(out.length, 0);
+    assert.match(titleKillKey(first.title), /^fp:t:/);
+  });
+
   it("drops insolite items that are not on the editorial beat", () => {
     const out = filterRssHits(
       [
@@ -47,9 +90,9 @@ describe("filterRssHits", () => {
     const url = "https://www.ladepeche.fr/insolite/coq.html";
     const keys = expandKillKeys(
       [rssHitId(url)],
-      [hit({ feed: "La Dépêche insolite", title: "coq", url, summary: "voisin chien" })],
+      [hit({ feed: "La Dépêche insolite", title: "coq voisin chien syndic", url, summary: "voisin chien" })],
     );
-    assert.ok(keys.includes(url));
+    assert.ok(keys.includes(canonicalRssUrl(url)));
     assert.ok(keys.includes(rssHitId(url)));
   });
 });

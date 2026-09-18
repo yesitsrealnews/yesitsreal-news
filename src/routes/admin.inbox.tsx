@@ -70,8 +70,8 @@ function InboxPage() {
         setPullNote("Les flux n’ont pas répondu. Réessaie dans une minute.");
         return;
       }
-      ingestRss(data.items ?? []);
       if (data.killed?.length) rememberKilled(data.killed);
+      ingestRss(data.items ?? []);
       const fail = data.failed?.length ? ` · silencieux : ${data.failed.slice(0, 4).join(", ")}` : "";
       setPullNote(`${data.count ?? 0} pistes sur ${data.scanned ?? "?"} flux${fail}`);
     } catch {

@@ -4,13 +4,13 @@ import { isSafeHttpUrl } from "@/lib/security";
 import { RSS_FEEDS, feedKind, feedPriority, type RssFeed } from "@/lib/rss-feeds";
 import { parseFeed, type ParsedRssItem } from "@/lib/rss-parse";
 import { scoreHit } from "@/lib/rss-keep";
-import { rssHitId } from "@/lib/rss-killed";
+import { rssHitId, canonicalRssUrl, titleKillKey } from "@/lib/rss-killed";
 
 const UA =
   "Mozilla/5.0 (compatible; YESITSREAL-desk/1.0; +https://www.yesitsreal.news/) AppleWebKit/537.36 Chrome/128.0.0.0 Safari/537.36";
-const FETCH_MS = 2800;
+const FETCH_MS = 3500;
 const POOL = 12;
-const MAX_HITS = 18;
+const MAX_HITS = 48;
 
 export type RssHit = {
   feed: string;
@@ -26,14 +26,109 @@ export type RssHit = {
   image?: string;
 };
 
-export { rssHitId } from "@/lib/rss-killed";
+export { rssHitId, canonicalRssUrl } from "@/lib/rss-killed";
 
 function hashId(url: string): string {
   return rssHitId(url);
 }
 
+function publisherHost(url: string, fallback: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./i, "").toLowerCase() || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 export function shouldKeep(title: string, summary: string, feed: RssFeed): boolean {
   return scoreHit(title, summary, feed.region, feedKind(feed)).keep;
+}
+
+const REGION: Record<string, "fr" | "us" | "eu" | "asia" | "latam" | "af"> = {
+  FR: "fr",
+  MC: "fr",
+  US: "us",
+  GB: "eu",
+  IE: "eu",
+  ES: "eu",
+  IT: "eu",
+  DE: "eu",
+  NL: "eu",
+  BE: "eu",
+  CH: "eu",
+  AT: "eu",
+  PT: "eu",
+  NO: "eu",
+  SE: "eu",
+  FI: "eu",
+  PL: "eu",
+  DK: "eu",
+  JP: "asia",
+  IN: "asia",
+  SG: "asia",
+  PH: "asia",
+  KR: "asia",
+  TH: "asia",
+  ID: "asia",
+  MY: "asia",
+  HK: "asia",
+  CN: "asia",
+  TW: "asia",
+  VN: "asia",
+  AU: "asia",
+  NZ: "asia",
+  BR: "latam",
+  AR: "latam",
+  MX: "latam",
+  CO: "latam",
+  CL: "latam",
+  PE: "latam",
+  UY: "latam",
+  EC: "latam",
+  NG: "af",
+  ZA: "af",
+  KE: "af",
+  MA: "af",
+  DZ: "af",
+  SN: "af",
+  CI: "af",
+  TN: "af",
+  GH: "af",
+};
+
+const QUOTA = { fr: 10, us: 8, eu: 8, asia: 8, latam: 8, af: 6, other: 4 } as const;
+
+export function regionBucket(cc: string): keyof typeof QUOTA {
+  return REGION[cc.toUpperCase()] ?? "other";
+}
+
+export function diversifyHits<T extends { countryCode: string }>(hits: T[], cap = MAX_HITS): T[] {
+  const buckets: Record<keyof typeof QUOTA, T[]> = {
+    fr: [],
+    us: [],
+    eu: [],
+    asia: [],
+    latam: [],
+    af: [],
+    other: [],
+  };
+  for (const h of hits) buckets[regionBucket(h.countryCode)].push(h);
+  const out: T[] = [];
+  const taken = new Set<T>();
+  for (const key of Object.keys(QUOTA) as (keyof typeof QUOTA)[]) {
+    for (const h of buckets[key].slice(0, QUOTA[key])) {
+      out.push(h);
+      taken.add(h);
+    }
+  }
+  for (const h of hits) {
+    if (out.length >= cap) break;
+    if (!taken.has(h)) {
+      out.push(h);
+      taken.add(h);
+    }
+  }
+  return out.slice(0, cap);
 }
 
 async function fetchFeedXml(url: string): Promise<string | null> {
@@ -83,15 +178,18 @@ export async function pullRssFeeds(opts?: { quick?: boolean }): Promise<{ hits: 
     }
     for (const item of items) {
       if (!isSafeHttpUrl(item.url) || looksLikeSatire(item.url)) continue;
-      if (seen.has(item.url)) continue;
-      seen.add(item.url);
+      const url = canonicalRssUrl(item.url) || item.url;
+      const fp = titleKillKey(item.title);
+      if (seen.has(url) || (fp && seen.has(fp))) continue;
+      seen.add(url);
+      if (fp) seen.add(fp);
       const scored = scoreHit(item.title, item.summary, feed.region, feedKind(feed));
       if (!scored.keep) continue;
       hits.push({
         feed: feed.name,
-        domain: feed.domain,
+        domain: publisherHost(url, feed.domain),
         title: item.title,
-        url: item.url,
+        url,
         summary: item.summary,
         published: item.published,
         countryCode: feed.countryCode,
@@ -104,7 +202,7 @@ export async function pullRssFeeds(opts?: { quick?: boolean }): Promise<{ hits: 
   });
 
   hits.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || +new Date(b.published) - +new Date(a.published));
-  return { hits: hits.slice(0, MAX_HITS), scanned: feeds.length, failed };
+  return { hits: diversifyHits(hits, MAX_HITS), scanned: feeds.length, failed };
 }
 
 export function hitToQueueItem(hit: RssHit): QueueItem {

@@ -21,6 +21,10 @@ export type QueryPack = {
   fr: string[];
   /** English / international keywords. */
   en: string[];
+  /** Spanish-language desks (LatAm / Spain). */
+  es?: string[];
+  /** Portuguese-language desks (Brazil / Portugal). */
+  pt?: string[];
 };
 
 export const SATIRE_SITE_EXCLUDE = [
@@ -199,6 +203,12 @@ export const SITE_CLUSTERS: SiteCluster[] = [
       "nola.com",
       "ajc.com",
       "denverpost.com",
+      "houstonchronicle.com",
+      "dallasnews.com",
+      "orlandosentinel.com",
+      "azcentral.com",
+      "startribune.com",
+      "al.com",
     ],
   },
   {
@@ -271,6 +281,13 @@ export const SITE_CLUSTERS: SiteCluster[] = [
       "eltiempo.com",
       "eluniversal.com.mx",
       "reforma.com",
+      "infobae.com",
+      "elespectador.com",
+      "eluniverso.com",
+      "elpais.com.uy",
+      "latercera.com",
+      "metropoles.com",
+      "estadao.com.br",
     ],
   },
   {
@@ -289,6 +306,17 @@ export const SITE_CLUSTERS: SiteCluster[] = [
       "inquirer.net",
       "koreaherald.com",
       "timesofindia.indiatimes.com",
+      "scmp.com",
+      "hongkongfp.com",
+      "taipeitimes.com",
+      "mothership.sg",
+      "channelnewsasia.com",
+      "rappler.com",
+      "thehindu.com",
+      "vnexpress.net",
+      "koreatimes.co.kr",
+      "soranews24.com",
+      "japantoday.com",
     ],
   },
   {
@@ -307,6 +335,12 @@ export const SITE_CLUSTERS: SiteCluster[] = [
       "kapitalis.com",
       "lefaso.net",
       "seneweb.com",
+      "nation.africa",
+      "standardmedia.co.ke",
+      "vanguardngr.com",
+      "dailymaverick.co.za",
+      "citizen.co.za",
+      "mg.co.za",
     ],
   },
   {
@@ -356,6 +390,14 @@ export const QUERY_PACKS: QueryPack[] = [
       "snake OR python OR caiman (apartment OR toilet OR garden) captured",
       "rooster OR chicken neighbor complaint noise",
     ],
+    es: [
+      "animal (centro comercial OR colegio OR metro OR piscina) (intrusión OR capturado)",
+      "gallo OR gallina OR capibara OR carpincho OR serpiente vecino",
+    ],
+    pt: [
+      "animal (shopping OR escola OR metrô) (invadiu OR capturado)",
+      "galo OR capivara OR jacaré OR cobra vizinho",
+    ],
   },
   {
     beat: "voisin",
@@ -368,6 +410,8 @@ export const QUERY_PACKS: QueryPack[] = [
       "HOA (gnome OR rooster OR lawn OR fence) dispute",
       "noisy neighbor (chicken OR dog OR hedge) court OR council",
     ],
+    es: ["vecino (gallo OR perro OR gnomo) denuncia OR pelea"],
+    pt: ["vizinho (galo OR cachorro) briga OR prefeitura"],
   },
   {
     beat: "municipal",
@@ -380,6 +424,8 @@ export const QUERY_PACKS: QueryPack[] = [
       "town council bans (lawn OR chickens OR garden gnomes OR flags)",
       "bylaw OR ordinance (ridiculous OR bizarre) mayor",
     ],
+    es: ["ordenanza municipal prohíbe (césped OR gallinas OR gnomos)"],
+    pt: ["prefeitura proíbe (galinha OR gnomo OR capivara)"],
   },
   {
     beat: "travaux",
@@ -479,7 +525,7 @@ export function alwaysClusters(): SiteCluster[] {
   return SITE_CLUSTERS.filter((c) => c.weight === "always");
 }
 
-export function rotateClusters(when: Date, take = 3): SiteCluster[] {
+export function rotateClusters(when: Date, take = 5): SiteCluster[] {
   const rot = SITE_CLUSTERS.filter((c) => c.weight === "rotate");
   const start = dayIndex(when) % rot.length;
   const ordered = [...rot.slice(start), ...rot.slice(0, start)];
@@ -525,7 +571,7 @@ export function buildRevueSearchPlan(when: Date = new Date()): RevueSearchPlan {
   const after = ymd(daysAgo(when, 10));
   const date = ymd(when);
   const always = alwaysClusters();
-  const rotated = rotateClusters(when, 3);
+  const rotated = rotateClusters(when, 5);
   const selected = [...always, ...rotated];
   const packs = packForDay(when);
   const queries: string[] = [];
@@ -536,10 +582,24 @@ export function buildRevueSearchPlan(when: Date = new Date()): RevueSearchPlan {
     if (q) queries.push(`${q} (faits-divers OR insolite) after:${after} ${EXCLUDE_TAIL}`);
   }
 
+  // Open world queries — no site: so we catch papers the allowlist missed.
+  queries.push(
+    `(monkey OR macaque OR "wild boar" OR python) (mall OR school OR subway OR temple) (Tokyo OR Osaka OR Bangkok OR Jakarta OR Manila OR Mumbai OR Seoul) after:${after} ${EXCLUDE_TAIL}`,
+    `(capivara OR capybara OR jacaré OR "carpincho" OR gallo) (insólito OR bizarro OR extraño) after:${after} ${EXCLUDE_TAIL}`,
+    `(baboon OR python OR monkey OR goat) ("Cape Town" OR Lagos OR Nairobi OR Accra OR Johannesburg) (police OR market) after:${after} ${EXCLUDE_TAIL}`,
+    `(raccoon OR python OR alligator OR rooster OR "garden gnome") (Florida OR Texas OR Ohio OR "New York") (police OR HOA) after:${after} ${EXCLUDE_TAIL}`,
+    `(Wildschwein OR Waschbär OR cinghiale OR jabalí) (Stadt OR città OR ciudad OR Nachbar) after:${after} ${EXCLUDE_TAIL}`,
+  );
+
   // Cluster × beat, sites chunked (search engines cap OR lists).
   for (const cluster of selected) {
     const pack = packs[selected.indexOf(cluster) % packs.length]!;
-    const lang = cluster.id.startsWith("fr") || cluster.id === "be-ch-qc" ? pack.fr : pack.en;
+    const lang =
+      cluster.id === "latam" || cluster.id === "iberia-pt"
+        ? pack.es ?? pack.pt ?? pack.en
+        : cluster.id.startsWith("fr") || cluster.id === "be-ch-qc"
+          ? pack.fr
+          : pack.en;
     const phrase = lang[dayIndex(when) % lang.length] ?? lang[0]!;
     for (const group of chunk(cluster.sites, 8)) {
       queries.push(`${phrase} ${siteClause(group)} after:${after} ${EXCLUDE_TAIL}`);

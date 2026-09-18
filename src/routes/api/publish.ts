@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { STORIES } from "@/lib/data/stories";
 import { removeAssignment } from "@/lib/desk-assign-store";
+import { killRssHits } from "@/lib/rss-store";
 import { deskTokenOk, readDeskCookie } from "@/lib/desk-auth.server";
 import { pinFrontPageId } from "@/lib/desk-front-page";
 import {
@@ -84,6 +85,8 @@ export const Route = createFileRoute("/api/publish")({
         const ids = (await pinFrontPageId(story.id)) ?? [story.id];
         await removeAssignment(incoming.id).catch(() => null);
         if (story.id !== incoming.id) await removeAssignment(story.id).catch(() => null);
+        const sourceUrl = incoming.sources?.[0]?.url;
+        await killRssHits([incoming.id, story.id, sourceUrl].filter((x): x is string => Boolean(x))).catch(() => null);
 
         const publishedExtras = await getPublishedExtras(true);
         return limitedJson({ ok: true, story, stories: nextStatus, ids, extras: publishedExtras });

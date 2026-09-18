@@ -80,10 +80,10 @@ describe("shouldKeepHit", () => {
   });
 
   it("still keeps the Norwegian Haaland-carrot note", () => {
-    assert.equal(
-      shouldKeepHit("Stort salg av gulrøtter i sommer: – Haaland-effekt", "Landbruksdirektoratet gulrot"),
-      true,
-    );
+    assert.equal(shouldKeepHit("Stort salg av gulrøtter i sommer: – Haaland-effekt", "Landbruksdirektoratet gulrot"), true);
+    assert.equal(shouldKeepHit("Capivara invade prefeitura em São Paulo", "vizinho, insólito"), true);
+    assert.equal(shouldKeepHit("Un vecino denuncia al gallo del patio", " HOA no, ayuntamiento"), true);
+    assert.equal(shouldKeepHit("Baboon raids Cape Town kitchen again", "police, unusual"), true);
   });
 
   it("scores animal beats above a generic insolite label", () => {
@@ -108,6 +108,12 @@ describe("RSS_FEEDS", () => {
     assert.ok(RSS_FEEDS.some((f) => f.domain === "japantimes.co.jp"));
     assert.ok(RSS_FEEDS.some((f) => f.domain === "jeuneafrique.com"));
     assert.ok(RSS_FEEDS.some((f) => f.name === "Metro UK weird"));
+    assert.ok(RSS_FEEDS.some((f) => f.domain === "news.google.com" && /US odd/.test(f.name)));
+    assert.ok(RSS_FEEDS.some((f) => f.domain === "soranews24.com"));
+    assert.ok(RSS_FEEDS.some((f) => f.domain === "nation.africa"));
+    assert.ok(RSS_FEEDS.some((f) => f.domain === "infobae.com"));
+    assert.ok(morning.some((f) => f.domain === "news.google.com"));
+    assert.ok(morning.some((f) => f.countryCode === "JP" || f.countryCode === "BR" || f.countryCode === "ZA"));
     assert.equal(feedKind(RSS_FEEDS.find((f) => f.name === "20 Minutes insolite")!), "insolite");
     assert.equal(feedKind(RSS_FEEDS.find((f) => f.name === "Metro UK weird")!), "insolite");
     assert.equal(feedKind(RSS_FEEDS.find((f) => f.name === "BFMTV police-justice")!), "faits-divers");
@@ -136,5 +142,19 @@ describe("parseFeed", () => {
     assert.equal(items.length, 1);
     assert.equal(items[0]?.title, "Coq en copropriété");
     assert.equal(items[0]?.image, "https://www.ladepeche.fr/photo/coq.jpg");
+  });
+
+  it("unwraps a Google News item to the originating paper", () => {
+    const xml = `<?xml version="1.0"?>
+<rss><channel>
+<item>
+<title>Raccoon in a dumpster</title>
+<link>https://news.google.com/rss/articles/CBMiABCDEF</link>
+<description><![CDATA[<a href="https://nypost.com/2026/09/17/raccoon-dumpster/">New York Post</a>]]></description>
+<source url="https://nypost.com">New York Post</source>
+</item>
+</channel></rss>`;
+    const items = parseFeed(xml);
+    assert.equal(items[0]?.url, "https://nypost.com/2026/09/17/raccoon-dumpster/");
   });
 });

@@ -57,10 +57,7 @@ function AdminGate() {
             .then((payload: { ok?: boolean; items?: QueueItem[] }) => {
               if (!live || !payload?.ok || !Array.isArray(payload.items)) return;
               // Fresh purgedIds — do not close over a stale render (avoids resurrecting deletes).
-              const purged = new Set(useAppStore.getState().purgedIds);
-              const next = payload.items.filter(
-                (item) => item?.id && !purged.has(item.id) && !purged.has(item.story?.id),
-              );
+              const next = payload.items.filter((item) => item?.id);
               mergeInboxFromServer(next);
             })
             .catch(() => undefined);

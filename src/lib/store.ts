@@ -4,6 +4,7 @@ import type { Lang, Lead, QueueItem, ReactionId, Story, StoryStatus, Submission 
 import { detectBrowserLang, isLang } from "@/lib/i18n/langs";
 import { SPRINT_MS } from "@/lib/revenue";
 import { isCatalogId, isCatalogSourceUrl } from "@/lib/data/stories";
+import { itemIsKilled, killKeysFor } from "@/lib/rss-killed";
 
 const SATIRE_DENY = [
   "theonion.com",
@@ -156,10 +157,10 @@ export const useAppStore = create<AppState>()(
       setInbox: (inbox) => set({ inbox }),
       mergeInboxFromServer: (items) => {
         const purged = new Set(get().purgedIds);
-        const incoming = items.filter((i) => i?.id && !purged.has(i.id) && !purged.has(i.story?.id));
+        const incoming = items.filter((i) => i?.id && !itemIsKilled(i, purged));
         const incomingIds = new Set(incoming.map((i) => i.id));
         const local = get().inbox.filter((i) => {
-          if (!i?.id || purged.has(i.id) || purged.has(i.story?.id)) return false;
+          if (!i?.id || itemIsKilled(i, purged)) return false;
           if (incomingIds.has(i.id)) return false;
           return true;
         });
@@ -168,26 +169,23 @@ export const useAppStore = create<AppState>()(
       rememberKilled: (ids) => {
         const extra = ids.map((id) => id.trim()).filter(Boolean);
         if (!extra.length) return;
-        set({ purgedIds: [...new Set([...extra, ...get().purgedIds])].slice(0, 800) });
+        set({ purgedIds: [...new Set([...extra, ...get().purgedIds])].slice(0, 2000) });
       },
       ingestRss: (items) => {
         const purged = new Set(get().purgedIds);
-        const incoming = items.filter((i) => i?.id && !purged.has(i.id) && !purged.has(i.story?.id));
+        const incoming = items.filter((i) => i?.id && !itemIsKilled(i, purged));
+        const local = get().inbox.filter((i) => !itemIsKilled(i, purged));
         if (!incoming.length) {
-          if (items.length) {
-            set({
-              inbox: get().inbox.filter((i) => !purged.has(i.id) && !purged.has(i.story?.id)),
-            });
-          }
+          set({ inbox: local });
           return;
         }
         const incomingIds = new Set(incoming.flatMap((i) => [i.id, i.story?.id].filter(Boolean) as string[]));
-        const local = get().inbox.filter((i) => {
-          if (purged.has(i.id) || purged.has(i.story?.id)) return false;
-          if (incomingIds.has(i.id) || incomingIds.has(i.story?.id)) return false;
-          return true;
+        set({
+          inbox: [
+            ...incoming,
+            ...local.filter((i) => !incomingIds.has(i.id) && !incomingIds.has(i.story?.id)),
+          ],
         });
-        set({ inbox: [...incoming, ...local] });
       },
       upsertInbox: (item) => {
         const purged = new Set(get().purgedIds);
@@ -265,9 +263,14 @@ export const useAppStore = create<AppState>()(
         }
       },
       rejectQueueItem: (item, _reason) => {
-        const purged = [...new Set([item.id, item.story?.id, item.sourceUrl, ...get().purgedIds].filter(Boolean))].slice(
+        const extra = killKeysFor({
+          url: item.sourceUrl,
+          title: item.story?.copy?.fr?.headline || item.story?.copy?.en?.headline || "",
+          id: item.id,
+        });
+        const purged = [...new Set([item.id, item.story?.id, item.sourceUrl, ...extra, ...get().purgedIds].filter(Boolean))].slice(
           0,
-          800,
+          2000,
         );
         set({
           inbox: get().inbox.filter((i) => i.id !== item.id && i.story.id !== item.story.id),
@@ -288,9 +291,14 @@ export const useAppStore = create<AppState>()(
         const fromInbox = get().inbox.find((i) => i.id === id);
         const storyId = fromInbox?.story.id ?? id;
         const isCatalog = /^s\d+$/.test(storyId);
+        const extra = killKeysFor({
+          url: fromInbox?.sourceUrl,
+          title: fromInbox?.story?.copy?.fr?.headline || fromInbox?.story?.copy?.en?.headline || "",
+          id,
+        });
         const purged = [
-          ...new Set([id, storyId, fromInbox?.sourceUrl, ...get().purgedIds].filter((x): x is string => Boolean(x))),
-        ].slice(0, 800);
+          ...new Set([id, storyId, fromInbox?.sourceUrl, ...extra, ...get().purgedIds].filter((x): x is string => Boolean(x))),
+        ].slice(0, 2000);
         set({
           inbox: get().inbox.filter((i) => i.id !== id && i.story.id !== storyId),
           rejected: [],
@@ -568,7 +576,7 @@ export const useAppStore = create<AppState>()(
         const fromRejected = oldRejected
           .map((r) => (r && typeof r === "object" && "id" in r ? String((r as { id: string }).id) : ""))
           .filter(Boolean);
-        s.purgedIds = [...new Set([...(s.purgedIds ?? []), ...fromRejected])].slice(0, 800);
+        s.purgedIds = [...new Set([...(s.purgedIds ?? []), ...fromRejected])].slice(0, 2000);
         delete s.rejected;
         if (Array.isArray(s.inbox)) {
           const purged = new Set(s.purgedIds);

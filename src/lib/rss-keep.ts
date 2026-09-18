@@ -21,7 +21,7 @@ export const RSS_SKIP =
 
 /** Label-level insolite — enough on a dedicated insolite/odd feed. */
 const SOFT =
-  /insolite|absurde|ridicule|cocasse|ubuesque|bizarre|etrange|oddly|\bweird\b|\bfail\b|blunder|mishap|quiproquo|maladresse|improbable|cocasse|burlesque|ubuesque|nains? de jardin|garden gnome|voiturette|s.introduit|s.invite|debarque|intrusion|fait divers|faits divers/;
+  /insolite|absurde|ridicule|cocasse|ubuesque|bizarre|etrange|oddly|\bweird\b|\bfail\b|blunder|mishap|quiproquo|maladresse|improbable|burlesque|nains? de jardin|garden gnome|voiturette|s.introduit|s.invite|debarque|intrusion|fait divers|faits divers|insolito|bizarro|estranho|extrano|merkwurdig|kurios|besynderlig|aneh|odd news|oddities|weird but true/;
 
 type Beat = { name: string; re: RegExp; weight: number };
 
@@ -29,17 +29,17 @@ const BEATS: Beat[] = [
   {
     name: "insolite",
     weight: 4,
-    re: /insolite|absurde|ridicule|cocasse|ubuesque|bizarre|etrange|oddly|\bweird\b|\bfail\b|ig nobel|improbable research/,
+    re: /insolite|absurde|ridicule|cocasse|ubuesque|bizarre|etrange|oddly|\bweird\b|\bfail\b|ig nobel|improbable research|insolito|bizarro|estranho|extrano|merkwurdig|kurios/,
   },
   {
     name: "animaux",
     weight: 5,
-    re: /\b(coq|poule|poulailler|canard|oie|cygne|pigeon|ramier|corbeau|pie|goeland|mouette|perroquet|paon|chien|chat|chiot|chaton|vache|taureau|veau|mouton|belier|agneau|chevre|bouc|cochon|porc|sanglier|chevreuil|cerf|daim|renard|blaireau|loutre|castor|ragondin|lynx|ours|\bloup\b|serpent|boa|python|crocodile|alligator|tortue|iguane|cheval|poney|ane|lama|alpaga|kangourou|wallaby|rat|souris|hamster|furet|lapin|poisson rouge|goldfish|aboiement|cocorico|rooster|hen|chicken|duck|goose|swan|pigeon|seagull|parrot|dog|cat|cow|sheep|\bram\b|goat|pig|boar|deer|fox|otter|beaver|bear|snake|crocodile|turtle|tortoise|horse|donkey|llama|kangaroo|raccoon|moose|elk|emu|hedgehog|squirrel|gallo|gallina|pato|paloma|perro|gato|vaca|oveja|cabra|cerdo|jabali|ciervo|zorro|nutria|serpiente|cocodrilo|anatra|piccione|cane|gatto|mucca|pecora|capra|cinghiale|cervo|volpe|lontra|tartaruga|hahn|huhn|ente|gans|taube|hund|katze|kuh|schaf|ziege|schwein|wildschwein|reh|fuchs|otter|schlange|krokodil)\b/,
+    re: /\b(coq|poule|poulailler|canard|oie|cygne|pigeon|ramier|corbeau|pie|goeland|mouette|perroquet|paon|chien|chat|chiot|chaton|vache|taureau|veau|mouton|belier|agneau|chevre|bouc|cochon|porc|sanglier|chevreuil|cerf|daim|renard|blaireau|loutre|castor|ragondin|lynx|ours|\bloup\b|serpent|boa|python|crocodile|alligator|tortue|iguane|cheval|poney|ane|lama|alpaga|kangourou|wallaby|rat|souris|hamster|furet|lapin|poisson rouge|goldfish|aboiement|cocorico|rooster|hen|chicken|duck|goose|swan|seagull|parrot|dog|cat|cow|sheep|\bram\b|goat|pig|boar|deer|fox|otter|beaver|bear|snake|turtle|tortoise|horse|donkey|llama|kangaroo|raccoon|moose|elk|emu|hedgehog|squirrel|baboon|macaque|capybara|capivara|carpincho|caiman|jacare|dingo|koala|wombat|civet|orangutan|gibbon|gallo|gallina|pato|paloma|perro|gato|vaca|oveja|cabra|cerdo|jabali|ciervo|zorro|nutria|serpiente|cocodrilo|mapache|vizinho|galo|galinha|cachorro|cao|cobra|anatra|piccione|cane|gatto|mucca|pecora|capra|cinghiale|cervo|volpe|lontra|tartaruga|hahn|huhn|ente|gans|taube|hund|katze|kuh|schaf|ziege|schwein|wildschwein|waschbar|reh|fuchs|schlange|krokodil|babuino|macaco|macaco|monyet|ular|babi|ayam|haan|wasbeer|aap)\b/,
   },
   {
     name: "voisin",
     weight: 5,
-    re: /voisin|voisine|voisinage|mitoyen|copropriet|syndic|\bhoa\b|cloture|haie|nuisances sonores|guerre de voisin|noisy neighbou?r|neighborhood dispute|aboiement/,
+    re: /voisin|voisine|voisinage|mitoyen|copropriet|syndic|\bhoa\b|cloture|haie|nuisances sonores|guerre de voisin|noisy neighbou?r|neighborhood dispute|aboiement|vecino|vizinho|nachbar|buurman/,
   },
   {
     name: "ovni",
@@ -54,7 +54,7 @@ const BEATS: Beat[] = [
   {
     name: "municipal",
     weight: 4,
-    re: /arrete municipal|by-?law|ordinance|conseil municipal|municipal ban|interdit de|decree banning/,
+    re: /arrete municipal|by-?law|ordinance|conseil municipal|municipal ban|interdit de|decree banning|prefeitura|decreto municipal|ayuntamiento/,
   },
   {
     name: "bateau",

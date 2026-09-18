@@ -2,6 +2,7 @@ import type { QueueItem } from "@/lib/types";
 import { SEED_INBOX } from "@/lib/data/queue";
 import { queueWithFrench } from "@/lib/desk-fr";
 import { publishedStories } from "@/lib/catalog";
+import { itemIsKilled } from "@/lib/rss-killed";
 import { useAppStore } from "@/lib/store";
 
 export function useMergedInbox(): QueueItem[] {
@@ -19,11 +20,10 @@ export function useMergedInbox(): QueueItem[] {
       .map(([id]) => id),
   );
   const gone = new Set([...purgedIds, ...publishedExtraIds, ...live, ...killed]);
-  const alive = inbox.filter((i) => !gone.has(i.id) && !gone.has(i.story?.id) && !gone.has(i.sourceUrl));
+  const alive = inbox.filter((i) => !itemIsKilled(i, gone));
   const ids = new Set(alive.map((i) => i.id));
   const seeds = SEED_INBOX.filter((i) => {
-    const sid = i.story?.id ?? i.id;
-    if (gone.has(i.id) || gone.has(sid) || gone.has(i.sourceUrl)) return false;
+    if (itemIsKilled(i, gone)) return false;
     if (ids.has(i.id)) return false;
     return true;
   });

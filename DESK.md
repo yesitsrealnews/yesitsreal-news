@@ -25,6 +25,14 @@ VF : **France** + **Monde**. VA : **USA** + **World**.
 Tri : pays de la **première publication** (première source nommée), pas le dateline.
 Anciennes rubriques (animaux, justice…) : URL dormantes.
 
+## File d’attente
+
+Supprimer est définitif. La piste est tuée par URL canonique (sans utm, www, amp) **et** par titre : le même papier ne revient pas au prochain tirage, même si le flux a changé de lien. Le tirage RSS n’écrase plus la liste des suppressions.
+
+## Veille
+
+La chasse du matin n’est plus franco-centrée : Google News par région (Asie, LatAm, Afrique, USA, Europe) + desks odd (SoraNews24, Oddity Central, Mothership, Infobae, Daily Nation…). Quota géographique pour que 10 coqs français n’évincen pas un babouin du Cap.
+
 ## Photo, chaque papier
 
 **Aucun article ne sort sans image.** **Photos d’illustration uniquement.**

@@ -13,6 +13,27 @@ export type RssFeed = {
   priority?: 1 | 2;
 };
 
+function gnews(
+  name: string,
+  q: string,
+  gl: string,
+  hl: string,
+  ceid: string,
+  countryCode: string,
+  region: string,
+): RssFeed {
+  const params = new URLSearchParams({ q, hl, gl, ceid });
+  return {
+    name,
+    domain: "news.google.com",
+    url: `https://news.google.com/rss/search?${params.toString()}`,
+    region,
+    countryCode,
+    kind: "insolite",
+    priority: 1,
+  };
+}
+
 export const RSS_FEEDS: RssFeed[] = [
   // --- PQR / locaux FR (EBRA, SIPA, Sud Ouest, Centre / Est / Nord) ---
   { name: "Ouest-France", domain: "ouest-france.fr", url: "https://www.ouest-france.fr/rss/une", region: "Bretagne / Pays de la Loire / Normandie", countryCode: "FR", priority: 1 },
@@ -243,6 +264,52 @@ export const RSS_FEEDS: RssFeed[] = [
   { name: "g1 Fantástico", domain: "g1.globo.com", url: "https://g1.globo.com/rss/g1/fantastico/", region: "BR — insolite", countryCode: "BR", kind: "insolite" },
   { name: "The Age", domain: "theage.com.au", url: "https://www.theage.com.au/rss/feed.xml", region: "AU — Melbourne", countryCode: "AU" },
   { name: "ABC Australia just in", domain: "abc.net.au", url: "https://www.abc.net.au/news/feed/2942460/rss.xml", region: "AU", countryCode: "AU" },
+
+  // --- Odd desks + Google News regional search (2026-09-18) ---
+  { name: "Oddity Central", domain: "odditycentral.com", url: "https://www.odditycentral.com/feed", region: "US — odd", countryCode: "US", kind: "insolite", priority: 1 },
+  { name: "SoraNews24", domain: "soranews24.com", url: "https://soranews24.com/feed/", region: "JP — odd", countryCode: "JP", kind: "insolite", priority: 1 },
+  { name: "Japan Today", domain: "japantoday.com", url: "https://japantoday.com/feed", region: "JP", countryCode: "JP", kind: "faits-divers", priority: 1 },
+  { name: "Tokyo Reporter", domain: "tokyoreporter.com", url: "https://www.tokyoreporter.com/feed/", region: "JP — blotter", countryCode: "JP", kind: "faits-divers", priority: 1 },
+  { name: "Mothership SG", domain: "mothership.sg", url: "https://mothership.sg/feed/", region: "SG — viral", countryCode: "SG", kind: "insolite", priority: 1 },
+  { name: "TOI offbeat", domain: "timesofindia.indiatimes.com", url: "https://timesofindia.indiatimes.com/rssfeeds/3946252.cms", region: "IN — offbeat", countryCode: "IN", kind: "insolite", priority: 1 },
+  { name: "SCMP News", domain: "scmp.com", url: "https://www.scmp.com/rss/91/feed", region: "HK", countryCode: "HK", priority: 1 },
+  { name: "Hong Kong Free Press", domain: "hongkongfp.com", url: "https://hongkongfp.com/feed/", region: "HK", countryCode: "HK" },
+  { name: "Taipei Times", domain: "taipeitimes.com", url: "https://www.taipeitimes.com/xml/index.rss", region: "TW", countryCode: "TW" },
+  { name: "CNA", domain: "channelnewsasia.com", url: "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml", region: "SG", countryCode: "SG" },
+  { name: "Straits Times Singapore", domain: "straitstimes.com", url: "https://www.straitstimes.com/news/singapore/rss.xml", region: "SG", countryCode: "SG" },
+  { name: "The Nation Thailand", domain: "nationthailand.com", url: "https://www.nationthailand.com/rss", region: "TH", countryCode: "TH" },
+  { name: "Yonhap EN", domain: "yna.co.kr", url: "https://en.yna.co.kr/RSS/news.xml", region: "KR", countryCode: "KR" },
+  { name: "Rappler", domain: "rappler.com", url: "https://www.rappler.com/feed/", region: "PH", countryCode: "PH" },
+  { name: "The Hindu national", domain: "thehindu.com", url: "https://www.thehindu.com/news/national/feeder/default.rss", region: "IN", countryCode: "IN" },
+  { name: "VNExpress EN", domain: "vnexpress.net", url: "https://e.vnexpress.net/rss/news.rss", region: "VN", countryCode: "VN" },
+  { name: "Daily Nation Kenya", domain: "nation.africa", url: "https://nation.africa/kenya/rss.xml", region: "KE", countryCode: "KE", priority: 1 },
+  { name: "Vanguard Nigeria", domain: "vanguardngr.com", url: "https://www.vanguardngr.com/feed/", region: "NG — Lagos", countryCode: "NG", priority: 1 },
+  { name: "Daily Maverick", domain: "dailymaverick.co.za", url: "https://www.dailymaverick.co.za/dmrss/", region: "ZA", countryCode: "ZA", priority: 1 },
+  { name: "The Citizen SA", domain: "citizen.co.za", url: "https://www.citizen.co.za/feed/", region: "ZA", countryCode: "ZA" },
+  { name: "Infobae", domain: "infobae.com", url: "https://www.infobae.com/arc/outboundfeeds/rss/?outputType=xml", region: "AR", countryCode: "AR", kind: "faits-divers", priority: 1 },
+  { name: "El Espectador", domain: "elespectador.com", url: "https://www.elespectador.com/feed/", region: "CO", countryCode: "CO" },
+  { name: "El Universo", domain: "eluniverso.com", url: "https://www.eluniverso.com/arc/outboundfeeds/rss/?outputType=xml", region: "EC", countryCode: "EC" },
+  { name: "Metrópoles", domain: "metropoles.com", url: "https://www.metropoles.com/feed", region: "BR", countryCode: "BR", kind: "faits-divers" },
+  { name: "BBC Africa", domain: "bbc.co.uk", url: "https://feeds.bbci.co.uk/news/world/africa/rss.xml", region: "UK — Africa", countryCode: "GB", priority: 1 },
+  { name: "BBC Asia", domain: "bbc.co.uk", url: "https://feeds.bbci.co.uk/news/world/asia/rss.xml", region: "UK — Asia", countryCode: "GB", priority: 1 },
+  { name: "BBC Latin America", domain: "bbc.co.uk", url: "https://feeds.bbci.co.uk/news/world/latin_america/rss.xml", region: "UK — LatAm", countryCode: "GB", priority: 1 },
+  { name: "The Guardian Asia", domain: "theguardian.com", url: "https://www.theguardian.com/world/asia/rss", region: "UK — Asia", countryCode: "GB" },
+  { name: "The Guardian Africa", domain: "theguardian.com", url: "https://www.theguardian.com/world/africa/rss", region: "UK — Africa", countryCode: "GB" },
+  { name: "The Guardian Americas", domain: "theguardian.com", url: "https://www.theguardian.com/world/americas/rss", region: "UK — Americas", countryCode: "GB" },
+  gnews("GNews US odd", "weird OR bizarre OR raccoon OR python OR rooster OR \"garden gnome\" OR HOA when:7d", "US", "en-US", "US:en", "US", "US — odd search"),
+  gnews("GNews Florida", "(alligator OR python OR raccoon OR iguana) (Florida OR Texas) (police OR home) when:7d", "US", "en-US", "US:en", "US", "US — South"),
+  gnews("GNews JP odd", "site:japantimes.co.jp OR site:soranews24.com (odd OR bizarre OR unusual OR monkey OR boar) when:14d", "JP", "en-US", "JP:en", "JP", "JP — odd search"),
+  gnews("GNews IN odd", "(cow OR monkey OR snake OR peacock) (mall OR school OR metro OR temple) when:14d", "IN", "en-IN", "IN:en", "IN", "IN — odd search"),
+  gnews("GNews SEA", "(monkey OR python OR boar OR civet) (Bangkok OR Jakarta OR Manila OR Singapore) when:14d", "SG", "en-SG", "SG:en", "SG", "SE Asia — odd search"),
+  gnews("GNews BR insolito", "insólito OR bizarro OR capivara OR jacaré OR galo OR vizinho when:7d", "BR", "pt-BR", "BR:pt-419", "BR", "BR — insólito"),
+  gnews("GNews LatAm", "insólito OR extraño OR vecino OR gallo OR capibara OR carpincho when:7d", "MX", "es-419", "MX:es-419", "MX", "LatAm — insólito"),
+  gnews("GNews ZA", "(baboon OR python OR monkey OR snake) (Cape Town OR Johannesburg) when:7d", "ZA", "en-ZA", "ZA:en", "ZA", "ZA — odd search"),
+  gnews("GNews NG KE", "(snake OR goat OR monkey OR odd OR bizarre) (Lagos OR Nairobi OR Accra) when:7d", "NG", "en-NG", "NG:en", "NG", "West/East Africa — odd"),
+  gnews("GNews Maghreb", "insolite (serpent OR sanglier OR singe OR chèvre OR voisin) when:7d", "MA", "fr", "MA:fr", "MA", "Maghreb — insolite"),
+  gnews("GNews DE", "(Wildschwein OR Waschbär OR Hahn OR Schlange) (Stadt OR Schule OR Nachbar) when:7d", "DE", "de", "DE:de", "DE", "DE — kurios"),
+  gnews("GNews ES IT", "(jabalí OR cinghiale OR gallo OR vecino OR serpiente) (insólito OR strano OR extraño) when:7d", "ES", "es", "ES:es", "ES", "ES/IT — odd"),
+  gnews("GNews UK", "(badger OR fox OR seagull OR python OR gnome) (council OR police) (odd OR bizarre) when:7d", "GB", "en-GB", "GB:en", "GB", "UK — odd search"),
+  gnews("GNews AU NZ", "(snake OR possum OR kangaroo OR magpie OR council) (bizarre OR unusual) when:7d", "AU", "en-AU", "AU:en", "AU", "AU/NZ — odd"),
 ];
 
 function inferKind(f: RssFeed): RssKind {

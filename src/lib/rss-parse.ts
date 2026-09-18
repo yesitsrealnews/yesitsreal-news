@@ -11,13 +11,17 @@ function cdata(s: string): string {
 }
 
 function decode(s: string): string {
+  const amp = "&" + "amp;";
+  const lt = "&" + "lt;";
+  const gt = "&" + "gt;";
+  const quot = "&" + "quot;";
   return cdata(s)
     .replace(/&nbsp;/gi, " ")
-    .replace(/&/g, "&")
-    .replace(/</g, "<")
-    .replace(/>/g, ">")
-    .replace(/"/g, '"')
-    .replace(/'/g, "'")
+    .replaceAll(amp, "&")
+    .replaceAll(lt, "<")
+    .replaceAll(gt, ">")
+    .replaceAll(quot, '"')
+    .replace(/&#39;/g, "'")
     .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
     .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)));
 }
@@ -62,6 +66,29 @@ function looksLikeImage(url: string): boolean {
   return false;
 }
 
+function isGoogleHost(url: string): boolean {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./i, "").toLowerCase();
+    return host === "news.google.com" || host === "google.com" || host.endsWith(".google.com");
+  } catch {
+    return false;
+  }
+}
+
+function urlsIn(block: string): string[] {
+  return [...block.matchAll(/https?:\/\/[^\s"'<>]+/gi)].map((m) => decode(m[0]));
+}
+
+/** Prefer the originating paper, not the Google News wrapper. */
+function articleHref(block: string): string {
+  const primary = href(block);
+  if (primary && !isGoogleHost(primary)) return primary;
+  for (const u of urlsIn(block)) {
+    if (!isGoogleHost(u) && !looksLikeImage(u)) return u;
+  }
+  return primary;
+}
+
 function imageFrom(block: string): string | undefined {
   const enclosure = block.match(/<enclosure[^>]*>/gi) ?? [];
   for (const tag of enclosure) {
@@ -85,7 +112,7 @@ export function parseFeed(xml: string): ParsedRssItem[] {
   const seen = new Set<string>();
   for (const block of raw.slice(0, 80)) {
     const title = inner(block, "title");
-    const url = href(block);
+    const url = articleHref(block);
     if (!title || !url) continue;
     if (seen.has(url)) continue;
     seen.add(url);
