@@ -1280,6 +1280,293 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
+
+  revue({
+    id: "s172",
+    slug: "vilnius-airport-nato-jet-scrambled-flock-of-birds",
+    slugs: {
+      fr: "vilnius-l-aeroport-ferme-un-chasseur-de-l-otan-pour-une-volee-d-oiseaux",
+    },
+    section: "animals",
+    countryCode: "LT",
+    countryName: "Lithuania",
+    location: "Vilnius",
+    dumbness: 8,
+    sources: [
+      src(
+        "Lithuanian authorities issue all-clear following earlier potential drone sighting",
+        "LRT",
+        "https://www.lrt.lt/en/news-in-english/19/3051052/lithuanian-authorities-issue-all-clear-following-earlier-potential-drone-sighting",
+        "2026-09-13",
+        "local",
+      ),
+      src(
+        "Lithuania says drone sighting turns out to be flock of birds, after NATO summons jets",
+        "Reuters",
+        "https://www.reuters.com/business/aerospace-defense/lithuania-closes-vilnius-airport-nato-summons-jets-response-possible-drone-2026-09-13/",
+        "2026-09-13",
+        "wire",
+      ),
+      src(
+        "Nato sends jet to airport ‘drone sighting’ that turned out to be flock of birds",
+        "The Independent",
+        "https://www.independent.co.uk/bulletin/news/nato-vilnius-airport-drone-birds-b3049359.html",
+        "2026-09-13",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-18T11:10:00.000Z",
+    originalLang: "en",
+    confidence: 0.95,
+    entities: ["Vilnius Airport", "NATO", "Lithuanian Armed Forces"],
+    copy: {
+      en: c(
+        "Vilnius shut the airport. NATO sent a jet. The radar contact was a flock of birds.",
+        "Sunday 13 September 2026. Thirty-eight minutes. LRT, Reuters, The Independent. The marathon kept running.",
+        [
+          "LRT, Reuters and The Independent, 13 September: a yellow air alert went up over Vilnius around 13:00 local. The airport stopped. NATO summoned at least one fighter from Šiauliai, where the Italian air force is on the Baltic patrol. The jet looked. It was birds. The alert came down. The airport reopened inside 38 minutes.",
+          "Lithuania’s National Crisis Management Centre: ‘On initial radar readings, marks left by birds and drones can be similar.’ The Armed Forces texted: air alert over, white, you may leave shelters. Two inbound flights diverted. The Vilnius marathon, already on the streets, was not interrupted.",
+        ],
+        [
+          "The intercept had an afterburner. The target had feathers.",
+          "Thirty-eight minutes. Zero drones. One flock.",
+          "The marathon did not wait for the all-clear.",
+        ],
+        "LRT + Reuters + Independent, 13 Sept 2026. Vilnius airport, 38 minutes. Italian NATO jet from Šiauliai. Crisis centre named the radar mix-up. Birds unnamed.",
+      ),
+      fr: c(
+        "Vilnius ferme l’aéroport. L’OTAN envoie un chasseur. Le radar : une volée d’oiseaux.",
+        "Dimanche 13 septembre 2026. Trente-huit minutes. LRT, Reuters, The Independent. Le marathon n’a pas stoppé.",
+        [
+          "LRT, Reuters et The Independent, 13 septembre : alerte aérienne jaune sur Vilnius vers 13 h. L’aéroport s’arrête. L’OTAN fait décoller au moins un chasseur de Šiauliai, où l’armée de l’air italienne tient la patrouille balte. Le pilote regarde. Des oiseaux. L’alerte retombe. L’aéroport rouvre en 38 minutes.",
+          "Le centre national de gestion de crise lituanien : « Sur les premiers échos radar, les traces d’oiseaux et de drones peuvent se ressembler. » L’armée envoie : alerte terminée, code blanc, on peut quitter les abris. Deux vols déviés. Le marathon de Vilnius, déjà dans les rues, n’a pas été interrompu.",
+        ],
+        [
+          "L’interception avait une postcombustion. La cible avait des plumes.",
+          "Trente-huit minutes. Zéro drone. Une volée.",
+          "Le marathon n’a pas attendu le code blanc.",
+        ],
+        "LRT + Reuters + Independent, 13 sept. 2026. Aéroport de Vilnius, 38 minutes. Chasseur OTAN italien depuis Šiauliai. Le centre de crise nomme le mélange radar. Oiseaux non nommés.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s173",
+    slug: "toowoomba-p-plater-butters-bagel-with-knees-on-the-wheel-1104",
+    slugs: {
+      fr: "toowoomba-il-tartine-un-bagel-au-volant-1104-dollars",
+    },
+    section: "love-money",
+    countryCode: "AU",
+    countryName: "Australia",
+    location: "Toowoomba, Queensland",
+    dumbness: 8,
+    sources: [
+      src(
+        "Queensland police fine driver $1,000 for allegedly buttering bagel at the wheel",
+        "ABC News",
+        "https://www.abc.net.au/news/2026-09-09/glenvale-man-fined-for-buttering-bagel-driving-in-toowoomba/107132674",
+        "2026-09-09",
+        "wire",
+      ),
+      src(
+        "P-plater caught driving while buttering a bagel",
+        "PerthNow / AAP",
+        "https://www.perthnow.com.au/news/crime/p-plater-caught-driving-while-buttering-a-bagel-c-22845164",
+        "2026-09-09",
+        "wire",
+      ),
+      src(
+        "« J’avais faim »… Un Australien prend 1.104 dollars d’amende pour un tartinage de bagel au volant",
+        "20 Minutes",
+        "https://www.20minutes.fr/monde/4244484-20260911-faim-australien-prend-1-104-dollars-amende-tartinage-bagel-volant",
+        "2026-09-11",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-18T11:12:00.000Z",
+    originalLang: "en",
+    confidence: 0.95,
+    entities: ["Queensland Police Service", "Kelly Hanlen", "Toowoomba"],
+    copy: {
+      en: c(
+        "He steered with his knees and buttered a bagel. Fine: $1,104. The car was unregistered.",
+        "Toowoomba, Monday 7 September 2026. A 29-year-old from Glenvale, on P-plates. ABC, AAP, 20 Minutes. Acting Superintendent Kelly Hanlen.",
+        [
+          "ABC News (9 September) and AAP, then 20 Minutes (11 September): about 3:50 p.m. on Monday 7 September, Queensland police saw a 29-year-old Glenvale man on P-plates steering a car with his knees in Toowoomba traffic, buttering a bagel. Body-worn video. The officer: why, in four busy lanes, did he think that was a great idea. The driver: ‘I know that was stupid, but I was hungry.’ He had been working since morning.",
+          "The registration had expired on 4 September. Two tickets: drive without due care and attention, unregistered vehicle. $1,104 and three demerit points. Acting Superintendent Kelly Hanlen, Darling Downs: taking hands and focus off driving, even to prepare food, can have serious consequences. Hands, she said, belong on the wheel. The spread is unnamed.",
+        ],
+        [
+          "The bagel needed two hands. The traffic needed one driver.",
+          "$1,104 is a very expensive topping.",
+          "Queensland still lets hunger file a defence. It does not let it win.",
+        ],
+        "ABC 9 Sept; PerthNow/AAP 9 Sept; 20 Minutes 11 Sept 2026. Toowoomba, 7 Sept. Driver unnamed, 29, Glenvale. Kelly Hanlen named. Fine $1,104.",
+      ),
+      fr: c(
+        "Il conduit avec les genoux et tartine un bagel. Amende : 1 104 dollars. La voiture n’était plus immatriculée.",
+        "Toowoomba, lundi 7 septembre 2026. Un Glenvale de 29 ans, permis provisoire. ABC, AAP, 20 Minutes. La superintendante Kelly Hanlen.",
+        [
+          "ABC News (9 septembre) et AAP, puis 20 Minutes (11 septembre) : vers 15 h 50, lundi 7 septembre, la police du Queensland voit un Glenvale de 29 ans, permis provisoire, conduire aux genoux dans le trafic de Toowoomba, en train de tartiner un bagel. Caméra-piéton. L’agent : pourquoi, sur quatre files chargées, il a trouvé ça une bonne idée. Le conducteur : « Je sais que c’était stupide, mais j’avais faim. » Il travaillait depuis le matin.",
+          "L’immatriculation avait expiré le 4 septembre. Deux contraventions : conduite sans l’attention due, véhicule non immatriculé. 1 104 dollars australiens et trois points. La superintendante Kelly Hanlen, Darling Downs : lâcher les mains et l’attention, même pour préparer à manger, peut avoir de graves conséquences. Les mains, dit-elle, restent sur le volant. On ne nous dit pas ce qu’il tartinait.",
+        ],
+        [
+          "Le bagel demandait deux mains. Le trafic demandait un conducteur.",
+          "1 104 dollars, c’est une garniture très chère.",
+          "Le Queensland laisse encore la faim plaider. Il ne la laisse pas gagner.",
+        ],
+        "ABC 9 sept. ; PerthNow/AAP 9 sept. ; 20 Minutes 11 sept. 2026. Toowoomba, 7 sept. Conducteur non nommé, 29 ans, Glenvale. Kelly Hanlen nommée. Amende 1 104 $.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s174",
+    slug: "winterthur-bakery-croissant-1612-francs-pin-entered-as-tip",
+    slugs: {
+      fr: "winterthour-croissant-1612-francs-elle-tape-son-code-a-la-place-du-pourboire",
+    },
+    section: "love-money",
+    countryCode: "CH",
+    countryName: "Switzerland",
+    location: "Winterthur, Zurich",
+    dumbness: 8,
+    sources: [
+      src(
+        "Boulangerie: Une retraitée paie un croissant 1612 francs",
+        "Blick",
+        "https://www.blick.ch/fr/suisse/boulangerie-une-retraitee-paie-un-croissant-1612-francs/2x94jyb",
+        "2026-09-15",
+        "local",
+      ),
+      src(
+        "Elle saisit par erreur son code PIN à la place du montant du pourboire : son croissant lui coûte… 1 700 €",
+        "Ouest-France",
+        "https://www.ouest-france.fr/societe/faits-divers/elle-saisit-par-erreur-son-code-pin-a-la-place-du-montant-du-pourboire-son-croissant-lui-coute-1-700-euros-add8f062-b190-11f1-926d-8837bd37b66e",
+        "2026-09-17",
+        "wire",
+      ),
+      src(
+        "Par accident, une retraitée suisse paie 1.700 euros pour des croissants aux noisettes",
+        "ICI",
+        "https://www.ici.fr/emissions/nos-voisins-du-rhin/une-retraitee-suisse-paie-1-700-euros-pour-des-croissants-aux-noisettes-2389485",
+        "2026-09-18",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-18T11:14:00.000Z",
+    originalLang: "de",
+    confidence: 0.95,
+    entities: ["Bakery Bakery", "Winterthur", "Nina Vogel", "Susanne Weber"],
+    copy: {
+      en: c(
+        "She typed her PIN where the terminal asked for a tip. The croissant cost 1,612 francs.",
+        "Bakery Bakery, Winterthur station. End of July 2026. Blick, then Ouest-France and ICI. Refunded in August.",
+        [
+          "Blick (15 September), then Ouest-France (17 September) and ICI (18 September): at the vegan bakery Bakery Bakery in Winterthur’s main station, a retired woman the paper calls Susanne Weber paid for a hazelnut croissant by card, late July. Two weeks later a Pro Senectute adviser, looking at the statements with her, found 1,612.14 Swiss francs — about €1,700 — taken by the shop. The till had no trace of it.",
+          "Nina Vogel, the bakery’s commercial support, told Blick the terminal lets you type a tip amount. ‘In my view the customer must have thought she had to enter her PIN.’ The money left the account; a software fault kept it out of the shop’s till and off the bakery’s bank line. Technicians were still on the bug. The refund went through at the end of August. Susanne told Blick she does not always understand card payments. A story like this had already happened to her.",
+        ],
+        [
+          "The PIN and the tip share a keypad. They do not share a price.",
+          "1,612 francs never reached the baker. They still left the customer.",
+          "Cash, she said afterwards.",
+        ],
+        "Blick 15 Sept; Ouest-France 17 Sept; ICI 18 Sept 2026. Bakery Bakery, Winterthur. Nina Vogel named. Customer given as Susanne Weber, a pseudonym.",
+      ),
+      fr: c(
+        "Elle tape son code PIN à la place du pourboire. Le croissant : 1 612 francs.",
+        "Bakery Bakery, gare de Winterthour. Fin juillet 2026. Blick, puis Ouest-France et ICI. Remboursée en août.",
+        [
+          "Blick (15 septembre), puis Ouest-France (17 septembre) et ICI (18 septembre) : à la boulangerie végane Bakery Bakery, gare centrale de Winterthour, une retraitée que le journal appelle Susanne Weber règle un croissant aux noisettes par carte, fin juillet. Deux semaines plus tard, une conseillère de Pro Senectute, sur les relevés, trouve 1 612,14 francs suisses — environ 1 700 euros — prélevés par le magasin. La caisse, elle, n’a rien.",
+          "Nina Vogel, support commercial de la boulangerie, dit à Blick que le terminal laisse taper un montant de pourboire. « À mon avis, la cliente a sûrement cru devoir saisir son code PIN. » L’argent quitte le compte ; un bug empêche l’écriture en caisse et le crédit sur le compte du commerce. Les techniciens étaient encore dessus. Le remboursement passe fin août. Susanne dit à Blick qu’elle ne comprend pas toujours le paiement par carte. Une histoire comme celle-là lui était déjà arrivée.",
+        ],
+        [
+          "Le code et le pourboire partagent un clavier. Pas un tarif.",
+          "1 612 francs n’arrivent pas chez le boulanger. Ils partent quand même.",
+          "Espèces, dit-elle après.",
+        ],
+        "Blick 15 sept. ; Ouest-France 17 sept. ; ICI 18 sept. 2026. Bakery Bakery, Winterthour. Nina Vogel nommée. Cliente donnée comme Susanne Weber, nom d’emprunt.",
+      ),
+    },
+  }),
+
+  revue({
+    id: "s175",
+    slug: "santa-fe-parade-horse-bolts-police-motorbikes-cowboys-then-the-parade",
+    slugs: {
+      fr: "santa-fe-un-cheval-de-parade-file-la-police-en-moto-les-cow-boys-puis-le-defile",
+    },
+    section: "animals",
+    countryCode: "US",
+    countryName: "United States",
+    location: "Santa Fe, New Mexico",
+    dumbness: 8,
+    sources: [
+      src(
+        "Runaway horse leads cops on merry chase ahead of Fiesta de Santa Fe parade",
+        "The Santa Fe New Mexican",
+        "https://www.santafenewmexican.com/news/local_news/runaway-horse-leads-cops-on-merry-chase-ahead-of-fiesta-de-santa-fe-parade/article_2d952d18-d734-4dfe-8b29-a7e1c33b798e.html",
+        "2026-09-16",
+        "local",
+      ),
+      src(
+        "Runaway horse captured by police on motorbikes in New Mexico",
+        "BBC News",
+        "https://www.bbc.co.uk/news/videos/cmzezj8gr224o",
+        "2026-09-16",
+        "wire",
+      ),
+      src(
+        "Runaway Horse Captured by Police on Motorbikes After Speeding Past Cars on Highway",
+        "People",
+        "https://people.com/runaway-horse-captured-by-police-on-motorbikes-after-speeding-past-cars-on-highway-12123970",
+        "2026-09-16",
+        "wire",
+      ),
+      src(
+        "Runaway parade horse leads police on a wild neighborhood chase in New Mexico",
+        "NewsNation",
+        "https://www.newsnationnow.com/animals/runaway-parade-horse-police-chase/",
+        "2026-09-16",
+        "wire",
+      ),
+    ],
+    publishedAt: "2026-09-18T11:16:00.000Z",
+    originalLang: "en",
+    confidence: 0.95,
+    entities: ["Santa Fe Police Department", "Ben Valdez", "Desfile de la Gente"],
+    copy: {
+      en: c(
+        "A parade horse bolted down Santa Fe. Police on motorbikes. Cowboys. Then it did the parade.",
+        "Sunday 13 September 2026. Desfile de la Gente, Fiesta de Santa Fe. Santa Fe New Mexican, BBC, People. Interim chief Ben Valdez.",
+        [
+          "The Santa Fe New Mexican, BBC and People, 16 September, after the police Facebook post: on Sunday 13 September a brown horse with white markings came loose while people were lining up for the Desfile de la Gente. It ran Paseo de Peralta and a highway. Santa Fe Police Motors, bicycle officers, Animal Services, a drone and ‘a few cowboys’ went after it. Motors officers boxed it on Canyon Road. The owner walked it back. A drink of water. Then the parade.",
+          "Interim chief Ben Valdez told NewsNation the horse knocked two officers off their motorcycles. They were not injured. ‘A lot of people thought they were giving him chase, but they were actually giving it a police escort and trying to keep traffic from causing a collision.’ The department thanked drivers who yielded. The horse is unnamed. It still made the start.",
+        ],
+        [
+          "The escort had sirens. The guest had hooves.",
+          "Two officers on the ground. Zero citations for the horse.",
+          "Santa Fe still lets livestock audition for Fiesta.",
+        ],
+        "Santa Fe New Mexican + BBC + People + NewsNation, 16 Sept 2026. Parade 13 Sept, Desfile de la Gente. Chief Ben Valdez named. Horse unnamed.",
+      ),
+      fr: c(
+        "Un cheval de parade dévale Santa Fe. La police en moto. Des cow-boys. Puis il fait le défilé.",
+        "Dimanche 13 septembre 2026. Desfile de la Gente, Fiesta de Santa Fe. Santa Fe New Mexican, BBC, People. Le chef par intérim Ben Valdez.",
+        [
+          "The Santa Fe New Mexican, BBC et People, 16 septembre, d’après le post Facebook de la police : le dimanche 13 septembre, un cheval brun marqué de blanc se libère pendant les préparatifs du Desfile de la Gente. Il prend le Paseo de Peralta et une autoroute. Les motards de la police de Santa Fe, les vélos, Animal Services, un drone et « quelques cow-boys » partent derrière. Les motards le coincent sur Canyon Road. Le propriétaire le ramène au pas. Un coup d’eau. Puis le défilé.",
+          "Le chef par intérim Ben Valdez dit à NewsNation que le cheval a fait tomber deux motards. Pas de blessés. « Beaucoup ont cru à une course-poursuite. C’était une escorte, pour empêcher la circulation de le percuter. » Le service remercie les voitures qui se sont rangées. Le cheval n’est pas nommé. Il a quand même pris le départ.",
+        ],
+        [
+          "L’escorte avait des gyrophares. L’invité avait des sabots.",
+          "Deux policiers par terre. Zéro PV pour le cheval.",
+          "Santa Fe laisse encore le bétail passer une audition à la Fiesta.",
+        ],
+        "Santa Fe New Mexican + BBC + People + NewsNation, 16 sept. 2026. Défilé du 13 sept., Desfile de la Gente. Chef Ben Valdez nommé. Cheval non nommé.",
+      ),
+    },
+  }),
 ];
 
 /** Desk already published these from the cambuse. Live on the une. */

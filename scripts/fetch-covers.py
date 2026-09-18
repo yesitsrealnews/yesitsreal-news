@@ -189,6 +189,10 @@ COVERS: dict[str, tuple[str, str]] = {
     "s169": ("File:Chacma baboon (Papio ursinus ursinus) male.jpg", "chacma baboon papio ursinus"),
     "s170": ("File:Macaca fuscata fuscata -Arashiyama, Kyoto, Japan-8.jpg", "japanese macaque snow monkey"),
     "s171": ("File:Azumino Public Central Library bookshelves ac (4).jpg", "public library bookshelves"),
+    "s172": ("File:Murmuration 11-2025.jpg", "starling murmuration flock birds"),
+    "s173": ("File:Bagel Making.jpg", "bagel pastry bread sesame"),
+    "s174": ("File:Croissant.jpg", "butter croissant pastry bakery"),
+    "s175": ("File:Horse running.jpg", "brown horse galloping field"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
