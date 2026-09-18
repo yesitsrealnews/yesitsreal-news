@@ -4,10 +4,12 @@ import type { Lang } from "@/lib/types";
 import { EMAILS, SITE_NAME, SOCIAL } from "@/lib/brand";
 import { FooterPartners } from "@/components/site/footer-partners";
 import { MastheadLogo } from "@/components/site/masthead";
+import { PressFreedomStrip } from "@/components/site/press-freedom-strip";
 
 export function Footer({ lang }: { lang: Lang }) {
   return (
     <footer className="mt-16 border-t border-rule bg-paper pb-20 text-ink md:pb-10">
+      <PressFreedomStrip lang={lang} />
       <FooterPartners lang={lang} />
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">

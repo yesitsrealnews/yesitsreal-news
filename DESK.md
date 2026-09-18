@@ -7,6 +7,8 @@ OK : cartes maison + liens vers sites officiels, labellisés « pas un partenari
 Referral Tesla/Starlink : seulement avec le lien perso de Pierre (app propriétaire).
 Deals payants : advertisers@yesitsreal.news.
 
+Intérêt public (RSF, CPJ, ARTICLE 19, FIJ, SNJ, Maison des Journalistes, Forbidden Stories, UNESCO) : cartes maison + URLs officielles, labellisées « pas une pub vendue ». Pas leurs logos.
+
 ## Photo, chaque papier
 
 **Aucun article ne sort sans image.** **Photos d’illustration uniquement.**

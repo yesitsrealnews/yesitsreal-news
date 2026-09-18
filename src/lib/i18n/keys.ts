@@ -126,6 +126,8 @@ export const UI_KEYS = [
   "adDummy",
   "adSidebar",
   "adNative",
+  "adsPublicInterest",
+  "adsPublicNote",
   "filterApply",
   "filterReset",
   "noStories",

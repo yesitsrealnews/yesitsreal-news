@@ -16,12 +16,14 @@ export function AdSlot({
 }) {
   if (!ADS_PUBLIC) return null;
   const ad = localizedCreative(creativeFor(slot, salt), lang);
-  const label = slot === "native" ? t(lang, "adNative") : slot === "sidebar" ? t(lang, "adSidebar") : t(lang, "adsLabel");
+  const external = ad.href.startsWith("http");
+  const label = ad.tone === "psa" ? t(lang, "adsPublicInterest") : slot === "native" ? t(lang, "adNative") : slot === "sidebar" ? t(lang, "adSidebar") : t(lang, "adsLabel");
   return (
     <a
       href={ad.href}
-      aria-label={label}
-      rel={ad.href.startsWith("http") ? "noopener noreferrer sponsored" : undefined}
+      aria-label={`${label} · ${ad.partner}`}
+      rel={external ? "noopener noreferrer" : undefined}
+      target={external ? "_blank" : undefined}
       className={cn(
         "block border border-dashed border-rule bg-ad p-3 text-ad-ink transition-colors hover:bg-paper-2",
         slot === "leaderboard" && "min-h-[90px]",
