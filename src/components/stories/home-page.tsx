@@ -14,7 +14,7 @@ import { ShareBar } from "@/components/site/share-bar";
 import { TrueStamp } from "@/components/site/true-stamp";
 import { Button } from "@/components/ui/button";
 import { SourceProof } from "@/components/stories/source-proof";
-import { BadgeCheck, Newspaper } from "lucide-react";
+import { Newspaper } from "lucide-react";
 
 export function HomePage({
   lang,
@@ -102,10 +102,6 @@ export function HomePage({
               {flagEmoji(hero.countryCode)} {hero.location}
             </span>
             <SourceProof story={hero} lang={lang} names />
-            <span className="inline-flex items-center gap-1 text-true">
-              <BadgeCheck className="size-3.5" />
-              {t(lang, "factChecked")}
-            </span>
             <time>{formatDate(hero.publishedAt, lang)}</time>
           </div>
           <ShareBar lang={lang} path={storySharePath(hero, lang)} headline={heroCopy.headline} className="mt-5" />

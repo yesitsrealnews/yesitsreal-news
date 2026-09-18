@@ -1,4 +1,5 @@
 import type { Story, StoryCopy } from "./types";
+import { isClosingLecture, stripClosingLecture } from "./article-close.ts";
 
 function isSafeHttpUrl(raw: string): boolean {
   try {
@@ -42,7 +43,7 @@ function polishLang(story: Story, copy: StoryCopy, lang: "fr" | "en"): StoryCopy
   if (!isDraftCopy(copy) && copy.body.length >= 2 && !/^selon la source d[’']origine/i.test(copy.body[0] || "")) {
     return {
       ...copy,
-      body: copy.body.map(stripVisuel).filter(Boolean),
+      body: stripClosingLecture(copy.body.map(stripVisuel).filter(Boolean)),
       factCheckNote: /brouillon/i.test(copy.factCheckNote)
         ? copy.factCheckNote.replace(/brouillon\.?\s*/i, "")
         : copy.factCheckNote,
@@ -54,37 +55,25 @@ function polishLang(story: Story, copy: StoryCopy, lang: "fr" | "en"): StoryCopy
   const where = [story.location, story.countryName].filter(Boolean).join(", ");
   const date = src0?.date || "";
   const paper = src0?.publisher || (lang === "fr" ? "La source" : "The source");
-  if (lang === "fr") {
-    return {
-      headline: copy.headline,
-      dek: dek || copy.headline,
-      body: [
-        `${paper}${date ? `, ${date}` : ""}. ${where}. ${dek || copy.headline}`,
-        "YES IT'S REAL republie le fait déjà paru. On n’invente pas de citations. Les mots du papier d’origine restent au journal d’origine.",
-        "Les sources sont sous le papier. Si le journal d’origine corrige, on corrige. Ça s’est vraiment passé.",
-      ],
-      whyDumb: copy.whyDumb[0]
-        ? copy.whyDumb
-        : ["C’est arrivé.", "Quelqu’un a dû s’en occuper.", "C’est maintenant au dossier."],
-      factCheckNote: `${pubs}${date ? `, ${date}` : ""}. Recoupé à la publication d’après la source d’origine. Ça s’est vraiment passé.`,
-    };
-  }
+  const lead = `${paper}${date ? `, ${date}` : ""}. ${where}. ${dek || copy.headline}`;
+  const kept = copy.body
+    .map(stripVisuel)
+    .filter(Boolean)
+    .filter((p) => !DRAFT_MARK.test(p) && !isClosingLecture(p));
   return {
     headline: copy.headline,
     dek: dek || copy.headline,
-    body: [
-      `${paper}${date ? `, ${date}` : ""}. ${where}. ${dek || copy.headline}`,
-      "YES IT'S REAL reprints a fact that already ran. We do not invent quotes. The original paper keeps its words.",
-      "Sources are under the piece. If the originating desk corrects, we correct. It happened.",
-    ],
+    body: stripClosingLecture([lead, ...kept.filter((p) => p !== lead)]),
     whyDumb: copy.whyDumb[0]
       ? copy.whyDumb
-      : ["It happened.", "Someone had to deal with it.", "It is now on the record."],
-    factCheckNote: `${pubs}${date ? `, ${date}` : ""}. Checked at publication against the originating report. It happened.`,
+      : lang === "fr"
+        ? ["C’est arrivé.", "Quelqu’un a dû s’en occuper.", "C’est maintenant au dossier."]
+        : ["It happened.", "Someone had to deal with it.", "It is now on the record."],
+    factCheckNote: `${pubs}${date ? `, ${date}` : ""}.`,
   };
 }
 
-/** Turn a Cambuse RSS draft into a public article: no "brouillon", no "c'est faux". */
+/** Turn a Cambuse RSS draft into a public article: no "brouillon", no closing lecture. */
 export function polishPublishedStory(story: Story): Story {
   const blob = `${story.copy.fr?.body.join(" ") ?? ""} ${story.copy.en.body.join(" ")} ${story.copy.fr?.dek ?? ""}`;
   const coverUrl = (story.coverUrl && isSafeHttpUrl(story.coverUrl) ? story.coverUrl : extractLeadImage(blob)) || undefined;

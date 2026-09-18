@@ -1,7 +1,7 @@
 import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/site-shell";
 import { SectionArchive } from "@/components/stories/section-page";
-import { isSectionId } from "@/lib/data/sections";
+import { isSectionId, canonicalSection } from "@/lib/data/sections";
 import { mergeExtras } from "@/lib/public-feed";
 import { loadSectionFeed } from "@/lib/public-feed-rpc";
 import { useAppStore } from "@/lib/store";
@@ -12,23 +12,21 @@ import { SITE_NAME, SITE_URL } from "@/lib/brand";
 
 export const Route = createFileRoute("/$section")({
   beforeLoad: ({ params }) => {
-    if (params.section === "declarations") {
-      throw redirect({ to: "/$section", params: { section: "politics" } });
-    }
-    if (params.section === "crime") {
-      throw redirect({ to: "/$section", params: { section: "courts" } });
-    }
-    if (params.section === "archive") {
-      throw redirect({ to: "/" });
-    }
     if (params.section === "investir" || params.section === "acheter" || params.section === "buy") {
       throw redirect({ to: "/invest" });
     }
     if (params.section === "credit") {
       throw redirect({ to: "/credits" });
     }
-    if (!isSectionId(params.section)) {
+    const section = canonicalSection(params.section);
+    if (!section) {
       throw notFound();
+    }
+    if (section === "archive") {
+      throw redirect({ to: "/" });
+    }
+    if (section !== params.section) {
+      throw redirect({ to: "/$section", params: { section } });
     }
   },
   loader: async ({ params }) => loadSectionFeed({ data: { section: params.section } }),

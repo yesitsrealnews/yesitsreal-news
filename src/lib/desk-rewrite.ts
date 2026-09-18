@@ -104,7 +104,7 @@ export async function runDeskRewrite(input: DeskRewriteInput): Promise<DeskRewri
 Règles absolues :
 - Vrai, sourcé, déjà publié. Pas d'invention. Pas de citations inventées.
 - Français impeccable : syntaxe française native, idiomatique, typographie FR. JAMAIS un calque de l'anglais.
-${uk ? "- Ce papier porte sur un fait britannique / anglais : en VF, monter d'un cran le moqueur (ironie française sèche). Toujours plat, jamais inventé, jamais grief/mineurs.\n" : ""}- Pas de section « pourquoi c'est bête » affichée : tu peux garder whyDumb pour la desk, mais le corps doit se suffire.
+${uk ? "- Ce papier porte sur un fait britannique / anglais : en VF, monter d'un cran le moqueur (ironie française sèche). Toujours plat, jamais inventé, jamais grief/mineurs.\n" : ""}- Pas de section « pourquoi c'est bête » : tu peux garder whyDumb pour la desk, mais le corps s'arrête sur le fait. Pas de paragraphe final qui explique qu'on a vérifié, que ce n'est pas une satire, ou pourquoi c'est bête.
 - Ne change pas les faits, les noms, les dates, les sources. Tu changes le STYLE et la FORMULATION selon les consignes.
 - Réponds UNIQUEMENT un JSON.
 

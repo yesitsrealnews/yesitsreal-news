@@ -1,5 +1,9 @@
 # Cambuse — consignes
 
+## Mise en ligne
+
+Chaque changement demandé est poussé sur **https://www.yesitsreal.news**, pas seulement l’aperçu. Commit + mise en production Vercel à chaque tour.
+
 ## Publicité / marques tierces
 
 Pas de bannières marketing Tesla / SpaceX / Starlink / xAI / X collées sans accord média ou licence.

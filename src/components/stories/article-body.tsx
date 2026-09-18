@@ -1,6 +1,7 @@
 import type { Lang, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
 import { publicDesk } from "@/lib/desk-origin";
+import { stripClosingLecture } from "@/lib/article-close";
 import { flagEmoji, formatDateTime, readingMinutes, storyBodyPending, storyByline, storyCopy } from "@/lib/format";
 import { storySharePath } from "@/lib/viral";
 import { SourceProof } from "@/components/stories/source-proof";
@@ -16,7 +17,7 @@ import { ReaderComments } from "@/components/stories/reader-comments";
 import { SourceVideo } from "@/components/stories/source-video";
 import { applyVoice, voiceMeta } from "@/lib/voices";
 import { TrueStamp } from "@/components/site/true-stamp";
-import { BadgeCheck, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function ArticleBody({
@@ -30,7 +31,8 @@ export function ArticleBody({
 }) {
   const raw = storyCopy(story, lang);
   const voice = voiceMeta(story.id);
-  const copy = applyVoice(story, raw, lang);
+  const voiced = applyVoice(story, raw, lang);
+  const copy = { ...voiced, body: stripClosingLecture(voiced.body) };
   const pending = storyBodyPending(story, lang);
   const mid = Math.max(2, Math.floor(copy.body.length / 2));
   const desk = publicDesk(story, lang);
@@ -75,14 +77,7 @@ export function ArticleBody({
           {t(lang, "published")} {formatDateTime(story.publishedAt, lang)}
         </span>
         <span>{readingMinutes(copy.body)} min</span>
-        {story.sponsored ? (
-          <Badge tone="gold">{t(lang, "sponsored")}</Badge>
-        ) : (
-          <span className="inline-flex items-center gap-1 text-true">
-            <BadgeCheck className="size-3.5" />
-            {t(lang, "factChecked")}
-          </span>
-        )}
+        {story.sponsored ? <Badge tone="gold">{t(lang, "sponsored")}</Badge> : null}
         <SourceProof story={story} lang={lang} names />
       </div>
 
@@ -116,9 +111,7 @@ export function ArticleBody({
       </div>
 
       {story.sponsored ? (
-        <p className="mt-6 rounded-2xl border-2 border-ink bg-gold px-4 py-3 text-sm">
-          {t(lang, "sponsored")}. {copy.factCheckNote}
-        </p>
+        <p className="mt-6 rounded-2xl border-2 border-ink bg-gold px-4 py-3 text-sm">{t(lang, "sponsored")}</p>
       ) : null}
 
       {pending ? <p className="mt-6 text-sm italic text-ink-muted">{t(lang, "bodyPending")}</p> : null}
@@ -132,12 +125,6 @@ export function ArticleBody({
           </div>
         ))}
       </div>
-
-      {voice.id !== "desk" ? (
-        <p className="mt-6 text-xs text-ink-muted">
-          {t(lang, "voiceAfter")} {lang === "fr" ? voice.afterFr : voice.after}. {t(lang, "voiceDisclaimer")}
-        </p>
-      ) : null}
 
       <ShareBar lang={lang} path={storySharePath(story, lang)} headline={copy.headline} className="mt-8" />
 

@@ -1,6 +1,6 @@
 import type { Lang, SectionId, Story } from "./types.ts";
 import { canonicalSection } from "./data/sections.ts";
-import { isDeskListing, storyInDeskListing } from "./desk-origin.ts";
+import { isDeskListing, originDesk, storyInDeskListing } from "./desk-origin.ts";
 
 /** Rolling week for the une. Older copy stays published in rubriques, not on /. */
 export const HOME_WINDOW_DAYS = 7;
@@ -204,11 +204,12 @@ export function relatedStories(
   n = 4,
   deskStatus?: DeskStatusMap,
 ): Story[] {
+  const desk = originDesk(story);
   return publishedStories(seed, extras, deskStatus)
     .filter((s) => s.id !== story.id)
     .sort((a, b) => {
-      const same = Number(b.section === story.section) - Number(a.section === story.section);
-      if (same) return same;
+      const sameDesk = Number(originDesk(b) === desk) - Number(originDesk(a) === desk);
+      if (sameDesk) return sameDesk;
       return b.sources.length - a.sources.length || +new Date(b.publishedAt) - +new Date(a.publishedAt);
     })
     .slice(0, n);

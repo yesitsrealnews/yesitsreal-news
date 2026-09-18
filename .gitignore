@@ -17,6 +17,8 @@ screenshots/
 *.webm
 .DS_Store
 coverage/
+scripts/__pycache__/
+__pycache__/
 AGENTS.md
 .project_id
 .vercel

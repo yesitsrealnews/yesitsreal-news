@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { BadgeCheck } from "lucide-react";
 import type { Lang, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
 import { publicDesk } from "@/lib/desk-origin";
@@ -85,12 +84,6 @@ export function StoryCard({
           {flagEmoji(story.countryCode)} {story.location}
         </span>
         <SourceProof story={story} lang={lang} size="sm" />
-        {story.factChecked && !story.sponsored ? (
-          <span className="inline-flex items-center gap-1 text-true">
-            <BadgeCheck className="size-3.5" />
-            {t(lang, "factChecked")}
-          </span>
-        ) : null}
       </div>
     </article>
   );

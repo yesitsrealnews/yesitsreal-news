@@ -55,7 +55,7 @@ describe("publish-copy", () => {
     assert.equal(out.copy.fr && isDraftCopy(out.copy.fr), false);
     assert.match(out.copy.fr?.body[0] || "", /La Dépêche/);
     assert.doesNotMatch(out.copy.fr?.factCheckNote || "", /Brouillon/i);
-    assert.doesNotMatch(out.copy.fr?.body.join(" ") || "", /brouillon/i);
+    assert.doesNotMatch(out.copy.fr?.body.join(" ") || "", /brouillon|n’invente pas de citations|sources sont sous le papier/i);
     assert.equal(out.coverUrl, "https://images.ladepeche.fr/api/v1/images/view/abc.jpg");
     assert.equal(out.slugs.fr ?? "", "un-bouc-sequestre-un-habitant");
   });
