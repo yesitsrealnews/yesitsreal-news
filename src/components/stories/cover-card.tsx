@@ -28,7 +28,7 @@ export function CoverCard({
           TRUE
         </span>
         <span className="text-[0.6rem] font-extrabold uppercase tracking-[0.16em] text-paper/70">
-          YES IT'S REAL
+          YES IT'S REAL NEWS
         </span>
       </div>
       <p className="font-serif text-2xl leading-[0.95] tracking-tight sm:text-3xl">{short}</p>

@@ -41,7 +41,7 @@ export async function renderQuotePng(opts: {
   ctx.fillRect(0, 0, w, 8);
   ctx.fillStyle = "#f4efe4";
   ctx.font = "800 42px 'Bricolage Grotesque', Impact, sans-serif";
-  ctx.fillText("YES IT'S REAL", 64, 88);
+  ctx.fillText("YES IT'S REAL NEWS", 64, 88);
   ctx.font = "800 18px Figtree, sans-serif";
   ctx.textAlign = "right";
   ctx.fillStyle = "#e10600";

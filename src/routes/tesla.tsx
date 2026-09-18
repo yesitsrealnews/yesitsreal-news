@@ -45,7 +45,7 @@ function TeslaReader() {
   return (
     <div className="min-h-screen bg-paper text-ink">
       <header className="flex flex-wrap items-center justify-between gap-4 border-b border-rule px-6 py-4">
-        <p className="font-serif text-3xl uppercase leading-none tracking-tight sm:text-4xl">YES IT'S REAL</p>
+        <p className="font-serif text-3xl uppercase leading-none tracking-tight sm:text-4xl">YES IT'S REAL NEWS</p>
         <div className="flex items-center gap-2">
           <LangBtn on={lang === "fr"} onClick={() => setLang("fr")}>
             FR

@@ -3,7 +3,7 @@ import { LANG_CODES } from "@/lib/types";
 import type { UiKey } from "@/lib/i18n/keys";
 
 const en: Record<UiKey, string> = {
-  siteName: "YES IT'S REAL",
+  siteName: "YES IT'S REAL NEWS",
   tagline1: "Real news. Unbelievably dumb.",
   tagline2: "Yes, this actually happened.",
   tagline3: "Verified. Sourced. Unfortunately true.",
@@ -144,7 +144,7 @@ const en: Record<UiKey, string> = {
   menu: "Menu",
   close: "Close",
   skipToContent: "Skip to content",
-  shareNote: "YES IT'S REAL — it really happened",
+  shareNote: "YES IT'S REAL NEWS — it really happened",
   bodyPending:
     "Headline localized. Full body translation is locked pending desk review; English original below.",
   correctionsDek: "We correct errors in public. If we got a fact wrong, write. Tone is not a fact.",
@@ -425,7 +425,7 @@ const fr = overlay({
   menu: "Menu",
   close: "Fermer",
   skipToContent: "Aller au contenu",
-  shareNote: "YES IT'S REAL — ça s’est vraiment passé",
+  shareNote: "YES IT'S REAL NEWS — ça s’est vraiment passé",
   bodyPending:
     "Titre localisé. La traduction du corps est verrouillée en attente de relecture ; original anglais ci-dessous.",
   correctionsDek: "Nous corrigeons en public. Si un fait est faux, écrivez. Le ton n’est pas un fait.",
@@ -677,7 +677,7 @@ const es = overlay({
   menu: "Menú",
   close: "Cerrar",
   skipToContent: "Saltar al contenido",
-  shareNote: "YES IT'S REAL — de verdad ocurrió",
+  shareNote: "YES IT'S REAL NEWS — de verdad ocurrió",
   bodyPending:
     "Titular localizado. La traducción del cuerpo está bloqueada a la espera de revisión; original en inglés abajo.",
   correctionsDek: "Corregimos en público. Si un hecho es erróneo, escriba. El tono no es un hecho.",
@@ -925,7 +925,7 @@ const de = overlay({
   menu: "Menü",
   close: "Schließen",
   skipToContent: "Zum Inhalt",
-  shareNote: "YES IT'S REAL — das ist wirklich passiert",
+  shareNote: "YES IT'S REAL NEWS — das ist wirklich passiert",
   bodyPending:
     "Überschrift lokalisiert. Die Vollübersetzung ist gesperrt, bis die Redaktion sie freigibt; englisches Original darunter.",
   correctionsDek: "Wir korrigieren öffentlich. Wenn eine Tatsache falsch ist, schreiben Sie. Der Ton ist keine Tatsache.",
@@ -1080,7 +1080,7 @@ const ar = overlay({
   menu: "القائمة",
   close: "إغلاق",
   skipToContent: "تخطي إلى المحتوى",
-  shareNote: "YES IT'S REAL — حدث هذا فعلًا",
+  shareNote: "YES IT'S REAL NEWS — حدث هذا فعلًا",
   bodyPending:
     "العنوان مُترجم. ترجمة المتن معلّقة بانتظار مراجعة المكتب؛ الأصل الإنجليزي أدناه.",
   correctionsDek: "نصحّح علنًا. إذا أخطأنا في واقعة، اكتب. النبرة ليست واقعة.",

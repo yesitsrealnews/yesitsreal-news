@@ -6,7 +6,7 @@ import { SECTIONS } from "@/lib/data/sections";
 import { EMAILS, SOCIAL } from "@/lib/brand";
 import type { Lang } from "@/lib/types";
 import { LanguageSwitcher } from "@/components/site/language-switcher";
-import { TrueStamp } from "@/components/site/true-stamp";
+import { MastheadLogo } from "@/components/site/masthead";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 
@@ -56,7 +56,9 @@ export function Header({
             </SheetTrigger>
             <SheetContent side="left" className="w-[min(100%,20rem)]">
               <SheetHeader>
-                <SheetTitle className="masthead-wordmark text-2xl">{t(lang, "siteName")}</SheetTitle>
+                <SheetTitle className="text-left">
+                  <MastheadLogo wordmarkClassName="text-2xl" />
+                </SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col p-2">
                 <Link to="/" className="px-3 py-3 text-sm font-medium">
@@ -87,9 +89,8 @@ export function Header({
           </Sheet>
         </div>
 
-        <Link to="/" className="flex items-center gap-2 py-1">
-          <span className="masthead-wordmark text-[1.35rem] sm:text-3xl md:text-[2.05rem]">{t(lang, "siteName")}</span>
-          <TrueStamp className="hidden sm:inline-flex">{t(lang, "truePill")}</TrueStamp>
+        <Link to="/" className="flex items-center gap-2 py-1" aria-label={t(lang, "siteName")}>
+          <MastheadLogo wordmarkClassName="text-[1.2rem] sm:text-3xl md:text-[2.05rem]" />
         </Link>
 
         <div className="flex items-center">

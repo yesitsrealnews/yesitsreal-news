@@ -37,8 +37,8 @@ export const Route = createRootRoute({
       { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
       { rel: "preload", href: "/fonts/figtree.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
       { rel: "preload", href: "/fonts/bricolage-grotesque-800.woff2", as: "font", type: "font/woff2", crossOrigin: "anonymous" },
-      { rel: "alternate", type: "application/rss+xml", href: `${SITE_URL}/rss.xml`, title: "YES IT'S REAL — Français" },
-      { rel: "alternate", type: "application/rss+xml", href: `${SITE_URL}/rss-en.xml`, title: "YES IT'S REAL — English" },
+      { rel: "alternate", type: "application/rss+xml", href: `${SITE_URL}/rss.xml`, title: `${SITE_NAME} — Français` },
+      { rel: "alternate", type: "application/rss+xml", href: `${SITE_URL}/rss-en.xml`, title: `${SITE_NAME} — English` },
     ],
   }),
   notFoundComponent: () => (

@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { t } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
-import { EMAILS, SOCIAL } from "@/lib/brand";
+import { EMAILS, SITE_NAME, SOCIAL } from "@/lib/brand";
 import { FooterPartners } from "@/components/site/footer-partners";
+import { MastheadLogo } from "@/components/site/masthead";
 
 export function Footer({ lang }: { lang: Lang }) {
   return (
@@ -10,7 +11,7 @@ export function Footer({ lang }: { lang: Lang }) {
       <FooterPartners lang={lang} />
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="masthead-wordmark text-3xl">{t(lang, "siteName")}</p>
+          <MastheadLogo wordmarkClassName="text-3xl" />
           <p className="mt-2 text-sm font-extrabold uppercase tracking-[0.08em]">{t(lang, "tagline1")}</p>
           <p className="mt-3 max-w-lg text-sm font-medium text-ink">{t(lang, "raisonLine")}</p>
           <p className="mt-3 max-w-lg text-sm leading-relaxed text-ink-muted">{t(lang, "disclaimer")}</p>
@@ -117,7 +118,7 @@ export function Footer({ lang }: { lang: Lang }) {
         </div>
       </div>
       <p className="border-t border-rule px-4 py-4 text-center text-xs text-ink-faint">
-        © {new Date().getFullYear()} YES IT'S REAL · {EMAILS.desk} · {t(lang, "shareNote")}
+        © {new Date().getFullYear()} {SITE_NAME} · {EMAILS.desk} · {t(lang, "shareNote")}
         <br />
         {lang === "fr"
           ? "Hébergé aux États-Unis (Vercel, Washington D.C.)."

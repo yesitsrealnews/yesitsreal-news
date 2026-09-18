@@ -7,7 +7,7 @@ import { StoryCover } from "@/components/stories/cover";
 import { Newsletter } from "@/components/site/newsletter";
 import { t } from "@/lib/i18n";
 import { useAppStore } from "@/lib/store";
-import { SITE_URL } from "@/lib/brand";
+import { SITE_NAME, SITE_URL } from "@/lib/brand";
 import { mergeExtras, overlayDesk, composePublicHome } from "@/lib/public-feed";
 import { loadTodayFeed } from "@/lib/public-feed-rpc";
 import { useLiveHome } from "@/lib/use-live-home";
@@ -19,12 +19,12 @@ export const Route = createFileRoute("/today")({
   component: TodayPage,
   head: () => ({
     meta: [
-      { title: "Le briefing du jour — YES IT'S REAL" },
+      { title: `Le briefing du jour — ${SITE_NAME}` },
       {
         name: "description",
         content: "Le briefing du jour ouvré. Faits vrais, sourcés, déjà parus. Une pierre à la fois.",
       },
-      { property: "og:title", content: "Le briefing du jour — YES IT'S REAL" },
+      { property: "og:title", content: `Le briefing du jour — ${SITE_NAME}` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/today` }],
   }),

@@ -1,4 +1,4 @@
-export const SITE_NAME = "YES IT'S REAL";
+export const SITE_NAME = "YES IT'S REAL NEWS";
 export const SITE_DOMAIN = "yesitsreal.news";
 export const SITE_URL = `https://www.${SITE_DOMAIN}`;
 

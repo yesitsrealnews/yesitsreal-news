@@ -8,7 +8,7 @@ import { useAppStore } from "@/lib/store";
 import { t } from "@/lib/i18n";
 import { DICT } from "@/lib/i18n/dict";
 import { SECTION_KEY } from "@/lib/i18n/keys";
-import { SITE_URL } from "@/lib/brand";
+import { SITE_NAME, SITE_URL } from "@/lib/brand";
 
 export const Route = createFileRoute("/$section")({
   beforeLoad: ({ params }) => {
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/$section")({
     if (!isSectionId(params.section)) return {};
     const key = SECTION_KEY[params.section] ?? "secWorld";
     const label = DICT.fr[key] ?? params.section;
-    const title = `${label} — YES IT'S REAL`;
+    const title = `${label} — ${SITE_NAME}`;
     const url = `${SITE_URL}/${params.section}`;
     return {
       title,
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/$section")({
         { title },
         {
           name: "description",
-          content: `Rubrique ${label} — faits vrais, sourcés, déjà parus. Ça s’est vraiment passé. YES IT'S REAL.`,
+          content: `Rubrique ${label} — faits vrais, sourcés, déjà parus. Ça s’est vraiment passé. ${SITE_NAME}.`,
         },
         { property: "og:title", content: title },
         { property: "og:url", content: url },
@@ -66,7 +66,7 @@ function SectionRoute() {
   const title = t(lang, SECTION_KEY[section] ?? "secWorld");
   return (
     <SiteShell>
-      <title>{`${title} — YES IT'S REAL`}</title>
+      <title>{`${title} — ${SITE_NAME}`}</title>
       <SectionArchive section={section} lang={lang} stories={loaded?.stories ?? []} extras={extras} desk={loaded?.desk} />
     </SiteShell>
   );

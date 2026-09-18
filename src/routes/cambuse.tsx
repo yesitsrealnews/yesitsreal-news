@@ -29,7 +29,7 @@ function Cambuse() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-paper px-4 text-ink">
       <p className="stamp">La cambuse</p>
-      <h1 className="mt-6 font-serif text-5xl">YES IT'S REAL</h1>
+      <h1 className="mt-6 font-serif text-5xl">YES IT'S REAL NEWS</h1>
       <p className="mt-2 max-w-sm text-center text-sm text-ink-muted">
         {fr ? "Réservé à la desk." : "Desk only."}
       </p>

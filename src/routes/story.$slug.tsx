@@ -30,7 +30,7 @@ export const Route = createFileRoute("/story/$slug")({
       title: `${c.headline} — ${SITE_NAME}`,
       meta: [
         { title: `${c.headline} — ${SITE_NAME}` },
-        { name: "description", content: `${c.dek} YES IT'S REAL — ça s’est vraiment passé.` },
+        { name: "description", content: `${c.dek} ${SITE_NAME} — ça s’est vraiment passé.` },
         { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
         { name: "googlebot-news", content: "index, follow" },
         { name: "news_keywords", content: `${story.countryName}, ${story.section}, faits divers, ça s'est vraiment passé` },
@@ -95,7 +95,7 @@ function StoryPage() {
   const copy = storyCopy(story, lang);
   return (
     <SiteShell>
-      <title>{`${copy.headline} — YES IT'S REAL`}</title>
+      <title>{`${copy.headline} — ${SITE_NAME}`}</title>
       <JsonLd data={articleJsonLd(story, slug)} />
       <JsonLd data={breadcrumbJsonLd(story)} />
       <ArticleBody story={story} lang={lang} related={related} />

@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-label="YES IT'S REAL">
-  <title>YES IT'S REAL — not satire</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-label="YES IT'S REAL NEWS">
+  <title>YES IT'S REAL NEWS</title>
   <rect width="1200" height="330" fill="#E10600"/>
   <text
     x="600"
@@ -14,12 +14,12 @@
   <rect y="330" width="1200" height="90" fill="#141414"/>
   <text
     x="600"
-    y="388"
+    y="392"
     text-anchor="middle"
     fill="#FFE400"
     font-family="Inter, Arial, sans-serif"
-    font-size="28"
+    font-size="36"
     font-weight="800"
-    letter-spacing="14"
-  >VERIFIED · NOT SATIRE</text>
+    letter-spacing="18"
+  >NEWS</text>
 </svg>
