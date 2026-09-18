@@ -16,6 +16,7 @@ function InboxPage() {
   const inbox = useMergedInbox();
   const upsertInbox = useAppStore((s) => s.upsertInbox);
   const ingestRss = useAppStore((s) => s.ingestRss);
+  const rememberKilled = useAppStore((s) => s.rememberKilled);
   const publishQueueItem = useAppStore((s) => s.publishQueueItem);
   const deleteInboxItem = useAppStore((s) => s.deleteInboxItem);
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ function InboxPage() {
     void (async () => {
       const stored = await fetchStoredRss();
       if (cancelled || !stored) return;
+      if (stored.killed.length) rememberKilled(stored.killed);
       ingestRss(stored.items);
       if (stored.at) {
         const when = formatDateTime(stored.at, "fr");
@@ -38,7 +40,7 @@ function InboxPage() {
     return () => {
       cancelled = true;
     };
-  }, [ingestRss]);
+  }, [ingestRss, rememberKilled]);
 
   function createPapier() {
     const item = makeQueueItem({
@@ -56,12 +58,20 @@ function InboxPage() {
     setPullNote("");
     try {
       const res = await fetch("/api/rss-pull", { method: "POST", credentials: "include" });
-      const data = (await res.json()) as { ok?: boolean; count?: number; items?: QueueItem[]; failed?: string[]; scanned?: number };
+      const data = (await res.json()) as {
+        ok?: boolean;
+        count?: number;
+        items?: QueueItem[];
+        failed?: string[];
+        scanned?: number;
+        killed?: string[];
+      };
       if (!res.ok || !data.ok) {
         setPullNote("Les flux n’ont pas répondu. Réessaie dans une minute.");
         return;
       }
       ingestRss(data.items ?? []);
+      if (data.killed?.length) rememberKilled(data.killed);
       const fail = data.failed?.length ? ` · silencieux : ${data.failed.slice(0, 4).join(", ")}` : "";
       setPullNote(`${data.count ?? 0} pistes sur ${data.scanned ?? "?"} flux${fail}`);
     } catch {
@@ -79,7 +89,7 @@ function InboxPage() {
         method: "DELETE",
         credentials: "include",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ id: item.id }),
+        body: JSON.stringify({ id: item.id, url: item.sourceUrl }),
       });
       const data = (await res.json()) as { ok?: boolean };
       if (!res.ok || !data.ok) {
@@ -96,7 +106,10 @@ function InboxPage() {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="font-serif text-3xl">File d’attente</h1>
-          <p className="mt-2 text-sm text-ink-muted">À relire avant publication. Titres en français. Pre Pubs ici. Publier = en ligne. Réécrire = consignes → même Pre Pub. Supprimer = destruction définitive (pas d’archive).</p>
+          <p className="mt-2 text-sm text-ink-muted">
+            À relire avant publication. Hors ligne éditoriale : ça n’entre pas. Supprimer est définitif — la piste ne
+            revient pas au prochain tirage.
+          </p>
           {pullNote ? <p className="mt-2 text-sm text-signal">{pullNote}</p> : null}
           {publishNote ? <p className="mt-2 text-sm font-semibold text-true">{publishNote}</p> : null}
         </div>

@@ -18,22 +18,12 @@ export function useMergedInbox(): QueueItem[] {
       .filter(([, v]) => v === "deleted")
       .map(([id]) => id),
   );
-  const gone = new Set([
-    ...purgedIds.filter((id) => !id.startsWith("q-rss-")),
-    ...publishedExtraIds,
-    ...live,
-    ...killed,
-  ]);
-  const alive = inbox.filter((i) => !gone.has(i.id) && !gone.has(i.story?.id));
+  const gone = new Set([...purgedIds, ...publishedExtraIds, ...live, ...killed]);
+  const alive = inbox.filter((i) => !gone.has(i.id) && !gone.has(i.story?.id) && !gone.has(i.sourceUrl));
   const ids = new Set(alive.map((i) => i.id));
-  // Revue de presse (SEED_INBOX): stay in File d'attente until Publier or a desk
-  // "deleted" override. purgedIds used to bury the whole morning review after
-  // one Supprimer, which left La Cambuse empty.
   const seeds = SEED_INBOX.filter((i) => {
     const sid = i.story?.id ?? i.id;
-    if (live.has(i.id) || live.has(sid)) return false;
-    if (publishedExtraIds.includes(i.id) || publishedExtraIds.includes(sid)) return false;
-    if (killed.has(i.id) || killed.has(sid)) return false;
+    if (gone.has(i.id) || gone.has(sid) || gone.has(i.sourceUrl)) return false;
     if (ids.has(i.id)) return false;
     return true;
   });

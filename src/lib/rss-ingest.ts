@@ -4,6 +4,7 @@ import { isSafeHttpUrl } from "@/lib/security";
 import { RSS_FEEDS, feedKind, feedPriority, type RssFeed } from "@/lib/rss-feeds";
 import { parseFeed, type ParsedRssItem } from "@/lib/rss-parse";
 import { scoreHit } from "@/lib/rss-keep";
+import { rssHitId } from "@/lib/rss-killed";
 
 const UA =
   "Mozilla/5.0 (compatible; YESITSREAL-desk/1.0; +https://www.yesitsreal.news/) AppleWebKit/537.36 Chrome/128.0.0.0 Safari/537.36";
@@ -25,10 +26,10 @@ export type RssHit = {
   image?: string;
 };
 
+export { rssHitId } from "@/lib/rss-killed";
+
 function hashId(url: string): string {
-  let h = 2166136261;
-  for (let i = 0; i < url.length; i++) h = Math.imul(h ^ url.charCodeAt(i), 16777619);
-  return `q-rss-${(h >>> 0).toString(36)}`;
+  return rssHitId(url);
 }
 
 export function shouldKeep(title: string, summary: string, feed: RssFeed): boolean {

@@ -3,6 +3,7 @@ import { deskTokenOk, readDeskCookie } from "@/lib/desk-auth.server";
 import { clientKey, limitedJson, rateLimit } from "@/lib/security";
 import { RSS_FEEDS, feedKind, feedPriority } from "@/lib/rss-feeds";
 import { hitToQueueItem, pullRssFeeds } from "@/lib/rss-ingest";
+import { filterRssHits } from "@/lib/rss-killed";
 import { getStoredRssHits, saveRssHits } from "@/lib/rss-store";
 
 function noIndex(body: unknown, status: number): Response {
@@ -14,9 +15,11 @@ function noIndex(body: unknown, status: number): Response {
 }
 
 async function runPull(quick: boolean) {
+  const stored = await getStoredRssHits(true).catch(() => ({ at: "", hits: [], killed: [] as string[] }));
   const { hits, scanned, failed } = await pullRssFeeds({ quick });
+  const live = filterRssHits(hits, stored.killed);
   try {
-    await saveRssHits(hits);
+    await saveRssHits(live);
   } catch {
     /* persist is best-effort — the desk still gets the live hits */
   }
@@ -24,8 +27,9 @@ async function runPull(quick: boolean) {
     ok: true,
     scanned,
     failed,
-    count: hits.length,
-    items: hits.map((h) => hitToQueueItem(h)),
+    count: live.length,
+    killed: stored.killed,
+    items: live.map((h) => hitToQueueItem(h)),
   };
 }
 
@@ -62,6 +66,7 @@ export const Route = createFileRoute("/api/rss-pull")({
               stored: true,
               at: stored.at,
               count: stored.hits.length,
+              killed: stored.killed,
               items: stored.hits.map((h) => hitToQueueItem(h)),
             },
             200,

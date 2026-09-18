@@ -205,7 +205,7 @@ function StoryEditor() {
                       method: "DELETE",
                       credentials: "include",
                       headers: { "content-type": "application/json" },
-                      body: JSON.stringify({ id: current.id }),
+                      body: JSON.stringify({ id: current.id, url: current.sourceUrl }),
                     });
                   } catch {
                     /* local purge still */

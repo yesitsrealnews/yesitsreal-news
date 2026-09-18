@@ -1,5 +1,6 @@
 import { commentsToken } from "@/lib/comments-github";
 import type { RssHit } from "@/lib/rss-ingest";
+import { expandKillKeys, filterRssHits, mergeKilled } from "@/lib/rss-killed";
 
 const OWNER = "yesitsrealnews";
 const REPO = "yesitsreal-news";
@@ -9,10 +10,11 @@ const LABEL_COLOR = "1D4E89";
 const API = "https://api.github.com";
 const MAX_HITS = 60;
 
-type IssuePayload = { v: 1; at: string; hits: RssHit[] };
+type IssuePayload = { v: 1 | 2; at: string; hits: RssHit[]; killed?: string[] };
 type GhIssue = { number: number; title: string; body?: string | null };
+type ParsedRss = { at: string; hits: RssHit[]; killed: string[] };
 
-let mem: { issueNumber: number | null; hits: RssHit[]; at: string; fetchedAt: number } | null = null;
+let mem: { issueNumber: number | null; hits: RssHit[]; killed: string[]; at: string; fetchedAt: number } | null = null;
 const CACHE_MS = 30_000;
 
 function ghHeaders(token: string): HeadersInit {
@@ -42,20 +44,26 @@ async function gh<T>(
   return { ok: res.ok, status: res.status, data };
 }
 
-function parseBody(body?: string | null): { at: string; hits: RssHit[] } {
-  if (!body) return { at: "", hits: [] };
+function parseBody(body?: string | null): ParsedRss {
+  if (!body) return { at: "", hits: [], killed: [] };
   try {
     const json = JSON.parse(body) as IssuePayload;
-    if (json?.v !== 1 || !Array.isArray(json.hits)) return { at: "", hits: [] };
-    const hits = json.hits.filter((h) => h && typeof h.url === "string" && typeof h.title === "string").slice(0, MAX_HITS);
-    return { at: typeof json.at === "string" ? json.at : "", hits };
+    if ((json?.v !== 1 && json?.v !== 2) || !Array.isArray(json.hits)) return { at: "", hits: [], killed: [] };
+    const killed = Array.isArray(json.killed)
+      ? json.killed.filter((x): x is string => typeof x === "string" && x.length > 3).slice(0, 500)
+      : [];
+    const hits = filterRssHits(
+      json.hits.filter((h) => h && typeof h.url === "string" && typeof h.title === "string"),
+      killed,
+    ).slice(0, MAX_HITS);
+    return { at: typeof json.at === "string" ? json.at : "", hits, killed };
   } catch {
-    return { at: "", hits: [] };
+    return { at: "", hits: [], killed: [] };
   }
 }
 
-function formatBody(at: string, hits: RssHit[]): string {
-  const payload: IssuePayload = { v: 1, at, hits: hits.slice(0, MAX_HITS) };
+function formatBody(at: string, hits: RssHit[], killed: string[]): string {
+  const payload: IssuePayload = { v: 2, at, hits: hits.slice(0, MAX_HITS), killed: killed.slice(0, 500) };
   return JSON.stringify(payload, null, 2);
 }
 
@@ -105,56 +113,70 @@ async function findOrCreateIssue(token: string): Promise<GhIssue | null> {
     body: JSON.stringify({
       title: ISSUE_TITLE,
       labels: [LABEL],
-      body: formatBody("", []),
+      body: formatBody("", [], []),
     }),
   });
   if (!created.ok || !created.data?.number) return null;
   return created.data;
 }
 
-export async function getStoredRssHits(force = false): Promise<{ at: string; hits: RssHit[] }> {
+function remember(issueNumber: number | null, parsed: ParsedRss): ParsedRss {
+  mem = { issueNumber, hits: parsed.hits, killed: parsed.killed, at: parsed.at, fetchedAt: Date.now() };
+  return { at: parsed.at, hits: [...parsed.hits], killed: [...parsed.killed] };
+}
+
+export async function getStoredRssHits(force = false): Promise<ParsedRss> {
   if (!force && mem && Date.now() - mem.fetchedAt < CACHE_MS) {
-    return { at: mem.at, hits: [...mem.hits] };
+    return { at: mem.at, hits: [...mem.hits], killed: [...mem.killed] };
   }
   const token = commentsToken();
   if (!token) {
-    mem = { issueNumber: null, hits: [], at: "", fetchedAt: Date.now() };
-    return { at: "", hits: [] };
+    mem = { issueNumber: null, hits: [], killed: [], at: "", fetchedAt: Date.now() };
+    return { at: "", hits: [], killed: [] };
   }
   try {
     const issue = await findIssue(token);
     if (!issue) {
-      mem = { issueNumber: null, hits: [], at: "", fetchedAt: Date.now() };
-      return { at: "", hits: [] };
+      mem = { issueNumber: null, hits: [], killed: [], at: "", fetchedAt: Date.now() };
+      return { at: "", hits: [], killed: [] };
     }
-    const parsed = parseBody(issue.body);
-    mem = { issueNumber: issue.number, hits: parsed.hits, at: parsed.at, fetchedAt: Date.now() };
-    return { at: parsed.at, hits: [...parsed.hits] };
+    return remember(issue.number, parseBody(issue.body));
   } catch {
-    return mem ? { at: mem.at, hits: [...mem.hits] } : { at: "", hits: [] };
+    return mem ? { at: mem.at, hits: [...mem.hits], killed: [...mem.killed] } : { at: "", hits: [], killed: [] };
   }
 }
 
-export async function saveRssHits(hits: RssHit[]): Promise<{ at: string; hits: RssHit[] } | null> {
+export async function saveRssHits(hits: RssHit[]): Promise<ParsedRss | null> {
   const token = commentsToken();
   if (!token) return null;
   const issue = await findOrCreateIssue(token);
   if (!issue) return null;
   const prev = parseBody(issue.body);
-  const seen = new Set<string>();
-  const merged: RssHit[] = [];
-  for (const h of [...hits, ...prev.hits]) {
-    if (!h?.url || seen.has(h.url)) continue;
-    seen.add(h.url);
-    merged.push(h);
-    if (merged.length >= MAX_HITS) break;
-  }
+  const live = filterRssHits([...hits, ...prev.hits], prev.killed).slice(0, MAX_HITS);
   const at = new Date().toISOString();
   const patched = await gh<GhIssue>(token, `/repos/${OWNER}/${REPO}/issues/${issue.number}`, {
     method: "PATCH",
-    body: JSON.stringify({ body: formatBody(at, merged) }),
+    body: JSON.stringify({ body: formatBody(at, live, prev.killed) }),
   });
   if (!patched.ok) return null;
-  mem = { issueNumber: issue.number, hits: merged, at, fetchedAt: Date.now() };
-  return { at, hits: [...merged] };
+  return remember(issue.number, { at, hits: live, killed: prev.killed });
+}
+
+export async function killRssHits(keys: string[]): Promise<ParsedRss | null> {
+  const token = commentsToken();
+  if (!token) return null;
+  const clean = keys.map((k) => k.trim()).filter(Boolean);
+  if (!clean.length) return null;
+  const issue = await findOrCreateIssue(token);
+  if (!issue) return null;
+  const prev = parseBody(issue.body);
+  const killed = mergeKilled(prev.killed, expandKillKeys(clean, prev.hits));
+  const live = filterRssHits(prev.hits, killed);
+  const at = new Date().toISOString();
+  const patched = await gh<GhIssue>(token, `/repos/${OWNER}/${REPO}/issues/${issue.number}`, {
+    method: "PATCH",
+    body: JSON.stringify({ body: formatBody(at, live, killed) }),
+  });
+  if (!patched.ok) return null;
+  return remember(issue.number, { at, hits: live, killed });
 }

@@ -41,6 +41,14 @@ describe("shouldKeepHit", () => {
     );
   });
 
+  it("drops ordinary news on an insolite feed", () => {
+    assert.equal(
+      shouldKeepHit("La médiathèque ouvre ses portes samedi", "inauguration, horaires", "FR — insolite", "insolite"),
+      false,
+    );
+    assert.equal(shouldKeepHit("Le lycée inaugure sa nouvelle cantine", "élèves, menu", "", "insolite"), false);
+  });
+
   it("still drops death on an insolite feed", () => {
     assert.equal(shouldKeepHit("Un homme meurt après une chute", "pompiers", "FR — insolite", "insolite"), false);
   });

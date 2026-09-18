@@ -21,7 +21,7 @@ export const RSS_SKIP =
 
 /** Label-level insolite — enough on a dedicated insolite/odd feed. */
 const SOFT =
-  /insolite|absurde|ridicule|cocasse|ubuesque|bizarre|etrange|oddly|\bweird\b|\bfail\b|blunder|mishap|quiproquo|maladresse|improbable|cocasse|burlesque|ubuesque|nain de jardin|garden gnome|voiturette|s.introduit|s.invite|debarque|intrusion|fait divers|faits divers/;
+  /insolite|absurde|ridicule|cocasse|ubuesque|bizarre|etrange|oddly|\bweird\b|\bfail\b|blunder|mishap|quiproquo|maladresse|improbable|cocasse|burlesque|ubuesque|nains? de jardin|garden gnome|voiturette|s.introduit|s.invite|debarque|intrusion|fait divers|faits divers/;
 
 type Beat = { name: string; re: RegExp; weight: number };
 
@@ -112,9 +112,11 @@ export function scoreHit(title: string, summary: string, region = "", kind: RssK
   const scienceDesk = /science/i.test(region);
 
   if (insoliteDesk) {
-    const soft = SOFT.test(blob) ? 1 : 0;
-    const next = Math.max(score, 2) + soft;
-    return { keep: true, score: next, beat: beat || "insolite-feed" };
+    const soft = SOFT.test(blob);
+    if (score > 0 || soft) {
+      return { keep: true, score: Math.max(score, 2) + (soft ? 1 : 0), beat: beat || "insolite-feed" };
+    }
+    return { keep: false, score: 0, beat: "" };
   }
 
   if (score >= 3) return { keep: true, score, beat };
@@ -127,8 +129,7 @@ export function scoreHit(title: string, summary: string, region = "", kind: RssK
     return { keep: true, score: Math.max(score, 3), beat: beat || "science" };
   }
 
-  if (score > 0) return { keep: true, score, beat };
-  return { keep: false, score: 0, beat: "" };
+  return { keep: false, score, beat: beat || "" };
 }
 
 export function shouldKeepHit(title: string, summary: string, region = "", kind: RssKind | string = "general"): boolean {
