@@ -118,6 +118,8 @@ describe("RSS_FEEDS", () => {
     assert.equal(feedKind(RSS_FEEDS.find((f) => f.name === "Metro UK weird")!), "insolite");
     assert.equal(feedKind(RSS_FEEDS.find((f) => f.name === "BFMTV police-justice")!), "faits-divers");
     assert.equal(feedPriority(RSS_FEEDS.find((f) => f.name === "UPI Odd News")!), 1);
+    assert.ok(RSS_FEEDS.filter((f) => f.via === "x").length >= 4);
+    assert.ok(morning.some((f) => f.via === "x"));
   });
 
   it("does not list duplicate urls", () => {

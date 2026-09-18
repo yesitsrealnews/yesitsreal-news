@@ -53,11 +53,16 @@ function InboxPage() {
     void navigate({ to: "/admin/story/$id", params: { id: item.id } });
   }
 
-  async function pullRss() {
+  async function pullRss(xOnly = false) {
     setPulling(true);
     setPullNote("");
     try {
-      const res = await fetch("/api/rss-pull", { method: "POST", credentials: "include" });
+      const res = await fetch("/api/rss-pull", {
+        method: "POST",
+        credentials: "include",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(xOnly ? { x: true } : {}),
+      });
       const data = (await res.json()) as {
         ok?: boolean;
         count?: number;
@@ -108,14 +113,17 @@ function InboxPage() {
           <h1 className="font-serif text-3xl">File d’attente</h1>
           <p className="mt-2 text-sm text-ink-muted">
             À relire avant publication. Hors ligne éditoriale : ça n’entre pas. Supprimer est définitif — la piste ne
-            revient pas au prochain tirage.
+            revient pas au prochain tirage. Tirer X lit les rédactions et desks suivis sur X (pas de publication auto).
           </p>
           {pullNote ? <p className="mt-2 text-sm text-signal">{pullNote}</p> : null}
           {publishNote ? <p className="mt-2 text-sm font-semibold text-true">{publishNote}</p> : null}
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button type="button" variant="outline" onClick={() => void pullRss()} disabled={pulling}>
+          <Button type="button" variant="outline" onClick={() => void pullRss(false)} disabled={pulling}>
             {pulling ? "Lecture des flux…" : "Tirer les flux RSS"}
+          </Button>
+          <Button type="button" variant="outline" onClick={() => void pullRss(true)} disabled={pulling}>
+            Tirer X
           </Button>
           <Button type="button" variant="outline" asChild>
             <Link to="/admin/assign">Commander un papier</Link>
@@ -147,6 +155,7 @@ function InboxPage() {
                 <p className="kicker text-signal">
                   {item.story.section} · {item.story.status}
                   {item.submittedBy.startsWith("RSS") ? " · RSS" : ""}
+                  {item.submittedBy.includes("X ·") || item.submittedBy.startsWith("X ·") ? " · X" : ""}
                   {item.submittedBy.startsWith("Commande") ? " · Commande" : ""}
                   {isPre ? " · Pre Pub" : ""}
                 </p>

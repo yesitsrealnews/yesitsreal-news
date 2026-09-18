@@ -1,6 +1,7 @@
 /** Verified public RSS/Atom endpoints (probed 2026-09-11, expanded 2026-09-17). */
 
 import type { RssKind } from "@/lib/rss-keep";
+import { xJournalistFeeds } from "@/lib/x-journalists";
 
 export type RssFeed = {
   name: string;
@@ -11,6 +12,8 @@ export type RssFeed = {
   kind?: RssKind;
   /** 1 = cron / file du matin. 2 = tirage desk complet. */
   priority?: 1 | 2;
+  /** Journalist / newsroom X watch. */
+  via?: "x";
 };
 
 function gnews(
@@ -310,6 +313,7 @@ export const RSS_FEEDS: RssFeed[] = [
   gnews("GNews ES IT", "(jabalí OR cinghiale OR gallo OR vecino OR serpiente) (insólito OR strano OR extraño) when:7d", "ES", "es", "ES:es", "ES", "ES/IT — odd"),
   gnews("GNews UK", "(badger OR fox OR seagull OR python OR gnome) (council OR police) (odd OR bizarre) when:7d", "GB", "en-GB", "GB:en", "GB", "UK — odd search"),
   gnews("GNews AU NZ", "(snake OR possum OR kangaroo OR magpie OR council) (bizarre OR unusual) when:7d", "AU", "en-AU", "AU:en", "AU", "AU/NZ — odd"),
+  ...xJournalistFeeds(),
 ];
 
 function inferKind(f: RssFeed): RssKind {

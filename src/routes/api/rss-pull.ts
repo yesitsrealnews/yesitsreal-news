@@ -14,9 +14,9 @@ function noIndex(body: unknown, status: number): Response {
   return new Response(res.body, { status: res.status, headers });
 }
 
-async function runPull(quick: boolean) {
+async function runPull(quick: boolean, xOnly = false) {
   const stored = await getStoredRssHits(true).catch(() => ({ at: "", hits: [], killed: [] as string[] }));
-  const { hits, scanned, failed } = await pullRssFeeds({ quick });
+  const { hits, scanned, failed } = await pullRssFeeds({ quick, xOnly });
   const live = filterRssHits(hits, stored.killed);
   try {
     await saveRssHits(live);
@@ -38,8 +38,8 @@ export const Route = createFileRoute("/api/rss-pull")({
     handlers: {
       GET: async ({ request }) => {
         const url = new URL(request.url);
-        const catalog = url.searchParams.get("catalog") === "1";
-        if (catalog) {
+        if (url.searchParams.get("catalog") === "1") {
+          const { xWatches } = await import("@/lib/x-journalists");
           return noIndex(
             {
               ok: true,
@@ -50,6 +50,15 @@ export const Route = createFileRoute("/api/rss-pull")({
                 region: f.region,
                 kind: feedKind(f),
                 priority: feedPriority(f),
+                via: f.via ?? null,
+              })),
+              journalists: xWatches().map((w) => ({
+                handle: w.handle,
+                href: `https://x.com/${w.handle}`,
+                name: w.name,
+                countryCode: w.countryCode,
+                kind: w.kind,
+                priority: w.priority,
               })),
             },
             200,
@@ -75,7 +84,9 @@ export const Route = createFileRoute("/api/rss-pull")({
         if (!rateLimit(`rss-pull:${clientKey(request)}`, 4, 60_000)) {
           return noIndex({ ok: false, reason: "rate-limited" }, 429);
         }
-        return noIndex(await runPull(Boolean(cron) || url.searchParams.get("quick") === "1"), 200);
+        const { xCronMode } = await import("@/lib/x-journalists");
+        const cronMode = cron ? xCronMode() : { quick: url.searchParams.get("quick") === "1", xOnly: url.searchParams.get("x") === "1" };
+        return noIndex(await runPull(cronMode.quick, cronMode.xOnly), 200);
       },
       POST: async ({ request }) => {
         const desk = await deskTokenOk(readDeskCookie(request));
@@ -83,7 +94,8 @@ export const Route = createFileRoute("/api/rss-pull")({
         if (!rateLimit(`rss-pull:${clientKey(request)}`, 4, 60_000)) {
           return noIndex({ ok: false, reason: "rate-limited" }, 429);
         }
-        return noIndex(await runPull(false), 200);
+        const body = (await request.json().catch(() => ({}))) as { x?: boolean; quick?: boolean };
+        return noIndex(await runPull(Boolean(body.quick), Boolean(body.x)), 200);
       },
     },
   },

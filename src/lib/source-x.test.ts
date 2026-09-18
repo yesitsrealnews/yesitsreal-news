@@ -26,6 +26,8 @@ describe("newsroom X", () => {
     assert.equal(newsroomXForUrl("https://www.tdg.ch/python")?.handle, "@tdgch");
     assert.equal(newsroomXForUrl("https://www.irishtimes.com/world/uk/2026/09/03/guinness/")?.handle, "@IrishTimes");
     assert.equal(newsroomXForUrl("https://www.scientificamerican.com/article/ig-nobel/")?.handle, "@sciam");
+    assert.equal(newsroomXForUrl("https://www.infobae.com/sociedad/insolite/")?.handle, "@infobae");
+    assert.equal(newsroomXForUrl("https://nation.africa/kenya/news/odd")?.handle, "@NationAfrica");
   });
 
   it("maps subdomains to the parent newsroom", () => {

@@ -4,6 +4,14 @@
     {
       "path": "/api/rss-pull",
       "schedule": "40 7 * * *"
+    },
+    {
+      "path": "/api/rss-pull",
+      "schedule": "40 11 * * *"
+    },
+    {
+      "path": "/api/rss-pull",
+      "schedule": "40 16 * * *"
     }
   ],
   "images": {

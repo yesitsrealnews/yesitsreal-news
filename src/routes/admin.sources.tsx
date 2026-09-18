@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { useAppStore } from "@/lib/store";
 import { REGIONAL_PRESS } from "@/lib/data/regional-press";
 import { RSS_FEEDS, feedKind, feedPriority } from "@/lib/rss-feeds";
+import { xWatches } from "@/lib/x-journalists";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -18,6 +19,7 @@ function SourcesPage() {
   const [d, setD] = useState("");
   const [srcQ, setSrcQ] = useState("");
   const [rssQ, setRssQ] = useState("");
+  const [xQ, setXQ] = useState("");
 
   const filteredPress = srcQ.trim()
     ? REGIONAL_PRESS.filter((s) => {
@@ -51,6 +53,18 @@ function SourcesPage() {
       })
     : rssWithMeta;
 
+  const watches = useMemo(() => xWatches(), []);
+  const filteredX = xQ.trim()
+    ? watches.filter((w) => {
+        const blob = `${w.handle} ${w.name} ${w.countryCode} ${w.kind}`.toLowerCase();
+        return xQ
+          .toLowerCase()
+          .split(/\s+/)
+          .filter(Boolean)
+          .every((t) => blob.includes(t));
+      })
+    : watches;
+  const xPrio = watches.filter((w) => w.priority === 1).length;
   const insoliteN = rssWithMeta.filter((f) => f.kind === "insolite" || f.kind === "animaux").length;
   const faitsN = rssWithMeta.filter((f) => f.kind === "faits-divers").length;
   const morningN = rssWithMeta.filter((f) => f.prio === 1).length;
@@ -66,7 +80,8 @@ function SourcesPage() {
               Base régionale&nbsp;: {REGIONAL_PRESS.length} titres ({withRss} avec RSS) · flux
               branchés&nbsp;: {RSS_FEEDS.length} · file du matin&nbsp;: {morningN} · insolite&nbsp;:{" "}
               {insoliteN} · faits-divers&nbsp;: {faitsN} · allowlist&nbsp;: {allowList.length} ·
-              denylist&nbsp;: {denyList.length}. Les revues suivantes scannent les clusters FR +
+              denylist&nbsp;: {denyList.length} · X&nbsp;: {watches.length} comptes ({xPrio}{" "}
+              prioritaires). Les revues suivantes scannent les clusters FR +
               BE/CH/QC à chaque fois, le reste du monde tourne.
             </p>
           </div>
@@ -106,6 +121,50 @@ function SourcesPage() {
                       </a>
                     </>
                   ) : null}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="rounded-lg border border-rule">
+          <div className="border-b border-rule px-4 py-3">
+            <h2 className="font-serif text-xl">Veille X — rédactions et desks</h2>
+            <p className="text-xs text-muted-foreground">
+              {filteredX.length} / {watches.length} comptes. Pas de handle inventé — rédactions sourcées + desks
+              insolite. Le tirage du matin et les passes midi/soir lisent leurs posts (mots de la ligne) et poussent
+              les articles liés dans la file. Un post sans URL de journal reste dehors. Cambuse : bouton Tirer X.
+            </p>
+            <Input
+              className="mt-2"
+              value={xQ}
+              onChange={(e) => setXQ(e.target.value)}
+              placeholder="Filtrer : OuestFrance, JP, desk…"
+              aria-label="Filtrer la veille X"
+            />
+          </div>
+          <ul className="max-h-72 overflow-y-auto text-sm">
+            {filteredX.map((w) => (
+              <li
+                key={w.handle.toLowerCase()}
+                className="flex flex-wrap justify-between gap-2 border-b border-rule px-4 py-2 last:border-b-0"
+              >
+                <span>
+                  <a
+                    href={`https://x.com/${w.handle}`}
+                    className="font-medium underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @{w.handle}
+                  </a>
+                  <span className="ml-2 text-[0.7rem] uppercase tracking-wide text-ink-muted">
+                    {w.kind}
+                    {w.priority === 1 ? " · matin" : ""}
+                  </span>
+                </span>
+                <span className="text-muted-foreground">
+                  {w.name} · {w.countryCode}
                 </span>
               </li>
             ))}

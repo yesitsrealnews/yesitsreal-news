@@ -49,7 +49,10 @@ describe("revue search base", () => {
     const a = buildRevueSearchPlan(new Date("2026-09-17T09:00:00Z"));
     const b = buildRevueSearchPlan(new Date("2026-09-18T09:00:00Z"));
     assert.ok(a.queries.length >= 16);
-    assert.ok(a.xQueries.length >= 2);
+    assert.ok(a.xQueries.length >= 6);
+    assert.ok(a.xQueries.every((q) => q.includes("from:")));
+    assert.ok(a.xQueries.some((q) => q.includes("from:nypost") || q.includes("from:SoraNews24")));
+    assert.ok(a.xQueries.some((q) => q.includes("from:NationAfrica") || q.includes("from:ChannelNewsAsia")));
     assert.ok(a.clusters.includes("fr-pqr-ouest"));
     assert.ok(a.clusters.includes("be-ch-qc"));
     assert.ok(a.queries.every((q) => q.includes("after:")));

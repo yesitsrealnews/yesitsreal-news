@@ -33,6 +33,8 @@ Supprimer est définitif. La piste est tuée par URL canonique (sans utm, www, a
 
 La chasse du matin n’est plus franco-centrée : Google News par région (Asie, LatAm, Afrique, USA, Europe) + desks odd (SoraNews24, Oddity Central, Mothership, Infobae, Daily Nation…). Quota géographique pour que 10 coqs français n’évincen pas un babouin du Cap.
 
+**X :** on suit les rédactions sourcées (`NEWSROOM_X`) et les desks insolite (NY Post Metro, UPI, SoraNews24, Infobae, Daily Nation, CNA, Rappler…). Tirage RSS du matin (Google News @handles) + deux passes X (midi, soir). Cambuse : bouton Tirer X. Un post sans article de journal ne rentre pas. Pas de handle reporter inventé.
+
 ## Photo, chaque papier
 
 **Aucun article ne sort sans image.** **Photos d’illustration uniquement.**

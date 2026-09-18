@@ -614,6 +614,10 @@ export function buildRevueSearchPlan(when: Date = new Date()): RevueSearchPlan {
   const xQueries = [
     `(${FR_NEWSROOM_X.slice(0, 8).map((h) => `from:${h}`).join(" OR ")}) (insolite OR faits-divers OR animal OR coq OR sanglier)`,
     `(${FR_NEWSROOM_X.slice(8).map((h) => `from:${h}`).join(" OR ")}) (insolite OR arrêté OR voisin OR vol)`,
+    `(from:nypost OR from:nypmetro OR from:UPI OR from:odditycentral OR from:MetroUK) (odd OR bizarre OR raccoon OR python OR emu OR HOA)`,
+    `(from:SoraNews24 OR from:MothershipSG OR from:TokyoReporter OR from:JapanToday OR from:g1 OR from:infobae) (odd OR monkey OR capybara OR bizarre)`,
+    `(from:NationAfrica OR from:News24 OR from:dailymaverick OR from:MobilePunch) (odd OR bizarre OR baboon OR python OR monkey)`,
+    `(from:ChannelNewsAsia OR from:SCMPNews OR from:rapplerdotcom OR from:inquirerdotnet OR from:Metropoles) (odd OR monkey OR python OR insólito)`,
   ];
 
   return {

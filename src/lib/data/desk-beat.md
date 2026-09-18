@@ -19,6 +19,7 @@ The live lists live in `revue-search.ts`:
 - Plan = France queries + `site:` chunks + 2 X `from:` newsroom queries, last 10 days
 
 Also pull the RSS file du matin (`priorityFeeds()` in `rss-feeds.ts`) — insolite / faits-divers first.
+X: `xWatches()` / `xSearchQueries()` — newsroom handles + odd desks (Infobae, Daily Nation, CNA, Rappler…). Cambuse button **Tirer X**. Cron matin = RSS+X Google News ; midi/soir = X only.
 
 ## France (heavy — every run)
 Ouest-France, Le Télégramme, Sud Ouest, Charente Libre, La Dépêche, Midi Libre, L’Indépendant, Le Progrès, Le Dauphiné, L’Est Républicain, DNA, L’Alsace, Vosges Matin, RL, Le Bien Public, La Voix du Nord, Nord Littoral, Courrier Picard, Paris-Normandie, Nice-Matin, Var-Matin, La Provence, Corse-Matin, Corse Net Infos, La Montagne, Le Populaire, Le Berry, L’Yonne, Journal du Centre, La Nouvelle République, L’Écho Républicain, La République du Centre, La Manche Libre, Tendance Ouest, Le Parisien, 20 Minutes, franceinfo / France 3, ICI-France Bleu, actu.fr, Maire-info, GEIPAN.

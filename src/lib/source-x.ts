@@ -192,6 +192,22 @@ export const NEWSROOM_X: Record<string, string> = {
   "theage.com.au": "theage",
   "jeuneafrique.com": "JeuneAfrique",
   "eltiempo.com": "ELTIEMPO",
+  // Odd / world desks — X watch 2026-09-18
+  "infobae.com": "infobae",
+  "nation.africa": "NationAfrica",
+  "dailymaverick.co.za": "dailymaverick",
+  "news24.com": "News24",
+  "scmp.com": "SCMPNews",
+  "rappler.com": "rapplerdotcom",
+  "channelnewsasia.com": "ChannelNewsAsia",
+  "inquirer.net": "inquirerdotnet",
+  "odditycentral.com": "odditycentral",
+  "soranews24.com": "SoraNews24",
+  "japantoday.com": "JapanToday",
+  "tokyoreporter.com": "TokyoReporter",
+  "mothership.sg": "MothershipSG",
+  "metropoles.com": "Metropoles",
+  "punchng.com": "MobilePunch",
 };
 
 const HANDLE_RE = /^[A-Za-z0-9_]{1,15}$/;

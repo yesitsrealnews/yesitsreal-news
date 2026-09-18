@@ -156,8 +156,12 @@ async function mapPool<T, R>(items: T[], n: number, fn: (item: T) => Promise<R>)
   return out;
 }
 
-export async function pullRssFeeds(opts?: { quick?: boolean }): Promise<{ hits: RssHit[]; scanned: number; failed: string[] }> {
-  const feeds = opts?.quick ? RSS_FEEDS.filter((f) => feedPriority(f) === 1) : RSS_FEEDS;
+export async function pullRssFeeds(opts?: { quick?: boolean; xOnly?: boolean }): Promise<{ hits: RssHit[]; scanned: number; failed: string[] }> {
+  const feeds = opts?.xOnly
+    ? RSS_FEEDS.filter((f) => f.via === "x")
+    : opts?.quick
+      ? RSS_FEEDS.filter((f) => feedPriority(f) === 1)
+      : RSS_FEEDS;
   const failed: string[] = [];
   const hits: RssHit[] = [];
   const seen = new Set<string>();
@@ -201,6 +205,22 @@ export async function pullRssFeeds(opts?: { quick?: boolean }): Promise<{ hits: 
     }
   });
 
+  hits.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || +new Date(b.published) - +new Date(a.published));
+  if (!opts?.quick || opts?.xOnly) {
+    try {
+      const { pullXTimelines } = await import("@/lib/x-journalists");
+      const extra = await pullXTimelines(opts?.xOnly ? 28 : 16);
+      for (const hit of extra) {
+        const fp = titleKillKey(hit.title);
+        if (seen.has(hit.url) || (fp && seen.has(fp))) continue;
+        seen.add(hit.url);
+        if (fp) seen.add(fp);
+        hits.push(hit);
+      }
+    } catch {
+      /* X syndication is best-effort */
+    }
+  }
   hits.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || +new Date(b.published) - +new Date(a.published));
   return { hits: diversifyHits(hits, MAX_HITS), scanned: feeds.length, failed };
 }
