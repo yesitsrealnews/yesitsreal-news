@@ -53,6 +53,7 @@ import { Route as AdminSourcesRouteImport } from './routes/admin.sources'
 import { Route as AdminTranslationsRouteImport } from './routes/admin.translations'
 import { Route as ApiCommentsRouteImport } from './routes/api/comments'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
+import { Route as ApiDeployNotifyRouteImport } from './routes/api/deploy-notify'
 import { Route as ApiDeskRouteImport } from './routes/api/desk'
 import { Route as ApiDeskAssignRouteImport } from './routes/api/desk-assign'
 import { Route as ApiDeskFrontPageRouteImport } from './routes/api/desk-front-page'
@@ -288,6 +289,11 @@ const ApiContactRoute = ApiContactRouteImport.update({
   path: '/api/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiDeployNotifyRoute = ApiDeployNotifyRouteImport.update({
+  id: '/api/deploy-notify',
+  path: '/api/deploy-notify',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiDeskRoute = ApiDeskRouteImport.update({
   id: '/api/desk',
   path: '/api/desk',
@@ -403,6 +409,7 @@ export interface FileRoutesByFullPath {
   '/admin/translations': typeof AdminTranslationsRoute
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/deploy-notify': typeof ApiDeployNotifyRoute
   '/api/desk': typeof ApiDeskRoute
   '/api/desk-assign': typeof ApiDeskAssignRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
@@ -462,6 +469,7 @@ export interface FileRoutesByTo {
   '/admin/translations': typeof AdminTranslationsRoute
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/deploy-notify': typeof ApiDeployNotifyRoute
   '/api/desk': typeof ApiDeskRoute
   '/api/desk-assign': typeof ApiDeskAssignRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
@@ -523,6 +531,7 @@ export interface FileRoutesById {
   '/admin/translations': typeof AdminTranslationsRoute
   '/api/comments': typeof ApiCommentsRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/deploy-notify': typeof ApiDeployNotifyRoute
   '/api/desk': typeof ApiDeskRoute
   '/api/desk-assign': typeof ApiDeskAssignRoute
   '/api/desk-front-page': typeof ApiDeskFrontPageRoute
@@ -585,6 +594,7 @@ export interface FileRouteTypes {
     | '/admin/translations'
     | '/api/comments'
     | '/api/contact'
+    | '/api/deploy-notify'
     | '/api/desk'
     | '/api/desk-assign'
     | '/api/desk-front-page'
@@ -644,6 +654,7 @@ export interface FileRouteTypes {
     | '/admin/translations'
     | '/api/comments'
     | '/api/contact'
+    | '/api/deploy-notify'
     | '/api/desk'
     | '/api/desk-assign'
     | '/api/desk-front-page'
@@ -704,6 +715,7 @@ export interface FileRouteTypes {
     | '/admin/translations'
     | '/api/comments'
     | '/api/contact'
+    | '/api/deploy-notify'
     | '/api/desk'
     | '/api/desk-assign'
     | '/api/desk-front-page'
@@ -756,6 +768,7 @@ export interface RootRouteChildren {
   TodayRoute: typeof TodayRoute
   ApiCommentsRoute: typeof ApiCommentsRoute
   ApiContactRoute: typeof ApiContactRoute
+  ApiDeployNotifyRoute: typeof ApiDeployNotifyRoute
   ApiDeskRoute: typeof ApiDeskRoute
   ApiDeskAssignRoute: typeof ApiDeskAssignRoute
   ApiDeskFrontPageRoute: typeof ApiDeskFrontPageRoute
@@ -1081,6 +1094,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/deploy-notify': {
+      id: '/api/deploy-notify'
+      path: '/api/deploy-notify'
+      fullPath: '/api/deploy-notify'
+      preLoaderRoute: typeof ApiDeployNotifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/desk': {
       id: '/api/desk'
       path: '/api/desk'
@@ -1247,6 +1267,7 @@ const rootRouteChildren: RootRouteChildren = {
   TodayRoute: TodayRoute,
   ApiCommentsRoute: ApiCommentsRoute,
   ApiContactRoute: ApiContactRoute,
+  ApiDeployNotifyRoute: ApiDeployNotifyRoute,
   ApiDeskRoute: ApiDeskRoute,
   ApiDeskAssignRoute: ApiDeskAssignRoute,
   ApiDeskFrontPageRoute: ApiDeskFrontPageRoute,
