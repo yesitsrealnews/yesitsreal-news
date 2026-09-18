@@ -7,6 +7,7 @@ export const STRIPE_PAYMENT_LINKS: Record<string, string> = {
   "desk-light": "",
   "desk-plus": "",
   "desk-patron": "",
+  "pack-desk": "",
   "tee-true": "",
   "print-card": "",
   "tip-3": "",

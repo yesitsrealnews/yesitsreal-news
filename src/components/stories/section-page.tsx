@@ -58,14 +58,14 @@ export function SectionArchive({
       {era ? <div className="double-rule mt-6 py-2" /> : null}
 
       <form
-        className="mt-6 grid gap-4 rounded-2xl border-2 border-ink bg-card p-4 shadow-[4px_4px_0_0_var(--color-ink)] sm:grid-cols-3"
+        className="mt-6 grid gap-4 border border-rule bg-card p-4 sm:grid-cols-3"
         onSubmit={(e) => e.preventDefault()}
       >
         <div>
           <Label htmlFor="country">{t(lang, "country")}</Label>
           <select
             id="country"
-            className="mt-1 h-11 w-full rounded-full border-2 border-ink bg-card px-3 text-sm"
+            className="mt-1 h-11 w-full border border-rule bg-card px-3 text-sm"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
           >

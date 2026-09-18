@@ -18,8 +18,8 @@ export function OriginSources({
   const origin = originSource(story.sources);
 
   return (
-    <section className="rounded-2xl border-2 border-ink bg-card p-4 shadow-[4px_4px_0_0_var(--color-ink)]">
-      <h2 className="kicker text-ink">{t(lang, "originalSources")}</h2>
+    <section className="border border-rule bg-card p-4">
+      <h2 className="kicker text-signal">{t(lang, "originalSources")}</h2>
       {lead && origin ? (
         <Button asChild variant="signal" className="mt-3 h-auto min-h-11 w-full whitespace-normal py-2 sm:w-auto">
           <a href={origin.url} rel="noopener noreferrer">

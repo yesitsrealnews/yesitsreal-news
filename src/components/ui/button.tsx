@@ -4,21 +4,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-sans text-sm font-extrabold uppercase tracking-[0.08em] transition-[transform,box-shadow,opacity] duration-[var(--motion-quick,150ms)] disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-sans text-sm font-extrabold uppercase tracking-[0.12em] transition-[background-color,color,opacity,border-color] duration-[var(--motion-quick,150ms)] disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal",
   {
     variants: {
       variant: {
-        default:
-          "border-2 border-ink bg-ink text-paper shadow-[3px_3px_0_0_var(--color-signal)] hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_0_var(--color-signal)]",
-        signal:
-          "border-2 border-ink bg-signal text-signal-fg shadow-[3px_3px_0_0_var(--color-ink)] hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_0_var(--color-ink)]",
-        pop:
-          "border-2 border-ink bg-scream text-scream-ink shadow-[3px_3px_0_0_var(--color-ink)] hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_0_var(--color-ink)]",
-        outline:
-          "border-2 border-ink bg-card text-ink shadow-[3px_3px_0_0_var(--color-ink)] hover:bg-scream",
-        ghost: "text-ink hover:bg-scream/60 rounded-full",
-        gold:
-          "border-2 border-ink bg-gold text-ink shadow-[3px_3px_0_0_var(--color-ink)] hover:translate-x-px hover:translate-y-px",
+        default: "border border-ink bg-ink text-paper hover:bg-signal hover:border-signal hover:text-signal-fg",
+        signal: "border border-signal bg-signal text-signal-fg hover:bg-ink hover:border-ink hover:text-paper",
+        pop: "border border-scream bg-scream text-scream-ink hover:bg-signal hover:border-signal hover:text-signal-fg",
+        outline: "border border-rule bg-transparent text-ink hover:border-ink",
+        ghost: "text-ink hover:bg-paper-2 rounded-none",
+        gold: "border border-gold bg-gold text-ink hover:bg-scream",
         link: "text-ink underline-offset-4 hover:underline px-0 tracking-normal font-semibold normal-case",
       },
       size: {

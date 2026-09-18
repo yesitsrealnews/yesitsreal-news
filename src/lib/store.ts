@@ -104,6 +104,7 @@ function applyDocument(lang: Lang, theme: Theme) {
   root.lang = lang === "zh-TW" ? "zh-Hant" : lang;
   root.dir = lang === "ar" || lang === "he" || lang === "ur" ? "rtl" : "ltr";
   root.classList.toggle("dark", theme === "dark");
+  root.classList.toggle("light", theme === "light");
 }
 
 let deskHydratePromise: Promise<void> | null = null;
@@ -115,7 +116,7 @@ export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
       lang: "fr",
-      theme: "light",
+      theme: "dark",
       cookies: "unknown",
       admin: false,
       hydrated: false,
@@ -534,10 +535,11 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 12,
+      version: 13,
       migrate: (persisted) => {
         const s = (persisted ?? {}) as {
           lang?: string;
+          theme?: string;
           admin?: boolean;
           deskStatus?: DeskStatusMap;
           frontPageIds?: string[];
@@ -546,6 +548,7 @@ export const useAppStore = create<AppState>()(
           extras?: Story[];
         };
         if (!s.lang || s.lang === "en") s.lang = "fr";
+        s.theme = "dark";
         delete s.admin;
         if (!s.deskStatus || typeof s.deskStatus !== "object") s.deskStatus = {};
         s.frontPageIds = [];

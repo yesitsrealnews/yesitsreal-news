@@ -22,26 +22,26 @@ export function Header({
   onTheme: () => void;
 }) {
   return (
-    <header className="sticky top-0 z-40 border-b-2 border-ink bg-paper/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-rule bg-paper/95 backdrop-blur-sm">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:bg-ink focus:px-3 focus:py-2 focus:text-paper"
       >
         {t(lang, "skipToContent")}
       </a>
-      <div className="hidden items-center justify-end gap-3 border-b-2 border-ink bg-scream px-4 py-1.5 text-scream-ink md:flex md:px-6">
+      <div className="hidden items-center justify-end gap-3 border-b border-rule px-4 py-1.5 md:flex md:px-6">
         <div className="flex items-center gap-4">
           <a
             href={SOCIAL[0].url}
-            className="text-[0.65rem] font-extrabold uppercase tracking-[0.12em] hover:underline"
+            className="text-[0.65rem] font-extrabold uppercase tracking-[0.16em] hover:underline"
             rel="noopener noreferrer"
           >
-            {t(lang, "followUs")} {SOCIAL[0].handle} · {t(lang, "live")}
+            {t(lang, "followUs")} {SOCIAL[0].handle} · <span className="text-signal">{t(lang, "live")}</span>
           </a>
           <a href={`mailto:${EMAILS.desk}`} className="text-[0.65rem] font-bold tracking-[0.04em] hover:underline">
             {EMAILS.desk}
           </a>
-          <a href="/rss.xml" className="text-[0.65rem] font-extrabold uppercase tracking-[0.12em] hover:underline">
+          <a href="/rss.xml" className="text-[0.65rem] font-extrabold uppercase tracking-[0.16em] hover:underline">
             {t(lang, "rss")}
           </a>
         </div>
@@ -112,17 +112,17 @@ export function Header({
           </button>
         </div>
       </div>
-      <div className="hidden border-t-2 border-ink md:block">
+      <div className="hidden border-t border-rule md:block">
         <nav className="mx-auto flex max-w-7xl flex-wrap items-center gap-1 px-4 py-1.5">
           <Link
             to="/"
-            className="shrink-0 rounded-full px-3 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] hover:bg-scream"
+            className="shrink-0 px-3 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.16em] hover:bg-paper-2"
           >
             {t(lang, "home")}
           </Link>
           <Link
             to="/today"
-            className="shrink-0 rounded-full bg-scream px-3 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-scream-ink"
+            className="shrink-0 bg-scream px-3 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.16em] text-scream-ink"
           >
             {t(lang, "today")}
           </Link>
@@ -131,20 +131,20 @@ export function Header({
               key={s.id}
               to="/$section"
               params={{ section: s.id }}
-              className="shrink-0 rounded-full px-3 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-ink-muted hover:bg-paper-2 hover:text-ink"
+              className="shrink-0 px-3 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.16em] text-ink-muted hover:bg-paper-2 hover:text-ink"
             >
               {t(lang, SECTION_KEY[s.id])}
             </Link>
           ))}
           <Link
             to="/shop"
-            className="ms-auto shrink-0 rounded-full px-3 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-ink hover:bg-paper-2"
+            className="ms-auto shrink-0 px-3 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.16em] text-ink hover:bg-paper-2"
           >
             {t(lang, "shop")}
           </Link>
           <Link
             to="/submit"
-            className="shrink-0 rounded-full bg-signal px-3 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-signal-fg"
+            className="shrink-0 bg-signal px-3 py-2 text-[0.72rem] font-extrabold uppercase tracking-[0.16em] text-signal-fg"
           >
             {t(lang, "submit")}
           </Link>

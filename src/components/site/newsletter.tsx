@@ -20,12 +20,12 @@ export function Newsletter({
   const [err, setErr] = useState("");
 
   return (
-    <section className="rounded-3xl border-2 border-ink bg-ink p-6 text-paper shadow-[6px_6px_0_0_var(--color-signal)] md:p-8">
-      <TrueStamp tone="scream">{t(lang, "edition")}</TrueStamp>
-      <h2 className="mt-4 font-serif text-4xl text-paper sm:text-5xl">{t(lang, "newsletterTitle")}</h2>
-      <p className="mt-2 max-w-xl text-sm text-paper/80">{t(lang, "newsletterDek")}</p>
+    <section className="border border-rule bg-card p-6 md:p-8">
+      <TrueStamp tone="signal">{t(lang, "edition")}</TrueStamp>
+      <h2 className="mt-4 font-serif text-4xl uppercase text-ink sm:text-5xl">{t(lang, "newsletterTitle")}</h2>
+      <p className="mt-2 max-w-xl text-sm text-ink-muted">{t(lang, "newsletterDek")}</p>
       {ok ? (
-        <p className="mt-4 text-sm text-scream">{t(lang, "newsletterOk")}</p>
+        <p className="mt-4 text-sm text-signal">{t(lang, "newsletterOk")}</p>
       ) : (
         <form
           className="relative mt-5 flex flex-col gap-2 sm:flex-row"
@@ -49,14 +49,14 @@ export function Newsletter({
             onChange={(e) => setEmail(e.target.value)}
             placeholder={t(lang, "newsletterEmail")}
             aria-label={t(lang, "newsletterEmail")}
-            className="border-paper/40 bg-paper text-ink sm:max-w-xs"
+            className="border-rule bg-paper text-ink sm:max-w-xs"
           />
-          <Button type="submit" variant="pop">
+          <Button type="submit" variant="signal">
             {t(lang, "newsletterCta")}
           </Button>
         </form>
       )}
-      {err ? <p className="mt-2 text-xs text-scream">{err}</p> : null}
+      {err ? <p className="mt-2 text-xs text-signal">{err}</p> : null}
     </section>
   );
 }

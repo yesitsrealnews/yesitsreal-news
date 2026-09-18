@@ -36,7 +36,7 @@ export const CREATIVES: Creative[] = [
     title: "The TRUE stamp. Wear the correction.",
     dek: "Heavy black tee. Red stamp. No slogan long enough to become a memo.",
     cta: "Get the shirt",
-    href: "/membership",
+    href: "/shop",
     image: "/ads/merch.webp",
     partner: "YES IT'S REAL Shop",
   },

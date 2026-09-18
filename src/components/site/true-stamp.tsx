@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 
 export function TrueStamp({
   children,
-  tone = "scream",
-  tilt = -7,
+  tone = "signal",
+  tilt = 0,
   className,
 }: {
   children: ReactNode;
@@ -13,19 +13,19 @@ export function TrueStamp({
   className?: string;
 }) {
   const tones = {
-    scream: "bg-scream text-scream-ink",
-    signal: "bg-signal text-signal-fg",
-    true: "bg-true text-true-fg",
-    ink: "bg-ink text-paper",
+    scream: "bg-scream text-scream-ink border-scream",
+    signal: "bg-signal text-signal-fg border-signal",
+    true: "bg-true text-true-fg border-true",
+    ink: "bg-ink text-paper border-ink",
   } as const;
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-md border-2 border-ink px-2 py-0.5 font-sans text-[0.65rem] font-extrabold uppercase tracking-[0.14em] shadow-[3px_3px_0_0_var(--color-ink)]",
+        "inline-flex items-center rounded-none border px-2 py-0.5 font-sans text-[0.65rem] font-extrabold uppercase tracking-[0.16em]",
         tones[tone],
         className,
       )}
-      style={{ transform: `rotate(${tilt}deg)` }}
+      style={tilt ? { transform: `rotate(${tilt}deg)` } : undefined}
     >
       {children}
     </span>

@@ -140,8 +140,8 @@ export function ArticleBody({
         </p>
       ) : null}
 
-      <section className="mt-8 rounded-3xl border-2 border-ink bg-scream p-5 shadow-[5px_5px_0_0_var(--color-signal)]">
-        <p className="kicker text-ink">{t(lang, "notSatire")}</p>
+      <section className="mt-8 border border-rule bg-card p-5">
+        <p className="kicker text-signal">{t(lang, "notSatire")}</p>
         <h2 className="mt-2 font-serif text-3xl leading-none">{t(lang, "tagline2")}</h2>
         <p className="mt-2 max-w-xl text-sm text-ink-muted">{t(lang, "shareNote")} · @yesitsrealnews</p>
         <ShareBar lang={lang} path={storySharePath(story, lang)} headline={copy.headline} className="mt-4" />

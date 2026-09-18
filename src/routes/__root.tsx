@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       { title: SEO_FR.title },
       { name: "description", content: SEO_FR.description },
       { name: "keywords", content: SEO_FR.keywords },
-      { name: "theme-color", content: "#C6FF3D" },
+      { name: "theme-color", content: "#0b0b0b" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large" },
       { name: "googlebot-news", content: "index, follow" },
@@ -57,7 +57,7 @@ export const Route = createRootRoute({
         <p className="mt-6 text-xs text-ink-muted">{error instanceof Error ? error.message : "unknown"}</p>
         <a
           href="/"
-          className="mt-8 inline-flex h-11 items-center rounded-full border-2 border-ink bg-scream px-4 text-sm font-extrabold uppercase tracking-[0.12em] text-scream-ink shadow-[3px_3px_0_0_var(--color-ink)]"
+          className="mt-8 inline-flex h-11 items-center border border-rule bg-signal px-4 text-sm font-extrabold uppercase tracking-[0.16em] text-signal-fg"
         >
           Retour à la une
         </a>
@@ -69,12 +69,12 @@ export const Route = createRootRoute({
 
 function RootDocument() {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="fr" className="dark" suppressHydrationWarning>
       <head>
         <HeadContent />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var r=localStorage.getItem('yir-desk');if(!r)return;var s=JSON.parse(r);var st=s&&s.state;if(!st)return;if(st.theme==='dark')document.documentElement.classList.add('dark');if(st.lang){document.documentElement.lang=st.lang==='zh-TW'?'zh-Hant':st.lang;if(st.lang==='ar'||st.lang==='he'||st.lang==='ur')document.documentElement.dir='rtl';}}catch(e){}})();`,
+            __html: `(function(){try{var r=localStorage.getItem('yir-desk');var st=null;if(r){var s=JSON.parse(r);st=s&&s.state;}if(st&&st.theme==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}else{document.documentElement.classList.add('dark');document.documentElement.classList.remove('light');}if(st&&st.lang){document.documentElement.lang=st.lang==='zh-TW'?'zh-Hant':st.lang;if(st.lang==='ar'||st.lang==='he'||st.lang==='ur')document.documentElement.dir='rtl';}}catch(e){document.documentElement.classList.add('dark');}})();`,
           }}
         />
       </head>

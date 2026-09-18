@@ -15,6 +15,7 @@ export function LeadForm({
   sku,
   amount,
   roleOptions,
+  extraNotes,
   cta,
   thanks,
 }: {
@@ -23,6 +24,7 @@ export function LeadForm({
   sku?: string;
   amount?: number;
   roleOptions?: { id: string; label: string }[];
+  extraNotes?: string;
   cta: string;
   thanks: string;
 }) {
@@ -61,7 +63,7 @@ export function LeadForm({
           role: role || undefined,
           sku,
           amount: amount ?? 0,
-          notes: cleanNotes,
+          notes: [extraNotes, cleanNotes].filter(Boolean).join(" · "),
         });
         if (!okLead) {
           setErr(t(lang, "rateLimited"));
@@ -105,7 +107,9 @@ export function LeadForm({
         </div>
       ) : null}
       <div>
-        <Label htmlFor={`${kind}-notes`}>{kind === "job" ? t(lang, "portfolio") : t(lang, "submitNotes")}</Label>
+        <Label htmlFor={`${kind}-notes`}>
+          {kind === "job" ? t(lang, "portfolio") : kind === "merch" || kind === "tip" ? t(lang, "shopNotes") : t(lang, "submitNotes")}
+        </Label>
         <Textarea
           id={`${kind}-notes`}
           value={notes}

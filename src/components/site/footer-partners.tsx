@@ -17,11 +17,11 @@ export function FooterPartners({ lang }: { lang: Lang }) {
 
   return (
     <section
-      className="border-b border-paper/20 bg-ink px-4 py-8 sm:px-6"
+      className="border-b border-rule bg-paper px-4 py-8 sm:px-6"
       aria-label={label}
     >
       <div className="mx-auto max-w-7xl">
-        <p className="kicker text-[0.55rem] tracking-[0.18em] text-scream">{label}</p>
+        <p className="kicker text-[0.55rem] tracking-[0.18em] text-signal">{label}</p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {FOOTER_PARTNERS.map((p) => {
             const c = partnerCopy(p, lang);
@@ -41,7 +41,7 @@ export function FooterPartners({ lang }: { lang: Lang }) {
             );
           })}
         </div>
-        <p className="mt-4 text-[0.7rem] leading-snug text-paper/60">{note}</p>
+        <p className="mt-4 text-[0.7rem] leading-snug text-ink-faint">{note}</p>
       </div>
     </section>
   );

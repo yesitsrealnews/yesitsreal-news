@@ -35,33 +35,30 @@ export async function renderQuotePng(opts: {
   if (!ctx) return null;
   await document.fonts?.ready.catch(() => undefined);
 
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = "#0b0b0b";
   ctx.fillRect(0, 0, w, h);
-  ctx.fillStyle = "#c6ff3d";
-  ctx.fillRect(0, 0, w, 118);
-  ctx.fillStyle = "#111111";
+  ctx.fillStyle = "#e10600";
+  ctx.fillRect(0, 0, w, 8);
+  ctx.fillStyle = "#f4efe4";
   ctx.font = "800 42px 'Bricolage Grotesque', Impact, sans-serif";
-  ctx.fillText("YES IT'S REAL", 64, 78);
-  ctx.font = "800 20px Figtree, sans-serif";
+  ctx.fillText("YES IT'S REAL", 64, 88);
+  ctx.font = "800 18px Figtree, sans-serif";
   ctx.textAlign = "right";
-  ctx.fillText("IT REALLY HAPPENED", w - 48, 76);
+  ctx.fillStyle = "#e10600";
+  ctx.fillText("IT REALLY HAPPENED", w - 48, 84);
   ctx.textAlign = "left";
 
-  ctx.fillStyle = "#c6ff3d";
-  ctx.strokeStyle = "#111111";
-  ctx.lineWidth = 6;
-  roundRect(ctx, 64, 168, 168, 56, 12);
-  ctx.fill();
-  ctx.stroke();
-  ctx.fillStyle = "#111111";
-  ctx.font = "800 26px Figtree, sans-serif";
-  ctx.fillText("TRUE", 108, 206);
-
-  ctx.fillStyle = "#ff2d6a";
+  ctx.fillStyle = "#e10600";
+  ctx.fillRect(64, 168, 148, 48);
+  ctx.fillStyle = "#fff8f6";
   ctx.font = "800 22px Figtree, sans-serif";
+  ctx.fillText("TRUE", 104, 200);
+
+  ctx.fillStyle = "#e10600";
+  ctx.font = "800 20px Figtree, sans-serif";
   ctx.fillText(opts.kicker.toUpperCase(), 64, 280);
 
-  ctx.fillStyle = "#111111";
+  ctx.fillStyle = "#f4efe4";
   ctx.font = "800 64px 'Bricolage Grotesque', Impact, sans-serif";
   const lines = wrap(ctx, opts.headline, w - 128);
   let y = 370;
@@ -70,38 +67,20 @@ export async function renderQuotePng(opts: {
     y += 78;
   }
 
-  ctx.fillStyle = "#4a4e57";
+  ctx.fillStyle = "#b5b0a6";
   ctx.font = "600 28px Figtree, sans-serif";
   ctx.fillText(opts.location, 64, y + 36);
 
-  ctx.fillStyle = "#111111";
+  ctx.fillStyle = "#161616";
   ctx.fillRect(0, h - 140, w, 140);
-  ctx.fillStyle = "#c6ff3d";
+  ctx.fillStyle = "#e10600";
   ctx.font = "800 28px Figtree, sans-serif";
   ctx.fillText("IT SOUNDS FAKE. IT ISN'T.", 64, h - 78);
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = "#f4efe4";
   ctx.font = "600 24px Figtree, sans-serif";
   ctx.fillText(SITE_DOMAIN, 64, h - 40);
 
   return await new Promise((resolve) => canvas.toBlob((b) => resolve(b), "image/png"));
-}
-
-function roundRect(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  w: number,
-  h: number,
-  r: number,
-) {
-  const radius = Math.min(r, w / 2, h / 2);
-  ctx.beginPath();
-  ctx.moveTo(x + radius, y);
-  ctx.arcTo(x + w, y, x + w, y + h, radius);
-  ctx.arcTo(x + w, y + h, x, y + h, radius);
-  ctx.arcTo(x, y + h, x, y, radius);
-  ctx.arcTo(x, y, x + w, y, radius);
-  ctx.closePath();
 }
 
 export function QuoteCardButton({

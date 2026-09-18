@@ -44,11 +44,11 @@ export function StoryCard({
             className="transition-transform duration-300 group-hover:scale-[1.04]"
           />
           <span className="absolute left-2 top-3">
-            <TrueStamp tilt={-8}>{t(lang, "truePill")}</TrueStamp>
+            <TrueStamp>{t(lang, "truePill")}</TrueStamp>
           </span>
           {story.breaking ? (
             <span className="absolute right-2 top-3">
-              <TrueStamp tone="signal" tilt={6}>
+              <TrueStamp tone="signal">
                 {t(lang, "breaking")}
               </TrueStamp>
             </span>
