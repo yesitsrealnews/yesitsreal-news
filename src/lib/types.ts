@@ -35,6 +35,9 @@ export const LANG_CODES = [
 export type Lang = (typeof LANG_CODES)[number];
 
 export const SECTION_IDS = [
+  "france",
+  "usa",
+  "monde",
   "world",
   "accidents",
   "stars",

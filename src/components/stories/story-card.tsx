@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { BadgeCheck } from "lucide-react";
 import type { Lang, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
-import { SECTION_KEY } from "@/lib/i18n/keys";
+import { publicDesk } from "@/lib/desk-origin";
 import { flagEmoji, storyCopy, storySlug } from "@/lib/format";
 import { SourceProof } from "@/components/stories/source-proof";
 import { StoryCover } from "@/components/stories/cover";
@@ -21,7 +21,8 @@ export function StoryCard({
   variant?: "standard" | "compact" | "rail" | "feature";
 }) {
   const copy = storyCopy(story, lang);
-  const sectionLabel = t(lang, SECTION_KEY[story.section] ?? "secWorld");
+  const desk = publicDesk(story, lang);
+  const sectionLabel = t(lang, desk === "france" ? "secFrance" : desk === "usa" ? "secUsa" : desk === "monde" ? "secMonde" : "secWorld");
   const slug = storySlug(story, lang);
   const voice = voiceMeta(story.id);
 

@@ -1,11 +1,23 @@
 import type { Lang } from "@/lib/types";
 
-/** Public-interest inventory. House cards + official URLs only — no borrowed logos. */
+/** Public-interest inventory. House cards + official URLs. Campaign visuals only when the org put them out to relay. */
 export type PressOrg = {
   id: string;
   name: string;
   href: string;
   hrefFr?: string;
+  title: Record<"en" | "fr" | "es", string>;
+  dek: Record<"en" | "fr" | "es", string>;
+  cta: Record<"en" | "fr" | "es", string>;
+};
+
+export type PressCampaign = {
+  id: string;
+  partner: string;
+  href: string;
+  hrefFr?: string;
+  image?: string;
+  credit: string;
   title: Record<"en" | "fr" | "es", string>;
   dek: Record<"en" | "fr" | "es", string>;
   cta: Record<"en" | "fr" | "es", string>;
@@ -114,6 +126,7 @@ export const PRESS_ORGS: PressOrg[] = [
     id: "forbidden",
     name: "Forbidden Stories",
     href: "https://forbiddenstories.org/",
+    hrefFr: "https://forbiddenstories.org/fr/",
     title: {
       en: "If they silence the reporter, the story continues.",
       fr: "S’ils font taire le reporter, l’enquête continue.",
@@ -145,12 +158,118 @@ export const PRESS_ORGS: PressOrg[] = [
   },
 ];
 
+/** Campaigns the orgs published for newsrooms to relay. Official donate/campaign URLs. */
+export const PRESS_CAMPAIGNS: PressCampaign[] = [
+  {
+    id: "rsf-km-1",
+    partner: "Reporters sans frontières",
+    href: "https://donate.rsf.org/",
+    hrefFr: "https://donate.rsf.org/?lang=fr_FR",
+    image: "/ads/press/rsf-km-1.webp",
+    credit: "RSF / The Good Company — campagne « Les Kilomètres ». Visuels mis à disposition par RSF.",
+    title: {
+      en: "A journalist imprisoned 8,047 km away.",
+      fr: "Un journaliste emprisonné à 8 047 km.",
+      es: "Un periodista preso a 8.047 km.",
+    },
+    dek: {
+      en: "RSF campaign “Kilometres”. Official visual, meant to be relayed. Donate on their site.",
+      fr: "Campagne RSF « Les Kilomètres ». Visuel officiel, à relayer. Don sur leur site.",
+      es: "Campaña RSF « Kilómetros ». Visual oficial, para retransmitir.",
+    },
+    cta: { en: "Donate to RSF", fr: "Faire un don à RSF", es: "Donar a RSF" },
+  },
+  {
+    id: "rsf-km-2",
+    partner: "Reporters sans frontières",
+    href: "https://donate.rsf.org/",
+    hrefFr: "https://donate.rsf.org/?lang=fr_FR",
+    image: "/ads/press/rsf-km-2.webp",
+    credit: "RSF / The Good Company — campagne « Les Kilomètres ». Visuels mis à disposition par RSF.",
+    title: {
+      en: "A journalist held hostage 8,047 km away.",
+      fr: "Un journaliste otage à 8 047 km.",
+      es: "Un periodista rehén a 8.047 km.",
+    },
+    dek: {
+      en: "RSF campaign “Kilometres”. Official visual, meant to be relayed. Donate on their site.",
+      fr: "Campagne RSF « Les Kilomètres ». Visuel officiel, à relayer. Don sur leur site.",
+      es: "Campaña RSF « Kilómetros ». Visual oficial, para retransmitir.",
+    },
+    cta: { en: "Donate to RSF", fr: "Faire un don à RSF", es: "Donar a RSF" },
+  },
+  {
+    id: "fs-kill",
+    partner: "Forbidden Stories",
+    href: "https://forbiddenstories.org/donate/",
+    hrefFr: "https://forbiddenstories.org/fr/don/",
+    credit: "Forbidden Stories — slogan de campagne publié, à relayer. Pas leurs affiches métro.",
+    title: {
+      en: "Killing the journalist won’t kill the story.",
+      fr: "Tuer le messager ne tuera pas le message.",
+      es: "Matar al periodista no matará la historia.",
+    },
+    dek: {
+      en: "Their public campaign line. Donate on the official page. Not a sold ad.",
+      fr: "Leur accroche de campagne. Don sur la page officielle. Pas une pub vendue.",
+      es: "Su eslogan de campaña. Donación en la página oficial.",
+    },
+    cta: { en: "Donate", fr: "Faire un don", es: "Donar" },
+  },
+  {
+    id: "wnd",
+    partner: "World News Day",
+    href: "https://worldnewsday.org/",
+    credit: "World News Day / WAN-IFRA — les newsrooms sont invitées à relayer le slogan. Pas un fundraiser.",
+    title: {
+      en: "Know the facts. Understand what matters. Choose trusted journalism.",
+      fr: "Les faits. Ce qui compte. Le journalisme de confiance. C’est votre droit de savoir.",
+      es: "Los hechos. Lo que importa. El periodismo de confianza.",
+    },
+    dek: {
+      en: "World News Day, 28 September. A newsroom campaign. Official site.",
+      fr: "World News Day, 28 septembre. Campagne des newsrooms. Site officiel.",
+      es: "World News Day, 28 de septiembre. Campaña de redacciones. Sitio oficial.",
+    },
+    cta: { en: "worldnewsday.org", fr: "worldnewsday.org", es: "worldnewsday.org" },
+  },
+  {
+    id: "cpj-give",
+    partner: "Committee to Protect Journalists",
+    href: "https://cpj.org/donate/",
+    credit: "CPJ — appel à don officiel. Pas de kit bannière public ; carte maison.",
+    title: {
+      en: "Press freedom is your freedom.",
+      fr: "La liberté de la presse, c’est la vôtre.",
+      es: "La libertad de prensa es tu libertad.",
+    },
+    dek: {
+      en: "CPJ’s line. Donate on their official page. Not a sold ad.",
+      fr: "Leur formule. Don sur la page officielle. Pas une pub vendue.",
+      es: "Su lema. Donación en la página oficial.",
+    },
+    cta: { en: "Donate to CPJ", fr: "Faire un don au CPJ", es: "Donar a CPJ" },
+  },
+];
+
+function loc<T extends Record<"en" | "fr" | "es", string>>(pack: T, lang: Lang) {
+  return lang === "fr" ? pack.fr : lang === "es" ? pack.es : pack.en;
+}
+
 export function pressCopy(org: PressOrg, lang: Lang) {
-  const key = lang === "fr" ? "fr" : lang === "es" ? "es" : "en";
   return {
-    title: org.title[key],
-    dek: org.dek[key],
-    cta: org.cta[key],
+    title: loc(org.title, lang),
+    dek: loc(org.dek, lang),
+    cta: loc(org.cta, lang),
     href: lang === "fr" ? org.hrefFr ?? org.href : org.href,
+  };
+}
+
+export function campaignCopy(c: PressCampaign, lang: Lang) {
+  return {
+    title: loc(c.title, lang),
+    dek: loc(c.dek, lang),
+    cta: loc(c.cta, lang),
+    href: lang === "fr" ? c.hrefFr ?? c.href : c.href,
   };
 }

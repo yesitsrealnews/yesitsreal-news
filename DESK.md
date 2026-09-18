@@ -7,7 +7,19 @@ OK : cartes maison + liens vers sites officiels, labellisés « pas un partenari
 Referral Tesla/Starlink : seulement avec le lien perso de Pierre (app propriétaire).
 Deals payants : advertisers@yesitsreal.news.
 
-Intérêt public (RSF, CPJ, ARTICLE 19, FIJ, SNJ, Maison des Journalistes, Forbidden Stories, UNESCO) : cartes maison + URLs officielles, labellisées « pas une pub vendue ». Pas leurs logos.
+Intérêt public (RSF, CPJ, ARTICLE 19, FIJ, SNJ, Maison des Journalistes, Forbidden Stories, UNESCO) : cartes maison + URLs officielles, labellisées « pas une pub vendue ».
+Exception RSF : visuels de la campagne « Les Kilomètres » mis à disposition par RSF (PDF officiels) — on les relaie tels quels, crédit RSF / The Good Company, lien donate.rsf.org. Pas d’autres logos empruntés.
+
+## Logo
+
+**Interdit de retoucher le logo jusqu’au 18 octobre 2026.**
+Bandeaux et photos de profil : régénérés depuis la marque figée. On ne redessine pas YES IT'S REAL NEWS.
+
+## Rubriques publiques
+
+VF : **France** + **Monde**. VA : **USA** + **World**.
+Tri : pays de la **première publication** (première source nommée), pas le dateline.
+Anciennes rubriques (animaux, justice…) : URL dormantes.
 
 ## Photo, chaque papier
 

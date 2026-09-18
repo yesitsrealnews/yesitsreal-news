@@ -1,6 +1,6 @@
 import type { Lang, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
-import { SECTION_KEY } from "@/lib/i18n/keys";
+import { publicDesk } from "@/lib/desk-origin";
 import { flagEmoji, formatDateTime, readingMinutes, storyBodyPending, storyByline, storyCopy } from "@/lib/format";
 import { storySharePath } from "@/lib/viral";
 import { SourceProof } from "@/components/stories/source-proof";
@@ -33,11 +33,13 @@ export function ArticleBody({
   const copy = applyVoice(story, raw, lang);
   const pending = storyBodyPending(story, lang);
   const mid = Math.max(2, Math.floor(copy.body.length / 2));
+  const desk = publicDesk(story, lang);
+  const deskKey = desk === "france" ? "secFrance" : desk === "usa" ? "secUsa" : desk === "monde" ? "secMonde" : "secWorld";
   const era = story.section === "archive";
 
   return (
     <article className={cn("mx-auto max-w-3xl px-4 py-6 sm:px-6", era && "era-archive")}>
-      <p className="kicker text-signal">{t(lang, SECTION_KEY[story.section] ?? "secWorld")}</p>
+      <p className="kicker text-signal">{t(lang, deskKey)}</p>
       {story.section === "commentaire" ? (
         <p className="mt-2 text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-signal">
           {t(lang, "commentaireKicker")} · {storyByline(story, lang) ?? t(lang, "byline")}
@@ -131,21 +133,13 @@ export function ArticleBody({
         ))}
       </div>
 
-      <div className="mt-8">
-        <OriginSources story={story} lang={lang} note={copy.factCheckNote} />
-      </div>
       {voice.id !== "desk" ? (
-        <p className="mt-3 text-xs text-ink-muted">
+        <p className="mt-6 text-xs text-ink-muted">
           {t(lang, "voiceAfter")} {lang === "fr" ? voice.afterFr : voice.after}. {t(lang, "voiceDisclaimer")}
         </p>
       ) : null}
 
-      <section className="mt-8 border border-rule bg-card p-5">
-        <p className="kicker text-signal">{t(lang, "notSatire")}</p>
-        <h2 className="mt-2 font-serif text-3xl leading-none">{t(lang, "tagline2")}</h2>
-        <p className="mt-2 max-w-xl text-sm text-ink-muted">{t(lang, "shareNote")} · @yesitsrealnews</p>
-        <ShareBar lang={lang} path={storySharePath(story, lang)} headline={copy.headline} className="mt-4" />
-      </section>
+      <ShareBar lang={lang} path={storySharePath(story, lang)} headline={copy.headline} className="mt-8" />
 
       <ReaderComments storyId={story.id} lang={lang} />
 

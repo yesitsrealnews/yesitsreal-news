@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, Moon, Search, Sun } from "lucide-react";
 import { t } from "@/lib/i18n";
 import { SECTION_KEY } from "@/lib/i18n/keys";
-import { SECTIONS } from "@/lib/data/sections";
+import { deskNav } from "@/lib/desk-origin";
 import { EMAILS, SOCIAL } from "@/lib/brand";
 import type { Lang } from "@/lib/types";
 import { LanguageSwitcher } from "@/components/site/language-switcher";
@@ -67,7 +67,7 @@ export function Header({
                 <Link to="/today" className="px-3 py-3 text-sm">
                   {t(lang, "today")}
                 </Link>
-                {SECTIONS.map((s) => (
+                {deskNav(lang).map((s) => (
                   <Link key={s.id} to="/$section" params={{ section: s.id }} className="px-3 py-3 text-sm">
                     {t(lang, SECTION_KEY[s.id])}
                   </Link>
@@ -127,7 +127,7 @@ export function Header({
           >
             {t(lang, "today")}
           </Link>
-          {SECTIONS.map((s) => (
+          {deskNav(lang).map((s) => (
             <Link
               key={s.id}
               to="/$section"

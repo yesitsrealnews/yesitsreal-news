@@ -1,5 +1,6 @@
 import type { Lang, SectionId, Story } from "./types.ts";
 import { canonicalSection } from "./data/sections.ts";
+import { isDeskListing, storyInDeskListing } from "./desk-origin.ts";
 
 /** Rolling week for the une. Older copy stays published in rubriques, not on /. */
 export const HOME_WINDOW_DAYS = 7;
@@ -190,13 +191,8 @@ export function inSection(
   deskStatus?: DeskStatusMap,
 ): Story[] {
   const all = publishedStories(seed, extras, deskStatus);
-  if (section === "world") {
-    const own = all.filter((s) => s.section === "world");
-    const rest = all.filter(
-      (s) => s.section !== "world" && s.section !== "archive" && s.section !== "commentaire" && s.countryCode !== "GB",
-    );
-    const mixed = [...own, ...rest];
-    return mixed.length ? mixed : all;
+  if (isDeskListing(section)) {
+    return all.filter((s) => storyInDeskListing(s, section));
   }
   return all.filter((s) => s.section === section);
 }

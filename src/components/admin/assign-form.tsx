@@ -4,12 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { SECTIONS } from "@/lib/data/sections";
+import { DORMANT_SECTIONS } from "@/lib/data/sections";
 import { useAppStore } from "@/lib/store";
 import type { QueueItem, SectionId } from "@/lib/types";
 import { VOICES, type VoiceId } from "@/lib/voices";
 
 const SECTION_FR: Record<SectionId, string> = {
+  france: "France",
+  usa: "USA",
+  monde: "Monde",
   world: "Monde",
   accidents: "Accidents",
   stars: "Célébrités",
@@ -157,7 +160,7 @@ export function AssignForm({ compact = false }: { compact?: boolean }) {
                 onChange={(e) => setSection(e.target.value)}
               >
                 <option value="">Auto</option>
-                {SECTIONS.map((s) => (
+                {DORMANT_SECTIONS.filter((s) => s.id !== "archive" && s.id !== "commentaire").map((s) => (
                   <option key={s.id} value={s.id}>
                     {SECTION_FR[s.id]}
                   </option>

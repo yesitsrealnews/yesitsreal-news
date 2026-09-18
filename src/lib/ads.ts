@@ -1,5 +1,5 @@
 import type { Lang } from "@/lib/types";
-import { PRESS_ORGS, pressCopy } from "@/lib/press-freedom";
+import { PRESS_CAMPAIGNS, PRESS_ORGS, campaignCopy, pressCopy } from "@/lib/press-freedom";
 
 /** Sold network slots stay off. Public-interest + house cards show. */
 export const ADS_PUBLIC = true;
@@ -59,6 +59,22 @@ const HOUSE: Creative[] = [
   },
 ];
 
+const CAMPAIGNS: Creative[] = PRESS_CAMPAIGNS.map((c) => {
+  const en = campaignCopy(c, "en");
+  return {
+    id: c.id,
+    kind: c.image ? ("sidebar" as const) : ("any" as const),
+    tone: "psa" as const,
+    kicker: "Public interest",
+    title: en.title,
+    dek: en.dek,
+    cta: en.cta,
+    href: en.href,
+    image: c.image,
+    partner: c.partner,
+  };
+});
+
 const PSA: Creative[] = PRESS_ORGS.map((org) => {
   const en = pressCopy(org, "en");
   return {
@@ -74,17 +90,19 @@ const PSA: Creative[] = PRESS_ORGS.map((org) => {
   };
 });
 
-export const CREATIVES: Creative[] = [...PSA, ...HOUSE];
+export const CREATIVES: Creative[] = [...CAMPAIGNS, ...PSA, ...HOUSE];
 
 export function creativeFor(slot: AdKind, salt: string): Creative {
   const pool = CREATIVES.filter((c) => {
-    if (c.kind !== slot && c.kind !== "any") return false;
     if (c.tone === "paid" && !ADS_PAID) return false;
-    return true;
+    if (c.kind === "any" || c.kind === slot) return true;
+    if (slot === "inarticle" && c.kind === "sidebar") return true;
+    if (slot === "native" && c.kind === "sidebar") return true;
+    return false;
   });
   let h = 0;
   for (let i = 0; i < salt.length; i++) h = (h + salt.charCodeAt(i) * (i + 1)) % Math.max(pool.length, 1);
-  return pool[h] ?? PSA[0] ?? CREATIVES[0];
+  return pool[h] ?? CAMPAIGNS[0] ?? CREATIVES[0];
 }
 
 type AdText = Pick<Creative, "kicker" | "title" | "dek" | "cta">;
@@ -132,6 +150,12 @@ const AD_ES: Record<string, AdText> = {
 };
 
 export function localizedCreative(ad: Creative, lang: Lang): Creative {
+  const campaign = PRESS_CAMPAIGNS.find((c) => c.id === ad.id);
+  if (campaign) {
+    const copy = campaignCopy(campaign, lang);
+    const kicker = lang === "fr" ? "Intérêt public" : lang === "es" ? "Interés público" : "Public interest";
+    return { ...ad, kicker, ...copy, image: campaign.image ?? ad.image };
+  }
   const org = PRESS_ORGS.find((o) => o.id === ad.id);
   if (org) {
     const copy = pressCopy(org, lang);

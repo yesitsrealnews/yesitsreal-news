@@ -87,6 +87,9 @@ export function coverCreditLine(id: string): string | undefined {
 }
 
 export const SECTION_INK: Record<SectionId, { a: string; b: string; c: string }> = {
+  france: { a: "#e10600", b: "#111111", c: "#ffe400" },
+  usa: { a: "#e10600", b: "#143d66", c: "#ffe400" },
+  monde: { a: "#e10600", b: "#111111", c: "#ffe400" },
   world: { a: "#e10600", b: "#111111", c: "#ffe400" },
   accidents: { a: "#e10600", b: "#3a0a0a", c: "#f4f1ea" },
   stars: { a: "#8a5a12", b: "#111111", c: "#ffe400" },

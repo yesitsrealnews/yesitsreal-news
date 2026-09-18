@@ -44,6 +44,9 @@ export const UI_KEYS = [
   "allTime",
   "home",
   "secWorld",
+  "secFrance",
+  "secUsa",
+  "secMonde",
   "secAccidents",
   "secStars",
   "secScience",
@@ -270,6 +273,9 @@ export type UiKey = (typeof UI_KEYS)[number];
 
 export const SECTION_KEY: Record<string, UiKey> = {
   world: "secWorld",
+  france: "secFrance",
+  usa: "secUsa",
+  monde: "secMonde",
   accidents: "secAccidents",
   stars: "secStars",
   science: "secScience",

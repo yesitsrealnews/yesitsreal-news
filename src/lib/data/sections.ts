@@ -6,16 +6,19 @@ export interface SectionDef {
   kicker: string;
 }
 
-/** Public masthead — keep it short. The briefing is the product. */
+/** Public masthead — two desks, filled by first-publication country. */
 export const SECTIONS: SectionDef[] = [
-  { id: "faits-divers", path: "/faits-divers", kicker: "FAITS DIVERS" },
-  { id: "courts", path: "/courts", kicker: "JUSTICE" },
-  { id: "animals", path: "/animals", kicker: "ANIMALS" },
+  { id: "france", path: "/france", kicker: "FRANCE" },
+  { id: "usa", path: "/usa", kicker: "USA" },
+  { id: "monde", path: "/monde", kicker: "MONDE" },
   { id: "world", path: "/world", kicker: "WORLD" },
 ];
 
-/** Built, not on the public masthead. URLs still resolve. */
+/** Topical tags — desk only. Not on the public masthead. URLs still resolve. */
 export const DORMANT_SECTIONS: SectionDef[] = [
+  { id: "faits-divers", path: "/faits-divers", kicker: "FAITS DIVERS" },
+  { id: "courts", path: "/courts", kicker: "JUSTICE" },
+  { id: "animals", path: "/animals", kicker: "ANIMALS" },
   { id: "accidents", path: "/accidents", kicker: "ACCIDENTS" },
   { id: "stars", path: "/stars", kicker: "STARS" },
   { id: "science", path: "/science", kicker: "SCIENCE" },

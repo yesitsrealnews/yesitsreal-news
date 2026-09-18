@@ -50,6 +50,9 @@ function KitPage() {
         <p className="mt-4 max-w-xl text-lg">
           Un clic. Le fichier tombe sur le téléphone. Ensuite : X → Modifier le profil → Bannière.
         </p>
+        <p className="mt-3 max-w-xl text-sm text-signal">
+          Logo verrouillé jusqu’au 18 octobre 2026. On ne le retouche pas. Ces fichiers sont la marque figée, en 1500×500 et en rond.
+        </p>
 
         <a
           href="/brand/YES-ITS-REAL-banniere-X-1500x500.jpg"

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import type { Lang, Story } from "@/lib/types";
 import { t } from "@/lib/i18n";
-import { SECTION_KEY } from "@/lib/i18n/keys";
+import { publicDesk } from "@/lib/desk-origin";
 import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { storySharePath } from "@/lib/viral";
 import { StoryCard } from "@/components/stories/story-card";
@@ -31,11 +31,22 @@ export function HomePage({
   const rest = stories.slice(1);
   const features = rest.slice(0, 2);
   const [shown, setShown] = useState(8);
-  const grid = rest.slice(2, 2 + shown);
+  const localKey = lang === "fr" ? "france" : "usa";
+  const worldKey = lang === "fr" ? "monde" : "world";
+  const localStories = rest.filter((s) => publicDesk(s, lang) === localKey);
+  const worldStories = rest.filter((s) => publicDesk(s, lang) === worldKey);
+  const localShown = localStories.slice(0, Math.ceil(shown / 2));
+  const worldShown = worldStories.slice(0, Math.ceil(shown / 2));
+  const moreLeft = localStories.length + worldStories.length > localShown.length + worldShown.length;
 
   if (!hero) return <p className="p-8">{t(lang, "noStories")}</p>;
   const heroCopy = storyCopy(hero, lang);
   const heroSlug = storySlug(hero, lang);
+  const heroDesk = publicDesk(hero, lang);
+  const heroDeskLabel = t(
+    lang,
+    heroDesk === "france" ? "secFrance" : heroDesk === "usa" ? "secUsa" : heroDesk === "monde" ? "secMonde" : "secWorld",
+  );
 
   return (
     <main id="main" className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
@@ -78,7 +89,7 @@ export function HomePage({
         </Link>
         <div className="flex flex-col justify-center lg:col-span-5">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="kicker text-signal">{t(lang, SECTION_KEY[hero.section])}</span>
+            <span className="kicker text-signal">{heroDeskLabel}</span>
           </div>
           <h1 className="mt-3 font-serif text-4xl uppercase leading-[0.9] tracking-tight sm:text-5xl lg:text-6xl">
             <Link to="/story/$slug" params={{ slug: heroSlug }}>
@@ -113,19 +124,37 @@ export function HomePage({
 
       <div className="mt-10 grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-8">
-          <div className="grid gap-8 sm:grid-cols-2">
-            {grid.map((s, i) => (
-              <div key={s.id}>
-                <StoryCard story={s} lang={lang} variant="compact" />
-                {i === 3 ? (
-                  <div className="mt-8">
-                    <AdSlot lang={lang} slot="inarticle" salt="home-grid" />
-                  </div>
-                ) : null}
+          <div className="grid gap-10 sm:grid-cols-2">
+            <section>
+              <div className="mb-4 flex items-baseline justify-between border-b border-rule pb-2">
+                <h2 className="kicker text-signal">{t(lang, lang === "fr" ? "secFrance" : "secUsa")}</h2>
+                <Link to="/$section" params={{ section: localKey }} className="text-[0.65rem] font-extrabold uppercase tracking-[0.14em] underline">
+                  {t(lang, "readMore")}
+                </Link>
               </div>
-            ))}
+              <div className="grid gap-6">
+                {localShown.map((s) => (
+                  <StoryCard key={s.id} story={s} lang={lang} variant="compact" />
+                ))}
+                {localShown.length === 0 ? <p className="text-sm text-ink-muted">{t(lang, "noStories")}</p> : null}
+              </div>
+            </section>
+            <section>
+              <div className="mb-4 flex items-baseline justify-between border-b border-rule pb-2">
+                <h2 className="kicker text-signal">{t(lang, lang === "fr" ? "secMonde" : "secWorld")}</h2>
+                <Link to="/$section" params={{ section: worldKey }} className="text-[0.65rem] font-extrabold uppercase tracking-[0.14em] underline">
+                  {t(lang, "readMore")}
+                </Link>
+              </div>
+              <div className="grid gap-6">
+                {worldShown.map((s) => (
+                  <StoryCard key={s.id} story={s} lang={lang} variant="compact" />
+                ))}
+                {worldShown.length === 0 ? <p className="text-sm text-ink-muted">{t(lang, "noStories")}</p> : null}
+              </div>
+            </section>
           </div>
-          {shown < rest.length - 2 ? (
+          {moreLeft ? (
             <div className="mt-8">
               <Button variant="pop" onClick={() => setShown((n) => n + 8)}>
                 {t(lang, "loadMore")}
