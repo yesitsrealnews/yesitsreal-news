@@ -1280,8 +1280,11 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
+];
 
-  revue({
+/** Desk already published these from the cambuse. Live on the une. */
+export const DESK_LIVE: Story[] = [
+  story({
     id: "s164",
     slug: "saint-just-saint-rambert-mayor-bans-tiger-mosquitoes-from-flying-over-town",
     slugs: {
@@ -1351,7 +1354,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s165",
     slug: "flemish-mp-frederic-erens-stuck-13-hours-parliament-toilet",
     slugs: {
@@ -1421,7 +1424,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s166",
     slug: "nova-friburgo-friends-walk-five-capybaras-home-across-the-avenue",
     slugs: {
@@ -1477,7 +1480,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s167",
     slug: "ramapo-new-york-emu-breaks-from-petting-zoo-police-drone-chase",
     slugs: {
@@ -1533,7 +1536,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s168",
     slug: "somerset-rambo-the-ram-wedged-in-a-concrete-pipe-chimney-rods",
     slugs: {
@@ -1589,7 +1592,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s169",
     slug: "cape-town-city-wants-to-cage-sixty-chacma-baboons-simons-town",
     slugs: {
@@ -1652,7 +1655,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s170",
     slug: "shimane-tottori-troop-of-japanese-macaques-walks-two-prefectures",
     slugs: {
@@ -1715,7 +1718,7 @@ export const REVUE_STORIES: Story[] = [
     },
   }),
 
-  revue({
+  story({
     id: "s171",
     slug: "concord-nh-1894-magazine-returned-132-years-overdue-12055-fine-frozen",
     slugs: {
@@ -1784,10 +1787,7 @@ export const REVUE_STORIES: Story[] = [
       ),
     },
   }),
-];
 
-/** Desk already published these from the cambuse. Live on the une. */
-export const DESK_LIVE: Story[] = [
   story({
     id: "s153",
     slug: "thizy-les-bourgs-bans-laundry-on-balconies-not-naples",
