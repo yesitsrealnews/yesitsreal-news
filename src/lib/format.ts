@@ -32,7 +32,15 @@ export function fromNow(iso: string, lang: Lang) {
 
 /** Headlines are baked on the server. Client must not import the headlines tables. */
 export function storyCopy(story: Story, lang: Lang): StoryCopy {
-  return story.copy[lang] ?? story.copy.en;
+  const hit = story.copy?.[lang] ?? story.copy?.en ?? story.copy?.fr;
+  if (hit) return hit;
+  return {
+    headline: story.slug || story.id || "Sans titre",
+    dek: "",
+    body: [],
+    whyDumb: ["", "", ""],
+    factCheckNote: "",
+  };
 }
 
 export function storyBodyPending(story: Story, lang: Lang): boolean {

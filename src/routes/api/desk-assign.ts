@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { deskTokenOk, readDeskCookie } from "@/lib/desk-auth.server";
 import { runDeskAssign } from "@/lib/desk-assign";
-import { removeAssignment, saveAssignment } from "@/lib/desk-assign-store";
-import { loadDeskInbox } from "@/lib/desk-inbox.server";
+import { getStoredAssignments, removeAssignment, saveAssignment } from "@/lib/desk-assign-store";
 import { killRssHits } from "@/lib/rss-store";
 import { clientKey, jsonLimited, limitedJson, rateLimit, sanitizeText } from "@/lib/security";
 
@@ -30,8 +29,9 @@ export const Route = createFileRoute("/api/desk-assign")({
       GET: async ({ request }) => {
         const desk = await deskTokenOk(readDeskCookie(request));
         if (!desk) return noIndex({ ok: false, reason: "auth" }, 401);
-        const inbox = await loadDeskInbox();
-        return noIndex({ ok: true, at: inbox.at, rssAt: inbox.rssAt, count: inbox.items.length, items: inbox.items }, 200);
+        // Pre Pubs / desk commissions only. RSS stays on /api/rss-pull (avoids 300KB inbox + localStorage blowups).
+        const stored = await getStoredAssignments(true);
+        return noIndex({ ok: true, at: stored.at, count: stored.items.length, items: stored.items }, 200);
       },
       POST: async ({ request }) => {
         const desk = await deskTokenOk(readDeskCookie(request));

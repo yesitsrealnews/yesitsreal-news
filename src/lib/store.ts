@@ -554,7 +554,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 14,
+      version: 15,
       migrate: (persisted) => {
         const s = (persisted ?? {}) as {
           lang?: string;
@@ -578,16 +578,8 @@ export const useAppStore = create<AppState>()(
           .filter(Boolean);
         s.purgedIds = [...new Set([...(s.purgedIds ?? []), ...fromRejected])].slice(0, 2000);
         delete s.rejected;
-        if (Array.isArray(s.inbox)) {
-          const purged = new Set(s.purgedIds);
-          s.inbox = s.inbox.filter((i) => {
-            if (!i || typeof i !== "object" || !i.id) return false;
-            if (purged.has(i.id) || purged.has(i.story?.id)) return false;
-            // Stale RSS is rebuilt from the filtered server cache after hydrate.
-            if (String(i.id).startsWith("q-rss-") || String(i.submittedBy ?? "").startsWith("RSS")) return false;
-            return true;
-          });
-        }
+        // Inbox is server-owned; never restore a bloated localStorage copy.
+        s.inbox = [];
         if (Array.isArray(s.extras)) {
           s.extras = s.extras.filter((e) => {
             if (!e || typeof e !== "object" || !e.id) return false;
@@ -602,7 +594,7 @@ export const useAppStore = create<AppState>()(
         theme: s.theme,
         cookies: s.cookies,
         submissions: s.submissions,
-        inbox: s.inbox,
+        // inbox is server-owned (desk-assign + rss-pull); persisting it blew localStorage and emptied Cambuse
         purgedIds: s.purgedIds,
         extras: s.extras,
         deskStatus: s.deskStatus,

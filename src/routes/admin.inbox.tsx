@@ -148,6 +148,7 @@ function InboxPage() {
       <ul className="mt-6 divide-y divide-rule border-y border-rule">
         {inbox.map((item) => {
           const c = storyCopy(item.story, "fr");
+          if (!c) return null;
           const isPre = item.submittedBy.startsWith("Pre Pub") || item.submittedBy.startsWith("Veille");
           return (
             <li key={item.id} className="flex flex-wrap items-start justify-between gap-3 py-4">
