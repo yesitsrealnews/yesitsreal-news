@@ -9,6 +9,7 @@ import type { QueueItem } from "@/lib/types";
 import { useAppStore } from "@/lib/store";
 import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
+import { coverDisplaySrc, coverSrc } from "@/lib/covers";
 
 export const Route = createFileRoute("/admin/inbox")({ component: InboxPage });
 
@@ -161,21 +162,25 @@ function InboxPage() {
                   {isPre ? " · Pre Pub" : ""}
                 </p>
                 <div className="mt-1 flex gap-3">
-                  {item.leadImage ? (
-                    <img
-                      src={item.leadImage}
-                      alt=""
-                      referrerPolicy="no-referrer"
-                      className="mt-1 size-16 shrink-0 rounded-md border-2 border-ink object-cover"
-                    />
-                  ) : null}
+                  {(() => {
+                    const thumb =
+                      item.leadImage || coverDisplaySrc(item.story.id) || coverSrc(item.story.id);
+                    return thumb ? (
+                      <img
+                        src={thumb}
+                        alt=""
+                        referrerPolicy="no-referrer"
+                        className="mt-1 size-16 shrink-0 rounded-md border-2 border-ink object-cover"
+                      />
+                    ) : null;
+                  })()}
                   <div className="min-w-0">
                     <h2 className="font-serif text-xl">{c.headline}</h2>
                     <p className="mt-1 text-sm text-ink-muted">{c.dek}</p>
                     <p className="mt-2 text-xs text-ink-muted">
                       {item.story.sources.length} source{item.story.sources.length > 1 ? "s" : ""} ·{" "}
                       {item.submittedBy} · {formatDateTime(item.submittedAt, "fr")}
-                      {item.leadImage ? " · visuel source" : ""}
+                      {item.leadImage || coverSrc(item.story.id) ? " · visuel" : ""}
                     </p>
                   </div>
                 </div>

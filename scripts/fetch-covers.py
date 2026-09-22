@@ -193,6 +193,12 @@ COVERS: dict[str, tuple[str, str]] = {
     "s173": ("File:Bagel Making.jpg", "bagel pastry bread sesame"),
     "s174": ("File:Croissant.jpg", "butter croissant pastry bakery"),
     "s175": ("File:Horse running.jpg", "brown horse galloping field"),
+    "s193": ("File:Capybara swimming.jpg", "capybara hydrochoerus swimming"),
+    "s194": ("File:White-tailed Deer.jpg", "white-tailed deer odocoileus virginianus"),
+    "s195": ("File:Traffic cones.jpg", "orange traffic cones road works"),
+    "s196": ("File:Round cast iron Manhole cover.jpg", "manhole cover cast iron street"),
+    "s197": ("File:Dinghy leaving Harbour - geograph.org.uk - 8095676.jpg", "dinghy small boat harbour pier"),
+    "s198": ("File:Labrador Retriever - Yellow.JPG", "Labrador Retriever yellow dog"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")

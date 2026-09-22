@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { storyCopy } from "@/lib/format";
 import type { StoryCopy } from "@/lib/types";
+import { StoryCover } from "@/components/stories/cover";
+import { coverCreditLine, hasCoverPhoto } from "@/lib/covers";
 
 export const Route = createFileRoute("/admin/story/$id")({ component: StoryEditor });
 
@@ -71,6 +73,35 @@ function StoryEditor() {
         {current.submittedBy.startsWith("Commande") ? " · Commande desk" : ""}
       </p>
       <h1 className="mt-2 font-serif text-2xl md:text-3xl">Relire en français</h1>
+      {hasCoverPhoto(current.story.id) || current.leadImage ? (
+        <div className="mt-4 max-w-xl overflow-hidden rounded-2xl border-2 border-ink bg-paper-2">
+          {hasCoverPhoto(current.story.id) ? (
+            <StoryCover
+              id={current.story.id}
+              section={current.story.section}
+              alt={hed || current.story.id}
+              credit
+              className="aspect-[16/10] w-full"
+            />
+          ) : current.leadImage ? (
+            <img
+              src={current.leadImage}
+              alt=""
+              referrerPolicy="no-referrer"
+              className="aspect-[16/10] w-full object-cover"
+            />
+          ) : null}
+          {hasCoverPhoto(current.story.id) && coverCreditLine(current.story.id) ? (
+            <p className="border-t border-rule px-3 py-2 text-xs text-ink-muted">
+              {coverCreditLine(current.story.id)} · modifiable avant Publier
+            </p>
+          ) : current.leadImage ? (
+            <p className="border-t border-rule px-3 py-2 text-xs text-ink-muted">Visuel d’origine · source</p>
+          ) : null}
+        </div>
+      ) : (
+        <p className="mt-3 text-xs text-ink-muted">Pas encore de cover photo pour {current.story.id}.</p>
+      )}
       <div className="mt-4 flex gap-2">
         {(["draft", "sources", "facts"] as const).map((k) => (
           <button

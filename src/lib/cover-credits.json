@@ -1055,5 +1055,41 @@
     "artist": "Jürgen Nagel (Jürgen Nagel)",
     "license": "CC BY 2.5",
     "page": "https://commons.wikimedia.org/wiki/File%3AWhite_House.JPG"
+  },
+  "s193": {
+    "file": "File:Capybara swimming.jpg",
+    "artist": "Bob Johnson",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACapybara_swimming.jpg"
+  },
+  "s194": {
+    "file": "File:White-tailed Deer.jpg",
+    "artist": "Milomit",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWhite-tailed_Deer.jpg"
+  },
+  "s195": {
+    "file": "File:Traffic cones.jpg",
+    "artist": "OregonDOT",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ATraffic_cones.jpg"
+  },
+  "s196": {
+    "file": "File:Round cast iron Manhole cover.jpg",
+    "artist": "https://www.flickr.com/photos/pasa/9039204908",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ARound_cast_iron_Manhole_cover.jpg"
+  },
+  "s197": {
+    "file": "File:Dinghy leaving Harbour - geograph.org.uk - 8095676.jpg",
+    "artist": "Billy McCrorie",
+    "license": "CC BY-SA 2.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ADinghy_leaving_Harbour_-_geograph.org.uk_-_8095676.jpg"
+  },
+  "s198": {
+    "file": "File:Labrador Retriever - Yellow.JPG",
+    "artist": "Skansken",
+    "license": "CC BY 3.0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ALabrador_Retriever_-_Yellow.JPG"
   }
 }
