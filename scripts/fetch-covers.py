@@ -200,6 +200,29 @@ COVERS: dict[str, tuple[str, str]] = {
     "s197": ("File:Dinghy leaving Harbour - geograph.org.uk - 8095676.jpg", "dinghy small boat harbour pier"),
     "s198": ("File:Labrador Retriever - Yellow.JPG", "Labrador Retriever yellow dog"),
     "s199": ("File:Cassoulet toulousain.jpg", "cassoulet toulousain bean stew sausage"),
+    # s200–s206 Pre Pub covers (Commons PD/CC photos only)
+    "s200": (
+        "File:US Navy 020403-N-0401E-002 USS Germantown - BQM-74E target drone launch.jpg",
+        "BQM-74E military target drone Navy",
+    ),
+    "s201": (
+        "File:FEMA - 34554 - Pickup truck stranded by flood water in Missouri.jpg",
+        "pickup truck stranded flood water",
+    ),
+    "s202": (
+        "File:Hole in sidewall following car crash, vacant rowhouse with commercial storefront, 701 E. Preston Street, Baltimore, MD 21202 (49095457382).jpg",
+        "car crash hole building wall storefront",
+    ),
+    "s203": ("File:WHEELCHAIR BY POOL.jpg", "empty wheelchair object poolside"),
+    "s204": (
+        "File:Carcassonne - Rempart de la Bastide saint-Louis (le bastion Saint-Martial).jpg",
+        "Carcassonne Bastide Saint-Louis rempart",
+    ),
+    "s205": (
+        "File:Wood carving of a red squirrel - geograph.org.uk - 8290236.jpg",
+        "ornamental wood carving red squirrel",
+    ),
+    "s206": ("File:Lady Lake Town Hall01.jpg", "Lady Lake Florida town hall exterior"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
