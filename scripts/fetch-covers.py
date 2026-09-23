@@ -213,7 +213,10 @@ COVERS: dict[str, tuple[str, str]] = {
         "File:Hole in sidewall following car crash, vacant rowhouse with commercial storefront, 701 E. Preston Street, Baltimore, MD 21202 (49095457382).jpg",
         "car crash hole building wall storefront",
     ),
-    "s203": ("File:WHEELCHAIR BY POOL.jpg", "empty wheelchair object poolside"),
+    "s203": (
+        "File:HK CB new Wheelchair side top view idle Dec-2015 DSC.JPG",
+        "empty manual wheelchair object",
+    ),
     "s204": (
         "File:Carcassonne - Rempart de la Bastide saint-Louis (le bastion Saint-Martial).jpg",
         "Carcassonne Bastide Saint-Louis rempart",
