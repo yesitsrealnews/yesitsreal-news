@@ -226,6 +226,23 @@ COVERS: dict[str, tuple[str, str]] = {
         "ornamental wood carving red squirrel",
     ),
     "s206": ("File:Lady Lake Town Hall01.jpg", "Lady Lake Florida town hall exterior"),
+    # s207–s213 Pre Pub covers (Commons PD/CC photos only)
+    "s207": (
+        "File:Hole in Drax Wall, Charborough Park - geograph.org.uk - 1200346.jpg",
+        "brick wall hole exterior damage",
+    ),
+    "s208": ("File:Great Dane black male.jpg", "Great Dane dog portrait"),
+    "s209": ("File:Target Othello Avenue.jpg", "Target retail store exterior parking"),
+    "s210": ("File:Raccoon in Central Park (35264).jpg", "raccoon Procyon lotor wildlife"),
+    "s211": (
+        "File:Boat ramp at Perry Lake - USACE-p15141coll5-7800.jpeg",
+        "boat launch ramp trailer lake",
+    ),
+    "s212": ("File:Soraya Martinez Ferrada.jpg", "Montreal mayor Soraya Martinez Ferrada"),
+    "s213": (
+        "File:Manalili Street in Cebu City (2025-05-17).jpg",
+        "Cebu City street plaza Philippines",
+    ),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
