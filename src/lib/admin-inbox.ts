@@ -1,9 +1,15 @@
 import type { QueueItem } from "@/lib/types";
-import { SEED_INBOX } from "@/lib/data/queue";
 import { queueWithFrench } from "@/lib/desk-fr";
 import { publishedStories } from "@/lib/catalog";
 import { itemIsKilled } from "@/lib/rss-killed";
 import { useAppStore } from "@/lib/store";
+
+/** À relire = desk-assign Pre Pubs (+ local drafts). Never RSS / revue seeds. */
+function isDeskQueueItem(item: QueueItem): boolean {
+  const by = (item.submittedBy ?? "").trim();
+  if (by.startsWith("Veille ·")) return false;
+  return true;
+}
 
 export function useMergedInbox(): QueueItem[] {
   const inbox = useAppStore((s) => s.inbox);
@@ -20,14 +26,6 @@ export function useMergedInbox(): QueueItem[] {
       .map(([id]) => id),
   );
   const gone = new Set([...purgedIds, ...publishedExtraIds, ...live, ...killed]);
-  const alive = inbox.filter((i) => !itemIsKilled(i, gone));
-  const ids = new Set(alive.map((i) => i.id));
-  const seeds = SEED_INBOX.filter((i) => {
-    if (itemIsKilled(i, gone)) return false;
-    if (ids.has(i.id)) return false;
-    return true;
-  });
-  return [...alive, ...seeds]
-    .map(queueWithFrench)
-    .sort((a, b) => +new Date(b.submittedAt) - +new Date(a.submittedAt));
+  const alive = inbox.filter((i) => isDeskQueueItem(i) && !itemIsKilled(i, gone));
+  return alive.map(queueWithFrench).sort((a, b) => +new Date(b.submittedAt) - +new Date(a.submittedAt));
 }

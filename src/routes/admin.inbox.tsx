@@ -16,7 +16,6 @@ export const Route = createFileRoute("/admin/inbox")({ component: InboxPage });
 function InboxPage() {
   const inbox = useMergedInbox();
   const upsertInbox = useAppStore((s) => s.upsertInbox);
-  const ingestRss = useAppStore((s) => s.ingestRss);
   const rememberKilled = useAppStore((s) => s.rememberKilled);
   const publishQueueItem = useAppStore((s) => s.publishQueueItem);
   const deleteInboxItem = useAppStore((s) => s.deleteInboxItem);
@@ -31,17 +30,17 @@ function InboxPage() {
     void (async () => {
       const stored = await fetchStoredRss();
       if (cancelled || !stored) return;
+      // Kill list only — RSS pistes must not pollute À relire (desk-assign is source of truth).
       if (stored.killed.length) rememberKilled(stored.killed);
-      ingestRss(stored.items);
       if (stored.at) {
         const when = formatDateTime(stored.at, "fr");
-        setPullNote(`${stored.count} pistes RSS en cache · dernier tirage ${when}`);
+        setPullNote(`${stored.count} pistes RSS en cache (hors file) · dernier tirage ${when}`);
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, [ingestRss, rememberKilled]);
+  }, [rememberKilled]);
 
   function createPapier() {
     const item = makeQueueItem({
@@ -77,9 +76,9 @@ function InboxPage() {
         return;
       }
       if (data.killed?.length) rememberKilled(data.killed);
-      ingestRss(data.items ?? []);
+      // Persist to desk:rss-inbox only (API); do not merge into À relire.
       const fail = data.failed?.length ? ` · silencieux : ${data.failed.slice(0, 4).join(", ")}` : "";
-      setPullNote(`${data.count ?? 0} pistes sur ${data.scanned ?? "?"} flux${fail}`);
+      setPullNote(`${data.count ?? 0} pistes RSS (hors file) sur ${data.scanned ?? "?"} flux${fail}`);
     } catch {
       setPullNote("Réseau. Réessaie.");
     } finally {

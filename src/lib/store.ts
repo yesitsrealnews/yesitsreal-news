@@ -156,15 +156,10 @@ export const useAppStore = create<AppState>()(
       addSubmission: (s) => set({ submissions: [s, ...get().submissions] }),
       setInbox: (inbox) => set({ inbox }),
       mergeInboxFromServer: (items) => {
+        // desk-assign issue body is authoritative — do not keep stale local/RSS rows.
         const purged = new Set(get().purgedIds);
         const incoming = items.filter((i) => i?.id && !itemIsKilled(i, purged));
-        const incomingIds = new Set(incoming.map((i) => i.id));
-        const local = get().inbox.filter((i) => {
-          if (!i?.id || itemIsKilled(i, purged)) return false;
-          if (incomingIds.has(i.id)) return false;
-          return true;
-        });
-        set({ inbox: [...incoming, ...local] });
+        set({ inbox: incoming });
       },
       rememberKilled: (ids) => {
         const extra = ids.map((id) => id.trim()).filter(Boolean);
@@ -554,7 +549,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "yir-desk",
-      version: 15,
+      version: 16,
       migrate: (persisted) => {
         const s = (persisted ?? {}) as {
           lang?: string;

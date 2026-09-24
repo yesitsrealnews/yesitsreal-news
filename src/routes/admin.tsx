@@ -32,7 +32,6 @@ function AdminGate() {
   const hydrateFrontPage = useAppStore((s) => s.hydrateFrontPage);
   const hydratePublishedExtras = useAppStore((s) => s.hydratePublishedExtras);
   const mergeInboxFromServer = useAppStore((s) => s.mergeInboxFromServer);
-  const ingestRss = useAppStore((s) => s.ingestRss);
   const rememberKilled = useAppStore((s) => s.rememberKilled);
 
   useEffect(() => {
@@ -49,8 +48,8 @@ function AdminGate() {
           void hydratePublishedExtras();
           void fetchStoredRss().then((rss) => {
             if (!live || !rss) return;
+            // RSS hits stay in desk:rss-inbox — do not mix into À relire.
             if (rss.killed.length) rememberKilled(rss.killed);
-            if (rss.items.length) ingestRss(rss.items);
           });
           void fetch("/api/desk-assign", { credentials: "include", cache: "no-store" })
             .then((r) => r.json())
@@ -72,7 +71,7 @@ function AdminGate() {
       live = false;
     };
     // Intentionally omit purgedIds: re-running this effect after Supprimer raced the DELETE and could restore rows.
-  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, hydratePublishedExtras, mergeInboxFromServer, ingestRss, rememberKilled]);
+  }, [setAdmin, hydrateDeskStatus, hydrateFrontPage, hydratePublishedExtras, mergeInboxFromServer, rememberKilled]);
 
   if (!checked) return <div className="min-h-screen bg-paper" />;
   if (!admin) return <Navigate to="/cambuse" />;
