@@ -243,6 +243,17 @@ COVERS: dict[str, tuple[str, str]] = {
         "File:Manalili Street in Cebu City (2025-05-17).jpg",
         "Cebu City street plaza Philippines",
     ),
+    # s214–s220 Pre Pub covers (Commons PD/CC photos only)
+    "s214": ("File:Collapsed crane Zelenograd 01.jpg", "collapsed crane building damage"),
+    "s215": ("File:The Tap, Ossett - geograph.org.uk - 2163315.jpg", "The Tap pub Ossett"),
+    "s216": ("File:Coupe Icare 2014, Frankreich.JPG", "Coupe Icare paraglider costume Saint-Hilaire-du-Touvet"),
+    "s217": ("File:Wikimania 2018, Cape Town ( 1050390).jpg", "traffic light Cape Town South Africa"),
+    "s218": (
+        "File:130420-F-ZZ999-101 (15718415681).jpg",
+        "telescopic crane lifting rooftop HVAC air handling unit",
+    ),
+    "s219": ("File:HeadofEmu.jpg", "emu Dromaius novaehollandiae head"),
+    "s220": ("File:Warrenton, Virginia 17.jpg", "Warrenton Virginia Main Street"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
