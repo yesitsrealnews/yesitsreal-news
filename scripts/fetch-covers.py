@@ -12,6 +12,7 @@ news sites or jail portals for mugshots.
 """
 from __future__ import annotations
 
+import html
 import json
 import re
 import time
@@ -276,7 +277,32 @@ def api(params: dict) -> dict:
 
 def strip_html(s: str) -> str:
     s = re.sub(r"<[^>]+>", " ", s or "")
-    return re.sub(r"\s+", " ", s).strip()
+    return re.sub(r"\s+", " ", html.unescape(s)).strip()
+
+
+def clean_artist(a: str) -> str:
+    """Name only (desk rule). Mirror of cleanCreditArtist() in src/lib/covers.ts."""
+    a = re.sub(r"\s+", " ", html.unescape(a or "")).strip()
+    m = re.search(r"No machine-readable author provided\.\s*(.+?)\s+assumed", a, re.I)
+    if m:
+        a = m.group(1)
+    prefix = re.compile(r"^(?:[a-z]{2,3}:)?(?:User|Benutzer|Utilisateur|Usuario|Utente|Gebruiker):", re.I)
+    if prefix.search(a):
+        a = prefix.sub("", a).replace("_", " ")
+    a = re.sub(r"~commonswiki$", "", a, flags=re.I)
+    a = re.sub(r"\s*\((?:[a-z-]+:)?User:[^)]*\)", "", a, flags=re.I)
+    a = re.sub(r"\s*[(\[]\s*(?:talk|contribs?|discussion|diskussion|flickr)\s*[)\]]", "", a, flags=re.I)
+    a = re.sub(r"(?:\s*[·|•,-])?\s+(?:talk|contribs)$", "", a, flags=re.I)
+    a = re.sub(r"\s*\((?:https?://|www\.)[^)]*\)", "", a, flags=re.I)
+    a = re.sub(r"\s+at\s+[A-Z][a-z]+\s+Wikipedia$", "", a)
+    a = re.sub(r"\s+from\s+[A-Z][^,()\[\]]*(?:,\s*[^,()\[\]]+)*(?:\s*\[[^\]]*\])?$", "", a).strip()
+    m = re.match(r"^(.+?)\s*\(\s*(.+?)\s*\)$", a)
+    if m and m.group(1) == m.group(2):
+        a = m.group(1)
+    m = re.match(r"^([^,]+),\s*([^,]+),\s*\d{4}-(?:\d{4})?(?:,\s*photographer)?$", a, re.I)
+    if m:
+        a = f"{m.group(2)} {m.group(1)}"
+    return "" if re.match(r"^own work$", a, re.I) else a
 
 
 def info_for_title(title: str) -> dict | None:
@@ -386,7 +412,7 @@ def main() -> None:
             continue
         url = hit.get("thumburl") or hit.get("url")
         meta = hit.get("extmetadata") or {}
-        artist = strip_html(meta.get("Artist", {}).get("value", "Wikimedia Commons"))
+        artist = clean_artist(strip_html(meta.get("Artist", {}).get("value", "Wikimedia Commons"))) or "Wikimedia Commons"
         lic = strip_html(meta.get("LicenseShortName", {}).get("value", ""))
         page = "https://commons.wikimedia.org/wiki/" + urllib.parse.quote(hit["title"].replace(" ", "_"))
         try:

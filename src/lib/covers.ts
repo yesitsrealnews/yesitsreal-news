@@ -86,12 +86,38 @@ export function coverCredit(id: string): CoverCredit | undefined {
   return PHOTO_CREDITS[id];
 }
 
-/** Scraped Commons "Artist" fields can carry boilerplate — keep just the name. */
+/**
+ * Scraped Commons "Artist" fields can carry boilerplate — keep just the name.
+ * Strips: HTML entities, "( talk )" / "(talk)" / trailing "talk" link text, "(contribs)", "( Flickr )",
+ * "de:Benutzer:" / "User:" prefixes, "(www.site)" URLs, " at English Wikipedia", Flickr " from City, Country",
+ * "Name (Name)" duplicates, LoC "Last, First, 1922-2016, photographer" → "First Last".
+ * Keep scripts/fetch-covers.py clean_artist() in step.
+ */
 export function cleanCreditArtist(raw: string | undefined): string {
-  let a = (raw || "").replace(/\s+/g, " ").trim();
+  let a = (raw || "")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#0?39;|&apos;/gi, "'")
+    .replace(/&amp;/gi, "&")
+    .replace(/\s+/g, " ")
+    .trim();
   const assumed = a.match(/No machine-readable author provided\.\s*(.+?)\s+assumed/i);
   if (assumed) a = assumed[1];
-  a = a.replace(/~commonswiki$/i, "").replace(/\s*\((?:[a-z-]+:)?User:[^)]*\)/gi, "").trim();
+  const userPrefix = /^(?:[a-z]{2,3}:)?(?:User|Benutzer|Utilisateur|Usuario|Utente|Gebruiker):/i;
+  if (userPrefix.test(a)) a = a.replace(userPrefix, "").replace(/_/g, " ");
+  a = a
+    .replace(/~commonswiki$/i, "")
+    .replace(/\s*\((?:[a-z-]+:)?User:[^)]*\)/gi, "")
+    .replace(/\s*[([]\s*(?:talk|contribs?|discussion|diskussion|flickr)\s*[)\]]/gi, "")
+    .replace(/(?:\s*[·|•,-])?\s+(?:talk|contribs)$/i, "")
+    .replace(/\s*\((?:https?:\/\/|www\.)[^)]*\)/gi, "")
+    .replace(/\s+at\s+[A-Z][a-z]+\s+Wikipedia$/, "")
+    .replace(/\s+from\s+[A-Z][^,()[\]]*(?:,\s*[^,()[\]]+)*(?:\s*\[[^\]]*\])?$/, "")
+    .trim();
+  const dup = a.match(/^(.+?)\s*\(\s*(.+?)\s*\)$/);
+  if (dup && dup[1] === dup[2]) a = dup[1];
+  const loc = a.match(/^([^,]+),\s*([^,]+),\s*\d{4}-(?:\d{4})?(?:,\s*photographer)?$/i);
+  if (loc) a = `${loc[2]} ${loc[1]}`;
   if (/^own work$/i.test(a) || /^https?:\/\//i.test(a)) return "";
   return a.length > 60 ? `${a.slice(0, 57).trimEnd()}…` : a;
 }
