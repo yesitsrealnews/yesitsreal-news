@@ -81,6 +81,7 @@ function StoryEditor() {
               section={current.story.section}
               alt={hed || current.story.id}
               credit
+              linkCredit
               className="aspect-[16/10] w-full"
             />
           ) : current.leadImage ? (
@@ -93,7 +94,7 @@ function StoryEditor() {
           ) : null}
           {hasCoverPhoto(current.story.id) && coverCreditLine(current.story.id) ? (
             <p className="border-t border-rule px-3 py-2 text-xs text-ink-muted">
-              {coverCreditLine(current.story.id)} · modifiable avant Publier
+              Crédit photo imprimé sur l’image · modifiable avant Publier
             </p>
           ) : current.leadImage ? (
             <p className="border-t border-rule px-3 py-2 text-xs text-ink-muted">Visuel d’origine · source</p>

@@ -59,6 +59,16 @@ Sources licence : Wikimedia Commons (PD, CC0, CC BY, CC BY-SA) d’abord ; Unspl
 
 Fichiers : `public/covers/{id}.jpg` + entrée `src/lib/cover-credits.json` (artist, license, page). Crédit affiché sur l’image.
 
+### Crédit photo en liséré (règle Pierre)
+
+« **Cite toujours le photographe en liséré de la photo.** »
+
+- **Images libres de réutilisation uniquement** (PD, CC0, CC BY, CC BY-SA, public record / affiche de campagne aux droits clairs). Pas de licence claire → pas d’image.
+- **Photographe + licence (+ source, ex. « Wikimedia Commons »)** toujours imprimés **sur le bord de la photo elle-même** : petit texte en bas (bandeau sombre semi-transparent), lisible, qui ne couvre pas le sujet. Jamais seulement en dessous, jamais seulement sur une page crédits.
+- Site : c’est `StoryCover` qui l’imprime (`<figure>` + `<figcaption>` en surimpression) — pleine ligne sur la page article (lien vers la page source), la une de l’accueil, « Aujourd’hui » et Cambuse Relire ; version courte « © Auteur · CC BY-SA » sur les cartes. Seules les vignettes minuscules (< ~200 px, ex. boîte de réception Cambuse) peuvent s’en passer.
+- `artist` dans `cover-credits.json` = **le nom seul** (pas « Own work », pas d’URL, pas le baratin Commons). Si Commons dit « Own work », mettre l’auteur / l’uploader.
+- **Vidéos et visuels réseaux sociaux** (X, Reels, Shorts, cartes citation, vignettes) : même règle — nom du photographe + licence incrustés sur le bord de l’image, pas seulement dans le texte du post.
+
 Script : `python3 scripts/fetch-covers.py`
 
 Sans **vraie photo** jpg + crédit → **on ne pousse pas**.

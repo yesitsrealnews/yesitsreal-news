@@ -89,6 +89,7 @@ export function ArticleBody({
           remote={story.coverUrl}
           priority
           credit
+          linkCredit
           sizes="(min-width: 768px) 768px, 100vw"
         />
         <span className="absolute left-3 top-4">

@@ -69,21 +69,66 @@ export function coverCredit(id: string): CoverCredit | undefined {
   return PHOTO_CREDITS[id];
 }
 
-export function coverCreditLine(id: string): string | undefined {
+/** Scraped Commons "Artist" fields can carry boilerplate — keep just the name. */
+export function cleanCreditArtist(raw: string | undefined): string {
+  let a = (raw || "").replace(/\s+/g, " ").trim();
+  const assumed = a.match(/No machine-readable author provided\.\s*(.+?)\s+assumed/i);
+  if (assumed) a = assumed[1];
+  a = a.replace(/~commonswiki$/i, "").replace(/\s*\((?:[a-z-]+:)?User:[^)]*\)/gi, "").trim();
+  if (/^own work$/i.test(a) || /^https?:\/\//i.test(a)) return "";
+  return a.length > 60 ? `${a.slice(0, 57).trimEnd()}…` : a;
+}
+
+/** Human label of where the photo lives (Wikimedia Commons, Flickr, agency site…). */
+export function creditSourceLabel(page: string | undefined): string | undefined {
+  if (!page) return undefined;
+  try {
+    const host = new URL(page).hostname.replace(/^www\./, "");
+    if (host.endsWith("wikimedia.org") || host.endsWith("wikipedia.org")) return "Wikimedia Commons";
+    if (host.endsWith("flickr.com")) return "Flickr";
+    if (host.endsWith("unsplash.com")) return "Unsplash";
+    if (host.endsWith("pexels.com")) return "Pexels";
+    return host;
+  } catch {
+    return undefined;
+  }
+}
+
+/** Short licence tag for compact credits: "CC BY-SA 4.0" → "CC BY-SA". */
+function shortLicense(l: string): string {
+  return l.replace(/^(CC (?:BY(?:-SA)?|0))\s+[\d.]+(?:\s+\w+)?$/i, "$1");
+}
+
+/**
+ * Credit printed on the edge of the photo (desk rule: photographer + licence + source, always).
+ * `compact` = "© Author · CC BY-SA" for small cards.
+ */
+export function coverCreditLine(id: string, variant: "full" | "compact" = "full"): string | undefined {
   const c = PHOTO_CREDITS[id];
   if (!c) return undefined;
+  const artist = cleanCreditArtist(c.artist);
+  let who: string;
+  let lic: string;
+  let tail: string | undefined;
   if (c.kind === "mugshot") {
-    const who = c.artist || "Agency";
-    const lic = c.license || "Public record";
-    return `${who} · ${lic} · booking photo`;
+    who = artist || "Agency";
+    lic = c.license || "Public record";
+    tail = "booking photo";
+  } else if (c.kind === "campaign-poster") {
+    who = artist || "Campaign";
+    lic = c.license || "Campaign material";
+    tail = "campaign poster";
+  } else {
+    who = artist || "Wikimedia Commons";
+    lic = c.license || "";
+    tail = creditSourceLabel(c.page);
+    if (tail && tail === who) tail = undefined;
   }
-  if (c.kind === "campaign-poster") {
-    const who = c.artist || "Campaign";
-    const lic = c.license || "Campaign material";
-    return `${who} · ${lic} · campaign poster`;
+  if (variant === "compact") {
+    const sign = /public domain|cc0|public record/i.test(lic) ? "" : "© ";
+    return [`${sign}${who}`, shortLicense(lic)].filter(Boolean).join(" · ");
   }
-  const who = c.artist || "Wikimedia Commons";
-  return `${who} · ${c.license} · Wikimedia`;
+  return [who, lic, tail].filter(Boolean).join(" · ");
 }
 
 export const SECTION_INK: Record<SectionId, { a: string; b: string; c: string }> = {
