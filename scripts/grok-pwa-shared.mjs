@@ -375,6 +375,18 @@ export function grokOgHeadTags({
   return tags;
 }
 
+/** Share-card keys (og:image, twitter:title…) the document already declares itself. */
+export function pageShareMetaKeys(html) {
+  const keys = new Set();
+  for (const tag of String(html).match(/<meta\b[^>]*>/gi) ?? []) {
+    for (const match of tag.matchAll(/\b(?:property|name)\s*=\s*["']([^"']+)["']/gi)) {
+      const key = String(match[1]).toLowerCase();
+      if (SHARE_META_KEYS.has(key)) keys.add(key);
+    }
+  }
+  return keys;
+}
+
 export function stripShareMetaTags(html) {
   return String(html).replace(/<meta\b[^>]*>/gi, (tag) => {
     const attrs = [...tag.matchAll(/\b(?:property|name)\s*=\s*["']([^"']+)["']/gi)];
@@ -432,7 +444,11 @@ export function injectGrokPwaHead(html, ctx = {}) {
     host,
     documentTitle,
   );
-  let next = stripShareMetaTags(html);
+  // A page that sets its own og:image (e.g. an article's cover with the photo credit burned in)
+  // owns its share card: keep its metas, only fill keys it left out. Otherwise platform overwrite.
+  const pageKeys = pageShareMetaKeys(html);
+  const pageOwnsCard = pageKeys.has("og:image");
+  let next = pageOwnsCard ? html : stripShareMetaTags(html);
 
   const missing = grokPwaHeadTags(appName)
     .filter(([key]) => {
@@ -442,10 +458,12 @@ export function injectGrokPwaHead(html, ctx = {}) {
     })
     .map(([, tag]) => tag);
 
-  next = insertAfterHeadOpen(
-    next,
-    grokOgHeadTags({ host, appName, site, documentTitle, cwd }).join(""),
-  );
+  const ogTags = grokOgHeadTags({ host, appName, site, documentTitle, cwd }).filter((tag) => {
+    if (!pageOwnsCard) return true;
+    const key = tag.match(/\b(?:property|name)="([^"]+)"/)?.[1]?.toLowerCase();
+    return !key || !pageKeys.has(key);
+  });
+  next = insertAfterHeadOpen(next, ogTags.join(""));
 
   if (!next.includes("/grok-app-builder/extensions.js")) {
     missing.push(...grokExtensionsHeadTags(projectId));

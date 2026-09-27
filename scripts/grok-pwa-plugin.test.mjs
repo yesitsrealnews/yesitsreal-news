@@ -115,6 +115,21 @@ test("platform chrome overwrites share-card metas and always sets og:title", () 
   assert.doesNotMatch(out, /property="og:image"/);
 });
 
+test("a page that sets its own og:image keeps its share card; platform fills only missing keys", () => {
+  const html =
+    '<html><head><title>Story — Site</title><meta property="og:title" content="Story"><meta property="og:image" content="https://www.yesitsreal.news/og/s1.jpg?v=abc"><meta name="twitter:image" content="https://www.yesitsreal.news/og/s1.jpg?v=abc"><meta name="twitter:card" content="summary_large_image"></head></html>';
+  const ctx = { host: "www.yesitsreal.news", site: { title: "Site", card: "custom", image: "/og.jpg" } };
+  const out = injectGrokPwaHead(html, ctx);
+  assert.match(out, /property="og:image" content="https:\/\/www\.yesitsreal\.news\/og\/s1\.jpg\?v=abc"/);
+  assert.match(out, /property="og:title" content="Story"/);
+  assert.equal(out.split('property="og:image"').length - 1, 1);
+  assert.equal(out.split('property="og:title"').length - 1, 1);
+  assert.equal(out.split('name="twitter:card"').length - 1, 1);
+  assert.doesNotMatch(out, /\/og\.jpg"/);
+  assert.match(out, /property="og:image:width" content="1200"/);
+  assert.equal(injectGrokPwaHead(out, ctx), out);
+});
+
 test("does not duplicate twitter:card or og:title", () => {
   const once = injectGrokPwaHead("<html><head><title>Hello World</title></head></html>");
   const twice = injectGrokPwaHead(once);
