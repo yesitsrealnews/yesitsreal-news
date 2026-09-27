@@ -1,6 +1,7 @@
 /** Desk rule: every published story must have PHOTO_CREDITS + /covers/{id}.jpg (Commons/CC or cleared mugshot). No painted placeholder on the live site. */
 import type { SectionId } from "./types";
 import credits from "./cover-credits.json";
+import ogImages from "./og-images.json";
 
 export type CoverCredit = {
   file: string;
@@ -29,6 +30,17 @@ export function hasCoverPhoto(id: string): boolean {
 export function coverSrc(id: string): string | undefined {
   if (!PHOTO_CREDITS[id]) return undefined;
   return `/covers/${id}.jpg`;
+}
+
+/**
+ * Share visual (og:image / twitter:image): /og/{id}.jpg = the cover at 1200×630 with the credit line
+ * burned into the bottom edge (scripts/make-og-images.mjs, run by `npm run build`). `?v=` busts social
+ * caches when the photo or credit changes. Undefined when not generated → caller falls back to /og.jpg.
+ */
+export function coverShareSrc(id: string): string | undefined {
+  const v = (ogImages as Record<string, string>)[id];
+  if (!PHOTO_CREDITS[id] || !v) return undefined;
+  return `/og/${id}.jpg?v=${v}`;
 }
 
 /** Display URL — WebP on the Vercel CDN after the build step. */

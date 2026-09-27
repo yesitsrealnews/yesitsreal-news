@@ -8,7 +8,7 @@ import { useAppStore } from "@/lib/store";
 import { storyCopy } from "@/lib/format";
 import { articleJsonLd, breadcrumbJsonLd, storyCanonical, storySeoCopy } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
-import { coverDisplaySrc, coverSizes, coverSrc, coverSrcSet, storyCoverId } from "@/lib/covers";
+import { coverDisplaySrc, coverShareSrc, coverSizes, coverSrcSet, storyCoverId } from "@/lib/covers";
 
 export const Route = createFileRoute("/story/$slug")({
   loader: async ({ params }) => {
@@ -22,8 +22,9 @@ export const Route = createFileRoute("/story/$slug")({
     if (!story) return {};
     const c = storySeoCopy(story);
     const coverKey = storyCoverId(story);
-    const img = coverSrc(coverKey);
-    const ogImg = img?.startsWith("http") ? img : `${SITE_URL}${img || "/og.jpg"}`;
+    // Desk rule: share visual = the story's own photo with photographer + licence burned into the edge.
+    const share = coverShareSrc(coverKey);
+    const ogImg = `${SITE_URL}${share || "/og.jpg"}`;
     const url = storyCanonical(story, params.slug);
     const enUrl = `${SITE_URL}/story/${story.slug}`;
     const frUrl = story.slugs.fr ? `${SITE_URL}/story/${story.slugs.fr}` : enUrl;
@@ -42,6 +43,9 @@ export const Route = createFileRoute("/story/$slug")({
         { property: "og:description", content: c.dek },
         { property: "og:url", content: url },
         { property: "og:image", content: ogImg },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { property: "og:image:type", content: "image/jpeg" },
         { property: "og:image:alt", content: c.headline },
         { property: "og:locale", content: "fr_FR" },
         { property: "article:published_time", content: story.publishedAt },
@@ -51,6 +55,7 @@ export const Route = createFileRoute("/story/$slug")({
         { name: "twitter:title", content: c.headline },
         { name: "twitter:description", content: c.dek },
         { name: "twitter:image", content: ogImg },
+        { name: "twitter:image:alt", content: c.headline },
       ],
       links: [
         { rel: "canonical", href: url },

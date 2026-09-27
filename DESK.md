@@ -73,6 +73,8 @@ Fichiers : `public/covers/{id}.jpg` + entrée `src/lib/cover-credits.json` (arti
 
 Script : `python3 scripts/fetch-covers.py`
 
+**Visuel de partage (og:image / twitter:image).** Chaque papier partage **sa propre cover** : `public/og/{id}.jpg` (1200×630, crédit « Auteur · Licence · Source » incrusté dans un bandeau sombre en bas, petit logo en haut à gauche), généré par `npm run og:images` (`scripts/make-og-images.mjs`, aussi lancé par `npm run build`) à partir de `cover-credits.json` + `covers/{id}.jpg`. Après avoir ajouté/changé une cover ou un crédit : lancer `npm run og:images` et committer `public/og/` + `src/lib/og-images.json`. La page article passe par `storyCoverId()` → `coverShareSrc()` ; `/og.jpg` seulement sans cover.
+
 Sans **vraie photo** jpg + crédit → **on ne pousse pas**.
 
 ## Mugshots / photos d’identité judiciaire
