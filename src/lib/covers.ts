@@ -16,6 +16,11 @@ export const PHOTO_CREDITS = credits as Record<string, CoverCredit>;
 export const COVER_WIDTH = 960;
 export const COVER_HEIGHT = 720;
 
+/** Cover key for a story: its explicit `coverId` (Pre Pub photo carried over at Publier) when that file exists, else its own id. */
+export function storyCoverId(story: { id: string; coverId?: string }): string {
+  return story.coverId && PHOTO_CREDITS[story.coverId] ? story.coverId : story.id;
+}
+
 export function hasCoverPhoto(id: string): boolean {
   return Boolean(PHOTO_CREDITS[id]);
 }

@@ -59,6 +59,8 @@ Sources licence : Wikimedia Commons (PD, CC0, CC BY, CC BY-SA) d’abord ; Unspl
 
 Fichiers : `public/covers/{id}.jpg` + entrée `src/lib/cover-credits.json` (artist, license, page). Crédit affiché sur l’image.
 
+**Ids & covers (Pre Pub → Publier).** La cover est rangée sous l’id Pre Pub (`covers/{id}.*`). Publier garde cet id ; s’il est déjà pris par un autre papier en ligne, le papier reçoit un nouvel id et `coverId: "<id Pre Pub>"` dans `desk:published` (#7) — la photo suit le papier, jamais le numéro. Nouvel id Pre Pub = **max + 1** sur : `cover-credits.json`, catalogue, `desk:assignments` (#6), `desk:published` (#7) **et** `desk:story-status` (#2). Ne jamais réutiliser un id déjà en ligne.
+
 ### Crédit photo en liséré (règle Pierre)
 
 « **Cite toujours le photographe en liséré de la photo.** »

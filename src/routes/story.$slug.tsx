@@ -8,7 +8,7 @@ import { useAppStore } from "@/lib/store";
 import { storyCopy } from "@/lib/format";
 import { articleJsonLd, breadcrumbJsonLd, storyCanonical, storySeoCopy } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
-import { coverDisplaySrc, coverSizes, coverSrc, coverSrcSet } from "@/lib/covers";
+import { coverDisplaySrc, coverSizes, coverSrc, coverSrcSet, storyCoverId } from "@/lib/covers";
 
 export const Route = createFileRoute("/story/$slug")({
   loader: async ({ params }) => {
@@ -21,7 +21,8 @@ export const Route = createFileRoute("/story/$slug")({
     const story = loaderData?.story;
     if (!story) return {};
     const c = storySeoCopy(story);
-    const img = coverSrc(story.id);
+    const coverKey = storyCoverId(story);
+    const img = coverSrc(coverKey);
     const ogImg = img?.startsWith("http") ? img : `${SITE_URL}${img || "/og.jpg"}`;
     const url = storyCanonical(story, params.slug);
     const enUrl = `${SITE_URL}/story/${story.slug}`;
@@ -56,14 +57,14 @@ export const Route = createFileRoute("/story/$slug")({
         { rel: "alternate", hrefLang: "fr", href: frUrl },
         { rel: "alternate", hrefLang: "en", href: enUrl },
         { rel: "alternate", hrefLang: "x-default", href: frUrl },
-        ...(coverDisplaySrc(story.id)
+        ...(coverDisplaySrc(coverKey)
           ? [
               {
                 rel: "preload",
                 as: "image",
-                href: coverDisplaySrc(story.id)!,
+                href: coverDisplaySrc(coverKey)!,
                 type: "image/webp",
-                imageSrcSet: coverSrcSet(story.id, "webp"),
+                imageSrcSet: coverSrcSet(coverKey, "webp"),
                 imageSizes: coverSizes("article"),
                 fetchPriority: "high" as const,
               },

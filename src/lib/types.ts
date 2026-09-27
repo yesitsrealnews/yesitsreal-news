@@ -109,6 +109,8 @@ export interface Story {
   rejectReason?: string;
   /** Remote source photo when we have no Commons file. Honest credit, never a generated fake. */
   coverUrl?: string;
+  /** Key of the cover file/credit (`public/covers/{coverId}.*`) when it differs from `id` — e.g. the Pre Pub id the photo was prepared under. */
+  coverId?: string;
   copy: Partial<Record<Lang, StoryCopy>> & { en: StoryCopy };
 }
 

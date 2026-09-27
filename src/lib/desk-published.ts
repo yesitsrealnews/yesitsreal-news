@@ -1,4 +1,5 @@
 import { commentsToken } from "@/lib/comments-github";
+import { PHOTO_CREDITS } from "@/lib/covers";
 import { STORIES, isCatalogId, isCatalogSourceUrl } from "@/lib/data/stories";
 import { polishPublishedStory } from "@/lib/publish-copy";
 import { isSafeHttpUrl } from "@/lib/security";
@@ -113,6 +114,7 @@ export function sanitizeDeskStory(raw: unknown): Story | null {
     sensitivity: s.sensitivity === "death" ? "death" : "none",
     copy,
     ...(typeof s.coverUrl === "string" && isSafeHttpUrl(s.coverUrl) ? { coverUrl: s.coverUrl.slice(0, 400) } : {}),
+    ...(typeof s.coverId === "string" && /^s\d+$/.test(s.coverId) ? { coverId: s.coverId } : {}),
   };
   return polishPublishedStory(built);
 }
@@ -187,8 +189,13 @@ async function findOrCreateIssue(token: string): Promise<GhIssue | null> {
   return created.data;
 }
 
+/** Next free sNNN: above the catalog, the given lists (published, desk status, Pre Pubs) and every id that already owns a cover file. */
 export function nextStoryId(...idLists: string[][]): string {
   let max = 0;
+  for (const id of Object.keys(PHOTO_CREDITS)) {
+    const n = Number(/^s(\d+)$/.exec(id)?.[1] || 0);
+    if (n > max) max = n;
+  }
   for (const s of STORIES) {
     const n = Number(/^s(\d+)$/.exec(s.id)?.[1] || 0);
     if (n > max) max = n;

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { STORIES } from "@/lib/data/stories";
-import { removeAssignment } from "@/lib/desk-assign-store";
+import { getStoredAssignments, removeAssignment } from "@/lib/desk-assign-store";
+import { hasCoverPhoto } from "@/lib/covers";
 import { killRssHits } from "@/lib/rss-store";
 import { deskTokenOk, readDeskCookie } from "@/lib/desk-auth.server";
 import { pinFrontPageId } from "@/lib/desk-front-page";
@@ -51,14 +52,25 @@ export const Route = createFileRoute("/api/publish")({
           updatedAt: new Date().toISOString(),
         };
 
-        const known = isCatalogStory(story.id) || extras.some((s) => s.id === story.id);
-        if (!/^s\d+$/.test(story.id) || !known) {
+        // Keep the Pre Pub id (its cover lives at covers/{id}.*). Only re-number when the id is not an sNNN
+        // or already belongs to a DIFFERENT live story — and then carry the Pre Pub photo over via coverId.
+        const sameStory = (s: Story) =>
+          s.id === story.id &&
+          (s.slug === story.slug || s.sources.some((x) => story.sources.some((y) => y.url === x.url)));
+        const republished = extras.find(sameStory);
+        const takenByOther =
+          !republished && (extras.some((s) => s.id === story.id) || statusMap[story.id] === "published");
+        if (republished && !story.coverId && republished.coverId) story = { ...story, coverId: republished.coverId };
+        if (!/^s\d+$/.test(story.id) || (!isCatalogStory(story.id) && takenByOther)) {
+          const prePubs = await getStoredAssignments(true).catch(() => ({ items: [] as { story: Story }[] }));
           story = {
             ...story,
             id: nextStoryId(
               extras.map((s) => s.id),
               Object.keys(statusMap),
+              prePubs.items.map((i) => i.story.id),
             ),
+            ...(!story.coverId && hasCoverPhoto(incoming.id) ? { coverId: incoming.id } : {}),
           };
         }
 

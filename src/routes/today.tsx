@@ -4,6 +4,7 @@ import { ShareBar } from "@/components/site/share-bar";
 import { QuoteCardButton } from "@/components/stories/quote-card";
 import { StoryCard } from "@/components/stories/story-card";
 import { StoryCover } from "@/components/stories/cover";
+import { storyCoverId } from "@/lib/covers";
 import { Newsletter } from "@/components/site/newsletter";
 import { t } from "@/lib/i18n";
 import { useAppStore } from "@/lib/store";
@@ -63,7 +64,7 @@ function TodayPage() {
               params={{ slug: storySlug(lead, lang) }}
               className="photo-frame relative mb-5 block aspect-[16/9]"
             >
-              <StoryCover id={lead.id} section={lead.section} alt={storyCopy(lead, lang).headline} remote={lead.coverUrl} priority sizes="(min-width: 768px) 768px, 100vw" />
+              <StoryCover id={storyCoverId(lead)} section={lead.section} alt={storyCopy(lead, lang).headline} remote={lead.coverUrl} priority sizes="(min-width: 768px) 768px, 100vw" />
             </Link>
             <h2 className="mt-3 font-serif text-4xl leading-[0.95]">
               <Link to="/story/$slug" params={{ slug: storySlug(lead, lang) }}>

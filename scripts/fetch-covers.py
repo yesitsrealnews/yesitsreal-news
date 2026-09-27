@@ -243,8 +243,7 @@ COVERS: dict[str, tuple[str, str]] = {
         "File:Manalili Street in Cebu City (2025-05-17).jpg",
         "Cebu City street plaza Philippines",
     ),
-    # s214–s220 Pre Pub covers (Commons PD/CC photos only)
-    "s214": ("File:Collapsed crane Zelenograd 01.jpg", "collapsed crane building damage"),
+    # s215–s220 Pre Pub covers (Commons PD/CC photos only) — Fort Lauderdale cranes re-keyed s214 → s228 (s214 = live RSS story)
     "s215": ("File:The Tap, Ossett - geograph.org.uk - 2163315.jpg", "The Tap pub Ossett"),
     "s216": ("File:Coupe Icare 2014, Frankreich.JPG", "Coupe Icare paraglider costume Saint-Hilaire-du-Touvet"),
     "s217": ("File:Wikimania 2018, Cape Town ( 1050390).jpg", "traffic light Cape Town South Africa"),
@@ -262,6 +261,7 @@ COVERS: dict[str, tuple[str, str]] = {
     "s225": ("File:Arrowe Park Hospital, Wirral (1).JPG", "Arrowe Park Hospital Wirral"),
     "s226": ("File:20170316 Michael Raml M77 1.jpg", "Michael Raml FPÖ Linz"),
     "s227": ("File:Tiny House (29426649064).jpg", "tiny house on wheels trailer"),
+    "s228": ("File:Collapsed crane Zelenograd 01.jpg", "collapsed crane building damage"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")

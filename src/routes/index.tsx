@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/site/json-ld";
 import { useAppStore } from "@/lib/store";
 import { itemListJsonLd, orgJsonLd, SEO_FR, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
-import { coverDisplaySrc, coverSizes, coverSrcSet } from "@/lib/covers";
+import { coverDisplaySrc, coverSizes, coverSrcSet, storyCoverId } from "@/lib/covers";
 import { composePublicHome, mergeExtras, overlayDesk, overlaySponsored } from "@/lib/public-feed";
 import { loadHomeFeed } from "@/lib/public-feed-rpc";
 import { useLiveHome } from "@/lib/use-live-home";
@@ -15,7 +15,8 @@ export const Route = createFileRoute("/")({
   loader: async () => loadHomeFeed(),
   component: Home,
   head: ({ loaderData }) => {
-    const heroId = loaderData?.latest?.[0]?.id;
+    const hero = loaderData?.latest?.[0];
+    const heroId = hero ? storyCoverId(hero) : undefined;
     const heroWebp = heroId ? coverDisplaySrc(heroId) : undefined;
     return {
     meta: [

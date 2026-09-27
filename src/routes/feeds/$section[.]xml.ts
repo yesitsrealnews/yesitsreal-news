@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { isPublicSectionId, canonicalSection } from "@/lib/data/sections";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
-import { coverSrc } from "@/lib/covers";
+import { coverSrc, storyCoverId } from "@/lib/covers";
 import { xmlEscape, storySeoCopy } from "@/lib/seo";
 import { loadPublicDesk } from "@/lib/desk-public";
 import { inSection } from "@/lib/catalog";
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/feeds/$section.xml")({
           .map((s) => {
             const c = storySeoCopy(s);
             const slug = s.slugs.fr || s.slug;
-            const img = coverSrc(s.id);
+            const img = coverSrc(storyCoverId(s));
             const enclosure = img
               ? `<enclosure url="${xmlEscape(img.startsWith("http") ? img : SITE_URL + img)}" type="image/jpeg" />`
               : "";

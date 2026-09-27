@@ -7,6 +7,7 @@ import { flagEmoji, formatDate, storyCopy, storySlug } from "@/lib/format";
 import { storySharePath } from "@/lib/viral";
 import { StoryCard } from "@/components/stories/story-card";
 import { StoryCover } from "@/components/stories/cover";
+import { storyCoverId } from "@/lib/covers";
 import { Newsletter } from "@/components/site/newsletter";
 import { AdSlot } from "@/components/site/ad-slot";
 import { SocialRail } from "@/components/site/social-rail";
@@ -81,7 +82,7 @@ export function HomePage({
           params={{ slug: heroSlug }}
           className="photo-frame relative block aspect-[16/10] lg:col-span-7 lg:aspect-auto lg:min-h-[28rem]"
         >
-          <StoryCover id={hero.id} section={hero.section} alt={heroCopy.headline} remote={hero.coverUrl} priority sizes="(min-width: 1024px) 60vw, 100vw" className="h-full w-full" />
+          <StoryCover id={storyCoverId(hero)} section={hero.section} alt={heroCopy.headline} remote={hero.coverUrl} priority sizes="(min-width: 1024px) 60vw, 100vw" className="h-full w-full" />
           <span className="absolute left-3 top-4 flex flex-wrap gap-2">
             {hero.breaking ? <TrueStamp tone="signal">{t(lang, "breaking")}</TrueStamp> : null}
             <TrueStamp>{t(lang, "truePill")}</TrueStamp>

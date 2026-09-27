@@ -11,6 +11,7 @@ import { AdSlot } from "@/components/site/ad-slot";
 import { ShareBar } from "@/components/site/share-bar";
 import { StoryCard } from "@/components/stories/story-card";
 import { StoryCover } from "@/components/stories/cover";
+import { storyCoverId } from "@/lib/covers";
 import { QuoteCardButton } from "@/components/stories/quote-card";
 import { ReactionBar } from "@/components/stories/reactions";
 import { ReaderComments } from "@/components/stories/reader-comments";
@@ -83,7 +84,7 @@ export function ArticleBody({
 
       <div className="photo-frame relative my-6 aspect-[16/9]">
         <StoryCover
-          id={story.id}
+          id={storyCoverId(story)}
           section={story.section}
           alt={copy.headline}
           remote={story.coverUrl}

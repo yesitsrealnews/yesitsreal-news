@@ -1,5 +1,5 @@
 import { SITE_NAME, SITE_URL, SOCIAL } from "@/lib/brand";
-import { coverSrc } from "@/lib/covers";
+import { coverSrc, storyCoverId } from "@/lib/covers";
 import type { Story } from "@/lib/types";
 import { getStoryVideo } from "@/lib/videos";
 
@@ -119,7 +119,7 @@ export function breadcrumbJsonLd(story: Story) {
 
 export function articleJsonLd(story: Story, slug?: string) {
   const c = storySeoCopy(story);
-  const img = coverSrc(story.id);
+  const img = coverSrc(storyCoverId(story));
   const image = img ? (img.startsWith("http") ? img : `${SITE_URL}${img}`) : `${SITE_URL}/og.jpg`;
   const tape = videoObject(story.id);
   return {

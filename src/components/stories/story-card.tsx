@@ -5,6 +5,7 @@ import { publicDesk } from "@/lib/desk-origin";
 import { flagEmoji, storyCopy, storySlug } from "@/lib/format";
 import { SourceProof } from "@/components/stories/source-proof";
 import { StoryCover } from "@/components/stories/cover";
+import { storyCoverId } from "@/lib/covers";
 import { Badge } from "@/components/ui/badge";
 import { TrueStamp } from "@/components/site/true-stamp";
 import { cn } from "@/lib/utils";
@@ -37,7 +38,7 @@ export function StoryCard({
           )}
         >
           <StoryCover
-            id={story.id}
+            id={storyCoverId(story)}
             section={story.section}
             alt={copy.headline}
             remote={story.coverUrl}

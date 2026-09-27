@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { publishedStories } from "@/lib/catalog";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
-import { coverSrc } from "@/lib/covers";
+import { coverSrc, storyCoverId } from "@/lib/covers";
 import { xmlEscape } from "@/lib/seo";
 import { loadPublicDesk } from "@/lib/desk-public";
 
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/rss-en.xml")({
         const items = publishedStories(extras, desk)
           .map((s) => {
             const c = s.copy.en;
-            const img = coverSrc(s.id);
+            const img = coverSrc(storyCoverId(s));
             const enclosure = img
               ? `<enclosure url="${xmlEscape(img.startsWith("http") ? img : SITE_URL + img)}" type="image/jpeg" />`
               : "";

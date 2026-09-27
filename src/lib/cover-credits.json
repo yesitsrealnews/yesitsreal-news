@@ -1182,12 +1182,6 @@
     "license": "CC BY 4.0",
     "page": "https://commons.wikimedia.org/wiki/File%3AManalili_Street_in_Cebu_City_%282025-05-17%29.jpg"
   },
-  "s214": {
-    "file": "File:Collapsed crane Zelenograd 01.jpg",
-    "artist": "Perituss",
-    "license": "CC0",
-    "page": "https://commons.wikimedia.org/wiki/File%3ACollapsed_crane_Zelenograd_01.jpg"
-  },
   "s215": {
     "file": "File:The Tap, Ossett - geograph.org.uk - 2163315.jpg",
     "artist": "Alex McGregor",
@@ -1265,5 +1259,11 @@
     "artist": "Paul VanDerWerf from Brunswick, Maine, USA",
     "license": "CC BY 2.0",
     "page": "https://commons.wikimedia.org/wiki/File%3ATiny_House_%2829426649064%29.jpg"
+  },
+  "s228": {
+    "file": "File:Collapsed crane Zelenograd 01.jpg",
+    "artist": "Perituss",
+    "license": "CC0",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACollapsed_crane_Zelenograd_01.jpg"
   }
 }
