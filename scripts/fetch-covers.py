@@ -254,6 +254,14 @@ COVERS: dict[str, tuple[str, str]] = {
     ),
     "s219": ("File:HeadofEmu.jpg", "emu Dromaius novaehollandiae head"),
     "s220": ("File:Warrenton, Virginia 17.jpg", "Warrenton Virginia Main Street"),
+    # s221–s227 Pre Pub covers (Commons PD/CC photos only)
+    "s221": ("File:CCTV camera in Poland (1).jpg", "wall mounted CCTV security camera"),
+    "s222": ("File:Rhesus Macaque with bottle, Agra, India.jpg", "rhesus macaque bottle India"),
+    "s223": ("File:Macaca fascicularis 482606028.jpg", "long-tailed macaque Singapore"),
+    "s224": ("File:Ocho Boston Terrier.jpg", "Boston Terrier dog"),
+    "s225": ("File:Arrowe Park Hospital, Wirral (1).JPG", "Arrowe Park Hospital Wirral"),
+    "s226": ("File:20170316 Michael Raml M77 1.jpg", "Michael Raml FPÖ Linz"),
+    "s227": ("File:Tiny House (29426649064).jpg", "tiny house on wheels trailer"),
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
