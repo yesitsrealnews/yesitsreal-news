@@ -269,6 +269,14 @@ COVERS: dict[str, tuple[str, str]] = {
     "s231": ("File:Swan Support Animal Ambulance - 55465882653.jpg", "animal ambulance United Kingdom"),
     "s232": ("File:Red curb - Arlington, MA.jpg", "badly painted curb"),
     "s235": ("File:Night Sky Above Dunes and Cleveland Peak (26507963410).jpg", "Colorado night sky"),
+    # s236–s242 Pre Pub covers (Commons PD/CC photos, licence checked on each file page)
+    "s236": ("File:Innsbruck-Helicopter Robinson R44 Raven II-02ASD.jpg", "Robinson R44 helicopter Austria"),
+    "s237": ("File:Hollywood Sign (Zuschnitt).jpg", "Hollywood Sign"),
+    "s238": ("File:Koi carp; March 2009.jpg", "koi carp"),
+    "s239": ("File:Marmande - hôpital - boîte à livres.jpg", "Marmande hospital"),
+    "s240": ("File:Tudigong-beitou-puding-3.jpg", "Tudigong shrine Taipei"),
+    "s241": ("File:Matlock - County Offices frontage.jpg", "County Hall Matlock Derbyshire"),
+    "s242": ("File:Camper van parked in the street, Vieux-Limoilou.jpg", "camper van parked street"),
 }
 
 # Non-Commons free photos (Flickr CC BY / CC BY-SA, Pexels, Pixabay…): direct file URL + credit
@@ -295,6 +303,8 @@ EXTERNAL: dict[str, dict[str, str]] = {
 # (name taken from the file description, e.g. "NPS/Patrick Myers").
 ARTIST_OVERRIDE: dict[str, str] = {
     "s235": "Patrick Myers (NPS)",
+    "s237": "Thomas Wolf",  # Commons: "Thomas Wolf , www.foto-tw.de"
+    "s238": "Bernard Spragg",  # Commons: "Bernard Spragg. NZ"
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
