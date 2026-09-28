@@ -263,6 +263,38 @@ COVERS: dict[str, tuple[str, str]] = {
     "s226": ("File:20170316 Michael Raml M77 1.jpg", "Michael Raml FPÖ Linz"),
     "s227": ("File:Tiny House (29426649064).jpg", "tiny house on wheels trailer"),
     "s228": ("File:Collapsed crane Zelenograd 01.jpg", "collapsed crane building damage"),
+    # s229–s235 Pre Pub covers (Commons PD/CC photos; s233/s234 from Flickr CC, see EXTERNAL)
+    "s229": ("File:Pile of sand by the soccer fields at Brastad Arena.jpg", "pile of sand"),
+    "s230": ("File:Funny goat.jpg", "funny goat"),
+    "s231": ("File:Swan Support Animal Ambulance - 55465882653.jpg", "animal ambulance United Kingdom"),
+    "s232": ("File:Red curb - Arlington, MA.jpg", "badly painted curb"),
+    "s235": ("File:Night Sky Above Dunes and Cleveland Peak (26507963410).jpg", "Colorado night sky"),
+}
+
+# Non-Commons free photos (Flickr CC BY / CC BY-SA, Pexels, Pixabay…): direct file URL + credit
+# checked by hand on the ORIGINAL page (Flickr page JSON "license": 4 = CC BY 2.0, 5 = CC BY-SA 2.0).
+# `artist` = the photographer's name only (desk rule), `page` = the original photo page.
+EXTERNAL: dict[str, dict[str, str]] = {
+    "s233": {
+        "url": "https://live.staticflickr.com/1307/1305406591_63788bcc47_o.jpg",
+        "file": "Flickr 1305406591 — Bear (chainsaw carving)",
+        "artist": "jimjarmo",
+        "license": "CC BY-SA 2.0",
+        "page": "https://www.flickr.com/photos/10846528@N05/1305406591/",
+    },
+    "s234": {
+        "url": "https://live.staticflickr.com/5264/5579852238_3cedd0cf37_k.jpg",
+        "file": "Flickr 5579852238 — Nice bit of bokeh in there. ODC - Metallic",
+        "artist": "Jase Curtis",
+        "license": "CC BY 2.0",
+        "page": "https://www.flickr.com/photos/25722571@N08/5579852238/",
+    },
+}
+
+# Commons files whose Artist field names an institution/account, not the photographer
+# (name taken from the file description, e.g. "NPS/Patrick Myers").
+ARTIST_OVERRIDE: dict[str, str] = {
+    "s235": "Patrick Myers (NPS)",
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
@@ -389,8 +421,9 @@ def download(url: str) -> bytes:
 def main() -> None:
     import sys
 
-    wanted = [a for a in sys.argv[1:] if a in COVERS]
-    ids = wanted if wanted else sorted(COVERS, key=lambda x: int(x[1:]))
+    known = {**COVERS, **EXTERNAL}
+    wanted = [a for a in sys.argv[1:] if a in known]
+    ids = wanted if wanted else sorted(known, key=lambda x: int(x[1:]))
     credits = {}
     if CREDITS.exists():
         try:
@@ -400,6 +433,17 @@ def main() -> None:
 
     for sid in ids:
         print(f"→ {sid}", flush=True)
+        ext = EXTERNAL.get(sid)
+        if ext:
+            try:
+                dest = OUT / f"{sid}.jpg"
+                save_jpg(download(ext["url"]), dest)
+                credits[sid] = {k: ext[k] for k in ("file", "artist", "license", "page")}
+                print(f"  ok {dest.stat().st_size} {ext['license']} {ext['file'][:60]}")
+            except Exception as e:
+                print("  fail save", e)
+            time.sleep(0.45)
+            continue
         try:
             hit = pick(sid)
         except Exception as e:
@@ -412,7 +456,7 @@ def main() -> None:
             continue
         url = hit.get("thumburl") or hit.get("url")
         meta = hit.get("extmetadata") or {}
-        artist = clean_artist(strip_html(meta.get("Artist", {}).get("value", "Wikimedia Commons"))) or "Wikimedia Commons"
+        artist = ARTIST_OVERRIDE.get(sid) or clean_artist(strip_html(meta.get("Artist", {}).get("value", "Wikimedia Commons"))) or "Wikimedia Commons"
         lic = strip_html(meta.get("LicenseShortName", {}).get("value", ""))
         page = "https://commons.wikimedia.org/wiki/" + urllib.parse.quote(hit["title"].replace(" ", "_"))
         try:
