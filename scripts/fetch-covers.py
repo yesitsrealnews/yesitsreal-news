@@ -277,6 +277,14 @@ COVERS: dict[str, tuple[str, str]] = {
     "s240": ("File:Tudigong-beitou-puding-3.jpg", "Tudigong shrine Taipei"),
     "s241": ("File:Matlock - County Offices frontage.jpg", "County Hall Matlock Derbyshire"),
     "s242": ("File:Camper van parked in the street, Vieux-Limoilou.jpg", "camper van parked street"),
+    # s243–s249 Pre Pub covers (Commons PD/CC photos, licence checked on each file page / Flickr original)
+    "s243": ("File:Amphibious vehicle conversion from a VW T3 Transporter (1242448749).jpg", "amphibious camper van boat"),
+    "s244": ("File:Pygmy Goat being grabbed.jpg", "pygmy goat kid"),
+    "s245": ("File:HeadofEmu.jpg", "emu head"),
+    "s246": ("File:Saltwater Crocodile (Crocodylus porosus) (10106331165).jpg", "saltwater crocodile"),
+    "s247": ("File:Small boats at the shore of Strachur Bay - geograph.org.uk - 6305333.jpg", "small boats on muddy shore"),
+    "s248": ("File:Hirsch-Biotop-vor-dem-Bad-Iburger-Schloss 1180097.jpg", "bronze stag statue"),
+    "s249": ("File:Lucha libre coliseo coacalco.jpg", "lucha libre ring Estado de México"),
 }
 
 # Non-Commons free photos (Flickr CC BY / CC BY-SA, Pexels, Pixabay…): direct file URL + credit
@@ -305,6 +313,8 @@ ARTIST_OVERRIDE: dict[str, str] = {
     "s235": "Patrick Myers (NPS)",
     "s237": "Thomas Wolf",  # Commons: "Thomas Wolf , www.foto-tw.de"
     "s238": "Bernard Spragg",  # Commons: "Bernard Spragg. NZ"
+    "s243": "Allen Watkin",  # Commons/Flickr: "allen watkin from London, UK"
+    "s246": "Bernard Dupont",  # Commons: "Bernard DUPONT from FRANCE"
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
