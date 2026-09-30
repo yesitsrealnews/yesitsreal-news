@@ -285,6 +285,13 @@ COVERS: dict[str, tuple[str, str]] = {
     "s247": ("File:Small boats at the shore of Strachur Bay - geograph.org.uk - 6305333.jpg", "small boats on muddy shore"),
     "s248": ("File:Hirsch-Biotop-vor-dem-Bad-Iburger-Schloss 1180097.jpg", "bronze stag statue"),
     "s249": ("File:Lucha libre coliseo coacalco.jpg", "lucha libre ring Estado de México"),
+    # s250–s256 Pre Pub covers (Commons PD/CC photos + one Flickr CC BY, licence checked on each original page)
+    "s250": ("File:Aedes albopictus on human skin.jpg", "Aedes albopictus tiger mosquito"),
+    "s251": ("File:Jet Skiing - Mahe - Seychelles - 2025.jpg", "jet ski"),
+    "s252": ("File:Better reading the notice of this human-made drink.jpg", "rhesus macaque bottle"),
+    "s254": ("File:Iowa Pig (7341687640).jpg", "pig peeking through fence"),
+    "s255": ("File:Copy of bronze statue, ram 3rd century BC, Maniace castle, Syracuse, 121635.jpg", "bronze ram statue"),
+    "s256": ("File:Mannequin in the shop window. Paris, France.jpg", "mannequin shop window"),
 }
 
 # Non-Commons free photos (Flickr CC BY / CC BY-SA, Pexels, Pixabay…): direct file URL + credit
@@ -305,6 +312,13 @@ EXTERNAL: dict[str, dict[str, str]] = {
         "license": "CC BY 2.0",
         "page": "https://www.flickr.com/photos/25722571@N08/5579852238/",
     },
+    "s253": {
+        "url": "https://live.staticflickr.com/65535/50311321806_873f5f853f_k.jpg",
+        "file": "Flickr 50311321806 — Close-up of a goat eating a corn cob",
+        "artist": "Ivan Radic",
+        "license": "CC BY 2.0",
+        "page": "https://www.flickr.com/photos/26344495@N05/50311321806/",
+    },
 }
 
 # Commons files whose Artist field names an institution/account, not the photographer
@@ -315,6 +329,7 @@ ARTIST_OVERRIDE: dict[str, str] = {
     "s238": "Bernard Spragg",  # Commons: "Bernard Spragg. NZ"
     "s243": "Allen Watkin",  # Commons/Flickr: "allen watkin from London, UK"
     "s246": "Bernard Dupont",  # Commons: "Bernard DUPONT from FRANCE"
+    "s252": "Yann Forget",  # Commons: "Yann (talk)" — category "Photographs and images by Yann Forget"
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
