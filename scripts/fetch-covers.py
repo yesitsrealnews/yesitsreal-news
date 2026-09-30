@@ -292,6 +292,14 @@ COVERS: dict[str, tuple[str, str]] = {
     "s254": ("File:Iowa Pig (7341687640).jpg", "pig peeking through fence"),
     "s255": ("File:Copy of bronze statue, ram 3rd century BC, Maniace castle, Syracuse, 121635.jpg", "bronze ram statue"),
     "s256": ("File:Mannequin in the shop window. Paris, France.jpg", "mannequin shop window"),
+    # s257–s263 evening Pre Pub covers (Commons PD/CC0/CC BY/CC BY-SA photos, licence checked on each original page)
+    "s257": ("File:Closeup of the bag of flour.jpg", "bag of flour"),
+    "s258": ("File:Malinois, Belgian Shepherd 02.jpg", "Belgian Malinois"),
+    "s259": ("File:A couple watching skycrapers at night in Marina Bay (20189404519).jpg", "couple Marina Bay Singapore"),
+    "s260": ("File:E37 Clackline railway museum - Massey Ferguson tractor 1.jpg", "Massey Ferguson tractor"),
+    "s261": ("File:Uprooted Plant.jpg", "uprooted plant"),
+    "s262": ("File:Wrexham Guildhall.jpg", "Wrexham Guildhall"),
+    "s263": ("File:1, place de la Commanderie (49911888726).jpg", "place de la Commanderie Nancy"),
 }
 
 # Non-Commons free photos (Flickr CC BY / CC BY-SA, Pexels, Pixabay…): direct file URL + credit
@@ -330,6 +338,7 @@ ARTIST_OVERRIDE: dict[str, str] = {
     "s243": "Allen Watkin",  # Commons/Flickr: "allen watkin from London, UK"
     "s246": "Bernard Dupont",  # Commons: "Bernard DUPONT from FRANCE"
     "s252": "Yann Forget",  # Commons: "Yann (talk)" — category "Photographs and images by Yann Forget"
+    "s262": "Richard Kelly",  # Commons: author [[User:Stortford|Richard Kelly]]
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
