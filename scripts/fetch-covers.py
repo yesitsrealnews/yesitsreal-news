@@ -308,6 +308,15 @@ COVERS: dict[str, tuple[str, str]] = {
     "s268": ("File:White Land Rover 90 TD front left.jpg", "Land Rover Defender 90"),
     "s269": ("File:A typical black bin bag from the UK 20060811.jpg", "black bin bag"),
     "s270": ("File:A black bear resting in a tree, in downtown Estes Park (6181697614).jpg", "black bear Estes Park tree"),
+    # s271–s278 Pre Pub covers (Commons CC BY / CC BY-SA real photos, licence checked on each original page)
+    "s271": ("File:Monti - palazzo Rivaldi ai Fori imperiali 1000594.jpg", "Palazzo Silvestri-Rivaldi Rome"),
+    "s272": ("File:Stade Guy Boniface 1.JPG", "Stade Guy Boniface Mont-de-Marsan"),
+    "s273": ("File:Nokia ACP-7X UK charger for 3310 phone (top).jpg", "phone charger UK plug"),
+    "s274": ("File:Can-can ladies.jpg", "can-can dancers"),
+    "s275": ("File:Tajani EPP Summit (cropped).jpg", "Antonio Tajani"),
+    "s276": ("File:Valencia - Casa consistorial 001.jpg", "Valencia city hall"),
+    "s277": ("File:Saltwater Crocodile (Crocodylus porosus) (10106331165).jpg", "saltwater crocodile Australia"),
+    "s278": ("File:Amazon Echo Dot (virtual digital assistant) with normal coffee mug as size comparison.jpg", "smart speaker voice assistant"),
 }
 
 # Non-Commons free photos (Flickr CC BY / CC BY-SA, Pexels, Pixabay…): direct file URL + credit
@@ -347,6 +356,7 @@ ARTIST_OVERRIDE: dict[str, str] = {
     "s246": "Bernard Dupont",  # Commons: "Bernard DUPONT from FRANCE"
     "s252": "Yann Forget",  # Commons: "Yann (talk)" — category "Photographs and images by Yann Forget"
     "s262": "Richard Kelly",  # Commons: author [[User:Stortford|Richard Kelly]]
+    "s277": "Bernard Dupont",  # Commons: "Bernard DUPONT from FRANCE"
 }
 
 FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa", "fal")
