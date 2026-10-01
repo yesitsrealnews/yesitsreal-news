@@ -9,6 +9,7 @@ import type { QueueItem } from "@/lib/types";
 import { useAppStore } from "@/lib/store";
 import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
+import { fmtViews, statsFor, useDeskViews } from "@/lib/views-client";
 import { coverDisplaySrc, coverSrc, storyCoverId } from "@/lib/covers";
 
 export const Route = createFileRoute("/admin/inbox")({ component: InboxPage });
@@ -20,6 +21,7 @@ function InboxPage() {
   const publishQueueItem = useAppStore((s) => s.publishQueueItem);
   const deleteInboxItem = useAppStore((s) => s.deleteInboxItem);
   const navigate = useNavigate();
+  const views = useDeskViews();
   const [pulling, setPulling] = useState(false);
   const [pullNote, setPullNote] = useState("");
   const [busyId, setBusyId] = useState("");
@@ -187,6 +189,15 @@ function InboxPage() {
                       {item.submittedBy} · {formatDateTime(item.submittedAt, "fr")}
                       {coverSrc(storyCoverId(item.story)) || item.leadImage ? " · visuel" : ""}
                     </p>
+                    {(() => {
+                      const v = statsFor(views.data, item.story.id);
+                      return v.views > 0 ? (
+                        <p className="mt-1 text-xs tabular-nums text-ink-muted">
+                          <strong className="text-ink">{fmtViews(v.views)}</strong> vues · {fmtViews(v.uniques)} uniques · 7 j :{" "}
+                          {fmtViews(v.views7d)} vues
+                        </p>
+                      ) : null;
+                    })()}
                   </div>
                 </div>
               </Link>

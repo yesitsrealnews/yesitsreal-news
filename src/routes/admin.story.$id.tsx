@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { storyCopy } from "@/lib/format";
 import type { StoryCopy } from "@/lib/types";
 import { StoryCover } from "@/components/stories/cover";
+import { fmtViews, statsFor, useDeskViews } from "@/lib/views-client";
 import { coverCreditLine, hasCoverPhoto, storyCoverId } from "@/lib/covers";
 
 export const Route = createFileRoute("/admin/story/$id")({ component: StoryEditor });
@@ -27,6 +28,7 @@ function StoryEditor() {
   const pinToFront = useAppStore((s) => s.pinToFront);
   const unpinFromFront = useAppStore((s) => s.unpinFromFront);
   const navigate = useNavigate();
+  const views = useDeskViews();
   const [tab, setTab] = useState<"draft" | "sources" | "facts">("draft");
   const fr = item ? storyCopy(item.story, "fr") : undefined;
   const [hed, setHed] = useState(fr?.headline ?? "");
@@ -76,6 +78,17 @@ function StoryEditor() {
         {current.submittedBy.startsWith("Commande") ? " · Commande desk" : ""}
       </p>
       <h1 className="mt-2 font-serif text-2xl md:text-3xl">Relire en français</h1>
+      {views.data && /^s\d+$/.test(current.story.id) ? (
+        (() => {
+          const v = statsFor(views.data, current.story.id);
+          return (
+            <p className="mt-2 text-sm tabular-nums text-ink-muted">
+              Audience {current.story.id} : <strong className="text-ink">{fmtViews(v.views)}</strong> vues ·{" "}
+              {fmtViews(v.uniques)} visiteurs uniques · 7 j : {fmtViews(v.views7d)} vues / {fmtViews(v.uniques7d)} uniques
+            </p>
+          );
+        })()
+      ) : null}
       {hasCoverPhoto(coverKey) || current.leadImage ? (
         <div className="mt-4 max-w-xl overflow-hidden rounded-2xl border-2 border-ink bg-paper-2">
           {hasCoverPhoto(coverKey) ? (

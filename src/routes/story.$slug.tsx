@@ -8,6 +8,7 @@ import { useAppStore } from "@/lib/store";
 import { storyCopy } from "@/lib/format";
 import { articleJsonLd, breadcrumbJsonLd, storyCanonical, storySeoCopy } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
+import { useStoryViewBeacon } from "@/lib/views-client";
 import { coverDisplaySrc, coverShareSrc, coverSizes, coverSrcSet, storyCoverId } from "@/lib/covers";
 
 export const Route = createFileRoute("/story/$slug")({
@@ -88,6 +89,7 @@ function StoryPage() {
   const deskStatus = overlayDesk(loaded?.desk, useAppStore((s) => s.deskStatus));
   const seed = loaded?.story ? [loaded.story] : [];
   const story = overlayFind(seed, slug, extras, deskStatus) ?? loaded?.story;
+  useStoryViewBeacon(story?.id);
   if (!story) {
     throw notFound();
   }

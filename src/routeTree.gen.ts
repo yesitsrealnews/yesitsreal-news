@@ -65,6 +65,7 @@ import { Route as ApiPublishRouteImport } from './routes/api/publish'
 import { Route as ApiRssPullRouteImport } from './routes/api/rss-pull'
 import { Route as ApiScoreRouteImport } from './routes/api/score'
 import { Route as ApiTranslateRouteImport } from './routes/api/translate'
+import { Route as ApiViewsRouteImport } from './routes/api/views'
 import { Route as FeedsSectionDotxmlRouteImport } from './routes/feeds/$section[.]xml'
 import { Route as StorySlugRouteImport } from './routes/story.$slug'
 import { Route as AdminStoryIdRouteImport } from './routes/admin.story.$id'
@@ -349,6 +350,11 @@ const ApiTranslateRoute = ApiTranslateRouteImport.update({
   path: '/api/translate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiViewsRoute = ApiViewsRouteImport.update({
+  id: '/api/views',
+  path: '/api/views',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FeedsSectionDotxmlRoute = FeedsSectionDotxmlRouteImport.update({
   id: '/feeds/$section.xml',
   path: '/feeds/$section.xml',
@@ -421,6 +427,7 @@ export interface FileRoutesByFullPath {
   '/api/rss-pull': typeof ApiRssPullRoute
   '/api/score': typeof ApiScoreRoute
   '/api/translate': typeof ApiTranslateRoute
+  '/api/views': typeof ApiViewsRoute
   '/feeds/$section.xml': typeof FeedsSectionDotxmlRoute
   '/story/$slug': typeof StorySlugRoute
   '/admin/': typeof AdminIndexRoute
@@ -481,6 +488,7 @@ export interface FileRoutesByTo {
   '/api/rss-pull': typeof ApiRssPullRoute
   '/api/score': typeof ApiScoreRoute
   '/api/translate': typeof ApiTranslateRoute
+  '/api/views': typeof ApiViewsRoute
   '/feeds/$section.xml': typeof FeedsSectionDotxmlRoute
   '/story/$slug': typeof StorySlugRoute
   '/admin': typeof AdminIndexRoute
@@ -543,6 +551,7 @@ export interface FileRoutesById {
   '/api/rss-pull': typeof ApiRssPullRoute
   '/api/score': typeof ApiScoreRoute
   '/api/translate': typeof ApiTranslateRoute
+  '/api/views': typeof ApiViewsRoute
   '/feeds/$section.xml': typeof FeedsSectionDotxmlRoute
   '/story/$slug': typeof StorySlugRoute
   '/admin/': typeof AdminIndexRoute
@@ -606,6 +615,7 @@ export interface FileRouteTypes {
     | '/api/rss-pull'
     | '/api/score'
     | '/api/translate'
+    | '/api/views'
     | '/feeds/$section.xml'
     | '/story/$slug'
     | '/admin/'
@@ -666,6 +676,7 @@ export interface FileRouteTypes {
     | '/api/rss-pull'
     | '/api/score'
     | '/api/translate'
+    | '/api/views'
     | '/feeds/$section.xml'
     | '/story/$slug'
     | '/admin'
@@ -727,6 +738,7 @@ export interface FileRouteTypes {
     | '/api/rss-pull'
     | '/api/score'
     | '/api/translate'
+    | '/api/views'
     | '/feeds/$section.xml'
     | '/story/$slug'
     | '/admin/'
@@ -780,6 +792,7 @@ export interface RootRouteChildren {
   ApiRssPullRoute: typeof ApiRssPullRoute
   ApiScoreRoute: typeof ApiScoreRoute
   ApiTranslateRoute: typeof ApiTranslateRoute
+  ApiViewsRoute: typeof ApiViewsRoute
   FeedsSectionDotxmlRoute: typeof FeedsSectionDotxmlRoute
   StorySlugRoute: typeof StorySlugRoute
 }
@@ -1178,6 +1191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiTranslateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/views': {
+      id: '/api/views'
+      path: '/api/views'
+      fullPath: '/api/views'
+      preLoaderRoute: typeof ApiViewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/feeds/$section.xml': {
       id: '/feeds/$section.xml'
       path: '/feeds/$section.xml'
@@ -1279,6 +1299,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiRssPullRoute: ApiRssPullRoute,
   ApiScoreRoute: ApiScoreRoute,
   ApiTranslateRoute: ApiTranslateRoute,
+  ApiViewsRoute: ApiViewsRoute,
   FeedsSectionDotxmlRoute: FeedsSectionDotxmlRoute,
   StorySlugRoute: StorySlugRoute,
 }

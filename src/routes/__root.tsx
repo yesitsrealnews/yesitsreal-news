@@ -5,6 +5,7 @@ import { SiteShell } from "@/components/site/site-shell";
 import { NotFoundPage } from "@/components/site/not-found";
 import { GOOGLE_SITE_VERIFICATION, SEO_FR } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/brand";
+import { Analytics, type BeforeSendEvent } from "@vercel/analytics/react";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -67,6 +68,17 @@ export const Route = createRootRoute({
   component: RootDocument,
 });
 
+/** Desk pages (La Cambuse / admin) are never sent to Vercel Web Analytics. */
+function dropDeskPages(event: BeforeSendEvent): BeforeSendEvent | null {
+  try {
+    const path = new URL(event.url, "https://www.yesitsreal.news").pathname;
+    if (/^\/(admin|cambuse)(\/|$)/.test(path)) return null;
+  } catch {
+    return null;
+  }
+  return event;
+}
+
 function RootDocument() {
   return (
     <html lang="fr" className="dark" suppressHydrationWarning>
@@ -83,6 +95,7 @@ function RootDocument() {
         <AuthProvider>
           <Outlet />
         </AuthProvider>
+        <Analytics beforeSend={dropDeskPages} />
         <Scripts />
       </body>
     </html>

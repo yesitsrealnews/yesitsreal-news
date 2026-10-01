@@ -6,6 +6,7 @@ import { makeQueueItem } from "@/lib/pipeline";
 import { useAppStore } from "@/lib/store";
 import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
+import { fmtViews, statsFor, useDeskViews } from "@/lib/views-client";
 
 export const Route = createFileRoute("/admin/")({ component: AdminHome });
 
@@ -33,6 +34,7 @@ function AdminHome() {
   const unpinFromFront = useAppStore((s) => s.unpinFromFront);
   const upsertInbox = useAppStore((s) => s.upsertInbox);
   const navigate = useNavigate();
+  const views = useDeskViews();
   const published = publishedStories(extras, deskStatus);
   const online = deskStories(extras, deskStatus);
   const tiles = [
@@ -75,6 +77,38 @@ function AdminHome() {
           </Link>
         ))}
       </div>
+      <section className="mt-6 rounded-2xl border-2 border-ink bg-card p-4 shadow-[4px_4px_0_0_var(--color-ink)]">
+        <h2 className="kicker">Audience du site (compteur maison)</h2>
+        {views.data ? (
+          <dl className="mt-3 grid gap-3 sm:grid-cols-3">
+            <div>
+              <dt className="text-xs uppercase tracking-[0.14em] text-ink-muted">Vues totales</dt>
+              <dd className="font-serif text-3xl tabular-nums">{fmtViews(views.data.site.views)}</dd>
+              <dd className="text-xs text-ink-muted">{fmtViews(views.data.site.uniques)} visiteurs uniques (par jour)</dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-[0.14em] text-ink-muted">7 derniers jours</dt>
+              <dd className="font-serif text-3xl tabular-nums">{fmtViews(views.data.site.views7d)}</dd>
+              <dd className="text-xs text-ink-muted">{fmtViews(views.data.site.uniques7d)} visiteurs uniques</dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-[0.14em] text-ink-muted">Aujourd’hui (UTC)</dt>
+              <dd className="font-serif text-3xl tabular-nums">{fmtViews(views.data.today[0])}</dd>
+              <dd className="text-xs text-ink-muted">{fmtViews(views.data.today[1])} visiteurs uniques</dd>
+            </div>
+          </dl>
+        ) : (
+          <p className="mt-2 text-sm text-ink-muted">{views.error ? "Compteur indisponible pour l’instant." : "Chargement…"}</p>
+        )}
+        <p className="mt-2 text-xs text-ink-muted">
+          Lectures d’articles, hors robots et hors desk. Sans cookie. Mise à jour par lots (≈1 min). Le détail du trafic
+          global est dans{" "}
+          <a className="underline" href="https://vercel.com/yesitsreal/yesitsreal-news/analytics" target="_blank" rel="noreferrer">
+            Vercel Analytics
+          </a>
+          .
+        </p>
+      </section>
       <section className="mt-10">
         <h2 className="kicker">Papiers en ligne</h2>
         <p className="mt-1 text-xs text-ink-muted">La une suit l’ordre des pastilles Une (#1 = hero). Réécrire = consignes → file à relire.</p>
@@ -99,6 +133,15 @@ function AdminHome() {
                   </p>
                   <p className="mt-1 font-serif text-lg">{c.headline}</p>
                   <p className="mt-1 text-sm text-ink-muted">{c.dek}</p>
+                  {(() => {
+                    const v = statsFor(views.data, s.id);
+                    return views.data ? (
+                      <p className="mt-1 text-xs tabular-nums text-ink-muted">
+                        <strong className="text-ink">{fmtViews(v.views)}</strong> vues · {fmtViews(v.uniques)} uniques ·
+                        7 j : {fmtViews(v.views7d)} vues / {fmtViews(v.uniques7d)} uniques
+                      </p>
+                    ) : null;
+                  })()}
                 </a>
                 <div className="flex shrink-0 flex-col items-end gap-2">
                   <div className="flex flex-wrap justify-end gap-2">
