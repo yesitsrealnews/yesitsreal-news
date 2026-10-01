@@ -29,7 +29,18 @@ export function hasCoverPhoto(id: string): boolean {
 /** JPEG kept for Open Graph / crawlers that still prefer it. */
 export function coverSrc(id: string): string | undefined {
   if (!PHOTO_CREDITS[id]) return undefined;
-  return `/covers/${id}.jpg`;
+  return `/covers/${id}.jpg${coverVersionQuery(id)}`;
+}
+
+/**
+ * `?v=<hash of photo + credit>` (same hash as og-images.json) on every local cover URL. /covers/* is served
+ * `immutable` for a year, so an unversioned URL that was requested before its photo was deployed (e.g. a Pre
+ * Pub thumb in Cambuse → 404) or whose photo was later replaced would stay stale in browsers. A new photo →
+ * new hash → new URL.
+ */
+function coverVersionQuery(id: string): string {
+  const v = (ogImages as Record<string, string>)[id];
+  return v ? `?v=${v}` : "";
 }
 
 /**
@@ -46,7 +57,7 @@ export function coverShareSrc(id: string): string | undefined {
 /** Display URL — WebP on the Vercel CDN after the build step. */
 export function coverDisplaySrc(id: string): string | undefined {
   if (!PHOTO_CREDITS[id]) return undefined;
-  return `/covers/${id}.webp`;
+  return `/covers/${id}.webp${coverVersionQuery(id)}`;
 }
 
 /** Remote publisher photo via Vercel Image Optimization CDN. Local covers stay static AVIF/WebP. */
@@ -65,7 +76,8 @@ export function optimizedRemoteSrc(url: string | undefined, width = 960): string
 
 export function coverSrcSet(id: string, format: "webp" | "avif"): string | undefined {
   if (!PHOTO_CREDITS[id]) return undefined;
-  return `/covers/${id}-480.${format} 480w, /covers/${id}-960.${format} 960w`;
+  const q = coverVersionQuery(id);
+  return `/covers/${id}-480.${format}${q} 480w, /covers/${id}-960.${format}${q} 960w`;
 }
 
 export function coverSizes(kind: "hero" | "article" | "card" = "card"): string {

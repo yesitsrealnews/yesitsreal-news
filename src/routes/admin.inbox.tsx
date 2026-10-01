@@ -9,7 +9,7 @@ import type { QueueItem } from "@/lib/types";
 import { useAppStore } from "@/lib/store";
 import { RewriteControls } from "@/components/admin/rewrite-controls";
 import { Button } from "@/components/ui/button";
-import { coverDisplaySrc, coverSrc } from "@/lib/covers";
+import { coverDisplaySrc, coverSrc, storyCoverId } from "@/lib/covers";
 
 export const Route = createFileRoute("/admin/inbox")({ component: InboxPage });
 
@@ -162,13 +162,19 @@ function InboxPage() {
                 </p>
                 <div className="mt-1 flex gap-3">
                   {(() => {
+                    // Local Pre Pub cover first (versioned URL, follows coverId); leadImage is a stored
+                    // absolute URL that may predate the photo's deploy.
+                    const coverKey = storyCoverId(item.story);
                     const thumb =
-                      item.leadImage || coverDisplaySrc(item.story.id) || coverSrc(item.story.id);
+                      coverDisplaySrc(coverKey) || coverSrc(coverKey) || item.leadImage;
                     return thumb ? (
                       <img
                         src={thumb}
                         alt=""
                         referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          e.currentTarget.style.visibility = "hidden";
+                        }}
                         className="mt-1 size-16 shrink-0 rounded-md border-2 border-ink object-cover"
                       />
                     ) : null;
@@ -179,7 +185,7 @@ function InboxPage() {
                     <p className="mt-2 text-xs text-ink-muted">
                       {item.story.sources.length} source{item.story.sources.length > 1 ? "s" : ""} ·{" "}
                       {item.submittedBy} · {formatDateTime(item.submittedAt, "fr")}
-                      {item.leadImage || coverSrc(item.story.id) ? " · visuel" : ""}
+                      {coverSrc(storyCoverId(item.story)) || item.leadImage ? " · visuel" : ""}
                     </p>
                   </div>
                 </div>

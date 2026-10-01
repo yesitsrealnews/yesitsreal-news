@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { storyCopy } from "@/lib/format";
 import type { StoryCopy } from "@/lib/types";
 import { StoryCover } from "@/components/stories/cover";
-import { coverCreditLine, hasCoverPhoto } from "@/lib/covers";
+import { coverCreditLine, hasCoverPhoto, storyCoverId } from "@/lib/covers";
 
 export const Route = createFileRoute("/admin/story/$id")({ component: StoryEditor });
 
@@ -66,6 +66,9 @@ function StoryEditor() {
     updateStory(next);
   }
 
+  // Follows `coverId` (Pre Pub photo carried over at Publier), like the public story page.
+  const coverKey = storyCoverId(current.story);
+
   return (
     <main className="p-4 md:p-6">
       <p className="kicker text-signal">
@@ -73,11 +76,11 @@ function StoryEditor() {
         {current.submittedBy.startsWith("Commande") ? " · Commande desk" : ""}
       </p>
       <h1 className="mt-2 font-serif text-2xl md:text-3xl">Relire en français</h1>
-      {hasCoverPhoto(current.story.id) || current.leadImage ? (
+      {hasCoverPhoto(coverKey) || current.leadImage ? (
         <div className="mt-4 max-w-xl overflow-hidden rounded-2xl border-2 border-ink bg-paper-2">
-          {hasCoverPhoto(current.story.id) ? (
+          {hasCoverPhoto(coverKey) ? (
             <StoryCover
-              id={current.story.id}
+              id={coverKey}
               section={current.story.section}
               alt={hed || current.story.id}
               credit
@@ -92,7 +95,7 @@ function StoryEditor() {
               className="aspect-[16/10] w-full object-cover"
             />
           ) : null}
-          {hasCoverPhoto(current.story.id) && coverCreditLine(current.story.id) ? (
+          {hasCoverPhoto(coverKey) && coverCreditLine(coverKey) ? (
             <p className="border-t border-rule px-3 py-2 text-xs text-ink-muted">
               Crédit photo imprimé sur l’image · modifiable avant Publier
             </p>

@@ -300,6 +300,14 @@ COVERS: dict[str, tuple[str, str]] = {
     "s261": ("File:Uprooted Plant.jpg", "uprooted plant"),
     "s262": ("File:Wrexham Guildhall.jpg", "Wrexham Guildhall"),
     "s263": ("File:1, place de la Commanderie (49911888726).jpg", "place de la Commanderie Nancy"),
+    # s264–s270 Pre Pub covers (Commons PD/CC0/CC BY/CC BY-SA real photos, licence checked on each original page)
+    "s264": ("File:Kroger - Eisenhower Crossing.jpg", "Kroger storefront"),
+    "s265": ("File:Helicopter of the Austrian Federal police 9356.jpg", "Austrian police helicopter"),
+    "s266": ("File:Mustelus canis noaa.jpg", "smooth dogfish Mustelus canis"),
+    "s267": ("File:Raccoon in Central Park (35264).jpg", "raccoon Procyon lotor"),
+    "s268": ("File:White Land Rover 90 TD front left.jpg", "Land Rover Defender 90"),
+    "s269": ("File:A typical black bin bag from the UK 20060811.jpg", "black bin bag"),
+    "s270": ("File:A black bear resting in a tree, in downtown Estes Park (6181697614).jpg", "black bear Estes Park tree"),
 }
 
 # Non-Commons free photos (Flickr CC BY / CC BY-SA, Pexels, Pixabay…): direct file URL + credit

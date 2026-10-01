@@ -27,6 +27,10 @@ function isDeskPath(pathname: string): boolean {
   );
 }
 
+function isStaticAssetPath(pathname: string): boolean {
+  return /^\/(?:covers|og|brand|ads|fonts|assets)\//.test(pathname) || pathname === "/og.jpg" || pathname === "/og.webp";
+}
+
 function cacheControlFor(pathname: string): string | null {
   if (isDeskPath(pathname)) return "private, no-store";
   if (
@@ -65,7 +69,13 @@ export default async function securityHeadersMiddleware(
       headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     }
     const cache = cacheControlFor(path);
-    if (cache && !headers.has("Cache-Control")) {
+    if (result.status >= 400 && isStaticAssetPath(path)) {
+      // A missing cover/og/brand file falls through to the app's 404 page. Never let that 404 inherit the
+      // year-long `immutable` asset caching (route rules / vercel.json): the file usually lands a deploy later.
+      headers.set("Cache-Control", "no-store");
+      headers.set("CDN-Cache-Control", "no-store");
+      headers.set("Vercel-CDN-Cache-Control", "no-store");
+    } else if (cache && !headers.has("Cache-Control")) {
       headers.set("Cache-Control", cache);
       headers.set("CDN-Cache-Control", cache);
       headers.set("Vercel-CDN-Cache-Control", cache);
