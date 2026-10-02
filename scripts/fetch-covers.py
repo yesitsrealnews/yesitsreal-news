@@ -317,6 +317,12 @@ COVERS: dict[str, tuple[str, str]] = {
     "s276": ("File:Valencia - Casa consistorial 001.jpg", "Valencia city hall"),
     "s277": ("File:Saltwater Crocodile (Crocodylus porosus) (10106331165).jpg", "saltwater crocodile Australia"),
     "s278": ("File:Amazon Echo Dot (virtual digital assistant) with normal coffee mug as size comparison.jpg", "smart speaker voice assistant"),
+    # s279–s285 Pre Pub covers (Commons CC BY-SA real photos + two Flickr CC BY-SA, see EXTERNAL; licence checked on each original page)
+    "s280": ("File:Raccoon in a garbage can in Prospect Park (72564).jpg", "raccoon garbage can"),
+    "s281": ("File:Hoe, Sheep and two lambs - geograph.org.uk - 7479787.jpg", "ewe and lambs Norfolk"),
+    "s282": ("File:Court of Appeal, Bucharest ( DSC6275).jpg", "Bucharest Court of Appeal"),
+    "s284": ("File:Poultry birds.jpg", "poultry farm chickens Nigeria"),
+    "s285": ("File:Suckler Cattle Swim Across River At Lochbuie - geograph.org.uk - 3468446.jpg", "cattle swimming across river"),
 }
 
 # Non-Commons free photos (Flickr CC BY / CC BY-SA, Pexels, Pixabay…): direct file URL + credit
@@ -343,6 +349,20 @@ EXTERNAL: dict[str, dict[str, str]] = {
         "artist": "Ivan Radic",
         "license": "CC BY 2.0",
         "page": "https://www.flickr.com/photos/26344495@N05/50311321806/",
+    },
+    "s279": {
+        "url": "https://live.staticflickr.com/65535/51694479596_00d342023f_o.jpg",
+        "file": "Flickr 51694479596 — Four Garden Gnomes",
+        "artist": "Michael Coghlan",
+        "license": "CC BY-SA 2.0",
+        "page": "https://www.flickr.com/photos/89165847@N00/51694479596/",
+    },
+    "s283": {
+        "url": "https://live.staticflickr.com/2841/11188639664_4533386aa3_o.jpg",
+        "file": "Flickr 11188639664 — Drying the Undies",
+        "artist": "Michael Coghlan",
+        "license": "CC BY-SA 2.0",
+        "page": "https://www.flickr.com/photos/89165847@N00/11188639664/",
     },
 }
 
